@@ -1,4 +1,8 @@
 ---
+import { readdir, readFile } from 'fs/promises';
+import { resolve, join, basename } from 'path';
+import matter from 'gray-matter';
+
 export async function getStaticPaths() {
   const categories = [
     'history', 'geography', 'culture', 'food', 'art', 'music',
@@ -80,21 +84,108 @@ export async function getStaticPaths() {
     }
   };
 
-  // 先用靜態路由，不依賴 content collections
-  const paths = categories.map(category => ({
-    params: { category },
-    props: { 
-      categoryInfo: categoryInfo[category as keyof typeof categoryInfo],
-      category 
+  // 類別對應到資料夾名稱
+  const categoryMapping: Record<string, string> = {
+    'history': 'History',
+    'geography': 'Geography', 
+    'culture': 'Culture',
+    'food': 'Food',
+    'art': 'Art',
+    'music': 'Music',
+    'technology': 'Technology',
+    'nature': 'Nature',
+    'people': 'People',
+    'society': 'Society',
+    'economy': 'Economy',
+    'lifestyle': 'Lifestyle'
+  };
+
+  const paths = [];
+
+  for (const category of categories) {
+    const folderName = categoryMapping[category];
+    const articles = [];
+
+    try {
+      // 中文版本
+      const zhFolderPath = resolve(process.cwd(), 'knowledge', folderName);
+      try {
+        const zhFiles = await readdir(zhFolderPath);
+        const zhMarkdownFiles = zhFiles.filter(file => file.endsWith('.md') && !file.startsWith('_'));
+        
+        for (const file of zhMarkdownFiles) {
+          const filePath = join(zhFolderPath, file);
+          const fileContent = await readFile(filePath, 'utf-8');
+          const { data: frontmatter } = matter(fileContent);
+          
+          const slug = basename(file, '.md');
+          articles.push({
+            slug: slug,
+            title: frontmatter.title || slug,
+            description: frontmatter.description || '',
+            status: frontmatter.status || '',
+            readingTime: frontmatter.readingTime || null,
+            date: frontmatter.date || null,
+            featured: frontmatter.featured || false,
+            lang: 'zh-TW'
+          });
+        }
+      } catch (err) {
+        // No Chinese folder, continue
+      }
+
+      // 英文版本
+      const enFolderPath = resolve(process.cwd(), 'knowledge', 'en', folderName);
+      try {
+        const enFiles = await readdir(enFolderPath);
+        const enMarkdownFiles = enFiles.filter(file => file.endsWith('.md') && !file.startsWith('_'));
+        
+        for (const file of enMarkdownFiles) {
+          const filePath = join(enFolderPath, file);
+          const fileContent = await readFile(filePath, 'utf-8');
+          const { data: frontmatter } = matter(fileContent);
+          
+          const slug = basename(file, '.md');
+          articles.push({
+            slug: slug,
+            title: frontmatter.title || slug,
+            description: frontmatter.description || '',
+            status: frontmatter.status || '',
+            readingTime: frontmatter.readingTime || null,
+            date: frontmatter.date || null,
+            featured: frontmatter.featured || false,
+            lang: 'en'
+          });
+        }
+      } catch (err) {
+        // No English folder, continue
+      }
+
+    } catch (err) {
+      // Category folder doesn't exist, continue
     }
-  }));
+
+    paths.push({
+      params: { category },
+      props: { 
+        categoryInfo: categoryInfo[category as keyof typeof categoryInfo],
+        category,
+        articles: articles.sort((a, b) => {
+          // Sort by featured first, then by title
+          if (a.featured && !b.featured) return -1;
+          if (!a.featured && b.featured) return 1;
+          return a.title.localeCompare(b.title);
+        })
+      }
+    });
+  }
 
   return paths;
 }
 
 import Layout from '../../layouts/Layout.astro';
 
-const { categoryInfo, category } = Astro.props;
+const { categoryInfo, category, articles } = Astro.props;
 ---
 
 <Layout 
@@ -109,6 +200,11 @@ const { categoryInfo, category } = Astro.props;
         <div class="category-info">
           <h1 class="category-title">{categoryInfo.name}</h1>
           <p class="category-description">{categoryInfo.description}</p>
+          <div class="category-stats">
+            <span class="stats-item">
+              📚 {articles.length} 篇文章
+            </span>
+          </div>
         </div>
       </header>
 
@@ -119,22 +215,71 @@ const { categoryInfo, category } = Astro.props;
         <span class="current">{categoryInfo.name}</span>
       </nav>
 
-      <!-- Content Coming Soon -->
-      <section class="coming-soon">
-        <div class="coming-soon-content">
-          <div class="coming-soon-icon">📝</div>
-          <h2>內容準備中</h2>
-          <p>這個分類的文章正在努力製作中，敬請期待！</p>
-          <p class="category-desc">未來這裡將會有：{categoryInfo.description}</p>
-          
-          <div class="action-buttons">
-            <a href="/" class="btn-primary">返回首頁</a>
-            <a href="https://github.com/frank890417/taiwan-md" target="_blank" class="btn-secondary">
-              參與貢獻
-            </a>
+      <!-- Articles Grid -->
+      {articles.length > 0 ? (
+        <section class="articles-grid">
+          {articles.map((article) => (
+            <article class="article-card">
+              <div class="card-header">
+                <div class="article-meta">
+                  {article.status && (
+                    <span class="status">{article.status}</span>
+                  )}
+                  {article.lang && (
+                    <span class="lang-tag">{article.lang === 'zh-TW' ? '中文' : 'EN'}</span>
+                  )}
+                </div>
+                {article.featured && (
+                  <div class="featured-badge">⭐ 精選</div>
+                )}
+              </div>
+              
+              <div class="card-content">
+                <h3 class="article-title">
+                  <a href={`/${category}/${article.slug}`}>{article.title}</a>
+                </h3>
+                
+                <p class="article-description">{article.description}</p>
+                
+                <div class="article-info">
+                  {article.readingTime && (
+                    <span class="info-item">
+                      📖 {article.readingTime} 分鐘
+                    </span>
+                  )}
+                  {article.date && (
+                    <span class="info-item">
+                      📅 {new Date(article.date).toLocaleDateString('zh-TW')}
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <a href={`/${category}/${article.slug}`} class="read-more">
+                  閱讀全文 →
+                </a>
+              </div>
+            </article>
+          ))}
+        </section>
+      ) : (
+        <section class="coming-soon">
+          <div class="coming-soon-content">
+            <div class="coming-soon-icon">📝</div>
+            <h2>內容準備中</h2>
+            <p>這個分類的文章正在努力製作中，敬請期待！</p>
+            <p class="category-desc">未來這裡將會有：{categoryInfo.description}</p>
+            
+            <div class="action-buttons">
+              <a href="/" class="btn-primary">返回首頁</a>
+              <a href="https://github.com/frank890417/taiwan-md" target="_blank" class="btn-secondary">
+                參與貢獻
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   </main>
 </Layout>
@@ -182,15 +327,29 @@ const { categoryInfo, category } = Astro.props;
   .category-description {
     font-size: 1.2rem;
     color: #6b7280;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     line-height: 1.6;
+  }
+
+  .category-stats {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .stats-item {
+    background: #f3f4f6;
+    color: #374151;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
   }
 
   .breadcrumb {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     font-size: 0.9rem;
   }
 
@@ -211,6 +370,130 @@ const { categoryInfo, category } = Astro.props;
     color: #6b7280;
   }
 
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .article-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .article-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: #3b82f6;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .article-meta {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .status {
+    background: #f0f9ff;
+    color: #0369a1;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .lang-tag {
+    background: #f3f4f6;
+    color: #6b7280;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .featured-badge {
+    background: #fbbf24;
+    color: #92400e;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .card-content {
+    margin-bottom: 1.5rem;
+  }
+
+  .article-title {
+    margin-bottom: 1rem;
+  }
+
+  .article-title a {
+    color: #1f2937;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .article-title a:hover {
+    color: #1e40af;
+  }
+
+  .article-description {
+    color: #6b7280;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .article-info {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .info-item {
+    color: #9ca3af;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .card-footer {
+    padding-top: 1rem;
+    border-top: 1px solid #f3f4f6;
+  }
+
+  .read-more {
+    color: #1e40af;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .read-more:hover {
+    color: #1e3a8a;
+  }
+
+  /* Coming Soon Styles */
   .coming-soon {
     text-align: center;
     padding: 4rem 2rem;
@@ -295,6 +578,10 @@ const { categoryInfo, category } = Astro.props;
 
     .container {
       padding: 0 1rem;
+    }
+
+    .articles-grid {
+      grid-template-columns: 1fr;
     }
 
     .action-buttons {
