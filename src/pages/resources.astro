@@ -1107,43 +1107,65 @@ const mindmapData = JSON.stringify({ nodes: mindmapNodes, edges: mindmapEdges })
       .separation((a, b) => (a.parent === b.parent ? 1 : 2) / a.depth);
     tree(hierarchy);
 
-    // Draw curved links (Xmind style)
+    // Convert polar to cartesian for each node
+    function radialPoint(x, y) {
+      return [y * Math.cos(x - Math.PI / 2), y * Math.sin(x - Math.PI / 2)];
+    }
+    hierarchy.descendants().forEach(d => {
+      const [cx, cy] = radialPoint(d.x, d.y);
+      d.cx = cx;
+      d.cy = cy;
+    });
+
+    // Draw curved links (Xmind style bezier curves)
     g.selectAll('.link')
       .data(hierarchy.links())
       .join('path')
       .attr('class', 'link')
-      .attr('d', d3.linkRadial()
-        .angle(d => d.x)
-        .radius(d => d.y))
+      .attr('d', d => {
+        const sx = d.source.cx, sy = d.source.cy;
+        const tx = d.target.cx, ty = d.target.cy;
+        // Bezier curve — smooth Xmind-style connectors
+        const mx = (sx + tx) / 2;
+        return `M${sx},${sy} C${mx},${sy} ${mx},${ty} ${tx},${ty}`;
+      })
       .attr('fill', 'none')
       .attr('stroke', d => d.target.data.color || '#cbd5e0')
       .attr('stroke-width', d => d.target.depth === 1 ? 2.5 : 1.5)
-      .attr('stroke-opacity', 0.6);
+      .attr('stroke-opacity', 0.5);
 
-    // Draw nodes
+    // Draw nodes — positioned with cartesian xy, no rotation
     const nodeG = g.selectAll('.node')
       .data(hierarchy.descendants())
       .join('g')
       .attr('class', 'node')
-      .attr('transform', d => `rotate(${d.x * 180 / Math.PI - 90}) translate(${d.y}, 0)`)
+      .attr('transform', d => `translate(${d.cx}, ${d.cy})`)
       .attr('cursor', d => d.data.url ? 'pointer' : 'default');
 
     nodeG.append('circle')
       .attr('r', d => {
-        if (d.depth === 0) return 20;
+        if (d.depth === 0) return 22;
         if (d.depth === 1) return 12;
-        return 6;
+        return 5;
       })
       .attr('fill', d => d.data.color || '#94a3b8')
       .attr('stroke', '#fff')
-      .attr('stroke-width', d => d.depth === 0 ? 3 : 2);
+      .attr('stroke-width', d => d.depth === 0 ? 3 : 1.5);
 
-    // Labels — rotate text to be readable
+    // Labels — ALL HORIZONTAL (no rotation), positioned left/right of node
     nodeG.append('text')
-      .attr('dy', '0.32em')
-      .attr('x', d => (d.x < Math.PI) === !d.children ? 10 : -10)
-      .attr('text-anchor', d => (d.x < Math.PI) === !d.children ? 'start' : 'end')
-      .attr('transform', d => d.x >= Math.PI ? 'rotate(180)' : null)
+      .attr('dy', d => d.depth === 0 ? '0.35em' : '0.35em')
+      .attr('x', d => {
+        if (d.depth === 0) return 0; // center
+        // Right side or left side of the tree
+        const isRight = d.cx >= 0;
+        if (d.depth === 1) return isRight ? 18 : -18;
+        return isRight ? 10 : -10;
+      })
+      .attr('text-anchor', d => {
+        if (d.depth === 0) return 'middle';
+        return d.cx >= 0 ? 'start' : 'end';
+      })
       .attr('font-size', d => {
         if (d.depth === 0) return '15px';
         if (d.depth === 1) return '12px';
@@ -1151,7 +1173,7 @@ const mindmapData = JSON.stringify({ nodes: mindmapNodes, edges: mindmapEdges })
       })
       .attr('font-weight', d => d.depth <= 1 ? 'bold' : 'normal')
       .attr('fill', d => d.depth <= 1 ? '#1a1a1a' : '#444')
-      .attr('filter', 'drop-shadow(0 1px 2px rgba(255,255,255,0.9))')
+      .attr('filter', 'drop-shadow(0 1px 1px rgba(255,255,255,0.95))')
       .text(d => d.data.label || d.data.name || '');
 
     // Click to navigate
