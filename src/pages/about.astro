@@ -2,195 +2,81 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout 
-  title="關於 Taiwan.md - 台灣知識庫"
-  description="了解 Taiwan.md 的創立緣起、使命願景，以及背後的創辦團隊"
->
-  <main class="about-page">
+<Layout title="關於 Taiwan.md" description="Taiwan.md 是開源、AI-friendly 的台灣知識庫">
+  <div class="about-page">
     <div class="container">
-      <!-- Hero Section -->
-      <section class="hero">
-        <div class="hero-content">
-          <h1 class="hero-title">關於 Taiwan.md</h1>
-          <p class="hero-subtitle">
-            讓全世界完整認識台灣的開源知識庫
-          </p>
-        </div>
-      </section>
+      <header class="page-header">
+        <h1>關於 Taiwan.md</h1>
+        <p class="lead">開源、AI-friendly 的台灣完整知識庫</p>
+      </header>
 
-      <!-- Breadcrumb -->
-      <nav class="breadcrumb">
-        <a href="/">首頁</a>
-        <span class="separator">›</span>
-        <span class="current">關於我們</span>
-      </nav>
-
-      <!-- Mission Section -->
-      <section class="mission">
-        <h2 class="section-title">緣起與使命</h2>
-        <div class="mission-content">
-          <div class="mission-text">
-            <h3>為什麼需要 Taiwan.md？</h3>
+      <section class="about-content">
+        <div class="grid">
+          <div class="content-main">
+            <h2>我們的願景</h2>
             <p>
-              在數位化的時代，台灣需要一個系統性、深度且 AI 友好的知識庫。現有的資源要麼過於學術、要麼過於零散，缺乏針對不同閱讀需求的分層設計。
-            </p>
-            <p>
-              Taiwan.md 致力於打造一個開源、協作式的台灣知識平台，讓世界各地的人都能透過結構化、深度的內容，真正了解台灣的歷史、文化、社會與當代發展。
+              Taiwan.md 致力於打造最完整、最準確、最易於理解的台灣知識庫。
+              我們相信，透過開放且結構化的方式分享知識，能夠促進對台灣的深度理解，
+              並讓全世界都能認識真正的台灣。
             </p>
 
-            <h3>我們的願景</h3>
-            <ul>
-              <li><strong>開源協作：</strong>所有內容採用開源許可，歡迎社群貢獻與修正</li>
-              <li><strong>AI 友好：</strong>結構化的 Markdown 格式，便於 AI 工具理解與應用</li>
-              <li><strong>分層閱讀：</strong>三層深度設計，適合不同時間與需求的讀者</li>
-              <li><strong>持續更新：</strong>定期更新內容，反映台灣的最新發展</li>
-              <li><strong>多語言支援：</strong>中英對照，促進國際理解與交流</li>
+            <h2>為什麼選擇 Taiwan.md？</h2>
+            <ul class="features-list">
+              <li>
+                <strong>策展式內容：</strong> 不是百科全書的堆疊，而是經過精心策展的深度內容
+              </li>
+              <li>
+                <strong>AI-Friendly：</strong> 結構化的內容設計，讓 AI 也能理解和傳播台灣文化
+              </li>
+              <li>
+                <strong>多層次閱讀：</strong> 30秒概覽 → 5分鐘深入 → 完整探索，適合不同需求
+              </li>
+              <li>
+                <strong>開源協作：</strong> 社群驅動，持續更新，確保內容的準確性與時效性
+              </li>
             </ul>
 
-            <h3>內容特色</h3>
+            <h2>內容範圍</h2>
             <p>
-              我們不是另一個維基百科，而是策展式的深度內容：
+              Taiwan.md 涵蓋台灣的 12 個主要面向，從歷史文化到當代生活，
+              從自然地理到科技發展，呈現台灣的完整面貌。
             </p>
-            <ul>
-              <li><strong>策展視角：</strong>精心選擇與編排內容，強調脈絡與關聯性</li>
-              <li><strong>當代性：</strong>不只是歷史，更包含當代台灣的各個面向</li>
-              <li><strong>多元觀點：</strong>呈現不同視角與聲音，避免單一敘事</li>
-              <li><strong>實用性：</strong>適合研究者、教育工作者、AI 開發者等多元用途</li>
-            </ul>
           </div>
-        </div>
-      </section>
 
-      <!-- Values Section -->
-      <section class="values">
-        <h2 class="section-title">核心價值</h2>
-        <div class="values-grid">
-          <div class="value-card">
-            <div class="value-icon">🌐</div>
-            <h3>開放性</h3>
-            <p>開源、透明、歡迎所有人參與貢獻，讓知識真正屬於大眾。</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">🎯</div>
-            <h3>準確性</h3>
-            <p>嚴謹的事實查核，引用可信來源，確保內容的可靠性。</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">🤝</div>
-            <h3>包容性</h3>
-            <p>尊重多元觀點，呈現台灣社會的豐富性與複雜性。</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">🚀</div>
-            <h3>創新性</h3>
-            <p>運用最新技術，探索知識傳播與學習的新可能。</p>
-          </div>
-        </div>
-      </section>
+          <div class="sidebar">
+            <div class="stats-card">
+              <h3>專案統計</h3>
+              <div class="stat">
+                <div class="stat-number">12+</div>
+                <div class="stat-label">主要面向</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">預計文章</div>
+              </div>
+              <div class="stat">
+                <div class="stat-number">雙語</div>
+                <div class="stat-label">中英對照</div>
+              </div>
+            </div>
 
-      <!-- Team Section -->
-      <section class="team">
-        <h2 class="section-title">創辦團隊</h2>
-        <div class="team-content">
-          <div class="founder-card">
-            <div class="founder-info">
-              <h3>吳哲宇 (Che-Yu Wu)</h3>
-              <p class="founder-title">創辦人 & 主要策展人</p>
-              <div class="founder-description">
-                <p>
-                  新媒體藝術家、MonoLab 創辦人。致力於用科技與藝術探索台灣的數位敘事可能。
-                  相信開源知識是推動社會進步的重要力量。
-                </p>
-                <div class="founder-links">
-                  <a href="https://cheyuwu.com" target="_blank" class="link">個人網站</a>
-                  <a href="https://github.com/frank890417" target="_blank" class="link">GitHub</a>
-                </div>
+            <div class="contribute-card">
+              <h3>參與貢獻</h3>
+              <p>
+                Taiwan.md 是社群驅動的開源專案，歡迎所有對台灣有興趣的朋友參與貢獻。
+              </p>
+              <div class="cta-buttons">
+                <a href="/contributing" class="btn btn-primary">貢獻指南</a>
+                <a href="https://github.com/frank890417/taiwan-md" target="_blank" class="btn btn-secondary">
+                  GitHub
+                </a>
               </div>
             </div>
           </div>
-          
-          <div class="join-us">
-            <h3>加入我們</h3>
-            <p>
-              Taiwan.md 歡迎所有對台灣有熱忱的朋友一起參與。無論你是：
-            </p>
-            <ul>
-              <li>內容創作者（研究、寫作、編輯）</li>
-              <li>技術開發者（網站、工具開發）</li>
-              <li>設計師（視覺設計、使用者體驗）</li>
-              <li>翻譯者（中英翻譯、在地化）</li>
-              <li>校對者（事實查核、內容審閱）</li>
-            </ul>
-            <p>
-              都歡迎透過 <a href="https://github.com/frank890417/taiwan-md" target="_blank">GitHub</a> 
-              或 <a href="mailto:cheyu.wu@monoame.com">email</a> 與我們聯繫。
-            </p>
-          </div>
         </div>
       </section>
-
-      <!-- Technical Section -->
-      <section class="technical">
-        <h2 class="section-title">技術架構</h2>
-        <div class="tech-content">
-          <h3>開源技術棧</h3>
-          <div class="tech-grid">
-            <div class="tech-item">
-              <strong>前端框架：</strong> Astro v5 + TypeScript
-            </div>
-            <div class="tech-item">
-              <strong>內容管理：</strong> Markdown + Frontmatter
-            </div>
-            <div class="tech-item">
-              <strong>部署平台：</strong> GitHub Pages
-            </div>
-            <div class="tech-item">
-              <strong>版本控制：</strong> Git + GitHub
-            </div>
-          </div>
-
-          <h3>AI 友好設計</h3>
-          <p>
-            我們特別針對 AI 工具的需求設計內容結構：
-          </p>
-          <ul>
-            <li>標準化的 Markdown 格式，易於解析</li>
-            <li>結構化的 Frontmatter 元數據</li>
-            <li>語義化的內容組織</li>
-            <li>清晰的章節劃分與標籤系統</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- Contact Section -->
-      <section class="contact">
-        <h2 class="section-title">聯絡我們</h2>
-        <div class="contact-content">
-          <div class="contact-grid">
-            <div class="contact-item">
-              <h3>📧 Email</h3>
-              <a href="mailto:cheyu.wu@monoame.com">cheyu.wu@monoame.com</a>
-            </div>
-            <div class="contact-item">
-              <h3>🐙 GitHub</h3>
-              <a href="https://github.com/frank890417/taiwan-md" target="_blank">frank890417/taiwan-md</a>
-            </div>
-            <div class="contact-item">
-              <h3>🌐 網站</h3>
-              <a href="https://taiwan.md" target="_blank">taiwan.md</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Back to Home -->
-      <div class="back-to-home">
-        <a href="/" class="btn-primary">
-          ← 返回首頁
-        </a>
-      </div>
     </div>
-  </main>
+  </div>
 </Layout>
 
 <style>
@@ -200,367 +86,187 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .container {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
   }
 
-  .hero {
+  .page-header {
     text-align: center;
-    margin-bottom: 3rem;
-    padding: 3rem 0;
-  }
-
-  .hero-title {
-    font-size: 3rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #1e40af, #3b82f6);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1.3rem;
-    color: #6b7280;
-    line-height: 1.6;
-  }
-
-  .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 3rem;
-    font-size: 0.9rem;
-  }
-
-  .breadcrumb a {
-    color: #1e40af;
-    text-decoration: none;
-  }
-
-  .breadcrumb a:hover {
-    text-decoration: underline;
-  }
-
-  .separator {
-    color: #9ca3af;
-  }
-
-  .current {
-    color: #6b7280;
-  }
-
-  .section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1f2937;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-
-  .mission, .values, .team, .technical, .contact {
     margin-bottom: 4rem;
-    padding: 2rem 0;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e5e7eb;
   }
 
-  .mission-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .mission-text h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #1f2937;
-    margin: 2rem 0 1rem 0;
-  }
-
-  .mission-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #374151;
-    margin-bottom: 1.5rem;
-  }
-
-  .mission-text ul {
-    margin-bottom: 2rem;
-    padding-left: 1.5rem;
-  }
-
-  .mission-text li {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #374151;
-    margin-bottom: 0.75rem;
-  }
-
-  .mission-text strong {
-    color: #1e40af;
-    font-weight: 600;
-  }
-
-  .values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-
-  .value-card {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 2rem;
-    text-align: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease;
-  }
-
-  .value-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    border-color: #1e40af;
-  }
-
-  .value-icon {
+  .page-header h1 {
     font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-
-  .value-card h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
+    font-weight: 700;
     color: #1f2937;
     margin-bottom: 1rem;
   }
 
-  .value-card p {
+  .lead {
+    font-size: 1.25rem;
     color: #6b7280;
-    line-height: 1.6;
+    font-weight: 300;
   }
 
-  .team-content {
-    max-width: 700px;
+  .about-content {
+    max-width: 1000px;
     margin: 0 auto;
   }
 
-  .founder-card {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
-
-  .founder-info h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #1f2937;
-    margin-bottom: 0.5rem;
-  }
-
-  .founder-title {
-    color: #1e40af;
-    font-weight: 500;
-    margin-bottom: 1rem;
-  }
-
-  .founder-description p {
-    color: #374151;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-
-  .founder-links {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .link {
-    color: #1e40af;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .link:hover {
-    text-decoration: underline;
-  }
-
-  .join-us {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 2rem;
-  }
-
-  .join-us h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #1f2937;
-    margin-bottom: 1rem;
-  }
-
-  .join-us p {
-    color: #374151;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
-
-  .join-us ul {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-  }
-
-  .join-us li {
-    color: #374151;
-    margin-bottom: 0.5rem;
-  }
-
-  .join-us a {
-    color: #1e40af;
-    text-decoration: none;
-  }
-
-  .join-us a:hover {
-    text-decoration: underline;
-  }
-
-  .tech-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .tech-content h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #1f2937;
-    margin: 2rem 0 1rem 0;
-  }
-
-  .tech-grid {
+  .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin: 1.5rem 0;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
   }
 
-  .tech-item {
-    background: #f8fafc;
-    padding: 1rem;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-  }
-
-  .tech-item strong {
-    color: #1e40af;
-  }
-
-  .tech-content p {
+  .content-main {
     font-size: 1.1rem;
     line-height: 1.8;
     color: #374151;
-    margin-bottom: 1rem;
   }
 
-  .tech-content ul {
+  .content-main h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 2.5rem 0 1rem 0;
+  }
+
+  .content-main h2:first-of-type {
+    margin-top: 0;
+  }
+
+  .content-main p {
+    margin-bottom: 1.5rem;
+  }
+
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+  }
+
+  .features-list li {
     margin-bottom: 1.5rem;
     padding-left: 1.5rem;
+    position: relative;
   }
 
-  .tech-content li {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #374151;
-    margin-bottom: 0.5rem;
+  .features-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #059669;
+    font-weight: bold;
   }
 
-  .contact-content {
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  .sidebar {
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
   }
 
-  .contact-item {
-    text-align: center;
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
+  .stats-card,
+  .contribute-card {
+    background: #f9fafb;
     padding: 2rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
   }
 
-  .contact-item h3 {
-    font-size: 1.2rem;
+  .stats-card h3,
+  .contribute-card h3 {
+    font-size: 1.25rem;
     font-weight: 600;
     color: #1f2937;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
-  .contact-item a {
-    color: #1e40af;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .contact-item a:hover {
-    text-decoration: underline;
-  }
-
-  .back-to-home {
+  .stat {
     text-align: center;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid #e5e7eb;
+    margin-bottom: 1.5rem;
   }
 
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 2rem;
-    background: #1e40af;
-    color: white;
+  .stat:last-child {
+    margin-bottom: 0;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1e40af;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: #6b7280;
+  }
+
+  .contribute-card p {
+    color: #6b7280;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.5rem;
     text-decoration: none;
     border-radius: 6px;
     font-weight: 500;
-    transition: background 0.2s ease;
+    text-align: center;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+  }
+
+  .btn-primary {
+    background: #1e40af;
+    color: white;
   }
 
   .btn-primary:hover {
-    background: #1e3a8a;
+    background: #1d4ed8;
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: white;
+    color: #1e40af;
+    border: 2px solid #1e40af;
+  }
+
+  .btn-secondary:hover {
+    background: #1e40af;
+    color: white;
+    transform: translateY(-1px);
   }
 
   @media (max-width: 768px) {
-    .container {
-      padding: 0 1rem;
-    }
-
-    .hero-title {
+    .page-header h1 {
       font-size: 2.5rem;
     }
 
-    .section-title {
-      font-size: 2rem;
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
     }
 
-    .values-grid {
-      grid-template-columns: 1fr;
+    .sidebar {
+      order: -1;
     }
 
-    .tech-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .contact-grid {
-      grid-template-columns: 1fr;
+    .cta-buttons {
+      flex-direction: row;
     }
   }
 </style>
