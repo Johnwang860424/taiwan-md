@@ -322,6 +322,20 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
+    <!-- Section: Contributors -->
+    <section class="contributors-section">
+      <div class="contributors-inner">
+        <h2>👥 貢獻者</h2>
+        <p class="contributors-desc">感謝每一位讓 Taiwan.md 更好的人。</p>
+        <a href="https://github.com/frank890417/taiwan-md/graphs/contributors" target="_blank" class="contributors-img">
+          <img src="https://contrib.rocks/image?repo=frank890417/taiwan-md&max=100" alt="Contributors" loading="lazy" />
+        </a>
+        <p class="contributors-cta">
+          想加入嗎？<a href="/contribute">從這裡開始 →</a>
+        </p>
+      </div>
+    </section>
+
     <!-- Section: Sponsors -->
     <section class="sponsors-section">
       <div class="sponsors-inner">
@@ -1143,6 +1157,16 @@ import Layout from '../layouts/Layout.astro';
       padding-left: 1rem;
     }
   }
+
+  /* ===== Contributors ===== */
+  .contributors-section { padding: 4rem 2rem; background: #f8fafc; text-align: center; }
+  .contributors-inner { max-width: 800px; margin: 0 auto; }
+  .contributors-inner h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .contributors-desc { color: #64748b; margin-bottom: 1.5rem; }
+  .contributors-img { display: inline-block; }
+  .contributors-img img { max-width: 100%; border-radius: 8px; }
+  .contributors-cta { margin-top: 1rem; font-size: 0.9rem; color: #64748b; }
+  .contributors-cta a { color: #3b82f6; font-weight: 500; }
 
   /* ===== Sponsors ===== */
   .sponsors-section {
