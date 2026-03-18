@@ -14,6 +14,69 @@ interface Props {
 
 const { title, description = '讓全世界完整認識台灣', lang = 'zh-TW', image, type, datePublished, dateModified, content } = Astro.props;
 const currentPath = Astro.url.pathname;
+
+// i18n configuration
+const i18n = {
+  'zh-TW': {
+    explore: '探索',
+    graph: '🕸️ 圖譜',
+    about: '關於',
+    contribute: '貢獻',
+    resources: '資源',
+    github: 'GitHub',
+    langLabel: '🌐 語言 / Language:',
+    footerDesc: '開源、AI-friendly 的台灣知識庫',
+    builtWith: 'Built with ❤️ in Taiwan',
+    exploreTitle: '探索',
+    projectTitle: '專案',
+    contactTitle: '聯繫',
+    reportIssue: '回報問題',
+    discussion: '討論區',
+    license: 'CC BY-SA 4.0',
+    navHistory: '歷史',
+    navCulture: '文化',
+    navFood: '美食',
+    navTech: '科技',
+    navNature: '自然',
+    navSociety: '社會',
+    guide: '貢獻指南',
+    home: '首頁'
+  },
+  'en': {
+    explore: 'Explore',
+    graph: '🕸️ Graph',
+    about: 'About',
+    contribute: 'Contribute',
+    resources: 'Resources',
+    github: 'GitHub',
+    langLabel: '🌐 Language:',
+    footerDesc: 'Open-source, AI-friendly knowledge base about Taiwan',
+    builtWith: 'Built with ❤️ in Taiwan',
+    exploreTitle: 'Explore',
+    projectTitle: 'Project',
+    contactTitle: 'Contact',
+    reportIssue: 'Report Issue',
+    discussion: 'Discussions',
+    license: 'CC BY-SA 4.0',
+    navHistory: 'History',
+    navCulture: 'Culture',
+    navFood: 'Food',
+    navTech: 'Tech',
+    navNature: 'Nature',
+    navSociety: 'Society',
+    guide: 'Guide',
+    home: 'Home'
+  }
+};
+const t = i18n[lang] || i18n['zh-TW'];
+
+// Language switching logic
+const cleanPath = currentPath.replace(/\/$/, '');
+const zhHref = currentPath.startsWith('/en') ? (cleanPath.replace(/^\/en/, '') || '/') : currentPath;
+const enHref = currentPath.startsWith('/en') ? currentPath : ('/en' + (cleanPath === '/' ? '' : cleanPath));
+
+// Link helper
+const l = (p) => lang === 'en' ? ('/en' + p) : p;
 ---
 
 <!doctype html>
@@ -38,7 +101,7 @@ const currentPath = Astro.url.pathname;
   </head>
   <body>
     <div id="lang-banner" class="lang-banner" style="display:none;">
-      <span>🌐 English version available → <a href="/en">Switch to English</a></span>
+      <span>🌐 English version available → <a href={enHref}>Switch to English</a></span>
       <button class="lang-banner-close" onclick="document.getElementById('lang-banner').style.display='none';localStorage.setItem('lang-banner-dismissed','1');" aria-label="Close">✕</button>
     </div>
     <script is:inline>
@@ -53,40 +116,40 @@ const currentPath = Astro.url.pathname;
     </script>
     <header>
       <div class="header-inner">
-        <a href="/" class="logo">
+        <a href={l('/')} class="logo">
           <span class="logo-icon">🇹🇼</span>
           <span class="logo-text">Taiwan<span class="logo-dot">.md</span></span>
         </a>
         <button class="menu-toggle" aria-label="選單" onclick="document.querySelector('.nav-mobile').classList.toggle('open')">☰</button>
         <nav class="nav-desktop">
-          <a href="/#categories" class="nav-link">探索</a>
-          <a href="/graph" class="nav-link">🕸️ 圖譜</a>
-          <a href="/about" class="nav-link">關於</a>
-          <a href="/contribute" class="nav-link">貢獻</a>
-          <a href="/resources" class="nav-link">資源</a>
+          <a href={l('/#categories')} class="nav-link">{t.explore}</a>
+          <a href={l('/graph')} class="nav-link">{t.graph}</a>
+          <a href={l('/about')} class="nav-link">{t.about}</a>
+          <a href={l('/contribute')} class="nav-link">{t.contribute}</a>
+          <a href={l('/resources')} class="nav-link">{t.resources}</a>
           <a href="https://github.com/frank890417/taiwan-md" target="_blank" class="nav-link gh">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
             GitHub
           </a>
         </nav>
         <nav class="nav-mobile">
-          <a href="/#categories" class="nav-link" onclick="document.querySelector('.nav-mobile').classList.remove('open')">探索</a>
-          <a href="/graph" class="nav-link" onclick="document.querySelector('.nav-mobile').classList.remove('open')">🕸️ 圖譜</a>
-          <a href="/about" class="nav-link" onclick="document.querySelector('.nav-mobile').classList.remove('open')">關於</a>
-          <a href="/contribute" class="nav-link" onclick="document.querySelector('.nav-mobile').classList.remove('open')">貢獻</a>
-          <a href="/resources" class="nav-link" onclick="document.querySelector('.nav-mobile').classList.remove('open')">資源</a>
+          <a href={l('/#categories')} class="nav-link" onclick="document.querySelector('.nav-mobile').classList.remove('open')">{t.explore}</a>
+          <a href={l('/graph')} class="nav-link" onclick="document.querySelector('.nav-mobile').classList.remove('open')">{t.graph}</a>
+          <a href={l('/about')} class="nav-link" onclick="document.querySelector('.nav-mobile').classList.remove('open')">{t.about}</a>
+          <a href={l('/contribute')} class="nav-link" onclick="document.querySelector('.nav-mobile').classList.remove('open')">{t.contribute}</a>
+          <a href={l('/resources')} class="nav-link" onclick="document.querySelector('.nav-mobile').classList.remove('open')">{t.resources}</a>
           <a href="https://github.com/frank890417/taiwan-md" target="_blank" class="nav-link">GitHub</a>
           <div class="mobile-lang-toggle">
-            <span class="mobile-lang-label">🌐 語言 / Language:</span>
+            <span class="mobile-lang-label">{t.langLabel}</span>
             <div class="mobile-lang-buttons">
-              <a href="/" class:list={["mobile-lang-btn", { active: !currentPath.startsWith('/en') }]} onclick="document.querySelector('.nav-mobile').classList.remove('open')">中文</a>
-              <a href="/en" class:list={["mobile-lang-btn", { active: currentPath.startsWith('/en') }]} onclick="document.querySelector('.nav-mobile').classList.remove('open')">English</a>
+              <a href={zhHref} class:list={["mobile-lang-btn", { active: !currentPath.startsWith('/en') }]} onclick="document.querySelector('.nav-mobile').classList.remove('open')">中文</a>
+              <a href={enHref} class:list={["mobile-lang-btn", { active: currentPath.startsWith('/en') }]} onclick="document.querySelector('.nav-mobile').classList.remove('open')">English</a>
             </div>
           </div>
         </nav>
         <div class="lang-toggle">
-          <a href="/" class:list={["lang-btn", { active: !currentPath.startsWith('/en') }]}>中文</a>
-          <a href="/en" class:list={["lang-btn", { active: currentPath.startsWith('/en') }]}>EN</a>
+          <a href={zhHref} class:list={["lang-btn", { active: !currentPath.startsWith('/en') }]}>中文</a>
+          <a href={enHref} class:list={["lang-btn", { active: currentPath.startsWith('/en') }]}>EN</a>
         </div>
       </div>
     </header>
@@ -100,45 +163,45 @@ const currentPath = Astro.url.pathname;
         <div class="footer-grid">
           <div class="footer-brand">
             <span class="footer-logo">🇹🇼 Taiwan.md</span>
-            <p>開源、AI-friendly 的台灣知識庫</p>
-            <p class="footer-heart">Built with ❤️ in Taiwan</p>
+            <p>{t.footerDesc}</p>
+            <p class="footer-heart">{t.builtWith}</p>
             <p class="footer-license">
               <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-tw" target="_blank" rel="noopener">
                 <svg width="16" height="16" viewBox="0 0 496 512" fill="currentColor" style="margin-right: 6px;">
                   <path d="M245.83 214.87l-33.22 17.28c-9.43-19.58-25.24-19.93-27.46-19.93-22.13 0-33.22 14.61-33.22 43.84 0 23.57 9.21 43.84 33.22 43.84 14.47 0 24.65-7.09 30.57-21.26l30.55 15.5c-6.17 11.51-25.69 38.98-65.1 38.98-22.6 0-73.96-10.32-73.96-77.05 0-58.69 43-77.06 72.63-77.06 30.72-.01 52.7 11.95 65.99 35.86zm143.05 0l-32.78 17.28c-9.5-19.77-25.72-19.93-27.9-19.93-22.14 0-33.22 14.61-33.22 43.84 0 23.55 9.23 43.84 33.22 43.84 14.45 0 24.65-7.09 30.54-21.26l31.04 15.5c-6.17 11.51-25.69 38.98-65.09 38.98-22.69 0-73.96-9.87-73.96-77.05 0-58.67 42.97-77.06 72.6-77.06 30.71-.01 52.58 11.95 65.55 35.86zM247.56 8.05C104.74 8.05 0 123.11 0 256.05c0 138.49 113.6 248 247.56 248 129.93 0 248.44-100.87 248.44-248 0-137.87-106.62-248-248.44-248zm.87 450.81c-112.54 0-203.7-93.04-203.7-202.81 0-105.42 85.43-203.27 203.72-203.27 112.53 0 202.82 89.46 202.82 203.26-.01 121.69-99.68 202.82-202.84 202.82z"/>
                 </svg>
-                CC BY-SA 4.0
+                {t.license}
               </a>
             </p>
           </div>
           <div class="footer-col">
-            <h4>探索</h4>
-            <a href="/history">歷史</a>
-            <a href="/culture">文化</a>
-            <a href="/food">美食</a>
-            <a href="/technology">科技</a>
-            <a href="/nature">自然</a>
-            <a href="/society">社會</a>
+            <h4>{t.exploreTitle}</h4>
+            <a href={l('/history')}>{t.navHistory}</a>
+            <a href={l('/culture')}>{t.navCulture}</a>
+            <a href={l('/food')}>{t.navFood}</a>
+            <a href={l('/technology')}>{t.navTech}</a>
+            <a href={l('/nature')}>{t.navNature}</a>
+            <a href={l('/society')}>{t.navSociety}</a>
           </div>
           <div class="footer-col">
-            <h4>專案</h4>
-            <a href="https://github.com/frank890417/taiwan-md" target="_blank">GitHub</a>
-            <a href="/about">關於</a>
-            <a href="/graph">知識圖譜</a>
-            <a href="https://github.com/frank890417/taiwan-md/blob/main/CONTRIBUTING.md" target="_blank">貢獻指南</a>
+            <h4>{t.projectTitle}</h4>
+            <a href="https://github.com/frank890417/taiwan-md" target="_blank">{t.github}</a>
+            <a href={l('/about')}>{t.about}</a>
+            <a href={l('/graph')}>{t.graph}</a>
+            <a href="https://github.com/frank890417/taiwan-md/blob/main/CONTRIBUTING.md" target="_blank">{t.guide}</a>
           </div>
           <div class="footer-col">
-            <h4>聯繫</h4>
+            <h4>{t.contactTitle}</h4>
             <a href="https://x.com/taiwandotmd" target="_blank">𝕏 @taiwandotmd</a>
             <a href="https://www.threads.com/@taiwandotmd" target="_blank">Threads @taiwandotmd</a>
             <a href="https://www.instagram.com/taiwandotmd" target="_blank">IG @taiwandotmd</a>
             <a href="mailto:cheyu.wu@monoame.com">cheyu.wu@monoame.com</a>
-            <a href="https://github.com/frank890417/taiwan-md/issues" target="_blank">回報問題</a>
-            <a href="https://github.com/frank890417/taiwan-md/discussions" target="_blank">討論區</a>
+            <a href="https://github.com/frank890417/taiwan-md/issues" target="_blank">{t.reportIssue}</a>
+            <a href="https://github.com/frank890417/taiwan-md/discussions" target="_blank">{t.discussion}</a>
           </div>
         </div>
         <div class="footer-bottom">
-          &copy; 2026 Taiwan.md — 開源台灣知識庫
+          &copy; 2026 Taiwan.md — {t.footerDesc}
         </div>
       </div>
     </footer>
