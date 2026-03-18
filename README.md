@@ -181,6 +181,11 @@ Help Taiwan's story reach the world. → [taiwan.md/about#sponsors](https://taiw
 
 > *"If I could build a digital identity for myself, why not for Taiwan?"*
 
+## 📢 Follow
+
+- 𝕏 Twitter: [@taiwandotmd](https://x.com/taiwandotmd)
+- GitHub: [frank890417/taiwan-md](https://github.com/frank890417/taiwan-md)
+
 ---
 
 *Built with ❤️ in Taiwan. 用愛與驕傲，從台灣出發。*
