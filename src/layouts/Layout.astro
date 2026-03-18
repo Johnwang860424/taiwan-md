@@ -152,6 +152,10 @@ if (currentPath.startsWith('/en')) {
                 CC BY-SA 4.0
               </a>
             </p>
+            <p class="footer-eth">
+              <span class="footer-eth-label">{isEn ? 'Support us' : '支持我們'}:</span>
+              <code class="footer-eth-address">taiwanmd.eth</code>
+            </p>
           </div>
           <div class="footer-col">
             <h4>{i18n.footer.explore}</h4>
@@ -458,6 +462,23 @@ if (currentPath.startsWith('/en')) {
   }
   .footer-license a:hover {
     color: #c7d2c7;
+  }
+  .footer-eth {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .footer-eth-label { color: #94a3b8; }
+  .footer-eth-address {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    color: #a7c7a7;
+    font-size: 0.8rem;
+    background: rgba(255,255,255,0.06);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
   }
   .footer-col {
     display: flex;

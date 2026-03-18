@@ -402,6 +402,24 @@ import Layout from '../layouts/Layout.astro';
               💖 GitHub Sponsors
             </a>
           </div>
+          <div class="eth-donate">
+            <p class="eth-label">也可以透過 ETH 捐款支持專案營運：</p>
+            <div class="eth-address-box">
+              <span class="eth-icon">
+                <svg width="16" height="16" viewBox="0 0 256 417" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M127.961 0l-2.795 9.5v275.668l2.795 2.79 127.962-75.638z" fill="#343434"/>
+                  <path d="M127.962 0L0 212.32l127.962 75.639V154.158z" fill="#8C8C8C"/>
+                  <path d="M127.961 312.187l-1.575 1.92v98.199l1.575 4.6L256 236.587z" fill="#3C3C3B"/>
+                  <path d="M127.962 416.905v-104.72L0 236.585z" fill="#8C8C8C"/>
+                  <path d="M127.961 287.958l127.96-75.637-127.96-58.162z" fill="#141414"/>
+                  <path d="M0 212.32l127.96 75.638V154.159z" fill="#393939"/>
+                </svg>
+              </span>
+              <code class="eth-address" id="eth-address">taiwanmd.eth</code>
+              <button class="eth-copy-btn" onclick="navigator.clipboard.writeText('taiwanmd.eth').then(()=>{this.textContent='已複製！';setTimeout(()=>{this.textContent='複製'},1500)})" title="複製地址">複製</button>
+            </div>
+            <p class="eth-note">捐款將用於文章蒐集、網站營運及伺服器費用</p>
+          </div>
           <p class="sponsor-note">
             參考案例：<a href="https://coscup.org" target="_blank">COSCUP</a>、
             <a href="https://mopcon.org" target="_blank">MOPCON</a>、
@@ -1246,5 +1264,51 @@ import Layout from '../layouts/Layout.astro';
   .sponsor-contact { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
   .sponsor-note { font-size: 0.8rem; color: #94a3b8; margin-top: 1rem; }
   .sponsor-note a { color: #3b82f6; }
+
+  .eth-donate {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed #e2e8f0;
+  }
+  .eth-label {
+    font-size: 0.9rem;
+    color: #475569;
+    margin-bottom: 0.75rem;
+  }
+  .eth-address-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .eth-icon { display: flex; align-items: center; opacity: 0.7; }
+  .eth-address {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    letter-spacing: 0.01em;
+  }
+  .eth-copy-btn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .eth-copy-btn:hover { background: #2563eb; }
+  .eth-note {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-top: 0.5rem;
+  }
   }
 </style>
