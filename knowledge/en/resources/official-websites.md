@@ -224,6 +224,10 @@ National library and document archive, academic resources
 ### [Academia Sinica](https://www.sinica.edu.tw/) 🌐
 Taiwan's highest academic research institution, fundamental research
 
+#### 🌏 International Academic Resources
+### [Brill Encyclopedia of Taiwan Studies Online (ETSO)](https://referenceworks.brill.com/display/db/etso) 🇬🇧
+The world's first English-language encyclopedia dedicated to Taiwan studies, published by Brill (Netherlands). Editor-in-Chief: Hsin-Huang Michael Hsiao (Academia Sinica), with 400+ international scholars contributing ~600 entries across 15 fields: archaeology, history, linguistics, anthropology, sociology, political science, international relations, Indigenous studies, literature, gender studies, media studies, film & documentary, music, and visual arts. Subscription-based academic resource available through university libraries.
+
 #### 💾 Digital Archives
 ### [Government Open Data Platform](https://data.gov.tw/) 🇹🇼
 Unified government open data platform, data governance

@@ -8,6 +8,7 @@ import Layout from '../layouts/Layout.astro';
     <section class="contribute-hero">
       <h1>我想貢獻 ✋</h1>
       <p class="hero-sub">不需要會寫程式。你知道的台灣故事，就是最珍貴的內容。</p>
+      <p class="hero-note">目前網站內容由 AI 初步生成，期待集結大家的力量，讓資訊越來越完整、正確！<br>如果有問題歡迎直接<a href="mailto:cheyu.wu@monoame.com" style="color: #ABC468;">聯繫我們</a>，感謝大家這麼用心的 feedback！</p>
     </section>
 
     <section class="how-it-works">
@@ -398,6 +399,17 @@ import Layout from '../layouts/Layout.astro';
   }
   .contribute-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; font-weight: 700; }
   .hero-sub { font-size: 1.15rem; opacity: 0.85; max-width: 500px; margin: 0 auto; }
+  .hero-note {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    max-width: 560px;
+    margin: 1rem auto 0;
+    line-height: 1.8;
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
 
   .how-it-works { 
     padding: 3rem 2rem; 

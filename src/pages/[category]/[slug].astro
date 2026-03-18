@@ -331,6 +331,11 @@ const processedContent = marked.parse(resolvedContent);
           <!-- Edit on GitHub (Contribution Funnel) -->
           <div class="contribute-section">
             <h3 class="footer-section-title">幫助改善內容</h3>
+            <p class="contribute-note">
+              本文內容由 AI 初步生成，希望集結大家的力量，讓內容越來越完整、正確！<br>
+              如果您發現任何問題，或手邊有更多推薦的資料來源，歡迎直接編輯或<a href="mailto:cheyu.wu@monoame.com">聯繫我們</a>。<br>
+              感謝每一位用心 feedback 的朋友！
+            </p>
             <div class="contribute-actions">
               <a 
                 href={`https://github.com/frank890417/taiwan-md/edit/main/knowledge/${categoryMapping[category as string]}/${slug}.md`}
@@ -1117,6 +1122,25 @@ const processedContent = marked.parse(resolvedContent);
   }
 
   /* 貢獻區塊 */
+  .contribute-note {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #5a6b3a;
+    background: linear-gradient(135deg, rgba(167, 196, 160, 0.15), rgba(232, 245, 232, 0.3));
+    border: 1px solid #c5d9b2;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .contribute-note a {
+    color: #2d5016;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
   .contribute-section {
     margin: 3rem 0;
     text-align: center;
