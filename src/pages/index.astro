@@ -566,14 +566,14 @@ const randomArticlesData = JSON.stringify(allArticles);
   <iframe name="newsletter-iframe" style="display:none;"></iframe>
   <section class="newsletter" aria-labelledby="newsletter-heading">
     <div class="newsletter-content">
-      <h2>📬 訂閱 Taiwan.md 週報</h2>
+      <h2 id="newsletter-heading">📬 訂閱 Taiwan.md 週報</h2>
       <p>每週精選台灣知識，直送信箱。</p>
 
       <form id="newsletter-form" class="newsletter-form"
             action="https://docs.google.com/forms/d/e/1FAIpQLSfNY5y6p8xM0oVL4PSOmOYoPZDTSNykZtMDLNmQnQrSr5-59w/formResponse"
-            method="POST" target="newsletter-iframe">
+            method="POST" target="newsletter-iframe" aria-label="訂閱 Taiwan.md 週報表單">
         <div class="form-row">
-          <input type="email" name="entry.1578963213" id="newsletter-email" placeholder="your@email.com" required>
+          <input type="email" name="entry.1578963213" id="newsletter-email" placeholder="your@email.com" required aria-label="電子郵件地址">
           <button type="submit" id="newsletter-submit" class="newsletter-btn">訂閱</button>
         </div>
       </form>
@@ -587,9 +587,9 @@ const randomArticlesData = JSON.stringify(allArticles);
     </div>
   </section>
 
-  <section class="contribute">
+  <section class="contribute" aria-labelledby="contribute-heading">
     <div class="contribute-content">
-      <h2>加入我們</h2>
+      <h2 id="contribute-heading">加入我們</h2>
       <p>Taiwan.md 是社群驅動的開源專案。無論您是台灣本地人還是對台灣感興趣的國際朋友，都歡迎貢獻您的知識與觀點。</p>
       <div class="contribute-buttons">
         <a href="/contribute" class="btn btn-primary">麻瓜貢獻指南</a>
@@ -599,6 +599,8 @@ const randomArticlesData = JSON.stringify(allArticles);
       </div>
     </div>
   </section>
+
+  </main>
 
 <script is:inline src="https://d3js.org/d3.v7.min.js"></script>
 <script is:inline define:vars={{ graphData, randomArticlesData }}>
@@ -758,6 +760,25 @@ const randomArticlesData = JSON.stringify(allArticles);
 </Layout>
 
 <style>
+  /* ===== SKIP LINK FOR ACCESSIBILITY ===== */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #1a1a2e;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    z-index: 100;
+    transition: top 0.3s ease;
+  }
+
+  .skip-link:focus {
+    top: 6px;
+  }
+
   /* ===== HERO SECTION - 自然系大地色重設計 ===== */
   .hero {
     position: relative;

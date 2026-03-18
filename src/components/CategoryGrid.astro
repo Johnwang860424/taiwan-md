@@ -131,7 +131,7 @@ const { lang = 'zh-TW' } = Astro.props;
 const langPrefix = lang === 'en' ? '/en' : '';
 ---
 
-<div class="category-grid">
+<section class="category-grid" aria-label="台灣知識分類">
   {categories.map((category, index) => (
     <a href={`${langPrefix}/${category.slug}`} class="category-card" data-color={category.color}>
       <div class="category-header">
@@ -158,7 +158,7 @@ const langPrefix = lang === 'en' ? '/en' : '';
       </div>
     </a>
   ))}
-</div>
+</section>
 
 <style>
   .category-grid {
