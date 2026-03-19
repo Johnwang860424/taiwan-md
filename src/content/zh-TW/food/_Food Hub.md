@@ -9,7 +9,7 @@ description: "台灣美食不只是味覺享受，更是文化認同的重要載
 
 在台灣，每一口食物都是一個故事，每一道菜都是一段歷史。從夜市攤販的蒸籠熱氣到米其林餐廳的精緻擺盤，台灣美食展現了這座島嶼最溫暖的一面。它不僅餵養了人們的身體，更滋潤了人們的靈魂，成為連結記憶與情感的橋樑。
 
-![台灣珍珠奶茶](/images/wiki/832519bc626b.jpg)
+![台灣珍珠奶茶](/images/wiki/taiwan-traditional-architecture.jpg)
 *圖片來源：[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Variations_of_Taiwanese_tapioca_pearls.JPG) | CC BY-SA 3.0 | 攝影者：Nandaro*
 
 ## 味覺的文化地圖

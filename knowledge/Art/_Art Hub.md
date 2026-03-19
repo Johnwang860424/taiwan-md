@@ -9,7 +9,7 @@ description: "台灣當代藝術在國際舞台展現強勁實力，從威尼斯
 
 在台灣的藝術風景中，傳統與前衛並非對立的兩端，而是相互滋養的雙螺旋。當朱銘的木雕在國際拍賣會上創下天價時，當袁廣鳴的錄像藝術在威尼斯雙年展上震撼世界時，我們看見的是一個小島如何在全球藝術版圖上找到自己獨特的聲音。台灣藝術的力量不在於模仿西方或復古東方，而在於在兩者之間創造出第三種可能性。
 
-![台北市立美術館](/images/wiki/504ac37bfd07.jpg)
+![台北市立美術館](/images/wiki/taiwan-heritage-building.jpg)
 *圖片來源：[Prattflora](https://commons.wikimedia.org/wiki/File:Taipei-fine-arts-museum.jpg) / [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/)*
 
 ## 從島嶼到世界舞台
@@ -58,7 +58,7 @@ description: "台灣當代藝術在國際舞台展現強勁實力，從威尼斯
 - **新媒體藝術領先地位**：袁廣鳴、王福瑞等台灣藝術家在國際新媒體藝術界享有盛譽，台灣結合科技產業優勢創造獨特的數位藝術生態
 - **公共藝術覆蓋率**：台灣《公共藝術設置辦法》規定，建築經費達1%須投入公共藝術，全台已有超過5,000件公共藝術作品
 
-![台灣黑熊](/images/wiki/783bf3227078.jpg)
+![台灣黑熊](/images/wiki/taiwan-transportation.jpg)
 *圖片來源：[Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Formosan_Black_Bear.JPG) | CC BY-SA 3.0 | 攝影者：Abu0804*
 
 ## 相關主題
