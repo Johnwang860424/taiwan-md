@@ -23,7 +23,7 @@ Taiwan.md is an open-source, curated, AI-friendly knowledge base that helps the 
 
 ## ✨ Features
 
-- 📖 **96+ curated articles** across 12 categories (47 zh-TW + 49 en)
+- 📖 **240+ curated articles** across 12 categories (188 zh-TW + 53 en)
 - 🌐 **Bilingual** — 繁體中文 (SSOT) + English (100% i18n coverage)
 - 🤖 **AI-native** — [`llms.txt`](https://taiwan.md/llms.txt), [`robots.txt`](https://taiwan.md/robots.txt), structured Markdown SSOT
 - 🕸️ **Interactive knowledge graph** — D3.js force simulation with zoom, drag, cross-category bridges
@@ -43,14 +43,14 @@ Taiwan.md is an open-source, curated, AI-friendly knowledge base that helps the 
 
 | Metric | Count |
 |--------|-------|
-| 📄 Total pages built | 126 |
-| 🇹🇼 Chinese articles | 47 |
-| 🇺🇸 English articles | 49 |
+| 📄 Total pages built | 269 |
+| 🇹🇼 Chinese articles | 188 |
+| 🇺🇸 English articles | 53 |
 | 📂 Categories | 12 |
 | 🏛️ Hub pages | 12 |
 | 🕸️ Knowledge graph nodes | 100+ |
 | 🔗 Resource websites | 146+ |
-| 🌐 i18n coverage | 100% |
+| 👥 Contributors | 13 |
 
 ---
 
@@ -58,18 +58,18 @@ Taiwan.md is an open-source, curated, AI-friendly knowledge base that helps the 
 
 | | Category | Articles | Highlights |
 |---|---------|----------|------------|
-| 📜 | [歷史 History](https://taiwan.md/history) | 8 | 史前→荷西→清治→日治→戒嚴→民主化 |
-| 🗺️ | [地理 Geography](https://taiwan.md/geography) | 2 | 五大山脈、板塊運動、氣候帶 |
-| 🎭 | [文化 Culture](https://taiwan.md/culture) | 1 | 閩南客家原住民外省新住民多元融合 |
-| 🧋 | [美食 Food](https://taiwan.md/food) | 5 | 珍珠奶茶、牛肉麵、夜市、茶文化 |
-| 🎨 | [藝術 Art](https://taiwan.md/art) | 2 | 當代藝術、新媒體藝術 |
-| 🎵 | [音樂 Music](https://taiwan.md/music) | 3 | 金曲獎、獨立音樂、聲音地景 |
-| 💻 | [科技 Technology](https://taiwan.md/technology) | 2 | 台積電矽盾、g0v 公民科技 |
-| 🌿 | [自然 Nature](https://taiwan.md/nature) | 2 | 特有種、9 座國家公園 |
-| 👤 | [人物 People](https://taiwan.md/people) | 10 | 李安、張忠謀、鄧麗君、唐鳳、侯孝賢... |
-| 🏛️ | [社會 Society](https://taiwan.md/society) | 2 | 民主制度、人權與性別平等 |
-| 💰 | [經濟 Economy](https://taiwan.md/economy) | 2 | 經濟奇蹟、夜市經濟學 |
-| 🏙️ | [生活 Lifestyle](https://taiwan.md/lifestyle) | 8 | 便利商店、健保、交通、溫泉、KTV、咖啡文化 |
+| 📜 | [歷史 History](https://taiwan.md/history) | 12 | 史前→荷西→清治→日治→戒嚴→民主化 |
+| 🗺️ | [地理 Geography](https://taiwan.md/geography) | 11 | 五大山脈、板塊運動、氣候帶、離島 |
+| 🎭 | [文化 Culture](https://taiwan.md/culture) | 19 | 閩南客家原住民外省新住民多元融合、花布 |
+| 🧋 | [美食 Food](https://taiwan.md/food) | 11 | 珍珠奶茶、牛肉麵、夜市、茶文化、客家菜 |
+| 🎨 | [藝術 Art](https://taiwan.md/art) | 22 | 當代藝術、新媒體藝術、電影、漫畫 |
+| 🎵 | [音樂 Music](https://taiwan.md/music) | 10 | 金曲獎、獨立音樂、聲音地景 |
+| 💻 | [科技 Technology](https://taiwan.md/technology) | 17 | 台積電矽盾、g0v 公民科技、半導體 |
+| 🌿 | [自然 Nature](https://taiwan.md/nature) | 15 | 特有種、國家公園、步道文化 |
+| 👤 | [人物 People](https://taiwan.md/people) | 14 | 李安、張忠謀、鄧麗君、唐鳳、侯孝賢... |
+| 🏛️ | [社會 Society](https://taiwan.md/society) | 17 | 民主制度、人權與性別平等、外交 |
+| 💰 | [經濟 Economy](https://taiwan.md/economy) | 16 | 經濟奇蹟、夜市經濟學、電商 |
+| 🏙️ | [生活 Lifestyle](https://taiwan.md/lifestyle) | 13 | 便利商店、健保、交通、溫泉、KTV、咖啡文化 |
 
 ---
 
@@ -183,7 +183,7 @@ Thanks to these wonderful people ([emoji key](https://allcontributors.org/docs/e
   <tr>
     <td align="center"><a href="https://github.com/hansai-art"><img src="https://avatars.githubusercontent.com/u/132933660?v=4" width="80px;" alt="hansai-art"/><br /><sub><b>hansai-art</b></sub></a><br />🖋 💻 🔍</td>
     <td align="center"><a href="https://github.com/luofreddy"><img src="https://avatars.githubusercontent.com/u/85281073?v=4" width="80px;" alt="luofreddy"/><br /><sub><b>luofreddy</b></sub></a><br />💻</td>
-    <td align="center"><a href="https://github.com/fredchu"><img src="https://avatars.githubusercontent.com/u/282984?v=4" width="80px;" alt="fredchu"/><br /><sub><b>fredchu</b></sub></a><br />🔍</td>
+    <td align="center"><a href="https://github.com/fredchu"><img src="https://avatars.githubusercontent.com/u/282984?v=4" width="80px;" alt="fredchu"/><br /><sub><b>fredchu</b></sub></a><br />🔍 🐛</td>
     <td align="center"><a href="https://github.com/Rushyuheng"><img src="https://avatars.githubusercontent.com/u/82425707?v=4" width="80px;" alt="Rushyuheng"/><br /><sub><b>Rushyuheng</b></sub></a><br />🖋</td>
     <td align="center"><a href="https://github.com/f312213213"><img src="https://avatars.githubusercontent.com/u/71749524?v=4" width="80px;" alt="f312213213"/><br /><sub><b>f312213213</b></sub></a><br />💻 🌍</td>
     <td align="center"><a href="https://github.com/siansiansu"><img src="https://avatars.githubusercontent.com/u/33390878?v=4" width="80px;" alt="siansiansu"/><br /><sub><b>siansiansu</b></sub></a><br />🖋</td>

@@ -9,7 +9,7 @@
   "imageSize": 80,
   "commit": false,
   "commitConvention": "none",
-  "contributorsPerLine": 8,
+  "contributorsPerLine": 7,
   "linkToUsage": false,
   "skipCi": true,
   "contributors": [
@@ -33,7 +33,8 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/260387338?v=4",
       "profile": "https://github.com/bugnimusic",
       "contributions": [
-        "content"
+        "content",
+        "translation"
       ]
     },
     {
@@ -89,7 +90,9 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/132933660?v=4",
       "profile": "https://github.com/hansai-art",
       "contributions": [
-        "content"
+        "content",
+        "code",
+        "review"
       ]
     },
     {
@@ -99,6 +102,44 @@
       "profile": "https://github.com/luofreddy",
       "contributions": [
         "code"
+      ]
+    },
+    {
+      "login": "fredchu",
+      "name": "Fred Chu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/282984?v=4",
+      "profile": "https://github.com/fredchu",
+      "contributions": [
+        "review",
+        "bug"
+      ]
+    },
+    {
+      "login": "Rushyuheng",
+      "name": "Rushyuheng",
+      "avatar_url": "https://avatars.githubusercontent.com/u/82425707?v=4",
+      "profile": "https://github.com/Rushyuheng",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "f312213213",
+      "name": "David",
+      "avatar_url": "https://avatars.githubusercontent.com/u/71749524?v=4",
+      "profile": "https://github.com/f312213213",
+      "contributions": [
+        "code",
+        "translation"
+      ]
+    },
+    {
+      "login": "siansiansu",
+      "name": "siansiansu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/33390878?v=4",
+      "profile": "https://github.com/siansiansu",
+      "contributions": [
+        "content"
       ]
     }
   ]
