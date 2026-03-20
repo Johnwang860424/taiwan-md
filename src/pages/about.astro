@@ -546,7 +546,10 @@ import ProticoScript from '../components/ProticoScript.astro';
             <p class="tier-price">NT$50,000 / 年</p>
             <p class="tier-desc">About 頁 Logo、README 致謝</p>
             <div class="tier-logos">
-              <div class="logo-placeholder">Your Logo Here</div>
+              <a href="https://justfont.com" target="_blank" rel="noopener noreferrer" class="sponsor-logo-link">
+                <img src="/images/justfont-logo.svg" alt="justfont" class="sponsor-logo-img" style="height: 28px;" />
+              </a>
+              <p class="sponsor-contribution">贊助 Webfont 方案，讓更多人看見台灣的美好</p>
             </div>
           </div>
 
@@ -1536,6 +1539,24 @@ import ProticoScript from '../components/ProticoScript.astro';
   .tier-price { font-size: 1.1rem; font-weight: 700; color: #2D5016; margin-bottom: 0.4rem; }
   .tier-desc { font-size: 0.85rem; color: #64748b; margin-bottom: 1rem; }
   .tier-logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; }
+  .sponsor-logo-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.5rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    transition: all 0.2s;
+  }
+  .sponsor-logo-link:hover { background: #f1f5f9; border-color: #cbd5e1; }
+  .sponsor-logo-img { height: 28px; width: auto; }
+  .sponsor-contribution {
+    font-size: 0.82rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
   .logo-placeholder {
     padding: 1.25rem 1.5rem;
     border: 2px dashed #d1d5db;
