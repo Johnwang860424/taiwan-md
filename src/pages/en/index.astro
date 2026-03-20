@@ -2,6 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import CategoryGrid from '../../components/CategoryGrid.astro';
 import { getCollection } from 'astro:content';
+import { readdir, readFile } from 'fs/promises';
+import { resolve, join, basename } from 'path';
+import matter from 'gray-matter';
 // Fetch recent commits from GitHub API (works in shallow clone CI/CD environments)
 let recentCommits: { hash: string; date: string; message: string }[] = [];
 try {
@@ -52,38 +55,39 @@ const categories = [
   { id: 'lifestyle', name: 'Lifestyle', emoji: '🏠' },
 ];
 
-// Get English articles count
+// Get English articles count and prepare random discovery list
 const articleCounts: Record<string, number> = {};
-let allEnArticles: any[] = [];
-try {
-  allEnArticles = await getCollection('en');
-  for (const cat of categories) {
-    const categoryArticles = allEnArticles.filter(article =>
-      article.id.startsWith(`${cat.id}/`) && !article.id.includes('/_')
-    );
-    articleCounts[cat.id] = categoryArticles.length;
-  }
-} catch (error) {
-  console.warn('Error counting English articles:', error);
-  // Set default counts
-  categories.forEach(cat => {
-    articleCounts[cat.id] = 0;
-  });
-}
+let allArticles: { title: string; url: string; category: string }[] = [];
 
-// Prepare article list for random discovery
-const allArticles = allEnArticles
-  .filter(article => !article.id.includes('/_') && !article.id.endsWith('/_Hub.md'))
-  .map(article => {
-    const slug = article.id.split('/').slice(1).join('/').replace(/\.md$/, '');
-    const category = article.id.split('/')[0];
-    const categoryData = categories.find(c => c.id === category);
-    return {
-      title: article.data.title,
-      url: `/en/${category}/${slug}`,
-      category: categoryData ? categoryData.name : category
-    };
-  });
+const categoryMapping: Record<string, string> = {
+  history: 'History', geography: 'Geography', culture: 'Culture',
+  food: 'Food', art: 'Art', music: 'Music', technology: 'Technology',
+  nature: 'Nature', people: 'People', society: 'Society',
+  economy: 'Economy', lifestyle: 'Lifestyle',
+};
+
+for (const cat of categories) {
+  const folderName = categoryMapping[cat.id];
+  try {
+    const folderPath = resolve(process.cwd(), 'knowledge', 'en', folderName);
+    const files = await readdir(folderPath);
+    const mdFiles = files.filter(f => f.endsWith('.md') && !f.startsWith('_'));
+    articleCounts[cat.id] = mdFiles.length;
+
+    for (const file of mdFiles) {
+      const content = await readFile(join(folderPath, file), 'utf-8');
+      const { data: frontmatter } = matter(content);
+      const slug = basename(file, '.md');
+      allArticles.push({
+        title: frontmatter.title || slug,
+        url: `/en/${cat.id}/${slug}`,
+        category: cat.name,
+      });
+    }
+  } catch {
+    articleCounts[cat.id] = 0;
+  }
+}
 
 const randomArticlesData = JSON.stringify(allArticles);
 ---
@@ -1944,19 +1948,58 @@ const randomArticlesData = JSON.stringify(allArticles);
 document.addEventListener('DOMContentLoaded', function() {
   // Random discovery functionality
   const randomBtn = document.getElementById('random-discovery-btn');
-  const articles = JSON.parse(randomArticlesData);
-  
+  let articles = [];
+
+  try {
+    articles = randomArticlesData ? JSON.parse(randomArticlesData) : [];
+  } catch (e) {
+    articles = [];
+  }
+
   if (randomBtn && articles.length > 0) {
+    // Fisher-Yates shuffle for true randomness without repeats
+    let shuffled = [...articles];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    let currentIndex = 0;
+
     randomBtn.addEventListener('click', function() {
-      const randomIndex = Math.floor(Math.random() * articles.length);
-      const randomArticle = articles[randomIndex];
-      
-      // Add click animation
-      randomBtn.style.transform = 'scale(0.95)';
-      setTimeout(() => {
-        randomBtn.style.transform = 'scale(1)';
-        window.location.href = randomArticle.url;
-      }, 150);
+      // Reshuffle when we've gone through all articles
+      if (currentIndex >= shuffled.length) {
+        currentIndex = 0;
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+      }
+
+      const randomArticle = shuffled[currentIndex++];
+
+      // Slot machine animation - cycle through random titles
+      const textEl = randomBtn.querySelector('.random-text');
+      const subtitleEl = randomBtn.querySelector('.random-subtitle');
+
+      randomBtn.style.pointerEvents = 'none';
+      let ticks = 0;
+      const totalTicks = 8;
+      const interval = setInterval(() => {
+        const preview = shuffled[Math.floor(Math.random() * shuffled.length)];
+        textEl.textContent = preview.title;
+        subtitleEl.textContent = preview.category;
+        textEl.style.opacity = 0.5 + (ticks / totalTicks) * 0.5;
+        ticks++;
+        if (ticks >= totalTicks) {
+          clearInterval(interval);
+          textEl.textContent = randomArticle.title;
+          subtitleEl.textContent = randomArticle.category;
+          textEl.style.opacity = 1;
+          setTimeout(() => {
+            window.location.href = randomArticle.url;
+          }, 400);
+        }
+      }, 80);
     });
   }
 
