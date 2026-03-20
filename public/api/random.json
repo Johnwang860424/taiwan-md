@@ -1,0 +1,299 @@
+[
+  {
+    "title": "台灣電子音樂與派對文化：從地下 Rave 到國際舞台",
+    "description": "從1990年代 Rave 派對文化到 Road to Ultra 電音節，台灣電子音樂如何從地下走向主流，孕育出國際級 DJ 與獨立電子廠牌",
+    "category": "Music",
+    "tags": [
+      "電子音樂",
+      "Rave",
+      "派對文化",
+      "DJ",
+      "電音節",
+      "地下音樂"
+    ],
+    "url": "https://taiwan.md/Music/%E5%8F%B0%E7%81%A3%E9%9B%BB%E5%AD%90%E9%9F%B3%E6%A8%82%E8%88%87%E6%B4%BE%E5%B0%8D%E6%96%87%E5%8C%96",
+    "readingTime": 11,
+    "featured": true,
+    "date": "2026-03-19",
+    "path": "Music/台灣電子音樂與派對文化.md"
+  },
+  {
+    "title": "珍珠奶茶",
+    "description": "從台灣夜市小攤到全球飲品帝國，珍珠奶茶的起源爭議與文化征服之路",
+    "category": "Food",
+    "tags": [
+      "美食",
+      "珍珠奶茶",
+      "手搖飲",
+      "全球化",
+      "軟實力",
+      "文化外交"
+    ],
+    "url": "https://taiwan.md/Food/%E7%8F%8D%E7%8F%A0%E5%A5%B6%E8%8C%B6",
+    "readingTime": 16,
+    "featured": true,
+    "date": "2026-03-17",
+    "path": "Food/珍珠奶茶.md"
+  },
+  {
+    "title": "台灣海洋生態",
+    "description": "黑潮、珊瑚礁與海洋生物多樣性：台灣海域的生態奇蹟與保育挑戰",
+    "category": "Nature",
+    "tags": [],
+    "url": "https://taiwan.md/Nature/%E5%8F%B0%E7%81%A3%E6%B5%B7%E6%B4%8B%E7%94%9F%E6%85%8B",
+    "readingTime": 19,
+    "featured": false,
+    "date": "2026-03-18",
+    "path": "Nature/台灣海洋生態.md"
+  },
+  {
+    "title": "台灣產業轉型升級：從製造大國到創新強國",
+    "description": "台灣產業結構從勞力密集轉向知識密集，透過5+2產業創新、6大核心戰略產業等政策，推動傳統製造業升級與新興產業發展。",
+    "category": "Economy",
+    "tags": [
+      "經濟",
+      "產業政策",
+      "轉型升級",
+      "創新",
+      "製造業",
+      "高科技"
+    ],
+    "url": "https://taiwan.md/Economy/%E5%8F%B0%E7%81%A3%E7%94%A2%E6%A5%AD%E8%BD%89%E5%9E%8B%E5%8D%87%E7%B4%9A%EF%BC%9A%E5%BE%9E%E8%A3%BD%E9%80%A0%E5%A4%A7%E5%9C%8B%E5%88%B0%E5%89%B5%E6%96%B0%E5%BC%B7%E5%9C%8B",
+    "readingTime": 17,
+    "featured": true,
+    "date": "2026-03-19",
+    "path": "Economy/台灣產業轉型升級：從製造大國到創新強國.md"
+  },
+  {
+    "title": "楊傳廣",
+    "description": "亞洲鐵人，1960羅馬奧運十項全能銀牌，台灣首位奧運獎牌得主",
+    "category": "People",
+    "tags": [
+      "體育",
+      "田徑",
+      "奧運",
+      "十項全能",
+      "原住民",
+      "阿美族"
+    ],
+    "url": "https://taiwan.md/People/%E6%A5%8A%E5%82%B3%E5%BB%A3",
+    "readingTime": 6,
+    "featured": false,
+    "date": "2026-03-19",
+    "path": "People/楊傳廣.md"
+  },
+  {
+    "title": "人權與性別平等",
+    "description": "台灣在人權保障與性別平等方面的進步歷程，從威權體制下的人權侵害到成為亞洲人權先驅",
+    "category": "Society",
+    "tags": [
+      "Society",
+      "人權",
+      "性別平等",
+      "同性婚姻",
+      "轉型正義"
+    ],
+    "url": "https://taiwan.md/Society/%E4%BA%BA%E6%AC%8A%E8%88%87%E6%80%A7%E5%88%A5%E5%B9%B3%E7%AD%89",
+    "readingTime": 8,
+    "featured": false,
+    "date": "2026-03-17",
+    "path": "Society/人權與性別平等.md"
+  },
+  {
+    "title": "Transportation System",
+    "description": "High-speed rail connects north to south in 90 minutes, metro weaves urban arteries, scooters navigate through alleys",
+    "category": "en",
+    "tags": [
+      "lifestyle",
+      "transportation",
+      "high-speed rail",
+      "metro",
+      "scooters",
+      "Taiwan"
+    ],
+    "url": "https://taiwan.md/en/Lifestyle/transportation-system",
+    "readingTime": 47,
+    "featured": false,
+    "date": "2026-03-17",
+    "path": "en/Lifestyle/transportation-system.md"
+  },
+  {
+    "title": "Human Rights and Gender Equality",
+    "description": "Taiwan's progressive journey in human rights protection and gender equality, from authoritarian human rights violations to becoming Asia's pioneer in human rights",
+    "category": "en",
+    "tags": [],
+    "url": "https://taiwan.md/en/Society/human-rights-and-gender-equality",
+    "readingTime": 33,
+    "featured": false,
+    "date": "2026-03-17",
+    "path": "en/Society/human-rights-and-gender-equality.md"
+  },
+  {
+    "title": "Crowd Lu (盧廣仲)",
+    "description": "Taiwanese singer-songwriter and actor who captured hearts with his grassroots charm and unique vocal style, becoming the youngest triple-crown winner of Taiwan's Golden Melody, Golden Bell, and Golden Horse Awards",
+    "category": "en",
+    "tags": [],
+    "url": "https://taiwan.md/en/People/crowd-lu-indie-folk-treasure",
+    "readingTime": 29,
+    "featured": false,
+    "date": "2026-03-20",
+    "path": "en/People/crowd-lu-indie-folk-treasure.md"
+  },
+  {
+    "title": "City Character and Regional Cultures",
+    "description": "How Taiwan’s cities—from Taipei’s global core to Tainan’s old‑capital soul—shape local identity and everyday life",
+    "category": "en",
+    "tags": [],
+    "url": "https://taiwan.md/en/Geography/city-character-and-regional-cultures",
+    "readingTime": 28,
+    "featured": true,
+    "date": "2026-03-18",
+    "path": "en/Geography/city-character-and-regional-cultures.md"
+  },
+  {
+    "title": "Chen Wei-yin: Taiwan's MLB Pioneer",
+    "description": "Taiwan's successful Major League Baseball pitcher who brought pride to Taiwan on international baseball's biggest stage",
+    "category": "en",
+    "tags": [
+      "baseball",
+      "MLB",
+      "sports",
+      "athlete",
+      "pitcher"
+    ],
+    "url": "https://taiwan.md/en/People/chen-wei-yin-mlb-pitcher",
+    "readingTime": 37,
+    "featured": false,
+    "date": "2026-03-20",
+    "path": "en/People/chen-wei-yin-mlb-pitcher.md"
+  },
+  {
+    "title": "Clash of Civilizations on Keyboards: A Century of East Asian Input Method Evolution",
+    "description": "When keyboards worldwide look identical, how do different civilizations fit their scripts into 26 English letters? From Taiwan's Zhuyin to Korea's Dubeolsik, input methods are a silent cultural preservation battle",
+    "category": "en",
+    "tags": [],
+    "url": "https://taiwan.md/en/Technology/east-asian-input-methods",
+    "readingTime": 61,
+    "featured": true,
+    "date": "2026-03-19",
+    "path": "en/Technology/east-asian-input-methods.md"
+  },
+  {
+    "title": "democracy-and-democratization",
+    "description": "Taiwan's successful democratization holds significant historical and contemporary importance. It proves that Chinese soc",
+    "category": "en",
+    "tags": [
+      "history",
+      "democratization",
+      "politics"
+    ],
+    "url": "https://taiwan.md/en/History/democracy-and-democratization",
+    "readingTime": 30,
+    "featured": false,
+    "date": "2026-03-17",
+    "path": "en/History/democracy-and-democratization.md"
+  },
+  {
+    "title": "Dutch, Spanish and Koxinga Era",
+    "description": "Taiwan's first systematic colonial rule, from the Dutch establishment of Fort Zeelandia to Koxinga's founding of Taiwan, laying the foundation for Han Chinese settlement and political institutions",
+    "category": "en",
+    "tags": [
+      "History",
+      "Dutch East India Company",
+      "Kingdom of Tungning",
+      "Koxinga"
+    ],
+    "url": "https://taiwan.md/en/History/dutch-spanish-and-koxinga-era",
+    "readingTime": 42,
+    "featured": false,
+    "date": "2026-03-17",
+    "path": "en/History/dutch-spanish-and-koxinga-era.md"
+  },
+  {
+    "title": "Mayday (五月天)",
+    "description": "From a high school band in Taipei to a generational symbol of Mandarin rock—how Mayday turned youthful sincerity into Taiwan’s loudest cultural heartbeat",
+    "category": "en",
+    "tags": [
+      "people",
+      "band",
+      "rock",
+      "mandarin-pop",
+      "golden-melody-awards",
+      "live-concerts"
+    ],
+    "url": "https://taiwan.md/en/People/mayday",
+    "readingTime": 25,
+    "featured": false,
+    "date": "2026-03-19",
+    "path": "en/People/mayday.md"
+  },
+  {
+    "title": "Lee Teng-hui",
+    "description": "Architect of Taiwan’s ‘quiet revolution,’ often called ‘Mr. Democracy’ for leading the island’s peaceful democratic transition.",
+    "category": "en",
+    "tags": [
+      "people",
+      "politics",
+      "democratization",
+      "president"
+    ],
+    "url": "https://taiwan.md/en/People/lee-teng-hui",
+    "readingTime": 20,
+    "featured": false,
+    "date": "2026-03-19",
+    "path": "en/People/lee-teng-hui.md"
+  },
+  {
+    "title": "Contemporary Taiwanese Literature",
+    "description": "",
+    "category": "en",
+    "tags": [
+      "literature",
+      "contemporary",
+      "diversity"
+    ],
+    "url": "https://taiwan.md/en/Art/contemporary-taiwanese-literature",
+    "readingTime": 46,
+    "featured": false,
+    "date": "2026-03-19",
+    "path": "en/Art/contemporary-taiwanese-literature.md"
+  },
+  {
+    "title": "Chi Cheng: The Flying Antelope",
+    "description": "The Flying Antelope, bronze medalist in 80m hurdles at 1968 Mexico Olympics",
+    "category": "en",
+    "tags": [
+      "sports",
+      "track and field",
+      "Olympics",
+      "hurdles"
+    ],
+    "url": "https://taiwan.md/en/People/chi-cheng-flying-antelope",
+    "readingTime": 34,
+    "featured": false,
+    "date": "2026-03-20",
+    "path": "en/People/chi-cheng-flying-antelope.md"
+  },
+  {
+    "title": "Lee Yuan-tseh",
+    "description": "",
+    "category": "en",
+    "tags": [],
+    "url": "https://taiwan.md/en/People/lee-yuan-tseh",
+    "readingTime": 59,
+    "featured": false,
+    "date": "2026-03-17",
+    "path": "en/People/lee-yuan-tseh.md"
+  },
+  {
+    "title": "Braised Pork Rice (滷肉飯): Taiwan’s Everyday National Dish",
+    "description": "From military dependents’ kitchens to a nationwide comfort food, the north–south debate and cultural meaning of braised pork rice",
+    "category": "en",
+    "tags": [],
+    "url": "https://taiwan.md/en/Food/braised-pork-rice",
+    "readingTime": 21,
+    "featured": true,
+    "date": "2026-03-19",
+    "path": "en/Food/braised-pork-rice.md"
+  }
+]
