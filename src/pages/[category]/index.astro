@@ -4,14 +4,14 @@ import { resolve, join, basename } from 'path';
 import matter from 'gray-matter';
 import Layout from '../../layouts/Layout.astro';
 import { marked } from 'marked';
+import { useTranslations, getLangFromUrl } from '../../i18n/utils';
 import {
-  categoryConfig,
-  getCategoryConfig,
+  categoryList as categories,
+  getCategoryConfigs,
   type CategoryKey,
-} from '../../utils/categoryConfig';
+} from '../../utils/newCategoryConfig';
 
 export async function getStaticPaths() {
-  const categories = Object.keys(categoryConfig);
   const categoryMapping: Record<string, string> = {
     history: 'History',
     geography: 'Geography',
@@ -78,7 +78,6 @@ export async function getStaticPaths() {
     paths.push({
       params: { category },
       props: {
-        categoryInfo: categoryConfig[category as CategoryKey],
         category,
         hubContent,
         articles: articles.sort((a, b) => {
@@ -93,7 +92,7 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { categoryInfo, category, hubContent, articles } = Astro.props;
+const { category, hubContent, articles } = Astro.props;
 
 // Compute unique tags for filter
 const allTagsSet = new Set();
@@ -178,13 +177,19 @@ if (isEconomy && hubHtml) {
   });
 }
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const categoryConfigs = getCategoryConfigs(t);
+const categoryInfo = categoryConfigs[category];
+
 // 其他分類（跨分類導航用）
-const otherCategories = Object.keys(categoryConfig)
+const otherCategories = categories
   .filter((cat) => cat !== category)
   .slice(0, 5) // 只顯示5個
   .map((cat) => ({
     key: cat,
-    ...categoryConfig[cat as CategoryKey],
+    ...categoryConfigs[cat as CategoryKey],
   }));
 ---
 
@@ -471,7 +476,7 @@ const otherCategories = Object.keys(categoryConfig)
         }
         return 0;
       });
-      sorted.forEach((card) => grid.appendChild(card));
+      sorted.forEach((card) => grid?.appendChild(card));
     }
 
     // Filter

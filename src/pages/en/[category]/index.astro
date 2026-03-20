@@ -4,14 +4,15 @@ import { resolve, join, basename } from 'path';
 import matter from 'gray-matter';
 import Layout from '../../../layouts/Layout.astro';
 import { marked } from 'marked';
+
+import { useTranslations, getLangFromUrl } from '../../../i18n/utils';
 import {
-  categoryConfig,
-  getCategoryConfig,
+  categoryList as categories,
+  getCategoryConfigs,
   type CategoryKey,
-} from '../../../utils/categoryConfig';
+} from '../../../utils/newCategoryConfig';
 
 export async function getStaticPaths() {
-  const categories = Object.keys(categoryConfig);
   const categoryMapping: Record<string, string> = {
     history: 'History',
     geography: 'Geography',
@@ -82,7 +83,6 @@ export async function getStaticPaths() {
     paths.push({
       params: { category },
       props: {
-        categoryInfo: categoryConfig[category as CategoryKey],
         category,
         hubContent,
         articles: articles.sort((a, b) => {
@@ -97,7 +97,7 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { categoryInfo, category, hubContent, articles } = Astro.props;
+const { category, hubContent, articles } = Astro.props;
 
 function resolveWikilinks(md: string, currentCategory: string) {
   if (!md) return md;
@@ -131,19 +131,25 @@ const resolvedContent = hubContent
   : '';
 const hubHtml = resolvedContent ? marked.parse(resolvedContent) : '';
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const categoryConfigs = getCategoryConfigs(t);
+const categoryInfo = categoryConfigs[category];
+
 // 其他分類（跨分類導航用）
-const otherCategories = Object.keys(categoryConfig)
+const otherCategories = categories
   .filter((cat) => cat !== category)
   .slice(0, 5) // 只顯示5個
   .map((cat) => ({
     key: cat,
-    ...categoryConfig[cat as CategoryKey],
+    ...categoryConfigs[cat as CategoryKey],
   }));
 ---
 
 <Layout
-  title={`${categoryInfo.name_en} - Taiwan.md`}
-  description={`${categoryInfo.description_en} - Taiwan knowledge base`}
+  title={`${categoryInfo.name} - Taiwan.md`}
+  description={`${categoryInfo.description} - Taiwan knowledge base`}
   lang="en"
   category={categoryInfo.name}
 >
@@ -155,8 +161,8 @@ const otherCategories = Object.keys(categoryConfig)
     >
       <div class="hero-content">
         <div class="hero-icon">{categoryInfo.icon}</div>
-        <h1 class="hero-title">{categoryInfo.name_en}</h1>
-        <p class="hero-description">{categoryInfo.description_en}</p>
+        <h1 class="hero-title">{categoryInfo.name}</h1>
+        <p class="hero-description">{categoryInfo.description}</p>
         <div class="hero-stats">
           <span class="stats-badge">📚 {articles.length} articles</span>
         </div>
@@ -169,7 +175,7 @@ const otherCategories = Object.keys(categoryConfig)
       <nav class="breadcrumb">
         <a href="/en">Home</a>
         <span class="separator">›</span>
-        <span class="current">{categoryInfo.name_en}</span>
+        <span class="current">{categoryInfo.name}</span>
       </nav>
 
       <!-- Hub Content (curated overview) -->
@@ -272,7 +278,7 @@ const otherCategories = Object.keys(categoryConfig)
                 style={`border-color: ${cat.color}; color: ${cat.color};`}
               >
                 <div class="category-card-icon">{cat.icon}</div>
-                <div class="category-card-name">{cat.name_en}</div>
+                <div class="category-card-name">{cat.name}</div>
               </a>
             ))
           }

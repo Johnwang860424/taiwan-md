@@ -130,10 +130,3 @@ const __plainCategoryConfig = getCategoryConfigs((key) => key as any);
 
 export const categoryList = Object.keys(__plainCategoryConfig) as CategoryKey[];
 export type CategoryKey = keyof typeof __plainCategoryConfig;
-
-export function getCategoryConfig(
-  category: string,
-  t: ReturnType<typeof useTranslations>,
-) {
-  return getCategoryConfigs(t)[category as CategoryKey] || null;
-}

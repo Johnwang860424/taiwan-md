@@ -5,11 +5,12 @@ import { execSync } from 'child_process';
 import matter from 'gray-matter';
 import Layout from '../../../layouts/Layout.astro';
 import { marked } from 'marked';
+import { useTranslations, getLangFromUrl } from '../../../i18n/utils';
 import {
-  categoryConfig,
-  getCategoryConfig,
+  categoryList as categories,
+  getCategoryConfigs,
   type CategoryKey,
-} from '../../../utils/categoryConfig';
+} from '../../../utils/newCategoryConfig';
 
 let _gitCache: Map<
   string,
@@ -137,24 +138,27 @@ const {
   description,
   content,
   frontmatter,
-  lang,
   contributors = [],
   lastModified = '',
 } = Astro.props;
 const { category, slug } = Astro.params;
 
-const categoryInfo = getCategoryConfig(category);
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const categoryConfigs = getCategoryConfigs(t);
+const categoryInfo = categoryConfigs[category as CategoryKey];
+
 if (!categoryInfo) {
   throw new Error(`Unknown category: ${category}`);
 }
 
 // 推薦文章 (簡化版，取同分類的其他文章)
-const otherCategories = Object.keys(categoryConfig)
+const otherCategories = categories
   .filter((cat) => cat !== category)
   .slice(0, 3)
   .map((cat) => ({
     key: cat,
-    ...categoryConfig[cat as CategoryKey],
+    ...categoryConfigs[cat as CategoryKey],
   }));
 
 const categoryMapping: Record<string, string> = {
