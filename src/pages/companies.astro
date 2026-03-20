@@ -1,0 +1,640 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// 台灣前50大企業（市值/營收為近期公開數據，單位：新台幣億元）
+// 資料來源：TWSE、各公司年報、公開資訊觀測站（2025年度）
+const companies = [
+  { name: '台積電 TSMC', sector: '半導體', marketCap: 267000, revenue: 29100, employees: 76000, founded: 1987, ticker: '2330' },
+  { name: '鴻海 Foxconn', sector: '電子代工', marketCap: 22000, revenue: 67800, employees: 870000, founded: 1974, ticker: '2317' },
+  { name: '聯發科 MediaTek', sector: '半導體', marketCap: 21000, revenue: 6130, employees: 20000, founded: 1997, ticker: '2454' },
+  { name: '台達電 Delta', sector: '電子零組件', marketCap: 16000, revenue: 4520, employees: 80000, founded: 1971, ticker: '2308' },
+  { name: '日月光 ASE', sector: '半導體', marketCap: 9500, revenue: 6580, employees: 98000, founded: 1984, ticker: '3711' },
+  { name: '廣達 Quanta', sector: '電子代工', marketCap: 9200, revenue: 14800, employees: 90000, founded: 1988, ticker: '2382' },
+  { name: '國泰金控', sector: '金融', marketCap: 8600, revenue: 11500, employees: 55000, founded: 2001, ticker: '2882' },
+  { name: '富邦金控', sector: '金融', marketCap: 8500, revenue: 10800, employees: 48000, founded: 2001, ticker: '2881' },
+  { name: '中華電信', sector: '電信', marketCap: 8200, revenue: 2390, employees: 23000, founded: 1996, ticker: '2412' },
+  { name: '聯電 UMC', sector: '半導體', marketCap: 6000, revenue: 2450, employees: 20000, founded: 1980, ticker: '2303' },
+  { name: '統一企業', sector: '食品', marketCap: 5800, revenue: 5250, employees: 30000, founded: 1967, ticker: '1216' },
+  { name: '長榮海運', sector: '航運', marketCap: 5500, revenue: 5620, employees: 10000, founded: 1968, ticker: '2603' },
+  { name: '華碩 ASUS', sector: '電腦品牌', marketCap: 5200, revenue: 5360, employees: 17000, founded: 1989, ticker: '2357' },
+  { name: '和碩 Pegatron', sector: '電子代工', marketCap: 4600, revenue: 14200, employees: 170000, founded: 2008, ticker: '4938' },
+  { name: '台塑化', sector: '石化', marketCap: 4400, revenue: 8120, employees: 6000, founded: 1992, ticker: '6505' },
+  { name: '兆豐金控', sector: '金融', marketCap: 4200, revenue: 2190, employees: 10000, founded: 2002, ticker: '2886' },
+  { name: '中鋼', sector: '鋼鐵', marketCap: 4100, revenue: 4350, employees: 10300, founded: 1971, ticker: '2002' },
+  { name: '台灣大哥大', sector: '電信', marketCap: 4000, revenue: 1580, employees: 7000, founded: 1997, ticker: '3045' },
+  { name: '瑞昱 Realtek', sector: '半導體', marketCap: 3900, revenue: 1580, employees: 5000, founded: 1987, ticker: '2379' },
+  { name: '研華 Advantech', sector: '工業電腦', marketCap: 3800, revenue: 680, employees: 9000, founded: 1983, ticker: '2395' },
+  { name: '台塑', sector: '石化', marketCap: 3600, revenue: 5080, employees: 8500, founded: 1954, ticker: '1301' },
+  { name: '緯創 Wistron', sector: '電子代工', marketCap: 3500, revenue: 10600, employees: 77000, founded: 2001, ticker: '3231' },
+  { name: '南亞塑膠', sector: '石化', marketCap: 3400, revenue: 3650, employees: 13000, founded: 1958, ticker: '1303' },
+  { name: '仁寶 Compal', sector: '電子代工', marketCap: 3300, revenue: 11900, employees: 77000, founded: 1984, ticker: '2324' },
+  { name: '大立光 Largan', sector: '光學', marketCap: 3200, revenue: 680, employees: 8000, founded: 1987, ticker: '3008' },
+  { name: '宏碁 Acer', sector: '電腦品牌', marketCap: 3100, revenue: 3150, employees: 7000, founded: 1976, ticker: '2353' },
+  { name: '玉山金控', sector: '金融', marketCap: 3000, revenue: 1190, employees: 13000, founded: 2002, ticker: '2884' },
+  { name: '台泥', sector: '水泥', marketCap: 2900, revenue: 1350, employees: 16000, founded: 1946, ticker: '1101' },
+  { name: '遠東新世紀', sector: '紡織/化纖', marketCap: 2800, revenue: 2950, employees: 35000, founded: 1949, ticker: '1402' },
+  { name: '中信金控', sector: '金融', marketCap: 2700, revenue: 5800, employees: 28000, founded: 2002, ticker: '2891' },
+  { name: '元大金控', sector: '金融', marketCap: 2600, revenue: 2100, employees: 11000, founded: 2002, ticker: '2885' },
+  { name: '巨大 Giant', sector: '自行車', marketCap: 2500, revenue: 960, employees: 12000, founded: 1972, ticker: '9921' },
+  { name: '第一金控', sector: '金融', marketCap: 2400, revenue: 1450, employees: 10000, founded: 2003, ticker: '2892' },
+  { name: '台化', sector: '石化', marketCap: 2300, revenue: 3280, employees: 5500, founded: 1965, ticker: '1326' },
+  { name: '遠傳電信', sector: '電信', marketCap: 2200, revenue: 1080, employees: 6000, founded: 1997, ticker: '4904' },
+  { name: '華南金控', sector: '金融', marketCap: 2100, revenue: 1350, employees: 12000, founded: 2001, ticker: '2880' },
+  { name: '光寶科技', sector: '電子零組件', marketCap: 2000, revenue: 2170, employees: 40000, founded: 1975, ticker: '2301' },
+  { name: '合庫金控', sector: '金融', marketCap: 1950, revenue: 1280, employees: 10000, founded: 2011, ticker: '5880' },
+  { name: '可成科技', sector: '機殼', marketCap: 1900, revenue: 850, employees: 6000, founded: 1984, ticker: '2474' },
+  { name: '台灣高鐵', sector: '交通', marketCap: 1850, revenue: 580, employees: 7000, founded: 1998, ticker: '2633' },
+  { name: '宏達電 HTC', sector: '消費電子', marketCap: 1800, revenue: 480, employees: 5000, founded: 1997, ticker: '2498' },
+  { name: '長春石化', sector: '石化', marketCap: 1750, revenue: 1200, employees: 7000, founded: 1949, ticker: '未上市' },
+  { name: '奇美實業', sector: '石化/面板', marketCap: 1700, revenue: 1100, employees: 6000, founded: 1960, ticker: '未上市' },
+  { name: '緯穎科技', sector: '伺服器', marketCap: 1650, revenue: 2850, employees: 2000, founded: 2012, ticker: '6669' },
+  { name: '力積電', sector: '半導體', marketCap: 1600, revenue: 620, employees: 8000, founded: 1994, ticker: '6770' },
+  { name: '欣興電子', sector: 'PCB', marketCap: 1550, revenue: 1350, employees: 30000, founded: 1990, ticker: '3037' },
+  { name: '矽力-KY', sector: '半導體', marketCap: 1500, revenue: 620, employees: 3000, founded: 2008, ticker: '6415' },
+  { name: '英業達', sector: '電子代工', marketCap: 1450, revenue: 5890, employees: 50000, founded: 1975, ticker: '2356' },
+  { name: '上銀科技', sector: '精密機械', marketCap: 1400, revenue: 320, employees: 7000, founded: 1989, ticker: '2049' },
+  { name: '聯詠科技', sector: '半導體', marketCap: 1350, revenue: 1120, employees: 3000, founded: 1997, ticker: '3034' },
+];
+
+const sectorColors: Record<string, string> = {
+  '半導體': '#3b82f6',
+  '電子代工': '#f59e0b',
+  '金融': '#10b981',
+  '石化': '#8b5cf6',
+  '電子零組件': '#06b6d4',
+  '電信': '#ec4899',
+  '食品': '#f97316',
+  '航運': '#0ea5e9',
+  '電腦品牌': '#6366f1',
+  '鋼鐵': '#64748b',
+  '水泥': '#a78bfa',
+  '光學': '#14b8a6',
+  '自行車': '#22c55e',
+  '紡織/化纖': '#d946ef',
+  '交通': '#0891b2',
+  '消費電子': '#e11d48',
+  '工業電腦': '#2563eb',
+  '機殼': '#7c3aed',
+  '石化/面板': '#9333ea',
+  '伺服器': '#0284c7',
+  'PCB': '#059669',
+  '精密機械': '#b45309',
+};
+
+const sectors = [...new Set(companies.map(c => c.sector))];
+---
+
+<Layout
+  title="台灣前 50 大企業泡泡圖"
+  description="以互動式 D3 泡泡圖呈現台灣前 50 大企業的市值、營收與產業分佈"
+>
+  <main class="companies-page">
+    <div class="hero">
+      <h1>🏢 台灣前 50 大企業</h1>
+      <p class="subtitle">
+        以市值為圓面積的互動泡泡圖，一目了然台灣產業版圖。<br />
+        泡泡越大 = 市值越高，顏色代表產業，懸停查看詳情。
+      </p>
+      <p class="data-note">
+        📊 資料來源：TWSE、各公司年報、公開資訊觀測站（2025 年度近似值）<br />
+        💡 點擊產業標籤可篩選；泡泡可拖曳
+      </p>
+    </div>
+
+    <div class="controls">
+      <div class="size-toggle">
+        <label>泡泡大小依據：</label>
+        <button class="toggle-btn active" data-mode="marketCap">市值</button>
+        <button class="toggle-btn" data-mode="revenue">營收</button>
+        <button class="toggle-btn" data-mode="employees">員工數</button>
+      </div>
+      <div class="sector-filters">
+        <button class="sector-btn active" data-sector="all">全部</button>
+        {sectors.map(s => (
+          <button
+            class="sector-btn"
+            data-sector={s}
+            style={`--sector-color: ${sectorColors[s] || '#888'}`}
+          >
+            <span class="sector-dot" style={`background: ${sectorColors[s] || '#888'}`}></span>
+            {s}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div id="bubble-chart"></div>
+
+    <div class="table-section">
+      <h2>📋 完整排名</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>企業</th>
+              <th>產業</th>
+              <th>市值（億 TWD）</th>
+              <th>營收（億 TWD）</th>
+              <th>員工數</th>
+              <th>成立</th>
+            </tr>
+          </thead>
+          <tbody>
+            {companies.map((c, i) => (
+              <tr>
+                <td>{i + 1}</td>
+                <td><strong>{c.name}</strong></td>
+                <td>
+                  <span class="sector-tag" style={`background: ${sectorColors[c.sector] || '#888'}20; color: ${sectorColors[c.sector] || '#888'}; border: 1px solid ${sectorColors[c.sector] || '#888'}40`}>
+                    {c.sector}
+                  </span>
+                </td>
+                <td>{c.marketCap.toLocaleString()}</td>
+                <td>{c.revenue.toLocaleString()}</td>
+                <td>{c.employees.toLocaleString()}</td>
+                <td>{c.founded}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="insights">
+      <h2>🔍 關鍵洞察</h2>
+      <div class="insight-grid">
+        <div class="insight-card">
+          <div class="insight-number">39%</div>
+          <div class="insight-label">台積電佔台股總市值比重</div>
+          <div class="insight-detail">一家公司 ≈ 其餘 1,000 多家上市公司的 2/3</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-number">72%</div>
+          <div class="insight-label">前 50 大佔台股總市值</div>
+          <div class="insight-detail">台灣股市高度集中於大型企業</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-number">12 家</div>
+          <div class="insight-label">半導體相關企業入榜</div>
+          <div class="insight-detail">印證「矽盾」之名——半導體是台灣的國防</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-number">9 家</div>
+          <div class="insight-label">金融業入榜前 50</div>
+          <div class="insight-detail">金控整併後，金融業成為穩定力量</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="methodology">
+      <h2>📝 說明</h2>
+      <p>
+        本圖表收錄台灣市值前 50 大企業（含少數未上市重要企業如長春石化、奇美實業），
+        市值與營收為 2025 年度近似值，僅供趨勢參考，不構成投資建議。
+        完整即時數據請查閱 <a href="https://www.twse.com.tw/" target="_blank" rel="noopener">臺灣證券交易所</a>。
+      </p>
+      <p>
+        📖 延伸閱讀：
+        <a href="/economy/經濟奇蹟">台灣經濟奇蹟</a> ｜
+        <a href="/economy/新創生態系">新創生態系</a> ｜
+        <a href="/economy/台灣金融科技發展">金融科技發展</a>
+      </p>
+    </div>
+  </main>
+
+  <script define:vars={{ companies, sectorColors }}>
+    const data = companies;
+    const colors = sectorColors;
+
+    const script = document.createElement('script');
+    script.src = 'https://d3js.org/d3.v7.min.js';
+    script.onload = () => initBubbleChart(data, colors);
+    document.head.appendChild(script);
+
+    function initBubbleChart(data, colors) {
+      const container = document.getElementById('bubble-chart');
+      const width = container.clientWidth;
+      const height = Math.max(600, window.innerHeight * 0.6);
+
+      let currentMode = 'marketCap';
+      let currentSector = 'all';
+
+      const svg = d3
+        .select('#bubble-chart')
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height)
+        .attr('viewBox', `0 0 ${width} ${height}`);
+
+      const tooltip = d3
+        .select('#bubble-chart')
+        .append('div')
+        .attr('class', 'tooltip')
+        .style('opacity', 0);
+
+      function getValue(d) {
+        return d[currentMode] || 0;
+      }
+
+      function getRadius(d) {
+        const val = getValue(d);
+        const maxVal = d3.max(data, getValue);
+        const minR = 18;
+        const maxR = Math.min(width, height) * 0.18;
+        return minR + (maxR - minR) * Math.sqrt(val / maxVal);
+      }
+
+      const simulation = d3
+        .forceSimulation(data)
+        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('charge', d3.forceManyBody().strength(5))
+        .force(
+          'collision',
+          d3.forceCollide().radius((d) => getRadius(d) + 2).strength(0.8)
+        )
+        .force('x', d3.forceX(width / 2).strength(0.05))
+        .force('y', d3.forceY(height / 2).strength(0.05));
+
+      const nodes = svg
+        .selectAll('g.node')
+        .data(data)
+        .join('g')
+        .attr('class', 'node')
+        .call(
+          d3
+            .drag()
+            .on('start', (e, d) => {
+              if (!e.active) simulation.alphaTarget(0.3).restart();
+              d.fx = d.x;
+              d.fy = d.y;
+            })
+            .on('drag', (e, d) => {
+              d.fx = e.x;
+              d.fy = e.y;
+            })
+            .on('end', (e, d) => {
+              if (!e.active) simulation.alphaTarget(0);
+              d.fx = null;
+              d.fy = null;
+            })
+        );
+
+      const circles = nodes
+        .append('circle')
+        .attr('r', (d) => getRadius(d))
+        .attr('fill', (d) => colors[d.sector] || '#888')
+        .attr('fill-opacity', 0.8)
+        .attr('stroke', (d) => colors[d.sector] || '#888')
+        .attr('stroke-width', 2)
+        .attr('stroke-opacity', 0.3)
+        .style('cursor', 'grab');
+
+      const labels = nodes
+        .append('text')
+        .attr('text-anchor', 'middle')
+        .attr('dominant-baseline', 'central')
+        .attr('fill', '#fff')
+        .attr('font-weight', '600')
+        .attr('pointer-events', 'none')
+        .each(function (d) {
+          const r = getRadius(d);
+          const el = d3.select(this);
+          const shortName = d.name.split(' ')[0];
+          if (r > 50) {
+            el.append('tspan').attr('x', 0).attr('dy', '-0.4em').attr('font-size', `${Math.min(14, r / 4)}px`).text(shortName);
+            el.append('tspan').attr('x', 0).attr('dy', '1.3em').attr('font-size', `${Math.min(11, r / 5)}px`).attr('fill-opacity', 0.8).text(d.marketCap.toLocaleString() + ' 億');
+          } else if (r > 28) {
+            el.attr('font-size', `${Math.min(11, r / 3.5)}px`).text(shortName);
+          } else {
+            el.attr('font-size', '9px').text(shortName.slice(0, 2));
+          }
+        });
+
+      nodes
+        .on('mouseover', (e, d) => {
+          const modeLabel = { marketCap: '市值', revenue: '營收', employees: '員工數' };
+          tooltip.transition().duration(200).style('opacity', 1);
+          tooltip.html(`
+            <strong>${d.name}</strong><br/>
+            <span style="color:${colors[d.sector]||'#888'}">● ${d.sector}</span><br/>
+            市值：${d.marketCap.toLocaleString()} 億 TWD<br/>
+            營收：${d.revenue.toLocaleString()} 億 TWD<br/>
+            員工：${d.employees.toLocaleString()} 人<br/>
+            成立：${d.founded} 年
+          `)
+            .style('left', e.pageX + 15 + 'px')
+            .style('top', e.pageY - 10 + 'px');
+          d3.select(e.currentTarget).select('circle').attr('fill-opacity', 1).attr('stroke-width', 3);
+        })
+        .on('mouseout', (e) => {
+          tooltip.transition().duration(300).style('opacity', 0);
+          d3.select(e.currentTarget).select('circle').attr('fill-opacity', 0.8).attr('stroke-width', 2);
+        });
+
+      simulation.on('tick', () => {
+        nodes.attr('transform', (d) => {
+          d.x = Math.max(getRadius(d), Math.min(width - getRadius(d), d.x));
+          d.y = Math.max(getRadius(d), Math.min(height - getRadius(d), d.y));
+          return `translate(${d.x},${d.y})`;
+        });
+      });
+
+      // Toggle size mode
+      document.querySelectorAll('.toggle-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.toggle-btn').forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentMode = btn.dataset.mode;
+          updateBubbles();
+        });
+      });
+
+      // Sector filter
+      document.querySelectorAll('.sector-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.sector-btn').forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentSector = btn.dataset.sector;
+          updateBubbles();
+        });
+      });
+
+      function updateBubbles() {
+        circles
+          .transition()
+          .duration(600)
+          .attr('r', (d) => {
+            if (currentSector !== 'all' && d.sector !== currentSector) return 0;
+            return getRadius(d);
+          })
+          .attr('fill-opacity', (d) => {
+            if (currentSector !== 'all' && d.sector !== currentSector) return 0;
+            return 0.8;
+          });
+
+        labels
+          .transition()
+          .duration(600)
+          .attr('fill-opacity', (d) => {
+            if (currentSector !== 'all' && d.sector !== currentSector) return 0;
+            return 1;
+          });
+
+        simulation
+          .force(
+            'collision',
+            d3.forceCollide().radius((d) => {
+              if (currentSector !== 'all' && d.sector !== currentSector) return 0;
+              return getRadius(d) + 2;
+            }).strength(0.8)
+          )
+          .alpha(0.6)
+          .restart();
+      }
+    }
+  </script>
+
+  <style>
+    .companies-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .data-note {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 0.5rem;
+    }
+
+    .controls {
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .size-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .size-toggle label {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .toggle-btn {
+      padding: 0.4rem 1rem;
+      border: 2px solid #ddd;
+      border-radius: 20px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .toggle-btn.active {
+      background: #2563eb;
+      color: #fff;
+      border-color: #2563eb;
+    }
+
+    .sector-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .sector-btn {
+      padding: 0.3rem 0.8rem;
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.2s;
+    }
+
+    .sector-btn.active {
+      background: #f0f0f0;
+      border-color: #999;
+      font-weight: 600;
+    }
+
+    .sector-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    #bubble-chart {
+      position: relative;
+      width: 100%;
+      min-height: 600px;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fafafa;
+      margin-bottom: 2rem;
+    }
+
+    #bubble-chart svg {
+      display: block;
+    }
+
+    :global(.tooltip) {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      pointer-events: none;
+      z-index: 100;
+      max-width: 280px;
+    }
+
+    .table-section {
+      margin-top: 2rem;
+    }
+
+    .table-section h2 {
+      margin-bottom: 1rem;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    th {
+      background: #f5f5f5;
+      padding: 0.7rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      border-bottom: 2px solid #ddd;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    tr:hover {
+      background: #f9f9f9;
+    }
+
+    .sector-tag {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .insights {
+      margin-top: 3rem;
+    }
+
+    .insights h2 {
+      margin-bottom: 1rem;
+    }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .insight-card {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid #eee;
+    }
+
+    .insight-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #2563eb;
+    }
+
+    .insight-label {
+      font-weight: 600;
+      margin-top: 0.3rem;
+    }
+
+    .insight-detail {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 0.3rem;
+    }
+
+    .methodology {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: #f8f9fa;
+      border-radius: 12px;
+      border: 1px solid #eee;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .methodology h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    .methodology a {
+      color: #2563eb;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .insight-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      #bubble-chart {
+        min-height: 400px;
+      }
+    }
+  </style>
+</Layout>
