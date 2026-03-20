@@ -340,7 +340,7 @@ const jfClass = [
     <Header />
 
     <script is:inline define:vars={{ searchIndex, isEn }}>
-      (function () {
+      document.addEventListener('DOMContentLoaded', function () {
         var idx = searchIndex;
         var lang = isEn ? 'en' : 'zh-TW';
         var input = document.getElementById('search-input');
@@ -430,7 +430,7 @@ const jfClass = [
             }
           }
         });
-      })();
+      });
     </script>
 
     <main role="main">
