@@ -194,8 +194,8 @@ export const dataUI = {
 
     // Taiwan vs World Section
     'data.taiwanVsWorld.title': '🌏 Taiwan\'s Position in the World',
-    'data.taiwanVsWorld.story.p1': 'Taiwan is a small island with huge global impact. With 0.32% of the world\'s land area and 0.31% of global population, Taiwan produces 4% of global GDP and controls over 90% of advanced semiconductor manufacturing.',
-    'data.taiwanVsWorld.story.p2': 'From democracy rankings to convenience store density, from birth rates to healthcare coverage — here are 8 key metrics that reveal Taiwan\'s unique position on the world stage.',
+    'data.taiwanVsWorld.story.p1': 'A landmass the size of Belgium hosts 23 million people and produces 92% of the world\'s most advanced computer chips. Taiwan\'s economic density is staggering: $75,000 GDP per capita from an island smaller than Switzerland, yet housing more people than Australia.',
+    'data.taiwanVsWorld.story.p2': 'These numbers aren\'t just statistics — they\'re the blueprint of an impossible story. How does 0.32% of Earth\'s land create 4% of global wealth? From the world\'s highest convenience store density to Asia\'s top democracy ranking, here are eight metrics that decode Taiwan\'s outsized global footprint.',
 
     'data.taiwanVsWorld.area.number': '36,197 km²',
     'data.taiwanVsWorld.area.label': 'Size ≈ Belgium',
@@ -266,6 +266,27 @@ export const dataUI = {
 
     'data.timeline.2024.title': 'Plurality Export',
     'data.timeline.2024.desc': 'Digital democracy models exported globally',
+
+    // Population Pyramid Section
+    'data.population.title': '👥 Population Structure: An Island\'s Age Portrait',
+    'data.population.story.p1': 'In 2025, Taiwan\'s median age exceeds 43 years. This once-young island is aging—not slowly, but at one of the world\'s fastest rates.',
+    'data.population.story.p2': 'Drag the timeline to see how an island\'s age portrait transforms from pyramid to inverted triangle over half a century.',
+    
+    'data.population.insights.card1.title': 'Median Age',
+    'data.population.insights.card1.subtitle': '2000 → 2025 → 2050',
+    'data.population.insights.card1.detail': '30 → 43 → 57 years',
+    
+    'data.population.insights.card2.title': 'Birth Rate',
+    'data.population.insights.card2.subtitle': '2000 → 2024',
+    'data.population.insights.card2.detail': '1.68 → 0.87',
+    
+    'data.population.insights.card3.title': '65+ Population',
+    'data.population.insights.card3.subtitle': '2000 → 2025 → 2050',
+    'data.population.insights.card3.detail': '8.6% → 18% → 38%',
+    
+    'data.population.insights.card4.title': 'Total Population',
+    'data.population.insights.card4.subtitle': '2025 → 2050',
+    'data.population.insights.card4.detail': '23.4M → <20M',
 
     // Taiwan Shape Section
     'data.taiwanShape.title':
@@ -517,8 +538,8 @@ export const dataUI = {
 
     // Taiwan vs World Section
     'data.taiwanVsWorld.title': '🌏 台灣在世界的位置',
-    'data.taiwanVsWorld.story.p1': '台灣是一座小島，卻有著巨大的全球影響力。以全球 0.32% 的土地面積和 0.31% 的人口，創造了 4% 的全球 GDP，掌控超過 90% 的先進半導體製造。',
-    'data.taiwanVsWorld.story.p2': '從民主排名到便利商店密度，從出生率到健保覆蓋率——這 8 個關鍵指標揭示了台灣在世界舞台上的獨特位置。',
+    'data.taiwanVsWorld.story.p1': '一座面積跟比利時差不多的島嶼，養活了 2,300 萬人，卻生產了全球 92% 最先進的電腦晶片。台灣的經濟密度令人震撼：比瑞士還小的土地，人口卻比澳洲還多，人均 GDP 高達 7.5 萬美元。',
+    'data.taiwanVsWorld.story.p2': '這些數字不只是統計——它們是一個不可能故事的藍圖。地球 0.32% 的土地如何創造 4% 的全球財富？從世界最高的便利商店密度到亞洲第一的民主排名，這八個指標解碼台灣超乎比例的全球足跡。',
 
     'data.taiwanVsWorld.area.number': '36,197 km²',
     'data.taiwanVsWorld.area.label': '面積 ≈ 比利時大小',
@@ -589,6 +610,27 @@ export const dataUI = {
 
     'data.timeline.2024.title': 'Plurality 數位民主輸出',
     'data.timeline.2024.desc': '數位民主模式輸出全球',
+
+    // Population Pyramid Section
+    'data.population.title': '👥 人口結構：一座島嶼的年齡肖像',
+    'data.population.story.p1': '2025 年，台灣的中位數年齡超過 43 歲。這座曾經年輕的島嶼正在老去——不是緩慢地，而是以全球最快的速度之一。',
+    'data.population.story.p2': '拖動時間軸，看一座島嶼的年齡肖像如何在半個世紀內從金字塔變成倒三角。',
+    
+    'data.population.insights.card1.title': '中位數年齡',
+    'data.population.insights.card1.subtitle': '2000 → 2025 → 2050',
+    'data.population.insights.card1.detail': '30 → 43 → 57 歲',
+    
+    'data.population.insights.card2.title': '出生率',
+    'data.population.insights.card2.subtitle': '2000 → 2024',
+    'data.population.insights.card2.detail': '1.68 → 0.87',
+    
+    'data.population.insights.card3.title': '65+ 佔比',
+    'data.population.insights.card3.subtitle': '2000 → 2025 → 2050',
+    'data.population.insights.card3.detail': '8.6% → 18% → 38%',
+    
+    'data.population.insights.card4.title': '總人口',
+    'data.population.insights.card4.subtitle': '2025 → 2050',
+    'data.population.insights.card4.detail': '2,340 萬 → <2,000 萬',
 
     // Taiwan Shape Section
     'data.taiwanShape.title': '🗺️ 台灣的形狀',

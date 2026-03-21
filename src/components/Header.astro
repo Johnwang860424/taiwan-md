@@ -139,6 +139,35 @@ const categoryList = [
               </div>
             );
           }
+          if (item.path === '/data') {
+            return (
+              <div class="nav-dropdown">
+                <a
+                  href={item.fullPath}
+                  class:list={['nav-link', { active: item.active }]}
+                >
+                  {item.label} <span class="dropdown-arrow">▾</span>
+                </a>
+                <div class="dropdown-menu">
+                  <a href={`${translatePath('/data')}#global`} class="dropdown-item">
+                    🌏 {lang === 'en' ? 'Taiwan vs World' : '台灣 vs 世界'}
+                  </a>
+                  <a href={`${translatePath('/data')}#shape`} class="dropdown-item">
+                    🗺️ {lang === 'en' ? 'Taiwan\'s Shape' : '台灣的形狀'}
+                  </a>
+                  <a href={`${translatePath('/data')}#democracy`} class="dropdown-item">
+                    📡 {lang === 'en' ? 'Digital Democracy' : '數位民主'}
+                  </a>
+                  <a href={`${translatePath('/data')}#opendata`} class="dropdown-item">
+                    📊 {lang === 'en' ? 'Open Data' : '開放資料'}
+                  </a>
+                  <a href={`${translatePath('/data')}#enterprise`} class="dropdown-item">
+                    🏢 {lang === 'en' ? 'Enterprise Map' : '企業版圖'}
+                  </a>
+                </div>
+              </div>
+            );
+          }
           return (
             <a
               href={item.fullPath}

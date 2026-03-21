@@ -28,117 +28,8 @@ const dataCategories = getCategories(t);
       <p class="hero-desc">{t('data.hero.description')}</p>
     </section>
 
-    <!-- Enterprise Landscape -->
-    <section class="companies-section">
-      <div class="section-divider">
-        <div class="divider-line"></div>
-      </div>
-
-      <div class="story-intro">
-        <h2 class="section-title">{t('data.enterprise.title')}</h2>
-        <div class="story-text">
-          <p>{t('data.enterprise.story.p1')}</p>
-          <p>{t('data.enterprise.story.p2')}</p>
-        </div>
-      </div>
-
-      <!-- Bubble Chart Controls -->
-      <div class="bubble-controls">
-        <div class="size-toggle">
-          <label>{t('data.enterprise.controls.sizeLabel')}</label>
-          <button class="toggle-btn active" data-mode="marketCap">
-            {t('data.enterprise.controls.marketCap')}
-          </button>
-          <button class="toggle-btn" data-mode="revenue">
-            {t('data.enterprise.controls.revenue')}
-          </button>
-          <button class="toggle-btn" data-mode="employees">
-            {t('data.enterprise.controls.employees')}
-          </button>
-        </div>
-        <div class="sector-filters">
-          <button class="sector-btn active" data-sector="all">
-            {t('data.enterprise.controls.filterAll')}
-          </button>
-          {
-            sectors.slice(0, 8).map((s) => (
-              <button
-                class="sector-btn"
-                data-sector={s}
-                style={`--sector-color: ${sectorColors[s] || '#888'}`}
-              >
-                <span
-                  class="sector-dot"
-                  style={`background: ${sectorColors[s] || '#888'}`}
-                />
-                {t(`data.sector.${s}`)}
-              </button>
-            ))
-          }
-        </div>
-      </div>
-
-      <!-- Bubble Chart Container -->
-      <div id="bubble-chart"></div>
-
-      <!-- Key Insights -->
-      <div class="insights">
-        <div class="insight-grid">
-          <div class="insight-card">
-            <div class="insight-number">
-              {t('data.enterprise.insights.card1.number')}
-            </div>
-            <div class="insight-label">
-              {t('data.enterprise.insights.card1.label')}
-            </div>
-            <div class="insight-detail">
-              {t('data.enterprise.insights.card1.detail')}
-            </div>
-          </div>
-          <div class="insight-card">
-            <div class="insight-number">
-              {t('data.enterprise.insights.card2.number')}
-            </div>
-            <div class="insight-label">
-              {t('data.enterprise.insights.card2.label')}
-            </div>
-            <div class="insight-detail">
-              {t('data.enterprise.insights.card2.detail')}
-            </div>
-          </div>
-          <div class="insight-card">
-            <div class="insight-number">
-              {t('data.enterprise.insights.card3.number')}
-            </div>
-            <div class="insight-label">
-              {t('data.enterprise.insights.card3.label')}
-            </div>
-            <div class="insight-detail">
-              {t('data.enterprise.insights.card3.detail')}
-            </div>
-          </div>
-          <div class="insight-card">
-            <div class="insight-number">
-              {t('data.enterprise.insights.card4.number')}
-            </div>
-            <div class="insight-label">
-              {t('data.enterprise.insights.card4.label')}
-            </div>
-            <div class="insight-detail">
-              {t('data.enterprise.insights.card4.detail')}
-            </div>
-          </div>
-        </div>
-        <div class="explore-more">
-          <a href="/economy" class="explore-link">
-            {t('data.enterprise.exploreLink')}
-          </a>
-        </div>
-      </div>
-    </section>
-
     <!-- Taiwan vs World Infographic Section -->
-    <section class="taiwan-vs-world-section">
+    <section class="taiwan-vs-world-section" id="global">
       <div class="section-divider">
         <div class="divider-line"></div>
       </div>
@@ -210,158 +101,92 @@ const dataCategories = getCategories(t);
       </div>
     </section>
 
-    <!-- Digital Democracy Timeline Section -->
-    <section class="digital-democracy-section">
+    <!-- Population Pyramid Section -->
+    <section class="population-section" id="population">
       <div class="section-divider">
         <div class="divider-line"></div>
       </div>
 
       <div class="story-intro">
-        <h2 class="section-title">{t('data.digitalDemocracy.title')}</h2>
+        <h2 class="section-title">{t('data.population.title')}</h2>
         <div class="story-text">
-          <p>{t('data.digitalDemocracy.story.p1')}</p>
-          <p>{t('data.digitalDemocracy.story.p2')}</p>
+          <p>{t('data.population.story.p1')}</p>
+          <p>{t('data.population.story.p2')}</p>
         </div>
       </div>
 
-      <div class="timeline-container">
-        <div class="timeline">
-          <div class="timeline-item" data-year="1997">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">1997</div>
-              <div class="timeline-title">{t('data.timeline.1997.title')}</div>
-              <div class="timeline-desc">{t('data.timeline.1997.desc')}</div>
-            </div>
+      <!-- Population Pyramid Chart -->
+      <div class="pyramid-container">
+        <div id="population-pyramid"></div>
+        
+        <!-- Year Slider -->
+        <div class="year-slider-container">
+          <div class="slider-track">
+            <div class="slider-thumb" id="yearThumb"></div>
           </div>
-
-          <div class="timeline-item" data-year="2003">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">2003</div>
-              <div class="timeline-title">{t('data.timeline.2003.title')}</div>
-              <div class="timeline-desc">{t('data.timeline.2003.desc')}</div>
-            </div>
+          <div class="year-labels">
+            <span>2000</span>
+            <span>2010</span>
+            <span>2025</span>
+            <span>2050</span>
           </div>
-
-          <div class="timeline-item" data-year="2012">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">2012</div>
-              <div class="timeline-title">{t('data.timeline.2012.title')}</div>
-              <div class="timeline-desc">{t('data.timeline.2012.desc')}</div>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-year="2013">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">2013</div>
-              <div class="timeline-title">{t('data.timeline.2013.title')}</div>
-              <div class="timeline-desc">{t('data.timeline.2013.desc')}</div>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-year="2014">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">2014</div>
-              <div class="timeline-title">{t('data.timeline.2014.title')}</div>
-              <div class="timeline-desc">{t('data.timeline.2014.desc')}</div>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-year="2015">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">2015</div>
-              <div class="timeline-title">{t('data.timeline.2015.title')}</div>
-              <div class="timeline-desc">{t('data.timeline.2015.desc')}</div>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-year="2016">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">2016</div>
-              <div class="timeline-title">{t('data.timeline.2016.title')}</div>
-              <div class="timeline-desc">{t('data.timeline.2016.desc')}</div>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-year="2020">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">2020</div>
-              <div class="timeline-title">{t('data.timeline.2020.title')}</div>
-              <div class="timeline-desc">{t('data.timeline.2020.desc')}</div>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-year="2022">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">2022</div>
-              <div class="timeline-title">{t('data.timeline.2022.title')}</div>
-              <div class="timeline-desc">{t('data.timeline.2022.desc')}</div>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-year="2023">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">2023</div>
-              <div class="timeline-title">{t('data.timeline.2023.title')}</div>
-              <div class="timeline-desc">{t('data.timeline.2023.desc')}</div>
-            </div>
-          </div>
-
-          <div class="timeline-item" data-year="2024">
-            <div class="timeline-dot"></div>
-            <div class="timeline-content">
-              <div class="timeline-year">2024</div>
-              <div class="timeline-title">{t('data.timeline.2024.title')}</div>
-              <div class="timeline-desc">{t('data.timeline.2024.desc')}</div>
-            </div>
-          </div>
+          <div class="current-year" id="currentYear">2025</div>
         </div>
       </div>
 
-      <!-- Open Data Categories (moved here) -->
-      <div class="data-categories" style="margin-top: 3rem;">
-        {
-          dataCategories.map((cat) => (
-            <div class="data-category-card">
-              <div class="category-header">
-                <span class="category-icon">{cat.icon}</span>
-                <div>
-                  <h3 class="category-title">{cat.title}</h3>
-                  <p class="category-desc">{cat.description}</p>
-                </div>
-              </div>
-              <ul class="item-list">
-                {cat.items.map((item) => (
-                  <li class="item">
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="item-link"
-                    >
-                      {item.name}
-                    </a>
-                    <span class="item-desc">— {item.desc}</span>
-                  </li>
-                ))}
-              </ul>
+      <!-- Key Insights Cards -->
+      <div class="insights">
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.population.insights.card1.detail')}
             </div>
-          ))
-        }
+            <div class="insight-label">
+              {t('data.population.insights.card1.title')}
+            </div>
+            <div class="insight-detail">
+              {t('data.population.insights.card1.subtitle')}
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.population.insights.card2.detail')}
+            </div>
+            <div class="insight-label">
+              {t('data.population.insights.card2.title')}
+            </div>
+            <div class="insight-detail">
+              {t('data.population.insights.card2.subtitle')}
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.population.insights.card3.detail')}
+            </div>
+            <div class="insight-label">
+              {t('data.population.insights.card3.title')}
+            </div>
+            <div class="insight-detail">
+              {t('data.population.insights.card3.subtitle')}
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.population.insights.card4.detail')}
+            </div>
+            <div class="insight-label">
+              {t('data.population.insights.card4.title')}
+            </div>
+            <div class="insight-detail">
+              {t('data.population.insights.card4.subtitle')}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Taiwan Shape Section -->
-    <section class="taiwan-shape-section">
+    <section class="taiwan-shape-section" id="shape">
       <div class="section-divider">
         <div class="divider-line"></div>
       </div>
@@ -532,6 +357,271 @@ background-image: url('https://taiwan.md/assets/svg/taiwan-icon-wiki.svg');
         </p>
       </div>
     </section>
+
+    <!-- Digital Democracy Timeline Section -->
+    <section class="digital-democracy-section" id="democracy">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="story-intro">
+        <h2 class="section-title">{t('data.digitalDemocracy.title')}</h2>
+        <div class="story-text">
+          <p>{t('data.digitalDemocracy.story.p1')}</p>
+          <p>{t('data.digitalDemocracy.story.p2')}</p>
+        </div>
+      </div>
+
+      <!-- Horizontal Timeline -->
+      <div class="timeline-container">
+        <div class="timeline-horizontal">
+          <div class="timeline-item" data-year="1997">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">1997</div>
+              <div class="timeline-title">{t('data.timeline.1997.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.1997.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2003">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2003</div>
+              <div class="timeline-title">{t('data.timeline.2003.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2003.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2012">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2012</div>
+              <div class="timeline-title">{t('data.timeline.2012.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2012.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2013">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2013</div>
+              <div class="timeline-title">{t('data.timeline.2013.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2013.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2014">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2014</div>
+              <div class="timeline-title">{t('data.timeline.2014.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2014.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2015">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2015</div>
+              <div class="timeline-title">{t('data.timeline.2015.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2015.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2016">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2016</div>
+              <div class="timeline-title">{t('data.timeline.2016.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2016.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2020">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2020</div>
+              <div class="timeline-title">{t('data.timeline.2020.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2020.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2022">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2022</div>
+              <div class="timeline-title">{t('data.timeline.2022.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2022.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2023">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2023</div>
+              <div class="timeline-title">{t('data.timeline.2023.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2023.desc')}</div>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-year="2024">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2024</div>
+              <div class="timeline-title">{t('data.timeline.2024.title')}</div>
+              <div class="timeline-desc">{t('data.timeline.2024.desc')}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Open Data Categories (3-column grid) -->
+      <div class="open-data-section" id="opendata">
+        <h3 class="section-title" style="margin-top: 3rem; margin-bottom: 2rem;">📊 開放資料</h3>
+        <div class="data-categories-grid">
+          {
+            dataCategories.map((cat) => (
+              <div class="data-category-card">
+                <div class="category-header">
+                  <span class="category-icon">{cat.icon}</span>
+                  <div>
+                    <h4 class="category-title">{cat.title}</h4>
+                    <p class="category-desc">{cat.description}</p>
+                  </div>
+                </div>
+                <ul class="item-list">
+                  {cat.items.map((item) => (
+                    <li class="item">
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="item-link"
+                      >
+                        {item.name}
+                      </a>
+                      <span class="item-desc">— {item.desc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Enterprise Landscape -->
+    <section class="companies-section" id="enterprise">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="story-intro">
+        <h2 class="section-title">{t('data.enterprise.title')}</h2>
+        <div class="story-text">
+          <p>{t('data.enterprise.story.p1')}</p>
+          <p>{t('data.enterprise.story.p2')}</p>
+        </div>
+      </div>
+
+      <!-- Bubble Chart Controls -->
+      <div class="bubble-controls">
+        <div class="size-toggle">
+          <label>{t('data.enterprise.controls.sizeLabel')}</label>
+          <button class="toggle-btn active" data-mode="marketCap">
+            {t('data.enterprise.controls.marketCap')}
+          </button>
+          <button class="toggle-btn" data-mode="revenue">
+            {t('data.enterprise.controls.revenue')}
+          </button>
+          <button class="toggle-btn" data-mode="employees">
+            {t('data.enterprise.controls.employees')}
+          </button>
+        </div>
+        <div class="sector-filters">
+          <button class="sector-btn active" data-sector="all">
+            {t('data.enterprise.controls.filterAll')}
+          </button>
+          {
+            sectors.slice(0, 8).map((s) => (
+              <button
+                class="sector-btn"
+                data-sector={s}
+                style={`--sector-color: ${sectorColors[s] || '#888'}`}
+              >
+                <span
+                  class="sector-dot"
+                  style={`background: ${sectorColors[s] || '#888'}`}
+                />
+                {t(`data.sector.${s}`)}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Bubble Chart Container -->
+      <div id="bubble-chart"></div>
+
+      <!-- Key Insights -->
+      <div class="insights">
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.enterprise.insights.card1.number')}
+            </div>
+            <div class="insight-label">
+              {t('data.enterprise.insights.card1.label')}
+            </div>
+            <div class="insight-detail">
+              {t('data.enterprise.insights.card1.detail')}
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.enterprise.insights.card2.number')}
+            </div>
+            <div class="insight-label">
+              {t('data.enterprise.insights.card2.label')}
+            </div>
+            <div class="insight-detail">
+              {t('data.enterprise.insights.card2.detail')}
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.enterprise.insights.card3.number')}
+            </div>
+            <div class="insight-label">
+              {t('data.enterprise.insights.card3.label')}
+            </div>
+            <div class="insight-detail">
+              {t('data.enterprise.insights.card3.detail')}
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.enterprise.insights.card4.number')}
+            </div>
+            <div class="insight-label">
+              {t('data.enterprise.insights.card4.label')}
+            </div>
+            <div class="insight-detail">
+              {t('data.enterprise.insights.card4.detail')}
+            </div>
+          </div>
+        </div>
+        <div class="explore-more">
+          <a href="/economy" class="explore-link">
+            {t('data.enterprise.exploreLink')}
+          </a>
+        </div>
+      </div>
+    </section>
+
+
 
 
 
@@ -1321,122 +1411,131 @@ background-image: url('https://taiwan.md/assets/svg/taiwan-icon-wiki.svg');
     }
 
     .timeline-container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 0 2rem 2rem;
     }
 
-    .timeline {
+    /* Horizontal Timeline for Desktop */
+    .timeline-horizontal {
       position: relative;
       padding: 2rem 0;
+      overflow-x: auto;
+      overflow-y: visible;
+      max-height: 300px;
     }
 
-    .timeline::before {
+    .timeline-horizontal::before {
       content: '';
       position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #ec4899);
-      transform: translateX(-50%);
+      top: 50%;
+      left: 5%;
+      right: 5%;
+      height: 3px;
+      background: linear-gradient(to right, #3b82f6, #8b5cf6, #ec4899);
+      transform: translateY(-50%);
       z-index: 1;
     }
 
-    .timeline-item {
-      position: relative;
-      margin-bottom: 3rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .timeline-horizontal .timeline-item {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
     }
 
-    .timeline-item:nth-child(odd) .timeline-content {
-      margin-right: 50%;
-      padding-right: 3rem;
-      text-align: right;
-    }
-
-    .timeline-item:nth-child(even) .timeline-content {
-      margin-left: 50%;
-      padding-left: 3rem;
-      text-align: left;
-    }
+    .timeline-horizontal .timeline-item[data-year="1997"] { left: 5%; }
+    .timeline-horizontal .timeline-item[data-year="2003"] { left: 14%; }
+    .timeline-horizontal .timeline-item[data-year="2012"] { left: 23%; }
+    .timeline-horizontal .timeline-item[data-year="2013"] { left: 32%; }
+    .timeline-horizontal .timeline-item[data-year="2014"] { left: 41%; }
+    .timeline-horizontal .timeline-item[data-year="2015"] { left: 50%; }
+    .timeline-horizontal .timeline-item[data-year="2016"] { left: 59%; }
+    .timeline-horizontal .timeline-item[data-year="2020"] { left: 68%; }
+    .timeline-horizontal .timeline-item[data-year="2022"] { left: 77%; }
+    .timeline-horizontal .timeline-item[data-year="2023"] { left: 86%; }
+    .timeline-horizontal .timeline-item[data-year="2024"] { left: 95%; }
 
     .timeline-dot {
-      position: absolute;
-      left: 50%;
-      width: 16px;
-      height: 16px;
+      width: 12px;
+      height: 12px;
       background: #3b82f6;
-      border: 4px solid #0f172a;
+      border: 3px solid #0f172a;
       border-radius: 50%;
-      transform: translateX(-50%);
-      z-index: 2;
+      position: relative;
       transition: all 0.3s ease;
+      z-index: 2;
     }
 
     .timeline-item:hover .timeline-dot {
       background: #60a5fa;
-      transform: translateX(-50%) scale(1.2);
-      box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+      transform: scale(1.3);
+      box-shadow: 0 0 15px rgba(96, 165, 250, 0.6);
     }
 
     .timeline-content {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 1.5rem;
-      max-width: 400px;
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 15px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      min-width: 180px;
+      max-width: 240px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
       transition: all 0.3s ease;
-      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      z-index: 10;
     }
 
     .timeline-item:hover .timeline-content {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.15);
-      transform: scale(1.02);
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(-5px);
     }
 
     .timeline-year {
-      font-size: 1.2rem;
+      font-size: 0.85rem;
       font-weight: 700;
-      color: #60a5fa;
-      margin-bottom: 0.5rem;
+      color: #3b82f6;
+      margin-bottom: 0.25rem;
     }
 
     .timeline-title {
-      font-size: 1rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      color: #f1f5f9;
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
+      color: #1a1a2e;
+      margin-bottom: 0.25rem;
+      line-height: 1.3;
     }
 
     .timeline-desc {
-      font-size: 0.85rem;
-      color: #cbd5e1;
-      line-height: 1.5;
-      display: none;
-      margin-top: 0.5rem;
-      padding-top: 0.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.7rem;
+      color: #64748b;
+      line-height: 1.4;
     }
 
-    .timeline-item:hover .timeline-desc {
-      display: block;
-      animation: fadeInUp 0.3s ease;
+    /* Open Data 3-Column Grid */
+    .data-categories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .data-categories-grid .data-category-card:nth-child(4),
+    .data-categories-grid .data-category-card:nth-child(5) {
+      grid-column: span 1;
+      margin: 0 auto;
+      max-width: 400px;
     }
 
     /* Open Data Section (now part of digital democracy) */
@@ -1747,36 +1846,90 @@ background-image: url('https://taiwan.md/assets/svg/taiwan-icon-wiki.svg');
         font-size: 1.8rem;
       }
 
-      /* Timeline responsive */
+      /* Timeline responsive - Mobile: Vertical layout */
       .timeline-container {
         padding: 0 1rem 2rem;
       }
 
-      .timeline::before {
-        left: 2rem;
+      .timeline-horizontal {
+        padding: 1rem 0;
+        max-height: none;
+        overflow: visible;
       }
 
-      .timeline-item:nth-child(odd) .timeline-content,
-      .timeline-item:nth-child(even) .timeline-content {
+      .timeline-horizontal::before {
+        top: 0;
+        bottom: 0;
+        left: 2rem;
+        right: auto;
+        width: 3px;
+        height: auto;
+        background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #ec4899);
+        transform: none;
+      }
+
+      .timeline-horizontal .timeline-item {
+        position: relative;
+        top: auto;
+        left: auto !important;
+        transform: none;
+        margin-bottom: 2rem;
+        display: block;
+      }
+
+      .timeline-horizontal .timeline-item .timeline-dot {
+        position: absolute;
+        left: 2rem;
+        top: 1rem;
+        transform: translateX(-50%);
+      }
+
+      .timeline-horizontal .timeline-item .timeline-content {
+        position: static;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
         margin-left: 4rem;
-        margin-right: 0;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        margin-bottom: 0;
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: none;
+        border: 1px solid rgba(255, 255, 255, 0.08);
         text-align: left;
+        min-width: auto;
         max-width: none;
-      }
-
-      .timeline-dot {
-        left: 2rem;
-      }
-
-      .timeline-content {
         padding: 1.25rem;
       }
 
-      .timeline-desc {
-        display: block;
-        animation: none;
+      .timeline-horizontal .timeline-item:hover .timeline-content {
+        transform: none;
+      }
+
+      .timeline-horizontal .timeline-item .timeline-year {
+        font-size: 1rem;
+        color: #60a5fa;
+      }
+
+      .timeline-horizontal .timeline-item .timeline-title {
+        font-size: 0.9rem;
+        color: #f1f5f9;
+      }
+
+      .timeline-horizontal .timeline-item .timeline-desc {
+        font-size: 0.8rem;
+        color: #cbd5e1;
+      }
+
+      /* Open Data Grid - Mobile: Single column */
+      .data-categories-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+      }
+
+      .data-categories-grid .data-category-card:nth-child(4),
+      .data-categories-grid .data-category-card:nth-child(5) {
+        grid-column: auto;
+        margin: 0;
+        max-width: none;
       }
     }
 
