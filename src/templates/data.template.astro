@@ -134,52 +134,36 @@ const dataCategories = getCategories(t);
         </div>
       </div>
 
-      <!-- Key Insights Cards -->
+      <!-- Key Insights Cards (dynamic, syncs with slider) -->
       <div class="insights">
         <div class="insight-grid">
           <div class="insight-card">
-            <div class="insight-label">
+            <div class="insight-label" id="insightLabel1">
               {t('data.population.insights.card1.title')}
             </div>
-            <div class="insight-number">
-              {t('data.population.insights.card1.detail')}
-            </div>
-            <div class="insight-detail">
-              {t('data.population.insights.card1.subtitle')}
-            </div>
+            <div class="insight-number" id="insightValue1">43</div>
+            <div class="insight-detail" id="insightUnit1">{t('data.population.insights.card1.subtitle')}</div>
           </div>
           <div class="insight-card">
-            <div class="insight-label">
+            <div class="insight-label" id="insightLabel2">
               {t('data.population.insights.card2.title')}
             </div>
-            <div class="insight-number">
-              {t('data.population.insights.card2.detail')}
-            </div>
-            <div class="insight-detail">
-              {t('data.population.insights.card2.subtitle')}
-            </div>
+            <div class="insight-number" id="insightValue2">0.87</div>
+            <div class="insight-detail" id="insightUnit2">{t('data.population.insights.card2.subtitle')}</div>
           </div>
           <div class="insight-card">
-            <div class="insight-label">
+            <div class="insight-label" id="insightLabel3">
               {t('data.population.insights.card3.title')}
             </div>
-            <div class="insight-number">
-              {t('data.population.insights.card3.detail')}
-            </div>
-            <div class="insight-detail">
-              {t('data.population.insights.card3.subtitle')}
-            </div>
+            <div class="insight-number" id="insightValue3">18%</div>
+            <div class="insight-detail" id="insightUnit3">{t('data.population.insights.card3.subtitle')}</div>
           </div>
           <div class="insight-card">
-            <div class="insight-label">
+            <div class="insight-label" id="insightLabel4">
               {t('data.population.insights.card4.title')}
             </div>
-            <div class="insight-number">
-              {t('data.population.insights.card4.detail')}
-            </div>
-            <div class="insight-detail">
-              {t('data.population.insights.card4.subtitle')}
-            </div>
+            <div class="insight-number" id="insightValue4">2,340</div>
+            <div class="insight-detail" id="insightUnit4">{t('data.population.insights.card4.subtitle')}</div>
           </div>
         </div>
       </div>
@@ -1134,8 +1118,36 @@ background-image: url('https://taiwan.md/assets/svg/taiwan-icon-wiki.svg');
           .text(`幼年佔比：${data.youthRatio}%`);
       }
 
+      // Insight card data per year
+      const insightData = {
+        2000: { medianAge: '30', birthRate: '1.68', elderlyPct: '8.6%', totalPop: '2,227' },
+        2010: { medianAge: '37', birthRate: '0.90', elderlyPct: '10.7%', totalPop: '2,316' },
+        2025: { medianAge: '43', birthRate: '0.87', elderlyPct: '18%', totalPop: '2,340' },
+        2050: { medianAge: '57', birthRate: '0.74', elderlyPct: '38%', totalPop: '<2,000' }
+      };
+
+      const langIsEn = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en');
+      const unitAge = langIsEn ? ' yrs' : ' 歲';
+      const unitPop = langIsEn ? ' (10K)' : ' 萬人';
+
+      function updateInsightCards(year) {
+        const d = insightData[year];
+        if (!d) return;
+        const v1 = document.getElementById('insightValue1');
+        const v2 = document.getElementById('insightValue2');
+        const v3 = document.getElementById('insightValue3');
+        const v4 = document.getElementById('insightValue4');
+        const u4 = document.getElementById('insightUnit4');
+        if (v1) v1.textContent = d.medianAge + unitAge;
+        if (v2) v2.textContent = d.birthRate;
+        if (v3) v3.textContent = d.elderlyPct;
+        if (v4) v4.textContent = d.totalPop;
+        if (u4) u4.textContent = unitPop;
+      }
+
       // Initialize with 2025 data
       updatePyramid(currentYear);
+      updateInsightCards(currentYear);
 
       // Slider implementation
       const slider = document.querySelector('.slider-track');
@@ -1163,6 +1175,7 @@ background-image: url('https://taiwan.md/assets/svg/taiwan-icon-wiki.svg');
           currentYear = newYear;
           updateSliderPosition();
           updatePyramid(currentYear);
+          updateInsightCards(currentYear);
         }
       }
 

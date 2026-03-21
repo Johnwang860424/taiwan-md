@@ -273,19 +273,19 @@ export const dataUI = {
     'data.population.story.p2': 'Drag the timeline to see how an island\'s age portrait transforms from pyramid to inverted triangle over half a century.',
     
     'data.population.insights.card1.title': 'Median Age',
-    'data.population.insights.card1.subtitle': '2000 → 2025 → 2050',
+    'data.population.insights.card1.subtitle': '歲',
     'data.population.insights.card1.detail': '30 → 43 → 57 years',
     
     'data.population.insights.card2.title': 'Birth Rate',
-    'data.population.insights.card2.subtitle': '2000 → 2024',
-    'data.population.insights.card2.detail': '1.68 → 0.87',
+    'data.population.insights.card2.subtitle': '生育率',
+    'data.population.insights.card2.detail': '0.87',
     
     'data.population.insights.card3.title': '65+ Population',
-    'data.population.insights.card3.subtitle': '2000 → 2025 → 2050',
-    'data.population.insights.card3.detail': '8.6% → 18% → 38%',
+    'data.population.insights.card3.subtitle': '65歲以上',
+    'data.population.insights.card3.detail': '18%',
     
     'data.population.insights.card4.title': 'Total Population',
-    'data.population.insights.card4.subtitle': '2025 → 2050',
+    'data.population.insights.card4.subtitle': '萬人',
     'data.population.insights.card4.detail': '23.4M → <20M',
 
     // Taiwan Shape Section
@@ -617,19 +617,19 @@ export const dataUI = {
     'data.population.story.p2': '拖動時間軸，看一座島嶼的年齡肖像如何在半個世紀內從金字塔變成倒三角。',
     
     'data.population.insights.card1.title': '中位數年齡',
-    'data.population.insights.card1.subtitle': '2000 → 2025 → 2050',
-    'data.population.insights.card1.detail': '30 → 43 → 57 歲',
+    'data.population.insights.card1.subtitle': '歲',
+    'data.population.insights.card1.detail': '43 歲',
     
     'data.population.insights.card2.title': '出生率',
-    'data.population.insights.card2.subtitle': '2000 → 2024',
-    'data.population.insights.card2.detail': '1.68 → 0.87',
+    'data.population.insights.card2.subtitle': '生育率',
+    'data.population.insights.card2.detail': '0.87',
     
     'data.population.insights.card3.title': '65+ 佔比',
-    'data.population.insights.card3.subtitle': '2000 → 2025 → 2050',
-    'data.population.insights.card3.detail': '8.6% → 18% → 38%',
+    'data.population.insights.card3.subtitle': '65歲以上',
+    'data.population.insights.card3.detail': '18%',
     
     'data.population.insights.card4.title': '總人口',
-    'data.population.insights.card4.subtitle': '2025 → 2050',
+    'data.population.insights.card4.subtitle': '萬人',
     'data.population.insights.card4.detail': '2,340 萬 → <2,000 萬',
 
     // Taiwan Shape Section
