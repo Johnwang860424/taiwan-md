@@ -23,7 +23,7 @@ const dataCategories = getCategories(t);
   <main class="data-hub">
     <!-- Hero -->
     <section class="hero">
-      <h1 class="hero-title">{t('data.hero.title')}</h1>
+      <h1 class="hero-title"><span class="hero-emoji">📊</span> {t('data.hero.title')}</h1>
       <p class="hero-subtitle">{t('data.hero.subtitle')}</p>
       <p class="hero-desc">{t('data.hero.description')}</p>
     </section>
@@ -138,44 +138,44 @@ const dataCategories = getCategories(t);
       <div class="insights">
         <div class="insight-grid">
           <div class="insight-card">
-            <div class="insight-number">
-              {t('data.population.insights.card1.detail')}
-            </div>
             <div class="insight-label">
               {t('data.population.insights.card1.title')}
+            </div>
+            <div class="insight-number">
+              {t('data.population.insights.card1.detail')}
             </div>
             <div class="insight-detail">
               {t('data.population.insights.card1.subtitle')}
             </div>
           </div>
           <div class="insight-card">
-            <div class="insight-number">
-              {t('data.population.insights.card2.detail')}
-            </div>
             <div class="insight-label">
               {t('data.population.insights.card2.title')}
+            </div>
+            <div class="insight-number">
+              {t('data.population.insights.card2.detail')}
             </div>
             <div class="insight-detail">
               {t('data.population.insights.card2.subtitle')}
             </div>
           </div>
           <div class="insight-card">
-            <div class="insight-number">
-              {t('data.population.insights.card3.detail')}
-            </div>
             <div class="insight-label">
               {t('data.population.insights.card3.title')}
+            </div>
+            <div class="insight-number">
+              {t('data.population.insights.card3.detail')}
             </div>
             <div class="insight-detail">
               {t('data.population.insights.card3.subtitle')}
             </div>
           </div>
           <div class="insight-card">
-            <div class="insight-number">
-              {t('data.population.insights.card4.detail')}
-            </div>
             <div class="insight-label">
               {t('data.population.insights.card4.title')}
+            </div>
+            <div class="insight-number">
+              {t('data.population.insights.card4.detail')}
             </div>
             <div class="insight-detail">
               {t('data.population.insights.card4.subtitle')}
@@ -1269,6 +1269,13 @@ background-image: url('https://taiwan.md/assets/svg/taiwan-icon-wiki.svg');
       margin-bottom: 1rem;
     }
 
+    .hero-emoji {
+      -webkit-text-fill-color: initial;
+      background: none;
+      -webkit-background-clip: initial;
+      background-clip: initial;
+    }
+
     .hero-subtitle {
       font-size: clamp(1.2rem, 3vw, 1.5rem);
       color: #94a3b8;
@@ -1955,17 +1962,31 @@ background-image: url('https://taiwan.md/assets/svg/taiwan-icon-wiki.svg');
     }
 
     .timeline-title {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
-      color: #1a1a2e;
+      color: #e2e8f0;
       margin-bottom: 0.25rem;
       line-height: 1.3;
     }
 
     .timeline-desc {
-      font-size: 0.7rem;
-      color: #64748b;
+      font-size: 0.65rem;
+      color: #94a3b8;
       line-height: 1.4;
+    }
+
+    /* Alternate above/below layout */
+    .timeline-horizontal .timeline-item:nth-child(odd) .timeline-content {
+      bottom: 100%;
+      top: auto;
+      margin-bottom: 15px;
+    }
+
+    .timeline-horizontal .timeline-item:nth-child(even) .timeline-content {
+      top: 100%;
+      bottom: auto;
+      margin-top: 15px;
+      margin-bottom: 0;
     }
 
     /* Open Data 3-Column Grid */
