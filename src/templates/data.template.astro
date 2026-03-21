@@ -1,0 +1,1374 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import {
+  getCompanyConfigs,
+  getCategories,
+  sectorColors,
+} from '../utils/dataConfig';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Get companies from centralized config
+const companies = getCompanyConfigs(t);
+
+const sectors = [...new Set(companies.map((c) => c.sector))];
+
+// Get categories from centralized config
+const dataCategories = getCategories(t);
+---
+
+<Layout title={t('data.meta.title')} description={t('data.meta.description')}>
+  <main class="data-hub">
+    <!-- Hero -->
+    <section class="hero">
+      <h1 class="hero-title">{t('data.hero.title')}</h1>
+      <p class="hero-subtitle">{t('data.hero.subtitle')}</p>
+      <p class="hero-desc">{t('data.hero.description')}</p>
+    </section>
+
+    <!-- Enterprise Landscape -->
+    <section class="companies-section">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="story-intro">
+        <h2 class="section-title">{t('data.enterprise.title')}</h2>
+        <div class="story-text">
+          <p>{t('data.enterprise.story.p1')}</p>
+          <p>{t('data.enterprise.story.p2')}</p>
+        </div>
+      </div>
+
+      <!-- Bubble Chart Controls -->
+      <div class="bubble-controls">
+        <div class="size-toggle">
+          <label>{t('data.enterprise.controls.sizeLabel')}</label>
+          <button class="toggle-btn active" data-mode="marketCap">
+            {t('data.enterprise.controls.marketCap')}
+          </button>
+          <button class="toggle-btn" data-mode="revenue">
+            {t('data.enterprise.controls.revenue')}
+          </button>
+          <button class="toggle-btn" data-mode="employees">
+            {t('data.enterprise.controls.employees')}
+          </button>
+        </div>
+        <div class="sector-filters">
+          <button class="sector-btn active" data-sector="all">
+            {t('data.enterprise.controls.filterAll')}
+          </button>
+          {
+            sectors.slice(0, 8).map((s) => (
+              <button
+                class="sector-btn"
+                data-sector={s}
+                style={`--sector-color: ${sectorColors[s] || '#888'}`}
+              >
+                <span
+                  class="sector-dot"
+                  style={`background: ${sectorColors[s] || '#888'}`}
+                />
+                {s}
+              </button>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Bubble Chart Container -->
+      <div id="bubble-chart"></div>
+
+      <!-- Key Insights -->
+      <div class="insights">
+        <div class="insight-grid">
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.enterprise.insights.card1.number')}
+            </div>
+            <div class="insight-label">
+              {t('data.enterprise.insights.card1.label')}
+            </div>
+            <div class="insight-detail">
+              {t('data.enterprise.insights.card1.detail')}
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.enterprise.insights.card2.number')}
+            </div>
+            <div class="insight-label">
+              {t('data.enterprise.insights.card2.label')}
+            </div>
+            <div class="insight-detail">
+              {t('data.enterprise.insights.card2.detail')}
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.enterprise.insights.card3.number')}
+            </div>
+            <div class="insight-label">
+              {t('data.enterprise.insights.card3.label')}
+            </div>
+            <div class="insight-detail">
+              {t('data.enterprise.insights.card3.detail')}
+            </div>
+          </div>
+          <div class="insight-card">
+            <div class="insight-number">
+              {t('data.enterprise.insights.card4.number')}
+            </div>
+            <div class="insight-label">
+              {t('data.enterprise.insights.card4.label')}
+            </div>
+            <div class="insight-detail">
+              {t('data.enterprise.insights.card4.detail')}
+            </div>
+          </div>
+        </div>
+        <div class="explore-more">
+          <a href="/economy" class="explore-link">
+            {t('data.enterprise.exploreLink')}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Taiwan Shape Section -->
+    <section class="taiwan-shape-section">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="story-intro">
+        <h2 class="section-title">{t('data.taiwanShape.title')}</h2>
+        <div class="story-text">
+          <p>{t('data.taiwanShape.story.p1')}</p>
+          <p>{t('data.taiwanShape.story.p2')}</p>
+        </div>
+      </div>
+
+      <!-- SVG Cards -->
+      <div class="svg-grid">
+        <div class="svg-card">
+          <div class="svg-preview">
+            <img src="/assets/svg/taiwan-icon-wiki.svg" alt="Taiwan Icon" />
+          </div>
+          <div class="svg-info">
+            <h3>{t('data.svg.card1.title')}</h3>
+            <p class="svg-desc">{t('data.svg.card1.description')}</p>
+            <p class="svg-meta">Wikimedia Commons · CC</p>
+            <div class="svg-actions">
+              <a
+                href="/assets/svg/taiwan-icon-wiki.svg"
+                download
+                class="btn btn-primary"
+              >
+                {t('data.svg.button.download')}
+              </a>
+              <button
+                class="btn btn-outline"
+                onclick="copySVG('taiwan-icon-wiki.svg', this)"
+              >
+                {t('data.svg.button.copy')}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="svg-card">
+          <div class="svg-preview">
+            <img
+              src="/assets/svg/taiwan-simplemaps.svg"
+              alt="Taiwan SimpleMaps"
+            />
+          </div>
+          <div class="svg-info">
+            <h3>{t('data.svg.card2.title')}</h3>
+            <p class="svg-desc">{t('data.svg.card2.description')}</p>
+            <p class="svg-meta">SimpleMaps · 5 KB</p>
+            <div class="svg-actions">
+              <a
+                href="/assets/svg/taiwan-simplemaps.svg"
+                download
+                class="btn btn-primary"
+              >
+                {t('data.svg.button.download')}
+              </a>
+              <button
+                class="btn btn-outline"
+                onclick="copySVG('taiwan-simplemaps.svg', this)"
+              >
+                {t('data.svg.button.copy')}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="svg-card">
+          <div class="svg-preview">
+            <img
+              src="/assets/svg/taiwan-location-map.svg"
+              alt="Taiwan Location Map"
+            />
+          </div>
+          <div class="svg-info">
+            <h3>{t('data.svg.card3.title')}</h3>
+            <p class="svg-desc">{t('data.svg.card3.description')}</p>
+            <p class="svg-meta">Wikimedia Commons · CC</p>
+            <div class="svg-actions">
+              <a
+                href="/assets/svg/taiwan-location-map.svg"
+                download
+                class="btn btn-primary"
+              >
+                {t('data.svg.button.download')}
+              </a>
+              <button
+                class="btn btn-outline"
+                onclick="copySVG('taiwan-location-map.svg', this)"
+              >
+                {t('data.svg.button.copy')}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="svg-card">
+          <div class="svg-preview">
+            <img
+              src="/assets/svg/taiwan-political-division.svg"
+              alt="Taiwan Political Division"
+            />
+          </div>
+          <div class="svg-info">
+            <h3>{t('data.svg.card4.title')}</h3>
+            <p class="svg-desc">{t('data.svg.card4.description')}</p>
+            <p class="svg-meta">Wikimedia Commons · CC</p>
+            <div class="svg-actions">
+              <a
+                href="/assets/svg/taiwan-political-division.svg"
+                download
+                class="btn btn-primary"
+              >
+                {t('data.svg.button.download')}
+              </a>
+              <button
+                class="btn btn-outline"
+                onclick="copySVG('taiwan-political-division.svg', this)"
+              >
+                {t('data.svg.button.copy')}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Usage Example -->
+      <div class="usage-example">
+        <h3>{t('data.svg.usage.heading')}</h3>
+        <div class="code-block">
+          <pre><code>&lt;!-- 直接嵌入 / Embed directly --&gt;
+&lt;img src="https://taiwan.md/assets/svg/taiwan-icon-wiki.svg" alt="Taiwan" width="200"&gt;
+
+&lt;!-- 作為 CSS 背景 / As CSS background --&gt;
+background-image: url('https://taiwan.md/assets/svg/taiwan-icon-wiki.svg');
+
+&lt;!-- 在 Markdown 中引用 / In Markdown --&gt;
+![Taiwan](https://taiwan.md/assets/svg/taiwan-icon-wiki.svg)</code></pre>
+        </div>
+        <p class="license-note">
+          {t('data.svg.usage.licenseNote')}
+        </p>
+      </div>
+    </section>
+
+    <!-- Open Data & Digital Democracy -->
+    <section class="opendata-section">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="story-intro">
+        <h2 class="section-title">{t('data.openData.title')}</h2>
+        <div class="story-text">
+          <p>{t('data.openData.story.p1')}</p>
+          <p>{t('data.openData.story.p2')}</p>
+          <p>{t('data.openData.story.p3')}</p>
+        </div>
+      </div>
+
+      <!-- Data Categories -->
+      <div class="data-categories">
+        {
+          dataCategories.map((cat) => (
+            <div class="data-category-card">
+              <div class="category-header">
+                <span class="category-icon">{cat.icon}</span>
+                <div>
+                  <h3 class="category-title">{cat.title}</h3>
+                  <p class="category-desc">{cat.description}</p>
+                </div>
+              </div>
+              <ul class="item-list">
+                {cat.items.map((item) => (
+                  <li class="item">
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="item-link"
+                    >
+                      {item.name}
+                    </a>
+                    <span class="item-desc">— {item.desc}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Knowledge Graph -->
+    <section class="knowledge-graph-section">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="story-intro">
+        <h2 class="section-title">{t('data.knowledgeGraph.title')}</h2>
+        <div class="story-text">
+          <p>{t('data.knowledgeGraph.story.p1')}</p>
+          <p>{t('data.knowledgeGraph.story.p2')}</p>
+        </div>
+      </div>
+
+      <div class="graph-cta">
+        <a href="/graph" class="graph-btn">
+          <span class="graph-icon">🕸️</span>
+          <div class="graph-text">
+            <span class="graph-title">{t('data.knowledgeGraph.ctaButton')}</span
+            >
+            <span class="graph-desc">
+              {t('data.knowledgeGraph.ctaButton.description')}
+            </span>
+          </div>
+          <span class="graph-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="data-footer">
+      <div class="section-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <h3 class="footer-title">{t('data.footer.heading')}</h3>
+      <div class="footer-links">
+        <a href="/economy" class="footer-link">
+          <span class="footer-icon">📈</span>
+          <div class="footer-text">
+            <span class="footer-name">{t('data.footer.link1.name')}</span>
+            <span class="footer-desc">
+              {t('data.footer.link1.description')}
+            </span>
+          </div>
+        </a>
+        <a href="/graph" class="footer-link">
+          <span class="footer-icon">🕸️</span>
+          <div class="footer-text">
+            <span class="footer-name">{t('data.footer.link2.name')}</span>
+            <span class="footer-desc">
+              {t('data.footer.link2.description')}
+            </span>
+          </div>
+        </a>
+        <a href="/contribute" class="footer-link">
+          <span class="footer-icon">✋</span>
+          <div class="footer-text">
+            <span class="footer-name">{t('data.footer.link3.name')}</span>
+            <span class="footer-desc">
+              {t('data.footer.link3.description')}
+            </span>
+          </div>
+        </a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- D3 Bubble Chart Script -->
+  <script define:vars={{ companies, sectorColors, lang }}>
+    const data = companies;
+    const colors = sectorColors;
+    const currentLang = lang;
+
+    // Load D3
+    const script = document.createElement('script');
+    script.src = 'https://d3js.org/d3.v7.min.js';
+    script.onload = () => initBubbleChart(data, colors, currentLang);
+    document.head.appendChild(script);
+
+    function initBubbleChart(data, colors, lang) {
+      const container = document.getElementById('bubble-chart');
+      const width = container.clientWidth;
+      const height = Math.max(500, window.innerHeight * 0.5);
+
+      let currentMode = 'marketCap';
+      let currentSector = 'all';
+
+      const svg = d3
+        .select('#bubble-chart')
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height)
+        .attr('viewBox', `0 0 ${width} ${height}`);
+
+      const tooltip = d3
+        .select('#bubble-chart')
+        .append('div')
+        .attr('class', 'tooltip')
+        .style('opacity', 0);
+
+      function getValue(d) {
+        return d[currentMode] || 0;
+      }
+
+      function getRadius(d) {
+        const val = getValue(d);
+        const maxVal = d3.max(data, getValue);
+        const minR = 12;
+        const maxR = Math.min(width, height) * 0.15;
+        return minR + (maxR - minR) * Math.sqrt(val / maxVal);
+      }
+
+      const simulation = d3
+        .forceSimulation(data)
+        .force('center', d3.forceCenter(width / 2, height / 2))
+        .force('charge', d3.forceManyBody().strength(3))
+        .force(
+          'collision',
+          d3
+            .forceCollide()
+            .radius((d) => getRadius(d) + 1.5)
+            .strength(0.8),
+        )
+        .force('x', d3.forceX(width / 2).strength(0.05))
+        .force('y', d3.forceY(height / 2).strength(0.05));
+
+      const nodes = svg
+        .selectAll('g.node')
+        .data(data)
+        .join('g')
+        .attr('class', 'node')
+        .call(
+          d3
+            .drag()
+            .on('start', (e, d) => {
+              if (!e.active) simulation.alphaTarget(0.3).restart();
+              d.fx = d.x;
+              d.fy = d.y;
+            })
+            .on('drag', (e, d) => {
+              d.fx = e.x;
+              d.fy = e.y;
+            })
+            .on('end', (e, d) => {
+              if (!e.active) simulation.alphaTarget(0);
+              d.fx = null;
+              d.fy = null;
+            }),
+        );
+
+      const circles = nodes
+        .append('circle')
+        .attr('r', (d) => getRadius(d))
+        .attr('fill', (d) => colors[d.sector] || '#888')
+        .attr('fill-opacity', 0.8)
+        .attr('stroke', (d) => colors[d.sector] || '#888')
+        .attr('stroke-width', 2)
+        .attr('stroke-opacity', 0.3)
+        .style('cursor', 'grab');
+
+      const labels = nodes
+        .append('text')
+        .attr('text-anchor', 'middle')
+        .attr('dominant-baseline', 'central')
+        .attr('fill', '#fff')
+        .attr('font-weight', '600')
+        .attr('pointer-events', 'none')
+        .each(function (d) {
+          const r = getRadius(d);
+          const el = d3.select(this);
+          const shortName = d.name.split(' ')[0];
+          const suffix = lang === 'zh-TW' ? ' 億' : 'B';
+          if (r > 40) {
+            el.append('tspan')
+              .attr('x', 0)
+              .attr('dy', '-0.3em')
+              .attr('font-size', `${Math.min(12, r / 4)}px`)
+              .text(shortName);
+            el.append('tspan')
+              .attr('x', 0)
+              .attr('dy', '1.2em')
+              .attr('font-size', `${Math.min(10, r / 5)}px`)
+              .attr('fill-opacity', 0.8)
+              .text(d.marketCap.toLocaleString() + suffix);
+          } else if (r > 20) {
+            el.attr('font-size', `${Math.min(10, r / 3)}px`).text(shortName);
+          } else {
+            el.attr('font-size', '8px').text(shortName.slice(0, 2));
+          }
+        });
+
+      // Get tooltip labels from translations
+      const tooltipData = {
+        marketCap: lang === 'zh-TW' ? '市值' : 'Market Cap',
+        revenue: lang === 'zh-TW' ? '營收' : 'Revenue',
+        employees: lang === 'zh-TW' ? '員工' : 'Employees',
+        founded: lang === 'zh-TW' ? '成立' : 'Founded',
+        unit: lang === 'zh-TW' ? '億 TWD' : 'B TWD',
+        people: lang === 'zh-TW' ? '人' : '',
+        year: lang === 'zh-TW' ? '年' : '',
+      };
+
+      nodes
+        .on('mouseover', (e, d) => {
+          tooltip.transition().duration(200).style('opacity', 1);
+          tooltip
+            .html(
+              `
+            <strong>${d.name}</strong><br/>
+            <span style="color:${colors[d.sector] || '#888'}">● ${d.sector}</span><br/>
+            ${tooltipData.marketCap}：${d.marketCap.toLocaleString()} ${tooltipData.unit}<br/>
+            ${tooltipData.revenue}：${d.revenue.toLocaleString()} ${tooltipData.unit}<br/>
+            ${tooltipData.employees}：${d.employees.toLocaleString()} ${tooltipData.people}<br/>
+            ${tooltipData.founded}：${d.founded} ${tooltipData.year}
+          `,
+            )
+            .style('left', e.pageX + 15 + 'px')
+            .style('top', e.pageY - 10 + 'px');
+          d3.select(e.currentTarget)
+            .select('circle')
+            .attr('fill-opacity', 1)
+            .attr('stroke-width', 3);
+        })
+        .on('mouseout', (e) => {
+          tooltip.transition().duration(300).style('opacity', 0);
+          d3.select(e.currentTarget)
+            .select('circle')
+            .attr('fill-opacity', 0.8)
+            .attr('stroke-width', 2);
+        });
+
+      simulation.on('tick', () => {
+        nodes.attr('transform', (d) => {
+          d.x = Math.max(getRadius(d), Math.min(width - getRadius(d), d.x));
+          d.y = Math.max(getRadius(d), Math.min(height - getRadius(d), d.y));
+          return `translate(${d.x},${d.y})`;
+        });
+      });
+
+      // Toggle controls
+      document.querySelectorAll('.toggle-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document
+            .querySelectorAll('.toggle-btn')
+            .forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentMode = btn.dataset.mode;
+          updateBubbles();
+        });
+      });
+
+      document.querySelectorAll('.sector-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document
+            .querySelectorAll('.sector-btn')
+            .forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentSector = btn.dataset.sector;
+          updateBubbles();
+        });
+      });
+
+      function updateBubbles() {
+        circles
+          .transition()
+          .duration(600)
+          .attr('r', (d) => {
+            if (currentSector !== 'all' && d.sector !== currentSector) return 0;
+            return getRadius(d);
+          })
+          .attr('fill-opacity', (d) => {
+            if (currentSector !== 'all' && d.sector !== currentSector) return 0;
+            return 0.8;
+          });
+
+        labels
+          .transition()
+          .duration(600)
+          .attr('fill-opacity', (d) => {
+            if (currentSector !== 'all' && d.sector !== currentSector) return 0;
+            return 1;
+          });
+
+        simulation
+          .force(
+            'collision',
+            d3
+              .forceCollide()
+              .radius((d) => {
+                if (currentSector !== 'all' && d.sector !== currentSector)
+                  return 0;
+                return getRadius(d) + 1.5;
+              })
+              .strength(0.8),
+          )
+          .alpha(0.6)
+          .restart();
+      }
+    }
+  </script>
+
+  <!-- SVG Copy Function -->
+  <script is:inline define:vars={{ lang }}>
+    async function copySVG(filename, btn) {
+      const currentLang = lang;
+      try {
+        const res = await fetch('/assets/svg/' + filename);
+        const text = await res.text();
+        await navigator.clipboard.writeText(text);
+        const orig = btn.textContent;
+        btn.textContent = currentLang === 'zh-TW' ? '✅ 已複製' : '✅ Copied';
+        setTimeout(() => (btn.textContent = orig), 2000);
+      } catch (e) {
+        btn.textContent = currentLang === 'zh-TW' ? '❌ 複製失敗' : '❌ Failed';
+        setTimeout(
+          () =>
+            (btn.textContent =
+              currentLang === 'zh-TW' ? '複製代碼' : 'Copy SVG'),
+          2000,
+        );
+      }
+    }
+  </script>
+
+  <style>
+    .data-hub {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: #94a3b8;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #cbd5e1;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Section Divider */
+    .section-divider {
+      padding: 2rem 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .divider-line {
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #60a5fa, transparent);
+      border-radius: 2px;
+    }
+
+    /* Story Block */
+    .story-intro {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem 2rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #f8fafc;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .story-text {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .story-text p {
+      color: #cbd5e1;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .story-text p:first-child {
+      font-size: 1.1rem;
+      color: #93c5fd;
+      font-weight: 600;
+    }
+
+    .story-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Enterprise Section */
+    .companies-section {
+      padding: 2rem 0 4rem;
+    }
+
+    .bubble-controls {
+      max-width: 1400px;
+      margin: 0 auto 2rem;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .size-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .size-toggle label {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    .toggle-btn {
+      padding: 0.4rem 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #cbd5e1;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .toggle-btn.active {
+      background: #3b82f6;
+      color: #fff;
+      border-color: #3b82f6;
+    }
+
+    .sector-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .sector-btn {
+      padding: 0.3rem 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #cbd5e1;
+      cursor: pointer;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.2s;
+    }
+
+    .sector-btn.active {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.4);
+      font-weight: 600;
+    }
+
+    .sector-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    #bubble-chart {
+      position: relative;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      min-height: 500px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #1a1a2e;
+    }
+
+    :global(.tooltip) {
+      position: absolute;
+      background: rgba(0, 0, 0, 0.9);
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      pointer-events: none;
+      z-index: 100;
+      max-width: 280px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .insights {
+      max-width: 1400px;
+      margin: 2rem auto 0;
+      padding: 0 2rem;
+    }
+
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .insight-card {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .insight-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #60a5fa;
+      margin-bottom: 0.3rem;
+    }
+
+    .insight-label {
+      font-weight: 600;
+      color: #e2e8f0;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .insight-detail {
+      font-size: 0.8rem;
+      color: #94a3b8;
+    }
+
+    .explore-more {
+      text-align: center;
+    }
+
+    .explore-link {
+      display: inline-block;
+      color: #60a5fa;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .explore-link:hover {
+      background: rgba(96, 165, 250, 0.1);
+      color: #93c5fd;
+    }
+
+    /* Taiwan Shape Section */
+    .taiwan-shape-section {
+      padding: 2rem 0 4rem;
+    }
+
+    .svg-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .svg-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .svg-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .svg-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      height: 140px;
+    }
+
+    .svg-preview img {
+      max-height: 100px;
+      max-width: 80px;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+    }
+
+    .svg-info {
+      padding: 1.5rem;
+    }
+
+    .svg-info h3 {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      color: #e2e8f0;
+      margin-bottom: 0.5rem;
+    }
+
+    .svg-desc {
+      color: #cbd5e1;
+      margin-bottom: 0.25rem;
+      font-size: 0.9rem;
+    }
+
+    .svg-meta {
+      color: #94a3b8;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .svg-actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      transition: all 0.2s;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: #3b82f6;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #2563eb;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #60a5fa;
+      border: 1px solid #60a5fa;
+    }
+
+    .btn-outline:hover {
+      background: rgba(96, 165, 250, 0.1);
+    }
+
+    .usage-example {
+      max-width: 1400px;
+      margin: 3rem auto 0;
+      padding: 0 2rem;
+    }
+
+    .usage-example h3 {
+      color: #f8fafc;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .code-block {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 1.5rem;
+      overflow-x: auto;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .code-block code {
+      color: #e2e8f0;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      white-space: pre;
+    }
+
+    .license-note {
+      margin-top: 1rem;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    .license-note a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .license-note a:hover {
+      text-decoration: underline;
+    }
+
+    /* Open Data Section */
+    .opendata-section {
+      padding: 2rem 0 4rem;
+    }
+
+    .data-categories {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .data-category-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .data-category-card:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .category-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .category-icon {
+      font-size: 2rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .category-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 0.25rem;
+    }
+
+    .category-desc {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    .item-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .item {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      line-height: 1.6;
+    }
+
+    .item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .item-link {
+      color: #7dd3fc !important;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .item-link:hover {
+      color: #bae6fd !important;
+      border-bottom-color: #bae6fd;
+    }
+
+    .item-desc {
+      color: #cbd5e1;
+      font-size: 0.85rem;
+    }
+
+    /* Knowledge Graph Section */
+    .knowledge-graph-section {
+      padding: 2rem 0 4rem;
+    }
+
+    .graph-cta {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .graph-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem 2rem;
+      background: rgba(255, 255, 255, 0.06);
+      color: #e2e8f0;
+      text-decoration: none;
+      border-radius: 16px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      min-width: 320px;
+    }
+
+    .graph-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .graph-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .graph-text {
+      flex: 1;
+      text-align: left;
+    }
+
+    .graph-title {
+      display: block;
+      font-size: 1.1rem;
+      color: #f1f5f9;
+      margin-bottom: 0.2rem;
+    }
+
+    .graph-desc {
+      display: block;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      font-weight: normal;
+    }
+
+    .graph-arrow {
+      font-size: 1.5rem;
+      color: #60a5fa;
+      flex-shrink: 0;
+    }
+
+    /* Footer */
+    .data-footer {
+      padding: 2rem 0 4rem;
+    }
+
+    .footer-title {
+      text-align: center;
+      color: #f8fafc;
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .footer-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: rgba(255, 255, 255, 0.04);
+      color: #cbd5e1;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #e2e8f0;
+    }
+
+    .footer-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .footer-text {
+      flex: 1;
+    }
+
+    .footer-name {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .footer-desc {
+      display: block;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 2.5rem 1rem 2rem;
+      }
+
+      .story-intro {
+        padding: 0 1rem 1.5rem;
+      }
+
+      .story-text {
+        padding: 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+      }
+
+      .bubble-controls {
+        padding: 0 1rem;
+      }
+
+      .svg-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+      }
+
+      .data-categories {
+        padding: 0 1rem;
+      }
+
+      .data-category-card {
+        padding: 1.5rem;
+      }
+
+      .category-header {
+        gap: 0.75rem;
+      }
+
+      .category-icon {
+        font-size: 1.5rem;
+      }
+
+      .category-title {
+        font-size: 1.2rem;
+      }
+
+      .insight-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+
+      .graph-btn {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        min-width: auto;
+      }
+
+      .graph-text {
+        text-align: center;
+      }
+
+      .footer-links {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 2rem 1rem;
+      }
+
+      .svg-card {
+        margin: 0 -0.5rem;
+      }
+
+      .svg-preview {
+        height: 120px;
+      }
+
+      .insight-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+      }
+
+      #bubble-chart {
+        min-height: 400px;
+      }
+    }
+  </style>
+</Layout>
