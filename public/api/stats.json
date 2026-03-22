@@ -1,12 +1,12 @@
 {
-  "totalArticles": 835,
+  "totalArticles": 845,
   "totalCategories": 28,
-  "estimatedContributors": 56,
-  "totalTags": 2074,
+  "estimatedContributors": 57,
+  "totalTags": 2141,
   "categories": [
     {
       "name": "en",
-      "count": 411
+      "count": 418
     },
     {
       "name": "History",
@@ -26,7 +26,7 @@
     },
     {
       "name": "People",
-      "count": 108
+      "count": 109
     },
     {
       "name": "ja",
@@ -53,12 +53,12 @@
       "count": 1
     },
     {
-      "name": "Nature",
-      "count": 21
+      "name": "Geography",
+      "count": 18
     },
     {
-      "name": "Geography",
-      "count": 16
+      "name": "Nature",
+      "count": 21
     },
     {
       "name": "Lifestyle",
@@ -119,12 +119,12 @@
   ],
   "topTags": [
     {
-      "name": "人物",
+      "name": "Economy",
       "count": 48
     },
     {
-      "name": "Economy",
-      "count": 45
+      "name": "人物",
+      "count": 48
     },
     {
       "name": "企業",
@@ -200,8 +200,8 @@
     }
   ],
   "languageDistribution": {
-    "zh-TW": 835,
+    "zh-TW": 845,
     "en": 0
   },
-  "lastUpdated": "2026-03-22T16:32:59.570Z"
+  "lastUpdated": "2026-03-22T17:46:47.861Z"
 }

@@ -357,6 +357,32 @@
     "path": "半導體產業.md"
   },
   {
+    "title": "台北101",
+    "description": "距離活動斷層僅 200 公尺，台灣人在地震帶上蓋了世界第一高樓——然後有人徒手爬了上去。508 公尺高的台北101融合竹節美學與全球最大 TMD 阻尼器，更是霍諾德徒手獨攀與垂直馬拉松的極限舞台，展現台灣工程奇蹟與挑戰精神。",
+    "category": "Geography",
+    "tags": [
+      "台北",
+      "地標",
+      "摩天大樓",
+      "建築",
+      "抗震工程",
+      "TMD",
+      "垂直馬拉松",
+      "跨年煙火",
+      "觀景台",
+      "李祖原",
+      "信義區",
+      "霍諾德",
+      "徒手獨攀",
+      "free solo"
+    ],
+    "url": "https://taiwan.md/Geography/%E5%8F%B0%E5%8C%97101",
+    "readingTime": 10,
+    "featured": false,
+    "date": "2026-03-23",
+    "path": "Geography/台北101.md"
+  },
+  {
     "title": "台泥：台灣第一上市公司的綠色轉型傳奇",
     "description": "1962年台灣證交所為它而生，股票代號1101象徵台股起源。從辜家三代經營76年，台泥用一座座水泥窯見證台灣建設奇蹟，如今轉型綠色企業迎戰碳中和時代",
     "category": "Economy",
@@ -1185,23 +1211,6 @@
     "featured": true,
     "date": "2026-03-22",
     "path": "Society/台灣同婚與性別平權.md"
-  },
-  {
-    "title": "台灣回收與資源循環文化",
-    "description": "從垃圾島到回收典範的綠色革命",
-    "category": "Lifestyle",
-    "tags": [
-      "垃圾不落地",
-      "四合一回收",
-      "環保文化",
-      "資源循環",
-      "綠色生活"
-    ],
-    "url": "https://taiwan.md/Lifestyle/%E5%8F%B0%E7%81%A3%E5%9B%9E%E6%94%B6%E8%88%87%E8%B3%87%E6%BA%90%E5%BE%AA%E7%92%B0%E6%96%87%E5%8C%96",
-    "readingTime": 25,
-    "featured": false,
-    "date": null,
-    "path": "Lifestyle/台灣回收與資源循環文化.md"
   },
   {
     "title": "台灣在國際標準中的標示問題",
@@ -2677,13 +2686,21 @@
   },
   {
     "title": "台灣溫泉與地熱",
-    "description": "從北投硫磺谷到綠島朝日溫泉：台灣地熱資源與溫泉文化的發展歷程",
+    "description": "從 30 年前失敗的地熱電廠到世界唯一北投石：一座島嶼如何把地底之火變成療癒與綠電",
     "category": "Nature",
-    "tags": [],
+    "tags": [
+      "溫泉",
+      "地熱發電",
+      "北投石",
+      "綠島朝日溫泉",
+      "清水地熱電廠",
+      "地質科學",
+      "溫泉文化"
+    ],
     "url": "https://taiwan.md/Nature/%E5%8F%B0%E7%81%A3%E6%BA%AB%E6%B3%89%E8%88%87%E5%9C%B0%E7%86%B1",
-    "readingTime": 23,
+    "readingTime": 19,
     "featured": false,
-    "date": "2026-03-18",
+    "date": "2026-03-23",
     "path": "Nature/台灣溫泉與地熱.md"
   },
   {
@@ -4812,6 +4829,25 @@
     "path": "Food/茶文化.md"
   },
   {
+    "title": "追垃圾車的島：台灣從垃圾危機到回收奇蹟",
+    "description": "一個1990年代有400座快滿的掩埋場、被國際媒體稱為「垃圾島」的地方，用貝多芬的音樂讓2,300萬人每天追垃圾車，30年後資源回收率超越多數歐洲國家",
+    "category": "Lifestyle",
+    "tags": [
+      "垃圾不落地",
+      "資源回收",
+      "四合一回收",
+      "垃圾車音樂",
+      "給愛麗絲",
+      "環保政策",
+      "PAYT"
+    ],
+    "url": "https://taiwan.md/Lifestyle/%E5%8F%B0%E7%81%A3%E5%9B%9E%E6%94%B6%E8%88%87%E8%B3%87%E6%BA%90%E5%BE%AA%E7%92%B0%E6%96%87%E5%8C%96",
+    "readingTime": 14,
+    "featured": false,
+    "date": "2026-03-23",
+    "path": "Lifestyle/台灣回收與資源循環文化.md"
+  },
+  {
     "title": "馬英九",
     "description": "第十二、十三任總統，兩岸關係破冰推手，ECFA簽署者",
     "category": "People",
@@ -5871,6 +5907,26 @@
     "path": "Economy/農業科技與精緻農業.md"
   },
   {
+    "title": "漯底山",
+    "description": "台灣最靠近海濱的泥火山惡地形，前軍事要塞今為自然公園，擁有活躍噴泥口與絕美海景步道。",
+    "category": "Geography",
+    "tags": [
+      "地理",
+      "自然",
+      "泥火山",
+      "惡地形",
+      "高雄",
+      "彌陀區",
+      "步道",
+      "軍事遺跡"
+    ],
+    "url": "https://taiwan.md/Geography/%E6%BC%AF%E5%BA%95%E5%B1%B1",
+    "readingTime": 5,
+    "featured": false,
+    "date": "2026-03-23",
+    "path": "Geography/漯底山.md"
+  },
+  {
     "title": "臺灣的鯨豚",
     "description": "全球三分之一鯨豚物種的棲息地——從昔日捕鯨到今日賞鯨，臺灣如何轉身成為海洋生態研究重鎮？",
     "category": "Nature",
@@ -6568,6 +6624,22 @@
     "path": "en/Economy/acer-pc-industry-pioneer.md"
   },
   {
+    "title": "Advantech Technology",
+    "description": "Global leader in industrial computing, IoT intelligent systems pioneer from Taiwan",
+    "category": "en",
+    "tags": [
+      "Economy",
+      "Enterprises",
+      "Industrial Computers",
+      "IoT"
+    ],
+    "url": "https://taiwan.md/en/Economy/advantech-technology",
+    "readingTime": 45,
+    "featured": false,
+    "date": "2026-03-20",
+    "path": "en/Economy/advantech-technology.md"
+  },
+  {
     "title": "Agricultural Technology and Refined Agriculture",
     "description": "How Taiwan transformed from traditional farming to high-tech refined agriculture, creating an agricultural miracle",
     "category": "en",
@@ -6880,6 +6952,25 @@
     "featured": false,
     "date": "2026-03-19",
     "path": "en/Nature/cetaceans-of-taiwan.md"
+  },
+  {
+    "title": "Chasing the Garbage Truck: How Taiwan Went from Trash Crisis to Recycling Marvel",
+    "description": "In the 1990s, Taiwan had 400 overflowing landfills and was dubbed \"Garbage Island.\" Today, its recycling rate tops most of Europe—and the whole system runs on Beethoven.",
+    "category": "en",
+    "tags": [
+      "recycling",
+      "waste management",
+      "garbage truck music",
+      "Für Elise",
+      "4-in-1 recycling",
+      "PAYT",
+      "environmental policy"
+    ],
+    "url": "https://taiwan.md/en/Lifestyle/taiwan-recycling-and-circular-living-culture",
+    "readingTime": 35,
+    "featured": false,
+    "date": "2026-03-23",
+    "path": "en/Lifestyle/taiwan-recycling-and-circular-living-culture.md"
   },
   {
     "title": "Che-Yu Wu (吳哲宇) — A Media Artist Who Grows Life in Code",
@@ -9517,6 +9608,44 @@
     "path": "en/History/qing-dynasty-rule.md"
   },
   {
+    "title": "Ray (YouTuber)",
+    "description": "Born in 2005, Taiwanese high school student Hsu Chen-Jui gained viral fame when he said 'My name is Ray, I'm from Taiwan' to American streamer Kai Cenat during a school trip to Japan. With over 2.7 million Twitch followers and 1.43 million YouTube subscribers, he brought Taiwan's passport, beef noodles, and bubble tea to American GQ's trending videos, signed with Adidas for his personal brand RUEI, and later announced retirement to invest in a dental clinic in Atlanta.",
+    "category": "en",
+    "tags": [
+      "YouTuber",
+      "Streamer",
+      "Twitch",
+      "Kai Cenat",
+      "Digital Creator",
+      "Taiwan International Image",
+      "AMP"
+    ],
+    "url": "https://taiwan.md/en/People/ray-youtuber",
+    "readingTime": 22,
+    "featured": false,
+    "date": "2026-03-23",
+    "path": "en/People/ray-youtuber.md"
+  },
+  {
+    "title": "Ray(YouTuber)",
+    "description": "2005年出生的台灣高中生許宸睿，在日本修學旅行時一句「My name is Ray, I'm from Taiwan」爆紅。目前Twitch超過270萬追隨者、YouTube 143萬訂閱，他把台灣護照、牛肉麵、珍奶帶進美國GQ熱門影片，還簽約Adidas推出個人品牌RUEI，後來宣布退休轉投資牙醫診所，讓世界看見台灣年輕人的可能性。",
+    "category": "People",
+    "tags": [
+      "YouTuber",
+      "實況主",
+      "Twitch",
+      "Kai Cenat",
+      "數位創作者",
+      "台灣國際形象",
+      "AMP"
+    ],
+    "url": "https://taiwan.md/People/Ray",
+    "readingTime": 9,
+    "featured": false,
+    "date": "2026-03-23",
+    "path": "People/Ray.md"
+  },
+  {
     "title": "Religion and Folk Beliefs",
     "description": "From Fear Management to Faith Empire: How Taiwan Created the World's Most Dense Yet Freest Religious Ecosystem",
     "category": "en",
@@ -9881,6 +10010,26 @@
     "path": "en/People/sylvia-chang.md"
   },
   {
+    "title": "Tadian Mountain",
+    "description": "Taiwan's closest mud volcano badland to the coast, a former military fortress now transformed into a natural park with active mud springs and scenic coastal trails.",
+    "category": "en",
+    "tags": [
+      "Geography",
+      "Nature",
+      "Mud Volcano",
+      "Badlands",
+      "Kaohsiung",
+      "Mituo District",
+      "Trail",
+      "Military Heritage"
+    ],
+    "url": "https://taiwan.md/en/Geography/tadian-mountain",
+    "readingTime": 18,
+    "featured": false,
+    "date": "2026-03-23",
+    "path": "en/Geography/tadian-mountain.md"
+  },
+  {
     "title": "Tai Tzu-ying",
     "description": "",
     "category": "en",
@@ -9925,6 +10074,32 @@
     "featured": true,
     "date": "2026-03-19",
     "path": "en/People/tai-yu-wu.md"
+  },
+  {
+    "title": "Taipei 101",
+    "description": "Just 200 meters from an active fault line, Taiwanese built the world's tallest building in an earthquake zone—then someone climbed it with bare hands. At 508 meters high, Taipei 101 combines bamboo-inspired aesthetics with the world's largest TMD damper, serving as the ultimate stage for Honnold's free solo climb and vertical marathons, showcasing Taiwan's engineering miracle and spirit of challenge.",
+    "category": "en",
+    "tags": [
+      "Taipei",
+      "Landmark",
+      "Skyscraper",
+      "Architecture",
+      "Seismic Engineering",
+      "TMD",
+      "Vertical Marathon",
+      "New Year Fireworks",
+      "Observatory",
+      "Li Tsu-yuan",
+      "Xinyi District",
+      "Honnold",
+      "Free Solo",
+      "Free Climbing"
+    ],
+    "url": "https://taiwan.md/en/Geography/taipei-101",
+    "readingTime": 28,
+    "featured": false,
+    "date": "2026-03-23",
+    "path": "en/Geography/taipei-101.md"
   },
   {
     "title": "Taiwan AI Labs - Pioneering AI for Social Good",
@@ -10205,6 +10380,39 @@
     "path": "en/Technology/taiwan-electric-vehicle-industry-chain.md"
   },
   {
+    "title": "Taiwan Enterprise: ASE Semiconductor",
+    "description": "World's largest assembly and testing company - why did a construction company boss pivot to semiconductors?",
+    "category": "en",
+    "tags": [
+      "Economy",
+      "Enterprises",
+      "Semiconductor",
+      "Assembly and Testing",
+      "Tech Manufacturing"
+    ],
+    "url": "https://taiwan.md/en/Economy/taiwan-enterprise-ase-semiconductor",
+    "readingTime": 37,
+    "featured": false,
+    "date": "2026-03-21",
+    "path": "en/Economy/taiwan-enterprise-ase-semiconductor.md"
+  },
+  {
+    "title": "Taiwan Enterprise: Chang Chun Petrochemical",
+    "description": "From a 1949 Tainan workshop to global chemical giant: the hidden champion story of 'no public listing, no debt'",
+    "category": "en",
+    "tags": [
+      "Economy",
+      "Enterprises",
+      "Petrochemical",
+      "Chemical Industry"
+    ],
+    "url": "https://taiwan.md/en/Economy/taiwan-enterprise-chang-chun-petrochemical",
+    "readingTime": 33,
+    "featured": false,
+    "date": "2026-03-20",
+    "path": "en/Economy/taiwan-enterprise-chang-chun-petrochemical.md"
+  },
+  {
     "title": "Taiwan Environmental Justice and NIMBY Conflicts",
     "description": "Exploring Taiwan's unequal environmental burden distribution, from incinerators and nuclear waste to petrochemical industry NIMBY conflicts, analyzing environmental inequality and social justice issues",
     "category": "en",
@@ -10299,6 +10507,25 @@
     "featured": false,
     "date": "2026-03-19",
     "path": "en/Culture/taiwan-historic-streets-and-commercial-districts.md"
+  },
+  {
+    "title": "Taiwan Hot Springs and Geothermal Energy",
+    "description": "From a failed geothermal plant to the world\\'s only Hokutolite mineral: How one island turned underground fire into healing and green electricity",
+    "category": "en",
+    "tags": [
+      "hot springs",
+      "geothermal energy",
+      "Hokutolite",
+      "Green Island Zhaori Hot Springs",
+      "Qingshui Geothermal Power Plant",
+      "geology",
+      "spa culture"
+    ],
+    "url": "https://taiwan.md/en/Nature/Taiwan%20Hot%20Springs%20and%20Geothermal%20Energy",
+    "readingTime": 64,
+    "featured": false,
+    "date": "2026-03-23",
+    "path": "en/Nature/Taiwan Hot Springs and Geothermal Energy.md"
   },
   {
     "title": "Taiwan Hot Springs and Geothermal Energy",
@@ -11364,17 +11591,6 @@
     "featured": false,
     "date": "2026-03-18",
     "path": "en/Society/taiwan-political-landscape-and-electoral-system.md"
-  },
-  {
-    "title": "Taiwan’s Recycling and Circular‑Living Culture",
-    "description": "From “Garbage Island” to global exemplar—how Taiwan turned waste into a civic ritual.",
-    "category": "en",
-    "tags": [],
-    "url": "https://taiwan.md/en/Lifestyle/taiwan-recycling-and-circular-living-culture",
-    "readingTime": 27,
-    "featured": false,
-    "date": null,
-    "path": "en/Lifestyle/taiwan-recycling-and-circular-living-culture.md"
   },
   {
     "title": "Taiwan's Reservoirs and Water Resource Management",
