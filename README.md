@@ -73,29 +73,26 @@ Taiwan.md is an open-source, curated, AI-friendly knowledge base that helps the 
 
 ---
 
-## 🤝 參與專案
+## 🤝 How to Contribute
 
-最簡單的方式：**把以下文字貼給你的 AI（ChatGPT / Claude / Gemini），它會引導你完成一篇文章。**
+### 🤖 AI 輔助貢獻（最簡單）
 
-### ✍️ 寫一篇文章
+把以下文字貼給你的 AI（ChatGPT / Claude / Gemini），它會引導你完成：
 
-複製這段 prompt 貼給你的 AI：
-
+**寫文章：**
 > 請閱讀 https://raw.githubusercontent.com/frank890417/taiwan-md/main/CONTRIBUTE_PROMPT.md ，然後引導我為 Taiwan.md 撰寫一篇台灣主題文章。
 
-AI 會讀取我們的寫作標準，引導你選主題、組織內容、產出符合格式的 Markdown 檔案，最後你只需要開一個 PR。
-
-### 🌐 翻譯現有文章
-
+**翻譯：**
 > 請閱讀 https://raw.githubusercontent.com/frank890417/taiwan-md/main/TRANSLATE_PROMPT.md ，然後協助我翻譯一篇 Taiwan.md 的文章。
 
-### 其他參與方式
+### All paths, from zero-code to full PR:
 
-| 方式 | 適合誰 |
-| --- | --- |
-| 📧 **寄信給我們** | 寄文章/照片到 cheyu.wu@monoame.com |
-| 🔴 **Fork & PR** | 開發者 — 直接編輯 `knowledge/` 目錄 |
-| 💬 **GitHub Discussions** | 提出想法或討論方向 |
+| Path               | For whom                                     |
+| ------------------ | -------------------------------------------- |
+| 🤖 **Ask your AI** | Paste our prompt to ChatGPT/Claude/Gemini    |
+| 🟢 **Fill a form** | Anyone — just write what you know            |
+| 📧 **Email us**    | Send articles/photos to cheyu.wu@monoame.com |
+| 🔴 **Fork & PR**   | Developers — edit `knowledge/` directly      |
 
 👉 **[taiwan.md/contribute](https://taiwan.md/contribute)**
 
