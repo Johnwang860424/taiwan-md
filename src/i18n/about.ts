@@ -111,6 +111,12 @@ export const aboutUI = {
     'about.timeline.2026-03-22.desc.html':
       'GitHub reached <strong>700 stars</strong> with <strong>24 contributors</strong>. Major features launched: <strong>interactive Taiwan map</strong> (county filtering, marker previews, curated routes), <strong>Food Hub D3 visualizations</strong> (flavor wheel + relationship graph for 29 Taiwanese dishes), <strong>Changelog with relative timestamps</strong>, and a unified <strong>"Ask Your AI" contribution system</strong> — paste one prompt to ChatGPT/Claude/Gemini to write or translate articles following editorial standards. All food images replaced with <strong>real Wikimedia Commons photos</strong>. Spanish knowledge base launched with 46 articles.',
 
+    'about.timeline.2026-03-22b.date': '2026 / 03 / 22',
+    'about.timeline.2026-03-22b.title':
+      '📖 Wikipedia Article Created・Four Languages・Quality Automation',
+    'about.timeline.2026-03-22b.desc.html':
+      'Taiwan.md received its own <strong><a href="https://zh.wikipedia.org/wiki/Taiwan.md" target="_blank">Chinese Wikipedia article</a></strong> — written entirely by the community, with 6 independent sources (CNA, INSIDE, FTNN, UPMedia, ABMedia, Big Media). Only 5 days after launch. The project entered <strong>four-language era</strong>: Chinese (385), English (407), Spanish (46), Japanese (5). An automated <strong>EDITORIAL v2 quality rewrite system</strong> launched — rewriting one article per hour to meet editorial standards with 10+ verified sources.',
+
     'about.timeline.ongoing.date': 'Ongoing',
     'about.timeline.ongoing.title': 'From Personal SSOT to National SSOT',
     'about.timeline.ongoing.desc.html':
@@ -344,6 +350,12 @@ export const aboutUI = {
       '🎉 700 Stars ・ 互動地圖 ・ D3 視覺化 ・ AI 貢獻系統',
     'about.timeline.2026-03-22.desc.html':
       'GitHub 達到 <strong>700 Stars</strong>，<strong>24 位貢獻者</strong>。重大功能上線：<strong>互動式台灣地圖</strong>（縣市過濾、地標預覽、四條策展路線）、<strong>美食 D3 互動視覺化</strong>（風味輪 + 關係圖，29 道台灣料理可視化探索）、<strong>Changelog 相對時間顯示</strong>，以及統一的<strong>「貼給你的 AI」貢獻系統</strong>——複製一段 Prompt 給 ChatGPT / Claude / Gemini，AI 會引導你依照編輯標準寫文章或翻譯。全部美食照片替換為 <strong>Wikimedia Commons 實拍圖</strong>。西班牙文知識庫上線，46 篇文章。',
+
+    'about.timeline.2026-03-22b.date': '2026 / 03 / 22',
+    'about.timeline.2026-03-22b.title':
+      '📖 維基百科條目建立 ・ 四語並行 ・ 品質自動化',
+    'about.timeline.2026-03-22b.desc.html':
+      'Taiwan.md 獲得了自己的<strong><a href="https://zh.wikipedia.org/wiki/Taiwan.md" target="_blank">中文維基百科條目</a></strong>——完全由社群自發撰寫，引用 6 個獨立來源（中央社、INSIDE、FTNN、上報、動區、大媒體）。上線僅 5 天。專案進入<strong>四語時代</strong>：中文（385）、英文（407）、西班牙文（46）、日文（5）。<strong>EDITORIAL v2 品質自動改寫系統</strong>上線——每小時自動重寫一篇文章，每篇需通過 10+ 來源驗證。',
 
     'about.timeline.ongoing.date': '持續進行中',
     'about.timeline.ongoing.title': '從個人 SSOT 到國家 SSOT',
