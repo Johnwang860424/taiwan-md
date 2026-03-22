@@ -4160,19 +4160,20 @@
   },
   {
     "title": "林義傑",
-    "description": "極地超馬傳奇，用雙腳征服地球最極端環境的台灣跑者",
+    "description": "從被田徑隊拒絕的瘦小孩，到徒步橫越撒哈拉沙漠創造歷史的極地跑者",
     "category": "People",
     "tags": [
       "人物",
       "超級馬拉松",
       "極地探險",
       "運動員",
-      "撒哈拉沙漠"
+      "撒哈拉沙漠",
+      "台灣之光"
     ],
     "url": "https://taiwan.md/People/%E6%9E%97%E7%BE%A9%E5%82%91",
-    "readingTime": 12,
+    "readingTime": 11,
     "featured": false,
-    "date": "2026-03-19",
+    "date": "2026-03-22",
     "path": "People/林義傑.md"
   },
   {
@@ -5946,7 +5947,7 @@
   },
   {
     "title": "蔡依林",
-    "description": "從偶像到天后，用舞台重新定義華語流行樂的藝術性表演者",
+    "description": "不是天才的天后——用 214 週世界第一證明努力可以戰勝天賦",
     "category": "People",
     "tags": [
       "人物",
@@ -5957,9 +5958,9 @@
       "金曲獎"
     ],
     "url": "https://taiwan.md/People/%E8%94%A1%E4%BE%9D%E6%9E%97",
-    "readingTime": 6,
+    "readingTime": 12,
     "featured": false,
-    "date": "2026-03-19",
+    "date": "2026-03-22",
     "path": "People/蔡依林.md"
   },
   {
@@ -6478,6 +6479,23 @@
     "featured": false,
     "date": "2026-03-19",
     "path": "en/People/a-mei.md"
+  },
+  {
+    "title": "Acer Group - PC Industry Pioneer of Change",
+    "description": "From Taoyuan garage to global brand: How Taiwan's personal computer pioneer created the 'multi-brand, multi-channel' business model and became a change engine for the global PC industry",
+    "category": "en",
+    "tags": [
+      "Economy",
+      "Corporations",
+      "Personal Computers",
+      "Brand",
+      "Globalization"
+    ],
+    "url": "https://taiwan.md/en/Economy/acer-pc-industry-pioneer",
+    "readingTime": 51,
+    "featured": false,
+    "date": "2026-03-20",
+    "path": "en/Economy/acer-pc-industry-pioneer.md"
   },
   {
     "title": "Agricultural Technology and Refined Agriculture",
@@ -7292,6 +7310,24 @@
     "path": "es/Food/tea-culture.md"
   },
   {
+    "title": "Delta Electronics: From 13-Year-Old War Refugee to Space Legend",
+    "description": "How NT$300,000 and one man's vision redefined the global power industry — and earned him an asteroid named after him",
+    "category": "en",
+    "tags": [
+      "Economy",
+      "Corporations",
+      "Power Management",
+      "Green Technology",
+      "Industrial Automation",
+      "ESG"
+    ],
+    "url": "https://taiwan.md/en/Economy/delta-electronics-taiwan-power-giant",
+    "readingTime": 55,
+    "featured": true,
+    "date": "2026-03-22",
+    "path": "en/Economy/delta-electronics-taiwan-power-giant.md"
+  },
+  {
     "title": "democracy-and-democratization",
     "description": "Taiwan's successful democratization holds significant historical and contemporary importance. It proves that Chinese soc",
     "category": "en",
@@ -7496,11 +7532,17 @@
   },
   {
     "title": "Endemic Species",
-    "description": "Taiwan's rich endemic species showcase the evolutionary miracles of island biogeography and conservation importance",
+    "description": "Taiwan's rich endemic species showcase the evolutionary miracles of island biogeography and their conservation importance",
     "category": "en",
-    "tags": [],
+    "tags": [
+      "Nature",
+      "Endemic Species",
+      "Biodiversity",
+      "Taiwanese Black Bear",
+      "Sakura Trout"
+    ],
     "url": "https://taiwan.md/en/Nature/endemic-species",
-    "readingTime": 30,
+    "readingTime": 29,
     "featured": false,
     "date": "2026-03-17",
     "path": "en/Nature/endemic-species.md"
@@ -8229,6 +8271,24 @@
     "path": "en/People/jj-lin-singaporean-mandopop-king.md"
   },
   {
+    "title": "Jolin Tsai",
+    "description": "The self-proclaimed \"Earth Talent\" who conquered C-Pop through sheer determination over natural gift",
+    "category": "en",
+    "tags": [
+      "people",
+      "singer",
+      "entertainment",
+      "LGBTQ+ rights",
+      "pop music",
+      "Golden Melody Awards"
+    ],
+    "url": "https://taiwan.md/en/People/%E8%94%A1%E4%BE%9D%E6%9E%97",
+    "readingTime": 31,
+    "featured": false,
+    "date": "2026-03-22",
+    "path": "en/People/蔡依林.md"
+  },
+  {
     "title": "Jolin Tsai (蔡依林)",
     "description": "From teen idol to cultural icon, a performer who elevated Mandopop into a high‑art stagecraft",
     "category": "en",
@@ -8256,6 +8316,44 @@
     "featured": false,
     "date": "2026-03-19",
     "path": "en/People/kao-chun-ming.md"
+  },
+  {
+    "title": "Kao Chun-ming",
+    "description": "A pastor who risked his life and church for a stranger he barely knew — the faith choice behind the Kaohsiung Incident",
+    "category": "en",
+    "tags": [
+      "people",
+      "pastor",
+      "human rights movement",
+      "martial law period",
+      "prisoner of conscience",
+      "Presbyterian Church in Taiwan",
+      "Kaohsiung Incident",
+      "Shih Ming-teh"
+    ],
+    "url": "https://taiwan.md/en/People/%E9%AB%98%E4%BF%8A%E6%98%8E",
+    "readingTime": 45,
+    "featured": false,
+    "date": "2026-03-22",
+    "path": "en/People/高俊明.md"
+  },
+  {
+    "title": "Kevin Lin (Lin Yi-jie)",
+    "description": "From rejected track team tryouts to becoming the first person to run across the Sahara Desert on foot",
+    "category": "en",
+    "tags": [
+      "people",
+      "ultramarathon",
+      "extreme expeditions",
+      "athlete",
+      "sahara desert",
+      "taiwan pride"
+    ],
+    "url": "https://taiwan.md/en/People/%E6%9E%97%E7%BE%A9%E5%82%91",
+    "readingTime": 32,
+    "featured": false,
+    "date": "2026-03-22",
+    "path": "en/People/林義傑.md"
   },
   {
     "title": "Kevin Lin Yi-jie",
@@ -8328,6 +8426,25 @@
     "featured": true,
     "date": "2026-03-19",
     "path": "en/People/lai-ching-te.md"
+  },
+  {
+    "title": "Largan Precision: When Craftsmanship Meets Architectural Revolution",
+    "description": "How the world's strongest plastic lens technology company lost iPhone orders to Chinese rivals, despite technical leadership",
+    "category": "en",
+    "tags": [
+      "Economy",
+      "Corporations",
+      "Largan Precision",
+      "Optical Industry",
+      "Precision Manufacturing",
+      "Apple Supply Chain",
+      "Architectural Innovation"
+    ],
+    "url": "https://taiwan.md/en/Economy/largan-precision-when-craftsmanship-meets-architectural-revolution",
+    "readingTime": 79,
+    "featured": false,
+    "date": "2026-03-22",
+    "path": "en/Economy/largan-precision-when-craftsmanship-meets-architectural-revolution.md"
   },
   {
     "title": "Largan Precision: When Craftsmanship Meets Architectural Revolution",
@@ -11269,6 +11386,25 @@
     "path": "en/Culture/taiwanese-baseball-culture.md"
   },
   {
+    "title": "Taiwanese Black Bear",
+    "description": "The white V-shaped chest patch is their signature—Taiwan's last mountain monarchs and their unfinished conservation story",
+    "category": "en",
+    "tags": [
+      "Taiwanese Black Bear",
+      "Conservation",
+      "Endangered Species",
+      "Hwang Mei-hsiu",
+      "Mountain Forests",
+      "Indigenous Peoples",
+      "National Parks"
+    ],
+    "url": "https://taiwan.md/en/Nature/taiwanese-black-bear",
+    "readingTime": 55,
+    "featured": false,
+    "date": "2026-03-18",
+    "path": "en/Nature/taiwanese-black-bear.md"
+  },
+  {
     "title": "Taiwanese Breakfast Culture",
     "description": "From danbing and shaobing‑youtiao to the global rise of Yonghe Soy Milk, Taiwan’s morning ritual is a living map of migration, innovation, and neighborhood warmth.",
     "category": "en",
@@ -11443,6 +11579,25 @@
     "featured": false,
     "date": "2026-03-20",
     "path": "en/Nature/taiwanese-indigenous-ecological-wisdom-conservation.md"
+  },
+  {
+    "title": "Taiwanese Leopard Cat Conservation",
+    "description": "The phantom feline with fewer than 500 individuals left—when Taiwan's last native cat species walks to the edge of extinction",
+    "category": "en",
+    "tags": [
+      "Leopard Cat",
+      "Conservation",
+      "Roadkill",
+      "Habitat",
+      "Miaoli",
+      "Endangered Species",
+      "Ecology"
+    ],
+    "url": "https://taiwan.md/en/Nature/taiwanese-leopard-cat-conservation",
+    "readingTime": 48,
+    "featured": false,
+    "date": "2026-03-18",
+    "path": "en/Nature/taiwanese-leopard-cat-conservation.md"
   },
   {
     "title": "Taiwanese Life Ceremony Traditions: Marriage, Funeral Rites, and Ritual Celebrations",
