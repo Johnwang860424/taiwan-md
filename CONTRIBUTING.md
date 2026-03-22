@@ -39,7 +39,7 @@ tags: ['標籤1', '標籤2', '標籤3']
 author: '作者名稱'
 difficulty: 'beginner|intermediate|advanced'
 readingTime: 8 # 預估閱讀時間（分鐘）
-featured: false # 是否為精選文章
+featured: false # 是否為精選文章（⚠️ 由維護者統一管理，PR 請勿自行設定為 true）
 ---
 
 # 文章標題
@@ -158,6 +158,22 @@ src/content/en/food/night-market.md
 - 為國際讀者增加必要的背景知識
 - 解釋在地文化概念
 - 提供比較和類比
+
+#### Featured 文章管理 🏆
+
+**`featured: true` 由維護者統一管理，PR 請勿自行設定。**
+
+- Featured 文章是各分類最具代表性的內容
+- 建議每分類保持 1-2 篇 featured 文章
+- 維護者會使用 `scripts/manage-featured.sh` 工具統一管理：
+  ```bash
+  # 查看所有 featured 文章
+  bash scripts/manage-featured.sh list
+  
+  # 審計 featured 文章分佈
+  bash scripts/manage-featured.sh audit
+  ```
+- 如果您認為某篇文章應該被設為 featured，請在 PR 中說明理由
 
 ---
 
