@@ -3,6 +3,7 @@ title: 'Yani Tseng'
 description: 'Former women’s world number one in golf, a 15‑time LPGA champion who held the top ranking for 109 consecutive weeks'
 date: 2026-03-19
 tags: [sports, golf, lpga, world-number-one, professional-golf]
+subcategory: 'Sports'
 lastVerified: 2026-03-19
 translatedFrom: 'People/曾雅妮.md'
 sourceHash: '00cb0d'

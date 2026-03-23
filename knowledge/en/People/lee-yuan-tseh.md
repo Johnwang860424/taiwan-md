@@ -2,6 +2,7 @@
 title: 'Lee Yuan-tseh'
 category: People
 tags:
+subcategory: 'Science & Academia'
   [
     person,
     Lee Yuan-tseh,

@@ -3,6 +3,7 @@ title: 'Chen Shui-bian: The Controversial Pioneer of Democratic Transition'
 description: "Taiwan's 10th and 11th President, central figure in the historic 2000 power transition, a polarizing leader in Taiwan's democratization"
 date: 2026-03-20
 tags:
+subcategory: 'Politics & Democracy'
   [
     'president',
     'power transition',

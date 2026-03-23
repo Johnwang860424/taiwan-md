@@ -3,6 +3,7 @@ title: "Chen Yu-Hsun: Taiwan's Warm Comedy Film Magician"
 description: "Taiwan's comedy film director behind 'Tropical Fish,' 'Zone Pro Site,' and 'My Missing Valentine'"
 date: 2026-03-20
 tags: ["Chen Yu-Hsun", "director", "comedy film", "Tropical Fish", "Zone Pro Site", "My Missing Valentine"]
+subcategory: 'Film & Theater'
 lastVerified: 2026-03-20
 ---
 

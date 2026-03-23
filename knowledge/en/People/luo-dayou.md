@@ -3,6 +3,7 @@ title: 'Luo Dayou (羅大佑)'
 description: 'The godfather of Mandarin pop, whose songs chronicled Taiwan’s social changes from the 1980s onward'
 date: 2026-03-19
 tags: ['music', 'singer-songwriter', 'social commentary', 'Mandopop', 'Taiwan']
+subcategory: 'Music'
 lastVerified: 2026-03-19
 ---
 

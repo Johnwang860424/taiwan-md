@@ -3,6 +3,7 @@ title: 'Yang Chuan-Kwang'
 description: "The Asian Iron Man, Taiwan's first Olympic medalist who won decathlon silver at the 1960 Rome Olympics"
 date: 2026-03-20
 tags: ['sports', 'athletics', 'Olympics', 'decathlon', 'indigenous', 'Amis']
+subcategory: 'Sports'
 lastVerified: 2026-03-20
 ---
 

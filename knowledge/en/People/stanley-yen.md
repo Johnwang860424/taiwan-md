@@ -3,6 +3,7 @@ title: 'Stanley Yen (Yen Chang-shou)'
 description: 'Taiwan’s ‘godfather of tourism’ who turned luxury hospitality into a platform for rural education'
 date: 2026-03-19
 tags: [people, tourism, education, philanthropy, hospitality]
+subcategory: 'Education & Society'
 lastVerified: 2026-03-19
 ---
 

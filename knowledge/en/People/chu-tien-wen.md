@@ -3,6 +3,7 @@ title: 'Chu Tien-wen'
 description: 'Novelist and screenwriter who shaped Taiwan New Cinema, author of Notes of a Desolate Man'
 date: 2026-03-19
 tags:
+subcategory: 'Literature'
   [
     'literature',
     'screenwriting',

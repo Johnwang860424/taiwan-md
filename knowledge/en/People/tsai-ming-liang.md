@@ -3,6 +3,7 @@ title: 'Tsai Ming‑liang'
 description: 'Venice Golden Lion winner and master of slow cinema, a Malaysian‑Chinese director rooted in Taiwan'
 date: 2026-03-19
 tags:
+subcategory: 'Film & Theater'
   [
     'Director',
     'Tsai Ming‑liang',

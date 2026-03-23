@@ -3,6 +3,7 @@ title: "Niu Cheng-Ze: Talent and Controversy in Taiwan Cinema"
 description: "Niu Cheng-Ze is a renowned Taiwan director and actor, famous for films like 'Monga' and 'Paradise in Service.' From child star to acclaimed director, his works often addressed sensitive social issues with distinctive personal style. However, his career and legacy were overshadowed by a 2018 sexual assault conviction, making him a controversial figure in Taiwan's film industry."
 date: 2026-03-19
 tags: ["Niu Cheng-Ze", "Director", "Actor", "Monga", "Controversy"]
+subcategory: 'Film & Theater'
 lastVerified: 2026-03-19
 ---
 

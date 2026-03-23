@@ -3,6 +3,7 @@ title: 'Lin Hwai-min'
 description: 'Founder of Cloud Gate Dance Theatre and the pioneering force behind modern dance in Taiwan.'
 date: 2026-03-19
 tags: ['people', 'dance', 'arts', 'performing arts']
+subcategory: 'Arts & Design'
 lastVerified: 2026-03-19
 featured: true
 ---

@@ -3,6 +3,7 @@ title: 'Kao Chun-ming'
 description: 'Taiwanese Presbyterian Church pastor, human rights fighter and prisoner of conscience during the martial law period'
 date: 2026-03-19
 tags: [people, pastor, human rights movement, martial law period, prisoner of conscience, presbyterian church]
+subcategory: 'Politics & Democracy'
 lastVerified: 2026-03-19
 ---
 

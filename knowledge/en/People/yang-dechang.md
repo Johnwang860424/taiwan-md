@@ -3,6 +3,7 @@ title: 'Edward Yang (楊德昌)'
 description: 'A leading voice of the Taiwan New Cinema movement, Cannes Best Director, and the poet of urban alienation'
 date: 2026-03-19
 tags:
+subcategory: 'Film & Theater'
   [
     'director',
     'Taiwan New Cinema',

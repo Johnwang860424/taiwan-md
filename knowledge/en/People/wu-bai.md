@@ -3,6 +3,7 @@ title: 'Wu Bai (伍佰)'
 description: 'Taiwan’s rock national treasure and the architect of Taiwanese‑language rock—how Wu Bai turned street energy into a lasting cultural voice'
 date: 2026-03-19
 tags: [music, rock, taiwanese-language, chiayi, guitar, live-performance]
+subcategory: 'Music'
 lastVerified: 2026-03-19
 ---
 

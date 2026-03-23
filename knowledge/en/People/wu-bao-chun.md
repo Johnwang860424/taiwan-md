@@ -3,6 +3,7 @@ title: 'Wu Pao-chun'
 description: 'World Bread Cup champion who amazed the international stage with lychee rose bread, rising from rural Pingtung to become a world-class bakery craftsman'
 date: 2026-03-22
 tags: ['Food', 'Baking', 'Craftsmanship', 'World Champion', 'Pingtung', 'Bread']
+subcategory: 'Food & Craft'
 author: 'Taiwan.md'
 readingTime: '6 minutes'
 category: 'People'

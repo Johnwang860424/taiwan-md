@@ -3,6 +3,7 @@ title: 'Shih Ming-te'
 description: 'Leader of the Kaohsiung Incident and a democracy pioneer who spent 25 years in prison for Taiwan’s freedom'
 date: 2026-03-19
 tags:
+subcategory: 'Politics & Democracy'
   [
     'democracy',
     'Kaohsiung Incident',

@@ -3,6 +3,7 @@ title: 'Du Congming: Founder of Modern Medicine in Taiwan'
 description: "Taiwan's first medical doctor and father of modern medicine in Taiwan"
 date: 2026-03-19
 tags:
+subcategory: 'Science & Academia'
   [
     'Medicine',
     'Medical Doctor',

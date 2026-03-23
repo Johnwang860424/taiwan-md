@@ -3,6 +3,7 @@ title: 'Bobby Chen (陳昇)'
 description: "Independent music pioneer and creative genius who has hosted New Year's Eve concerts for 30 consecutive years in Taiwan's music scene"
 date: 2026-03-19
 tags:
+subcategory: 'Music'
   [
     'music',
     'independent music',

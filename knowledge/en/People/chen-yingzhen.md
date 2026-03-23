@@ -3,6 +3,7 @@ title: 'Chen Yingzhen'
 description: 'Author of The General’s Clan and The Mountain Road, a leading voice of Taiwan’s social realist literature'
 date: 2026-03-19
 tags: [人物, 陳映真, 將軍族, 山路, 社會寫實主義, 鄉土文學, 第三世界]
+subcategory: 'Literature'
 lastVerified: 2026-03-19
 ---
 

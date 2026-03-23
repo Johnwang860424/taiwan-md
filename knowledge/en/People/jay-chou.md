@@ -3,6 +3,7 @@ title: 'Jay Chou'
 description: 'King of Mandarin Pop - the revolutionary creator who redefined Asian pop music with Chinese-style R&B'
 date: 2026-03-17
 tags:
+subcategory: 'Music'
   [people, Jay Chou, Mandarin pop music, singer, creation, R&B, Chinese style]
 translatedFrom: 'People/周杰倫.md'
 sourceHash: '6167b8'

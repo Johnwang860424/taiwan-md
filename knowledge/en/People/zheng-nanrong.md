@@ -3,6 +3,7 @@ title: 'Zheng Nanrong'
 description: 'Martyr of free speech and founder of Freedom Era Weekly; commemorated on Taiwan’s Freedom of Speech Day (April 7)'
 date: 2026-03-19
 tags: ['民主運動', '言論自由', '政治雜誌', '自由時代', '殉道者']
+subcategory: 'Politics & Democracy'
 lastVerified: 2026-03-19
 featured: true
 ---

@@ -3,6 +3,7 @@ title: 'Pai Hsien-yung (白先勇)'
 description: "Literary master, author of 'Taipei People,' and champion of Kunqu opera revival in modern Chinese literature"
 date: 2026-03-19
 tags:
+subcategory: 'Literature'
   [
     'literature',
     'Taipei People',

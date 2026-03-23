@@ -3,6 +3,7 @@ title: 'Annette Lu (Lu Hsiu-lien)'
 description: 'Pioneer of Taiwan’s women’s movement and the first female vice president in the Chinese-speaking world'
 date: 2026-03-19
 tags: [people, politics, women’s-movement, vice-president, Kaohsiung-Incident]
+subcategory: 'Politics & Democracy'
 lastVerified: 2026-03-19
 ---
 

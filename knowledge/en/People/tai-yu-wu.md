@@ -3,6 +3,7 @@ title: 'Tai-Yu Wu (吳大猷)'
 description: 'A pioneering theoretical physicist and long-time president of Academia Sinica who shaped the foundations of modern Chinese physics.'
 date: 2026-03-19
 tags: ['people', 'scientists', 'physics', 'education']
+subcategory: 'Sports'
 lastVerified: 2026-03-19
 featured: true
 ---

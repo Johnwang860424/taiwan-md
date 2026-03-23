@@ -3,6 +3,7 @@ title: 'Mark Liu (劉德音)'
 description: 'Chairman of TSMC and Morris Chang’s successor, navigating semiconductor diplomacy in a tense geopolitical era.'
 date: 2026-03-19
 tags: ['TSMC', 'semiconductors', 'geopolitics', 'corporate leadership']
+subcategory: 'Tech & Business'
 lastVerified: 2026-03-19
 ---
 

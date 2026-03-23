@@ -3,6 +3,7 @@ title: 'Xiao Qing-yang'
 description: 'Four-time Grammy nominee for Best Album Package Design, visual designer who brought Taiwan to the world stage'
 date: 2026-03-20
 tags:
+subcategory: 'Arts & Design'
   [
     'designer',
     'grammy-award',

@@ -3,6 +3,7 @@ title: 'Ang Lee — Cinematic Bridge Between East and West'
 description: "From Taiwan's conservative society to Hollywood's highest honors: How Ang Lee became the first Asian director to win Best Director Oscar"
 date: 2026-03-17
 tags: ['director', 'cinema', 'Taiwan', 'Hollywood', 'Oscar', 'cultural-bridge']
+subcategory: 'Film & Theater'
 author: 'Taiwan.md Contributors'
 readingTime: 15
 featured: true

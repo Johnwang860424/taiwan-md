@@ -3,6 +3,7 @@ title: 'Li Chih-Kai (李智凱)'
 description: 'Taiwanese gymnast and Tokyo 2020 Olympic pommel horse silver medalist, known as the ‘Tumbling Boy’ from a landmark documentary'
 date: 2026-03-20
 tags: ['gymnastics', 'Olympics', 'pommel horse', 'athlete', 'Taiwan']
+subcategory: 'Sports'
 lastVerified: 2026-03-20
 ---
 

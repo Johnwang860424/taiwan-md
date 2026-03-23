@@ -3,6 +3,7 @@ title: "Ma Ying-jeou: Political Leader of Cross-Strait Reconciliation"
 description: "12th and 13th President of Taiwan, architect of cross-strait détente and ECFA signatory"
 date: 2026-03-20
 tags: ["president", "KMT", "cross-strait relations", "ECFA", "Taipei mayor"]
+subcategory: 'Politics & Democracy'
 lastVerified: 2026-03-20
 ---
 

@@ -3,6 +3,7 @@ title: 'Lee Teng-hui'
 description: 'Architect of Taiwan’s ‘quiet revolution,’ often called ‘Mr. Democracy’ for leading the island’s peaceful democratic transition.'
 date: 2026-03-19
 tags: ['people', 'politics', 'democratization', 'president']
+subcategory: 'Politics & Democracy'
 lastVerified: 2026-03-19
 ---
 

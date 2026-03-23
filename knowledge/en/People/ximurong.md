@@ -3,6 +3,7 @@ title: 'Xi Murong (席慕蓉)'
 description: 'Best-selling poet of the Chinese-speaking world whose gentle lyricism bridges the steppe and the modern city'
 date: 2026-03-19
 tags: [people, poetry, literature, essayist, Mongolian-heritage]
+subcategory: 'Literature'
 lastVerified: 2026-03-19
 ---
 

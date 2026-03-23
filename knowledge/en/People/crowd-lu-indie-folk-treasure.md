@@ -3,6 +3,7 @@ title: 'Crowd Lu (盧廣仲)'
 description: "Taiwanese singer-songwriter and actor who captured hearts with his grassroots charm and unique vocal style, becoming the youngest triple-crown winner of Taiwan's Golden Melody, Golden Bell, and Golden Horse Awards"
 date: 2026-03-20
 tags:
+subcategory: 'Music'
   [
     people,
     crowd-lu,

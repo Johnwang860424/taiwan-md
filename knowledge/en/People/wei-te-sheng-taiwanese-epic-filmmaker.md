@@ -3,6 +3,7 @@ title: 'Wei Te-sheng'
 description: "Writing Taiwan's epic through cinema, from Cape No. 7 to Seediq Bale—a dream practitioner"
 date: 2026-03-19
 tags:
+subcategory: 'Film & Theater'
   [
     People,
     Director,

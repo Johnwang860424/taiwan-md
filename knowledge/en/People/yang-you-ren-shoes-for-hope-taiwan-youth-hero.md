@@ -4,6 +4,7 @@ description: "Yang You-Ren is a Taiwanese social entrepreneur and humanitarian w
 date: 2026-03-20T00:00:00Z
 updated: 2026-03-20T00:00:00Z
 tags: ["Taiwan Social Enterprise", "Humanitarian Aid", "Shoes for Hope", "Ten Outstanding Young Persons", "Africa Aid", "Christian Ministry"]
+subcategory: 'Digital & Media'
 author: "Following CONTRIBUTING.md guidelines (Sources: Wikipedia and official websites)"
 difficulty: "intermediate"
 readingTime: 8

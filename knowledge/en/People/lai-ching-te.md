@@ -5,6 +5,7 @@ category: 'People'
 date: '2026-03-19'
 author: 'Taiwan.md'
 tags:
+subcategory: 'Politics & Democracy'
   [
     'President',
     'Physician',

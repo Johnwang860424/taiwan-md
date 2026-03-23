@@ -3,6 +3,7 @@ title: 'Mayday (五月天)'
 description: 'From a high school band in Taipei to a generational symbol of Mandarin rock—how Mayday turned youthful sincerity into Taiwan’s loudest cultural heartbeat'
 date: 2026-03-19
 tags: [people, band, rock, mandarin-pop, golden-melody-awards, live-concerts]
+subcategory: 'Music'
 lastVerified: 2026-03-19
 ---
 

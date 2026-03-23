@@ -3,6 +3,7 @@ title: 'Sylvia Chang (張艾嘉)'
 description: 'A cross-disciplinary icon of Chinese-language cinema—actor, director, screenwriter, and singer for over five decades'
 date: 2026-03-19
 tags: ['film', 'director', 'actor', 'singer', 'screenwriter']
+subcategory: 'Film & Theater'
 lastVerified: 2026-03-19
 ---
 

@@ -3,6 +3,7 @@ title: 'Wang Chi-lin and Lee Yang (The Lin-Yang Duo)'
 description: 'Taiwanese men''s badminton doubles pair, 2021 Tokyo Olympic gold medalists, Taiwan''s first Olympic gold medal in badminton history'
 date: 2026-03-19
 tags: [people, Wang Chi-lin, Lee Yang, Lin-Yang Duo, badminton, Olympics, gold medal, athletes, Taiwan]
+subcategory: 'Sports'
 lastVerified: 2026-03-19
 lastHumanReview: false
 ---

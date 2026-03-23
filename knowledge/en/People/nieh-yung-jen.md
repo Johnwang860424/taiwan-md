@@ -3,6 +3,7 @@ title: 'Nieh Yung-jen (聶永真)'
 description: 'Taiwanese graphic designer and AGI member, known for Golden Melody Awards visuals and presidential inauguration identities'
 date: 2026-03-19
 tags:
+subcategory: 'Arts & Design'
   [
     'people',
     'Nieh Yung-jen',

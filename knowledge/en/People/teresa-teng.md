@@ -3,6 +3,7 @@ title: 'Teresa Teng — The Voice That United Asia'
 description: "From Taiwan's countryside to Asian superstardom: How Teresa Teng's voice transcended political boundaries and created the first pan-Asian pop culture phenomenon"
 date: 2026-03-17
 tags:
+subcategory: 'Music'
   [
     'music',
     'singer',

@@ -3,6 +3,7 @@ title: "Morris Chang — Architect of Taiwan's Silicon Shield"
 description: "From Texas Instruments engineer to TSMC founder: How Morris Chang revolutionized global semiconductor manufacturing and created Taiwan's most strategic industry"
 date: 2026-03-17
 tags: ['semiconductor', 'TSMC', 'technology', 'business', 'strategy', 'taiwan']
+subcategory: 'Tech & Business'
 author: 'Taiwan.md Contributors'
 readingTime: 18
 featured: true

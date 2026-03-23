@@ -3,6 +3,7 @@ title: 'Che-Yu Wu (吳哲宇) — A Media Artist Who Grows Life in Code'
 description: 'A Taiwanese new media artist and educator whose algorithmic works have appeared at the Venice Biennale and Art Basel, and who teaches thousands to think with code.'
 date: 2026-03-19
 tags:
+subcategory: 'Arts & Design'
   [
     'new media art',
     'generative art',

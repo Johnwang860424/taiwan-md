@@ -3,6 +3,7 @@ title: 'Chi Po-lin'
 description: "Documentary filmmaker and aerial photographer, director of 'Beyond Beauty: Taiwan from Above', who spent 25 years documenting Taiwan's landscapes"
 date: 2026-03-20
 tags:
+subcategory: 'Film & Theater'
   [
     people,
     Chi Po-lin,

@@ -3,6 +3,7 @@ title: 'Audrey Tang'
 description: "World's first transgender cabinet minister and pioneering practitioner of open government and digital democracy"
 date: 2026-03-17
 tags:
+subcategory: 'Education & Society'
   [
     people,
     Audrey Tang,

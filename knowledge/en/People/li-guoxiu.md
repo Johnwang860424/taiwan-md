@@ -3,6 +3,7 @@ title: 'Li Guoxiu (李國修)'
 description: 'Founder of Ping-Fong Acting Troupe and a defining voice of modern Taiwanese comedy theatre'
 date: 2026-03-20
 tags: ['theatre', 'comedy', 'Ping-Fong', 'Taiwanese drama', 'playwright']
+subcategory: 'Arts & Design'
 lastVerified: 2026-03-20
 ---
 

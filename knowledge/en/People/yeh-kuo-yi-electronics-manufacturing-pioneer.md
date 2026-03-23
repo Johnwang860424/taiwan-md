@@ -3,6 +3,7 @@ title: 'Yeh Kuo-Yi'
 description: "Founder of Inventec Group, pioneer of Taiwan's electronics contract manufacturing industry, laptop computer manufacturing giant"
 date: 2026-03-20
 tags:
+subcategory: 'Tech & Business'
   ['Inventec', 'Electronics Contract Manufacturing', 'ODM', 'Laptop Computers']
 lastVerified: 2026-03-20
 ---

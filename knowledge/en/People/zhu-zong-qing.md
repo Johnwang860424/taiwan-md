@@ -3,6 +3,7 @@ title: 'Zhu Zong-qing'
 description: 'The ‘father of percussion in Taiwan’ who brought a once‑marginal art into the mainstream and built a nationwide music education movement'
 date: 2026-03-19
 tags: [person, musician, percussion, education, performing-arts]
+subcategory: 'Arts & Design'
 lastVerified: 2026-03-19
 translatedFrom: 'People/朱宗慶.md'
 sourceHash: 'c0b2bd'

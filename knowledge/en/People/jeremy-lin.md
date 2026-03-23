@@ -3,6 +3,7 @@ title: 'Jeremy Lin'
 description: 'From Harvard to an NBA championship, the Taiwanese‑American guard who sparked Linsanity'
 date: 2026-03-19
 tags: [人物, 籃球, 台裔美國人, NBA, 林來瘋, 哈佛大學]
+subcategory: 'Sports'
 lastVerified: 2026-03-19
 featured: true
 ---

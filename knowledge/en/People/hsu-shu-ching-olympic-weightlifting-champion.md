@@ -3,6 +3,7 @@ title: "Hsu Shu-ching: Taiwan's Weightlifting Goddess"
 description: "Taiwan's weightlifting legend who won Olympic gold medals in both 2012 London (upgraded) and 2016 Rio Olympics"
 date: 2026-03-20
 tags: ['sports', 'weightlifting', 'olympics', 'gold medal', '53kg category']
+subcategory: 'Sports'
 lastVerified: 2026-03-20
 ---
 

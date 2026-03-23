@@ -2,6 +2,7 @@
 title: 'Wu Ming-Yi'
 category: People
 tags:
+subcategory: 'Literature'
   [
     person,
     Wu Ming-Yi,

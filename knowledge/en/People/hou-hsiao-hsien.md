@@ -2,6 +2,7 @@
 title: 'Hou Hsiao-hsien'
 category: People
 tags:
+subcategory: 'Film & Theater'
   [
     person,
     Hou Hsiao-hsien,

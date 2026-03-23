@@ -4,6 +4,7 @@ description: 'Huang Zhen-nan is a Taiwanese cultural historian, book collector, 
 date: 2026-03-20T00:00:00Z
 updated: 2026-03-20T00:00:00Z
 tags: ['Taiwan history', 'book collector', 'Huang Zhen-nan', 'Taiwanese history', 'Living Water Bookstore']
+subcategory: 'Literature'
 author: 'Taiwan.md Contributors (sourced from Wikipedia and public reports)'
 difficulty: 'intermediate'
 readingTime: 10

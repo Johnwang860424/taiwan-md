@@ -3,6 +3,7 @@ title: 'Li Ang'
 description: 'A feminist literary pioneer whose bold novels confronted patriarchy, sexuality, and violence in Taiwan'
 date: 2026-03-19
 tags:
+subcategory: 'Literature'
   [people, Li Ang, feminist literature, Taiwanese literature, gender, Lukang]
 translatedFrom: 'knowledge/People/李昂.md'
 ---

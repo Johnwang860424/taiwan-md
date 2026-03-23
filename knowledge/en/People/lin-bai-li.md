@@ -3,6 +3,7 @@ title: 'Lin Bai-li'
 description: 'Founder of Quanta Computer, the architect of the global notebook supply chain, and a key player in Taiwan’s AI server boom'
 date: 2026-03-19
 tags: [people, Lin Bai-li, Quanta, ODM, laptops, AI servers]
+subcategory: 'Tech & Business'
 translatedFrom: 'knowledge/People/林百里.md'
 ---
 

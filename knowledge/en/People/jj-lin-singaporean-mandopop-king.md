@@ -3,6 +3,7 @@ title: 'JJ Lin (Lin Jun Jie)'
 description: "Singapore-born Mandopop superstar who became a creative powerhouse in the Chinese-speaking world through hits like 'Jiangnan'"
 date: 2026-03-19
 tags:
+subcategory: 'Music'
   [
     'music',
     'singer-songwriter',

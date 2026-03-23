@@ -3,6 +3,7 @@ title: 'Chen Shu-chu'
 description: 'A vegetable vendor from Taitung whose ordinary acts of kindness define what true wealth means'
 date: 2026-03-19
 tags:
+subcategory: 'Education & Society'
   [
     People,
     Philanthropy,

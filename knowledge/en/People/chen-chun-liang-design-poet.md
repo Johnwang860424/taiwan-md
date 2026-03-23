@@ -3,6 +3,7 @@ title: 'Chen Chun-liang: The Design Poet of Taiwan'
 description: 'Visionary graphic designer and founder of FreeFall Design, pioneer who redefined Taiwan design with poetic sensibility'
 date: 2026-03-20
 tags:
+subcategory: 'Arts & Design'
   [
     'graphic designer',
     'design education',

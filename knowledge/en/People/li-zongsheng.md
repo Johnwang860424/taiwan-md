@@ -3,6 +3,7 @@ title: 'Li Zongsheng (Jonathan Lee)'
 description: 'Taiwan’s master songwriter and producer whose songs turned life’s joys and losses into a shared language'
 date: 2026-03-19
 tags:
+subcategory: 'Music'
   [
     'music',
     'singer-songwriter',

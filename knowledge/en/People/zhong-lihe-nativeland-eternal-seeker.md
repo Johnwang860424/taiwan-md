@@ -3,6 +3,7 @@ title: 'Zhong Lihe: The Eternal Seeker of Nativeland'
 description: "Author of 'The Man from Nativeland', revered as the Father of Taiwan Literature, a literary warrior who persisted in writing despite poverty and illness"
 date: 2026-03-20
 tags:
+subcategory: 'Literature'
   [
     people,
     Zhong Lihe,

@@ -3,6 +3,7 @@ title: "Yang Dai-kang: Taiwanese Baseball Star in Japan"
 description: "Yomiuri Giants outfielder and Taiwan's representative player in Japanese professional baseball"
 date: 2026-03-20
 tags: ["sports", "baseball", "NPB", "Yomiuri Giants", "outfielder", "indigenous", "Amis"]
+subcategory: 'Sports'
 lastVerified: 2026-03-20
 ---
 

@@ -3,6 +3,7 @@ title: 'Tsai Ing-wen'
 description: "Taiwan's first female president, a democratic symbol and historical pioneer transforming from scholar to political leader"
 date: 2026-03-17
 tags: [people, Tsai Ing-wen, president, female leader, democracy, politics]
+subcategory: 'Politics & Democracy'
 translatedFrom: 'knowledge/People/蔡英文.md'
 ---
 

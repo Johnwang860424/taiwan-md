@@ -3,6 +3,7 @@ title: 'Deng Yu-xian'
 description: "Father of Taiwanese songs, composer of classics like 'Longing for Spring Breeze,' 'Rainy Night Flower,' and 'Moonlit Night Sorrow'"
 date: 2026-03-20
 tags:
+subcategory: 'Music'
   [
     'music',
     'taiwanese-songs',
