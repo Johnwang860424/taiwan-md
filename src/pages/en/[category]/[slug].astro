@@ -236,6 +236,7 @@ try {
         title: fm.title || articleSlug,
         slug: articleSlug,
         description: fm.description || '',
+        image: fm.image || '',
         category,
       });
     }
@@ -647,8 +648,9 @@ const encodedTitle = encodeURIComponent(title);
                   category={category}
                   categoryName={categoryNameEn}
                   categoryColor={categoryInfo.color}
+                  categoryIcon={categoryInfo.icon}
                   description={article.description}
-                  coverImage={categoryInfo.cover}
+                  coverImage={article.image || undefined}
                   lang="en"
                 />
               ))}

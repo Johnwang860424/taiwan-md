@@ -12,6 +12,7 @@ interface Props {
   category: string;
   categoryName: string;
   categoryColor: string;
+  categoryIcon?: string;
   description?: string;
   coverImage?: string;
   lang?: Locale;
@@ -23,6 +24,7 @@ const {
   category,
   categoryName,
   categoryColor,
+  categoryIcon,
   description,
   coverImage,
   lang = 'zh-TW',
@@ -46,8 +48,8 @@ const readMoreLabel =
           class="card-image-fallback"
           style={`background: linear-gradient(135deg, ${categoryColor}22, ${categoryColor}44);`}
         >
-          <span class="fallback-letter" style={`color: ${categoryColor};`}>
-            {title[0]}
+          <span class="fallback-icon" style={`color: ${categoryColor};`}>
+            {categoryIcon || title[0]}
           </span>
         </div>
       )
@@ -121,11 +123,10 @@ const readMoreLabel =
     align-items: center;
     justify-content: center;
   }
-  .fallback-letter {
-    font-family: 'Noto Serif TC', serif;
-    font-size: 3.5rem;
-    font-weight: 700;
-    opacity: 0.5;
+  .fallback-icon {
+    font-size: 2.8rem;
+    line-height: 1;
+    opacity: 0.75;
   }
 
   .card-body {
