@@ -1,12 +1,12 @@
 {
-  "totalArticles": 904,
+  "totalArticles": 905,
   "totalCategories": 27,
   "estimatedContributors": 61,
-  "totalTags": 2364,
+  "totalTags": 2367,
   "categories": [
     {
       "name": "en",
-      "count": 468
+      "count": 469
     },
     {
       "name": "History",
@@ -120,7 +120,7 @@
     },
     {
       "name": "人物",
-      "count": 49
+      "count": 50
     },
     {
       "name": "企業",
@@ -128,7 +128,7 @@
     },
     {
       "name": "people",
-      "count": 21
+      "count": 22
     },
     {
       "name": "台灣",
@@ -196,8 +196,8 @@
     }
   ],
   "languageDistribution": {
-    "zh-TW": 904,
+    "zh-TW": 905,
     "en": 0
   },
-  "lastUpdated": "2026-03-23T13:32:04.788Z"
+  "lastUpdated": "2026-03-23T13:38:49.841Z"
 }

@@ -117,7 +117,7 @@
   },
   {
     "title": "五月天",
-    "description": "從師大附中走向世界舞台，定義華語搖滾精神的永遠少年",
+    "description": "一個高中生樂團，用30年時間重新定義了亞洲的演唱會經濟學",
     "category": "People",
     "tags": [
       "人物",
@@ -125,12 +125,13 @@
       "搖滾樂",
       "華語音樂",
       "金曲獎",
-      "演唱會"
+      "演唱會",
+      "音樂產業"
     ],
     "url": "https://taiwan.md/People/%E4%BA%94%E6%9C%88%E5%A4%A9",
-    "readingTime": 7,
+    "readingTime": 11,
     "featured": false,
-    "date": "2026-03-19",
+    "date": "2026-03-23",
     "path": "People/五月天.md"
   },
   {
@@ -4154,7 +4155,7 @@
   },
   {
     "title": "周杰倫",
-    "description": "華語流行天王，用中國風R&B重新定義亞洲流行音樂的革命性創作者",
+    "description": "一場音樂革命如何從被退稿的 demo 開始",
     "category": "People",
     "tags": [
       "人物",
@@ -4166,9 +4167,9 @@
       "中國風"
     ],
     "url": "https://taiwan.md/People/%E5%91%A8%E6%9D%B0%E5%80%AB",
-    "readingTime": 28,
-    "featured": true,
-    "date": "2026-03-17",
+    "readingTime": 9,
+    "featured": false,
+    "date": "2026-03-23",
     "path": "People/周杰倫.md"
   },
   {
@@ -8804,13 +8805,21 @@
   },
   {
     "title": "Jay Chou",
-    "description": "King of Mandarin Pop - the revolutionary creator who redefined Asian pop music with Chinese-style R&B",
+    "description": "How a musical revolution started from rejected demo tapes",
     "category": "en",
-    "tags": [],
+    "tags": [
+      "人物",
+      "周杰倫",
+      "華語流行音樂",
+      "歌手",
+      "創作",
+      "R&B",
+      "中國風"
+    ],
     "url": "https://taiwan.md/en/People/jay-chou",
-    "readingTime": 30,
+    "readingTime": 24,
     "featured": false,
-    "date": "2026-03-17",
+    "date": "2026-03-23",
     "path": "en/People/jay-chou.md"
   },
   {
@@ -9478,6 +9487,25 @@
     "featured": false,
     "date": "2026-03-17",
     "path": "en/History/martial-law-era.md"
+  },
+  {
+    "title": "Mayday",
+    "description": "How five high school students revolutionized the economics of live concerts in Asia",
+    "category": "en",
+    "tags": [
+      "people",
+      "band",
+      "rock",
+      "mandarin-music",
+      "golden-melody-awards",
+      "concerts",
+      "music-industry"
+    ],
+    "url": "https://taiwan.md/en/People/mayday-band",
+    "readingTime": 32,
+    "featured": false,
+    "date": "2026-03-23",
+    "path": "en/People/mayday-band.md"
   },
   {
     "title": "Mayday (五月天)",
