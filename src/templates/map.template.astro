@@ -1,11 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import markersData from '../data/map-markers.json';
-import routesData from '../data/map-routes.json';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getMapRoutes } from '../utils/mapConfig';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const routesData = getMapRoutes(t);
 ---
 
 <Layout title={t('map.meta.title')} description={t('map.meta.description')}>
