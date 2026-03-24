@@ -1,38 +1,110 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
-const sounds = [
+const lang = getLangFromUrl(Astro.url) || 'zh-TW';
+const t = useTranslations(lang);
+
+const categories = [
   {
-    file: 'taichung-green-museumbrary-crickets.mp3',
-    location: '台中綠美圖',
-    locationEn: 'Taichung Green Museumbrary',
-    description: '夜晚蟋蟀聲',
-    descriptionEn: 'Evening cricket chorus',
-    contributor: 'bugnimusic',
-    date: '2026-03',
-    icon: '🦗',
+    id: 'urban',
+    icon: '🏙️',
+    title: '都市日常的聲音密碼',
+    titleEn: 'Urban Soundscape',
+    sounds: [
+      {
+        file: 'taipei-nangang-garbage-truck-melody-maidens-prayer.mp3',
+        location: '台北南港',
+        locationEn: 'Taipei Nangang',
+        description: '垃圾車音樂（少女的祈禱）',
+        descriptionEn: "Garbage truck melody (Maiden's Prayer)",
+        contributor: 'x1001000',
+        date: '2021-03',
+        icon: '🚛',
+      },
+    ],
+    wishlist: [
+      { icon: '🚛', text: '各縣市垃圾車音樂', textEn: 'Garbage truck melodies (regional variations)' },
+      { icon: '🛵', text: '紅燈轉綠的機車起步聲', textEn: 'Scooter swarm at green light' },
+      { icon: '📢', text: '選舉宣傳車', textEn: 'Election campaign trucks' },
+      { icon: '🚂', text: '火車進站音樂', textEn: 'Train station jingles' },
+      { icon: '🏪', text: '便利商店門鈴聲', textEn: 'Convenience store door chimes' },
+    ],
+    article: '/music/台灣聲音地景',
   },
   {
-    file: 'taipei-nangang-garbage-truck-melody-maidens-prayer.mp3',
-    location: '台北南港',
-    locationEn: 'Taipei Nangang',
-    description: '垃圾車音樂（少女的祈禱）',
-    descriptionEn: "Garbage truck melody (Maiden's Prayer)",
-    contributor: 'x1001000',
-    date: '2021-03',
-    icon: '🚛',
+    id: 'sacred',
+    icon: '🏯',
+    title: '神聖的聲音：廟會與宗教',
+    titleEn: 'Sacred Sounds: Temples & Religion',
+    sounds: [],
+    wishlist: [
+      { icon: '🥁', text: '北管鑼鼓——廟口的搖滾樂', textEn: 'Beiguan drums — temple rock & roll' },
+      { icon: '🎶', text: '南管——東方最古老的室內樂', textEn: 'Nanguan — oldest chamber music of the East' },
+      { icon: '💃', text: '電子花車——神聖與世俗的碰撞', textEn: 'Electronic flower car — sacred meets profane' },
+      { icon: '🪘', text: '媽祖遶境鑼鼓陣', textEn: 'Mazu pilgrimage drum procession' },
+      { icon: '📿', text: '寺廟早課木魚誦經', textEn: 'Temple morning chanting' },
+    ],
+    article: '/music/台灣聲音地景',
+  },
+  {
+    id: 'indigenous',
+    icon: '🏔️',
+    title: '原住民的聲音：大地的記憶',
+    titleEn: 'Indigenous Voices: Memory of the Land',
+    sounds: [],
+    wishlist: [
+      { icon: '🎵', text: '布農族 Pasibutbut（祈禱小米豐收歌）', textEn: 'Bunun Pasibutbut (Millet Prayer Song)' },
+      { icon: '🌾', text: '阿美族豐年祭歌舞', textEn: 'Amis Ilisin harvest festival songs' },
+      { icon: '🎺', text: '排灣族雙管鼻笛', textEn: 'Paiwan double-tube nose flute' },
+      { icon: '🌊', text: '達悟族拍手歌', textEn: 'Tao hand-clapping songs (Orchid Island)' },
+    ],
+    article: '/music/台灣聲音地景',
+  },
+  {
+    id: 'nature',
+    icon: '🌿',
+    title: '自然的聲音',
+    titleEn: 'Sounds of Nature',
+    sounds: [
+      {
+        file: 'taichung-green-museumbrary-crickets.mp3',
+        location: '台中綠美圖',
+        locationEn: 'Taichung Green Museumbrary',
+        description: '夜晚蟋蟀聲',
+        descriptionEn: 'Evening cricket chorus',
+        contributor: 'bugnimusic',
+        date: '2026-03',
+        icon: '🦗',
+      },
+    ],
+    wishlist: [
+      { icon: '🌊', text: '東海岸浪聲', textEn: 'East coast waves' },
+      { icon: '🐦', text: '山林鳥鳴', textEn: 'Mountain birdsong' },
+      { icon: '🦗', text: '各地蟲鳴', textEn: 'Insect choruses across Taiwan' },
+      { icon: '⛈️', text: '春雷與梅雨', textEn: 'Spring thunder and plum rain' },
+      { icon: '🐸', text: '台灣特有種蛙鳴', textEn: 'Taiwan endemic frog calls' },
+    ],
+    article: '/music/台灣聲音地景',
+  },
+  {
+    id: 'vanishing',
+    icon: '⏳',
+    title: '正在消失的聲音',
+    titleEn: 'Vanishing Sounds',
+    sounds: [],
+    wishlist: [
+      { icon: '🔪', text: '磨刀師傅的喇叭聲', textEn: "Knife sharpener's horn" },
+      { icon: '📻', text: '五金行的叫賣廣播', textEn: 'Hardware store PA announcements' },
+      { icon: '🗣️', text: '台語的聲調變化', textEn: 'Taiwanese Hokkien tonal variations' },
+      { icon: '🍧', text: '叭噗冰淇淋叫賣', textEn: 'Traditional ice cream vendor horn' },
+    ],
+    article: '/music/台灣聲音地景',
   },
 ];
 
-const wishlist = [
-  { icon: '🚛', text: '各縣市垃圾車音樂', textEn: 'Garbage truck melodies (regional variations)' },
-  { icon: '🏯', text: '廟會北管鑼鼓', textEn: 'Temple Beiguan drums' },
-  { icon: '🌊', text: '東海岸浪聲', textEn: 'East coast waves' },
-  { icon: '🏙️', text: '夜市叫賣', textEn: 'Night market vendors' },
-  { icon: '🐦', text: '山林鳥鳴', textEn: 'Mountain birdsong' },
-  { icon: '🦗', text: '各地蟲鳴', textEn: 'Insect choruses across Taiwan' },
-  { icon: '🚂', text: '火車進站音樂', textEn: 'Train station jingles' },
-];
+const totalSounds = categories.reduce((sum, cat) => sum + cat.sounds.length, 0);
+const totalWishlist = categories.reduce((sum, cat) => sum + cat.wishlist.length, 0);
 ---
 
 <Layout
@@ -49,57 +121,77 @@ const wishlist = [
           有些故事，用耳朵聽比用眼睛看更真實。<br />
           <span class="hero-subtitle-en">Some stories are best told through ears.</span>
         </p>
-        <p class="hero-count">{sounds.length} recordings collected</p>
-      </div>
-    </section>
-
-    <section class="sound-library">
-      <div class="section-inner">
-        <h2>🎙️ 聲音圖書館 <span class="section-label">Sound Library</span></h2>
-        <div class="sound-grid">
-          {sounds.map((sound) => (
-            <div class="sound-card">
-              <div class="sound-icon">{sound.icon}</div>
-              <div class="sound-info">
-                <h3>{sound.location}</h3>
-                <p class="sound-location-en">{sound.locationEn}</p>
-                <p class="sound-desc">{sound.description}</p>
-                <p class="sound-desc-en">{sound.descriptionEn}</p>
-                <div class="sound-meta">
-                  <a href={`https://github.com/${sound.contributor}`} target="_blank" rel="noopener" class="contributor">
-                    @{sound.contributor}
-                  </a>
-                  <span class="sound-date">{sound.date}</span>
-                </div>
-              </div>
-              <audio controls preload="none" class="sound-player">
-                <source src={`/assets/sounds/${sound.file}`} type="audio/mpeg" />
-              </audio>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="wishlist">
-      <div class="section-inner">
-        <h2>📋 想收集的聲音 <span class="section-label">Wishlist</span></h2>
-        <p class="wishlist-intro">
-          這些是我們特別想收錄的台灣聲景。如果你身邊剛好有，歡迎錄下來貢獻！
+        <p class="hero-count">
+          {totalSounds} recordings · {totalWishlist} wanted · 5 categories
         </p>
-        <div class="wishlist-grid">
-          {wishlist.map((item) => (
-            <div class="wishlist-card">
-              <span class="wishlist-icon">{item.icon}</span>
-              <div>
-                <p class="wishlist-text">{item.text}</p>
-                <p class="wishlist-text-en">{item.textEn}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <p class="hero-article">
+          📖 深度文章：<a href="/music/台灣聲音地景">台灣聲音地景</a>
+        </p>
       </div>
     </section>
+
+    {categories.map((cat) => (
+      <section class="category-section" id={cat.id}>
+        <div class="section-inner">
+          <h2>
+            <span class="cat-icon">{cat.icon}</span>
+            {cat.title}
+            <span class="section-label">{cat.titleEn}</span>
+          </h2>
+
+          {cat.sounds.length > 0 && (
+            <div class="sound-grid">
+              {cat.sounds.map((sound) => (
+                <div class="sound-card">
+                  <div class="sound-icon">{sound.icon}</div>
+                  <div class="sound-info">
+                    <h3>{sound.location}</h3>
+                    <p class="sound-location-en">{sound.locationEn}</p>
+                    <p class="sound-desc">{sound.description}</p>
+                    <p class="sound-desc-en">{sound.descriptionEn}</p>
+                    <div class="sound-meta">
+                      <a href={`https://github.com/${sound.contributor}`} target="_blank" rel="noopener" class="contributor">
+                        @{sound.contributor}
+                      </a>
+                      <span class="sound-date">{sound.date}</span>
+                    </div>
+                  </div>
+                  <audio controls preload="none" class="sound-player">
+                    <source src={`/assets/sounds/${sound.file}`} type="audio/mpeg" />
+                  </audio>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {cat.sounds.length === 0 && (
+            <div class="empty-state">
+              <p>這個分類還沒有錄音，等你來貢獻！</p>
+              <p class="empty-en">No recordings yet — be the first contributor!</p>
+            </div>
+          )}
+
+          <div class="wishlist-inline">
+            <h4>📋 想收集 Wanted</h4>
+            <div class="wishlist-grid">
+              {cat.wishlist.map((item) => (
+                <div class="wishlist-card">
+                  <span class="wishlist-icon">{item.icon}</span>
+                  <div>
+                    <p class="wishlist-text">{item.text}</p>
+                    <p class="wishlist-text-en">{item.textEn}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <a href={cat.article} class="read-more">
+            📖 閱讀完整聲音故事 Read more →
+          </a>
+        </div>
+      </section>
+    ))}
 
     <section class="contribute-cta">
       <div class="section-inner">
@@ -127,7 +219,6 @@ const wishlist = [
     padding: 0 1.5rem 4rem;
   }
 
-  /* Hero */
   .hero {
     text-align: center;
     padding: 4rem 0 3rem;
@@ -160,10 +251,30 @@ const wishlist = [
     color: #52525b;
     letter-spacing: 0.1em;
   }
+  .hero-article {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .hero-article a {
+    color: #ABC468;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(171, 196, 104, 0.4);
+  }
+  .hero-article a:hover {
+    border-bottom-style: solid;
+  }
 
-  /* Section */
+  .category-section {
+    margin-bottom: 1rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .category-section:last-of-type {
+    border-bottom: none;
+  }
+
   .section-inner {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
   }
   .section-inner h2 {
     font-size: 1.5rem;
@@ -171,6 +282,10 @@ const wishlist = [
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .cat-icon {
+    font-size: 1.3rem;
   }
   .section-label {
     font-size: 0.85rem;
@@ -178,11 +293,11 @@ const wishlist = [
     font-weight: 400;
   }
 
-  /* Sound Grid */
   .sound-grid {
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    margin-bottom: 1.5rem;
   }
   .sound-card {
     background: rgba(255, 255, 255, 0.03);
@@ -238,44 +353,75 @@ const wishlist = [
     height: 40px;
     border-radius: 8px;
   }
-  .sound-player::-webkit-media-controls-panel {
-    background: rgba(255, 255, 255, 0.05);
+
+  .empty-state {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .empty-state p {
+    color: #71717a;
+    margin: 0;
+  }
+  .empty-en {
+    font-size: 0.85rem;
+    margin-top: 0.3rem !important;
+    font-style: italic;
   }
 
-  /* Wishlist */
-  .wishlist-intro {
+  .wishlist-inline {
+    margin-bottom: 1rem;
+  }
+  .wishlist-inline h4 {
+    font-size: 1rem;
     color: #a1a1aa;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.8rem;
   }
   .wishlist-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 0.8rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.6rem;
   }
   .wishlist-card {
     display: flex;
     align-items: flex-start;
-    gap: 0.8rem;
+    gap: 0.6rem;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 8px;
-    padding: 1rem;
+    padding: 0.8rem;
   }
   .wishlist-icon {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     flex-shrink: 0;
   }
   .wishlist-text {
     margin: 0;
     color: #d4d4d8;
+    font-size: 0.9rem;
   }
   .wishlist-text-en {
-    margin: 0.2rem 0 0;
-    font-size: 0.82rem;
+    margin: 0.15rem 0 0;
+    font-size: 0.78rem;
     color: #71717a;
   }
 
-  /* CTA */
+  .read-more {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #ABC468;
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+  }
+  .read-more:hover {
+    opacity: 1;
+  }
+
   .contribute-cta {
     text-align: center;
     padding: 2rem 0;
@@ -334,5 +480,6 @@ const wishlist = [
   @media (max-width: 600px) {
     .hero h1 { font-size: 2rem; }
     .cta-steps { flex-direction: column; align-items: center; }
+    .wishlist-grid { grid-template-columns: 1fr; }
   }
 </style>
