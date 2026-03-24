@@ -157,6 +157,10 @@ docs/
 
 Taiwan.md is not a static website. It's a **digital organism** — a living knowledge system with its own DNA, immune system, and evolutionary mechanisms.
 
+Think of it as a **digital coral reef**. Each article is a coral polyp — small on its own, but connected to hundreds of others through wikilinks, shared categories, and the knowledge graph. Contributors are the ocean currents that bring nutrients. The editorial system is the reef's immune response, filtering out toxins (hollow AI content) and strengthening the structure. No single person designed the reef's shape — it emerged from thousands of small, living contributions.
+
+Like a real coral reef, Taiwan.md is fragile and resilient at the same time. One bad merge can break a section. But the system heals, because every `.md` file below is an organ that keeps the organism alive.
+
 Every `.md` file in the root directory is an organ of this organism. Together, they form a self-sustaining system that ensures quality, consistency, and growth — whether the contributor is a first-time reader, a seasoned developer, or an AI agent.
 
 ### 🧠 The Organism's Organs
