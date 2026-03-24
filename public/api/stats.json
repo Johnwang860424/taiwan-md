@@ -1,36 +1,40 @@
 {
-  "totalArticles": 909,
+  "totalArticles": 935,
   "totalCategories": 27,
-  "estimatedContributors": 61,
-  "totalTags": 2398,
+  "estimatedContributors": 63,
+  "totalTags": 2499,
   "categories": [
     {
       "name": "en",
-      "count": 473
+      "count": 481
     },
     {
       "name": "History",
-      "count": 18
+      "count": 21
     },
     {
       "name": "Culture",
-      "count": 31
+      "count": 33
     },
     {
       "name": "Society",
-      "count": 23
+      "count": 25
     },
     {
       "name": "Economy",
-      "count": 46
+      "count": 47
+    },
+    {
+      "name": "Lifestyle",
+      "count": 18
     },
     {
       "name": "People",
-      "count": 110
+      "count": 112
     },
     {
       "name": "ja",
-      "count": 5
+      "count": 7
     },
     {
       "name": "Art",
@@ -38,7 +42,7 @@
     },
     {
       "name": "Food",
-      "count": 29
+      "count": 30
     },
     {
       "name": "麟洋配.md",
@@ -46,7 +50,7 @@
     },
     {
       "name": "Technology",
-      "count": 21
+      "count": 22
     },
     {
       "name": "半導體產業.md",
@@ -54,19 +58,15 @@
     },
     {
       "name": "Nature",
-      "count": 23
+      "count": 24
     },
     {
       "name": "Geography",
       "count": 18
     },
     {
-      "name": "Lifestyle",
-      "count": 16
-    },
-    {
       "name": "Music",
-      "count": 19
+      "count": 20
     },
     {
       "name": "About",
@@ -132,6 +132,10 @@
     },
     {
       "name": "台灣",
+      "count": 18
+    },
+    {
+      "name": "literature",
       "count": 17
     },
     {
@@ -139,7 +143,11 @@
       "count": 15
     },
     {
-      "name": "literature",
+      "name": "culture",
+      "count": 14
+    },
+    {
+      "name": "Taiwan",
       "count": 14
     },
     {
@@ -147,15 +155,7 @@
       "count": 13
     },
     {
-      "name": "Taiwan",
-      "count": 13
-    },
-    {
       "name": "歷史",
-      "count": 12
-    },
-    {
-      "name": "culture",
       "count": 12
     },
     {
@@ -171,7 +171,7 @@
       "count": 11
     },
     {
-      "name": "文化",
+      "name": "數位轉型",
       "count": 11
     },
     {
@@ -196,8 +196,8 @@
     }
   ],
   "languageDistribution": {
-    "zh-TW": 909,
+    "zh-TW": 935,
     "en": 0
   },
-  "lastUpdated": "2026-03-24T01:56:36.016Z"
+  "lastUpdated": "2026-03-24T06:18:05.774Z"
 }
