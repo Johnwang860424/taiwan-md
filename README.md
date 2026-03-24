@@ -167,8 +167,10 @@ Every `.md` file in the root directory is an organ of this organism. Together, t
 
 | File | Role | When to read |
 |------|------|-------------|
-| **[EDITORIAL.md](./EDITORIAL.md)** | 🫀 **Heart** — Writing methodology & quality standard | Before writing or reviewing any article. Defines what a "good article" looks like: research depth, narrative structure, tone, anti-AI-hollow patterns, rich text requirements |
-| **[REWRITE-PIPELINE.md](./REWRITE-PIPELINE.md)** | 🔄 **Circulatory system** — Three-stage quality pipeline | Before rewriting existing articles. Separates Research → Write → Verify to prevent quality decay in the second half of articles |
+| **[EDITORIAL.md](./EDITORIAL.md)** | 🫀 **Heart** — Writing methodology & quality standard (v4) | Before writing or reviewing any article. Defines what a "good article" looks like: 切入人物、挖引語制度、因果鏈、五種開場/結尾模式、塑膠偵測 |
+| **[REWRITE-PIPELINE.md](./REWRITE-PIPELINE.md)** | 🔄 **Circulatory system** — Three-stage quality pipeline (v2.1) | Before rewriting existing articles. Orchestrates four files: Research → Write → Verify, with quality gates at each stage |
+| **[RESEARCH-TEMPLATE.md](./RESEARCH-TEMPLATE.md)** | 🔬 **Sensory system** — Pre-writing research template | During Stage 1 of the rewrite pipeline. Structured template for gathering facts, finding a 切入人物, collecting 真人引語, and preparing endings before writing |
+| **[QUALITY-CHECKLIST.md](./QUALITY-CHECKLIST.md)** | 🛡️ **Immune checkpoint** — Post-writing verification checklist | During Stage 3 of the rewrite pipeline. Five-step verification: 五指檢測 → 結構驗證 → 塑膠掃描 → 自動驗證 → commit |
 | **[TERMINOLOGY.md](./TERMINOLOGY.md)** | 🗣️ **Voice** — Language & naming conventions | Before writing. Covers national identity terms, Taiwanese language naming, geographic conventions, respectful language for indigenous peoples |
 | **[CONTRIBUTING.md](./CONTRIBUTING.md)** | 🚪 **Front door** — How to contribute | First time contributing. Four paths from zero-code to full PR, plus article templates and submission guidelines |
 | **[CONTRIBUTE_PROMPT.md](./CONTRIBUTE_PROMPT.md)** | 🤖 **AI onboarding** — Prompt for AI-assisted writing | When using ChatGPT/Claude/Gemini to write an article. Paste this to your AI and it guides the process |
@@ -191,27 +193,32 @@ The organism has an automated immune system that detects and fights "hollow AI c
 | `tools/detect-ai-hollow.sh --diff` | Compares against baseline to show which articles improved or degraded since last scan |
 | `tools/detect-ai-hollow.sh --fix` | Auto-suggests fixes for flagged articles |
 | [EDITORIAL.md §塑膠偵測](./EDITORIAL.md) | Human-readable guide to detecting "plastic" writing — five species of hollow sentences that AI loves to generate |
-| [REWRITE-PIPELINE.md](./REWRITE-PIPELINE.md) | Three-stage pipeline (Research → Write → Verify) that prevents quality from collapsing in the second half of articles |
+| [REWRITE-PIPELINE.md](./REWRITE-PIPELINE.md) | Four-file orchestration pipeline that prevents quality collapse: Pipeline (flow) → RESEARCH-TEMPLATE (research) → EDITORIAL (writing) → QUALITY-CHECKLIST (verification) |
 
 ### 🌱 How the Organism Evolves
 
 ```
 New knowledge discovered
        ↓
-  EDITORIAL.md (quality standard)
-       ↓
-  REWRITE-PIPELINE.md (execution process)
-       ↓
-  detect-ai-hollow.sh (automated quality gate)
-       ↓
-  REVIEWERS.md (human review)
-       ↓
-  Article published → feeds back into knowledge graph
-       ↓
-  ROADMAP.md (plans next evolution)
+  REWRITE-PIPELINE.md ← 指揮官 (orchestrates everything)
+       │
+       ├─ Stage 1: RESEARCH-TEMPLATE.md (structured research)
+       │     → 切入人物、反直覺核心句、真人引語、結尾素材
+       │
+       ├─ Stage 2: EDITORIAL.md (quality standard)
+       │     → 五種開場、因果鏈、塑膠偵測、結尾模式庫
+       │
+       └─ Stage 3: QUALITY-CHECKLIST.md (verification)
+             → 五指檢測 → 結構驗證 → 塑膠掃描 → detect-ai-hollow.sh
+                    ↓
+              REVIEWERS.md (human review)
+                    ↓
+              Article published → feeds back into knowledge graph
+                    ↓
+              ROADMAP.md (plans next evolution)
 ```
 
-Every article that passes through this system makes the organism smarter. Every quality failure that gets caught teaches the immune system a new pattern. The `.md` files evolve together — when we discover a new type of AI-generated hollow content, it gets added to EDITORIAL.md's blocklist, coded into `detect-ai-hollow.sh`, and documented in REWRITE-PIPELINE.md.
+Every article that passes through this four-file system makes the organism smarter. Every quality failure that gets caught teaches the immune system a new pattern. The `.md` files evolve independently — update EDITORIAL.md's writing standards without touching the pipeline flow, or add new verification steps to QUALITY-CHECKLIST.md without rewriting the research template.
 
 > _"Taiwan.md is not a project that will be 'finished.' It's a living thing that grows, adapts, and occasionally gets sick — but it has an immune system, and it heals."_
 
