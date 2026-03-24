@@ -11,6 +11,18 @@ import {
   type CategoryKey,
 } from '../../utils/categoryConfig';
 
+const safeMatter = (fileContent: string) => {
+  try {
+    return matter(fileContent);
+  } catch {
+    const stripped = fileContent.replace(
+      /^---\s*\n[\s\S]*?\n---\s*\n/,
+      '',
+    );
+    return { data: {}, content: stripped };
+  }
+};
+
 export async function getStaticPaths() {
   const categoryMapping: Record<string, string> = {
     history: 'History',
@@ -43,7 +55,7 @@ export async function getStaticPaths() {
       for (const file of zhMarkdownFiles) {
         const filePath = join(zhFolderPath, file);
         const fileContent = await readFile(filePath, 'utf-8');
-        const { data: frontmatter } = matter(fileContent);
+        const { data: frontmatter } = safeMatter(fileContent);
         const slug = basename(file, '.md');
 
         articles.push({
@@ -73,7 +85,7 @@ export async function getStaticPaths() {
       if (hubFile) {
         const hubPath = join(hubFolder, hubFile);
         const hubRaw = await readFile(hubPath, 'utf-8');
-        const { content } = matter(hubRaw);
+        const { content } = safeMatter(hubRaw);
         hubContent = content.replace(/^#\s+.+\n/, '').trim();
       }
     } catch {}
@@ -132,7 +144,9 @@ function resolveWikilinks(md: string, currentCategory: string) {
         .replace(/^_/, '')
         .replace(/ Hub$/, '')
         .toLowerCase();
-      return bold ? `[**${label}**](/${catName})` : `[${label}](/${catName})`;
+      return bold
+        ? `<a class="topic-pill" href="/${catName}"><strong>${label}</strong></a>`
+        : `<a class="topic-pill" href="/${catName}">${label}</a>`;
     }
     const matchArticle = articles.find(
       (a: any) =>
@@ -142,7 +156,9 @@ function resolveWikilinks(md: string, currentCategory: string) {
     );
     if (matchArticle) {
       const url = `/${currentCategory}/${matchArticle.slug}`;
-      return bold ? `[**${label}**](${url})` : `[${label}](${url})`;
+      return bold
+        ? `<a class="topic-pill" href="${url}"><strong>${label}</strong></a>`
+        : `<a class="topic-pill" href="${url}">${label}</a>`;
     }
     return bold ? `**${label}**` : label;
   }
@@ -164,16 +180,65 @@ const resolvedContent = hubContent
   ? resolveWikilinks(hubContent, category)
   : '';
 
-// Broken image fallback for hub pages
+// Build set of article URLs for topic-pill detection
+const articleUrlSet = new Set(
+  articles.map((a: any) => `/${category}/${a.slug}`),
+);
+// Also add cross-category hub URLs
+const categoryKeys = Object.keys({
+  history: 1, geography: 1, culture: 1, food: 1, art: 1, music: 1,
+  technology: 1, nature: 1, people: 1, society: 1, economy: 1, lifestyle: 1,
+});
+
+// Broken image fallback + topic-pill link for hub pages
 const hubRenderer = new marked.Renderer();
 hubRenderer.image = ({ href, title, text }) => {
   const titleAttr = title ? ` title="${title}"` : '';
   const altText = text || '';
   return `<img src="${href}" alt="${altText}"${titleAttr} loading="lazy" onerror="this.onerror=null;this.classList.add('img-broken')" />`;
 };
-const hubHtml = resolvedContent
+hubRenderer.link = ({ href, title, text }) => {
+  const titleAttr = title ? ` title="${title}"` : '';
+  const h = href || '';
+  // Check if link points to an article or a hub category page
+  const isArticleLink = articleUrlSet.has(decodeURIComponent(h));
+  const isCategoryLink = categoryKeys.some((k) => h === `/${k}` || h === `/${k}/`);
+  if (isArticleLink || isCategoryLink) {
+    return `<a class="topic-pill" href="${h}"${titleAttr}>${text}</a>`;
+  }
+  return `<a href="${h}"${titleAttr}>${text}</a>`;
+};
+const rawHubHtml = resolvedContent
   ? marked.parse(resolvedContent, { renderer: hubRenderer })
   : '';
+
+// Post-process: add callout/pull-quote classes to blockquotes
+function enrichBlockquotes(html: string): string {
+  if (!html) return html;
+  const calloutMap: Record<string, string> = {
+    '📝': 'callout-note',
+    '⚠️': 'callout-warning',
+    '💡': 'callout-tip',
+    '📊': 'callout-data',
+  };
+  return (html as string).replace(
+    /<blockquote>([\s\S]*?)<\/blockquote>/g,
+    (match, inner) => {
+      // Pull quote: contains ✦
+      if (inner.includes('✦')) {
+        return `<blockquote class="pull-quote">${inner}</blockquote>`;
+      }
+      // Callout: starts with emoji + bold
+      for (const [emoji, cls] of Object.entries(calloutMap)) {
+        if (inner.includes(emoji) && inner.includes('<strong>')) {
+          return `<blockquote class="${cls}">${inner}</blockquote>`;
+        }
+      }
+      return match;
+    },
+  );
+}
+const hubHtml = enrichBlockquotes(rawHubHtml as string);
 
 // Split hub HTML into sections at <h2> boundaries for chart injection (economy only)
 const isEconomy = category === 'economy';
@@ -750,14 +815,75 @@ const otherCategories = categories
     line-height: 1.9;
   }
   .hub-prose blockquote {
-    border-left: 3px solid #cbd5e1;
-    padding: 0.75rem 1.25rem;
-    margin: 1.5rem 0;
-    background: #f8fafc;
-    border-radius: 0 8px 8px 0;
+    border-left: 4px solid #4a7c28;
+    background: linear-gradient(to right, rgba(26, 60, 52, 0.04), transparent);
+    margin: 2.5rem 0;
+    padding: 1.5rem 1.75rem;
+    border-radius: 0 12px 12px 0;
     font-style: italic;
-    color: #475569;
+    color: #3a4f44;
+    font-size: 1.05rem;
   }
+  .hub-prose blockquote p {
+    margin-bottom: 0;
+  }
+
+  /* Callout blockquotes */
+  .hub-prose :global(blockquote.callout-note) {
+    border-left-color: #3b82f6;
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.06), transparent);
+    font-style: normal;
+  }
+  .hub-prose :global(blockquote.callout-warning) {
+    border-left-color: #f59e0b;
+    background: linear-gradient(to right, rgba(245, 158, 11, 0.06), transparent);
+    font-style: normal;
+  }
+  .hub-prose :global(blockquote.callout-tip) {
+    border-left-color: #10b981;
+    background: linear-gradient(to right, rgba(16, 185, 129, 0.06), transparent);
+    font-style: normal;
+  }
+  .hub-prose :global(blockquote.callout-data) {
+    border-left-color: #8b5cf6;
+    background: linear-gradient(to right, rgba(139, 92, 246, 0.06), transparent);
+    font-style: normal;
+  }
+
+  /* Pull quote */
+  .hub-prose :global(blockquote.pull-quote) {
+    border-left: none;
+    background: none;
+    text-align: center;
+    font-size: 1.35rem;
+    font-weight: 600;
+    font-style: normal;
+    color: #1a3c34;
+    padding: 2rem 2.5rem;
+    margin: 3rem auto;
+    max-width: 680px;
+    line-height: 1.8;
+    position: relative;
+  }
+  .hub-prose :global(blockquote.pull-quote)::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #4a7c28;
+    margin: 0 auto 1.5rem;
+    border-radius: 2px;
+  }
+  .hub-prose :global(blockquote.pull-quote)::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #4a7c28;
+    margin: 1.5rem auto 0;
+    border-radius: 2px;
+  }
+
   .hub-prose h2 {
     font-size: var(--title-subsection-size);
     font-weight: 800;
@@ -779,18 +905,23 @@ const otherCategories = categories
     font-family: var(--font-editorial);
   }
   .hub-prose p {
-    margin: 1.2rem 0;
+    margin: 1.1rem 0;
     text-align: justify;
+    color: #2c2c2c;
   }
-  .hub-prose ul,
+  .hub-prose ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1.1rem;
+  }
   .hub-prose ol {
-    padding-left: 2rem;
-    margin: 1rem 0;
-    list-style-position: inside;
+    list-style: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 1.1rem;
   }
   .hub-prose li {
-    margin: 0.5rem 0;
-    line-height: 1.8;
+    margin-bottom: 0.3rem;
+    line-height: 1.65;
   }
   .hub-prose a {
     color: #334155;
@@ -803,32 +934,66 @@ const otherCategories = categories
     color: #1a1a2e;
     border-bottom-color: #1a1a2e;
   }
+
+  /* Hub wikilinks as topic-pill */
+  .hub-prose :global(a.topic-pill) {
+    display: inline-block;
+    background: rgba(45, 80, 22, 0.08);
+    border: 1.5px solid rgba(45, 80, 22, 0.2);
+    border-radius: 6px;
+    padding: 0.15rem 0.6rem;
+    font-weight: 700;
+    color: #2d5016;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    border-bottom: none;
+  }
+  .hub-prose :global(a.topic-pill:hover) {
+    background: rgba(45, 80, 22, 0.15);
+    border-color: rgba(45, 80, 22, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(45, 80, 22, 0.15);
+    color: #2d5016;
+  }
+
+  .hub-prose :global(code) {
+    font-family: 'Courier New', monospace;
+    font-size: 0.88em;
+    background: rgba(26, 60, 52, 0.06);
+    color: #1a3c34;
+    padding: 0.15em 0.45em;
+    border-radius: 4px;
+  }
+  .hub-prose :global(pre) {
+    background: #1a3c34;
+    color: #f8f1e9;
+    padding: 1.5rem;
+    border-radius: 12px;
+    overflow-x: auto;
+    margin: 2rem 0;
+    font-size: 0.875rem;
+  }
+  .hub-prose :global(pre code) {
+    background: transparent;
+    color: inherit;
+    padding: 0;
+    font-size: inherit;
+  }
+
   .hub-prose img {
-    max-width: 100%;
-    max-height: 400px;
+    width: 100%;
+    max-height: 480px;
     object-fit: cover;
     border-radius: 12px;
-    margin: 2rem auto;
-    display: block;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin: 2rem 0;
+    box-shadow: 0 4px 24px rgba(26, 60, 52, 0.1);
   }
   .hub-prose img.img-broken {
     min-height: 120px;
-    max-height: 120px;
-    background: #f8f9fa;
-    border: 1.5px dashed #d0d5dd;
-    box-shadow: none;
-    font-family:
-      system-ui,
-      -apple-system,
-      sans-serif;
-    font-size: 0.85rem;
-    color: #667085;
-    text-align: center;
-    padding: 1rem;
-    line-height: 1.5;
-    word-break: break-word;
-    overflow: hidden;
+    background: rgba(26, 60, 52, 0.04);
+    border: 2px dashed rgba(26, 60, 52, 0.15);
+    border-radius: 12px;
   }
   .hub-prose em {
     font-size: 0.85rem;
@@ -840,30 +1005,33 @@ const otherCategories = categories
   .hub-prose table {
     width: 100%;
     border-collapse: collapse;
-    margin: 1.5rem 0;
-    font-size: 0.95rem;
-  }
-  .hub-prose th,
-  .hub-prose td {
-    padding: 0.75rem 1rem;
-    border: 1px solid #e2e8f0;
-    text-align: left;
+    margin: 2rem 0;
+    font-size: 0.9rem;
   }
   .hub-prose th {
-    background: #f8fafc;
+    background: rgba(26, 60, 52, 0.05);
+    color: #1a3c34;
     font-weight: 600;
-    color: #1e293b;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid rgba(26, 60, 52, 0.12);
   }
-  .hub-prose tr:hover {
-    background: #f8fafc;
+  .hub-prose td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid rgba(26, 60, 52, 0.06);
+    color: #3a4f44;
+  }
+  .hub-prose tr:hover td {
+    background: rgba(26, 60, 52, 0.02);
   }
   .hub-prose strong {
-    color: #1e293b;
+    font-weight: 700;
+    color: #1a3c34;
   }
   .hub-prose hr {
     border: none;
-    border-top: 1px solid #e2e8f0;
-    margin: 2.5rem 0;
+    border-top: 1px solid rgba(26, 60, 52, 0.1);
+    margin: 3rem 0;
   }
 
   .articles-heading {

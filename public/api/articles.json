@@ -616,7 +616,7 @@
   },
   {
     "title": "台灣文學史",
-    "description": "四百年多重聲音交響史——從原住民古謠到當代數位創作的文學演進",
+    "description": "從被質疑「台灣有文學嗎？」到楊逵首次在日本獲獎，從語言禁錮到多重聲音復甦——一部關於聲音尋找文字、文字尋找家園的四百年史詩",
     "category": "Art",
     "tags": [
       "文學",
@@ -624,17 +624,19 @@
       "文化",
       "賴和",
       "白先勇",
-      "原住民文學"
+      "原住民文學",
+      "鄉土文學",
+      "文學論戰"
     ],
     "url": "https://taiwan.md/Art/%E5%8F%B0%E7%81%A3%E6%96%87%E5%AD%B8%E5%8F%B2",
     "readingTime": 21,
-    "featured": false,
+    "featured": true,
     "date": "2026-03-24",
     "path": "Art/台灣文學史.md"
   },
   {
     "title": "台灣水果王國",
-    "description": "從芒果荔枝到釋迦蓮霧，熱帶水果多樣性與農業技術突破的甜美傳奇",
+    "description": "水果王國的光環下，進口水果年產值破302億創新高，本土產量卻10年下滑2成——甜美名聲背後的殘酷真相",
     "category": "Food",
     "tags": [
       "水果",
@@ -644,12 +646,14 @@
       "蓮霧",
       "農業技術",
       "玉井",
-      "水果外銷"
+      "水果外銷",
+      "農業危機",
+      "進口競爭"
     ],
     "url": "https://taiwan.md/Food/%E5%8F%B0%E7%81%A3%E6%B0%B4%E6%9E%9C%E7%8E%8B%E5%9C%8B",
     "readingTime": 20,
-    "featured": false,
-    "date": "2026-03-18",
+    "featured": true,
+    "date": "2026-03-24",
     "path": "Food/台灣水果王國.md"
   },
   {
@@ -1031,7 +1035,7 @@
   },
   {
     "title": "台灣企業：長榮海運",
-    "description": "從一艘二手船到全球海運帝國，張榮發的藍海傳奇",
+    "description": "一艘 15 年船齡的二手貨輪，17 年後登頂世界第一——然後創辦人的遺囑，撕開了一個帝國",
     "category": "Economy",
     "tags": [
       "Economy",
@@ -1041,9 +1045,9 @@
       "國際貿易"
     ],
     "url": "https://taiwan.md/Economy/%E5%8F%B0%E7%81%A3%E4%BC%81%E6%A5%AD%EF%BC%9A%E9%95%B7%E6%A6%AE%E6%B5%B7%E9%81%8B",
-    "readingTime": 15,
+    "readingTime": 14,
     "featured": false,
-    "date": "2026-03-20",
+    "date": "2026-03-24",
     "path": "Economy/台灣企業：長榮海運.md"
   },
   {
@@ -2001,7 +2005,7 @@
   },
   {
     "title": "台灣海岸地形與海洋地景",
-    "description": "從北部岬灣海岸到東部斷層海岸，台灣豐富多變的海岸地形展現板塊運動的鬼斧神工",
+    "description": "在地球上，很少有地方能讓你從近4,000公尺的山頂出發，不到150公里就墜入7,500公尺深的海溝。台灣可以。這座島嶼的海岸線，是一場仍在進行的車禍現場——美到令人窒息。",
     "category": "Geography",
     "tags": [
       "海岸地形",
@@ -2011,9 +2015,9 @@
       "自然景觀"
     ],
     "url": "https://taiwan.md/Geography/%E5%8F%B0%E7%81%A3%E6%B5%B7%E5%B2%B8%E5%9C%B0%E5%BD%A2%E8%88%87%E6%B5%B7%E6%B4%8B%E5%9C%B0%E6%99%AF",
-    "readingTime": 24,
+    "readingTime": 13,
     "featured": true,
-    "date": "2026-03-19",
+    "date": "2026-03-24",
     "path": "Geography/台灣海岸地形與海洋地景.md"
   },
   {
@@ -2197,7 +2201,7 @@
   },
   {
     "title": "台灣動畫代工",
-    "description": "台灣曾是全球動畫外包重鎮，1978年成立的宏廣卡通（原Cuckoos\\' Nest）包辦好萊塢與日本經典動畫製作，高峰期產值佔全球三分之一，被譽「東方迪士尼」。如今轉型參與日式原畫與本土原創，展現台灣動畫人才的持久國際影響力。",
+    "description": "台灣曾是全球動畫外包重鎮，宏廣卡通包辦好萊塢經典動畫製作，高峰期產值佔全球三分之一",
     "category": "Economy",
     "tags": [
       "動畫產業",
@@ -3317,13 +3321,13 @@
   },
   {
     "title": "台灣醫療與全民健保",
-    "description": "99.9% 覆蓋率的奇蹟：從IC卡革命到國際醫療觀光，台灣健保制度的創新與挑戰",
+    "description": "99.9% 覆蓋率的矛盾奇蹟：全世界最便宜的健保制度，為何讓四分之三醫院虧本經營？",
     "category": "Lifestyle",
     "tags": [],
     "url": "https://taiwan.md/Lifestyle/%E5%8F%B0%E7%81%A3%E9%86%AB%E7%99%82%E8%88%87%E5%85%A8%E6%B0%91%E5%81%A5%E4%BF%9D",
     "readingTime": 22,
     "featured": false,
-    "date": "2026-03-18",
+    "date": "2026-03-24",
     "path": "Lifestyle/台灣醫療與全民健保.md"
   },
   {
@@ -3448,7 +3452,7 @@
   },
   {
     "title": "台灣鐵道史",
-    "description": "從清朝劉銘傳到日治縱貫線到高鐵，鐵道如何塑造台灣的城市發展與文化記憶",
+    "description": "一條被日本人罵是「肺病鐵道」的爛路，如何在一百多年間變成每天載運二十萬人的高速動脈",
     "category": "History",
     "tags": [
       "鐵道",
@@ -3456,12 +3460,13 @@
       "城市發展",
       "劉銘傳",
       "縱貫線",
-      "高鐵"
+      "高鐵",
+      "台鐵"
     ],
     "url": "https://taiwan.md/History/%E5%8F%B0%E7%81%A3%E9%90%B5%E9%81%93%E5%8F%B2",
-    "readingTime": 15,
+    "readingTime": 18,
     "featured": false,
-    "date": "2026-03-20",
+    "date": "2026-03-24",
     "path": "History/台灣鐵道史.md"
   },
   {
@@ -5738,20 +5743,20 @@
   },
   {
     "title": "黃金時代的餘韻：台灣茶文化的流變與工藝",
-    "description": "從凍頂烏龍到高山茶，探索台灣茶文化的歷史演變與製茶工藝的精髓",
+    "description": "1930年代列強簽了限產協定把台灣排除在外，結果台灣紅茶趁勢暴衝——從329萬公斤到580萬。90年後，同一座島嶼每30分鐘開一家手搖飲店。",
     "category": "Culture",
     "tags": [
       "茶文化",
       "凍頂烏龍",
       "高山茶",
-      "製茶工藝",
-      "茶道美學",
+      "手搖飲",
+      "珍珠奶茶",
       "農業文化"
     ],
     "url": "https://taiwan.md/Culture/%E9%BB%83%E9%87%91%E6%99%82%E4%BB%A3%E7%9A%84%E9%A4%98%E9%9F%BB%EF%BC%9A%E5%8F%B0%E7%81%A3%E8%8C%B6%E6%96%87%E5%8C%96%E7%9A%84%E6%B5%81%E8%AE%8A%E8%88%87%E5%B7%A5%E8%97%9D",
-    "readingTime": 14,
+    "readingTime": 15,
     "featured": true,
-    "date": "2026-03-19",
+    "date": "2026-03-24",
     "path": "Culture/黃金時代的餘韻：台灣茶文化的流變與工藝.md"
   },
   {
@@ -6270,20 +6275,21 @@
     "path": "Culture/語言多樣性與母語文化.md"
   },
   {
-    "title": "遠東集團：橫跨十一大產業的台灣商業帝國",
-    "description": "從上海紡織廠起家的遠東集團，87年來發展成台灣最多元化的企業帝國，觸角遍及石化、金融、零售、通訊等十一大產業",
+    "title": "遠東集團：從上海紡織廠到台灣最多元化商業帝國",
+    "description": "87年前上海的一間小紡織廠，如何演變成跨越十大產業、資產逾3兆的台灣商業帝國？遠東集團的發展史，見證了台商從榮耀到政治風險的完整軌跡",
     "category": "Economy",
     "tags": [
-      "Economy",
       "企業",
       "集團企業",
       "多元經營",
-      "紡織業"
+      "紡織業",
+      "台商",
+      "政治風險"
     ],
     "url": "https://taiwan.md/Economy/%E5%8F%B0%E7%81%A3%E4%BC%81%E6%A5%AD%EF%BC%9A%E9%81%A0%E6%9D%B1%E9%9B%86%E5%9C%98",
-    "readingTime": 13,
+    "readingTime": 20,
     "featured": false,
-    "date": "2026-03-20",
+    "date": "2026-03-24",
     "path": "Economy/台灣企業：遠東集團.md"
   },
   {
@@ -6324,11 +6330,11 @@
   },
   {
     "title": "數位身分證與數位政府",
-    "description": "台灣數位政府轉型歷程，從數位身分證爭議到「我的E政府」一站式服務，探討數位治理的創新與挑戰",
+    "description": "一張還沒發出去的晶片卡，花了 2.8 億賠償金——台灣數位政府的故事，是信任比技術更難 build 的證明",
     "category": "Technology",
     "tags": [],
     "url": "https://taiwan.md/Technology/%E6%95%B8%E4%BD%8D%E8%BA%AB%E5%88%86%E8%AD%89%E8%88%87%E6%95%B8%E4%BD%8D%E6%94%BF%E5%BA%9C",
-    "readingTime": 24,
+    "readingTime": 19,
     "featured": true,
     "date": "2026-03-18",
     "path": "Technology/數位身分證與數位政府.md"
@@ -6367,7 +6373,7 @@
   },
   {
     "title": "蔡依林",
-    "description": "不是天才的天后——用 214 週世界第一證明努力可以戰勝天賦",
+    "description": "不是天才的天后——被舞蹈老師說「不是跳舞的料」，二十五年後成為金曲獎史上獲獎最多的唱跳歌手",
     "category": "People",
     "tags": [
       "人物",
@@ -6378,9 +6384,9 @@
       "金曲獎"
     ],
     "url": "https://taiwan.md/People/%E8%94%A1%E4%BE%9D%E6%9E%97",
-    "readingTime": 12,
+    "readingTime": 14,
     "featured": false,
-    "date": "2026-03-22",
+    "date": "2026-03-24",
     "path": "People/蔡依林.md"
   },
   {
@@ -6524,17 +6530,19 @@
   },
   {
     "title": "戰後台灣文學",
-    "description": "",
+    "description": "從語言失語到多元爆發，戰後台灣文學如何在身份認同的漩渦中找到自己的聲音？",
     "category": "Art",
     "tags": [
-      "文學",
-      "戰後",
-      "鄉土文學"
+      "戰後文學",
+      "鄉土文學",
+      "現代主義",
+      "女性文學",
+      "語言轉換"
     ],
     "url": "https://taiwan.md/Art/%E6%88%B0%E5%BE%8C%E5%8F%B0%E7%81%A3%E6%96%87%E5%AD%B8",
-    "readingTime": 21,
+    "readingTime": 29,
     "featured": false,
-    "date": "2026-03-18",
+    "date": "2026-03-24",
     "path": "Art/戰後台灣文學.md"
   },
   {
@@ -6942,6 +6950,26 @@
     "featured": false,
     "date": "2026-03-19",
     "path": "People/嚴長壽.md"
+  },
+  {
+    "title": "A History of Taiwanese Literature",
+    "description": "From colonial questions of \"Does Taiwan have literature?\" to Yang Kui\\'s first Japanese literary prize, from linguistic suppression to polyphonic revival—a 400-year epic of voices finding words, words finding home",
+    "category": "en",
+    "tags": [
+      "literature",
+      "history",
+      "culture",
+      "Lai He",
+      "Pai Hsien-yung",
+      "Indigenous literature",
+      "nativist literature",
+      "literary debates"
+    ],
+    "url": "https://taiwan.md/en/Art/%E5%8F%B0%E7%81%A3%E6%96%87%E5%AD%B8%E5%8F%B2",
+    "readingTime": 70,
+    "featured": true,
+    "date": "2026-03-24",
+    "path": "en/Art/台灣文學史.md"
   },
   {
     "title": "A‑Mei (張惠妹)",
@@ -8126,6 +8154,24 @@
     "path": "en/Economy/esun-financial-holding-digital-banking-pioneer.md"
   },
   {
+    "title": "Echoes of a Golden Age: The Evolution and Craft of Taiwanese Tea",
+    "description": "In the 1930s, global powers signed a tea restriction pact and left Taiwan out. Taiwan''s tea exports exploded. Ninety years later, the island opens a new bubble tea shop every 12 hours.",
+    "category": "en",
+    "tags": [
+      "tea culture",
+      "Dong Ding oolong",
+      "high mountain tea",
+      "bubble tea",
+      "boba",
+      "agriculture"
+    ],
+    "url": "https://taiwan.md/en/Culture/golden-age-echoes-taiwan-tea-culture",
+    "readingTime": 42,
+    "featured": true,
+    "date": "2026-03-24",
+    "path": "en/Culture/golden-age-echoes-taiwan-tea-culture.md"
+  },
+  {
     "title": "Echoes of the Golden Age：Taiwan Tea Culture Evolution and Craftsmanship",
     "description": "An island excluded from the international tea production agreement became the unlikely creator of a tea golden age, ultimately conquering the world with a drink containing \"little snacks\"",
     "category": "en",
@@ -8307,20 +8353,20 @@
     "path": "en/Culture/ethnic-groups.md"
   },
   {
-    "title": "Evergreen Marine Corporation",
-    "description": "From one second-hand ship to a global shipping empire: Chang Yung-fa's blue ocean legend",
+    "title": "Evergreen Marine",
+    "description": "A 15-year-old secondhand freighter, a carpenter's son, and the shipping empire that once blocked global trade for six days",
     "category": "en",
     "tags": [
       "Economy",
-      "Corporations",
-      "Shipping Industry",
+      "Business",
+      "Shipping",
       "Logistics",
       "International Trade"
     ],
     "url": "https://taiwan.md/en/Economy/evergreen-marine",
-    "readingTime": 52,
+    "readingTime": 36,
     "featured": false,
-    "date": "2026-03-20",
+    "date": "2026-03-24",
     "path": "en/Economy/evergreen-marine.md"
   },
   {
@@ -8355,6 +8401,24 @@
     "featured": false,
     "date": "2026-03-19",
     "path": "en/People/fang-yi-sheu-body-storyteller.md"
+  },
+  {
+    "title": "Far Eastern Group: From Shanghai Textile Mill to Taiwan's Most Diversified Business Empire",
+    "description": "How did a small textile factory in Shanghai 87 years ago evolve into a Taiwan business empire spanning ten industries with assets exceeding NT$3 trillion? The Far Eastern Group's journey reflects the complete trajectory of Taiwanese businesses from glory to political risk",
+    "category": "en",
+    "tags": [
+      "Enterprise",
+      "Conglomerate",
+      "Diversified Business",
+      "Textile Industry",
+      "Taiwanese Business",
+      "Political Risk"
+    ],
+    "url": "https://taiwan.md/en/Economy/%E5%8F%B0%E7%81%A3%E4%BC%81%E6%A5%AD%EF%BC%9A%E9%81%A0%E6%9D%B1%E9%9B%86%E5%9C%98",
+    "readingTime": 55,
+    "featured": false,
+    "date": "2026-03-24",
+    "path": "en/Economy/台灣企業：遠東集團.md"
   },
   {
     "title": "Far Eastern Group: Taiwan's Multifaceted Business Empire",
@@ -8464,17 +8528,6 @@
     "path": "es/History/qing-dynasty-rule.md"
   },
   {
-    "title": "Golden Age Echoes: Evolution and Craftsmanship of Taiwan's Tea Culture",
-    "description": "From Dong Ding Oolong to high mountain teas, exploring the historical evolution of Taiwan's tea culture and the essence of tea-making craftsmanship",
-    "category": "en",
-    "tags": [],
-    "url": "https://taiwan.md/en/Culture/golden-age-echoes-taiwan-tea-culture",
-    "readingTime": 52,
-    "featured": true,
-    "date": "2026-03-19",
-    "path": "en/Culture/golden-age-echoes-taiwan-tea-culture.md"
-  },
-  {
     "title": "Gwei Lun-Mei",
     "description": "From 'Secret' to international film festivals, a low-key method actress who represents Taiwan's new generation of cinema talent",
     "category": "en",
@@ -8555,6 +8608,24 @@
     "path": "en/People/he-feipeng.md"
   },
   {
+    "title": "History of Railways in Taiwan",
+    "description": "How a railway the Japanese called a 'consumptive railroad' became a 300 km/h artery carrying 21 million passengers a day",
+    "category": "History",
+    "tags": [
+      "railway",
+      "transportation",
+      "infrastructure",
+      "Liu Mingchuan",
+      "THSR",
+      "TRA"
+    ],
+    "url": "https://taiwan.md/History/%E5%8F%B0%E7%81%A3%E9%90%B5%E9%81%93%E5%8F%B2.en",
+    "readingTime": 49,
+    "featured": false,
+    "date": "2026-03-24",
+    "path": "History/台灣鐵道史.en.md"
+  },
+  {
     "title": "History of Taiwan MRT Development",
     "description": "From the 1996 Muzha Line opening to driverless circular lines, how Taiwan\\'s MRT systems transformed urban landscapes and lifestyles",
     "category": "en",
@@ -8589,24 +8660,6 @@
     "featured": false,
     "date": "2026-03-18",
     "path": "en/Art/history-of-taiwanese-literature.md"
-  },
-  {
-    "title": "History of Taiwanese Literature",
-    "description": "A 400-year symphony of multiple voices — from indigenous ancient chants to contemporary digital creation",
-    "category": "en",
-    "tags": [
-      "literature",
-      "history",
-      "culture",
-      "Lai He",
-      "Pai Hsien-yung",
-      "indigenous literature"
-    ],
-    "url": "https://taiwan.md/en/Art/%E5%8F%B0%E7%81%A3%E6%96%87%E5%AD%B8%E5%8F%B2",
-    "readingTime": 74,
-    "featured": false,
-    "date": "2026-03-24",
-    "path": "en/Art/台灣文學史.md"
   },
   {
     "title": "Hong-Chih Kuo: Taiwan's Left-Handed Ace",
@@ -9178,13 +9231,20 @@
   },
   {
     "title": "Jolin Tsai (蔡依林)",
-    "description": "From teen idol to cultural icon, a performer who elevated Mandopop into a high‑art stagecraft",
+    "description": "The worst dancer in her class spent twenty-five years turning her body into the most expensive stage act in Asia",
     "category": "en",
-    "tags": [],
+    "tags": [
+      "People",
+      "Singer",
+      "Entertainment",
+      "LGBTQ+ Rights",
+      "Mandopop",
+      "Golden Melody Awards"
+    ],
     "url": "https://taiwan.md/en/People/jolin-tsai",
-    "readingTime": 20,
+    "readingTime": 31,
     "featured": false,
-    "date": "2026-03-19",
+    "date": "2026-03-24",
     "path": "en/People/jolin-tsai.md"
   },
   {
@@ -10275,17 +10335,19 @@
   },
   {
     "title": "Postwar Taiwanese Literature",
-    "description": "",
+    "description": "From language displacement to diverse flowering - how postwar Taiwanese literature found its voice amid identity crises and political turbulence.",
     "category": "en",
     "tags": [
-      "literature",
-      "postwar",
-      "nativist literature"
+      "postwar literature",
+      "nativist literature",
+      "modernism",
+      "feminist literature",
+      "language transition"
     ],
     "url": "https://taiwan.md/en/Art/postwar-taiwanese-literature",
-    "readingTime": 72,
+    "readingTime": 84,
     "featured": false,
-    "date": "2026-03-18",
+    "date": "2026-03-24",
     "path": "en/Art/postwar-taiwanese-literature.md"
   },
   {
@@ -11479,6 +11541,17 @@
     "path": "en/Technology/taiwan-gaming-industry.md"
   },
   {
+    "title": "Taiwan Healthcare and National Health Insurance",
+    "description": "The paradox of 99.9% coverage: How the world\\'s cheapest healthcare system forces three-quarters of hospitals to operate at a loss",
+    "category": "en",
+    "tags": [],
+    "url": "https://taiwan.md/en/Lifestyle/Taiwan%20Healthcare%20and%20National%20Health%20Insurance",
+    "readingTime": 67,
+    "featured": false,
+    "date": "2026-03-24",
+    "path": "en/Lifestyle/Taiwan Healthcare and National Health Insurance.md"
+  },
+  {
     "title": "Taiwan Hip‑Hop and Rap: From Imported Beats to a Local Voice",
     "description": "A cultural history of Taiwanese hip‑hop—its pioneers, underground venues, mainstream breakthroughs, and how local languages and social issues shaped a distinct sound.",
     "category": "en",
@@ -12376,6 +12449,40 @@
     "featured": true,
     "date": "2026-03-19",
     "path": "en/Geography/taiwan-coastal-landforms-and-seascapes.md"
+  },
+  {
+    "title": "Taiwan's Coastal Landscapes and Marine Geology",
+    "description": "A 1,566-kilometer geological epic written by tectonic collision - from vertical cliffs to coral kingdoms, Taiwan's coastline is Earth's youngest geology textbook",
+    "category": "en",
+    "tags": [
+      "coastal geomorphology",
+      "marine landscapes",
+      "plate tectonics",
+      "geological processes",
+      "natural scenery"
+    ],
+    "url": "https://taiwan.md/en/Geography/%E5%8F%B0%E7%81%A3%E6%B5%B7%E5%B2%B8%E5%9C%B0%E5%BD%A2%E8%88%87%E6%B5%B7%E6%B4%8B%E5%9C%B0%E6%99%AF",
+    "readingTime": 65,
+    "featured": true,
+    "date": "2026-03-24",
+    "path": "en/Geography/台灣海岸地形與海洋地景.md"
+  },
+  {
+    "title": "Taiwan's Coastline and Marine Landscapes",
+    "description": "On Earth, few places let you travel from a nearly 4,000-meter summit to a 7,500-meter ocean trench in under 150 kilometers. Taiwan can. Its coastline is an ongoing collision — terrifyingly beautiful.",
+    "category": "en",
+    "tags": [
+      "coastline",
+      "marine landscapes",
+      "plate tectonics",
+      "geology",
+      "natural heritage"
+    ],
+    "url": "https://taiwan.md/en/Geography/taiwan-coastline-and-marine-landscapes",
+    "readingTime": 34,
+    "featured": true,
+    "date": "2026-03-24",
+    "path": "en/Geography/taiwan-coastline-and-marine-landscapes.md"
   },
   {
     "title": "Taiwan’s Convenience Store Culture",

@@ -12,6 +12,18 @@ import {
   type CategoryKey,
 } from '../../../utils/categoryConfig';
 
+const safeMatter = (fileContent: string) => {
+  try {
+    return matter(fileContent);
+  } catch {
+    const stripped = fileContent.replace(
+      /^---\s*\n[\s\S]*?\n---\s*\n/,
+      '',
+    );
+    return { data: {}, content: stripped };
+  }
+};
+
 export async function getStaticPaths() {
   const categoryMapping: Record<string, string> = {
     history: 'History',
@@ -49,7 +61,7 @@ export async function getStaticPaths() {
       for (const file of enMarkdownFiles) {
         const filePath = join(enFolderPath, file);
         const fileContent = await readFile(filePath, 'utf-8');
-        const { data: frontmatter } = matter(fileContent);
+        const { data: frontmatter } = safeMatter(fileContent);
         const slug = basename(file, '.md');
 
         articles.push({
@@ -75,7 +87,7 @@ export async function getStaticPaths() {
       if (hubFile) {
         const hubPath = join(hubFolder, hubFile);
         const hubRaw = await readFile(hubPath, 'utf-8');
-        const { content } = matter(hubRaw);
+        const { content } = safeMatter(hubRaw);
         hubContent = content.replace(/^#\s+.+\n/, '').trim();
       }
     } catch {}
@@ -140,7 +152,56 @@ function resolveWikilinks(md: string, currentCategory: string) {
 const resolvedContent = hubContent
   ? resolveWikilinks(hubContent, category)
   : '';
-const hubHtml = resolvedContent ? marked.parse(resolvedContent) : '';
+
+// Build set of article URLs for topic-pill detection
+const articleUrlSet = new Set(
+  articles.map((a: any) => `/en/${category}/${a.slug}`),
+);
+const categoryKeys = Object.keys({
+  history: 1, geography: 1, culture: 1, food: 1, art: 1, music: 1,
+  technology: 1, nature: 1, people: 1, society: 1, economy: 1, lifestyle: 1,
+});
+
+// Topic-pill link renderer for hub pages
+const hubRenderer = new marked.Renderer();
+hubRenderer.link = ({ href, title, text }) => {
+  const titleAttr = title ? ` title="${title}"` : '';
+  const h = href || '';
+  const isArticleLink = articleUrlSet.has(decodeURIComponent(h));
+  const isCategoryLink = categoryKeys.some((k) => h === `/en/${k}` || h === `/en/${k}/`);
+  if (isArticleLink || isCategoryLink) {
+    return `<a class="topic-pill" href="${h}"${titleAttr}>${text}</a>`;
+  }
+  return `<a href="${h}"${titleAttr}>${text}</a>`;
+};
+
+// Post-process: add callout/pull-quote classes to blockquotes
+function enrichBlockquotes(html: string): string {
+  if (!html) return html;
+  const calloutMap: Record<string, string> = {
+    '📝': 'callout-note',
+    '⚠️': 'callout-warning',
+    '💡': 'callout-tip',
+    '📊': 'callout-data',
+  };
+  return html.replace(
+    /<blockquote>([\s\S]*?)<\/blockquote>/g,
+    (match, inner) => {
+      if (inner.includes('✦')) {
+        return `<blockquote class="pull-quote">${inner}</blockquote>`;
+      }
+      for (const [emoji, cls] of Object.entries(calloutMap)) {
+        if (inner.includes(emoji) && inner.includes('<strong>')) {
+          return `<blockquote class="${cls}">${inner}</blockquote>`;
+        }
+      }
+      return match;
+    },
+  );
+}
+
+const rawHubHtml = resolvedContent ? marked.parse(resolvedContent, { renderer: hubRenderer }) : '';
+const hubHtml = enrichBlockquotes(rawHubHtml as string);
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -460,14 +521,97 @@ const otherCategories = categories
     line-height: 1.9;
   }
   .hub-prose blockquote {
-    border-left: 3px solid #cbd5e1;
-    padding: 0.75rem 1.25rem;
-    margin: 1.5rem 0;
-    background: #f8fafc;
-    border-radius: 0 8px 8px 0;
+    border-left: 4px solid #4a7c28;
+    background: linear-gradient(to right, rgba(26, 60, 52, 0.04), transparent);
+    margin: 2.5rem 0;
+    padding: 1.5rem 1.75rem;
+    border-radius: 0 12px 12px 0;
     font-style: italic;
-    color: #475569;
+    color: #3a4f44;
+    font-size: 1.05rem;
   }
+  .hub-prose blockquote p {
+    margin-bottom: 0;
+  }
+
+  /* Callout blockquotes */
+  .hub-prose :global(blockquote.callout-note) {
+    border-left-color: #3b82f6;
+    background: linear-gradient(to right, rgba(59, 130, 246, 0.06), transparent);
+    font-style: normal;
+  }
+  .hub-prose :global(blockquote.callout-warning) {
+    border-left-color: #f59e0b;
+    background: linear-gradient(to right, rgba(245, 158, 11, 0.06), transparent);
+    font-style: normal;
+  }
+  .hub-prose :global(blockquote.callout-tip) {
+    border-left-color: #10b981;
+    background: linear-gradient(to right, rgba(16, 185, 129, 0.06), transparent);
+    font-style: normal;
+  }
+  .hub-prose :global(blockquote.callout-data) {
+    border-left-color: #8b5cf6;
+    background: linear-gradient(to right, rgba(139, 92, 246, 0.06), transparent);
+    font-style: normal;
+  }
+
+  /* Pull quote */
+  .hub-prose :global(blockquote.pull-quote) {
+    border-left: none;
+    background: none;
+    text-align: center;
+    font-size: 1.35rem;
+    font-weight: 600;
+    font-style: normal;
+    color: #1a3c34;
+    padding: 2rem 2.5rem;
+    margin: 3rem auto;
+    max-width: 680px;
+    line-height: 1.8;
+    position: relative;
+  }
+  .hub-prose :global(blockquote.pull-quote)::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #4a7c28;
+    margin: 0 auto 1.5rem;
+    border-radius: 2px;
+  }
+  .hub-prose :global(blockquote.pull-quote)::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #4a7c28;
+    margin: 1.5rem auto 0;
+    border-radius: 2px;
+  }
+
+  /* Topic pill */
+  .hub-prose :global(a.topic-pill) {
+    display: inline-block;
+    background: rgba(45, 80, 22, 0.08);
+    border: 1.5px solid rgba(45, 80, 22, 0.2);
+    border-radius: 6px;
+    padding: 0.15rem 0.6rem;
+    font-weight: 700;
+    color: #2d5016;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    border-bottom: none;
+  }
+  .hub-prose :global(a.topic-pill:hover) {
+    background: rgba(45, 80, 22, 0.15);
+    border-color: rgba(45, 80, 22, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(45, 80, 22, 0.15);
+    color: #2d5016;
+  }
+
   .hub-prose h2 {
     font-size: 1.5rem;
     font-weight: 700;

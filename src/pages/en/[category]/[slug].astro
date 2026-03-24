@@ -16,6 +16,18 @@ import {
   type CategoryKey,
 } from '../../../utils/categoryConfig';
 
+const safeMatter = (fileContent: string) => {
+  try {
+    return matter(fileContent);
+  } catch {
+    const stripped = fileContent.replace(
+      /^---\s*\n[\s\S]*?\n---\s*\n/,
+      '',
+    );
+    return { data: {}, content: stripped };
+  }
+};
+
 // ── Git helpers ───────────────────────────────────────────────────────────────
 let _gitCache: Map<
   string,
@@ -174,7 +186,7 @@ export async function getStaticPaths() {
       )) {
         const filePath = join(folderPath, file);
         const fileContent = await readFile(filePath, 'utf-8');
-        const { data: frontmatter, content } = matter(fileContent);
+        const { data: frontmatter, content } = safeMatter(fileContent);
         const slug = basename(file, '.md');
         let gitInfo = { contributors: [] as string[], lastModified: '' };
         try {
@@ -231,7 +243,7 @@ try {
       const articleSlug = basename(file, '.md');
       if (articleSlug === slug) continue;
       const filePath = join(folderPath, file);
-      const { data: fm } = matter(await readFile(filePath, 'utf-8'));
+      const { data: fm } = safeMatter(await readFile(filePath, 'utf-8'));
       relatedArticles.push({
         title: fm.title || articleSlug,
         slug: articleSlug,
@@ -255,7 +267,7 @@ try {
         (f) => f.endsWith('.md') && !f.startsWith('_'),
       )) {
         const articleSlug = basename(file, '.md');
-        const { data: fm } = matter(
+        const { data: fm } = safeMatter(
           await readFile(join(catPath, file), 'utf-8'),
         );
         allArticles.push({

@@ -194,16 +194,17 @@ const t = useTranslations(lang);
     font-size: 6rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    font-family: 'jf-kamabit', 'Noto Sans TC', 'Source Han Sans TC', sans-serif;
+    font-family: 'jf-kamabit', 'Noto Sans TC', 'Source Han Sans TC', sans-serif !important;
     letter-spacing: 0;
     line-height: 1;
     color: white;
   }
-  .title-text {
+  .hero-title .title-text {
     position: relative;
     color: white;
     z-index: 2;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    font-family: inherit !important;
   }
   .title-glow {
     display: none;

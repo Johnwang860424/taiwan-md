@@ -1,16 +1,16 @@
 {
-  "totalArticles": 928,
+  "totalArticles": 933,
   "totalCategories": 17,
-  "estimatedContributors": 62,
-  "totalTags": 2512,
+  "estimatedContributors": 63,
+  "totalTags": 2541,
   "categories": [
     {
       "name": "en",
-      "count": 484
+      "count": 488
     },
     {
       "name": "History",
-      "count": 21
+      "count": 22
     },
     {
       "name": "Culture",
@@ -76,7 +76,7 @@
   "topTags": [
     {
       "name": "Economy",
-      "count": 59
+      "count": 58
     },
     {
       "name": "人物",
@@ -96,7 +96,7 @@
     },
     {
       "name": "literature",
-      "count": 17
+      "count": 16
     },
     {
       "name": "半導體",
@@ -131,10 +131,6 @@
       "count": 11
     },
     {
-      "name": "文學",
-      "count": 11
-    },
-    {
       "name": "數位轉型",
       "count": 11
     },
@@ -151,13 +147,17 @@
       "count": 11
     },
     {
+      "name": "文學",
+      "count": 10
+    },
+    {
       "name": "文化",
       "count": 10
     }
   ],
   "languageDistribution": {
-    "zh-TW": 928,
+    "zh-TW": 933,
     "en": 0
   },
-  "lastUpdated": "2026-03-24T09:28:05.014Z"
+  "lastUpdated": "2026-03-24T17:32:59.772Z"
 }
