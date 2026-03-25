@@ -565,12 +565,7 @@ const jfClass = [
               '<div class="search-hint">' + hintEmpty + '</div>';
             return;
           }
-          // Require at least 2 chars to search (avoids noisy single-char queries)
-          if (q.length < 2) {
-            results.innerHTML =
-              '<div class="search-hint">' + hintEmpty + '</div>';
-            return;
-          }
+          // Single-char queries are handled by prefix match
           if (_searchMode === 'loading') {
             results.innerHTML =
               '<div class="search-hint">' +
