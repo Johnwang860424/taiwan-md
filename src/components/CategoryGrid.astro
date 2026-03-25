@@ -159,6 +159,7 @@ const categories = [
             data-color={category.color}
             aria-label={`${t('CategoryGrid.aria-explore')} ${category.name}${t('CategoryGrid.aria-explore-suffix')}`}
           >
+            <div class="category-gradient" />
             <div class="category-header">
               {category.cover ? (
                 <img
@@ -175,14 +176,12 @@ const categories = [
               >
                 {category.icon}
               </div>
-              <div class="category-gradient" />
             </div>
             <div class="category-body">
-              <div class="card-meta">
-                <span class="card-count">{count}</span>
-                <span class="card-label">{count > 1 ? t('CategoryGrid.articles') : t('CategoryGrid.article')}</span>
+              <div class="card-title-row">
+                <h3 class="category-name">{category.name}</h3>
+                <span class="card-meta"><span class="card-count">{count}</span> <span class="card-label">{count > 1 ? t('CategoryGrid.articles') : t('CategoryGrid.article')}</span></span>
               </div>
-              <h3 class="category-name">{category.name}</h3>
               <p class="category-description">{category.description}</p>
               <div class="category-footer">
                 <span class="explore-link">{t('CategoryGrid.explore')}<span class="cta-arrow">→</span></span>
@@ -198,11 +197,16 @@ const categories = [
 <style>
   .category-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 1fr;
     gap: 1.5rem;
     margin: 3rem auto;
     max-width: var(--container-wide);
     padding: 0;
+  }
+
+  .category-grid article {
+    display: flex;
   }
 
   .category-card {
@@ -220,7 +224,7 @@ const categories = [
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 292px;
+    width: 100%;
     backdrop-filter: blur(10px);
   }
 
@@ -244,6 +248,7 @@ const categories = [
 
   .category-header {
     position: relative;
+    z-index: 1;
     height: 136px;
     display: flex;
     align-items: center;
@@ -268,30 +273,41 @@ const categories = [
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: 0.12;
+    opacity: 1;
+    z-index: 0;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 70%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 70%);
     transition: opacity 0.4s ease;
   }
 
   /* Article count — TopicCard style */
+  .card-title-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
   .card-meta {
     display: flex;
     align-items: baseline;
-    gap: 0.35rem;
-    margin-bottom: 0.75rem;
+    gap: 0.2rem;
+    flex-shrink: 0;
   }
 
   .card-count {
     font-family: 'Noto Serif TC', 'Georgia', serif;
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.1rem;
+    font-weight: 600;
     line-height: 1;
-    color: #c17d5e;
-    letter-spacing: -0.02em;
+    color: #a8634a;
+    letter-spacing: -0.01em;
   }
 
   .card-label {
     font-family: var(--font-interface, 'Noto Sans TC', sans-serif);
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: #a8634a;
     font-weight: 500;
     letter-spacing: 0.03em;
@@ -357,7 +373,13 @@ const categories = [
     transition: transform 0.28s ease;
   }
 
+  .category-card:hover .category-icon {
+    transform: scale(1.04);
+  }
+
   .category-body {
+    position: relative;
+    z-index: 1;
     padding: 1.35rem 1.35rem 1.25rem;
     flex: 1;
     display: flex;
@@ -366,11 +388,12 @@ const categories = [
 
   .category-name {
     font-family: var(--font-title, 'Noto Serif TC', serif);
-    font-size: 1.35rem;
-    font-weight: 700;
+    font-size: 1.6rem;
+    font-weight: 800;
     margin-bottom: 0.6rem;
     color: #1a3c34;
-    line-height: 1.3;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
     transition: color 0.25s ease;
   }
 
@@ -379,11 +402,15 @@ const categories = [
   }
 
   .category-description {
-    color: #64748b;
-    font-size: 0.96rem;
+    color: #4a6560;
+    font-size: 0.93rem;
     line-height: 1.7;
     margin-bottom: 1.1rem;
     flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .category-footer {
@@ -413,7 +440,7 @@ const categories = [
 
   @media (max-width: 1200px) {
     .category-grid {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
