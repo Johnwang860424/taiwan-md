@@ -258,7 +258,7 @@ const categories = [
   } /* lifestyle - medium */
 
   .category-card {
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.98);
     border: 1px solid rgba(226, 232, 240, 0.9);
     border-radius: 24px;
     text-decoration: none;
@@ -273,7 +273,7 @@ const categories = [
     display: flex;
     flex-direction: column;
     width: 100%;
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); — removed: caused ghost blur artifacts on some GPUs, bleeding into sections below (reported 2026-03-29) */
   }
 
   .category-card:hover {
