@@ -1,7 +1,7 @@
 {
   "version": "3.0",
-  "timestamp": "2026-03-29T09:38:28Z",
+  "timestamp": "2026-03-29T10:17:08Z",
   "total": 1,
-  "flagged": 0,
-  "files": []
+  "flagged": 1,
+  "files": [{ "file": "knowledge/Art/台灣原住民當代藝術.md", "score": 4 }]
 }
