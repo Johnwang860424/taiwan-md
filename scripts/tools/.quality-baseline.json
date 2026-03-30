@@ -1,7 +1,7 @@
 {
   "version": "3.0",
-  "timestamp": "2026-03-30T07:45:55Z",
+  "timestamp": "2026-03-30T09:05:50Z",
   "total": 1,
-  "flagged": 0,
-  "files": []
+  "flagged": 1,
+  "files": [{ "file": "knowledge/Nature/台灣石虎保育.md", "score": 6 }]
 }
