@@ -1,0 +1,12 @@
+id: 魔芋
+category: daily
+fork_type: E
+display:
+  taiwan: 蒟蒻
+  china: 魔芋
+etymology:
+  origin: 也作蒟蒻，是低熱量高纖維的食品，常見於健康飲食和減肥料理中。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,12 @@
+id: 插眼
+category: daily
+fork_type: E
+display:
+  taiwan: 之後再看 / 等一下再看
+  china: 插眼
+etymology:
+  origin: 源自即時戰略遊戲的技能，玩家可以在地圖上插眼來獲得更多情報。在網路上表示「先作記號，等一下再來看」，中文拼音又作「CY」。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

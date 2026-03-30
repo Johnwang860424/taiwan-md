@@ -1,0 +1,12 @@
+id: 浴霸
+category: daily
+fork_type: E
+display:
+  taiwan: 浴室暖風機
+  china: 浴霸
+etymology:
+  origin: 用於浴室的暖風機，通常安裝在浴室天花板上，用來取暖或乾燥浴室空氣。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

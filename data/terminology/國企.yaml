@@ -1,0 +1,12 @@
+id: 國企
+category: daily
+fork_type: E
+display:
+  taiwan: 國營事業
+  china: 國企
+etymology:
+  origin: 國家營運的企業與機構。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,12 @@
+id: 信息素
+category: daily
+fork_type: E
+display:
+  taiwan: 費洛蒙
+  china: 信息素
+etymology:
+  origin: 由動物或植物分泌的一種化學物質，用於傳遞或引起特定行為的信號。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

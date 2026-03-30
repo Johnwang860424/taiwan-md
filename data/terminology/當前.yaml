@@ -1,0 +1,12 @@
+id: 當前
+category: daily
+fork_type: E
+display:
+  taiwan: 目前
+  china: 當前
+etymology:
+  origin: 中國用語「當前」，台灣說「目前」。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

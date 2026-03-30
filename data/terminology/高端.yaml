@@ -1,0 +1,12 @@
+id: 高端
+category: daily
+fork_type: E
+display:
+  taiwan: 高級 / 高階 / 先進
+  china: 高端
+etymology:
+  origin: 指高級、上等的事物。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

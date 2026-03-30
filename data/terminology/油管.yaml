@@ -1,0 +1,12 @@
+id: 油管
+category: daily
+fork_type: E
+display:
+  taiwan: YouTube
+  china: 油管
+etymology:
+  origin: 指 YouTube 影音網站，因為其網站名稱的音譯而來。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

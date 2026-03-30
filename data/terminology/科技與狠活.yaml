@@ -1,0 +1,12 @@
+id: 科技與狠活
+category: daily
+fork_type: E
+display:
+  taiwan: 加工食品 / 化學原料
+  china: 科技與狠活
+etymology:
+  origin: 用以諷刺中國的食品使用過多化學添加劑或不健康的原料，如：魔芋爽。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,12 @@
+id: 大面積
+category: daily
+fork_type: E
+display:
+  taiwan: 大範圍
+  china: 大面積
+etymology:
+  origin: 原指空間或體積大小，經常被誤用於形容抽象的數量、範圍。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

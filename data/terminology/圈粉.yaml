@@ -1,0 +1,12 @@
+id: 圈粉
+category: daily
+fork_type: E
+display:
+  taiwan: 粉絲 / 支持者
+  china: 圈粉
+etymology:
+  origin: 指某個知名人士或事物吸引了大量粉絲。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

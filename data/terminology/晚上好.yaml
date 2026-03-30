@@ -1,0 +1,12 @@
+id: 晚上好
+category: daily
+fork_type: E
+display:
+  taiwan: 晚安
+  china: 晚上好
+etymology:
+  origin: 在晚上的時候與他人問候、打招呼。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

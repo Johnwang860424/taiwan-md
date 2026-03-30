@@ -1,0 +1,12 @@
+id: 模板
+category: daily
+fork_type: E
+display:
+  taiwan: 樣板 / 範本
+  china: 模板
+etymology:
+  origin: 事先設計好的格式，其他人可以依照規則填入；或工業生產中可作為基準的固定規格，例如：製造零件的模具。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

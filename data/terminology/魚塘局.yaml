@@ -1,0 +1,12 @@
+id: 魚塘局
+category: daily
+fork_type: E
+display:
+  taiwan: 新手場
+  china: 魚塘局
+etymology:
+  origin: 指遊戲裡充斥著初心者，等著有十足經驗的自己去打爆。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,12 @@
+id: 白給
+category: daily
+fork_type: E
+display:
+  taiwan: 送頭 / 送死
+  china: 白給
+etymology:
+  origin: 用於遊戲裡，表示對團隊沒有貢獻，甚至自己親手把分數送給敵人。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,12 @@
+id: 支持
+category: daily
+fork_type: E
+display:
+  taiwan: 支援
+  china: 支持
+etymology:
+  origin: 有能力足以使用某個功能。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

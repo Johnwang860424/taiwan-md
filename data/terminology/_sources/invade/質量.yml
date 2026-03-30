@@ -1,0 +1,26 @@
+#
+word    : 質量
+bopomofo: ㄓˊ ㄌㄧㄤˋ
+notice  : 這個詞彙指的不是科學或物理上的密度形容詞。
+
+#
+category: NOUN
+explicit:
+
+#
+description: |
+  形容事物的品質、內在或資質，有時會根據情境而有不同解釋。
+
+#
+examples:
+  - words      : [品質]
+    correct    : |
+      這個影片的內容{{品質}}非常高，讓我十分有收穫。
+    incorrect  : |
+      這個[[視頻]]的{{質量}}非常高，讓我十分有收穫。
+
+  - words      : [素質]
+    correct    : |
+      這次比賽選手的{{素質}}較高，競爭十分激烈。
+    incorrect  : |
+      這次比賽選手的{{質量}}較高，競爭十分激烈。

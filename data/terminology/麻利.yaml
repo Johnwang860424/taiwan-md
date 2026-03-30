@@ -1,0 +1,12 @@
+id: 麻利
+category: daily
+fork_type: E
+display:
+  taiwan: 快 / 趕快 / 迅速
+  china: 麻利
+etymology:
+  origin: 源自中國北方方言，指做事迅速、靈活，形容人動作敏捷、效率高。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

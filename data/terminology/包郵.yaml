@@ -1,0 +1,12 @@
+id: 包郵
+category: daily
+fork_type: E
+display:
+  taiwan: 含運
+  china: 包郵
+etymology:
+  origin: 指賣家承擔運費，買家不需要支付運費的交易方式。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

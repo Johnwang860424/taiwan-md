@@ -1,0 +1,12 @@
+id: 撿漏
+category: daily
+fork_type: E
+display:
+  taiwan: 重新利用 / 回收再利用
+  china: 撿漏
+etymology:
+  origin: 撿取他人不要的物品，從中再次發現新的用途並為己所用。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,12 @@
+id: 負一屏
+category: daily
+fork_type: E
+display:
+  taiwan: 資訊主頁
+  china: 負一屏
+etymology:
+  origin: 指部份手機從桌面往左滑的資訊頁面，這個頁面通常有小工具或天氣預報。因為往右會是第二頁，所以往左被中國人稱為「負一」。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

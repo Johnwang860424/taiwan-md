@@ -1,0 +1,12 @@
+id: 手雷
+category: daily
+fork_type: E
+display:
+  taiwan: 手榴彈
+  china: 手雷
+etymology:
+  origin: 可投擲的微型爆裂炸彈，爆炸後的碎片能使敵人損傷。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

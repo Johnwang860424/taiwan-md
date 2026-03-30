@@ -1,0 +1,12 @@
+id: 擴展塢
+category: daily
+fork_type: E
+display:
+  taiwan: 擴充埠 / 擴充集線器
+  china: 擴展塢
+etymology:
+  origin: 用以擴充電腦插孔（如：USB）的硬體設備。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

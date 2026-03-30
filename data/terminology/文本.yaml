@@ -1,0 +1,12 @@
+id: 文本
+category: daily
+fork_type: E
+display:
+  taiwan: 文字 / 劇本、劇情 / 文案
+  china: 文本
+etymology:
+  origin: 一段文字或是一篇文章的內容。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

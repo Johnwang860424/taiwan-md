@@ -1,0 +1,12 @@
+id: 屏蔽
+category: daily
+fork_type: E
+display:
+  taiwan: 隱藏 / 封鎖 / 遮蔽 / 阻擋
+  china: 屏蔽
+etymology:
+  origin: 某個事物被遮蔽，使其不可見或不可接觸。用於網路時，多指封鎖特定內容或人物。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

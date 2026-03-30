@@ -1,0 +1,12 @@
+id: 科普
+category: daily
+fork_type: E
+display:
+  taiwan: 講解 / 說明 / 分享 / 小常識 / 冷知識
+  china: 科普
+etymology:
+  origin: 讓科學知識在大眾之間普及化。經常被中國誤用在與科學知識無關的情境。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

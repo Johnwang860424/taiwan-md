@@ -1,0 +1,12 @@
+id: 電機
+category: daily
+fork_type: E
+display:
+  taiwan: 馬達
+  china: 電機
+etymology:
+  origin: 將電力轉換成動力的一種硬體設備，指：馬達。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

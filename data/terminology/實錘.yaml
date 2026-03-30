@@ -1,0 +1,12 @@
+id: 實錘
+category: daily
+fork_type: E
+display:
+  taiwan: 證實 / 證明
+  china: 實錘
+etymology:
+  origin: 某件事情被強而有力的證據說服，一錘定音。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

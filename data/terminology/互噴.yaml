@@ -1,0 +1,12 @@
+id: 互噴
+category: daily
+fork_type: E
+display:
+  taiwan: 互罵
+  china: 互噴
+etymology:
+  origin: 唇槍舌戰並互相辱罵，通常指網路論戰。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

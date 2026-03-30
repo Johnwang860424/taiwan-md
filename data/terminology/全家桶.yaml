@@ -1,0 +1,12 @@
+id: 全家桶
+category: daily
+fork_type: E
+display:
+  taiwan: 方案 / 套餐
+  china: 全家桶
+etymology:
+  origin: 指有整個配套措施的套餐方案。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

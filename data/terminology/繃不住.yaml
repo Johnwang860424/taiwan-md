@@ -1,0 +1,12 @@
+id: 繃不住
+category: daily
+fork_type: E
+display:
+  taiwan: 忍不住
+  china: 繃不住
+etymology:
+  origin: 情緒快要無法抑制，通常表示：忍不住而快笑出來。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

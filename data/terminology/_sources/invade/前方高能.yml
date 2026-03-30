@@ -1,0 +1,19 @@
+#
+word    : 前方高能
+bopomofo: ㄑㄧㄢˊ ㄈㄤ ㄍㄠ ㄋㄥˊ
+
+#
+category: INTERNET
+explicit:
+
+#
+description: |
+  通常出現在影片留言、彈幕裡，觀眾互相提示稍後的劇情演出將會高潮迭起。
+
+#
+examples:
+  - words      : [注意, 小心]
+    correct    : |
+      {{注意}}！劇情要反轉啦！
+    incorrect  : |
+      {{前方高能}}！劇情要反轉啦！

@@ -1,0 +1,12 @@
+id: 巴適
+category: daily
+fork_type: E
+display:
+  taiwan: 不錯 / 很好 / 舒適 / 舒暢 / 爽到不行
+  china: 巴適
+etymology:
+  origin: 源自中國四川方言，泛指：很好、合適、舒服等意思。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

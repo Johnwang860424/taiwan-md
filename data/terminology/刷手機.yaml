@@ -1,0 +1,12 @@
+id: 刷手機
+category: daily
+fork_type: E
+display:
+  taiwan: 滑手機
+  china: 刷手機
+etymology:
+  origin: 透過手機瀏覽網頁、使用應用程式等行為。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

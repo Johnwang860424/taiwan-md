@@ -1,0 +1,12 @@
+id: 屏保
+category: daily
+fork_type: E
+display:
+  taiwan: 螢幕保護
+  china: 屏保
+etymology:
+  origin: 指電腦或手機等裝置在一段時間不使用後，會自動進入的螢幕保護狀態。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

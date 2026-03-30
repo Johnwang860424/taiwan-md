@@ -1,0 +1,12 @@
+id: 手辦
+category: daily
+fork_type: E
+display:
+  taiwan: 模型 / 公仔 / 黏土人
+  china: 手辦
+etymology:
+  origin: 中國用語「手辦」，台灣說「模型 / 公仔 / 黏土人」。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

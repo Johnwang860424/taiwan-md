@@ -1,0 +1,12 @@
+id: 小電驢
+category: daily
+fork_type: E
+display:
+  taiwan: 電動自行車
+  china: 小電驢
+etymology:
+  origin: 指不須考照的電動自行車，通常動力弱於一般機車。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,12 @@
+id: 洗髮水
+category: daily
+fork_type: E
+display:
+  taiwan: 洗髮精
+  china: 洗髮水
+etymology:
+  origin: 一種用來清潔頭髮的液體，通常含有表面活性劑和香料。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

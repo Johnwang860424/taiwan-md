@@ -1,0 +1,12 @@
+id: 塑料
+category: daily
+fork_type: E
+display:
+  taiwan: 塑膠 / 塑膠微粒
+  china: 塑料
+etymology:
+  origin: 生活上常見的塑膠材質。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,19 @@
+#
+word    : 反安裝
+bopomofo: ㄈㄢˇ ㄢ ㄓㄨㄤ
+
+#
+category: TECHNOLOGY
+explicit:
+
+#
+description: |
+  是 2000 年初期的電腦術語，指可用來移除已安裝軟體的附屬工具。英文為 Uninstall，是自 Install（安裝）直接翻譯的反義詞。
+
+#
+examples:
+  - words      : [解除安裝]
+    correct    : |
+      這款軟體的資料夾裡有{{解除安裝}}工具。
+    incorrect  : |
+      這款[[軟件]]的[[文件]]夾裡有{{反安裝}}工具。

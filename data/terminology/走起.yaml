@@ -1,0 +1,12 @@
+id: 走起
+category: daily
+fork_type: E
+display:
+  taiwan: 開始 / 出發 / 出門 / 衝一波
+  china: 走起
+etymology:
+  origin: 指帶著期待、興奮的心情出發，類似英文「Let's Go!」的用法。中國有時也會稱「走你」。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

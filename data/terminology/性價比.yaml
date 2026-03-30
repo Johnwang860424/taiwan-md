@@ -1,0 +1,12 @@
+id: 性價比
+category: daily
+fork_type: E
+display:
+  taiwan: CP值
+  china: 性價比
+etymology:
+  origin: 指商品的價格與其品質的比值，越高表示越划算。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

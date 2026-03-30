@@ -1,0 +1,12 @@
+id: 實時
+category: daily
+fork_type: E
+display:
+  taiwan: 即時
+  china: 實時
+etymology:
+  origin: 立即性的。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

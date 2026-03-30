@@ -1,0 +1,12 @@
+id: 一次性
+category: daily
+fork_type: E
+display:
+  taiwan: 免洗 / 拋棄式
+  china: 一次性
+etymology:
+  origin: 只能使用單次的物品，無法重複使用或回收。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

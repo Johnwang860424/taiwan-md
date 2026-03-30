@@ -1,0 +1,12 @@
+id: 聲霸
+category: daily
+fork_type: E
+display:
+  taiwan: 電視音響 / 家庭劇院
+  china: 聲霸
+etymology:
+  origin: 通常擺放於電視正下方的條狀式音響設備。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

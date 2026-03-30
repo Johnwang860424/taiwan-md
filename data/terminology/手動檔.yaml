@@ -1,0 +1,12 @@
+id: 手動檔
+category: daily
+fork_type: E
+display:
+  taiwan: 手排
+  china: 手動檔
+etymology:
+  origin: 指手動變速器的車輛，與自動變速相對。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

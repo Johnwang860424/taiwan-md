@@ -1,0 +1,12 @@
+id: 奇葩
+category: daily
+fork_type: E
+display:
+  taiwan: 怪胎
+  china: 奇葩
+etymology:
+  origin: 原指珍貴稀少的花卉或傑出的人物。後被中國誤用為貶義詞，形容某人是個奇怪的異類。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

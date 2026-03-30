@@ -1,0 +1,12 @@
+id: 過渡
+category: daily
+fork_type: E
+display:
+  taiwan: 轉場
+  china: 過渡
+etymology:
+  origin: 從某個狀態變更到另一個狀態之間的過程。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,12 @@
+id: 幾個意思
+category: daily
+fork_type: E
+display:
+  taiwan: 什麼意思
+  china: 幾個意思
+etymology:
+  origin: 中國用語「幾個意思」，台灣說「什麼意思」。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

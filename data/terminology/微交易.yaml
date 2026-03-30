@@ -1,0 +1,12 @@
+id: 微交易
+category: daily
+fork_type: E
+display:
+  taiwan: 小額付費
+  china: 微交易
+etymology:
+  origin: 在線上遊戲或網路平台，以小額現金購買虛擬物品或服務的行為，有時又做「課金」。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

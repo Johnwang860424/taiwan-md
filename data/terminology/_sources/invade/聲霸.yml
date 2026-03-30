@@ -1,0 +1,27 @@
+#
+word       : 聲霸
+bopomofo   : ㄕㄥ ㄅㄚˋ
+
+#
+category: HARDWARE
+explicit:
+
+#
+description: |
+  通常擺放於電視正下方的條狀式音響設備。
+
+#
+examples:
+  - words      : [電視音響]
+    correct    : |
+      買了新的{{電視音響}}後，他追劇的音質變得清晰許多。
+    incorrect  : |
+      買了新的{{聲霸}}後，他追劇的音質變得清晰許多。
+
+  - words      : [家庭劇院]
+    description: |
+      若音響設備支援多聲道系統，有時會稱作家庭劇院。
+    correct    : |
+      他買了一套{{家庭劇院}}，客廳就猶如電影院。
+    incorrect  : |
+      他買了一組{{聲霸}}，客廳就猶如電影院。

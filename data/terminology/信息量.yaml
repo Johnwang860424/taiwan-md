@@ -1,0 +1,12 @@
+id: 信息量
+category: daily
+fork_type: E
+display:
+  taiwan: 資訊量 / 情報量 / 內容 / 要素
+  china: 信息量
+etymology:
+  origin: 指資訊的多寡，通常用來形容某個事件或情況的複雜程度。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,12 @@
+id: 奧術魔刃
+category: daily
+fork_type: E
+display:
+  taiwan: ASMR
+  china: 奧術魔刃
+etymology:
+  origin: 是 ASMR 強迫念成中國拼音的方式，為了規避中國審查。ASMR 是一種能令人感到愉悅、放鬆的聲音。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

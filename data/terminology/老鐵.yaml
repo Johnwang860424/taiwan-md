@@ -1,0 +1,12 @@
+id: 老鐵
+category: daily
+fork_type: E
+display:
+  taiwan: 哥們 / 兄弟
+  china: 老鐵
+etymology:
+  origin: 源自中國東北的「鐵哥們」，是對好朋友的稱呼。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

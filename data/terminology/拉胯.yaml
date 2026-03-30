@@ -1,0 +1,12 @@
+id: 拉胯
+category: daily
+fork_type: E
+display:
+  taiwan: 糟糕 / 不理想
+  china: 拉胯
+etymology:
+  origin: 形容某個東西被拖累、變得很糟糕。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

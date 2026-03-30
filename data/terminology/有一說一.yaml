@@ -1,0 +1,12 @@
+id: 有一說一
+category: daily
+fork_type: E
+display:
+  taiwan: 平心而論 / 實話實說 / 就事論事 / 說真的 / 老實說
+  china: 有一說一
+etymology:
+  origin: 某個東西雖爛，但還是挑好的部份說。使用「有一說一」通常會省略缺點的部份。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,12 @@
+id: 銳評
+category: daily
+fork_type: E
+display:
+  taiwan: 一針見血 / 批評 / 批判
+  china: 銳評
+etymology:
+  origin: 針對某件事情、新聞時事而發表的評論，內容既刺耳卻又顯得格外真切。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

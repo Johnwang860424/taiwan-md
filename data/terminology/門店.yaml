@@ -1,0 +1,12 @@
+id: 門店
+category: daily
+fork_type: E
+display:
+  taiwan: 門市 / 店面 / 服務據點 / 零售通路 / 商店
+  china: 門店
+etymology:
+  origin: 通常指有實體的商店或服務據點，但也泛指與商店有關的詞彙。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

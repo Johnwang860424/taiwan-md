@@ -1,0 +1,12 @@
+id: 志願者
+category: daily
+fork_type: E
+display:
+  taiwan: 志工 / 義工
+  china: 志願者
+etymology:
+  origin: 自願參加某項活動或工作的人，通常是為了幫助他人或社會，而不求報酬。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

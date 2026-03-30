@@ -1,0 +1,12 @@
+id: 跳樓機
+category: daily
+fork_type: E
+display:
+  taiwan: 大怒神 / 自由落體
+  china: 跳樓機
+etymology:
+  origin: 出現於遊樂園的自由落體設施，會先將乘客送到高空再突然釋放、落下。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,12 @@
+id: 嘎了
+category: daily
+fork_type: E
+display:
+  taiwan: 死了
+  china: 嘎了
+etymology:
+  origin: 源自中國東北話，有時也會說某個東西被「嘎掉」，類似戛然而止。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

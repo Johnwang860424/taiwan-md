@@ -1,0 +1,12 @@
+id: 集成圖形
+category: daily
+fork_type: E
+display:
+  taiwan: 整合圖形
+  china: 集成圖形
+etymology:
+  origin: 指 CPU 內建的整合圖形顯示卡。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

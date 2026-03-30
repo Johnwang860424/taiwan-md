@@ -1,0 +1,12 @@
+id: 回車
+category: daily
+fork_type: E
+display:
+  taiwan: Enter
+  china: 回車
+etymology:
+  origin: 指鍵盤上的 Enter 或是 Return 返回鍵。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

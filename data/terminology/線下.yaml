@@ -1,0 +1,12 @@
+id: 線下
+category: daily
+fork_type: E
+display:
+  taiwan: 現場 / 實體
+  china: 線下
+etymology:
+  origin: 指在網際網路、線上之外的地方，例如聚會、演唱會。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

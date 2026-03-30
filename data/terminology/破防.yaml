@@ -1,0 +1,12 @@
+id: 破防
+category: daily
+fork_type: E
+display:
+  taiwan: 深受打擊 / 受不了 / 崩潰 / 玻璃心碎滿地 / 被說中了
+  china: 破防
+etymology:
+  origin: 內心的防壁被攻破而深受打擊，有時也被用以調侃玻璃心。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

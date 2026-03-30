@@ -1,0 +1,12 @@
+id: 開盒
+category: daily
+fork_type: E
+display:
+  taiwan: 肉搜 / 人肉搜索
+  china: 開盒
+etymology:
+  origin: 暴露他人隱私、地址、聯絡方式等資訊。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

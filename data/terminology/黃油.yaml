@@ -1,0 +1,12 @@
+id: 黃油
+category: daily
+fork_type: E
+display:
+  taiwan: 奶油
+  china: 黃油
+etymology:
+  origin: 指食品料理中的黃色方塊狀的奶油。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

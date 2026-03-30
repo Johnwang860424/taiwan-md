@@ -1,0 +1,12 @@
+id: 抖色
+category: daily
+fork_type: E
+display:
+  taiwan: 遞色
+  china: 抖色
+etymology:
+  origin: 在圖片裡添加雜訊，讓顏色看起來更均勻流暢，英文是 Color Dithering。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

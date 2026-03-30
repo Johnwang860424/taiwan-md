@@ -1,0 +1,12 @@
+id: 前方高能
+category: daily
+fork_type: E
+display:
+  taiwan: 注意 / 小心
+  china: 前方高能
+etymology:
+  origin: 通常出現在影片留言、彈幕裡，觀眾互相提示稍後的劇情演出將會高潮迭起。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

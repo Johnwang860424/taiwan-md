@@ -1,0 +1,19 @@
+#
+word    : 接地氣
+bopomofo: ㄐㄧㄝ ㄉㄧˋ ㄑㄧˋ
+
+#
+category: ADJECTIVE
+explicit:
+
+#
+description: |
+  指某個人的行為十分體貼、符合大眾而不會顯得特別高高在上。
+
+#
+examples:
+  - words      : [親民]
+    correct    : |
+      他身為總統，卻顯得格外{{親民}}。
+    incorrect  : |
+      他身為[[領導]]，卻顯得格外{{接地氣}}。

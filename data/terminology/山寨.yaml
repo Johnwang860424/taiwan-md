@@ -1,0 +1,12 @@
+id: 山寨
+category: daily
+fork_type: E
+display:
+  taiwan: 仿冒
+  china: 山寨
+etymology:
+  origin: 源自中國廣東話，指的是模仿或仿製的產品，通常未經授權或不合法。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

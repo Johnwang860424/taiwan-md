@@ -1,0 +1,12 @@
+id: 宏
+category: daily
+fork_type: E
+display:
+  taiwan: 巨集
+  china: 宏
+etymology:
+  origin: 電腦裡能夠批次處理資料的程式碼（Macro）。因為一段指令就可以做很多事，在中國被稱為「宏」，有宏大、很大的意思。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

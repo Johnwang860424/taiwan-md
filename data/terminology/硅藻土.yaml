@@ -1,0 +1,12 @@
+id: 硅藻土
+category: daily
+fork_type: E
+display:
+  taiwan: 矽藻土
+  china: 硅藻土
+etymology:
+  origin: 一種生物化學沉積岩，具有優異的吸水、除臭與過濾能力。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

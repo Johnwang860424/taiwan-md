@@ -1,0 +1,12 @@
+id: 中國台灣
+category: daily
+fork_type: E
+display:
+  taiwan: 台灣
+  china: 中國台灣
+etymology:
+  origin: 中國在政治主張台灣不是一個國家而經常使用的詞彙。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

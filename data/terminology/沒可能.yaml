@@ -1,0 +1,12 @@
+id: 沒可能
+category: daily
+fork_type: E
+display:
+  taiwan: 不可能
+  china: 沒可能
+etymology:
+  origin: 指某件事情不可能發生或實現。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

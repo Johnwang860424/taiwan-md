@@ -1,0 +1,12 @@
+id: 回放
+category: daily
+fork_type: E
+display:
+  taiwan: 重播
+  china: 回放
+etymology:
+  origin: 某段即時內容被錄製下來，事後可以重新回顧。例如：YouTube、Twitch 等平台的直播片段。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

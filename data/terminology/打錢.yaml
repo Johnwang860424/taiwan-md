@@ -1,0 +1,12 @@
+id: 打錢
+category: daily
+fork_type: E
+display:
+  taiwan: 轉帳 / 匯款
+  china: 打錢
+etymology:
+  origin: 以財大氣粗的模樣提及金錢上的轉帳、交易行為。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

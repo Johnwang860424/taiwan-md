@@ -1,0 +1,12 @@
+id: 手電
+category: daily
+fork_type: E
+display:
+  taiwan: 手電筒
+  china: 手電
+etymology:
+  origin: 指小型的手持式手電筒，通常使用電池供電，並且有燈泡或 LED 燈作為光源。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

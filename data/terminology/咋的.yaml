@@ -1,0 +1,12 @@
+id: 咋的
+category: daily
+fork_type: E
+display:
+  taiwan: 怎麼樣 / 不管怎樣
+  china: 咋的
+etymology:
+  origin: 是中國方言，用來表示「怎麼樣」「如何」的意思。注音可作「ㄓㄚˋ」或「ㄗㄚˊ」。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

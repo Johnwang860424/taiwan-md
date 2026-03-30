@@ -1,0 +1,12 @@
+id: 舉報
+category: daily
+fork_type: E
+display:
+  taiwan: 檢舉 / 告發
+  china: 舉報
+etymology:
+  origin: 向某個機關或人告發事情。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

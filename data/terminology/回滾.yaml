@@ -1,0 +1,12 @@
+id: 回滾
+category: daily
+fork_type: E
+display:
+  taiwan: 回溯 / 還原
+  china: 回滾
+etymology:
+  origin: 將電腦資料還原到某個時候的狀態。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

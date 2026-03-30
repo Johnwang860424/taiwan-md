@@ -1,0 +1,12 @@
+id: 快進
+category: daily
+fork_type: E
+display:
+  taiwan: 快轉 / 跳到
+  china: 快進
+etymology:
+  origin: 讓播放內容快轉到指定的部份。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

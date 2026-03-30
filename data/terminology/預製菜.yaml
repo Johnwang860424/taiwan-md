@@ -1,0 +1,12 @@
+id: 預製菜
+category: daily
+fork_type: E
+display:
+  taiwan: 調理包 / 微波食品 / 微波便當 / 冷凍食品
+  china: 預製菜
+etymology:
+  origin: 預先製作好的菜餚，只需加熱即可食用。在台灣有多種不同稱呼。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

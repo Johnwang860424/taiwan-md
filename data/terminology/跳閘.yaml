@@ -1,0 +1,12 @@
+id: 跳閘
+category: daily
+fork_type: E
+display:
+  taiwan: 跳電
+  china: 跳閘
+etymology:
+  origin: 在電力供應中，因為過載或短路而使電路中斷。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

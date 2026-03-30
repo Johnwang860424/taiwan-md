@@ -1,0 +1,12 @@
+id: 毛玻璃
+category: daily
+fork_type: E
+display:
+  taiwan: 磨砂玻璃 / 霧面玻璃
+  china: 毛玻璃
+etymology:
+  origin: 指一種表面粗糙、不透明的玻璃材質，常用於隔間、窗戶等裝飾。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

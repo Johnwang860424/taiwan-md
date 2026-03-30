@@ -1,0 +1,12 @@
+id: 發光二極管
+category: daily
+fork_type: E
+display:
+  taiwan: 發光二極體
+  china: 發光二極管
+etymology:
+  origin: 俗稱 LED 的「發光二極體」。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

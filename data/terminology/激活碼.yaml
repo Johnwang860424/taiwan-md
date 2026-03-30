@@ -1,0 +1,12 @@
+id: 激活碼
+category: daily
+fork_type: E
+display:
+  taiwan: 啟動序號
+  china: 激活碼
+etymology:
+  origin: 指啟動某些程序所需要的序號。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

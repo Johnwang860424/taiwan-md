@@ -1,0 +1,12 @@
+id: 帶節奏
+category: daily
+fork_type: E
+display:
+  taiwan: 帶風向
+  china: 帶節奏
+etymology:
+  origin: 刻意煽動以控制大眾的輿論方向。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,12 @@
+id: 杯具
+category: daily
+fork_type: E
+display:
+  taiwan: 倒楣 / 倒霉 / 慘了
+  china: 杯具
+etymology:
+  origin: 是「悲劇」的諧音，指「不幸的事情」發生了。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

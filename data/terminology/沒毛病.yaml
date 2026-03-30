@@ -1,0 +1,12 @@
+id: 沒毛病
+category: daily
+fork_type: E
+display:
+  taiwan: 沒什麼問題 / 沒問題 / 習慣了 / 很合理 / 好喔
+  china: 沒毛病
+etymology:
+  origin: 指某人的行為、言論正確、合理，有時會包含一種反諷或無奈的情緒。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

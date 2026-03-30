@@ -1,0 +1,12 @@
+id: 美刀
+category: daily
+fork_type: E
+display:
+  taiwan: 美金
+  china: 美刀
+etymology:
+  origin: 指美金，是美國的貨幣單位。「刀」一詞是英文 Dollar 的開頭發音。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

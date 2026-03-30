@@ -1,0 +1,12 @@
+id: 單身狗
+category: daily
+fork_type: E
+display:
+  taiwan: 單身漢
+  china: 單身狗
+etymology:
+  origin: 形容一個人長期單身，沒有交往對象。台灣早期又稱「羅漢腳」。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

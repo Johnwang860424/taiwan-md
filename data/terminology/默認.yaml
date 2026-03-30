@@ -1,0 +1,12 @@
+id: 默認
+category: daily
+fork_type: E
+display:
+  taiwan: 預設 / 原本
+  china: 默認
+etymology:
+  origin: 某個東西最初的模樣。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

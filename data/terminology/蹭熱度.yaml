@@ -1,0 +1,12 @@
+id: 蹭熱度
+category: daily
+fork_type: E
+display:
+  taiwan: 跟風 / 跟隨潮流
+  china: 蹭熱度
+etymology:
+  origin: 跟隨網路熱點而炒作話題以獲取關注度。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

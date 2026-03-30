@@ -1,0 +1,12 @@
+id: 摳圖
+category: daily
+fork_type: E
+display:
+  taiwan: 去背
+  china: 摳圖
+etymology:
+  origin: 將某個主體從圖像中抽離。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,19 @@
+#
+word    : 奇葩
+bopomofo: ㄑㄧˊ ㄆㄚ
+
+#
+category: ADJECTIVE
+explicit:
+
+#
+description: |
+  原指珍貴稀少的花卉或傑出的人物。後被中國誤用為貶義詞，形容某人是個奇怪的異類。
+
+#
+examples:
+  - words      : [怪胎]
+    correct    : |
+      他吃水餃總是把皮跟肉分開吃，真是個{{怪胎}}！
+    incorrect  : |
+      他吃水餃總是把皮跟肉分開吃，真是個{{奇葩}}！

@@ -1,0 +1,12 @@
+id: 亞像素
+category: daily
+fork_type: E
+display:
+  taiwan: 子像素
+  china: 亞像素
+etymology:
+  origin: 指電腦螢幕單個像素裡的子像素，通常是紅、綠、藍三個顏色的子像素組成一個完整的像素。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

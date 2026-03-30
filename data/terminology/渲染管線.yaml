@@ -1,0 +1,12 @@
+id: 渲染管線
+category: daily
+fork_type: E
+display:
+  taiwan: 彩現方式
+  china: 渲染管線
+etymology:
+  origin: 指英文的 Rendering Pipeline，是電腦軟體在繪製圖形時的一種方式、風格。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

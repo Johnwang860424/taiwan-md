@@ -1,0 +1,12 @@
+id: 平替
+category: daily
+fork_type: E
+display:
+  taiwan: 替代
+  china: 平替
+etymology:
+  origin: 某個東西的替代品，但不一定是仿冒品。有時比原先的更廉價、實惠，英文可作 Alternative。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

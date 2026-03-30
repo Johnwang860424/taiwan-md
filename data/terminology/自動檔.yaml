@@ -1,0 +1,12 @@
+id: 自動檔
+category: daily
+fork_type: E
+display:
+  taiwan: 自排
+  china: 自動檔
+etymology:
+  origin: 指自動變速器的車輛，與手動變速相對。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

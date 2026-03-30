@@ -1,0 +1,25 @@
+#
+word    : 大概率
+bopomofo: ㄉㄚˋ ㄍㄞˋ ㄌㄩˋ
+
+#
+category: ADVERB
+explicit:
+
+#
+description:
+  形容很高的機率。常被誤認跟「大概」同義，但若用作很大的概率，應該稱為「高概率」。
+
+#
+examples:
+  - words      : [大概, 可能]
+    correct    : |
+      我想，那{{大概}}是真的。
+    incorrect  : |
+      我想，那{{大概率}}是真的。
+
+  - words      : [有機率, 有機會]
+    correct    : |
+      這件事{{有機率}}會發生。
+    incorrect  : |
+      這件事{{大概率}}會發生。

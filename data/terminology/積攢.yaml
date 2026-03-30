@@ -1,0 +1,12 @@
+id: 積攢
+category: daily
+fork_type: E
+display:
+  taiwan: 累積
+  china: 積攢
+etymology:
+  origin: 一點一點地累積起來，可以指積少成多的事情。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

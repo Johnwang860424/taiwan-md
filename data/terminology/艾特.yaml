@@ -1,0 +1,12 @@
+id: 艾特
+category: daily
+fork_type: E
+display:
+  taiwan: 標註 / 提醒
+  china: 艾特
+etymology:
+  origin: 在網路上透過「@」標註他人，讓對方知道某則消息。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

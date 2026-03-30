@@ -1,0 +1,12 @@
+id: 吃瓜
+category: daily
+fork_type: E
+display:
+  taiwan: 看八卦 / 聊八卦 / 看戲 / 看熱鬧
+  china: 吃瓜
+etymology:
+  origin: 旁觀或關注他人的八卦或醜聞，通常不參與其中。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

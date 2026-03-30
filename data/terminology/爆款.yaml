@@ -1,0 +1,12 @@
+id: 爆款
+category: daily
+fork_type: E
+display:
+  taiwan: 人氣 / 熱銷
+  china: 爆款
+etymology:
+  origin: 十分熱銷的內容或是物品。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

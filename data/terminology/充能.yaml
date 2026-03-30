@@ -1,0 +1,12 @@
+id: 充能
+category: daily
+fork_type: E
+display:
+  taiwan: 蓄能
+  china: 充能
+etymology:
+  origin: 指將電池或能量充滿，使其能夠正常運作。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

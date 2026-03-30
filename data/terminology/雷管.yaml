@@ -1,0 +1,12 @@
+id: 雷管
+category: daily
+fork_type: E
+display:
+  taiwan: 管狀炸彈
+  china: 雷管
+etymology:
+  origin: 使用圓柱管作爲外殼的炸彈之一，使用時需連接引線。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

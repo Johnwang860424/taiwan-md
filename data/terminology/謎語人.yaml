@@ -1,0 +1,12 @@
+id: 謎語人
+category: daily
+fork_type: E
+display:
+  taiwan: 拐彎抹角 / 含糊不清
+  china: 謎語人
+etymology:
+  origin: 指某人說話拐彎抹角，喜歡把話說的曖昧不清，留給其他人去思考。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,12 @@
+id: 白嫖
+category: daily
+fork_type: E
+display:
+  taiwan: 免費拿 / 免費取得 / 白吃白喝 / 霸王餐
+  china: 白嫖
+etymology:
+  origin: 免費得到原本需要付費才能獲得的東西。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,12 @@
+id: 小號
+category: daily
+fork_type: E
+display:
+  taiwan: 分身帳號
+  china: 小號
+etymology:
+  origin: 在網路上額外建立的分身帳號，用來規避別人認出自己。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

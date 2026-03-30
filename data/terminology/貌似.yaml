@@ -1,0 +1,12 @@
+id: 貌似
+category: daily
+fork_type: E
+display:
+  taiwan: 似乎 / 好像
+  china: 貌似
+etymology:
+  origin: 指某個人的面貌與另一個人相近，常被誤用為「好像」「似乎」。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

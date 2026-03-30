@@ -1,0 +1,12 @@
+id: 我司
+category: daily
+fork_type: E
+display:
+  taiwan: 本公司
+  china: 我司
+etymology:
+  origin: 指「我們公司」，是中國往來時雙方經常使用的詞彙。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

@@ -1,0 +1,12 @@
+id: 視頻電話
+category: daily
+fork_type: E
+display:
+  taiwan: 視訊電話
+  china: 視頻電話
+etymology:
+  origin: 可以透過網路看見彼此並進行通話的一種通訊方式。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30

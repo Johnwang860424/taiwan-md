@@ -1,0 +1,37 @@
+#
+word    : 糾結
+bopomofo: ㄐㄧㄡ ㄐㄧㄝˊ
+
+#
+category: ADJECTIVE
+explicit:
+
+#
+description: |
+  形容心情或事情纏繞、難以解決。
+
+#
+examples:
+  - words      : [執著]
+    correct    : |
+      他總是{{執著}}在這種小事。
+    incorrect  : |
+      他總是{{糾結}}在這種小事。
+
+  - words      : [惦記]
+    correct    : |
+      這件事令他{{惦記}}了好幾天。
+    incorrect  : |
+      這件事令他{{糾結}}了好幾天。
+
+  - words      : [煩惱]
+    correct    : |
+      他每天出門前，都在{{煩惱}}該穿什麼。
+    incorrect  : |
+      他每天出門前，都在{{糾結}}該穿什麼。
+
+  - words      : [困擾]
+    correct    : |
+      有了這個旅行包，線材收納不再{{困擾}}。
+    incorrect  : |
+      有了這個旅行包，線材收納不再{{糾結}}。

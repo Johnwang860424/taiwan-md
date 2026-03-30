@@ -1,0 +1,12 @@
+id: 協議
+category: daily
+fork_type: E
+display:
+  taiwan: 協定
+  china: 協議
+etymology:
+  origin: 在電腦科學中，指一組規則或標準，用於定義系統之間的通訊方式。
+notes: 來源：caris-events/invade (CC0)
+sources:
+  - https://github.com/caris-events/invade
+added: 2026-03-30
