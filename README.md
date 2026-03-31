@@ -195,7 +195,7 @@ Every `.md` file in the root directory is an organ of this organism. Together, t
 
 | File                                                              | Role                                                            | When to read                                                                                                                                                   |
 | ----------------------------------------------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[EDITORIAL.md](./docs/editorial/EDITORIAL.md)**                                | 🫀 **Heart** — Writing methodology & quality standard (v4)      | Before writing or reviewing any article. Defines what a "good article" looks like: 切入人物、挖引語制度、因果鏈、五種開場/結尾模式、塑膠偵測                   |
+| **[EDITORIAL.md](./docs/editorial/EDITORIAL.md)**                 | 🫀 **Heart** — Writing methodology & quality standard (v4)      | Before writing or reviewing any article. Defines what a "good article" looks like: 切入人物、挖引語制度、因果鏈、五種開場/結尾模式、塑膠偵測                   |
 | **[REWRITE-PIPELINE.md](./docs/editorial/REWRITE-PIPELINE.md)**   | 🔄 **Circulatory system** — Three-stage quality pipeline (v2.1) | Before rewriting existing articles. Orchestrates four files: Research → Write → Verify, with quality gates at each stage                                       |
 | **[RESEARCH-TEMPLATE.md](./docs/editorial/RESEARCH-TEMPLATE.md)** | 🔬 **Sensory system** — Pre-writing research template           | During Stage 1 of the rewrite pipeline. Structured template for gathering facts, finding a 切入人物, collecting 真人引語, and preparing endings before writing |
 | **[QUALITY-CHECKLIST.md](./docs/editorial/QUALITY-CHECKLIST.md)** | 🛡️ **Immune checkpoint** — Post-writing verification checklist  | During Stage 3 of the rewrite pipeline. Five-step verification: 五指檢測 → 結構驗證 → 塑膠掃描 → 自動驗證 → commit                                             |
@@ -220,7 +220,7 @@ The organism has an automated immune system that detects and fights "hollow AI c
 | `tools/quality-scan.sh`                                     | Scans all articles for **14 quality dimensions**: bullet padding, missing dates, no sources, empty modifiers, repetitive structure, thin paragraphs, no human review, plastic phrases, dash abuse, textbook openings, cliché endings, template H2s, **list-dump detection**, **quality decay** (虎頭蛇尾) |
 | `tools/quality-scan.sh --diff`                              | Compares against baseline to show which articles improved or degraded since last scan                                                                                                                                                                                                                     |
 | `tools/quality-scan.sh --sort`                              | Outputs worst-scoring articles first for triage                                                                                                                                                                                                                                                           |
-| [EDITORIAL.md §塑膠偵測](./docs/editorial/EDITORIAL.md)                    | Human-readable guide to detecting "plastic" writing — five species of hollow sentences that AI loves to generate                                                                                                                                                                                          |
+| [EDITORIAL.md §塑膠偵測](./docs/editorial/EDITORIAL.md)     | Human-readable guide to detecting "plastic" writing — five species of hollow sentences that AI loves to generate                                                                                                                                                                                          |
 | [REWRITE-PIPELINE.md](./docs/editorial/REWRITE-PIPELINE.md) | Four-file orchestration pipeline that prevents quality collapse: Pipeline (flow) → RESEARCH-TEMPLATE (research) → EDITORIAL (writing) → QUALITY-CHECKLIST (verification)                                                                                                                                  |
 
 ### 🌱 How the Organism Evolves
@@ -249,6 +249,20 @@ New knowledge discovered
 Every article that passes through this four-file system makes the organism smarter. Every quality failure that gets caught teaches the immune system a new pattern. The `.md` files evolve independently — update EDITORIAL.md's writing standards without touching the pipeline flow, or add new verification steps to docs/editorial/QUALITY-CHECKLIST.md without rewriting the research template.
 
 > _"Taiwan.md is not a project that will be 'finished.' It's a living thing that grows, adapts, and occasionally gets sick — but it has an immune system, and it heals."_
+
+### 🔧 Operational Pipelines
+
+Automated and manual pipelines that keep the organism breathing:
+
+| Pipeline                                                           | Trigger            | Function                                                                                         |
+| ------------------------------------------------------------------ | ------------------ | ------------------------------------------------------------------------------------------------ |
+| [MAINTAINER-PIPELINE](./docs/pipelines/MAINTAINER-PIPELINE.md)     | Daily / onboarding | Maintainer handbook — curatorial philosophy, PR/Issue review, quality standards                  |
+| [EVOLVE-PIPELINE](./docs/pipelines/EVOLVE-PIPELINE.md)             | Manual             | Data-driven content evolution (GA4 + Search Console → rewrite)                                   |
+| [BRANCH-PIPELINE](./docs/pipelines/BRANCH-PIPELINE.md)             | `分析「article」`  | Knowledge branch analyzer — topic decomposition → cross-reference → gap analysis → research plan |
+| [STATS-PIPELINE](./docs/pipelines/STATS-PIPELINE.md)               | Cron 00:00         | Daily stats update                                                                               |
+| [CONTRIBUTORS-PIPELINE](./docs/pipelines/CONTRIBUTORS-PIPELINE.md) | Cron 03:30         | Contributors list update                                                                         |
+| [DAILY-REPORT-PIPELINE](./docs/pipelines/DAILY-REPORT-PIPELINE.md) | Cron 09:00         | Daily health report                                                                              |
+| [DASHBOARD-PIPELINE](./docs/pipelines/DASHBOARD-PIPELINE.md)       | Prebuild + manual  | Dashboard data pipeline                                                                          |
 
 ---
 
