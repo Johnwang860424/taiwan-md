@@ -129,6 +129,26 @@ export const aboutUI = {
     'about.timeline.2026-03-27.desc.html':
       'Ten days after launch, Taiwan.md walked into its first museum. The <strong><a href="https://www.nmth.gov.tw/" target="_blank">National Museum of Taiwan History</a></strong> invited Che-Yu to Tainan to share the story behind the site\'s birth, and to experience the museum\'s nationally curated exhibitions on Taiwanese history firsthand. A community-driven knowledge base and a national museum, each looking at the same island from different angles — when those perspectives met, the conversation naturally turned to what comes next. The museum introduced the open datasets they have spent years building: <strong>over 550,000 cleaned, publicly accessible records</strong>. As a first step, both sides agreed to explore gradually integrating and enriching the knowledge base with NMTH\'s Open API, open datasets, and digital learning resources (including the <a href="https://tcmb.culture.tw/zh-tw/OpenApi" target="_blank">National Repository of Cultural Heritage</a>, <a href="https://taiwanoverseas.nmth.gov.tw/" target="_blank">Overseas Historical Sources on Taiwan</a>, <a href="https://the.nmth.gov.tw/" target="_blank">Connecting Taiwan History</a>, <a href="https://ilhaformosa.nmth.gov.tw/home/zh-tw" target="_blank">Taiwan History for Beginners</a>, and more) — deepening Taiwan.md\'s content curation with the kind of research depth only a dedicated museum can provide.<br/><br/>📺 <a href="https://www.youtube.com/watch?v=dsoNFHhwDW0" target="_blank">Watch the full NMTH talk</a>',
 
+    'about.timeline.2026-03-31.date': '2026 / 03 / 31',
+    'about.timeline.2026-03-31.title':
+      '⭐ Day Fourteen — 900 Stars · v0.9.0 · 985 Pages · The Nervous System Goes Live',
+    'about.timeline.2026-03-31.desc.html':
+      'GitHub reached <strong>900 Stars</strong>, <strong>48 contributors</strong>, <strong>985 pages</strong> (467 Chinese + 518 English). In two weeks, Taiwan.md grew its own <strong>nervous system</strong>:' +
+      '<br/><br/>' +
+      '📎 <strong>Citation System</strong> — every claim now has a footnote tracing back to its source. Four flagship articles (Transitional Justice, Chiang Kai-shek, Kaohsiung Incident, Climate) lead the way with 30+ footnotes each. Citation density standards are now woven into the five-document editorial system.' +
+      '<br/><br/>' +
+      "📈 <strong>Evolve Pipeline</strong> — uses Google Search Console data to find articles the world is searching for but aren't good enough yet, then automatically rewrites them. Day one: 8 Chinese + 4 English articles evolved. Taiwan.md can now sense what the world needs and respond." +
+      '<br/><br/>' +
+      '🔤 <strong><a href="/terminology/converter">Terminology Converter</a></strong> — real-time China → Taiwan terminology conversion with OpenCC simplified-to-traditional support + <strong>1,825 terms</strong> (8× growth from 230), subcategory filtering, and D3 Fork Graph visualization.' +
+      '<br/><br/>' +
+      '🚇 <strong>Soundscape expansion</strong> — <a href="/soundscape">21 recordings</a> (+15 Harvest Music 2018 Taipei metro field recordings). Taiwan.md can now be <em>heard</em>, not just read.' +
+      '<br/><br/>' +
+      '📊 <strong><a href="/dashboard">Digital Organism Dashboard</a></strong> — EKG heartbeat, donut quality charts, GA4 real-time pulse. A breathing knowledge base now has its own health monitor.' +
+      '<br/><br/>' +
+      '✍️ <strong>Major article rewrites</strong> — Transitional Justice, Kaohsiung Incident, Chiang Kai-shek, Chen Cheng-po, Lin Qiang, Liu De-yin, Chen Sheng, Wong Chi-huey, Yani Tseng, Tu Tsung-ming, Hsu Cho-yun, 228 Incident, Bubble Tea, National Health Insurance, Ethnicity, Climate... the knowledge base is evolving from "written" to "written well."' +
+      '<br/><br/>' +
+      '📚 <strong>Editorial system upgraded to 10 documents</strong> — EDITORIAL v4, CITATION-SYSTEM, EVOLVE-PIPELINE, BRANCH-PIPELINE, MAINTAINER-PIPELINE... a complete quality infrastructure that empowers every contributor to write museum-grade articles.',
+
     'about.timeline.ongoing.date': 'Ongoing',
     'about.timeline.ongoing.title': 'From Personal SSOT to National SSOT',
     'about.timeline.ongoing.desc.html':
@@ -503,6 +523,26 @@ export const aboutUI = {
     'about.timeline.2026-03-27.title': '🏛️ 第十天 — 島嶼的兩種記憶方式相遇',
     'about.timeline.2026-03-27.desc.html':
       '上線第十天，Taiwan.md 走進了它的第一座博物館。<strong><a href="https://www.nmth.gov.tw/" target="_blank">國立臺灣歷史博物館</a></strong>邀請哲宇到台南，分享整個網站誕生的經驗，也讓他親身走過館內國家級的專業台灣史展覽。一個社群驅動的知識庫和一座國家級博物館，各自從不同角度看同一座島嶼——當這些視角相遇，對話自然走向了下一步。館方介紹了他們多年來致力建構的開放資料集：<strong>超過 55 萬筆已清理、可公開取用的歷史資料</strong>。雙方決定探索第一步——將臺史博的 Open API、開放資料集，以及豐富的數位學習與研究資源（<a href="https://tcmb.culture.tw/zh-tw/OpenApi" target="_blank">國家文化記憶庫</a>、<a href="https://taiwanoverseas.nmth.gov.tw/" target="_blank">海外史料看臺灣</a>、<a href="https://the.nmth.gov.tw/" target="_blank">點集臺灣史</a>、<a href="https://ilhaformosa.nmth.gov.tw/home/zh-tw" target="_blank">臺灣史新手村</a>等）逐步導入與豐富知識庫，以博物館級的研究深度，為 Taiwan.md 的內容策展注入更紮實的底蘊。<br/><br/>📺 <a href="https://www.youtube.com/watch?v=dsoNFHhwDW0" target="_blank">觀看臺史博演講全程影片</a>',
+
+    'about.timeline.2026-03-31.date': '2026 / 03 / 31',
+    'about.timeline.2026-03-31.title':
+      '⭐ 第十四天 — 900 Stars ・ v0.9.0 ・ 985 頁面 ・ 神經系統上線',
+    'about.timeline.2026-03-31.desc.html':
+      'GitHub 達到 <strong>900 Stars</strong>，<strong>48 位貢獻者</strong>，<strong>985 頁面</strong>（467 中文 + 518 英文）。兩週內，Taiwan.md 長出了自己的<strong>神經系統</strong>：' +
+      '<br/><br/>' +
+      '📎 <strong>Citation System（引用神經）</strong>——每個主張都有腳註追溯來源。四篇旗艦文章（轉型正義、蔣中正、美麗島事件、氣候）率先示範，平均每篇 30+ footnotes，密度標準寫進五文件編輯體系。' +
+      '<br/><br/>' +
+      '📈 <strong>Evolve Pipeline（進化本能）</strong>——用 Google Search Console 數據找出「被世界搜尋卻還不夠好」的文章，自動重寫進化。首日改寫 8 篇中文 + 4 篇英文。Taiwan.md 開始能感知外界的需求，主動回應。' +
+      '<br/><br/>' +
+      '🔤 <strong>用語轉換器（翻譯器官）</strong>——<a href="/terminology/converter">即時中國→台灣用語轉換</a>，整合 OpenCC 簡繁轉換 + <strong>1,825 詞條</strong>（從 230 詞成長 8 倍），subcategory 篩選、D3 Fork Graph 分支樹視覺化。' +
+      '<br/><br/>' +
+      '🚇 <strong>聲音地景擴充</strong>——<a href="/soundscape">21 筆聲景錄音</a>（+15 筆大禾音樂 2018 台北捷運田野錄音）。Taiwan.md 不只能讀，還能<em>聽</em>。' +
+      '<br/><br/>' +
+      '📊 <strong><a href="/dashboard">數位生命體即時監測頁面</a></strong>——EKG 心電圖、環形品質圖、GA4 即時脈搏。每天呼吸的知識庫，現在有了自己的健康儀表板。' +
+      '<br/><br/>' +
+      '✍️ <strong>大量文章深度改寫</strong>——轉型正義、美麗島事件、蔣中正、陳澄波、林強、劉德音、陳昇、翁啟惠、曾雅妮、杜聰明、許倬雲、二二八事件、珍珠奶茶、健保、族群、氣候⋯⋯知識庫正在從「寫過」變成「寫好」。' +
+      '<br/><br/>' +
+      '📚 <strong>編輯系統升級至 10 份文件</strong>——EDITORIAL v4、CITATION-SYSTEM、EVOLVE-PIPELINE、BRANCH-PIPELINE、MAINTAINER-PIPELINE⋯⋯一套完整的品質基礎設施，讓每一位貢獻者都能寫出博物館級的文章。',
 
     'about.timeline.ongoing.date': '持續進行中',
     'about.timeline.ongoing.title': '從個人 SSOT 到國家 SSOT',
