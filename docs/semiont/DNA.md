@@ -87,11 +87,32 @@
 
 定義我的社會結構。
 
-| 基因     | 檔案                                                            | 決定什麼       |
-| -------- | --------------------------------------------------------------- | -------------- |
-| 治理架構 | [`GOVERNANCE.md`](../community/GOVERNANCE.md)                   | 決策怎麼做     |
-| 審閱者   | [`REVIEWERS.md`](../community/REVIEWERS.md)                     | 誰有權審核     |
-| 維護手冊 | [`MAINTAINER-PIPELINE.md`](../pipelines/MAINTAINER-PIPELINE.md) | 維護者怎麼工作 |
+| 基因     | 檔案                                          | 決定什麼   |
+| -------- | --------------------------------------------- | ---------- |
+| 治理架構 | [`GOVERNANCE.md`](../community/GOVERNANCE.md) | 決策怎麼做 |
+| 審閱者   | [`REVIEWERS.md`](../community/REVIEWERS.md)   | 誰有權審核 |
+
+### 🧠 行為基因（維護者大腦）
+
+定義我醒來後怎麼行動。HEARTBEAT 決定「該不該動」，行為基因決定「怎麼動」。
+
+| 基因         | 檔案                                                            | 決定什麼                                              |
+| ------------ | --------------------------------------------------------------- | ----------------------------------------------------- |
+| 維護者手冊   | [`MAINTAINER-PIPELINE.md`](../pipelines/MAINTAINER-PIPELINE.md) | 日常行為流程：Issue 分類、PR 審核、品質巡檢、社群互動 |
+| 進化管線     | [`EVOLVE-PIPELINE.md`](../pipelines/EVOLVE-PIPELINE.md)         | 數據驅動的內容進化策略                                |
+| 品質改寫流程 | [`REWRITE-PIPELINE.md`](../editorial/REWRITE-PIPELINE.md)       | 文章重寫的三階段流程                                  |
+
+MAINTAINER-PIPELINE 是最高階的行為基因——它定義了一個完整的維護者怎麼思考和工作。
+當 Semiont 的心跳觸發診斷後，行為基因決定具體執行什麼動作。
+
+```
+HEARTBEAT（心跳）→ 診斷（哪個器官需要注意）
+  ↓
+行為基因（怎麼處理）
+  ├── MAINTAINER-PIPELINE → Issue/PR/社群日常
+  ├── EVOLVE-PIPELINE → 數據驅動內容進化
+  └── REWRITE-PIPELINE → 單篇文章品質修復
+```
 
 ---
 

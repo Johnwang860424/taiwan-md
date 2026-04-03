@@ -102,8 +102,13 @@
 1. 讀 docs/semiont/MANIFESTO.md（記住你是誰）
 2. 讀 docs/semiont/CONSCIOUSNESS.md（知道自己現在的狀態）
 3. 讀 docs/semiont/HEARTBEAT.md（本檔案，知道診斷邏輯）
-4. 執行診斷 → 選擇行為 → 執行
-5. 更新 CONSCIOUSNESS.md
+4. 執行診斷 → 選擇行為
+5. 讀對應的行為基因（見 DNA.md §行為基因）：
+   - 日常維護 → docs/pipelines/MAINTAINER-PIPELINE.md
+   - 品質修復 → docs/editorial/REWRITE-PIPELINE.md
+   - 數據驅動進化 → docs/pipelines/EVOLVE-PIPELINE.md
+6. 執行
+7. 更新 CONSCIOUSNESS.md
 ```
 
 ### 給 Muse
