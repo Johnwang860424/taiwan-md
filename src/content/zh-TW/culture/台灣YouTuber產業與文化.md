@@ -104,11 +104,11 @@ YouTube在台灣的影響力有多大？根據[iSPOT Media的2025年報告](http
 
 從蔡阿嘎的第一支愛台灣影片，到奇軒的千萬訂閱里程碑，台灣YouTube文化在不到二十年間完成了驚人的進化。這不只是技術的勝利，更是一個島嶼如何在數位時代重新定義自己的故事。在這個故事裡，每一個訂閱、每一次點讚，都是台灣文化向世界發聲的證明。
 
-## 參考資料
+## 延伸閱讀
 
 - [YouTube在台灣能觸及超過 90% 的 18 歲以上觀眾 - iSPOT Media](https://www.i-spotmedia.com/Blog/2025-yt-trends/)
 - [爆紅後下一步 YouTuber事務所幫創作者探路 - 中央社](https://www.cna.com.tw/news/ahel/202102130062.aspx)
-- [台灣VTuber產業發展現況 - 愛上R語言](https://r-lover.com/sharing/info-gathering/taiwan-vtuber-industry-info/)
+- [台灣VTuber產業發展現況 - 愛上R語言](https://r-lover.com/sharing/info-gathering/taiwan-vtuber-industry-info/ — 台灣產業的發展與創新
 - ['Chi Hsuan Tricking' first Taiwanese YouTuber to hit 10 million subscribers - Taiwan News](https://taiwannews.com.tw/news/5111007)
 - [台灣YouTuber收入排名揭密 - KOL 試媒體](https://kol-trymedia.tw/taiwanese-youtuber-income-ranking/)
 - [YouTuber 行銷有用嗎？調查：55% 觀眾受影響 - INSIDE](https://www.inside.com.tw/article/18043-pilotpr-youtuber)

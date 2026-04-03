@@ -172,7 +172,7 @@ imageCredit: "Wikimedia Commons, CC BY-SA"
 
 ## 参考資料
 
-- [経済部中部辦公室 - 夜市管理規定](https://www.moea.gov.tw/ — 相關主題的延伸閱讀
-- [外交部 - 夜市めぐり特集報道](https://nspp.mofa.gov.tw/nspp/news.php?unit=406&post=234073 — 相關主題的延伸閱讀
+- [経済部中部辦公室 - 夜市管理規定](https://www.moea.gov.tw/)
+- [外交部 - 夜市めぐり特集報道](https://nspp.mofa.gov.tw/nspp/news.php?unit=406&post=234073)
 - [交通部観光署 - 台湾夜市ガイド](https://www.taiwan.net.tw/ — 台灣交通建設與運輸系統
-- [食尚玩家 - 全台夜市営業時間まとめ](https://supertaste.tvbs.com.tw/pack/320927 — 相關主題的延伸閱讀
+- [食尚玩家 - 全台夜市営業時間まとめ](https://supertaste.tvbs.com.tw/pack/320927)

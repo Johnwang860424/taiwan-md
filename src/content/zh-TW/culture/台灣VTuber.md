@@ -85,10 +85,10 @@ Taipei Times在2026年1月的報導中提到，VTuber已經成為「最有效的
 
 虛擬的背後是真實的文化認同，數位的外衣包裝的是在地的情感連結。這或許就是台灣VTuber最獨特的價值：在萬物皆可虛擬的時代，守護最真實的自己。
 
-## 參考資料
+## 延伸閱讀
 
 - [虎妮 - 維基百科](https://zh.wikipedia.org/zh-tw/%E8%99%8E%E5%A6%AE)
-- [台灣VTuber產業發展現況 - 愛上R語言](https://r-lover.com/sharing/info-gathering/taiwan-vtuber-industry-info/)
+- [台灣VTuber產業發展現況 - 愛上R語言](https://r-lover.com/sharing/info-gathering/taiwan-vtuber-industry-info/ — 台灣產業的發展與創新
 - [VTuber講台語 神霄推廣本土語言 - 生命力新聞](https://vita.tw/vtuber%E8%AC%9B%E5%8F%B0%E8%AA%9E-%E7%A5%9E%E9%9C%84%E6%8E%A8%E5%BB%A3%E6%9C%AC%E5%9C%9F%E8%AA%9E%E8%A8%80/)
 - [VTubers' influence expanding across sectors - Taipei Times](https://www.taipeitimes.com/News/taiwan/archives/2026/01/10/2003850377)
 - [魔競娛樂 - 維基百科](https://zh.wikipedia.org/zh-tw/%E9%AD%94%E7%AB%B6%E5%A8%9B%E6%A8%82)

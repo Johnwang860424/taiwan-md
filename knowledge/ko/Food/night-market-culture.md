@@ -175,6 +175,6 @@ imageCredit: "Wikimedia Commons, CC BY-SA"
 ## 참고 자료
 
 - [經濟部中部辦公室 - 夜市管理規定](https://www.moea.gov.tw/ — 台灣經濟發展的重要面向
-- [外交部 - 來去迺夜市專題報導](https://nspp.mofa.gov.tw/nspp/news.php?unit=406&post=234073 — 相關主題的延伸閱讀
+- [外交部 - 來去迺夜市專題報導](https://nspp.mofa.gov.tw/nspp/news.php?unit=406&post=234073)
 - [交通部觀光署 - 台灣夜市指南](https://www.taiwan.net.tw/ — 台灣交通建設與運輸系統
-- [食尚玩家 - 全台夜市營業時間懶人包](https://supertaste.tvbs.com.tw/pack/320927 — 相關主題的延伸閱讀
+- [食尚玩家 - 全台夜市營業時間懶人包](https://supertaste.tvbs.com.tw/pack/320927)

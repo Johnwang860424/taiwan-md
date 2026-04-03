@@ -125,8 +125,8 @@ AI人才是目前台灣最大的瓶頸。
 
 ## 延伸閱讀
 
-- [國科會AI人工智慧政策發展方向](https://www.nstc.gov.tw/ — 相關主題的延伸閱讀
+- [國科會AI人工智慧政策發展方向](https://www.nstc.gov.tw/)
 - [經濟部AI產業推動辦公室](https://www.moea.gov.tw/ — 台灣經濟發展的重要面向
 - [資策會：台灣AI產業發展現況](https://www.iii.org.tw/ — 台灣產業的發展與創新
-- [台積電：2024年年報AI業務分析](https://investor.tsmc.com/ — 相關主題的延伸閱讀
-- [數位發展部：AI四大策略推動成果](https://www.moda.gov.tw/ — 相關主題的延伸閱讀
+- [台積電：2024年年報AI業務分析](https://investor.tsmc.com/)
+- [數位發展部：AI四大策略推動成果](https://www.moda.gov.tw/)

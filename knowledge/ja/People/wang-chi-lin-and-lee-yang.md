@@ -142,6 +142,6 @@ lastHumanReview: true
 
 ## 参考資料
 
-- [王齊麟、李洋が東京オリンピック男子ダブルスで金メダルを獲得](https://www.cna.com.tw/news/firstnews/202107315007.aspx — 相關主題的延伸閱讀
-- [麟洋ペアがパリオリンピックで連覇を達成](https://www.cna.com.tw/news/aspt/202408040001.aspx — 相關主題的延伸閱讀
-- [李洋が引退を表明、次世代育成へ](https://www.cna.com.tw/news/aspt/202408050001.aspx — 相關主題的延伸閱讀
+- [王齊麟、李洋が東京オリンピック男子ダブルスで金メダルを獲得](https://www.cna.com.tw/news/firstnews/202107315007.aspx)
+- [麟洋ペアがパリオリンピックで連覇を達成](https://www.cna.com.tw/news/aspt/202408040001.aspx)
+- [李洋が引退を表明、次世代育成へ](https://www.cna.com.tw/news/aspt/202408050001.aspx)

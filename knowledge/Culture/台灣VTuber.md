@@ -87,13 +87,13 @@ Taipei Times在2026年1月的報導中提到，VTuber已經成為「最有效的
 
 ## 延伸閱讀
 
-- [虎妮 - 維基百科](https://zh.wikipedia.org/zh-tw/%E8%99%8E%E5%A6%AE — 相關主題的延伸閱讀
+- [虎妮 - 維基百科](https://zh.wikipedia.org/zh-tw/%E8%99%8E%E5%A6%AE)
 - [台灣VTuber產業發展現況 - 愛上R語言](https://r-lover.com/sharing/info-gathering/taiwan-vtuber-industry-info/ — 台灣產業的發展與創新
-- [VTuber講台語 神霄推廣本土語言 - 生命力新聞](https://vita.tw/vtuber%E8%AC%9B%E5%8F%B0%E8%AA%9E-%E7%A5%9E%E9%9C%84%E6%8E%A8%E5%BB%A3%E6%9C%AC%E5%9C%9F%E8%AA%9E%E8%A8%80/ — 相關主題的延伸閱讀
-- [VTubers' influence expanding across sectors - Taipei Times](https://www.taipeitimes.com/News/taiwan/archives/2026/01/10/2003850377 — 相關主題的延伸閱讀
-- [魔競娛樂 - 維基百科](https://zh.wikipedia.org/zh-tw/%E9%AD%94%E7%AB%B6%E5%A8%9B%E6%A8%82 — 相關主題的延伸閱讀
-- [SpringFishStudio 春魚創意 - Portaly](https://portaly.cc/springfish — 相關主題的延伸閱讀
-- [2024年度VTuber之最 - VIVE 後浪潮](https://www.vivepostwave.com/best-vtuber-2024/ — 相關主題的延伸閱讀
-- [這群網紅為何風靡全球？解鎖虛擬偶像VTuber流量變現密碼 - 遠見雜誌](https://www.gvm.com.tw/article/108762 — 相關主題的延伸閱讀
-- [VTuber經紀如何運作？- 遠見雜誌](https://www.gvm.com.tw/article/108763 — 相關主題的延伸閱讀
-- [台灣Vtuber同好會 - Facebook](https://www.facebook.com/groups/2569285399989405/ — 相關主題的延伸閱讀
+- [VTuber講台語 神霄推廣本土語言 - 生命力新聞](https://vita.tw/vtuber%E8%AC%9B%E5%8F%B0%E8%AA%9E-%E7%A5%9E%E9%9C%84%E6%8E%A8%E5%BB%A3%E6%9C%AC%E5%9C%9F%E8%AA%9E%E8%A8%80/)
+- [VTubers' influence expanding across sectors - Taipei Times](https://www.taipeitimes.com/News/taiwan/archives/2026/01/10/2003850377)
+- [魔競娛樂 - 維基百科](https://zh.wikipedia.org/zh-tw/%E9%AD%94%E7%AB%B6%E5%A8%9B%E6%A8%82)
+- [SpringFishStudio 春魚創意 - Portaly](https://portaly.cc/springfish)
+- [2024年度VTuber之最 - VIVE 後浪潮](https://www.vivepostwave.com/best-vtuber-2024/)
+- [這群網紅為何風靡全球？解鎖虛擬偶像VTuber流量變現密碼 - 遠見雜誌](https://www.gvm.com.tw/article/108762)
+- [VTuber經紀如何運作？- 遠見雜誌](https://www.gvm.com.tw/article/108763)
+- [台灣Vtuber同好會 - Facebook](https://www.facebook.com/groups/2569285399989405/)

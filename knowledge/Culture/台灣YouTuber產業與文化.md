@@ -106,13 +106,13 @@ YouTube在台灣的影響力有多大？根據[iSPOT Media的2025年報告](http
 
 ## 延伸閱讀
 
-- [YouTube在台灣能觸及超過 90% 的 18 歲以上觀眾 - iSPOT Media](https://www.i-spotmedia.com/Blog/2025-yt-trends/ — 相關主題的延伸閱讀
-- [爆紅後下一步 YouTuber事務所幫創作者探路 - 中央社](https://www.cna.com.tw/news/ahel/202102130062.aspx — 相關主題的延伸閱讀
+- [YouTube在台灣能觸及超過 90% 的 18 歲以上觀眾 - iSPOT Media](https://www.i-spotmedia.com/Blog/2025-yt-trends/)
+- [爆紅後下一步 YouTuber事務所幫創作者探路 - 中央社](https://www.cna.com.tw/news/ahel/202102130062.aspx)
 - [台灣VTuber產業發展現況 - 愛上R語言](https://r-lover.com/sharing/info-gathering/taiwan-vtuber-industry-info/ — 台灣產業的發展與創新
-- ['Chi Hsuan Tricking' first Taiwanese YouTuber to hit 10 million subscribers - Taiwan News](https://taiwannews.com.tw/news/5111007 — 相關主題的延伸閱讀
-- [台灣YouTuber收入排名揭密 - KOL 試媒體](https://kol-trymedia.tw/taiwanese-youtuber-income-ranking/ — 相關主題的延伸閱讀
-- [YouTuber 行銷有用嗎？調查：55% 觀眾受影響 - INSIDE](https://www.inside.com.tw/article/18043-pilotpr-youtuber — 相關主題的延伸閱讀
-- [新創如何與 YouTuber 合作，借助他們的影響力 - AppWorks](https://appworks.tw/startup-youtuber-marketing/ — 相關主題的延伸閱讀
-- [台灣10大超人氣Youtuber出爐 - 自由時報](https://news.ltn.com.tw/news/life/breakingnews/1993338 — 相關主題的延伸閱讀
-- [YouTube 廣告營收衝破 404 億美元大關 - TechNews 科技新報](https://technews.tw/2026/03/11/youtube-advertising-revenue/ — 相關主題的延伸閱讀
-- [2024年度VTuber之最：觀看時數與Superchat收入全面解析 - VIVE 後浪潮](https://www.vivepostwave.com/best-vtuber-2024/ — 相關主題的延伸閱讀
+- ['Chi Hsuan Tricking' first Taiwanese YouTuber to hit 10 million subscribers - Taiwan News](https://taiwannews.com.tw/news/5111007)
+- [台灣YouTuber收入排名揭密 - KOL 試媒體](https://kol-trymedia.tw/taiwanese-youtuber-income-ranking/)
+- [YouTuber 行銷有用嗎？調查：55% 觀眾受影響 - INSIDE](https://www.inside.com.tw/article/18043-pilotpr-youtuber)
+- [新創如何與 YouTuber 合作，借助他們的影響力 - AppWorks](https://appworks.tw/startup-youtuber-marketing/)
+- [台灣10大超人氣Youtuber出爐 - 自由時報](https://news.ltn.com.tw/news/life/breakingnews/1993338)
+- [YouTube 廣告營收衝破 404 億美元大關 - TechNews 科技新報](https://technews.tw/2026/03/11/youtube-advertising-revenue/)
+- [2024年度VTuber之最：觀看時數與Superchat收入全面解析 - VIVE 後浪潮](https://www.vivepostwave.com/best-vtuber-2024/)

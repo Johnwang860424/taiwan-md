@@ -79,7 +79,7 @@ FAB DAO 和百岳計畫最深層的貢獻，或許在於它們重新定義了價
 
 在這個島嶼上，一百座山向上隆起，一百個夢想正在萌芽。而我們每一個人，都可以選擇成為這個社會實驗的參與者，用自己的方式，寫下下一季文明的篇章。
 
-## 參考資料
+## 延伸閱讀
 
 1. FAB DAO 官網: https://fabdao.world/
 2. FAB DAO GitBook 白皮書: https://fab-dao.gitbook.io/fab-dao

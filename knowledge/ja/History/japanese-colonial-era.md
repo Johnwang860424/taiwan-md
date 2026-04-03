@@ -71,11 +71,11 @@ lastHumanReview: false
 
 ## 関連資料
 
-- [台湾日本統治時代 - Wikipedia](https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E7%B5%B1%E6%B2%BB%E6%99%82%E4%BB%A3%E3%81%AE%E5%8F%B0%E6%B9%BE — 相關主題的延伸閱讀
-- [台湾総督府 - Wikipedia](https://ja.wikipedia.org/wiki/%E5%8F%B0%E6%B9%BE%E7%B7%8F%E7%9D%A3%E5%BA%9C — 相關主題的延伸閱讀
+- [台湾日本統治時代 - Wikipedia](https://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E7%B5%B1%E6%B2%BB%E6%99%82%E4%BB%A3%E3%81%AE%E5%8F%B0%E6%B9%BE)
+- [台湾総督府 - Wikipedia](https://ja.wikipedia.org/wiki/%E5%8F%B0%E6%B9%BE%E7%B7%8F%E7%9D%A3%E5%BA%9C)
 
 ## 関連テーマ
-- [清治時期](/history/清治時期 — 相關主題的延伸閱讀
-- [戒嚴時期](/history/戒嚴時期 — 相關主題的延伸閱讀
-- [民主制度](/history/民主制度 — 相關主題的延伸閱讀
-- [開源社群與g0v](/history/開源社群與g0v — 相關主題的延伸閱讀
+- [清治時期](/history/清治時期)
+- [戒嚴時期](/history/戒嚴時期)
+- [民主制度](/history/民主制度)
+- [開源社群與g0v](/history/開源社群與g0v)

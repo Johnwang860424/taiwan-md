@@ -189,10 +189,10 @@ readingTime: 8
 
 ## 参考資料
 
-- [台灣電影史 - 維基百科](https://zh.wikipedia.org/wiki/%E5%8F%B0%E7%81%A3%E9%9B%BB%E5%BD%B1%E5%8F%B2 — 相關主題的延伸閱讀
-- [Taiwan's New Wave Cinema: Still Reverberating Around the World - Taiwan Panorama](https://www.taiwan-panorama.com/en/Articles/Details?Guid=86d7ac7d-f24e-4e85-bd97-93214df568f2&langId=3&CatId=8 — 相關主題的延伸閱讀
-- [台灣新電影 - 維基百科](https://zh.wikipedia.org/wiki/%E8%87%BA%E7%81%A3%E6%96%B0%E9%9B%BB%E5%BD%B1 — 相關主題的延伸閱讀
-- [台灣最高電影票房收入列表 - 維基百科](https://zh.wikipedia.org/wiki/%E8%87%BA%E7%81%A3%E6%9C%80%E9%AB%98%E9%9B%BB%E5%BD%B1%E7%A5%A8%E6%88%BF%E6%94%B6%E5%85%A5%E5%88%97%E8%A1%A8 — 相關主題的延伸閱讀
-- [國家電影及視聽文化中心](https://www.tfi.org.tw/ — 台灣文化的重要面向
-- [楊德昌 - 維基百科](https://zh.wikipedia.org/wiki/%E6%A5%8A%E5%BE%B7%E6%98%8C — 相關主題的延伸閱讀
-- [侯孝賢 - 維基百科](https://zh.wikipedia.org/wiki/%E4%BE%AF%E5%AD%9D%E8%B3%A2 — 相關主題的延伸閱讀
+- [台灣電影史 - 維基百科](https://zh.wikipedia.org/wiki/%E5%8F%B0%E7%81%A3%E9%9B%BB%E5%BD%B1%E5%8F%B2)
+- [Taiwan's New Wave Cinema: Still Reverberating Around the World - Taiwan Panorama](https://www.taiwan-panorama.com/en/Articles/Details?Guid=86d7ac7d-f24e-4e85-bd97-93214df568f2&langId=3&CatId=8)
+- [台灣新電影 - 維基百科](https://zh.wikipedia.org/wiki/%E8%87%BA%E7%81%A3%E6%96%B0%E9%9B%BB%E5%BD%B1)
+- [台灣最高電影票房收入列表 - 維基百科](https://zh.wikipedia.org/wiki/%E8%87%BA%E7%81%A3%E6%9C%80%E9%AB%98%E9%9B%BB%E5%BD%B1%E7%A5%A8%E6%88%BF%E6%94%B6%E5%85%A5%E5%88%97%E8%A1%A8)
+- [國家電影及視聽文化中心](https://www.tfi.org.tw/)
+- [楊德昌 - 維基百科](https://zh.wikipedia.org/wiki/%E6%A5%8A%E5%BE%B7%E6%98%8C)
+- [侯孝賢 - 維基百科](https://zh.wikipedia.org/wiki/%E4%BE%AF%E5%AD%9D%E8%B3%A2)
