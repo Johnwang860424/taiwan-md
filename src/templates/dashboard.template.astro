@@ -162,7 +162,10 @@ const isEn = lang === 'en';
               <th class="sortable" data-sort="date"
                 >{t('dashboard.registry.col.date')}</th
               >
-              <th class="sortable" data-sort="reviewed"
+              <th class="sortable" data-sort="lastModified"
+                >{isEn ? 'Modified' : '最後修改'}</th
+              >
+              <th class="sortable" data-sort="lastHumanReview"
                 >{t('dashboard.registry.col.reviewed')}</th
               >
               <th class="sortable" data-sort="wordCount"
@@ -492,10 +495,10 @@ const isEn = lang === 'en';
   // ── Activity Feed ──
   function renderActivityFeed(articles) {
     const feed = document.getElementById('activity-feed');
-    // Sort by date descending, take top 10
+    // Sort by lastModified descending (git commit date), take top 10
     const recent = [...articles]
-      .filter((a) => a.date)
-      .sort((a, b) => b.date.localeCompare(a.date))
+      .filter((a) => a.lastModified)
+      .sort((a, b) => b.lastModified.localeCompare(a.lastModified))
       .slice(0, 10);
 
     if (recent.length === 0) {
@@ -507,7 +510,7 @@ const isEn = lang === 'en';
       .map((a) => {
         const emoji = (a.revision || 0) > 1 ? '✏️' : '📄';
         const articleUrl = langPrefix + '/' + a.category + '/' + a.slug;
-        const dateStr = a.date || '';
+        const dateStr = a.lastModified || a.date || '';
         return (
           '<div class="feed-item">' +
           '<span class="feed-emoji">' +
@@ -579,6 +582,7 @@ const isEn = lang === 'en';
         const catLabel = categoryLabels[a.category] || a.category;
         const catColor = categoryColors[a.category] || '#64748b';
         const date = a.date || '—';
+        const modified = a.lastModified || '—';
         const reviewed = a.lastHumanReview ? '✅' : '—';
         const subcategory = a.subcategory || '—';
         const langs = ['en', 'es', 'ja']
@@ -595,6 +599,7 @@ const isEn = lang === 'en';
           <td><span class="cat-tag" style="background:${catColor}15;color:${catColor};border:1px solid ${catColor}30">${catLabel}</span></td>
           <td>${subcategory}</td>
           <td>${date}</td>
+          <td>${modified}</td>
           <td class="col-center">${reviewed}</td>
           <td class="col-right">${(a.wordCount || 0).toLocaleString()}</td>
           <td class="col-center col-hideable">${a.tagCount || 0}</td>

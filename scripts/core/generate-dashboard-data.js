@@ -160,32 +160,64 @@ function countWords(text) {
 }
 
 // ---------------------------------------------------------------------------
-// Git helpers
+// Git helpers — batch cache (1 exec for all files, not N×2)
 // ---------------------------------------------------------------------------
-function getGitRevisionCount(filePath) {
+let _gitCache = null;
+
+function buildGitCache() {
+  if (_gitCache) return _gitCache;
+  _gitCache = new Map();
   try {
-    const result = execSync(`git rev-list --count HEAD -- "${filePath}"`, {
-      cwd: PROJECT_ROOT,
-      encoding: 'utf8',
-      stdio: ['pipe', 'pipe', 'pipe'],
-    });
-    return parseInt(result.trim(), 10) || 0;
-  } catch {
-    return 0;
+    const logOutput = execSync(
+      'git log -z --name-only --format="COMMIT|%H|%aI|%an" -- "knowledge/"',
+      { cwd: PROJECT_ROOT, encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 },
+    );
+    let currentHash = '';
+    let currentDate = '';
+    let currentAuthor = '';
+
+    for (let token of logOutput.split('\0')) {
+      token = token.replace(/^\n+/, '').trim();
+      if (!token) continue;
+
+      if (token.startsWith('COMMIT|')) {
+        const parts = token.split('|');
+        currentHash = parts[1] || '';
+        currentDate = parts[2] || '';
+        currentAuthor = parts[3] || '';
+      } else if (token.startsWith('knowledge/') && token.endsWith('.md')) {
+        const key = path.resolve(PROJECT_ROOT, token);
+        let entry = _gitCache.get(key);
+        if (!entry) {
+          // First appearance = most recent commit (git log is newest-first)
+          entry = {
+            lastModified: currentDate,
+            commitHash: currentHash.slice(0, 8),
+            revisionCount: 0,
+            contributors: [],
+          };
+          _gitCache.set(key, entry);
+        }
+        entry.revisionCount += 1;
+        if (currentAuthor && !entry.contributors.includes(currentAuthor)) {
+          entry.contributors.push(currentAuthor);
+        }
+      }
+    }
+  } catch (e) {
+    console.error('Git cache error:', e.message);
   }
+  return _gitCache;
 }
 
-function getGitCommitHash(filePath) {
-  try {
-    const result = execSync(`git log -1 --format="%h" -- "${filePath}"`, {
-      cwd: PROJECT_ROOT,
-      encoding: 'utf8',
-      stdio: ['pipe', 'pipe', 'pipe'],
-    });
-    return result.trim() || '';
-  } catch {
-    return '';
-  }
+function getGitInfo(filePath) {
+  const resolved = path.resolve(filePath);
+  return buildGitCache().get(resolved) || {
+    lastModified: '',
+    commitHash: '',
+    revisionCount: 0,
+    contributors: [],
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -345,8 +377,10 @@ async function main() {
       }
 
       const slug = frontmatter.slug || deriveSlug(fileName);
-      const revision = getGitRevisionCount(raw.filePath);
-      const commitHash = getGitCommitHash(raw.filePath);
+      const gitInfo = getGitInfo(raw.filePath);
+      const revision = gitInfo.revisionCount;
+      const commitHash = gitInfo.commitHash;
+      const lastModified = gitInfo.lastModified ? gitInfo.lastModified.slice(0, 10) : null;
 
       const wordCount = countWords(body);
       const lastHumanReview = frontmatter.lastHumanReview
@@ -380,6 +414,7 @@ async function main() {
         category: raw.category,
         subcategory: frontmatter.subcategory || null,
         date: frontmatter.date || null,
+        lastModified,
         lastVerified,
         lastHumanReview,
         featured,
@@ -397,12 +432,12 @@ async function main() {
     }
   }
 
-  // Sort by date descending (newest first)
+  // Sort by lastModified descending (most recently changed first)
   articles.sort((a, b) => {
-    if (!a.date && !b.date) return 0;
-    if (!a.date) return 1;
-    if (!b.date) return -1;
-    return b.date.localeCompare(a.date);
+    if (!a.lastModified && !b.lastModified) return 0;
+    if (!a.lastModified) return 1;
+    if (!b.lastModified) return -1;
+    return b.lastModified.localeCompare(a.lastModified);
   });
 
   // =========================================================================
@@ -426,10 +461,10 @@ async function main() {
   const thirtyDaysStr = thirtyDaysAgo.toISOString().slice(0, 10);
 
   const articlesLast7Days = articles.filter(
-    (a) => a.date && a.date >= sevenDaysStr,
+    (a) => a.lastModified && a.lastModified >= sevenDaysStr,
   ).length;
   const articlesLast30Days = articles.filter(
-    (a) => a.date && a.date >= thirtyDaysStr,
+    (a) => a.lastModified && a.lastModified >= thirtyDaysStr,
   ).length;
 
   const humanReviewedCount = articles.filter((a) => a.lastHumanReview).length;
