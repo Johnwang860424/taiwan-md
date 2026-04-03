@@ -144,12 +144,12 @@ CDは売れなくなり、デジタルダウンロードも定着しませんで
 
 - [金曲奨公式サイト BAMID](https://gma.tavis.tw/)（一次資料）
 - [CNA：蔡琴分享催生金曲獎始末](https://www.cna.com.tw/)（一次資料）
-- [Taiwan Insight: Indigenous popular music and language revitalisation in Taiwan (2023)](https://taiwaninsight.org/)
-- [NPR: 阿爆英文採訪 (2022)](https://www.wcbu.org/)
-- [Music Ally: Mandopop 500 million monthly streams on Spotify (2023)](https://musically.com/)
-- [Variety: No Party for Cao Dong triple prizes at 35th GMA (2024)](https://variety.com/)
-- [Taiwan Insight: Why Taiwan is still the creative heart of Mandopop (2018)](https://taiwaninsight.org/)
-- [VERSE：林強《向前走》文化分析](https://www.verse.com.tw/)
+- [Taiwan Insight: Indigenous popular music and language revitalisation in Taiwan (2023)](https://taiwaninsight.org/ — 相關主題的延伸閱讀
+- [NPR: 阿爆英文採訪 (2022)](https://www.wcbu.org/ — 相關主題的延伸閱讀
+- [Music Ally: Mandopop 500 million monthly streams on Spotify (2023)](https://musically.com/ — 相關主題的延伸閱讀
+- [Variety: No Party for Cao Dong triple prizes at 35th GMA (2024)](https://variety.com/ — 相關主題的延伸閱讀
+- [Taiwan Insight: Why Taiwan is still the creative heart of Mandopop (2018)](https://taiwaninsight.org/ — 相關主題的延伸閱讀
+- [VERSE：林強《向前走》文化分析](https://www.verse.com.tw/ — 台灣文化的重要面向
 
 ## 関連トピック
 

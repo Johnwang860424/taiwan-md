@@ -1,24 +1,28 @@
 {
-  "totalArticles": 961,
-  "totalCategories": 19,
-  "estimatedContributors": 30,
-  "totalTags": 2464,
+  "totalArticles": 883,
+  "totalCategories": 20,
+  "estimatedContributors": 59,
+  "totalTags": 2245,
   "categories": [
     {
       "name": "en",
-      "count": 488
+      "count": 389
     },
     {
       "name": "Culture",
-      "count": 36
+      "count": 38
     },
     {
       "name": "History",
-      "count": 24
+      "count": 26
     },
     {
       "name": "Society",
-      "count": 26
+      "count": 27
+    },
+    {
+      "name": "Music",
+      "count": 20
     },
     {
       "name": "Economy",
@@ -26,7 +30,7 @@
     },
     {
       "name": "People",
-      "count": 124
+      "count": 128
     },
     {
       "name": "Lifestyle",
@@ -34,7 +38,7 @@
     },
     {
       "name": "ja",
-      "count": 15
+      "count": 21
     },
     {
       "name": "Art",
@@ -42,23 +46,19 @@
     },
     {
       "name": "Food",
-      "count": 27
+      "count": 28
     },
     {
       "name": "Technology",
-      "count": 25
+      "count": 27
     },
     {
       "name": "Nature",
-      "count": 25
+      "count": 26
     },
     {
       "name": "Geography",
       "count": 18
-    },
-    {
-      "name": "Music",
-      "count": 19
     },
     {
       "name": "About",
@@ -79,12 +79,16 @@
     {
       "name": "resources",
       "count": 2
+    },
+    {
+      "name": "ko",
+      "count": 1
     }
   ],
   "topTags": [
     {
       "name": "Economy",
-      "count": 59
+      "count": 55
     },
     {
       "name": "人物",
@@ -95,15 +99,7 @@
       "count": 31
     },
     {
-      "name": "people",
-      "count": 20
-    },
-    {
       "name": "台灣",
-      "count": 16
-    },
-    {
-      "name": "literature",
       "count": 16
     },
     {
@@ -111,7 +107,11 @@
       "count": 15
     },
     {
-      "name": "culture",
+      "name": "歷史",
+      "count": 13
+    },
+    {
+      "name": "people",
       "count": 13
     },
     {
@@ -119,11 +119,15 @@
       "count": 12
     },
     {
-      "name": "Taiwan",
+      "name": "音樂",
       "count": 12
     },
     {
-      "name": "ODM",
+      "name": "Technology",
+      "count": 12
+    },
+    {
+      "name": "民主化",
       "count": 11
     },
     {
@@ -135,15 +139,7 @@
       "count": 11
     },
     {
-      "name": "音樂",
-      "count": 11
-    },
-    {
-      "name": "體育",
-      "count": 11
-    },
-    {
-      "name": "Technology",
+      "name": "教育",
       "count": 11
     },
     {
@@ -151,26 +147,29 @@
       "count": 10
     },
     {
-      "name": "歷史",
-      "count": 10
-    },
-    {
-      "name": "TSMC",
+      "name": "ODM",
       "count": 10
     },
     {
       "name": "製造業",
       "count": 10
+    },
+    {
+      "name": "原住民",
+      "count": 10
+    },
+    {
+      "name": "體育",
+      "count": 10
+    },
+    {
+      "name": "Taiwan",
+      "count": 10
     }
   ],
   "languageDistribution": {
-    "zh-TW": 961,
+    "zh-TW": 883,
     "en": 0
   },
-  "lastUpdated": "2026-03-31T01:45:38.093Z",
-  "stars": 902,
-  "forks": 122,
-  "zhPages": 482,
-  "enPages": 488,
-  "totalPages": 970
+  "lastUpdated": "2026-04-03T17:50:14.930Z"
 }

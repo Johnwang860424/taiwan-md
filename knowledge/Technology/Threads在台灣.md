@@ -315,17 +315,17 @@ Threads 在台灣的成功，反映了幾個深層渴望的交匯：
 ## 延伸探索
 
 ### 相關主題
-- [[台灣網路論壇演進史]] — 從 BBS 到社群媒體的變遷
-- [[Z世代數位原住民文化]] — 影響當代台灣青年的關鍵因素
-- [[數位政治傳播]] — 社群媒體如何改變台灣政治生態
-- [[假訊息與事實查核]] — 台灣打擊不實訊息的挑戰
+- [台灣網路論壇演進史](/technology/台灣網路論壇演進史) — 從 BBS 到社群媒體的變遷
+- [Z世代數位原住民文化](/technology/Z世代數位原住民文化) — 影響當代台灣青年的關鍵因素
+- [數位政治傳播](/technology/數位政治傳播) — 社群媒體如何改變台灣政治生態
+- [假訊息與事實查核](/technology/假訊息與事實查核) — 台灣打擊不實訊息的挑戰
 
 ### 研究資源
 - [Taiwan FactCheck Center](https://tfc-taiwan.org.tw/) — 台灣事實查核中心
 - [數位發展部數位治理政策](https://moda.gov.tw/) — 政府數位治理相關政策
 - [台灣網路資訊中心 TWNIC](https://www.twnic.net.tw/) — 台灣網路使用行為調查
 
-## 參考資料
+## 延伸閱讀
 
 1. [Threads全球每月活躍使用者數突破3億，榮登台灣2024年最受歡迎App](https://www.businessyee.com/article/5165-Threads-DAU) - Business Yee
 2. [Threads上線滿1年！月活躍使用者數破1.75億](https://www.bnext.com.tw/article/79642/threads-meta-2024-) - 數位時代

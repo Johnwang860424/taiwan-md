@@ -104,12 +104,12 @@ lastHumanReview: false
 
 ## 参考資料
 
-- [台湾光華雑誌：一代武将成恩主——関聖帝君](https://www.taiwan-panorama.com/Articles/Details?Guid=242d4c66-8eb7-493f-bc3c-d15a9af80f80&CatId=10)
-- [ウィキペディア：恩主公信仰](https://zh.wikipedia.org/zh-tw/%E6%81%A9%E4%B8%BB%E5%85%AC%E4%BF%A1%E4%BB%B0)
-- [ウィキペディア：行天宮](https://zh.wikipedia.org/zh-tw/%E8%A1%8C%E5%A4%A9%E5%AE%AE)
-- [ウィキペディア：黄欉](https://zh.wikipedia.org/zh-tw/%E9%BB%83%E6%AC%89)
-- [ウィキペディア：祀典武廟](https://zh.wikipedia.org/zh-tw/%E7%A5%80%E5%85%B8%E6%AD%A6%E5%BB%9F)
-- [行天宮五大志業網](https://www.ht.org.tw/p1_religion.htm)
-- [生命力新聞：行天宮の禁香・供物撤廃、煙のない参拝へ](https://vita.tw/%E8%A1%8C%E5%A4%A9%E5%AE%AE%E6%B8%9B%E9%A6%99%E7%A6%81%E4%BE%9B/)
-- [故事 StoryStudio：三国の武将から万能の神へ——関公信仰の形成](https://storystudio.tw/article/gushi/kuan-di-belief)
-- [中央研究院人社センター：台湾地区民間宗教の発展](https://www2.ios.sinica.edu.tw/people/hyc/essay/9ROS/0114%E9%99%84%E9%8C%84%E4%BA%8C.pdf)
+- [台湾光華雑誌：一代武将成恩主——関聖帝君](https://www.taiwan-panorama.com/Articles/Details?Guid=242d4c66-8eb7-493f-bc3c-d15a9af80f80&CatId=10 — 相關主題的延伸閱讀
+- [ウィキペディア：恩主公信仰](https://zh.wikipedia.org/zh-tw/%E6%81%A9%E4%B8%BB%E5%85%AC%E4%BF%A1%E4%BB%B0 — 相關主題的延伸閱讀
+- [ウィキペディア：行天宮](https://zh.wikipedia.org/zh-tw/%E8%A1%8C%E5%A4%A9%E5%AE%AE — 相關主題的延伸閱讀
+- [ウィキペディア：黄欉](https://zh.wikipedia.org/zh-tw/%E9%BB%83%E6%AC%89 — 相關主題的延伸閱讀
+- [ウィキペディア：祀典武廟](https://zh.wikipedia.org/zh-tw/%E7%A5%80%E5%85%B8%E6%AD%A6%E5%BB%9F — 相關主題的延伸閱讀
+- [行天宮五大志業網](https://www.ht.org.tw/p1_religion.htm — 相關主題的延伸閱讀
+- [生命力新聞：行天宮の禁香・供物撤廃、煙のない参拝へ](https://vita.tw/%E8%A1%8C%E5%A4%A9%E5%AE%AE%E6%B8%9B%E9%A6%99%E7%A6%81%E4%BE%9B/ — 相關主題的延伸閱讀
+- [故事 StoryStudio：三国の武将から万能の神へ——関公信仰の形成](https://storystudio.tw/article/gushi/kuan-di-belief — 相關主題的延伸閱讀
+- [中央研究院人社センター：台湾地区民間宗教の発展](https://www2.ios.sinica.edu.tw/people/hyc/essay/9ROS/0114%E9%99%84%E9%8C%84%E4%BA%8C.pdf — 相關主題的延伸閱讀

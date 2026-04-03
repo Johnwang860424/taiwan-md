@@ -49,8 +49,8 @@ export default function remarkWikilinks() {
     visit(tree, 'text', (node, index, parent) => {
       if (!node.value || !node.value.includes('[[')) return;
 
-      // Match **[[X]]** (bold+wikilink) and [[X]] (plain wikilink)
-      const regex = /\*\*\[\[([^\]]+)\]\]\*\*|\[\[([^\]]+)\]\]/g;
+      // Match [[X]] (plain wikilink)
+      const regex = /\[\[([^\]]+)\]\]/g;
       const parts = [];
       let lastIndex = 0;
       let match;
@@ -61,8 +61,7 @@ export default function remarkWikilinks() {
           parts.push({ type: 'text', value: node.value.slice(lastIndex, match.index) });
         }
 
-        const isBold = match[1] !== undefined;
-        const title = isBold ? match[1] : match[2];
+        const title = match[1];
         const url = map.get(title);
 
         let linkOrText;
@@ -76,15 +75,7 @@ export default function remarkWikilinks() {
           linkOrText = { type: 'text', value: title };
         }
 
-        if (isBold) {
-          parts.push({
-            type: 'strong',
-            children: [linkOrText],
-          });
-        } else {
-          parts.push(linkOrText);
-        }
-
+        parts.push(linkOrText);
         lastIndex = match.index + match[0].length;
       }
 
@@ -95,7 +86,7 @@ export default function remarkWikilinks() {
 
       if (parts.length > 0 && lastIndex > 0) {
         parent.children.splice(index, 1, ...parts);
-        return index + parts.length;
+        return index + parts.length - 1;
       }
     });
   };

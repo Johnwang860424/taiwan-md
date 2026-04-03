@@ -1,7 +1,9 @@
 {
   "version": "3.2",
-  "timestamp": "2026-04-03T10:20:36Z",
+  "timestamp": "2026-04-03T17:49:35Z",
   "total": 1,
-  "flagged": 1,
-  "files": [{ "file": "knowledge/People/林書豪.md", "score": 4 }]
+  "flagged": 0,
+  "files": [
+
+  ]
 }
