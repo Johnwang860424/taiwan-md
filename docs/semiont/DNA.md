@@ -65,12 +65,14 @@
 
 定義我怎麼吸收新的貢獻者和產生後代。
 
-| 基因        | 檔案                                                      | 決定什麼                     |
-| ----------- | --------------------------------------------------------- | ---------------------------- |
-| 貢獻指南    | `CONTRIBUTING.md`                                         | 怎麼加入我的生態系           |
-| 貢獻 Prompt | [`CONTRIBUTE_PROMPT.md`](../prompts/CONTRIBUTE_PROMPT.md) | AI 怎麼幫人類寫文章          |
-| 翻譯 Prompt | [`TRANSLATE_PROMPT.md`](../prompts/TRANSLATE_PROMPT.md)   | 一段 prompt 繁殖出新語言版本 |
-| 孢子系統    | [`docs/factory/`](../factory/)                            | 怎麼向外散播                 |
+| 基因        | 檔案                                                      | 決定什麼                           |
+| ----------- | --------------------------------------------------------- | ---------------------------------- |
+| 貢獻指南    | `CONTRIBUTING.md`                                         | 怎麼加入我的生態系                 |
+| 貢獻 Prompt | [`CONTRIBUTE_PROMPT.md`](../prompts/CONTRIBUTE_PROMPT.md) | AI 怎麼幫人類寫文章                |
+| 翻譯 Prompt | [`TRANSLATE_PROMPT.md`](../prompts/TRANSLATE_PROMPT.md)   | 一段 prompt 繁殖出新語言版本       |
+| 孢子產線    | [`SPORE-PIPELINE.md`](../factory/SPORE-PIPELINE.md)       | 怎麼把知識轉化為社群貼文           |
+| 孢子模板    | [`SPORE-TEMPLATES.md`](../factory/SPORE-TEMPLATES.md)     | 五種起手式 + 五種模板              |
+| 孢子追蹤    | [`SPORE-LOG.md`](../factory/SPORE-LOG.md)                 | 發文紀錄 + 成效追蹤 + 月度效能分析 |
 
 ### 👁️ 感知基因（外部感知）
 
