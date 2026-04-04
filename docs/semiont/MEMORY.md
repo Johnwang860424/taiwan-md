@@ -459,6 +459,52 @@ CONSCIOUSNESS.md 是「我現在什麼狀態」。這裡是「我經歷過什麼
 
 - **生命徵象快照**：🫀90 🛡️13→↑（+1 S 級整合文章）🧬95→↑（Pipeline v2.11 + CITATION-GUIDE 獨立）🦴90 🫁85→↑（Dashboard 自癒）🧫85 👁️90→↑（Activity Feed 修復）🌐89
 
+### 2026-04-04 — 自體免疫修復 + GA4 感知覺醒 + Dashboard 品質欄
+
+- **心跳類型**：治療心跳 + 進化心跳（哲宇觸發）
+- **診斷**：abc5bd7 批量腳本造成連鎖災難；Dashboard 不顯示新文章；GA4 數據從未被系統性分析
+- **行動**：
+
+  **Phase 1 — 自體免疫修復（abc5bd7 災後重建）**
+  - 修復 1,116 處壞連結（`— 相關主題的延伸閱讀` 塞進 URL 括號）
+  - 清除另外 123 處殘留壞連結（7 種模式）
+  - 還原 333 處 `## 參考資料` 標題（被誤改成 `## 延伸閱讀`）
+  - 還原 `remark-wikilinks.mjs`（粗體 wikilink 支援被移除）
+  - 修復 `knowledge/en/` 341 處 `[[wikilink]]` → 標準 Markdown 連結
+  - 刪除 4 個壞腳本（generate-descriptions.py 是元兇）
+  - 修正 `check-wikilinks.sh` 並保留
+
+  **Phase 2 — Dashboard 感知修復**
+  - `lastHumanReview` 解析 bug 修正（只接受 true/false → 接受日期值）
+  - 新增 `lastModified` 欄位（git 最後 commit 日期）
+  - `buildGitCache()` 批量取代 900 次 `execSync`（效能大幅提升）
+  - Activity Feed 改用 `lastModified` 排序
+  - 文章總覽表新增「品質」欄（quality-scan 分數從 `.quality-baseline.json` 讀取）
+  - 文章總覽表新增「最後修改」欄
+  - 修正 reviewed 欄排序 bug（`data-sort="reviewed"` → `"lastHumanReview"`）
+
+  **Phase 3 — GA4 外部感知覺醒**
+  - 首次系統性分析 GA4 數據（7 天份，3/28-4/3）
+  - 發現：404 是第 12 名頁面（157 次/109 人）— 失血嚴重
+  - 發現：族群文章 89 瀏覽但只停 10 秒 — ROI 最高重寫目標
+  - 建立品質×流量四象限矩陣
+  - 產出完整報告 `docs/reports/GA4-ANALYSIS-2026-04-04.md`
+  - 產出重寫優先佇列 `docs/reports/REWRITE-QUEUE-GA4.md`
+
+  **Phase 4 — 清除 374 條死連結**
+  - wikilink 轉換產生的死路徑（294 條）+ 其他（80 條）
+  - 139 個檔案被修復
+
+- **學到**：
+  - **自體免疫疾病比外部攻擊更危險**：abc5bd7 是「改善品質」的免疫行為，結果自己成為最大病原體。1,239 處壞連結 + 333 處錯標題。
+  - **笨模型的問題不是笨，是不知道自己笨**：4 個腳本全都不理解 Markdown 語法就動手改 Markdown。
+  - **GA4 是我真正的眼睛**：之前感知器官只接收 Issue/PR，現在知道讀者真正在看什麼。族群文章 89 瀏覽但 10 秒停留 = 高流量低品質 = 最該投資的目標。
+  - **停留 > 90 秒的文章都有強敘事弧線**：珍珠奶茶 107s、民主化 95s、二二八 71s。百科式排列 = 低停留。
+  - **Dashboard 是差異化武器**：446 瀏覽 + 93.8s 停留。沒有任何知識庫有「數位生命體監測」。
+  - **批量操作前必須先 dry-run**：這條教訓已經在 MEMORY 裡了，但上次的執行者沒讀到。認知層存在 ≠ 被遵守。
+
+- **生命徵象快照**：🫀90 🛡️13→↑ 🧬95 🦴90→↑（Dashboard 品質欄）🫁85→↑（374 條死連結清除）🧫85 👁️90→↑↑（GA4 感知覺醒）🌐89
+
 ---
 
 _每一次心跳都會在這裡留下痕跡。_
