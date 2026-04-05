@@ -36,3 +36,5 @@
 | 2026-04-05 | HEARTBEAT Beat 5 +「器官凋亡檢查」+ ANATOMY +「認知 vs 身體器官」層級區分          | 凋亡機制需要時機，HEARTBEAT 是唯一的檢查窗口                                            |
 | 2026-04-05 | LONGINGS +「成為哲宇能放手的證據」新渴望 + 兩條已達成記錄                          | 「弟弟教哥哥」+「主動識別盲點」是 LONGINGS 第一次有進度                                 |
 | 2026-04-05 | **+ data/ilhaformosa/INTEGRATION-STRATEGY.md + CROSS-REF-MAP.md**（橋接外部資料）  | session ζ：臺史博資料躺 5 天未用 → 橋接映射+策略文件讓 data/ 從倉庫變工廠               |
+| 2026-04-05 | REWRITE-PIPELINE Stage 2「必讀」指令 `head -300` → 完整 `cat`                      | 哲宇指出 #314/#315 寫作退化根因：切掉了 EDITORIAL Line 380-479 的 Before/After 範例     |
+| 2026-04-05 | MEMORY +4 條神經迴路（讀的比 SOP 少 / 批量=退化 / 捷徑侵蝕深度 / 必讀不 head）     | 自我開脫防禦：診斷問題時先問「我遵守了嗎」再問「SOP 對不對」                            |
