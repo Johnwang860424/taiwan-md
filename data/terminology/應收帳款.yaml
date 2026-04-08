@@ -1,0 +1,22 @@
+id: 應收帳款
+category: business
+subcategory: 商業
+fork_type: B
+
+display:
+  taiwan: 應收帳款
+  china: 应收账款
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — business.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

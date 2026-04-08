@@ -1,0 +1,22 @@
+id: 心臟外科
+category: daily
+subcategory: 醫療
+fork_type: B
+
+display:
+  taiwan: 心臟外科
+  china: 心外科
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — medical.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

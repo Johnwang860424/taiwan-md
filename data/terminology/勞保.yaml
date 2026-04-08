@@ -1,0 +1,22 @@
+id: 勞保
+category: business
+subcategory: 法律
+fork_type: A
+
+display:
+  taiwan: 勞保
+  china: 养老保险
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — legal.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

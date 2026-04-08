@@ -1,0 +1,22 @@
+id: 雇員
+category: business
+subcategory: 法律
+fork_type: B
+
+display:
+  taiwan: 雇員
+  china: 雇员
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — legal.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

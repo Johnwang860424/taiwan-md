@@ -1,0 +1,22 @@
+id: 高空彈跳
+category: daily
+subcategory: 日常用語
+fork_type: A
+
+display:
+  taiwan: 高空彈跳
+  china: 蹦极
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — daily.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

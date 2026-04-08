@@ -1,0 +1,22 @@
+id: 佛羅倫斯
+category: names
+subcategory: 地名
+fork_type: B
+
+display:
+  taiwan: 佛羅倫斯
+  china: 佛罗伦萨
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — geography.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

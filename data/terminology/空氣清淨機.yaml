@@ -1,0 +1,22 @@
+id: 空氣清淨機
+category: daily
+subcategory: 日常用語
+fork_type: B
+
+display:
+  taiwan: 空氣清淨機
+  china: 空气净化器
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — daily.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

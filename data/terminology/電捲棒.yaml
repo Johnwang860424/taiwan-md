@@ -1,0 +1,22 @@
+id: 電捲棒
+category: daily
+subcategory: 日常用語
+fork_type: B
+
+display:
+  taiwan: 電捲棒
+  china: 卷发棒
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — daily.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

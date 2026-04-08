@@ -1,0 +1,23 @@
+id: 法國吐司
+category: daily
+subcategory: 日常用語
+fork_type: B
+
+display:
+  taiwan: 法國吐司
+  china:
+  hongkong: 西多士
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 香港用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — hk/base.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

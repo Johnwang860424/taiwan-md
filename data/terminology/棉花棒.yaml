@@ -1,0 +1,22 @@
+id: 棉花棒
+category: daily
+subcategory: 醫療
+fork_type: B
+
+display:
+  taiwan: 棉花棒
+  china: 棉签
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — medical.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

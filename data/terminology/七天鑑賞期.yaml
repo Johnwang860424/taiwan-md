@@ -1,0 +1,22 @@
+id: 七天鑑賞期
+category: business
+subcategory: 電子商務
+fork_type: B
+
+display:
+  taiwan: 七天鑑賞期
+  china: 七天无理由
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — ecommerce.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

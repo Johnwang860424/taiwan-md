@@ -1,0 +1,23 @@
+id: 格子鬆餅
+category: daily
+subcategory: 日常用語
+fork_type: A
+
+display:
+  taiwan: 格子鬆餅
+  china:
+  hongkong: 窩夫
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 香港用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — hk/base.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

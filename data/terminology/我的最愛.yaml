@@ -1,0 +1,22 @@
+id: 我的最愛
+category: tech
+subcategory: 軟體與程式開發
+fork_type: A
+
+display:
+  taiwan: 我的最愛
+  china: 收藏
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — base.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

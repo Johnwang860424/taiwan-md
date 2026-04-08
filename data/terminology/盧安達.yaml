@@ -1,0 +1,22 @@
+id: 盧安達
+category: names
+subcategory: 地名
+fork_type: B
+
+display:
+  taiwan: 盧安達
+  china: 卢旺达
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — geography.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

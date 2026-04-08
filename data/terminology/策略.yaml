@@ -1,0 +1,22 @@
+id: 策略
+category: business
+subcategory: 商業
+fork_type: B
+
+display:
+  taiwan: 策略
+  china: 战略
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — business.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

@@ -1,0 +1,22 @@
+id: 招募
+category: business
+subcategory: 商業
+fork_type: B
+
+display:
+  taiwan: 招募
+  china: 招聘
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — business.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

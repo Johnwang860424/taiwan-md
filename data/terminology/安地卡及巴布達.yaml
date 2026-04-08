@@ -1,0 +1,22 @@
+id: 安地卡及巴布達
+category: names
+subcategory: 地名
+fork_type: B
+
+display:
+  taiwan: 安地卡及巴布達
+  china: 安提瓜和巴布达
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — geography.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

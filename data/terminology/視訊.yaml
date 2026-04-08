@@ -1,0 +1,23 @@
+id: 視訊
+category: tech
+subcategory: 軟體與程式開發
+fork_type: B
+
+display:
+  taiwan: 視訊
+  china:
+  hongkong: 視像
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 香港用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — hk/tech.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

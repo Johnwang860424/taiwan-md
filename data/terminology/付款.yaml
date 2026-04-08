@@ -1,0 +1,22 @@
+id: 付款
+category: business
+subcategory: 電子商務
+fork_type: B
+
+display:
+  taiwan: 付款
+  china: 支付
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — ecommerce.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

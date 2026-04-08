@@ -1,0 +1,22 @@
+id: 波士尼亞赫塞哥維納
+category: names
+subcategory: 地名
+fork_type: B
+
+display:
+  taiwan: 波士尼亞赫塞哥維納
+  china: 波斯尼亚黑塞哥维那
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — geography.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

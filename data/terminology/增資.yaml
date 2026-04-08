@@ -1,0 +1,22 @@
+id: 增資
+category: business
+subcategory: 金融
+fork_type: B
+
+display:
+  taiwan: 增資
+  china: 增发
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — finance.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

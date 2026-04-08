@@ -1,0 +1,22 @@
+id: 降低準備率
+category: business
+subcategory: 金融
+fork_type: A
+
+display:
+  taiwan: 降低準備率
+  china: 降准
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — finance.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

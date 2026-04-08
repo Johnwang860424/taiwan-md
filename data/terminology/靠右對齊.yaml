@@ -1,0 +1,22 @@
+id: 靠右對齊
+category: tech
+subcategory: 軟體與程式開發
+fork_type: B
+
+display:
+  taiwan: 靠右對齊
+  china: 右对齐
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — it.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

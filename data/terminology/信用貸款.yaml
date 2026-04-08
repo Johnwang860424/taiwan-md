@@ -1,0 +1,22 @@
+id: 信用貸款
+category: business
+subcategory: 金融
+fork_type: B
+
+display:
+  taiwan: 信用貸款
+  china: 信用贷
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — finance.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

@@ -1,0 +1,22 @@
+id: 菁英怪
+category: internet
+subcategory: 遊戲
+fork_type: B
+
+display:
+  taiwan: 菁英怪
+  china: 精英怪
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — gaming.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

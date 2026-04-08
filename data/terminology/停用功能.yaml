@@ -1,0 +1,22 @@
+id: 停用功能
+category: tech
+subcategory: 軟體與程式開發
+fork_type: B
+
+display:
+  taiwan: 停用功能
+  china: 禁用功能
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — base.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

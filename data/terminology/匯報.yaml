@@ -1,0 +1,22 @@
+id: 匯報
+category: business
+subcategory: 商業
+fork_type: B
+
+display:
+  taiwan: 匯報
+  china: 汇报
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — business.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'

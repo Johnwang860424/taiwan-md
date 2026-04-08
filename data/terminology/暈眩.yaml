@@ -1,0 +1,22 @@
+id: 暈眩
+category: internet
+subcategory: 遊戲
+fork_type: B
+
+display:
+  taiwan: 暈眩
+  china: 眩晕
+
+etymology:
+  origin: ''
+  taiwan_path: 台灣用法
+  china_path: 中國用法
+  fork_point: ''
+
+notes: ''
+
+sources:
+  - 'rajatim/zhtw (MIT) — gaming.json'
+
+added: '2026-04-08'
+updated: '2026-04-08'
