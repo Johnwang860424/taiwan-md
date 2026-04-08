@@ -79,7 +79,82 @@ background-image: url('https://taiwan.md/assets/svg/taiwan-icon-wiki.svg');
     'assets.script.failed': '❌ Failed',
   },
   ja: {
-    // Japanese — uses English as base, core strings will be translated
+    // Meta
+    'assets.meta.title': 'Taiwan SVG -- オープンソース台灣アウトライン',
+    'assets.meta.description':
+      '正確な台灣のSVGアウトライン、オープンソースで無料ダウンロード。AIが描く台灣はすべて間違い――これが正しいバージョンです。',
+
+    // Hero
+    'assets.hero.title': 'Taiwan SVG -- オープンソース台灣アウトライン',
+    'assets.hero.subtitle':
+      'AIが描く台灣はすべて間違い。これが正しいバージョンです。',
+
+    // Problem section
+    'assets.problem.title': '🤖 なぜAIはいつも台灣を間違って描くのか？',
+    'assets.problem.p1':
+      'ほとんどのAI画像生成モデルは、学習データに台灣の構造化された地理データが不足しています。その結果、AIが生成する台灣の画像は形状の歪み、比率の誤り、他の島との混同が頻発します。',
+    'assets.problem.p2.html':
+      'Taiwan.md は<strong>正確でオープンソース、自由に使える</strong>台灣のSVGアウトラインを提供します――「台灣はどんな形をしているか」を知りたいすべての場面に対する標準的な答えです。',
+
+    // Card 1: taiwan-icon
+    'assets.card1.title': 'taiwan-icon.svg',
+    'assets.card1.desc':
+      '台灣アウトラインアイコン -- アイコン・ロゴ・小サイズに最適',
+    'assets.card1.meta': 'Wikimedia Commons · ~6 KB · CC',
+
+    // Card 2: taiwan-simplemaps
+    'assets.card2.title': 'taiwan-simplemaps.svg',
+    'assets.card2.desc':
+      'SimpleMaps 版 -- クリーンなベクターアウトライン、Web埋め込みに最適',
+    'assets.card2.meta': 'SimpleMaps · ~5 KB',
+
+    // Card 3: taiwan-location-map
+    'assets.card3.title': 'taiwan-location-map.svg',
+    'assets.card3.desc':
+      '位置マップ -- 経緯度・都市マーカー付き、地理参照に最適',
+    'assets.card3.meta': 'Wikimedia Commons · ~120 KB · CC',
+
+    // Card 4: taiwan-political-division
+    'assets.card4.title': 'taiwan-political-division.svg',
+    'assets.card4.desc': '行政区画図 -- 県市境界線、完全な行政区域',
+    'assets.card4.meta': 'Wikimedia Commons · ~168 KB · CC',
+
+    // Buttons
+    'assets.btn.download': 'SVGをダウンロード',
+    'assets.btn.copy': 'SVGコードをコピー',
+
+    // Usage section
+    'assets.usage.title': '📝 使い方',
+    'assets.usage.code': `<!-- 直接埋め込み -->
+<img src="https://taiwan.md/assets/svg/taiwan-icon-wiki.svg" alt="Taiwan" width="200">
+
+<!-- CSS背景として使用 -->
+background-image: url('https://taiwan.md/assets/svg/taiwan-icon-wiki.svg');
+
+<!-- Markdownで参照 -->
+![Taiwan](https://taiwan.md/assets/svg/taiwan-icon-wiki.svg)`,
+
+    // License section
+    'assets.license.title': '📄 ライセンスと出典',
+    'assets.license.intro.html':
+      'すべてのSVGファイルは <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a> ライセンスで公開されています。自由に使用・改変・商用利用可能――出典の表示のみお願いします。',
+    'assets.license.sources.title': '出典表示',
+    'assets.license.source1.html':
+      '<strong>taiwan-icon.svg</strong> -- 出典：<a href="https://commons.wikimedia.org/wiki/File:Taiwan-icon.svg" target="_blank">Wikimedia Commons: Taiwan-icon.svg</a>、パブリックドメイン（Public Domain）',
+    'assets.license.source2.html':
+      '<strong>taiwan-simplemaps.svg</strong> -- 出典：<a href="https://simplemaps.com/svg/country/tw" target="_blank">SimpleMaps</a>、Free License（simplemaps.com の出典表示が必要）',
+    'assets.license.source3.html':
+      '<strong>taiwan-location-map.svg</strong> -- 出典：<a href="https://commons.wikimedia.org/wiki/File:Taiwan_location_map.svg" target="_blank">Wikimedia Commons: Taiwan_location_map.svg</a>、CC BY-SA 3.0、作者：NordNordWest',
+    'assets.license.source4.html':
+      '<strong>taiwan-political-division.svg</strong> -- 出典：<a href="https://commons.wikimedia.org/wiki/File:Taiwan_ROC_political_division_map.svg" target="_blank">Wikimedia Commons: Taiwan_ROC_political_division_map.svg</a>、CC BY-SA 3.0',
+
+    // CTA section
+    'assets.cta.text': '問題を発見した、または改善提案がありますか？',
+    'assets.cta.btn': 'GitHubで貢献する',
+
+    // Script messages
+    'assets.script.copied': '✅ コピー完了',
+    'assets.script.failed': '❌ コピー失敗',
   },
   ko: {
     // Meta

@@ -96,7 +96,98 @@ export const dashboardUI = {
     'dashboard.growth.daily': 'Daily New',
   },
   ja: {
-    // Japanese — uses English as base, core strings will be translated
+    // Meta
+    'dashboard.meta.title':
+      'Dashboard -- デジタル生命体リアルタイムモニタリング',
+    'dashboard.meta.description':
+      'Taiwan.md デジタル生命体のリアルタイム健康モニタリング -- 記事総覧、器官の健康状態、翻訳カバレッジ、成長指標',
+
+    // Hero
+    'dashboard.hero.title': 'デジタル生命体リアルタイムモニタリング',
+    'dashboard.hero.subtitle': 'Taiwan.md の公開解剖室',
+    'dashboard.hero.description':
+      'すべての器官、すべての細胞、すべての鼓動 -- 透明で、誰もが見られる。',
+
+    // Vital Signs
+    'dashboard.vitals.title': 'バイタルサイン',
+    'dashboard.vitals.heartbeat': '心拍',
+    'dashboard.vitals.heartbeat.desc': '直近7日間の追加・更新記事',
+    'dashboard.vitals.cells': '総細胞数',
+    'dashboard.vitals.cells.desc': '中国語記事（SSOT）',
+    'dashboard.vitals.immunity': '免疫力',
+    'dashboard.vitals.immunity.desc': '人間によるレビュー済み割合',
+    'dashboard.vitals.dna': 'DNA 多様性',
+    'dashboard.vitals.dna.desc': '言語カバレッジ',
+    'dashboard.vitals.revision': '修訂深度',
+    'dashboard.vitals.revision.desc': '記事あたり平均修訂回数',
+    'dashboard.vitals.featured': '注目',
+    'dashboard.vitals.featured.desc': 'スポットライト記事',
+
+    // Article Registry
+    'dashboard.registry.title': '記事総覧表',
+    'dashboard.registry.subtitle': '生命体のすべての細胞を網羅する一覧',
+    'dashboard.registry.search': '記事を検索...',
+    'dashboard.registry.filter.category': 'カテゴリ',
+    'dashboard.registry.filter.all': 'すべて',
+    'dashboard.registry.filter.reviewed': '人間レビュー',
+    'dashboard.registry.filter.reviewed.yes': 'レビュー済み',
+    'dashboard.registry.filter.reviewed.no': '未レビュー',
+    'dashboard.registry.filter.featured': '注目',
+    'dashboard.registry.filter.translation': '翻訳',
+    'dashboard.registry.filter.translation.has-en': '英語あり',
+    'dashboard.registry.filter.translation.missing-en': '英語なし',
+    'dashboard.registry.col.title': 'タイトル',
+    'dashboard.registry.col.category': 'カテゴリ',
+    'dashboard.registry.col.date': '日付',
+    'dashboard.registry.col.verified': '検証',
+    'dashboard.registry.col.reviewed': 'レビュー',
+    'dashboard.registry.col.words': '文字数',
+    'dashboard.registry.col.tags': 'タグ',
+    'dashboard.registry.col.translations': '言語',
+    'dashboard.registry.col.revisions': '修訂',
+    'dashboard.registry.showing': '表示',
+    'dashboard.registry.of': '/',
+    'dashboard.registry.articles': '件の記事',
+
+    // Organism Anatomy
+    'dashboard.organism.title': '器官解剖',
+    'dashboard.organism.subtitle': '各器官システムの健康状態',
+    'dashboard.organism.score': '健康スコア',
+    'dashboard.organism.trend.up': '上昇中',
+    'dashboard.organism.trend.down': '下降中',
+    'dashboard.organism.trend.stable': '安定',
+
+    // Translation Coverage
+    'dashboard.translation.title': '翻訳カバレッジ',
+    'dashboard.translation.subtitle': 'どれだけの細胞が他の言語に複製されたか',
+    'dashboard.translation.ssot': '単一信頼源',
+    'dashboard.translation.full': '完全カバレッジ',
+    'dashboard.translation.growing': '成長中',
+    'dashboard.translation.seedling': '発芽期',
+
+    // Immune System
+    'dashboard.immune.title': '免疫システム',
+    'dashboard.immune.subtitle': '品質防御の状態と待機中タスク',
+    'dashboard.immune.reviewed': '人間レビュー',
+    'dashboard.immune.featured': '注目記事',
+    'dashboard.immune.verified': '最終検証',
+    'dashboard.immune.defense.title': '防御ライン',
+    'dashboard.immune.defense.line1': 'quality-scan.sh',
+    'dashboard.immune.defense.line1.desc': '自動スキャン、4点超でブロック',
+    'dashboard.immune.defense.line2': 'PR Review',
+    'dashboard.immune.defense.line2.desc': 'EDITORIAL v4 基準',
+    'dashboard.immune.defense.line3': '品質リライト',
+    'dashboard.immune.defense.line3.desc': '手動トリガーによるリライト',
+    'dashboard.immune.defense.line4': 'EDITORIAL 更新',
+    'dashboard.immune.defense.line4.desc': '品質遺伝子の進化',
+    'dashboard.immune.queue.title': '免疫キュー',
+    'dashboard.immune.queue.desc': '人間のレビューが最も必要な記事（古い順）',
+
+    // Growth
+    'dashboard.growth.title': '成長タイムライン',
+    'dashboard.growth.subtitle': '時間の経過に伴う生命体の進化',
+    'dashboard.growth.total': '累積記事数',
+    'dashboard.growth.daily': '日次新規',
   },
   ko: {
     // Meta

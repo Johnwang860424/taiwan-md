@@ -25,7 +25,29 @@ export const changelogUI = {
     'changelog.time.days-ago': 'days ago',
   },
   ja: {
-    // Japanese — uses English as base, core strings will be translated
+    // Meta
+    'changelog.meta.title': 'サイト更新履歴',
+    'changelog.meta.description':
+      'Taiwan.md のリアルタイム更新履歴、すべてのコンテンツ追加とサイト改善を追跡します。',
+
+    // Header
+    'changelog.header.title': 'サイト更新履歴',
+    'changelog.header.subtitle':
+      'Taiwan.md のすべてのコンテンツ追加とサイト改善を追跡',
+    'changelog.header.meta.updates': '件の更新履歴',
+    'changelog.header.meta.synced': '自動同期元：',
+
+    // Timeline
+    'changelog.day.updates': '件の更新',
+
+    // Locale for date formatting
+    'changelog.locale': 'ja-JP',
+
+    // Relative time
+    'changelog.time.just-now': 'たった今',
+    'changelog.time.minutes-ago': '分前',
+    'changelog.time.hours-ago': '時間前',
+    'changelog.time.days-ago': '日前',
   },
   ko: {
     // Meta

@@ -759,7 +759,704 @@ export const mapUI = {
       'From junior high classmates to Olympic gold: "The Lin-Yang Pair" defeated China in straight sets within 34 minutes, writing the first Olympic gold in Taiwan badminton history',
   },
   ja: {
-    // Japanese — uses English as base, core strings will be translated
+    // Meta
+    'map.meta.title': '台湾マップ',
+    'map.meta.description': 'マップ視点でTaiwan.mdのコンテンツを探索する',
+
+    // Hero Section
+    'map.hero.kicker': 'Map View',
+    'map.hero.title': '台湾マップ',
+    'map.hero.subtitle':
+      'マップ視点で台湾の文化・グルメ・自然・歴史スポットを探索しよう。',
+
+    // Controls - Region Filter
+    'map.controls.region.title': 'エリア絞り込み',
+    'map.controls.region.all': 'すべて',
+    'map.controls.region.north': '北部',
+    'map.controls.region.central': '中部',
+    'map.controls.region.south': '南部',
+    'map.controls.region.east': '東部',
+    'map.controls.region.islands': '離島',
+
+    // Controls - Category Filter
+    'map.controls.category.title': 'カテゴリ絞り込み',
+    'map.controls.category.all': 'すべて',
+    'map.controls.category.food': '🍜 グルメ',
+    'map.controls.category.history': '📜 歴史',
+    'map.controls.category.nature': '🌿 自然',
+    'map.controls.category.culture': '🎭 文化',
+    'map.controls.category.technology': '💻 テクノロジー',
+    'map.controls.category.economy': '📈 経済',
+    'map.controls.category.lifestyle': '🏮 ライフスタイル',
+    'map.controls.category.art': '🎨 アート',
+    'map.controls.category.geography': '🗺️ 地理',
+
+    // Route Section
+    'map.route.title': '🗺️ キュレーションルート',
+    'map.route.normal-mode': '通常モード',
+
+    // Sidebar - Default
+    'map.sidebar.default.title': '📍 台湾の記事を探索',
+    'map.sidebar.default.hint':
+      'マップ上の県市やマーカーをクリックして記事を探索しよう',
+
+    // Sidebar - County
+    'map.sidebar.county.clear': '✕ 選択解除',
+    'map.sidebar.county.articles-count': '件の記事',
+    'map.sidebar.county.no-articles': 'このエリアにはまだ記事がありません',
+
+    // Sidebar - Article
+    'map.sidebar.article.back': '← 戻る',
+    'map.sidebar.article.read-more': '全文を読む →',
+
+    // Zoom Controls
+    'map.zoom.in': '＋',
+    'map.zoom.out': '－',
+    'map.zoom.reset': '⌂',
+
+    // Tooltips
+    'map.tooltip.county.articles': '件の関連記事',
+    'map.tooltip.county.click': 'クリックしてこのエリアを絞り込む',
+    'map.tooltip.marker.reading-time': '分で読める',
+
+    // Panel
+    'map.panel.title': '台湾ナレッジマップ',
+    'map.panel.stat.points': 'ナレッジポイント',
+    'map.panel.stat.categories': 'カテゴリ',
+    'map.panel.category-distribution': 'カテゴリ分布',
+    'map.panel.link.graph': '🕸️ ナレッジグラフ',
+    'map.panel.link.home': '🏠 カテゴリ一覧',
+
+    // Category Names (for JS usage)
+    'map.category.history': '📜 歴史',
+    'map.category.geography': '🗺️ 地理',
+    'map.category.culture': '🎭 文化',
+    'map.category.food': '🍜 グルメ',
+    'map.category.art': '🎨 アート',
+    'map.category.music': '🎵 音楽',
+    'map.category.technology': '💻 テクノロジー',
+    'map.category.nature': '🌿 自然',
+    'map.category.people': '👥 人物',
+    'map.category.society': '⚖️ 社会',
+    'map.category.economy': '📈 経済',
+    'map.category.lifestyle': '🏮 ライフスタイル',
+
+    // Additional UI text
+    'map.sidebar.more-articles': '⋯ほか',
+    'map.sidebar.more-articles-suffix': '件',
+
+    // Routes
+    'map.routes.nightMarkets.name': '🍜 夜市めぐり',
+    'map.routes.nightMarkets.description':
+      '北から南まで、台湾を代表する夜市文化',
+    'map.routes.nationalParks.name': '🏔️ 国立公園めぐり',
+    'map.routes.nationalParks.description':
+      '標高3,952mの高山から熱帯サンゴ礁まで、台湾の自然の奇跡',
+    'map.routes.historyTrail.name': '📜 歴史の足跡',
+    'map.routes.historyTrail.description':
+      'オランダ植民地時代から民主化まで、台湾400年を歩く',
+    'map.routes.oldStreets.name': '🏮 老街散策',
+    'map.routes.oldStreets.description':
+      '百年の街並みに刻まれた台湾の記憶、建築が語る歴史',
+
+    // Night Markets Stops
+    'map.stops.shilinNightMarket.name': '士林夜市',
+    'map.stops.shilinNightMarket.note':
+      '台湾最大の観光夜市、大餅包小餅の発祥地',
+    'map.stops.raoheNightMarket.name': '饒河夜市',
+    'map.stops.raoheNightMarket.note':
+      '胡椒餅の行列スポット、台北っ子に愛される地元の夜市',
+    'map.stops.ningxiaNightMarket.name': '寧夏夜市',
+    'map.stops.ningxiaNightMarket.note':
+      '屋台密度ナンバーワン、ミシュラン推薦の庶民グルメストリート',
+    'map.stops.fengjiaNightMarket.name': '逢甲夜市',
+    'map.stops.fengjiaNightMarket.note':
+      'クリエイティブスナックの実験室、台湾夜市イノベーションの最前線',
+    'map.stops.huayuanNightMarket.name': '花園夜市',
+    'map.stops.huayuanNightMarket.note':
+      '台南最大の夜市、週3日限定のカーニバル',
+    'map.stops.liuheNightMarket.name': '六合夜市',
+    'map.stops.liuheNightMarket.note': '高雄のランドマーク夜市、海鮮が主役',
+
+    // National Parks Stops
+    'map.stops.yangmingshanNationalPark.name': '陽明山国立公園',
+    'map.stops.yangmingshanNationalPark.note':
+      '台北の裏庭、火山地形と温泉パラダイス',
+    'map.stops.tarokoNationalPark.name': '太魯閣国立公園',
+    'map.stops.tarokoNationalPark.note': '大理石の峡谷、世界クラスの地質奇観',
+    'map.stops.yushanNationalPark.name': '玉山国立公園',
+    'map.stops.yushanNationalPark.note':
+      '北東アジア最高峰（3,952m）、台湾の屋根',
+    'map.stops.alishanScenicArea.name': '阿里山国家風景区',
+    'map.stops.alishanScenicArea.note': '日の出の雲海、神木群と森林鉄道',
+    'map.stops.sunMoonLakeScenicArea.name': '日月潭国家風景区',
+    'map.stops.sunMoonLakeScenicArea.note':
+      '台湾最大の天然湖、サオ族の聖なる湖',
+    'map.stops.kentingNationalPark.name': '墾丁国立公園',
+    'map.stops.kentingNationalPark.note': '台湾最南端、熱帯サンゴ礁と恒春半島',
+
+    // History Trail Stops
+    'map.stops.anpingFort.name': '安平古堡',
+    'map.stops.anpingFort.note': '1624年にオランダ人が建造、台湾最古の城塞',
+    'map.stops.chikanTower.name': '赤崁楼',
+    'map.stops.chikanTower.note':
+      'オランダのプロビンシア城から鄭成功の統治の象徴へ',
+    'map.stops.lukang.name': '鹿港',
+    'map.stops.lukang.note': '清代台湾第二の都市、「一府二鹿三艋舺」',
+    'map.stops.presidentialOffice.name': '総統府（旧台湾総督府）',
+    'map.stops.presidentialOffice.note':
+      '1919年竣工、日本統治時代の最高権力の中枢',
+    'map.stops.chiangKaiShekMemorialHall.name': '中正紀念堂',
+    'map.stops.chiangKaiShekMemorialHall.note':
+      '権威主義の象徴と移行期正義をめぐる議論の焦点',
+    'map.stops.legislativeYuan.name': '立法院（ひまわり学生運動）',
+    'map.stops.legislativeYuan.note':
+      '2014年ひまわり学生運動の現場、台湾民主主義のマイルストーン',
+
+    // Old Streets Stops
+    'map.stops.dihuaStreet.name': '迪化街',
+    'map.stops.dihuaStreet.note': '大稻埕の心臓部、乾物と年越し準備の街',
+    'map.stops.jiufenOldStreet.name': '九份老街',
+    'map.stops.jiufenOldStreet.note':
+      '鉱業の黄金時代と「千と千尋の神隠し」のインスピレーション',
+    'map.stops.lukangOldStreet.name': '鹿港老街',
+    'map.stops.lukangOldStreet.note':
+      '赤レンガの伝統家屋と伝統工芸の生きた博物館',
+    'map.stops.anpingOldStreet.name': '安平老街',
+    'map.stops.anpingOldStreet.note': '台湾第一の通り、400年の歴史が積み重なる',
+    'map.stops.qishanOldStreet.name': '旗山老街',
+    'map.stops.qishanOldStreet.note': 'バナナ王国のバロック建築群',
+    'map.stops.tamsuiOldStreet.name': '淡水老街',
+    'map.stops.tamsuiOldStreet.note': '夕焼け、阿給、淡水河河口の歴史情緒',
+
+    // Cities
+    'map.city.taipei': '台北',
+    'map.city.newTaipei': '新北',
+    'map.city.keelung': '基隆',
+    'map.city.taoyuan': '桃園',
+    'map.city.hsinchu': '新竹',
+    'map.city.miaoli': '苗栗',
+    'map.city.taichung': '台中',
+    'map.city.changhua': '彰化',
+    'map.city.nantou': '南投',
+    'map.city.chiayi': '嘉義',
+    'map.city.tainan': '台南',
+    'map.city.kaohsiung': '高雄',
+    'map.city.pingtung': '屏東',
+    'map.city.yilan': '宜蘭',
+    'map.city.hualien': '花蓮',
+    'map.city.taitung': '台東',
+    'map.city.penghu': '澎湖',
+    'map.city.kinmen': '金門',
+
+    // Markers
+    'map.markers.founderCheYuWu.title': '創設者 — 呉哲宇 Che-Yu Wu',
+    'map.markers.founderCheYuWu.desc':
+      'コードから詩へ：台湾人アーティストの国際的ブレイクスルーへの道',
+    'map.markers.taiwanIndigenousContemporaryArt.title':
+      '台湾原住民族コンテンポラリーアート',
+    'map.markers.taiwanIndigenousContemporaryArt.desc':
+      '伝統工芸から現代創作まで、台湾原住民族のアーティストが世界の舞台で発信し、原住民族アイデンティティと現代アートの対話を再定義する姿を探る',
+    'map.markers.taiwanExperimentalNewMediaArt.title':
+      '台湾実験・ニューメディアアート',
+    'map.markers.taiwanExperimentalNewMediaArt.desc':
+      'ビデオアートからVRインタラクションまで、台湾ニューメディアアートの革新的発展とテクノロジーアートのエコシステムを探る',
+    'map.markers.taiwanArchitecture.title': '台湾建築',
+    'map.markers.taiwanArchitecture.desc':
+      '石板家屋から超高層ビルへ：島の建築タイムトラベル',
+    'map.markers.taiwanNewMediaArt.title': '台湾ニューメディアアート',
+    'map.markers.taiwanNewMediaArt.desc': '台湾の文化と物語を探る',
+    'map.markers.taiwanWatercolorCenturyEvolution.title':
+      '台湾水彩画の百年変遷',
+    'map.markers.taiwanWatercolorCenturyEvolution.desc':
+      '日本統治時代の石川欽一郎の啓蒙から現代の簡忠威の国際的名声まで、台湾水彩画は百年をかけてアジア屈指の水彩創作拠点へと成長した',
+    'map.markers.taiwanModernPoetry.title': '台湾現代詩',
+    'map.markers.taiwanModernPoetry.desc':
+      '三つの書斎から生まれたモダニズム実験が、最も土着的な詩の革命を生んだ経緯',
+    'map.markers.taiwanContemporarySculpture.title': '台湾現代彫刻の発展',
+    'map.markers.taiwanContemporarySculpture.desc':
+      '楊英風、朱銘から新世代まで、台湾彫刻芸術の変遷と創作精神を探る',
+    'map.markers.taiwanCuratorsArtCulture.title':
+      '台湾キュレーターと芸術文化の構築',
+    'map.markers.taiwanCuratorsArtCulture.desc':
+      '独立キュレーションから美術館体制まで、台湾のキュレーターが現代アートの文化的言説と国際対話をいかに構築してきたか',
+    'map.markers.newMediaArt.title': 'ニューメディアアート',
+    'map.markers.newMediaArt.desc':
+      '台湾デジタルアートのフロンティア探索、実験室から国際舞台へのテクノロジーと人文の融合',
+    'map.markers.contemporaryTaiwanLiterature.title': '現代台湾文学',
+    'map.markers.contemporaryTaiwanLiterature.desc': '台湾の文化と物語を探る',
+    'map.markers.taiwanContemporaryArt.title': '台湾コンテンポラリーアート',
+    'map.markers.taiwanContemporaryArt.desc':
+      '台北市立美術館からヴェネツィア・ビエンナーレ台湾館まで、台湾現代アートの国際的位置づけ',
+    'map.markers.kinmenGuesthouseMuseum.title': '金馬賓館当代美術館',
+    'map.markers.kinmenGuesthouseMuseum.desc':
+      '別離と再会を見届けた冷戦時代の軍事中継地が、20年の眠りを経て父娘に目覚めさせられ、「ロンリープラネット」推薦の高雄随一の美術館に',
+    'map.markers.renjianMagazine.title': '人間雑誌',
+    'map.markers.renjianMagazine.desc':
+      '47号、4年間、写真と文章で起こした静かな革命——台湾ルポルタージュ文学の原点',
+    'map.markers.taiwanIndigenousCulture.title': '台湾原住民族文化',
+    'map.markers.taiwanIndigenousCulture.desc':
+      '16部族の多様な伝統から現代の芸術復興まで、台湾原住民族文化の奥深さと現代的変容を探る',
+    'map.markers.taiwan16IndigenousTribes.title':
+      '台湾原住民族16部族文化マップ',
+    'map.markers.taiwan16IndigenousTribes.desc':
+      '台湾16の原住民族の分布エリア・言語体系・重要祭典・現代創作の展開を探り、台湾原住民族の多彩な文化を知る',
+    'map.markers.taiwanNightMarketCulture.title':
+      '台湾夜市文化とストリートフード',
+    'map.markers.taiwanNightMarketCulture.desc':
+      '台湾夜市文化の成り立ちと独自の魅力、代表的屋台グルメの歴史と文化的意義を深掘りする',
+    'map.markers.taiwanSensibilityKoreanPerspective.title':
+      '台湾センシビリティ：韓国人の目に映る台湾美学',
+    'map.markers.taiwanSensibilityKoreanPerspective.desc':
+      'K-popのMVからソウル国際ブックフェアまで、「대만감성（台湾感性）」が台湾の日常風景をアジアで最も魅力的な美学シンボルに変えた',
+    'map.markers.taiwanCulturalCreativeParks.title':
+      '台湾文化クリエイティブパークの発展',
+    'map.markers.taiwanCulturalCreativeParks.desc':
+      '古い建物の再生からクリエイティブ集積地まで、台湾文化クリエイティブパークの発展の軌跡と革新モデル',
+    'map.markers.taiwanOldStreetCulture.title': '台湾老街文化と商業街区',
+    'map.markers.taiwanOldStreetCulture.desc':
+      '清朝の港町の繁栄から日本統治時代のバロック洋館まで、台湾の老街はレンガと瓦で書かれた庶民の歴史',
+    'map.markers.taiwanTeaCeremonyLifeAesthetics.title': '台湾茶道と生活美学',
+    'map.markers.taiwanTeaCeremonyLifeAesthetics.desc':
+      '功夫茶から茶席美学まで、台湾が東洋茶文化と地域の生活美学を融合させた革新を探る',
+    'map.markers.taiwanStreetArtGraffiti.title':
+      '台湾ストリートアートとグラフィティ文化',
+    'map.markers.taiwanStreetArtGraffiti.desc':
+      'アンダーグラウンドのグラフィティから合法壁画まで、都市の壁が台湾アーティストの創作ステージになるまで',
+    'map.markers.taiwanIncenseMakingCulture.title': '台湾製香文化とその故郷',
+    'map.markers.taiwanIncenseMakingCulture.desc':
+      '嘉義・雲霄地区の百年の線香づくりから台湾各地に広がる製香産業まで——信仰・手仕事・こだわりにまつわる古き営み',
+    'map.markers.taiwanHomophoneTaboos.title':
+      '台湾の同音忌避文化：なぜ「四」で社会は階を飛ばすのか？',
+    'map.markers.taiwanHomophoneTaboos.desc':
+      '病院に4階がないことからナンバープレート「8888」の高額落札まで、台湾人の同音への敏感さは世界屈指',
+    'map.markers.hakkaCultureLanguage.title': '客家文化と言語',
+    'map.markers.hakkaCultureLanguage.desc':
+      '「硬頸精神」と天穿日：台湾客家人の文化継承と現代の復興',
+    'map.markers.ethnicGroupsTaiwan.title':
+      'エスニックグループ（閩南・客家・原住民族・外省人・新住民）',
+    'map.markers.ethnicGroupsTaiwan.desc':
+      '台湾の民族的多様性は歴史的発展の産物であると同時に、現代台湾社会を理解する鍵でもある。この多元的共存は台湾文化の創造力の源泉であり、民主政治発展の重要な基盤でもある。各民族の文化的特色を尊重しながら共通の台湾アイデンティティを構築することは、台湾社会が向き合い続ける重要な課題である。',
+    'map.markers.chinaSteel.title': '中国鋼鉄：鉄頭部長と十大建設の鉄鋼伝説',
+    'map.markers.chinaSteel.desc':
+      '趙耀東が欧米交渉で技術を勝ち取り、高雄・小港から最初の白煙が上がるまで。中国鋼鉄は50年かけて台湾重工業の背骨を築き、十大建設の最も輝かしい成果となった',
+    'map.markers.taiwanCement.title':
+      '台湾セメント：台湾初の上場企業のグリーン転換伝説',
+    'map.markers.taiwanCement.desc':
+      '1962年に台湾証券取引所がこの会社のために設立、銘柄コード1101は台湾株の起源を象徴する。辜家三代76年の経営を経て、台湾セメントはセメント窯で台湾の建設奇跡を見届け、今やカーボンニュートラル時代に向けてグリーン企業へ転身',
+    'map.markers.tsmc.title': '台湾企業：TSMC',
+    'map.markers.tsmc.desc':
+      '世界半導体ファウンドリのリーダー、人類デジタル文明の鍵を握る',
+    'map.markers.chimeiCorporation.title':
+      '奇美実業：許文龍のアクリル王国と博物館の夢',
+    'map.markers.chimeiCorporation.desc':
+      '1960年台南・仁徳の小さな工場からスタートし、許文龍は生涯をかけてアジア最大のABS素材王国を築き、奇美博物館を創設して社会に還元。台湾企業が商業的成功と人文的配慮を両立できることを証明した',
+    'map.markers.acer.title': 'Acerグループ — PC産業変革のパイオニア',
+    'map.markers.acer.desc':
+      '台湾・桃園発のPC先駆者、「マルチブランド・マルチチャネル」モデルで世界PC産業変革のエンジンに',
+    'map.markers.giantBicycles.title': '台湾企業：ジャイアント',
+    'map.markers.giantBicycles.desc':
+      '米国大手に切り捨てられたOEM下請けから、世界の自転車技術標準を決める隠れた帝国へ',
+    'map.markers.quantaComputer.title': '台湾企業：広達電脳',
+    'map.markers.quantaComputer.desc':
+      '工場火災からノートPC世界一へ、林百里はいかにしてAI時代の新帝国を築いたか？',
+    'map.markers.aseGroup.title': '台湾企業：日月光半導体',
+    'map.markers.aseGroup.desc':
+      '世界最大の半導体パッケージング・テスト企業——建設会社の社長がなぜ半導体に転身したのか？',
+    'map.markers.esunFinancialHolding.title':
+      '台湾企業：玉山フィナンシャルホールディングス',
+    'map.markers.esunFinancialHolding.desc':
+      'クレジットカード専門銀行からデジタル金融のパイオニアへ、43歳史上最年少の金融持株会社CEOのブレイクスルー物語',
+    'map.markers.changChunPetrochemical.title': '台湾企業：長春石油化学',
+    'map.markers.changChunPetrochemical.desc':
+      '1949年台南の小さな工場からグローバル化学大手へ、「上場せず借金もしない」隠れたチャンピオンの物語',
+    'map.markers.formosaPlasticsGroup.title': '台湾企業：長栄海運',
+    'map.markers.formosaPlasticsGroup.desc':
+      '中古船1隻から世界的海運帝国へ、張栄発のブルーオーシャン伝説',
+    'map.markers.taipeiFubon.title': '夜市経済学：ブランドなき商業の奇跡',
+    'map.markers.taipeiFubon.desc':
+      '台湾の夜市がブランドも装飾も固定店舗もなしに、年間約4,000億台湾ドルの経済奇跡を生み出す仕組みを探る',
+    'map.markers.taiwan7Eleven.title': '台湾コーヒー産業',
+    'map.markers.taiwan7Eleven.desc':
+      '日本統治時代の栽培起源からSimple Kaffa世界チャンピオンまで、台湾コーヒーの百年進化史',
+    'map.markers.taiwanHighSpeedRail.title': '台湾ご当地グルメマップ',
+    'map.markers.taiwanHighSpeedRail.desc':
+      '基隆廟口の鼎辺糊から屏東萬巒の豚足、新竹の貢丸から台東の釈迦まで、各都市にはそれぞれの味覚DNAがある。地元の人の足跡を辿り、台湾22県市で最も代表的なご当地グルメを味わい、島の最も真実な庶民文化に触れる。',
+    'map.markers.taiwanSemiconductorIndustry.title':
+      '台湾の家庭料理：消えゆく味の記憶',
+    'map.markers.taiwanSemiconductorIndustry.desc':
+      '嘉義の薄荷鶏から菜尾湯まで、おばあちゃんの得意料理には家族の記憶が宿るが、時代の流れの中で少しずつ失われつつある',
+    'map.markers.taiwanBankingSystem.title': '台湾新住民の食の融合',
+    'map.markers.taiwanBankingSystem.desc':
+      'タイの酸っぱ辛いが台湾の甘じょっぱいと出会い、ベトナムのフォーが台湾の煮込み料理と邂逅し、インドネシアのスパイスが地元食材を抱きしめる——国境を超えた味覚革命が台湾で静かに進行中。新住民が持ち込んだのは故郷の料理だけでなく、台湾食文化を豊かにする新たな可能性だ。',
+    'map.markers.taiwanSmes.title': '台湾フルーツ王国',
+    'map.markers.taiwanSmes.desc':
+      'マンゴーやライチから釈迦やレンブまで、熱帯フルーツの多様性と農業技術のブレイクスルーが織りなす甘い伝説',
+    'map.markers.youbikePublicBikeSystem.title': '台湾シーフード文化',
+    'map.markers.youbikePublicBikeSystem.desc':
+      '漁港からの新鮮直送、シーフードレストラン文化、蚵仔煎をはじめとする海の幸が、四方を海に囲まれた台湾の島嶼としての特色と豊かな海鮮食文化を体現',
+    'map.markers.taiwanFoodBeverageIndustry.title':
+      '台湾ミシュランと高級レストラン',
+    'map.markers.taiwanFoodBeverageIndustry.desc':
+      '2018年、ミシュランガイドの赤い表紙に初めて「TAIPEI」の文字が刻まれ、台湾の飲食業が国際的評価体系に正式参入。屋台から星付きレストランまで、庶民グルメから精緻料理まで、台湾の食文化は国際舞台で伝統と革新が融合した魅力を放つ。',
+    'map.markers.taiwanAgriculturalReform.title': '夜市文化',
+    'map.markers.taiwanAgriculturalReform.desc':
+      '164の登録夜市、台南は平均3.8万人に1つの夜市——廟の広場から国際的観光スポットへ',
+    'map.markers.taiwanTeaIndustry.title': '客家の食文化',
+    'map.markers.taiwanTeaIndustry.desc':
+      '客家の豊かで多彩な食文化、擂茶の芳醇な香りから野薑花粽の山の風情まで、客家民族の倹約と地産地消の生活の知恵を体現',
+    'map.markers.taiwanFishingIndustry.title': '牛肉麺',
+    'map.markers.taiwanFishingIndustry.desc':
+      '外省人移民の郷愁から台湾の国民食へ、牛肉麺の文化的融合と世界への広がり',
+    'map.markers.taiwanFruitIndustry.title': 'お茶文化',
+    'map.markers.taiwanFruitIndustry.desc':
+      '伝統的な茶芸から現代のタピオカミルクティーまで、台湾独自の茶葉品種と飲茶文化の変遷',
+    'map.markers.taiwanRiceVarieties.title':
+      '揺れる島に、空を飛べるタワーを建てた',
+    'map.markers.taiwanRiceVarieties.desc':
+      '活断層からわずか200m、台湾人はあえて最も不安定な土地に世界一高いビルを建てた——そしてある男が91分間で素手で登りきった。',
+    'map.markers.nightMarketCulture.title':
+      '台湾の五大地形と地理構造：山脈から平原までの島嶼景観',
+    'map.markers.nightMarketCulture.desc':
+      '台湾の独特な地理構造を探る——中央山脈から西部平原まで、この島の地形の多様性を知る',
+    'map.markers.bubbleTeaGlobalPhenomenon.title': '台湾交通ネットワーク',
+    'map.markers.bubbleTeaGlobalPhenomenon.desc':
+      '高速鉄道・MRT・高速道路・航空、台湾のモビリティを支える立体交通ネットワーク',
+    'map.markers.taiwanBeefNoodle.title': '台湾国家風景区システム',
+    'map.markers.taiwanBeefNoodle.desc':
+      '東北角から墾丁まで、台湾13カ所の国家風景区が豊かな自然と人文の景観を見せる',
+    'map.markers.taiwanHotPotCulture.title': '台湾島嶼の地理的特色と形成',
+    'map.markers.taiwanHotPotCulture.desc':
+      '台湾の独特な島嶼地理を探る——プレート運動から地形構造まで、フォルモサ島の自然の神秘を知る',
+    'map.markers.taiwanFineDining.title': '台湾のプレート運動と地震活動',
+    'map.markers.taiwanFineDining.desc':
+      'ユーラシアプレートとフィリピン海プレートの境界に位置する台湾の地質的特性と、頻発する地震活動の原因を探る',
+    'map.markers.taiwanStreetFood.title': '台湾のダムと水資源管理',
+    'map.markers.taiwanStreetFood.desc':
+      '水不足危機からダムの堆砂問題まで、台湾の水資源が直面する課題と南北の配分不均衡のジレンマ',
+    'map.markers.taiwanVegetarianCulture.title':
+      '台湾の河川システムと水文特性：急流・短流河川と季節変動の水文地理',
+    'map.markers.taiwanVegetarianCulture.desc':
+      '台湾の独特な河川システムを探る——濁水渓から高屏渓まで、島の地形がいかに台湾の水文特性を形づくるか',
+    'map.markers.taiwanCoffeeCulture.title': '台湾の海岸地形と海洋景観',
+    'map.markers.taiwanCoffeeCulture.desc':
+      '北部の岬湾海岸から東部の断層海岸まで、台湾の多彩な海岸地形がプレート運動の造形美を見せる',
+    'map.markers.taiwanSnackCulture.title': '台湾の温泉景観',
+    'map.markers.taiwanSnackCulture.desc':
+      '北投・知本・礁渓——温泉文化と地質科学が美しく交差する場所',
+    'map.markers.taiwanSeafoodCulture.title': '台湾の生物多様性ホットスポット',
+    'map.markers.taiwanSeafoodCulture.desc':
+      '3.6万km²の島に5.9万種の生物がひしめく、密度は世界平均の100倍',
+    'map.markers.taiwanPineappleCake.title': '台湾の農業景観と産業分布',
+    'map.markers.taiwanPineappleCake.desc':
+      '北から南への農業景観の変化が映す、「台湾の穀倉」から「精密農業」への転換の道',
+    'map.markers.taiwanPorkRibSoup.title': '台湾の都市発展と都市農村格差',
+    'map.markers.taiwanPorkRibSoup.desc':
+      '六都体制下の台湾における都市農村発展の不均衡、農業台湾から都市台湾への空間的転換',
+    'map.markers.taiwanOysterOmelette.title': '地形と地質',
+    'map.markers.taiwanOysterOmelette.desc':
+      '600万年の島に2億年の古い記憶が眠る——世界最年の造山帯と最も劇的なプレート衝突の奇跡',
+    'map.markers.taiwanBreakfastCulture.title': '都市の個性と地域文化',
+    'map.markers.taiwanBreakfastCulture.desc':
+      '台北の国際都市としての顔から台南の古都の風情まで、台湾の各都市がいかに独自のローカルアイデンティティを形成してきたか',
+    'map.markers.taiwanConvenienceStoreFood.title':
+      '離島と海洋文化：石滬密度世界一から飛魚季の生態法則まで',
+    'map.markers.taiwanConvenienceStoreFood.desc':
+      '世界に600基足らずの石滬のうち574基が澎湖にある。飛魚漁を専門とする島の民族が、タブーを最も精密な海洋資源管理システムに変えた',
+    'map.markers.dutchSpanishColonialPeriod.title':
+      '二二八事件と白色テロ：台湾権威主義体制下のトラウマと記憶',
+    'map.markers.dutchSpanishColonialPeriod.desc':
+      '1947年の二二八事件から38年に及ぶ戒厳体制まで、台湾は権威主義統治下で国家暴力を経験し、戒厳令解除後にようやく歴史のトラウマと向き合い、移行期正義を推進し始めた。',
+    'map.markers.zhengDynastyPeriod.title': '台湾海峡危機と両岸関係の発展',
+    'map.markers.zhengDynastyPeriod.desc':
+      '台湾海峡における三度の重大危機と70年以上に及ぶ両岸関係の歩みを振り返り、台湾海峡情勢の歴史的文脈と現代の課題を理解する',
+    'map.markers.qingDynastyTaiwanHistory.title': '台湾海洋貿易史',
+    'map.markers.qingDynastyTaiwanHistory.desc':
+      '大航海時代の台湾、国際貿易の中心地から海賊王国への興亡伝説',
+    'map.markers.japaneseColonialRule.title': '台湾眷村の歴史',
+    'map.markers.japaneseColonialRule.desc':
+      'ビルマの孤軍から竹垣の王国まで、120万人の大移動がいかに「家」を再定義したか',
+    'map.markers.februaryTwentyEightIncident.title': '台湾鉄道史',
+    'map.markers.februaryTwentyEightIncident.desc':
+      '清朝の劉銘伝から日本統治時代の縦貫線、そして高速鉄道まで、鉄道がいかに台湾の都市発展と文化的記憶を形づくったか',
+    'map.markers.martialLawPeriod.title': '国民政府の台湾移転と戦後復興',
+    'map.markers.martialLawPeriod.desc':
+      '1949年の国民政府台湾移転の歴史的背景・経緯・影響、そして戦後台湾の政治・経済・社会の再建を探る',
+    'map.markers.democratization.title': '日本統治時代',
+    'map.markers.democratization.desc':
+      '1895〜1945年、日本が台湾を50年間統治。全面的な近代化と制度的管理をもたらす一方、同化政策を実施し、台湾社会の発展に深い影響を与えた',
+    'map.markers.taiwanIndependenceMovement.title': '清朝統治時代',
+    'map.markers.taiwanIndependenceMovement.desc':
+      '1683〜1895年、清朝が台湾を約212年間統治。消極的統治から積極的建設へと変遷し、現代台湾の行政区画と漢民族社会の基盤を築いた',
+    'map.markers.taiwanChinaRelations.title': 'オランダ・スペイン・鄭氏時代',
+    'map.markers.taiwanChinaRelations.desc':
+      '台湾史上初の体系的な植民地統治。オランダ人によるゼーランディア城の建設から鄭成功の台湾開拓まで、漢民族移住と政治制度の基盤を築いた',
+    'map.markers.taiwanUsRelations.title': 'コンビニ文化',
+    'map.markers.taiwanUsRelations.desc':
+      '世界一の密度を誇る台湾のコンビニが、小売店から一国の生活インフラへと変貌した過程',
+    'map.markers.taiwanInternationalStatus.title': '台湾交通システム',
+    'map.markers.taiwanInternationalStatus.desc':
+      '高速鉄道が90分で南北を貫通、MRTが都市の動脈を密に織り、バイクが路地裏を駆け抜ける',
+    'map.markers.taiwanHistoricalFigures.title': '台湾コンビニ文化',
+    'map.markers.taiwanHistoricalFigures.desc':
+      '密度世界一のコンビニ王国、セブン-イレブンとファミリーマートのローカライズ革新が現代ライフスタイルを再定義',
+    'map.markers.taiwanPoliticalFigures.title': '台湾の公園と日常のレジャー',
+    'map.markers.taiwanPoliticalFigures.desc':
+      '早朝の太極拳から夜の散歩まで——世代を超えた社交空間としての台湾の公園を文化的に観察する',
+    'map.markers.kuomintangHistory.title': '台湾コーヒー文化',
+    'map.markers.kuomintangHistory.desc':
+      '独立系カフェの密度が世界トップ3、阿里山産豆からカフェでのリモートワークまで——島のコーヒー学',
+    'map.markers.democraticProgressivePartyHistory.title':
+      'ごみ収集車を追いかける島：台湾のごみ危機からリサイクル奇跡への道',
+    'map.markers.democraticProgressivePartyHistory.desc':
+      '1990年代に400カ所近い満杯の埋立地を抱え、国際メディアに「ゴミ島」と呼ばれた場所が、ベートーヴェンの音楽で2,300万人を毎日ごみ収集車に走らせ、30年後にはリサイクル率で多くの欧州諸国を上回った',
+    'map.markers.taipeiHistory.title':
+      '台湾MRT発展史：血と資金で書かれた都市進化論',
+    'map.markers.taipeiHistory.desc':
+      '209トンの鋼梁が空から落下し4人の命を奪い、16.4億台湾ドルの賠償、台北MRTの本業は今なお赤字——台湾のMRTシステムの裏にある本当のコスト',
+    'map.markers.taiwanPrehistoricCulture.title':
+      '台湾教育制度：共通入試の地獄から多元選抜の迷宮までの島の実験',
+    'map.markers.taiwanPrehistoricCulture.desc':
+      '台湾は30年かけて共通入試制度を壊そうとしたが、最新の分科測験で予備校の入塾が倍増した。受験圧力と教育の公平性の間で、この島はいかに社会実験を繰り返してきたか？',
+    'map.markers.taiwanIndigenousHistory.title': '台湾バイク文化',
+    'map.markers.taiwanIndigenousHistory.desc':
+      'バイク密度が世界トップクラスの島嶼王国、通勤手段からライフスタイルへの文化的変遷',
+    'map.markers.taiwanMilitaryHistory.title': '台湾の騎楼文化と街並み',
+    'map.markers.taiwanMilitaryHistory.desc':
+      '風雨をしのぐ生活の回廊、バイク・屋台・人情味が織りなす台湾の街頭の記憶',
+    'map.markers.taiwanWomenHistory.title': 'ナイトライフとKTV文化',
+    'map.markers.taiwanWomenHistory.desc':
+      'カラオケの個室から深夜食堂まで、24時間眠らない島のナイトライフ',
+    'map.markers.taiwanEducationHistory.title':
+      '宗教と民間信仰：恐怖管理から信仰帝国へ',
+    'map.markers.taiwanEducationHistory.desc':
+      '台湾は世界最高の廟宇密度を誇りながら、宗教の自由度でも世界一——この矛盾の裏に17世紀の軍事移民の生存知恵が隠されている',
+    'map.markers.taiwanReligiousHistory.title': '温泉文化',
+    'map.markers.taiwanReligiousHistory.desc':
+      '軍事療養施設から世界三大泥温泉の一つへ：台湾が偶然にして温泉王国になった物語',
+    'map.markers.taiwanMediaHistory.title': '台湾原住民族の音楽伝統',
+    'map.markers.taiwanMediaHistory.desc':
+      '台湾16の原住民族の豊かな音楽文化を探る——古調の詠唱から伝統楽器まで、数千年の文化継承を見届ける',
+    'map.markers.badmintonChampions.title':
+      '台湾楽器製造業：后里のサクソフォンから世界の音楽工場へ',
+    'map.markers.badmintonChampions.desc':
+      '台湾楽器製造業の発展を探る——后里サクソフォンの世界的地位からギターOEM王国、音楽オルゴール製造の精密工芸まで、台湾がいかにOEMから自社ブランドへ進化したか',
+    'map.markers.baseballCulture.title': '台湾フォークソング運動',
+    'map.markers.baseballCulture.desc':
+      '「自分たちの歌を歌おう」から華語音楽シーン全体を変えるまで——1970年代、若者たちが起こした文化革命',
+    'map.markers.taiwanBasketball.title':
+      '台湾インディーミュージックシーンの変遷',
+    'map.markers.taiwanBasketball.desc':
+      'アンダーグラウンドバンドからインディーミュージックへ、台湾オルタナティブ音楽30年の発展軌跡と文化的意義を探る',
+    'map.markers.marathonRunning.title':
+      '台湾エレクトロニックミュージックとパーティー文化：アンダーグラウンドレイブから国際舞台へ',
+    'map.markers.marathonRunning.desc':
+      '1990年代のレイブパーティー文化からRoad to Ultraまで、台湾の電子音楽がアンダーグラウンドからメインストリームへ躍進し、国際的DJや独立系レーベルを育んだ軌跡',
+    'map.markers.taiwanEsports.title':
+      '台湾音楽フェス文化：春天吶喊から百花繚乱の若者文化へ',
+    'map.markers.taiwanEsports.desc':
+      '春天吶喊、海洋音楽祭から大港開唱までの台湾音楽フェスの発展を探り、それがインディーバンドのインキュベーターであり若者文化の中核的表現プラットフォームになった経緯を知る',
+    'map.markers.taiwanOlympics.title': '現代台湾インディーミュージックシーン',
+    'map.markers.taiwanOlympics.desc':
+      'アンダーグラウンドの演奏空間から産業マトリクスまで、現代台湾インディーミュージックのエコシステムの発展と文化的影響力を分析する',
+    'map.markers.taipeiCycle.title': '台湾原住民族の生態知恵と環境保全',
+    'map.markers.taipeiCycle.desc':
+      '台湾原住民族が数千年にわたって蓄積した伝統的生態知識と、現代の環境保全における重要な価値と実践方法を探る',
+    'map.markers.taiwanBetelNutCulture.title': '台湾の山岳と登山文化',
+    'map.markers.taiwanBetelNutCulture.desc':
+      '268座の3,000m超の山々と百岳文化：台湾登山スポーツの発展と山岳保全の課題',
+    'map.markers.taiwanElections.title': '台湾の森林生態系',
+    'map.markers.taiwanElections.desc':
+      '亜熱帯の海岸から高山針葉樹林まで、台湾の3,000m級の垂直落差が生む豊かな森林世界',
+    'map.markers.taiwanLgbtCulture.title': '台湾の気候変動とネットゼロ転換',
+    'map.markers.taiwanLgbtCulture.desc':
+      '台湾が直面する気候変動の影響——極端気象の頻発から2050年ネットゼロ排出目標の政策立案まで、エネルギー転換の機会と課題を探る',
+    'map.markers.taiwanMotorcycleCulture.title':
+      '台湾の海洋保全：30年かけて築いた体制は、なぜサンゴの白化を救えないのか？',
+    'map.markers.taiwanMotorcycleCulture.desc':
+      '2020年、台湾の海域で史上最大規模のサンゴ白化が発生。小琉球から東沙環礁まで、保護区内のサンゴさえ高温で死滅した。これは何を暴露しているのか？',
+    'map.markers.taipeiMrt.title': '台湾の海洋汚染対策と保全の課題',
+    'map.markers.taipeiMrt.desc':
+      '海洋廃棄物・乱獲・気候変動に直面し、台湾の海洋保全の現状・課題・革新的ソリューションを探る',
+    'map.markers.kaohsiungMrt.title': '台湾の海洋生態',
+    'map.markers.kaohsiungMrt.desc':
+      'タオ族がタブーで守ってきた海域が高温と水中騒音で白化——数千年の生態知恵が現代の海洋危機に遭遇する時',
+    'map.markers.taichungMrt.title': '台湾の海洋生態とサンゴ礁保全',
+    'map.markers.taichungMrt.desc':
+      '四方を海に囲まれた台湾は豊かな海洋生態を有する——サンゴ白化危機からクジラ・イルカ保全まで、海洋国立公園の保護成果と今後の課題を探る',
+    'map.markers.taiwanTrainSystem.title': '台湾の温泉と地熱',
+    'map.markers.taiwanTrainSystem.desc':
+      '30年前に失敗した地熱発電所から世界唯一の北投石まで：島が地底の火を癒しとクリーンエネルギーに変える',
+    'map.markers.taiwanBusSystem.title': '台湾のヤマネコ保全',
+    'map.markers.taiwanBusSystem.desc':
+      '全台湾で500匹にも満たない幻の猫——最後の在来ネコ科が絶滅の瀬戸際を歩む',
+    'map.markers.taiwanInnovationEcosystem.title': '台湾のセンザンコウ',
+    'map.markers.taiwanInnovationEcosystem.desc':
+      '世界で最も密猟されている哺乳類が、台湾に安全な棲家を見つけた',
+    'map.markers.taiwanMedicalSystem.title': '台湾の高山生態系と氷河期遺存種',
+    'map.markers.taiwanMedicalSystem.desc':
+      '台湾の3,000m以上の高山環境が持つ独特な生態系を探る——タイワンスギ・ニイタカシャクナゲから氷河期遺存種の貴重な生物多様性まで',
+    'map.markers.taiwanEducationSystem.title': '台湾ツキノワグマ',
+    'map.markers.taiwanEducationSystem.desc':
+      '胸の白いV字が彼のサイン——台湾の山林に残る最後の王者と、まだ終わっていない保全の闘い',
+    'map.markers.taiwanMusicIndustry.title': '国立公園',
+    'map.markers.taiwanMusicIndustry.desc':
+      '36,197km²に9つの国立公園が詰まった、密度世界一の保全の奇跡',
+    'map.markers.mandarinPopMusic.title':
+      '島の山と海の頂：台湾国立公園の生態と景観',
+    'map.markers.mandarinPopMusic.desc':
+      '台湾9つの国立公園の独特な生態系と保全価値を探る——亜熱帯海岸から高山雪線までの完全な景観',
+    'map.markers.taiwaneseIndieMusic.title': '固有種',
+    'map.markers.taiwaneseIndieMusic.desc':
+      '台湾の豊富な固有種が示す、島嶼生物地理学の進化の奇跡と保全の重要性',
+    'map.markers.taiwanRapHipHop.title': '生態多様性',
+    'map.markers.taiwanRapHipHop.desc':
+      '台湾の面積は地球の0.025%に過ぎないが、5万種以上の生物が生息し、森林被覆率60.71%は世界第33位',
+    'map.markers.taiwanElectronicMusic.title': '台湾のクジラとイルカ',
+    'map.markers.taiwanElectronicMusic.desc':
+      '世界の鯨類の3分の1が生息する海域——かつての捕鯨から現在のホエールウォッチングへ、台湾はいかにして海洋生態研究の拠点に転身したか？',
+    'map.markers.taiwanTraditionalMusic.title': '五月天（Mayday）',
+    'map.markers.taiwanTraditionalMusic.desc':
+      '師大附属高校から世界の舞台へ、華語ロックスピリットを定義し続ける永遠の少年たち',
+    'map.markers.taiwanFilmIndustry.title': '伍佰',
+    'map.markers.taiwanFilmIndustry.desc':
+      '台湾ロックの国宝、本土ロック音楽の代名詞。「ノルウェイの森」などの作品でロックの地位を確立',
+    'map.markers.newTaiwanCinema.title': '呉宝春',
+    'map.markers.newTaiwanCinema.desc':
+      '世界パンコンペティションのチャンピオン、ライチローズパンで世界を驚かせた。屏東の田舎から世界トップクラスのパン職人へ',
+    'map.markers.taiwanDocumentary.title': '呂秀蓮',
+    'map.markers.taiwanDocumentary.desc':
+      '反体制活動家から副総統へ：華語圏初の女性副総統の波乱万丈の人生',
+    'map.markers.taiwanAnimationIndustry.title': '幾米（ジミー・リャオ）',
+    'map.markers.taiwanAnimationIndustry.desc':
+      '絵本で世界を温める挿画詩人、台湾の絵本を国際舞台に押し上げた',
+    'map.markers.taiwanTelevisionIndustry.title': '戴資穎（タイ・ツーイン）',
+    'map.markers.taiwanTelevisionIndustry.desc':
+      '214週連続世界ランキング1位の記録保持者、高雄・前鎮からオリンピック銀メダルまでの台湾バドミントン女王',
+    'map.markers.taiwanOttPlatforms.title': '李昂',
+    'map.markers.taiwanOttPlatforms.desc':
+      '「殺夫」「迷園」の著者、台湾フェミニスト文学の先駆者',
+    'map.markers.taiwanPodcastIndustry.title': '李智凱',
+    'map.markers.taiwanPodcastIndustry.desc':
+      '「翻滚吧！男孩」の市場カイからオリンピック銀メダルへ、台湾のあん馬プリンスの16年の体操人生',
+    'map.markers.taiwanPublishing.title': '李遠哲（Yuan T. Lee）',
+    'map.markers.taiwanPublishing.desc':
+      '1986年ノーベル化学賞受賞者、交差分子線技術で化学動力学の新領域を開拓した台湾初のノーベル科学賞受賞者',
+    'map.markers.taiwanBookstoreCulture.title': '杜聡明',
+    'map.markers.taiwanBookstoreCulture.desc':
+      '台湾初の医学博士、台湾近代医学の父',
+    'map.markers.taiwanComicMangaIndustry.title': 'ジェレミー・リン',
+    'map.markers.taiwanComicMangaIndustry.desc':
+      'ハーバードの秀才からNBAチャンピオンへ、世界を席巻した「リンサニティ」を巻き起こした台湾系アメリカ人選手',
+    'map.markers.taiwanGameIndustry.title': '林義傑',
+    'map.markers.taiwanGameIndustry.desc':
+      '陸上部に拒まれた痩せっぽちの少年から、サハラ砂漠を徒歩で横断し歴史を刻んだ極地ランナーへ',
+    'map.markers.nationalPalaceMuseum.title': '林義雄',
+    'map.markers.nationalPalaceMuseum.desc':
+      '民主化運動の先駆者、林宅血事件の被害者、反原発第四運動のリーダー',
+    'map.markers.nationalParks.title': '楊徳昌（エドワード・ヤン）',
+    'map.markers.nationalParks.desc':
+      '台湾ニューシネマの中核人物、カンヌ最優秀監督賞、都市の疎外を詠む詩人',
+    'map.markers.taiwanGeography.title': '白先勇',
+    'map.markers.taiwanGeography.desc':
+      '「台北人」の著者、現代文学の巨匠にして崑曲復興の推進者',
+    'map.markers.taiwanClimate.title': '盧広仲（クラウド・ルー）',
+    'map.markers.taiwanClimate.desc':
+      '台湾のシンガーソングライター・俳優、金曲・金鐘・金馬の三冠達成者。親しみやすい庶民的キャラクターと独特の歌唱スタイルで知られる',
+    'map.markers.taiwanEcosystem.title': '荘智淵',
+    'map.markers.taiwanEcosystem.desc':
+      '卓球のゴッドファーザー、オリンピック4大会出場、孤独に鍛錬する孤高のヒーロー',
+    'map.markers.taiwanEndangeredSpecies.title': '蔡明亮（ツァイ・ミンリャン）',
+    'map.markers.taiwanEndangeredSpecies.desc':
+      'ヴェネツィア金獅子賞受賞者、マレーシア華人、スロー・シネマ美学の巨匠',
+    'map.markers.taiwanMarineEcology.title': '許文龍',
+    'map.markers.taiwanMarineEcology.desc':
+      '奇美グループ創設者。実業家・ヴァイオリニスト・芸術コレクターの三つの顔を持ち、奇美博物館を創建',
+    'map.markers.taiwanBirdwatching.title': '許芳宜',
+    'map.markers.taiwanBirdwatching.desc':
+      '宜蘭の少女からマーサ・グラハム・ダンスカンパニーのプリンシパルへ、そして台湾に戻り拉芳舞団を設立——身体で台湾の最も力強い物語を語る',
+    'map.markers.taiwanHotSprings.title':
+      '頼清徳：炭鉱夫の家庭から総統府へ——公衆衛生医師の道',
+    'map.markers.taiwanHotSprings.desc':
+      '台湾第16代総統、中華民国憲政史上初めて副総統から立候補し当選を果たした政治家',
+    'map.markers.taiwanIslands.title': '郭婞淳',
+    'map.markers.taiwanIslands.desc':
+      '台湾の重量挙げの女神、2021年東京オリンピック金メダリスト、59kg級で3つのオリンピック記録保持者',
+    'map.markers.taiwanMountains.title': '鄧雨賢',
+    'map.markers.taiwanMountains.desc':
+      '台湾歌謡の父。「望春風」「雨夜花」「月夜愁」などの台湾語クラシック歌謡を作曲',
+    'map.markers.taiwanRivers.title': '鍾理和',
+    'map.markers.taiwanRivers.desc':
+      '「原郷人」の著者、台湾文学の父、貧困と病に苦しみながらも創作を貫いた文学の闘士',
+    'map.markers.taiwanCoastline.title': '陳樹菊',
+    'map.markers.taiwanCoastline.desc':
+      '台東の野菜売りの平凡な善行が、一生をかけて本当の豊かさとは何かを教えてくれる',
+    'map.markers.taiwanForests.title': '陳水扁',
+    'map.markers.taiwanForests.desc':
+      '第10・11代総統、2000年初の政権交代の主役、台湾民主化の重要人物',
+    'map.markers.taiwanNaturalDisasters.title': '馬英九',
+    'map.markers.taiwanNaturalDisasters.desc':
+      '第12・13代総統、両岸関係の雪解けの推進者、ECFA締結者',
+    'map.markers.taiwanEarthquakes.title': '黄春明',
+    'map.markers.taiwanEarthquakes.desc':
+      '「兒子的大玩偶」「看海的日子」の著者、宜蘭郷土文学の代表的作家',
+    'map.markers.taiwanTyphoons.title':
+      '黄震南：蔵書界の竹野内豊と台湾文史の活水源',
+    'map.markers.taiwanTyphoons.desc':
+      '黄震南は台湾の文史研究者・蔵書家・作家。PTTのハンドルネームSizumaruで出発し、「活水来冊房」ページで台湾の歴史と古書文化を発信。「台湾史上最有梗的台灣史」などの著者で、蔵書界の竹野内豊と称される。嘉義六脚の書香の家庭から出発し、父子で南北分担して文献を収集、堅い台湾史を面白く親しみやすくすることに尽力している。',
+    'map.markers.sunflowerMovement.title': '動物園と展示動物の倫理',
+    'map.markers.sunflowerMovement.desc':
+      '鉄柵の中の象からXparkのクラゲの壁まで——台湾が人と展示動物の関係を再定義しつつある',
+    'map.markers.taiwanSocialMovements.title':
+      '台湾原住民族の土地正義と伝統領域',
+    'map.markers.taiwanSocialMovements.desc':
+      '台湾原住民族の土地権利の歴史的背景・法的発展・伝統領域画定の論争・原住民族移行期正義委員会の成果を探る',
+    'map.markers.taiwanMarriageEquality.title':
+      '台湾の婚姻平等とジェンダー平等',
+    'map.markers.taiwanMarriageEquality.desc':
+      '戒厳令下の獄中囚からアジア初の同性婚法へ——一人の男性の30年の闘いがいかにしてこの島の愛の定義を書き換えたか',
+    'map.markers.taiwanEnvironmentalJustice.title': '台湾の環境正義とNIMBY問題',
+    'map.markers.taiwanEnvironmentalJustice.desc':
+      '台湾における環境負荷の不均等な配分を探る——焼却施設・核廃棄物から石油化学産業のNIMBY紛争まで、環境的不平等と社会正義の問題を分析する',
+    'map.markers.taiwanCommunityRiCulture.title': '台湾のコミュニティと里文化',
+    'map.markers.taiwanCommunityRiCulture.desc':
+      '最も草の根的な民主実践からコミュニティづくりの社会イノベーションまで',
+    'map.markers.taiwanLongTermCare.title': '台湾の長期介護制度の発展',
+    'map.markers.taiwanLongTermCare.desc':
+      '世界で最も先進的な長期介護制度を擁しながら、同時に最大の目に見えない介護体系が存在する',
+    'map.markers.taiwanLaborMovement.title': '環境保護と持続可能な発展',
+    'map.markers.taiwanLaborMovement.desc':
+      '煙突の島からネットゼロ台湾へ：40年にわたる環境運動の覚醒の道',
+    'map.markers.taiwanHousingIssues.title': '社会住宅と居住の正義',
+    'map.markers.taiwanHousingIssues.desc':
+      '台湾がいかに社会住宅政策を通じて居住の正義を実現し、すべての人に安住の場を提供するか',
+    'map.markers.taiwanHealthcareSystem.title': 'サイエンスパークの発展',
+    'map.markers.taiwanHealthcareSystem.desc':
+      '新竹サイエンスパークから南部サイエンスパークまで、台湾のサイエンスパークの発展と3大パークの独自のポジショニングを探る',
+    'map.markers.taiwanImmigration.title': '半導体産業',
+    'map.markers.taiwanImmigration.desc':
+      '張忠謀の歴史的賭けから2ナノメートル時代まで：TSMCがいかに台湾を世界のテクノロジーライフラインにしたか',
+    'map.markers.taiwanReligiousDiversity.title': '台湾の海岸地形と海洋景観',
+    'map.markers.taiwanReligiousDiversity.desc':
+      '野柳の女王頭の首は年0.2cmずつ細くなり、いつか折れる——それこそが台湾の海岸地形の宿命と美しさ',
+    'map.markers.taiwanBuddhismTaoism.title': '台湾茶道と生活美学',
+    'map.markers.taiwanBuddhismTaoism.desc':
+      '1981年に紫藤廬が開いた夜、党外人士と文人が集って茶を嗜んだ——ここは単なる茶館ではなく、反対運動の秘密基地だった',
+    'map.markers.taiwanFolkReligion.title': '台湾の選挙と政党政治',
+    'map.markers.taiwanFolkReligion.desc':
+      '1950年の地方議員選挙から2000年の政権交代まで、台湾がいかに投票で民主化の奇跡を書き記したか',
+    'map.markers.taiwanChristianity.title': '台湾の都市発展と都市農村格差',
+    'map.markers.taiwanChristianity.desc':
+      '70年で農業の島から都市の島へ。六都に人口の7割が集中する光と影：繁栄する台中と衰退する雲林の残酷な対比',
+    'map.markers.taiwanIslamJudaism.title': '都市の個性と地域文化',
+    'map.markers.taiwanIslamJudaism.desc':
+      '新北の404万人から台南の185万人まで、六都がいかに産業転換の中でそれぞれの都市キャラクターを形成してきたか',
+    'map.markers.kaohsiungIncident.title': '民主化',
+    'map.markers.kaohsiungIncident.desc':
+      '1979年12月10日、高雄の街頭で起きた警察と市民の衝突は、やがて台湾の民主化を生んだ——しかしその代償は、どれほどの若さと自由だったのか？',
+    'map.markers.wangLeeOlympicGold.title': '王齊麟と李洋（麟洋ペア）',
+    'map.markers.wangLeeOlympicGold.desc':
+      '中学の同級生からオリンピック金メダルへ：「麟洋ペア」が34分でストレート勝ちし中国を破り、台湾バドミントン史上初のオリンピック金メダルを刻んだ',
   },
   ko: {
     // Meta

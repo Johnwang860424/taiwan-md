@@ -515,7 +515,506 @@ export const resourcesUI = {
     'resources.site.taiwanmd': 'Taiwan.md',
   },
   ja: {
-    // Japanese — uses English as base, core strings will be translated
+    // Meta
+    'resources.meta.title': '台湾リソースガイド - Taiwan.md',
+    'resources.meta.description':
+      '台湾の政府機関、文化施設、オープンデータプラットフォームなどの公式サイトを網羅し、政策情報・文化コンテンツ・統計データへのワンストップ入口を提供します',
+
+    // Hero
+    'resources.hero.title': '台湾リソースガイド',
+    'resources.hero.subtitle.html':
+      '政府機関、文化施設、オープンデータなど公式リソースを完全収録<br />台湾の最も権威ある情報源をワンストップで',
+
+    // Breadcrumb
+    'resources.breadcrumb.home': 'ホーム',
+    'resources.breadcrumb.current': 'リソース',
+
+    // Core section
+    'resources.core.title': '🏆 厳選コア',
+    'resources.core.desc': 'マインドマップに掲載された最重要な台湾公式リソース',
+
+    // More section
+    'resources.more.title': '🔍 その他のカテゴリ',
+    'resources.more.desc': '地方自治体、大学、各分野の詳細リソースを網羅',
+
+    // Category labels (heroData)
+    'resources.category.government.label': '🏛️ 政府機関',
+    'resources.category.culture.label': '📚 文化と教育',
+    'resources.category.tourism.label': '✈️ 観光と旅行',
+    'resources.category.economy.label': '💼 テクノロジーと経済',
+    'resources.category.media.label': '📰 メディアとニュース',
+    'resources.category.opendata.label': '🌐 オープンデータ',
+    'resources.category.taiwanmd.label': '📡 Taiwan.md 関連',
+
+    // Section titles & descriptions
+    'resources.section.localGov.title': '🏙️ 地方自治体',
+    'resources.section.localGov.desc':
+      '台湾の六大直轄市および各県市の公式サイト',
+
+    'resources.section.universities.title': '🎓 大学と研究機関',
+    'resources.section.universities.desc': '台湾のトップ大学と主要研究機関',
+
+    'resources.section.nationalParks.title': '🏔️ 国立公園',
+    'resources.section.nationalParks.desc': '台湾の国立公園と景勝地管理所',
+
+    'resources.section.artsCulture.title': '🎭 芸術文化施設',
+    'resources.section.artsCulture.desc': '主要な博物館、美術館、劇場',
+
+    'resources.section.healthcare.title': '🏥 医療・健康',
+    'resources.section.healthcare.desc': '衛生行政機関と主要医療機関',
+
+    'resources.section.ngoSociety.title': '🤝 NGO／市民社会',
+    'resources.section.ngoSociety.desc': 'NPO・NGO と主要な市民社会団体',
+
+    'resources.section.ministries.title': '🏛️ 中央省庁',
+    'resources.section.ministries.desc': '行政院の各省庁と関連機関',
+
+    'resources.section.companies.title': '🏢 主要企業',
+    'resources.section.companies.desc': '台湾を代表する企業とテック企業',
+
+    'resources.section.mediaExtra.title': '📺 伝統メディア',
+    'resources.section.mediaExtra.desc': '主要報道機関と放送局',
+
+    'resources.section.transportation.title': '🚄 交通',
+    'resources.section.transportation.desc': '公共交通と交通サービス',
+
+    'resources.section.digitalCulture.title': '💾 デジタル文化',
+    'resources.section.digitalCulture.desc':
+      'デジタルアーカイブと科学教育プラットフォーム',
+
+    // Projects
+    'resources.projects.title': '🚀 コミュニティプロジェクト',
+    'resources.projects.desc': 'コミュニティの創意と情熱――コードで台湾を知る',
+
+    'resources.projects.food.title': '🍔 グルメマップ',
+    'resources.projects.food.burger.name': '台北バーガーマップ',
+    'resources.projects.food.burger.desc':
+      'インタラクティブな台北バーガー店ランキングマップ。品質別グレード（T0-T6）、行政区フィルター付き',
+    'resources.projects.food.burger.tech': 'JavaScript / Leaflet',
+
+    'resources.projects.nightmarket.title': '🌙 夜市ガイド',
+    'resources.projects.nightmarket.app.name': 'NightMarketSwift',
+    'resources.projects.nightmarket.app.desc':
+      '台湾の夜市 iOS アプリ。400か所以上を収録、営業時間と Google Maps ナビ付き',
+    'resources.projects.nightmarket.app.tech': 'Objective-C / Swift',
+
+    'resources.projects.civictech.title': '🗳️ シビックテック',
+    'resources.projects.civictech.g0v.name': 'g0v（零時政府）',
+    'resources.projects.civictech.g0v.desc':
+      '台湾最大のシビックテックコミュニティ。オープンガバメントと情報の透明化を推進',
+    'resources.projects.civictech.g0v.tech': 'マルチスタック',
+
+    'resources.projects.civictech.cofacts.name': 'Cofacts',
+    'resources.projects.civictech.cofacts.desc':
+      'クラウドソーシング型ファクトチェックチャットボット。LINE 上のフェイクニュースに対抗',
+    'resources.projects.civictech.cofacts.tech': 'JavaScript / GraphQL',
+
+    'resources.projects.civictech.disfactory.name': 'Disfactory',
+    'resources.projects.civictech.disfactory.desc':
+      '農地上の違法工場を市民が通報するプラットフォーム。台湾の農地を守る',
+    'resources.projects.civictech.disfactory.tech': 'Vue.js / Django',
+
+    // CTA & Links
+    'resources.projects.cta.html':
+      'おすすめのプロジェクトはありますか？ <a href="https://github.com/frank890417/taiwan-md/issues" target="_blank" rel="noopener noreferrer">GitHub Issue</a> で推薦を投稿してください！',
+    'resources.projects.github.link': 'GitHub',
+    'resources.backToHome': '← ホームに戻る',
+
+    // Mindmap
+    'resources.mindmap.root.label': '🇹🇼 台湾リソース',
+
+    // Chapter nav labels
+    'resources.nav.governance': 'ガバナンス',
+    'resources.nav.culture': '文化',
+    'resources.nav.media': 'メディア',
+    'resources.nav.economy': '経済',
+    'resources.nav.community': 'コミュニティ',
+
+    // Chapter titles & stories
+    'resources.chapter.government.title': '国家ガバナンスの入口',
+    'resources.chapter.government.story':
+      '2020年2月、台湾のエンジニアたちが週末ひとつで6,000軒の薬局のリアルタイムマスク在庫を連携させた。一人、ノートPC一台、72時間。これが可能だったのは、data.gov.tw に50,000件以上の政府データセットが誰でもいつでも使えるよう準備されていたからだ。台湾は「ガバナンスの透明性」をすべてのダウンロード可能な API に書き込んだ。',
+    'resources.chapter.culture.title': '文化と知の殿堂',
+    'resources.chapter.culture.story':
+      '36,000平方キロに満たない面積に、大学159校、博物館500館以上、国立公園9か所。3,952メートルの玉山からサンゴ礁の海岸まで。故宮博物院は約70万点の中華文化の至宝を収蔵し、路地裏の廟の祭典もまた生きた文化遺産だ。この島の文化密度は、地図上の大きさをはるかに凌駕する。',
+    'resources.chapter.media.title': '台湾の声を聴く',
+    'resources.chapter.media.story':
+      '1995年、台湾大学の学生たちが寮に BBS サーバーを立て、PTT と名付けた。30年経った今もこのテキストベースのフォーラムは台湾で最も影響力のあるパブリックフォーラムであり続けている。2014年のひまわり学生運動では、PTT が最速かつ最も詳細なリアルタイム情報源だった。主要紙からネット掲示板まで、台湾のメディアはあらゆるレイヤーで民主主義の発言権を争っている。',
+    'resources.chapter.economy.title': '経済と暮らしのエンジン',
+    'resources.chapter.economy.story':
+      '世界のスマートフォン2台に1台は TSMC 製のチップを搭載している。地政学者はこれを「シリコンシールド」と呼ぶ。だがチップは氷山の一角にすぎない。カバー率99.9%の全民健康保険、2.3平方キロに1軒のコンビニ、台北から高雄まで90分の高速鉄道。2,300万人の暮らしを支えているのは、ほとんど気づかれないほど精密なシステムだ。',
+    'resources.chapter.community.title': 'シビックテックとコミュニティ',
+    'resources.chapter.community.story':
+      'g0v のモットーは「なぜ誰もやらないのかと問うな。あなたがその"誰も"だ」。マスクマップ、ファクトチェックボット、選挙公約トラッカー――すべて週末ハッカソンから生まれた。台湾では市民参加はこういう形をとる：コードを書き、Issue を立て、Pull Request を送る。Taiwan.md もまさにこの精神の産物だ。',
+
+    // Insight cards
+    'resources.insight.gov.branches.number': '5',
+    'resources.insight.gov.branches.label': '院（憲法機関）',
+    'resources.insight.gov.ministries.number': '20+',
+    'resources.insight.gov.ministries.label': '省庁',
+    'resources.insight.gov.local.number': '22',
+    'resources.insight.gov.local.label': '県市政府',
+
+    'resources.insight.culture.universities.number': '159',
+    'resources.insight.culture.universities.label': '大学',
+    'resources.insight.culture.museums.number': '500+',
+    'resources.insight.culture.museums.label': '博物館',
+    'resources.insight.culture.parks.number': '9',
+    'resources.insight.culture.parks.label': '国立公園',
+
+    'resources.insight.media.ptt.number': '20万',
+    'resources.insight.media.ptt.label': 'PTT デイリーアクティブ',
+    'resources.insight.media.outlets.number': '100+',
+    'resources.insight.media.outlets.label': 'メディア',
+    'resources.insight.media.ngo.number': '1000+',
+    'resources.insight.media.ngo.label': 'NGO',
+
+    'resources.insight.econ.tsmc.number': '92%',
+    'resources.insight.econ.tsmc.label': 'TSMC 先端プロセス',
+    'resources.insight.econ.hsr.number': '99.5%',
+    'resources.insight.econ.hsr.label': '高速鉄道定時率',
+    'resources.insight.econ.nhi.number': '99.9%',
+    'resources.insight.econ.nhi.label': '健康保険カバー率',
+
+    'resources.insight.community.g0v.number': '2012',
+    'resources.insight.community.g0v.label': 'g0v 設立',
+    'resources.insight.community.contributors.number': '10K+',
+    'resources.insight.community.contributors.label': 'コントリビューター',
+    'resources.insight.community.projects.number': '800+',
+    'resources.insight.community.projects.label': 'プロジェクト',
+
+    // Subcategory titles
+    'resources.sub.fiveYuan': '五院の核心',
+    'resources.sub.fiveYuan.desc':
+      'この五つの院が台湾独自の五権分立制度を構成しており、世界で唯一の仕組みだ。',
+    'resources.sub.ministries': '各省庁',
+    'resources.sub.ministries.desc':
+      'デジタル発展部から原住民族委員会まで、各省庁がそれぞれ独自のオープンデータセクションを運営している。',
+    'resources.sub.localGov': '地方自治体',
+    'resources.sub.localGov.desc':
+      '22の県市、22通りのローカルガバナンス。六大直轄市のスマートシティ競争が市民サービスを再定義しつつある。',
+    'resources.sub.openData': 'オープンデータ',
+    'resources.sub.openData.desc':
+      'ここが台湾シビックテックの奇跡の出発点だ。マスクマップ、ワクチン予約、大気質モニタリング――すべてこのプラットフォームから始まった。',
+    'resources.sub.universities': 'トップ大学と研究機関',
+    'resources.sub.universities.desc':
+      '台湾の大学は教えるだけではない。台湾大学の量子コンピューティング研究室、成功大学の半導体研究センターはグローバル学術ネットワークの重要ノードだ。',
+    'resources.sub.museums': '博物館と図書館',
+    'resources.sub.museums.desc':
+      '故宮博物院の翠玉白菜から奇美博物館のヴァイオリンコレクションまで、台湾の博物館は時空を超えるどこでもドアだ。',
+    'resources.sub.venues': '芸術文化施設とクリエイティブパーク',
+    'resources.sub.venues.desc':
+      '台湾の芸術エコシステムが飛躍しつつある。C-LAB、両庁院、高雄の衛武営――ワールドクラスの施設集積度はニューヨークも羨むほどだ。',
+    'resources.sub.parks': '国立公園と景勝地',
+    'resources.sub.parks.desc':
+      '海抜0mから3,952mまで、台湾の9つの国立公園は地球上のあらゆる気候帯を網羅する。1日で熱帯のサンゴ礁から高山の雪線まで行くことができる。',
+    'resources.sub.mainstream': '主流メディア',
+    'resources.sub.mainstream.desc':
+      '1988年の戒厳令解除後の新聞発行自由化から、今日の24時間ニュースチャンネル競争まで――台湾の報道の自由は容易に手に入ったものではない。',
+    'resources.sub.digital': 'デジタルネイティブメディア',
+    'resources.sub.digital.desc':
+      '伝統メディアが苦戦するなか、台湾のデジタルネイティブメディアがジャーナリズムを再定義している。報導者の非営利モデルは、深層報道が広告なしでも生き残れることを証明した。',
+    'resources.sub.ngo': '市民社会と NGO',
+    'resources.sub.ngo.desc':
+      '台湾の NGO 密度はアジア最高だ。環境から人権まで、これらの団体は政府を監視するだけでなく、しばしば政策の先を行く。',
+    'resources.sub.companies': '産業リーダー',
+    'resources.sub.companies.desc':
+      'TSMC から鴻海（Foxconn）まで、これらの企業名は世界中のサプライチェーンレポートに登場する。',
+    'resources.sub.transport': '交通',
+    'resources.sub.transport.desc':
+      '台湾高速鉄道は台北から高雄までわずか90分。MRT、リアルタイムバスシステム、YouBike を加えれば、台湾の公共交通はアジアの隠れたチャンピオンだ。',
+    'resources.sub.healthcare': '医療・健康',
+    'resources.sub.healthcare.desc':
+      '全民健康保険：カード1枚、カバー率99.9%、平均待ち時間15分。アメリカでさえ台湾のやり方を研究している。',
+    'resources.sub.finance': '金融とデータ',
+    'resources.sub.finance.desc':
+      '台湾証券取引所はアジアで最も透明性の高い市場のひとつだ。上場企業の財務報告からリアルタイム取引データまで、すべて公開されている。',
+    'resources.sub.civicTech': 'シビックテックプロジェクト',
+    'resources.sub.foodMaps': 'グルメ＆カルチャーマップ',
+
+    // Related articles
+    'resources.related.democracy': '関連記事：台湾の民主化',
+    'resources.related.label': '関連記事',
+    'resources.related.government.1': '台湾の民主化',
+    'resources.related.government.2': '選挙と政党政治',
+    'resources.related.government.3': 'オープンソースコミュニティと g0v',
+    'resources.related.culture.1': '原住民文化',
+    'resources.related.culture.2': '教育制度',
+    'resources.related.culture.3': '国立公園',
+    'resources.related.media.1': 'ひまわり学生運動',
+    'resources.related.media.2': 'メディアと報道の自由',
+    'resources.related.media.3': 'PTT',
+    'resources.related.economy.1': 'TSMC',
+    'resources.related.economy.2': '半導体産業',
+    'resources.related.economy.3': '全民健康保険',
+    'resources.related.community.1': 'オープンソースコミュニティと g0v',
+    'resources.related.community.2': '社会運動と市民参加',
+    'resources.related.community.3': 'デジタルガバメント',
+
+    // Footer stats
+    'resources.stats.collected': 'リソース収録',
+    'resources.stats.chapters': '大章',
+    'resources.stats.subcategories': 'サブカテゴリ',
+
+    // Search
+    'resources.search.placeholder': 'リソースを検索...',
+
+    // Aria labels
+    'resources.aria.viewGithub': 'GitHub プロジェクトを見る',
+    'resources.aria.backToTop': 'トップに戻る',
+
+    // Reading Guide
+    'resources.guide.title': 'どこから始めるか',
+    'resources.guide.desc':
+      'ガイドブックなしで台湾に降り立ったと想像しよう。「ガバナンス」はOSを見せてくれる――若い民主主義国家がどうラディカルな透明性で動いているか。「文化」は魂だ――500の博物館、年間15,000回の廟会、16の原住民言語が、スイスより小さい島にひしめく。「メディア」は対話を明らかにする――30年前に生まれたテキストのみのフォーラムが今も選挙を左右し、アジア随一の非営利ニュースルームがここにある。「経済」は心臓の鼓動――1社で世界の先端チップの92%を生産し、全民健保の保険料はスマホ代より安い。「コミュニティ」は招待状――週末ハッカソンで市民ツールを作るオープンソース市民に加わろう。',
+
+    // Curator Notes
+    'resources.curator.government':
+      '🔍 COVID-19の最中、台湾の民間開発者は72時間でマスクマップとワクチン予約システムを作り上げた。この速さの裏には世界トップ3に入る政府オープンデータプラットフォームがある。50,000件超のデータセット、リアルタイムAPI、誰でも利用可能。他国の開発者が政府の記者会見を待っている間、台湾の開発者はもうコードを書いていた。',
+    'resources.curator.culture':
+      '🔍 台湾の博物館密度がアジア屈指だと知る人は少ない。だが数字は表面にすぎず、本当に特別なのは「生きた」文化だ。年間15,000回超の廟会、原住民族の16言語、客家の山歌コンテスト。台湾の文化はガラスケースの中だけにあるのではない。街を歩いている。',
+    'resources.curator.media':
+      '🔍 PTT の影響力はどれほどか。2018年の国民投票で、PTT 八卦板の議論量は投票率と直接相関した。報導者もまた驚くべき存在だ。完全に寄付で運営される調査報道メディアが、アジアのジャーナリズム賞に連続ノミネート。フェイクニュースが氾濫する時代に、台湾には最も活発なネット民文化と最も真剣なファクトチェックコミュニティが共存している。この矛盾こそが民主主義の活力だ。',
+    'resources.curator.economy':
+      '🔍 各国が「CHIPS法」にいくら補助金を出すか論争している間、台湾は30年かけてウェーハの上に答えを書いた。石油も鉄鉱石もない小さな島が、人材とナノメートル級の製造技術で世界の先端チップ生産能力の92%を握っている。この数字のおかげで、ペンタゴンのレポートに新しい言葉が加わった――「シリコンシールド」。',
+    'resources.curator.community':
+      '🔍 g0v の隔月ハッカソンは60回以上開催され、毎回数百人のエンジニア、デザイナー、NGOワーカーが自発的に参加する。報酬なし、上司なし、あるのはノートPCひとつと解決したい課題だけ。マスクマップはこうして生まれた。週末ひとつ、エンジニア数人、6,000軒の薬局のリアルタイムデータ。シリコンバレーは「世界を変える」と叫ぶが、台湾のオープンソースコミュニティはただ作って見せる。',
+
+    // Featured site descriptions
+    'resources.featured.dataGov':
+      '世界第1位の政府オープンデータプラットフォーム。50,000件超のデータセット、大気質からリアルタイムバス位置まですべて無料ダウンロード可能。',
+    'resources.featured.g0vGov':
+      '零時政府：ガバナンスを書き換えるシビックテックコミュニティ。マスクマップから vTaiwan まで、ハッカーと政策立案者の境界を曖昧にする。',
+    'resources.featured.legislativeYuan':
+      '台湾の国会。議事のライブ配信、法案追跡、民主的審議の最前線。',
+
+    'resources.featured.npm':
+      '8,000年にわたる70万点超の文物を収蔵する、世界最大級の中華芸術コレクション。デジタル展示も展開中。',
+    'resources.featured.ncl':
+      '台湾の国立図書館にして法定納本センター。国の出版知識を集約するアーカイブ。',
+    'resources.featured.npgov':
+      '9つの国立公園への入口。3,000m級の高山からサンゴ礁まで、36,000km²に広がる驚異の生物多様性。',
+
+    'resources.featured.twreporter':
+      '中国語圏における非営利調査報道のパイオニア。環境、社会、政治の問題を深く掘り下げる。',
+    'resources.featured.ptt':
+      '台湾最大のオンラインフォーラム。1995年から毎日20万人のアクティブユーザーが独自の「ネット民民主主義」を牽引。',
+    'resources.featured.ptsNews':
+      '台湾の公共放送ニュース。独立・公正な報道で、公共利益ジャーナリズムのゴールドスタンダード。',
+
+    'resources.featured.tsmc':
+      '世界で最も価値のある半導体企業。AI、スマートフォン、スーパーコンピュータを動かす最先端チップの92%を製造。',
+    'resources.featured.twse':
+      '台湾資本市場の中核。TSMC や鴻海（Foxconn）が上場する場。',
+    'resources.featured.nhi':
+      '人口の99.9%をカバーしつつ GDP の6.6%しか使わない全民健康保険。世界中の保健政策専門家が研究するモデル。',
+
+    'resources.featured.g0v':
+      '世界で最も影響力のあるシビックテックコミュニティ。COVID マスクマップ、vTaiwan 審議プラットフォーム、そしてデジタル大臣を生み出した。',
+    'resources.featured.cofacts':
+      'LINE 上のクラウドソーシング型ファクトチェック。数百万ユーザーが AI 補助検証でフェイクニュースに対抗。',
+    'resources.featured.taiwanmd':
+      'いま見ているこのプロジェクト。オープンソース・コミュニティ協働の台湾百科事典。',
+
+    // Section footer
+    'resources.section.footer.verified': '最終確認：2026-03-24',
+    'resources.section.footer.reportLink': 'リンク切れを報告',
+
+    // Footer / Last updated
+    'resources.footer.lastUpdated': '最終更新：2026年3月',
+    'resources.footer.report': 'リンク切れを報告',
+    'resources.footer.reportUrl':
+      'https://github.com/frank890417/taiwan-md/issues',
+    'resources.footer.stats.total': '200+',
+
+    // Site names
+    'resources.site.president': '中華民国総統府',
+    'resources.site.executiveYuan': '行政院',
+    'resources.site.legislativeYuan': '立法院',
+    'resources.site.judicialYuan': '司法院',
+    'resources.site.examinationYuan': '考試院',
+    'resources.site.controlYuan': '監察院',
+
+    'resources.site.mofa': '外交部',
+    'resources.site.moda': 'デジタル発展部',
+    'resources.site.cip': '原住民族委員会',
+    'resources.site.moc': '文化部',
+    'resources.site.moe': '教育部',
+    'resources.site.moea': '経済部',
+    'resources.site.motc': '交通部',
+    'resources.site.moi': '内政部',
+    'resources.site.ndc': '国家発展委員会',
+    'resources.site.mac': '大陸委員会',
+    'resources.site.mol': '労働部',
+    'resources.site.moenv': '環境部',
+    'resources.site.moa': '農業部',
+    'resources.site.mnd': '国防部',
+    'resources.site.moj': '法務部',
+    'resources.site.mohw': '衛生福利部',
+    'resources.site.trade': '経済部国際貿易署',
+    'resources.site.sme': '中小・スタートアップ企業署',
+    'resources.site.tipo': '経済部知的財産局',
+    'resources.site.fsc': '金融監督管理委員会',
+    'resources.site.immigration': '内政部移民署',
+    'resources.site.cwa': '中央気象署',
+    'resources.site.nstc': '国家科学技術委員会',
+
+    'resources.site.taipei': '台北市政府',
+    'resources.site.newTaipei': '新北市政府',
+    'resources.site.taichung': '台中市政府',
+    'resources.site.kaohsiung': '高雄市政府',
+    'resources.site.tainan': '台南市政府',
+    'resources.site.taoyuan': '桃園市政府',
+    'resources.site.keelung': '基隆市政府',
+    'resources.site.hsinchu': '新竹市政府',
+    'resources.site.chiayi': '嘉義市政府',
+    'resources.site.yilan': '宜蘭県政府',
+    'resources.site.hsinchuCounty': '新竹県政府',
+    'resources.site.miaoli': '苗栗県政府',
+    'resources.site.changhua': '彰化県政府',
+    'resources.site.nantou': '南投県政府',
+    'resources.site.yunlin': '雲林県政府',
+    'resources.site.chiayiCounty': '嘉義県政府',
+    'resources.site.pingtung': '屏東県政府',
+    'resources.site.taitung': '台東県政府',
+    'resources.site.hualien': '花蓮県政府',
+    'resources.site.penghu': '澎湖県政府',
+    'resources.site.kinmenGov': '金門県政府',
+    'resources.site.lienchiang': '連江県政府',
+
+    'resources.site.dataGov': '政府データ開放プラットフォーム',
+    'resources.site.taiwanGov': '政府ポータルサイト',
+    'resources.site.lawDb': '全国法規データベース',
+    'resources.site.g0v': 'g0v 零時政府',
+
+    'resources.site.ntu': '国立台湾大学',
+    'resources.site.nthu': '国立清華大学',
+    'resources.site.nycu': '国立陽明交通大学',
+    'resources.site.ncku': '国立成功大学',
+    'resources.site.nccu': '国立政治大学',
+    'resources.site.ntnu': '国立台湾師範大学',
+    'resources.site.sinica': '中央研究院',
+    'resources.site.tesd': '台湾実証調査データプラットフォーム',
+    'resources.site.tcs': '台湾コミュニケーション調査データベース',
+    'resources.site.brill': 'Brill 台湾研究百科事典',
+    'resources.site.itri': '工業技術研究院',
+    'resources.site.niar': '国家実験研究院',
+    'resources.site.airitilibrary': '華芸オンライン図書館',
+    'resources.site.ndltd': '台湾博碩士論文知識加値システム',
+
+    'resources.site.ncl': '国立国家図書館',
+    'resources.site.npm': '国立故宮博物院',
+    'resources.site.ntm': '国立台湾博物館',
+    'resources.site.nmth': '国立台湾歴史博物館',
+    'resources.site.nmns': '国立自然科学博物館',
+    'resources.site.nmmba': '国立海洋生物博物館',
+    'resources.site.nmtl': '国立台湾文学館',
+    'resources.site.ntmofa': '国立台湾美術館',
+
+    'resources.site.tfam': '台北市立美術館',
+    'resources.site.kmfa': '高雄市立美術館',
+    'resources.site.npacNtt': '台中国家歌劇院',
+    'resources.site.npacNtch': '国家両庁院',
+    'resources.site.weiwuying': '衛武営芸術センター',
+    'resources.site.songshan': '松山文創園区',
+    'resources.site.huashan': '華山文創園区',
+    'resources.site.pier2': '駁二芸術特区',
+    'resources.site.digitalArchives': '典蔵台湾',
+    'resources.site.scitechVista': '科技大観園',
+    'resources.site.tcmb': '国家文化記憶庫',
+    'resources.site.taicca': '文策院 TAICCA',
+
+    'resources.site.yushan': '玉山国立公園',
+    'resources.site.taroko': '太魯閣国立公園',
+    'resources.site.kenting': '墾丁国立公園',
+    'resources.site.sheipa': '雪霸国立公園',
+    'resources.site.yangmingshan': '陽明山国立公園',
+    'resources.site.kinmenPark': '金門国立公園',
+    'resources.site.taijiang': '台江国立公園',
+    'resources.site.dongsha': '東沙環礁国立公園',
+    'resources.site.southPenghu': '澎湖南方四島国立公園',
+    'resources.site.taiwanTourism': 'Taiwan Tourism',
+    'resources.site.sunMoonLake': '日月潭国家風景区',
+    'resources.site.alishan': '阿里山国家風景区',
+
+    'resources.site.cna': '中央通信社',
+    'resources.site.pts': '公共テレビ',
+    'resources.site.focusTaiwan': 'Focus Taiwan',
+    'resources.site.taiwanToday': 'Taiwan Today',
+    'resources.site.panorama': '台湾光華雑誌',
+    'resources.site.rti': '中央放送局',
+    'resources.site.udn': '聯合新聞網',
+    'resources.site.ltn': '自由時報',
+    'resources.site.tvbs': 'TVBS ニュース',
+    'resources.site.setn': '三立ニュース',
+    'resources.site.ebc': '東森ニュース',
+    'resources.site.commonwealth': '天下雑誌',
+    'resources.site.businesstoday': '今周刊',
+    'resources.site.businessweekly': '商業周刊',
+
+    'resources.site.twreporter': '報導者',
+    'resources.site.taiwanNews': 'Taiwan News',
+    'resources.site.thenewslens': '関鍵評論網',
+    'resources.site.upmedia': '上報',
+    'resources.site.storm': '風伝媒',
+
+    'resources.site.tahr': '台湾人権促進会',
+    'resources.site.teia': '台湾環境情報協会',
+    'resources.site.sow': '荒野保護協会',
+    'resources.site.ocf': 'オープンカルチャーファウンデーション',
+    'resources.site.tfc': '台湾ファクトチェックセンター',
+    'resources.site.twnic': '台湾ネットワーク情報センター',
+    'resources.site.wikimedia': '台湾ウィキメディア協会',
+    'resources.site.digitalDiplomacy': '台湾デジタル外交協会',
+
+    'resources.site.tsmc': 'TSMC（台湾積体電路）',
+    'resources.site.umc': '聯華電子',
+    'resources.site.foxconn': '鴻海科技',
+    'resources.site.delta': '台達電子',
+    'resources.site.taiwanExcellence': 'Taiwan Excellence',
+    'resources.site.cht': '中華電信',
+    'resources.site.taipower': '台湾電力公司',
+    'resources.site.iii': '資策会',
+    'resources.site.investTaiwan': '投資台湾',
+
+    'resources.site.railway': '台湾鉄道',
+    'resources.site.thsrc': '台湾高速鉄道',
+    'resources.site.taiwanTrip': '台湾好行',
+    'resources.site.taoyuanAirport': '桃園国際空港',
+    'resources.site.metroTaipei': '台北メトロ',
+    'resources.site.krtc': '高雄メトロ',
+
+    'resources.site.cdc': '疾病管制署',
+    'resources.site.nhi': '中央健康保険署',
+    'resources.site.ntuh': '台湾大学病院',
+    'resources.site.vghtpe': '台北栄民総病院',
+    'resources.site.cgmh': '長庚医療体系',
+    'resources.site.cmuh': '中国医薬大学附属病院',
+    'resources.site.kmuh': '高雄医学大学附属病院',
+
+    'resources.site.stat': '国家統計',
+    'resources.site.twse': '台湾証券取引所',
+    'resources.site.tpex': '台北取引所',
+
+    'resources.site.github': 'GitHub リポジトリ',
+    'resources.site.contribute': 'コントリビューションガイド',
+    'resources.site.rss': 'RSS フィード',
+
+    // New community site names
+    'resources.site.electionMap': '台湾選挙マップ',
+    'resources.site.maskMap': 'マスクマップ（2020）',
+    'resources.site.goodinfo': 'Goodinfo 台湾株式情報',
+    'resources.site.ccw': '公民監督国会連盟',
+    'resources.site.thaubing': '透明足跡',
+    'resources.site.politicalDonation': '政治献金公開検索',
+    'resources.site.burgerMap': '台北バーガーマップ',
+    'resources.site.nightMarket': '夜市アプリ',
+    'resources.site.cofacts': 'Cofacts',
+    'resources.site.disfactory': 'Disfactory',
+    'resources.site.ptt': 'PTT',
+    'resources.site.ptsNews': '公視ニュース',
+    'resources.site.npgov': '国立公園ポータル',
+    'resources.site.taiwanmd': 'Taiwan.md',
   },
   ko: {
     // Meta

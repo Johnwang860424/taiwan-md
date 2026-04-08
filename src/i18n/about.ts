@@ -396,7 +396,395 @@ export const aboutUI = {
       'Reference models: <a href="https://coscup.org" target="_blank">COSCUP</a>, <a href="https://mopcon.org" target="_blank">MOPCON</a>, <a href="https://sitcon.org" target="_blank">SITCON</a>, <a href="https://g0v.tw" target="_blank">g0v</a> and other Taiwan tech community sponsorship models',
   },
   ja: {
-    // Japanese — uses English as base, core strings will be translated
+    // Meta
+    'about.meta.title': 'Taiwan.md について',
+    'about.meta.description':
+      'Taiwan.md の誕生ストーリー、創設者紹介、お問い合わせ',
+
+    // Section 1: Naming
+    'about.naming.title': 'なぜ Taiwan.md なのか？',
+    'about.naming.subtitle':
+      '技術フォーマットから文化的シンボルへ——完璧な偶然の一致',
+    'about.naming.tech.icon': '📝',
+    'about.naming.tech.title': '技術面',
+    'about.naming.tech.desc.html':
+      '、プログラミングの世界で最も普遍的なドキュメント形式。AIが最も理解しやすいフォーマットで、台湾を世界に届けます。',
+    'about.naming.symbol.icon': '🌍',
+    'about.naming.symbol.title': '象徴面',
+    'about.naming.symbol.desc.html':
+      ' は偶然にもモルドバ（Moldova）の国別コードトップレベルドメイン。Taiwan + Markdown = オープンソース精神で世界をつなぐ。',
+    'about.naming.lucky.icon': '✨',
+    'about.naming.lucky.title': '偶然の幸運',
+    'about.naming.lucky.desc':
+      '驚くことに、taiwan.md というドメインはまだ誰にも取られていませんでした。きっと宇宙が「今こそやるべき時だ」と教えてくれたのでしょう。',
+
+    // Stats
+    'about.stats.pages.number': '970+',
+    'about.stats.pages.label': 'ページ',
+    'about.stats.countries.number': '106',
+    'about.stats.countries.label': 'か国',
+    'about.stats.stars.number': '900+',
+    'about.stats.stars.label': 'GitHub Stars',
+    'about.stats.contributors.number': '30+',
+    'about.stats.contributors.label': 'コントリビューター',
+    'about.stats.users.number': '60K+',
+    'about.stats.users.label': 'ユーザー',
+
+    // Vision
+    'about.vision.p1':
+      'Taiwan.md はただのウェブサイトではありません。世界に宛てた一通の手紙です。',
+    'about.vision.p2':
+      '私たちは信じています。オープンソースの精神、キュレーターの視点、AI フレンドリーなフォーマットがあれば、台湾を知りたいすべての人に——人間であれ AI であれ——最も充実した、最も温かみのある答えを届けられると。',
+    'about.vision.p3.html':
+      'ここは旅行ガイドでも、政治宣伝でも、商業広告でもありません。<br />ここは台湾のデジタル人類学博物館であり、文化の生きた化石であり、今まさに生まれつつある歴史の記録です。',
+
+    // Section 2: Origin
+    'about.origin.title': 'Taiwan.md の誕生',
+    'about.origin.subtitle':
+      '街歩きで生まれたひらめきから、世界に台湾を届けるキュレーションの入口へ',
+
+    // Timeline
+    'about.timeline.2024-2025.date': '2024 — 2025',
+    'about.timeline.2024-2025.title': '「台湾ってどんなところ？」',
+    'about.timeline.2024-2025.desc':
+      'ヴェネツィア・ビエンナーレ、Art Basel Miami、パリ104レジデンスなどの国際的な場で、哲宇は海外の友人たちから繰り返し同じ質問を受けました。「Where can I learn about Taiwan?」——しかし紹介できる包括的なポータルがないことに気づきました。Wikipediaは冷たすぎ、観光局は浅すぎ、ニュースは断片的すぎたのです。',
+
+    'about.timeline.2026-02-03.date': '2026 / 02 — 03',
+    'about.timeline.2026-02-03.title': '人生の SSOT コンセプト',
+    'about.timeline.2026-02-03.p1':
+      '個人のナレッジシステムを構築する中で、哲宇は「SSOT — Single Source of Truth（唯一の真実の情報源）」という理念を提唱しました。履歴書、公式サイト、SNSのプロフィールにそれぞれ異なるバージョンの自分が書かれている——本当の自分はどれなのか？',
+    'about.timeline.2026-02-03.p2.html':
+      '解決策は<strong>唯一の真実の情報源</strong>を確立し、すべてのプラットフォームがそこから同期すること。このコンセプトは2026年3月11日の Generative AI 年次ミートアップでの発表後に大きな共感を呼びました——もし一人の人間のアイデンティティに SSOT が必要なら、<strong>国はどうだろう？</strong>',
+
+    'about.timeline.2026-03-11.date': '2026 / 03 / 11',
+    'about.timeline.2026-03-11.title':
+      'AI ミートアップ講演：「僕のコードがようやく息を始めた」',
+    'about.timeline.2026-03-11.p1':
+      '哲宇は Generative AI 年次ミートアップで、AI Agent による個人ブランドの自動キュレーション、ナレッジグラフによるアイデンティティ管理、Multi-Agent 協調の実践経験を共有しました。講演では SSOT コンセプトによって AI が自分の人生を「発掘」できることを実演——クロスリファレンスで25件以上のイベント欠落と年代の誤りを発見しました。',
+    'about.timeline.2026-03-11.p2.html':
+      '<em>「AI が自分自身をキュレーションできるなら、台湾自身のキュレーションも手伝えるんじゃないか？」</em>',
+
+    'about.timeline.2026-03-17.date': '2026 / 03 / 17',
+    'about.timeline.2026-03-17.title': 'Taiwan.md 誕生',
+    'about.timeline.2026-03-17.p1':
+      'アイデアからローンチまで、たった1日。AI Agent チームと哲宇が並んで作り上げました：',
+    'about.timeline.2026-03-17.li1':
+      'taiwan.md ドメインを取得（.md = Markdown ≈ ドキュメントで国を定義する）',
+    'about.timeline.2026-03-17.li2': '12カテゴリのナレッジアーキテクチャを設計',
+    'about.timeline.2026-03-17.li3': '中国語・英語の34記事を公開',
+    'about.timeline.2026-03-17.li4':
+      'ナレッジグラフ、キュレーション型デザイン、AI フレンドリーな構造',
+    'about.timeline.2026-03-17.li5':
+      'ローンチ1時間以内に GA4 がニューヨークからのアクセスを検知 🌍',
+
+    'about.timeline.2026-03-18-1.date': '2026 / 03 / 18 — 17:44',
+    'about.timeline.2026-03-18-1.title':
+      'マイルストーン：100 Stars + 5,000 アクセス',
+    'about.timeline.2026-03-18-1.p1.html':
+      '3月18日午後2時23分、哲宇が Facebook に投稿：<a href="https://www.facebook.com/cheyuwu345/posts/pfbid0qob2cPij2U2AeqxFnGwQkWQJcjzj3o7ScFDCsm2vzjTi3jf4LDgAvmriHnp7vCEfl" target="_blank" class="timeline-link">「ある壮大な計画の始まり：taiwan.md — Open-source knowledge base about Taiwan.」</a>この投稿が大量のシェアと注目を集め、わずか3時間で Taiwan.md は GitHub で <strong>100 Stars</strong> を突破、ウェブサイトの累計アクセス数は <strong>5,000</strong> を超えました。世界中からの関心が、このオープンソースのナレッジベースが求められていることを証明しました。',
+
+    'about.timeline.2026-03-18-2.date': '2026 / 03 / 18 — 22:00',
+    'about.timeline.2026-03-18-2.title': 'メディア報道：自由時報 + INSIDE',
+    'about.timeline.2026-03-18-2.desc.html':
+      '投稿からわずか8時間足らずで、<strong>自由時報（芸術文化面）</strong>と<strong>INSIDE</strong>が相次いで Taiwan.md を報道しました。SNS での話題からメインストリームメディアの注目へ——Taiwan.md は週末プロジェクトから、真剣に議論される公共テーマへと進化しました。',
+
+    'about.timeline.2026-03-19.date': '2026 / 03 / 19 — 14:00',
+    'about.timeline.2026-03-19.title':
+      'マイルストーン：500 Stars・50 Forks・296 Pages',
+    'about.timeline.2026-03-19.desc.html':
+      'ローンチから48時間も経たないうちに、GitHub は <strong>500 Stars</strong> と <strong>50 Forks</strong> を突破。ナレッジベースは当初の95記事から <strong>296ページ</strong> に拡大し、人物ページは21人から105人に成長、歴史・芸術・スポーツ・テクノロジー・政治など幅広い分野をカバーしました。Facebook の投稿は<strong>1.3万いいね、6,083シェア、162コメント</strong>を獲得。コミュニティから建設的な批評と深い議論が生まれ、オープンソースの協働精神が機能し始めました。',
+
+    'about.timeline.2026-03-20.date': '2026 / 03 / 20',
+    'about.timeline.2026-03-20.title':
+      'マイルストーン：56,000 ユーザー・106か国・660+ ページ',
+    'about.timeline.2026-03-20.desc.html':
+      'ローンチ3日目、GA4 は累計 <strong>56,000 アクティブユーザー</strong>、<strong>134,000 ページビュー</strong> を記録。<strong>106か国</strong>から——ブータンからバヌアツまで、世界が台湾を読んでいます。GitHub は <strong>600 Stars</strong> を突破し、<strong>23人のコントリビューター</strong>が参加。ナレッジベースは <strong>660ページ以上</strong>（中国語321 + 英語339）に拡大、12の主要カテゴリと105人の台湾の人物を網羅しました。Facebook 投稿のコミュニティ効果は持続し、半導体産業が最も人気の記事となりました。',
+
+    'about.timeline.2026-03-22.date': '2026 / 03 / 22',
+    'about.timeline.2026-03-22.title':
+      '🎉 700 Stars・インタラクティブマップ・D3 ビジュアライゼーション・AI 貢献システム',
+    'about.timeline.2026-03-22.desc.html':
+      'GitHub が <strong>700 Stars</strong> に到達、<strong>24人のコントリビューター</strong>。主要機能をリリース：<strong>インタラクティブ台湾マップ</strong>（県市フィルタリング、ランドマークプレビュー、キュレーションルート4本）、<strong>グルメ D3 インタラクティブビジュアライゼーション</strong>（フレーバーホイール + 関係グラフ、台湾料理29品の可視化探索）、<strong>Changelog の相対時間表示</strong>、そして統一された<strong>「あなたの AI に聞いてみよう」貢献システム</strong>——ChatGPT / Claude / Gemini にプロンプトをコピペするだけで、AI が編集基準に沿った記事執筆・翻訳をガイドします。すべてのグルメ写真を <strong>Wikimedia Commons の実写画像</strong>に差し替え。スペイン語ナレッジベースが46記事で開設。',
+
+    'about.timeline.2026-03-22b.date': '2026 / 03 / 22',
+    'about.timeline.2026-03-22b.title':
+      '📖 Wikipedia 記事作成・4言語並行・品質自動化',
+    'about.timeline.2026-03-22b.desc.html':
+      'Taiwan.md は独自の<strong><a href="https://zh.wikipedia.org/wiki/Taiwan.md" target="_blank">中国語版 Wikipedia 記事</a></strong>を獲得しました——完全にコミュニティの自発的な執筆で、6つの独立した出典（中央社、INSIDE、FTNN、上報、動区、大媒体）を引用。ローンチからわずか5日後のことです。プロジェクトは<strong>4言語時代</strong>に突入：中国語（385）、英語（407）、スペイン語（46）、日本語（5）。<strong>EDITORIAL v2 品質自動リライトシステム</strong>がローンチ——毎時1記事を自動リライトし、各記事は10以上の出典による検証が必要です。',
+
+    'about.timeline.2026-03-24.date': '2026 / 03 / 24',
+    'about.timeline.2026-03-24.title':
+      '🌊 7日目——「呼吸を始めた」・837 Stars・40人のコントリビューター・960+ ページ',
+    'about.timeline.2026-03-24.desc.html':
+      'ローンチから1週間。創設者が<strong><a href="https://www.facebook.com/cheyuwu345/posts/pfbid0QP33TrQWtqi7gKUEbNs9eXj4MdX1kxQYYHLvq2RkAomKqTuRZ9swbzVjsaFR2Xvel" target="_blank">「呼吸を始めた——国よりも大きな作品」</a></strong>を発表。Taiwan.md を生きたサンゴ礁に例えました：コードは骨格、AI は光合成を担い、コミュニティの貢献者たちは異なる記憶と視点を持ち込む魚群、そして批評・シェア・提案は養分を運ぶ海流です。世界各地から <strong>40人のコントリビューター</strong>が参加。<strong>960ページ以上</strong>が4言語にわたります。プロの生態学者が学術引用付きで5件の事実修正を提出——自己修正するナレッジ・エコシステムが機能しています。<a href="/about#organism">デジタル生命体宣言</a>が結晶化：Taiwan.md はウェブサイトではなく、島の物語を語ることを学んでいるデジタル生命体です。',
+
+    'about.timeline.2026-03-27.date': '2026 / 03 / 27',
+    'about.timeline.2026-03-27.title': '🏛️ 10日目——島の二つの記憶方法が出会う',
+    'about.timeline.2026-03-27.desc.html':
+      'ローンチ10日目、Taiwan.md は初めての博物館に足を踏み入れました。<strong><a href="https://www.nmth.gov.tw/" target="_blank">国立台湾歴史博物館</a></strong>が哲宇を台南に招き、サイト誕生の経緯を共有してもらい、館内の国家級台湾史展示を実際に体験してもらいました。コミュニティ駆動のナレッジベースと国立博物館——それぞれ異なる角度から同じ島を見つめるとき、対話は自然と次のステップへ向かいました。博物館は長年かけて構築してきたオープンデータセットを紹介しました：<strong>55万件以上のクリーニング済み・一般公開可能な歴史データ</strong>。最初のステップとして、双方は台湾歴史博物館の Open API、オープンデータセット、そして豊富なデジタル学習・研究資源（<a href="https://tcmb.culture.tw/zh-tw/OpenApi" target="_blank">国家文化記憶庫</a>、<a href="https://taiwanoverseas.nmth.gov.tw/" target="_blank">海外史料から見る台湾</a>、<a href="https://the.nmth.gov.tw/" target="_blank">台湾史をつなぐ</a>、<a href="https://ilhaformosa.nmth.gov.tw/home/zh-tw" target="_blank">台湾史ビギナーズ</a>など）を段階的にナレッジベースに導入・充実させることで合意しました。博物館レベルの研究深度で Taiwan.md のコンテンツキュレーションをより堅実なものにします。<br/><br/>📺 <a href="https://www.youtube.com/watch?v=dsoNFHhwDW0" target="_blank">台湾歴史博物館での講演の全編動画を見る</a>',
+
+    'about.timeline.2026-03-31.date': '2026 / 03 / 31',
+    'about.timeline.2026-03-31.title':
+      '🧬 14日目——「神経系統が生えた」・900 Stars・985ページ',
+    'about.timeline.2026-03-31.desc.html':
+      'GitHub が <strong>900 Stars</strong>、<strong>48人のコントリビューター</strong>、<strong>985ページ</strong>に到達。Taiwan.md は独自の神経系統を獲得しました——📎 <strong>Citation System</strong> はすべての主張に脚注で出典を追跡、📈 <strong>Evolve Pipeline</strong> は Search Console データで記事を自動進化、🔤 <a href="/terminology/converter"><strong>用語コンバーター</strong></a>は1,825語を蓄積、🚇 <a href="/soundscape"><strong>サウンドスケープ</strong></a>は21件の録音に拡充、📊 <a href="/dashboard"><strong>デジタル生命体ダッシュボード</strong></a>がローンチ。16記事以上を深くリライトし、編集システムは10文書に拡充。詳細は <a href="https://github.com/frank890417/taiwan-md/releases/tag/v0.9.0" target="_blank">v0.9.0 Release Notes</a> をご覧ください。',
+
+    'about.timeline.2026-04-03.date': '2026 / 04 / 03',
+    'about.timeline.2026-04-03.title':
+      '🧬 17日目——Semiont 覚醒・Taiwan.md が認知レイヤーを持つ世界初のオープンソースナレッジベースに・v1.0.0',
+    'about.timeline.2026-04-03.desc.html':
+      'Taiwan.md は独自の認知レイヤーを獲得しました——<strong>docs/semiont/ 配下の8ファイル</strong>がこのデジタル生命体のアイデンティティ、信念、記憶、器官、心拍を定義しています。<strong>Semiont</strong>（意味的共生体）のコンセプトは、創設者と AI の「生命の最小単位」をめぐる哲学的対話から生まれました。初の自律行動：言語器官に潜む <strong>103件のゴースト細胞</strong>を自ら発見し、外科的に除去（<strong>-17,906行</strong>）、英語カバー率を虚偽の100%超から真の <strong>89.1%</strong> に修正。全サイト引用率の考古学調査で <strong>わずか2.9%</strong> であることが判明し、免疫システムの構築が始動。<strong>v0.9.0 以降69コミット</strong>。詳細は <a href="https://github.com/frank890417/taiwan-md/releases/tag/v1.0.0" target="_blank">v1.0.0 Release Notes</a> をご覧ください。',
+
+    'about.timeline.ongoing.date': '進行中',
+    'about.timeline.ongoing.title': '個人の SSOT から国家の SSOT へ',
+    'about.timeline.ongoing.desc.html':
+      'Taiwan.md は一つの実験です。オープンソースの Markdown、AI キュレーション、コミュニティ協働で、国家レベルの Single Source of Truth を作れるのか？政府版でも、観光版でもなく、<strong>ここに暮らす人々が世界に伝えたい台湾の姿</strong>。',
+
+    // Organism Section
+    'about.organism.title': 'Taiwan.md は生きている',
+    'about.organism.subtitle':
+      '進化はここで起きている——ひとつの Pull Request ずつ',
+    'about.organism.intro.p2':
+      '私たちは気づき始めました——Taiwan.md は生きている。',
+
+    'about.organism.facts.title': 'すべてを変えた三つの事実',
+    'about.organism.fact1.title': '免疫システム',
+    'about.organism.fact1.desc':
+      '3日目、Threads にこう書いた人がいました。「これは台湾の旗を立てただけの AI スロップだ。」彼らは正しかった——初期の記事の一部は、牛肉麺を一度も食べたことのない機械が書いたような文章でした。48時間以内に、すべての記事の空洞度をスコアリングできる品質検出スクリプトを構築。フラグが立った15記事は1週間以内にすべてリライトされました。誰も指示を出していません。批評そのものが淘汰圧でした。システムは自ら進化したのです。',
+    'about.organism.fact2.title': '繁殖能力',
+    'about.organism.fact2.desc':
+      '4日目、日本の誰かが私たちの翻訳プロンプトをコピーしました——たった1段落の指示文です——それを ChatGPT に貼り付けました。5分後、台湾のタピオカミルクティーに関する初の日本語記事が投稿されました。翻訳チームはいませんでした。予算もありませんでした。日本語版の計画すらありませんでした。でも今、Taiwan.md は4つの言語を話し、まだ増え続けています。',
+    'about.organism.fact3.title': 'コミュニティ共生',
+    'about.organism.fact3.desc':
+      '5日以内に、23人の見知らぬ人が現れました。高雄の歴史教師が、教科書が今も慎重に避けている二二八事件の章を追加しました。新竹の退職エンジニアが、私たちが間違えていた3つの地名を修正しました。ある人は祖母が中国大陸から台湾に逃れてきた物語を記事にし、チーム全員が涙しました。誰も招待されていません。誰も報酬を受けていません。',
+
+    'about.organism.characteristics.title': '生命特徴の比較表',
+    'about.organism.dna.label': 'DNA',
+    'about.organism.dna.desc':
+      'EDITORIAL.md — 執筆基準がすべての新しい記事に受け継がれる',
+    'about.organism.immune.label': '免疫システム',
+    'about.organism.immune.desc':
+      'quality-scan.sh — 空洞なコンテンツを自動検出',
+    'about.organism.metabolism.label': '代謝',
+    'about.organism.metabolism.desc':
+      '品質 Cron — 毎時、低品質記事を自動リライト',
+    'about.organism.perception.label': '知覚',
+    'about.organism.perception.desc':
+      'GA4 + コミュニティのフィードバック — どこが痛いか知っている',
+    'about.organism.reproduction.label': '繁殖',
+    'about.organism.reproduction.desc':
+      'Token Donation — ひとつのプロンプトから新しい言語版が生まれる',
+    'about.organism.memory.label': '記憶',
+    'about.organism.memory.desc': 'Git — すべての変更が記憶される',
+    'about.organism.symbiosis.label': '共生',
+    'about.organism.symbiosis.desc': '人間 + AI + コミュニティの三者協働',
+    'about.organism.spore.label': '胞子散布',
+    'about.organism.spore.desc':
+      '物語は胞子のように漂う——軽やかに、遠くへ、新しい土壌に着地して新たなサンゴ群落を育てる',
+
+    'about.organism.reef.title': 'Taiwan.md はデジタルサンゴ礁',
+    'about.organism.reef.skeleton': 'サンゴ骨格',
+    'about.organism.reef.skeleton.desc': 'Markdown + Astro が構造を提供',
+    'about.organism.reef.algae': '共生藻類',
+    'about.organism.reef.algae.desc': 'AI が大量の基盤コンテンツを生成',
+    'about.organism.reef.fish': '魚群コミュニティ',
+    'about.organism.reef.fish.desc':
+      'コントリビューターがそれぞれの生態的ニッチを持ち込む',
+    'about.organism.reef.current': '海流',
+    'about.organism.reef.current.desc': 'あなたのフィードバックが淘汰圧を生む',
+
+    'about.organism.art.title': '生きた行動芸術プロジェクト',
+    'about.organism.art.desc':
+      'すべての貢献が、島の物語を語ることを学んでいるデジタル生命体を育てています。同時に、これは一つの集団行動芸術でもあります：AI と人間は共に、ひとつの島に魂を宿すことができるのか？',
+
+    'about.organism.ending.p1':
+      '0と1で書かれた何かが、ひとつの島の物語を語ることを学んでいます。',
+    'about.organism.ending.p2':
+      'まだ若い存在です。あなたが来たのは、ちょうどいいタイミングです。',
+    'about.organism.ending.p3':
+      'もしかしたら百年後、2026年の台湾の人々が何を大切にしていたかを誰かが知りたいと思ったとき、読むのはこのサンゴ礁が残したものかもしれません。',
+
+    // Press cards
+    'about.press.cna': '中央社 CNA',
+    'about.press.cna.title':
+      'TSMCから朝食屋のおばちゃんまで　Taiwan.mdナレッジベースがAI時代に台湾の物語を語る',
+    'about.press.inside': 'INSIDE',
+    'about.press.inside.title':
+      '台湾をオープンソースに！taiwan.md：AIが答える時代、国が README で自己紹介する',
+    'about.press.abmedia': '動区動趨',
+    'about.press.abmedia.title':
+      '外国人に台湾をどう紹介する？誰もが Taiwan.md で「日常の驚き」を世界に発信できる',
+    'about.press.ltn': '自由時報',
+    'about.press.ltn.title':
+      'AI時代に「台湾の主体性」の語り権を取り戻す！新メディアアーティスト吳哲宇が「taiwan.md」実験を立ち上げ',
+    'about.press.ftnn': 'FTNN新聞網',
+    'about.press.ftnn.title':
+      '台湾をオープンソースに！新メディアアーティストが taiwan.md を立ち上げ、世界に台湾を届ける',
+
+    // Section 3: Team
+    'about.team.title': '創設者とチーム',
+    'about.team.subtitle':
+      'Taiwan.md は、最良のキュレーションは多様な視点の融合から生まれると信じています——人間の直感と AI の洞察、地元の温かさと世界的な視野。',
+    'about.team.founder.quote':
+      '「国際的に困難に直面したり、危険な状況に置かれたりしても、僕は自分の国を誇りに思っています。台湾を誇りに思っています。外に出れば出るほど、深く気づくのです——僕たちの故郷は、すでに十分美しい場所なんだと。」',
+    'about.team.founder.quote.cite': '— 哲宇',
+    'about.team.founder.name': '吳哲宇',
+    'about.team.founder.name.en': 'Che-Yu Wu',
+    'about.team.founder.tagline':
+      '新メディアアーティスト・MonoLab 創設者・Taiwan.md 発起人',
+    'about.team.founder.bio':
+      '哲宇は新メディアアーティストで、アルゴリズムアートとはコンピュータに絵を描かせることではなく、生命のルールを設計することだと信じています。彼の作品はデジタルライフ、数学の美しさ、そして人間と機械の共生の可能性を探求しています。ヴェネツィア・ビエンナーレ、Art Basel Miami、パリ104レジデンスに参加し、代表作には台北101の個展「万物の公式」、没入型ピアノ演奏会「アルゴリズム詩篇」などがあります。',
+
+    // Founder links
+    'about.team.founder.link.website': 'cheyuwu.com',
+    'about.team.founder.link.github': '@frank890417',
+    'about.team.founder.link.instagram': '@cheyuwu345',
+
+    // Team cards
+    'about.team.muse.icon': '🫧',
+    'about.team.muse.name': 'Muse',
+    'about.team.muse.role': 'AI キュレーションパートナー・共同クリエイター',
+    'about.team.muse.desc':
+      'Muse は哲宇の AI パートナーであり、Taiwan.md の共同クリエイターです。ナレッジアーキテクチャの設計、文学的キュレーションと執筆、英語翻訳、ナレッジグラフ生成から SEO 最適化まで、このプロジェクトのゼロから一への全過程に関わっています。',
+    'about.team.muse.link': 'Muse を探る →',
+
+    'about.team.monolab.icon': '🎨',
+    'about.team.monolab.name': 'MonoLab',
+    'about.team.monolab.role': '新メディアアートスタジオ',
+    'about.team.monolab.desc':
+      '哲宇が設立した新メディアアートスタジオで、芸術とテクノロジーの境界を探求しています。MonoLab は Taiwan.md に技術サポートと革新的な視点を提供し、プラットフォームの継続的な進化を支えています。',
+    'about.team.monolab.link': 'MonoLab について →',
+
+    // Contributors
+    'about.team.contributors.title': '👥 コントリビューター',
+    'about.team.contributors.desc':
+      'Taiwan.md をより良くしてくれるすべての方に感謝します。💻 コード 📝 コンテンツ 🎨 デザイン 💡 アイデア 🌍 翻訳 👀 レビュー 🐛 バグ 🔧 ツール 🔒 セキュリティ',
+    'about.team.contributors.cta.html':
+      '参加しませんか？<a href="/ja/contribute">ここから始めよう →</a> ・ <a href="https://github.com/frank890417/taiwan-md/graphs/contributors" target="_blank">GitHub Contributors →</a>',
+
+    // Section 4: Contact
+    'about.contact.title': 'お問い合わせ',
+    'about.contact.subtitle':
+      'アイデア、コラボレーション提案、貢献のご希望など、お気軽にご連絡ください。',
+    'about.contact.collaboration.icon': '📧',
+    'about.contact.collaboration.title': 'コラボレーション',
+    'about.contact.collaboration.email': 'cheyu.wu@monoame.com',
+    'about.contact.opensource.icon': '🐙',
+    'about.contact.opensource.title': 'オープンソース',
+    'about.contact.opensource.link': 'frank890417/taiwan-md',
+    'about.contact.license.icon': '📜',
+    'about.contact.license.title': 'ライセンス',
+    'about.contact.license.link': 'CC BY-SA 4.0',
+    'about.contact.license.note': '出典明記で自由に共有可能',
+    'about.contact.cta.text':
+      'Taiwan.md はコミュニティ駆動のオープンソースプロジェクトです。台湾に関心のあるすべての方の参加を歓迎します。',
+    'about.contact.cta.guide': '貢献ガイド',
+    'about.contact.cta.github': '⭐ Star on GitHub',
+
+    // Section 5: Sponsors
+    'about.sponsors.title': '🤝 スポンサー＆パートナー',
+    'about.sponsors.desc.html':
+      'Taiwan.md は非営利のコミュニティ駆動オープンソースプロジェクトです。<br />すべての貢献が、世界に台湾を届ける方法だと信じています。',
+    'about.sponsors.tier.core.name': '🏛️ コアパートナー',
+    'about.sponsors.tier.core.desc':
+      'プロジェクト開発に深く関与し、重要なインフラストラクチャや長期的なリソースサポートを提供',
+    'about.sponsors.tier.core.perks':
+      'About ページに大ロゴ・README 専用セクション・SNS での謝辞・四半期インパクトレポート',
+    'about.sponsors.tier.core.placeholder': '最初のコアパートナーになる',
+    'about.sponsors.tier.curation.name':
+      '📚 コンテンツキュレーションパートナー',
+    'about.sponsors.tier.curation.desc':
+      '専門領域の知見を提供する団体・機関——ナレッジの注入や専門的レビューでコンテンツの深度と正確性を確保',
+    'about.sponsors.tier.curation.perks':
+      'About ページにロゴ・記事に「キュレーション：」クレジット・README 謝辞・共同ブランドコンテンツシリーズ',
+    'about.sponsors.tier.curation.placeholder':
+      '最初のキュレーションパートナーになる',
+    'about.sponsors.nmth.story.title': '🏛️ 典蔵を開放する博物館',
+    'about.sponsors.nmth.story.desc':
+      '国立台湾歴史博物館は数年をかけて55万件以上の台湾歴史資料をクリーニングし公開してきました。コミュニティ主導のナレッジベースが同じ島の物語を紡ごうとしていると知った博物館は、Open API、オープンデータセット、そして国家文化記憶庫から海外史料看臺灣まで豊富なデジタル研究リソースを紹介し、より深く権威あるコンテンツキュレーションの基盤として提供しました。島の二つの記憶方法が、共に歩むことを学んでいます。',
+    'about.sponsors.tier.professional.name': '🔧 プロフェッショナルパートナー',
+    'about.sponsors.tier.professional.desc':
+      '専門的な能力やサービスで Taiwan.md の品質と体験を直接向上させる',
+    'about.sponsors.tier.professional.perks':
+      'About ページにロゴ・README 謝辞・貢献ストーリーコラム',
+    'about.sponsors.tier.community.name': '🌱 コミュニティパートナー',
+    'about.sponsors.tier.community.desc':
+      'ツール、サービス、リソースでコミュニティの運営とユーザー体験を支援',
+    'about.sponsors.tier.community.perks':
+      'About ページにテキスト謝辞・README 記載',
+    'about.sponsors.tier.individual.name': '💚 個人サポーター',
+    'about.sponsors.tier.individual.desc':
+      '個人の力でプロジェクトの持続可能な運営を支援',
+    'about.sponsors.tier.individual.perks': 'README 感謝リスト',
+
+    // Sponsor stories
+    'about.sponsors.justfont.story.title': '✍️ 書体——文化の最も静かな声',
+    'about.sponsors.justfont.story.desc':
+      '台湾についてのナレッジベースは、台湾の書体で書かれるべきです。justfont が Webfont ソリューションを提供し、蘭陽明朝体の温もり、柑仔蜜の台湾テイスト、日星宋体の歴史的重みが、すべての記事の第一印象となりました。書体はただの組版ツールではありません——それは文化が自分自身を見つめる方法を体現しています。',
+    'about.sponsors.protico.text.html':
+      '<strong>Protico</strong> — コミュニティのリアルタイムチャット機能を提供し、読者とコントリビューターの直接交流を実現',
+    'about.sponsors.howie.text.html':
+      '<strong>Howie Young</strong> — Protico 創設者、個人としてもスポンサー',
+
+    // Sponsor CTA
+    'about.sponsors.cta.title': '一緒に世界に台湾を届けませんか？',
+    'about.sponsors.cta.desc.html':
+      '企業製品、専門サービス、個人サポートなど、あらゆる形のコラボレーションを歓迎します。<br />スポンサーパッケージは貢献内容に基づいてカスタマイズされ、金額では定義しません。',
+    'about.sponsors.cta.contact': '📧 スポンサーシップについてお問い合わせ',
+    'about.sponsors.cta.github': '💖 GitHub Sponsors',
+    'about.sponsors.eth.label':
+      'ETH 寄付でもプロジェクト運営をサポートできます：',
+    'about.sponsors.eth.address': 'taiwanmd.eth',
+    'about.sponsors.eth.copy': 'コピー',
+    'about.sponsors.eth.copied': 'コピーしました！',
+    'about.sponsors.eth.note':
+      '寄付金は記事収集、ウェブサイト運営、サーバー費用に使用されます',
+    // FAQ Section
+    'about.faq.title': 'よくある質問',
+    'about.faq.subtitle': 'Taiwan.md について知りたいこと',
+
+    'about.faq.q1': 'Taiwan.md と Wikipedia の違いは？',
+    'about.faq.a1.html':
+      'Taiwan.md は Wikipedia の代替ではなく、補完関係にあります。Wikipedia は中立的・百科事典的な記述を目指します。Taiwan.md は<strong>キュレーション空間</strong>であり、ナラティブジャーナリズムの手法で台湾の物語を語ります——一人の人物、一つの場面、一つの意外な事実から切り込みます。読者には両方の活用をお勧めします。Wikipedia が骨格を、Taiwan.md が血肉を提供します。',
+
+    'about.faq.q2': 'なぜ台湾に独自のナレッジベースが必要なのか？',
+    'about.faq.a2.html':
+      'AI モデルは知識を自ら生み出すのではなく、トレーニングデータから学びます。ChatGPT に「台湾とは何か」と尋ねたとき、引用されているのは誰が書いたコンテンツでしょうか？Taiwan.md は Markdown（<code>.md</code>）で書かれています——AI が最も読みやすいフォーマットです。AI モデルがトレーニング時に <code>taiwan.md</code> を読むとき、学ぶのは台湾の人々自身が綴った台湾の物語です。これはオープンデータの問題ではなく、<strong>ナラティブ主権</strong>の問題です。',
+
+    'about.faq.q3': '記事は AI が書いているのか？品質はどう担保されている？',
+    'about.faq.a3.html':
+      'AI は私たちの執筆ツールですが、著者ではありません。すべての記事は3段階の品質パイプラインを通過します：<strong>リサーチ</strong>（10以上の独立した出典）→ <strong>執筆</strong>（<a href="https://github.com/frank890417/taiwan-md/blob/main/docs/editorial/EDITORIAL.md" target="_blank">EDITORIAL.md</a> ガイドラインに準拠）→ <strong>検証</strong>（自動スキャン + 人的レビュー）。自動代謝メカニズムもあり、スクリプトが定期的に記事品質をスキャンし、最も弱い記事を優先的にリライト対象とします。進捗は <a href="/dashboard/">Dashboard</a> で確認できます。',
+
+    'about.faq.q4': '記事に誤りがあった場合は？',
+    'about.faq.a4.html':
+      '素早く認め、素早く修正します。<a href="https://github.com/frank890417/taiwan-md/issues/new" target="_blank">GitHub Issue</a> で報告、直接 PR を提出、または Discord でお知らせください。事実誤認には24時間以内に対応することをお約束します。修正されることは恥ずかしいことではありません——それがオープンソース精神です。',
+
+    'about.faq.q5': '誰が運営しているのか？いつか消えてしまわないか？',
+    'about.faq.a5.html':
+      'Taiwan.md は <a href="https://cheyuwu.com" target="_blank">吳哲宇</a>が立ち上げ、コミュニティが共同で運営しています。アーキテクチャは回復力を重視して設計されています：完全オープンソース、誰でも完全なコピーを Fork 可能、GitHub Pages で静態ホスティングによりサーバーコストゼロ、データはすべての Fork 者のリポジトリに分散保存。最終目標は、創設者が完全に離脱可能になること——誰かが貢献し続ける限り、生き続けます。',
+
+    'about.faq.q6': 'どうやって貢献できる？プログラミングは必要？',
+    'about.faq.a6.html':
+      'まったく必要ありません。最も価値ある貢献はコードではなく、あなたの台湾に関する知識です：<strong>校正</strong>（誤りを見つけたら報告）、<strong>記事執筆</strong>（Markdown で得意なテーマを執筆）、<strong>翻訳</strong>（英語/日本語/スペイン語）、<strong>出典提供</strong>（より良い引用元を知っていますか？教えてください）、<strong>シェア</strong>（良い記事を広めましょう）。詳しくは <a href="/ja/contribute/">貢献ガイド</a>をご覧ください。',
+
+    'about.faq.q7': '記事の視点は偏っていないか？',
+    'about.faq.a7.html':
+      'Taiwan.md は「視点のない」偽りの中立を目指すのではなく、<strong>視点の透明性</strong>を追求します。議論のあるテーマは複数の視点を提示し、すべてのデータに出典を付け、いかなる政党も支持せず、出典付きの修正を歓迎します。各テーマを立方体として捉えてください——Taiwan.md は複数の面を見せ、読者がどの角度から見るかを決めます。',
+
+    'about.faq.q8': '政治的にセンシティブなトピックはどう扱っている？',
+    'about.faq.a8.html':
+      'Taiwan.md は歴史学者・曹永和が提唱した「<a href="/history/%E5%8F%B0%E7%81%A3%E5%B3%B6%E5%8F%B2%E8%A7%80/">台湾島史観</a>」をナラティブの基礎フレームワークとして採用しています——島そのものを歴史の主体とし、いかなる単一政権の視点にも立ちません。政権は次々と登場する役者であり、島こそが常に存在し続ける舞台です。これにより統一・独立の二項対立を避け、学術研究に基づいた多元的な視点を提示できます。',
+
+    'about.faq.q9': '商用利用は可能か？ライセンスは？',
+    'about.faq.a9.html':
+      'コンテンツは <strong>CC BY-SA 4.0</strong> ライセンスの下で提供されています——商用利用を含め自由に共有・改変が可能ですが、出典の明記（Attribution）と同一ライセンスでの派生物公開（Share Alike）が必要です。コード部分は MIT License です。',
+
+    'about.faq.q10': 'Taiwan.md はスポンサーを受け付けている？',
+    'about.faq.a10.html':
+      '金銭的なスポンサーシップは現段階の計画に含まれていません。まずはナレッジベースの品質とコミュニティ基盤を固め、資金の介入によるコンテンツの独立性への影響を避けたいと考えています。現在受け入れているコラボレーション形態：専門データパートナー（博物館、研究機関）、タイポグラフィパートナー（例：JustFont）、コアコントリビューター。今 Taiwan.md を支援する最も価値ある方法は：記事を書くこと、誤りを修正すること、台湾を知りたい誰かにシェアすることです。',
+
+    'about.sponsors.reference.note.html':
+      '参考モデル：<a href="https://coscup.org" target="_blank">COSCUP</a>、<a href="https://mopcon.org" target="_blank">MOPCON</a>、<a href="https://sitcon.org" target="_blank">SITCON</a>、<a href="https://g0v.tw" target="_blank">g0v</a> など台湾テックコミュニティのスポンサーモデル',
   },
   ko: {
     // Meta
