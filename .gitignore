@@ -31,3 +31,9 @@ public/api/search-minisearch.json
 meetings/
 memory/
 !docs/semiont/memory/
+
+# Visual refactor: track baseline PNGs only, ignore ephemeral diff output
+reports/visual/current/
+reports/visual/diff/
+reports/visual/diff-report.html
+reports/visual/diff-summary.json

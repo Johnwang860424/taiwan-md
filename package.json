@@ -17,6 +17,10 @@
     "sync:build": "bash scripts/core/sync.sh && astro build",
     "check-images": "node scripts/utils/check-images.mjs",
     "check-links": "bash scripts/utils/check-links.sh",
+    "visual:baseline": "node scripts/visual/capture-baseline.mjs --baseline",
+    "visual:capture": "node scripts/visual/capture-baseline.mjs",
+    "visual:diff": "node scripts/visual/diff.mjs",
+    "visual:check": "node scripts/visual/capture-baseline.mjs && node scripts/visual/diff.mjs",
     "astro": "astro",
     "format::check": "prettier --check .",
     "format::write": "prettier --write .",
@@ -36,6 +40,9 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
     "opencc-js": "^1.0.5",
+    "pixelmatch": "^6.0.0",
+    "playwright": "^1.59.1",
+    "pngjs": "^7.0.0",
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "0.14.1"
   }
