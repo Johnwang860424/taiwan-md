@@ -2,27 +2,25 @@
  * global.css — site-wide stylesheet entry point
  *
  * Phase 3 (2026-04-10): the "Tailwind Flip" phase.
+ * Phase 7 (2026-04-10): dead-code cleanup — @theme bridge block and
+ *   @layer components tw-* class library removed, both unused.
  *
- * Architecture (final, clean):
+ * Architecture (post-Phase-7):
  *
  *   1. tokens.css = design SSOT (CSS variables only)
  *   2. Tailwind v4 imported via explicit layer imports so we control
  *      which layers the reset / theme / utilities land in
- *   3. @theme bridge = our tokens become Tailwind-aware utilities
- *      (font-title, max-w-reading, bg-ink, shadow-card, etc.)
- *   4. @layer base = preflight + our site-wide base styles (html/body/
+ *   3. @layer base = preflight + our site-wide base styles (html/body/
  *      h1-h6/main/a/img/blockquote/nav/floating-md/media queries).
  *      Layout.astro has NO <style> block at all.
- *   5. @layer components = pre-built tw-* class library for Phase 4+
- *      leaf migrations (can use @apply now that Tailwind is imported)
- *   6. @layer utilities = Tailwind atomic utilities (flex, p-4, dark:)
+ *   4. @layer utilities = Tailwind atomic utilities (flex, p-4, dark:)
+ *   5. Top-level @keyframes (float*) — used by TopicCard's dynamic
+ *      `animation: var(--anim)` arbitrary utility
  *
  * Cascade order:
- *   @layer theme       ← Tailwind theme tokens + our @theme bridge
+ *   @layer theme       ← Tailwind theme tokens
  *     ↓
  *   @layer base        ← Tailwind preflight + our site base styles
- *     ↓
- *   @layer components  ← tw-* prebuilt classes
  *     ↓
  *   @layer utilities   ← Tailwind atomic utilities
  *     ↓
@@ -33,21 +31,22 @@
  *   colors, etc. We explicitly restore what we need in @layer base.
  * - Component scoped <style> blocks remain the highest priority and
  *   can override anything here.
- * - `class="dark:bg-ink md:grid-cols-2 ..."` works in any template.
- * - Expect small visual drift (<5%) on some pages; this is acceptable
- *   per 2026-04-10 decision, to be corrected manually in follow-ups.
+ * - Phase 4+ leaf migrations use inline Tailwind arbitrary values
+ *   (`bg-[#007864]`, `[&_h2]:mt-6`) instead of the Phase 2 tw-*
+ *   prebuilt classes (which were never adopted and are now deleted).
  *
  * ⚠️ New design tokens → tokens.css
  * ⚠️ New base / typography → @layer base here
- * ⚠️ New reusable component → @layer components (prefer @apply now)
  * ⚠️ One-off atomic utility in HTML → use Tailwind class directly
  */
 
 @import './tokens.css';
 
 /* Layer order declaration — anything added to these layers lands in
- * the declared order regardless of source position in the file. */
-@layer theme, base, components, utilities;
+ * the declared order regardless of source position in the file.
+ * The `components` layer was removed in Phase 7 along with the
+ * tw-* prebuilt class library that never got adopted. */
+@layer theme, base, utilities;
 
 /* Tailwind v4 layered imports. `theme.css` provides Tailwind's default
  * palette + base tokens; `preflight.css` is the CSS reset; `utilities`
@@ -62,48 +61,13 @@
  * THIS file (src/styles/global.css). */
 @source "../**/*.{astro,ts,tsx,js,jsx,mdx}";
 
-/* ==========================================================================
- * @theme — bridge our tokens.css CSS vars into Tailwind's theme system.
- * These generate real utility classes:
- *   --color-ink          → bg-ink / text-ink / border-ink
- *   --font-title         → font-title
- *   --max-width-reading  → max-w-reading
- *   --radius-card        → rounded-card
- *   --shadow-card        → shadow-card
- * ========================================================================== */
-
-@theme {
-  /* Containers */
-  --max-width-wide: var(--container-wide);
-  --max-width-page: var(--container-page);
-  --max-width-reading: var(--container-reading);
-
-  /* Fonts — these shadow Tailwind's defaults on purpose */
-  --font-title: var(--font-title);
-  --font-reading: var(--font-reading);
-  --font-interface: var(--font-interface);
-  --font-quote: var(--font-quote);
-  --font-mono: var(--font-mono);
-
-  /* Radius */
-  --radius-chip: var(--radius-chip);
-  --radius-card: var(--radius-card);
-  --radius-pill: var(--radius-pill);
-
-  /* Shadows */
-  --shadow-soft: var(--shadow-soft);
-  --shadow-card: var(--shadow-card);
-
-  /* Colors — site-specific, named with ink / line / accent / surface */
-  --color-ink: #1a1a2e;
-  --color-ink-soft: #475569;
-  --color-ink-softer: #64748b;
-  --color-line: #cbd5e1;
-  --color-line-soft: rgba(148, 163, 184, 0.2);
-  --color-accent: #3b82f6;
-  --color-surface: #ffffff;
-  --color-surface-soft: #f8fafc;
-}
+/* Phase 7 (2026-04-10): the `@theme` bridge block that mapped tokens →
+ * Tailwind utilities (font-title, max-w-reading, rounded-card, etc.)
+ * was removed because nothing in the markup actually used those
+ * generated classes. Phase 4+ leaf migrations went straight to
+ * inline Tailwind arbitrary values instead. The raw tokens
+ * themselves still live in tokens.css and are referenced from
+ * `@layer base` below via `var(--font-title)` etc. */
 
 /* ==========================================================================
  * @layer base — site-wide base styles.
@@ -411,269 +375,6 @@
       height: 42px;
       font-size: 0.78rem;
     }
-  }
-}
-
-/* ==========================================================================
- * @layer components — prebuilt reusable classes for Phase 4+ leaf
- * migrations. Currently written as plain CSS referencing var(--token);
- * future touches can rewrite with @apply now that Tailwind is imported.
- * ========================================================================== */
-
-@layer components {
-  /* ------------------------------------------------------------------ */
-  /* Containers                                                         */
-  /* ------------------------------------------------------------------ */
-
-  .tw-container-wide {
-    max-width: var(--container-wide);
-    margin-inline: auto;
-    padding-inline: var(--space-page-x);
-  }
-
-  .tw-container-page {
-    max-width: var(--container-page);
-    margin-inline: auto;
-    padding-inline: var(--space-page-x);
-  }
-
-  .tw-container-reading {
-    max-width: var(--container-reading);
-    margin-inline: auto;
-    padding-inline: var(--space-page-x);
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Section vertical rhythm                                            */
-  /* ------------------------------------------------------------------ */
-
-  .tw-section-y {
-    padding-block: var(--space-section-y);
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Buttons                                                            */
-  /* ------------------------------------------------------------------ */
-
-  .tw-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-1);
-    padding: var(--space-2) var(--space-3);
-    border-radius: var(--radius-chip);
-    font-family: var(--font-interface);
-    font-weight: 600;
-    font-size: 0.95rem;
-    line-height: 1;
-    text-decoration: none;
-    cursor: pointer;
-    border: 1.5px solid transparent;
-    background: transparent;
-    color: inherit;
-    transition:
-      background-color 0.2s ease,
-      border-color 0.2s ease,
-      color 0.2s ease,
-      transform 0.15s ease;
-  }
-
-  .tw-btn-primary {
-    background: #1a1a2e;
-    color: #fff;
-    border-color: #1a1a2e;
-  }
-  .tw-btn-primary:hover {
-    background: #3b82f6;
-    border-color: #3b82f6;
-  }
-
-  .tw-btn-outline {
-    background: transparent;
-    color: #1a1a2e;
-    border-color: #cbd5e1;
-  }
-  .tw-btn-outline:hover {
-    background: #1a1a2e;
-    color: #fff;
-    border-color: #1a1a2e;
-  }
-
-  .tw-btn-ghost {
-    background: transparent;
-    color: #475569;
-    border-color: transparent;
-  }
-  .tw-btn-ghost:hover {
-    background: #f8fafc;
-    color: #1a1a2e;
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Cards                                                              */
-  /* ------------------------------------------------------------------ */
-
-  .tw-card {
-    background: #ffffff;
-    border: var(--border-soft);
-    border-radius: var(--radius-card);
-    padding: var(--space-4);
-  }
-
-  .tw-card-soft {
-    background: #f8fafc;
-    border: var(--border-soft);
-    border-radius: var(--radius-card);
-    padding: var(--space-4);
-  }
-
-  .tw-card-elevated {
-    background: #ffffff;
-    border: var(--border-soft);
-    border-radius: var(--radius-card);
-    padding: var(--space-4);
-    box-shadow: var(--shadow-card);
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Chip / tag / pill                                                  */
-  /* ------------------------------------------------------------------ */
-
-  .tw-chip {
-    display: inline-flex;
-    align-items: center;
-    padding: 4px 10px;
-    background: #f8fafc;
-    border: var(--border-soft);
-    border-radius: var(--radius-chip);
-    font-family: var(--font-interface);
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: #475569;
-    white-space: nowrap;
-  }
-
-  .tw-tag {
-    display: inline-flex;
-    align-items: center;
-    padding: 2px 8px;
-    background: transparent;
-    border: 1px solid #cbd5e1;
-    border-radius: var(--radius-chip);
-    font-family: var(--font-interface);
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: #64748b;
-    white-space: nowrap;
-  }
-
-  .tw-pill {
-    display: inline-flex;
-    align-items: center;
-    padding: 6px 14px;
-    background: #ffffff;
-    border: var(--border-soft);
-    border-radius: var(--radius-pill);
-    font-family: var(--font-interface);
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #475569;
-    white-space: nowrap;
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Hover lift                                                         */
-  /* ------------------------------------------------------------------ */
-
-  .tw-hover-lift {
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
-  }
-  .tw-hover-lift:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-card);
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Navigation                                                         */
-  /* ------------------------------------------------------------------ */
-
-  .tw-nav-link {
-    font-family: var(--font-interface);
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: #475569;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-  .tw-nav-link:hover,
-  .tw-nav-link.is-active {
-    color: #1a1a2e;
-  }
-
-  .tw-dropdown-item {
-    display: block;
-    padding: var(--space-2) var(--space-3);
-    font-family: var(--font-interface);
-    font-size: 0.9rem;
-    color: #475569;
-    text-decoration: none;
-    border-radius: 8px;
-    transition:
-      background-color 0.15s ease,
-      color 0.15s ease;
-  }
-  .tw-dropdown-item:hover {
-    background: #f8fafc;
-    color: #1a1a2e;
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Prose                                                              */
-  /* ------------------------------------------------------------------ */
-
-  .tw-prose {
-    font-family: var(--font-reading);
-    font-size: 1rem;
-    line-height: 1.85;
-    color: #1a1a2e;
-  }
-  .tw-prose > p + p {
-    margin-top: var(--space-3);
-  }
-
-  /* ------------------------------------------------------------------ */
-  /* Section title + kicker                                             */
-  /* ------------------------------------------------------------------ */
-
-  .tw-kicker {
-    display: inline-block;
-    font-family: var(--font-interface);
-    font-size: 0.85rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #475569;
-    margin-bottom: var(--space-2);
-  }
-
-  .tw-section-title {
-    font-family: var(--font-title);
-    font-size: var(--title-section-size);
-    font-weight: 800;
-    line-height: var(--title-line-height);
-    color: #1a1a2e;
-    margin: 0 0 var(--space-3);
-  }
-
-  .tw-subsection-title {
-    font-family: var(--font-title);
-    font-size: var(--title-subsection-size);
-    font-weight: 700;
-    line-height: var(--title-line-height);
-    color: #1a1a2e;
-    margin: 0 0 var(--space-2);
   }
 }
 
