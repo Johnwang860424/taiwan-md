@@ -37,36 +37,70 @@ const articleHref = translatePath(`/${category}/${slug}`);
 const readMoreLabel = lang === 'en' ? 'Read article' : '閱讀全文';
 ---
 
-<a href={articleHref} class="related-card" aria-label={title}>
+<!--
+  Phase 4 leaf migration #3: RelatedArticleCard.astro
+  ───────────────────────────────────────────────────
+  - Scoped <style> block removed entirely
+  - All classes replaced with Tailwind atomic utilities
+  - Uses group / group-hover: variants for parent-triggered child
+    state changes (card-title color shift + card-cta gap-grow on hover)
+  - Dynamic category colors still passed via inline style (they
+    depend on categoryColor prop and change per card)
+-->
+<a
+  href={articleHref}
+  class="group flex flex-col overflow-hidden rounded-2xl border border-[rgba(26,60,52,0.07)] bg-white text-inherit no-underline shadow-[0_2px_12px_rgba(26,60,52,0.05)] transition-all duration-[250ms] hover:-translate-y-[5px] hover:shadow-[0_12px_40px_rgba(26,60,52,0.12)]"
+  aria-label={title}
+>
   <div
-    class="card-image"
+    class="relative h-40 overflow-hidden bg-[#e8efec] bg-cover bg-center"
     style={coverImage ? `background-image: url('${coverImage}')` : ''}
     aria-hidden="true"
   >
     {
       !coverImage && (
         <div
-          class="card-image-fallback"
+          class="absolute inset-0 flex items-center justify-center"
           style={`background: linear-gradient(135deg, ${categoryColor}22, ${categoryColor}44);`}
         >
-          <span class="fallback-icon" style={`color: ${categoryColor};`}>
+          <span
+            class="text-[2.8rem] leading-none opacity-75"
+            style={`color: ${categoryColor};`}
+          >
             {categoryIcon || title[0]}
           </span>
         </div>
       )
     }
-    <div class="card-image-overlay" aria-hidden="true"></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-transparent from-40% to-[rgba(10,22,19,0.35)]"
+      aria-hidden="true"
+    >
+    </div>
   </div>
-  <div class="card-body">
+  <div class="flex flex-1 flex-col gap-2 px-6 pb-6 pt-5">
     <span
-      class="card-badge"
+      class="inline-block self-start rounded-full border border-solid px-[0.65rem] py-[0.22rem] font-['Inter',system-ui,sans-serif] text-[0.68rem] font-semibold uppercase tracking-[0.14em]"
       style={`color: ${categoryColor}; background: ${categoryColor}14; border-color: ${categoryColor}28;`}
     >
       {categoryName}
     </span>
-    <h3 class="card-title">{title}</h3>
-    {description && <p class="card-desc">{description}</p>}
-    <span class="card-cta" style={`color: ${categoryColor};`}>
+    <h3
+      class="m-0 font-['Noto_Serif_TC',serif] text-base font-semibold leading-[1.45] text-[#1a3c34] transition-colors group-hover:text-[#006d77]"
+    >
+      {title}
+    </h3>
+    {
+      description && (
+        <p class="m-0 line-clamp-2 font-['Inter',system-ui,sans-serif] text-[0.8rem] leading-relaxed text-[#7a8b7e]">
+          {description}
+        </p>
+      )
+    }
+    <span
+      class="mt-auto inline-flex items-center gap-[0.3rem] pt-1 font-['Inter',system-ui,sans-serif] text-[0.78rem] font-semibold transition-[gap] duration-200 group-hover:gap-2"
+      style={`color: ${categoryColor};`}
+    >
       {readMoreLabel}
       <svg
         width="12"
@@ -75,118 +109,10 @@ const readMoreLabel = lang === 'en' ? 'Read article' : '閱讀全文';
         fill="none"
         stroke="currentColor"
         stroke-width="2.5"
-        aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg
+        aria-hidden="true"
       >
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
     </span>
   </div>
 </a>
-
-<style>
-  .related-card {
-    display: flex;
-    flex-direction: column;
-    background: #ffffff;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(26, 60, 52, 0.07);
-    box-shadow: 0 2px 12px rgba(26, 60, 52, 0.05);
-    text-decoration: none;
-    transition:
-      transform 0.25s ease,
-      box-shadow 0.25s ease;
-  }
-  .related-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(26, 60, 52, 0.12);
-  }
-
-  .card-image {
-    position: relative;
-    height: 160px;
-    background-size: cover;
-    background-position: center;
-    background-color: #e8efec;
-    overflow: hidden;
-  }
-  .card-image-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      transparent 40%,
-      rgba(10, 22, 19, 0.35) 100%
-    );
-  }
-  .card-image-fallback {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .fallback-icon {
-    font-size: 2.8rem;
-    line-height: 1;
-    opacity: 0.75;
-  }
-
-  .card-body {
-    padding: 1.25rem 1.5rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    gap: 0.5rem;
-  }
-
-  .card-badge {
-    display: inline-block;
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 0.68rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    padding: 0.22rem 0.65rem;
-    border-radius: 100px;
-    border: 1px solid;
-    align-self: flex-start;
-  }
-
-  .card-title {
-    font-family: 'Noto Serif TC', serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #1a3c34;
-    line-height: 1.45;
-    margin: 0;
-  }
-  .related-card:hover .card-title {
-    color: #006d77;
-  }
-
-  .card-desc {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 0.8rem;
-    color: #7a8b7e;
-    line-height: 1.6;
-    margin: 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .card-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    margin-top: auto;
-    padding-top: 0.25rem;
-    transition: gap 0.2s;
-  }
-  .related-card:hover .card-cta {
-    gap: 0.5rem;
-  }
-</style>
