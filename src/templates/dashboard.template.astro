@@ -13,9 +13,21 @@ const isEn = lang === 'en';
 >
   <main class="dashboard">
     <!-- Hero -->
-    <section class="hero">
+    <!--
+      Phase 7.5 partial migration — dashboard.template.astro
+      Hero section moved to inline Tailwind. `.ekg-line` + its
+      @keyframes ekgDraw animation stay scoped (the animation can't
+      be reached via Tailwind arbitrary utilities without promoting
+      the keyframes to global.css — too small a win to justify).
+      Inner sections (vitals-grid, dashboard cards, organism
+      anatomy, etc.) remain scoped — ~170 classes with tight JS
+      coupling.
+    -->
+    <section
+      class="relative mb-4 overflow-hidden rounded-2xl bg-[linear-gradient(135deg,#1a1a2e_0%,#2d1b69_60%,#1a1a2e_100%)] px-8 pb-8 pt-12 text-center text-white"
+    >
       <svg
-        class="hero-ekg"
+        class="pointer-events-none absolute left-0 top-1/2 h-[60px] w-full -translate-y-1/2 opacity-60"
         viewBox="0 0 600 60"
         preserveAspectRatio="none"
         aria-hidden="true"
@@ -27,17 +39,21 @@ const isEn = lang === 'en';
           stroke="rgba(139,92,246,0.25)"
           stroke-width="2"></path>
       </svg>
-      <h1 class="hero-title">
-        <span class="hero-emoji">🔬</span>
+      <h1 class="relative mb-2 text-[2rem]">
+        <span class="text-[1.8rem]">🔬</span>
         {t('dashboard.hero.title')}
       </h1>
-      <p class="hero-subtitle">{t('dashboard.hero.subtitle')}</p>
-      <p class="hero-desc">{t('dashboard.hero.description')}</p>
+      <p class="relative mb-[0.3rem] text-[1.1rem] opacity-80">
+        {t('dashboard.hero.subtitle')}
+      </p>
+      <p class="relative text-[0.9rem] opacity-80">
+        {t('dashboard.hero.description')}
+      </p>
       <a
         href="https://github.com/frank890417/taiwan-md/tree/main/docs/semiont"
         target="_blank"
         rel="noopener"
-        class="hero-cognition-link"
+        class="mt-2 inline-block text-[0.85rem] text-[#94a3b8] no-underline opacity-80 transition-opacity duration-200 hover:text-[#cbd5e1] hover:opacity-100"
       >
         {
           isEn
@@ -45,18 +61,38 @@ const isEn = lang === 'en';
             : '→ 前往認知層（自我覺察系統）'
         }
       </a>
-      <div class="hero-stats" id="hero-stats">
-        <div class="hero-stat">
-          <span class="hero-stat-value" id="hero-stat-articles">—</span>
-          <span class="hero-stat-label">{isEn ? 'Articles' : '文章'}</span>
+      <div
+        class="relative mt-6 flex justify-center gap-12 max-[768px]:gap-6"
+        id="hero-stats"
+      >
+        <div class="flex flex-col items-center">
+          <span
+            class="text-[2.8rem] font-black leading-[1.1] [font-variant-numeric:tabular-nums]"
+            id="hero-stat-articles">—</span
+          >
+          <span
+            class="mt-[0.3rem] text-[0.85rem] uppercase tracking-[0.05em] opacity-70"
+            >{isEn ? 'Articles' : '文章'}</span
+          >
         </div>
-        <div class="hero-stat">
-          <span class="hero-stat-value" id="hero-stat-languages">—</span>
-          <span class="hero-stat-label">{isEn ? 'Languages' : '語言'}</span>
+        <div class="flex flex-col items-center">
+          <span
+            class="text-[2.8rem] font-black leading-[1.1] [font-variant-numeric:tabular-nums]"
+            id="hero-stat-languages">—</span
+          >
+          <span
+            class="mt-[0.3rem] text-[0.85rem] uppercase tracking-[0.05em] opacity-70"
+            >{isEn ? 'Languages' : '語言'}</span
+          >
         </div>
-        <div class="hero-stat">
-          <span class="hero-stat-value" id="hero-stat-contributors">—</span>
-          <span class="hero-stat-label">{isEn ? 'Contributors' : '貢獻者'}</span
+        <div class="flex flex-col items-center">
+          <span
+            class="text-[2.8rem] font-black leading-[1.1] [font-variant-numeric:tabular-nums]"
+            id="hero-stat-contributors">—</span
+          >
+          <span
+            class="mt-[0.3rem] text-[0.85rem] uppercase tracking-[0.05em] opacity-70"
+            >{isEn ? 'Contributors' : '貢獻者'}</span
           >
         </div>
       </div>
@@ -1961,26 +1997,9 @@ const isEn = lang === 'en';
     background: #fafbfc;
   }
 
-  .hero {
-    text-align: center;
-    padding: 3rem 2rem 2rem;
-    background: linear-gradient(135deg, #1a1a2e 0%, #2d1b69 60%, #1a1a2e 100%);
-    color: #fff;
-    border-radius: 16px;
-    margin-bottom: 1rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-ekg {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    transform: translateY(-50%);
-    opacity: 0.6;
-    pointer-events: none;
-  }
+  /* EKG animation kept scoped — the animation name can't be
+     referenced from a Tailwind arbitrary utility without moving
+     the @keyframes to global.css. Too small a win to justify. */
   .ekg-line {
     stroke-dasharray: 800;
     stroke-dashoffset: 800;
@@ -1999,63 +2018,6 @@ const isEn = lang === 'en';
       stroke-dashoffset: -800;
       opacity: 0.3;
     }
-  }
-  .hero-title {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    position: relative;
-  }
-  .hero-emoji {
-    font-size: 1.8rem;
-  }
-  .hero-subtitle {
-    font-size: 1.1rem;
-    opacity: 0.8;
-    margin-bottom: 0.3rem;
-    position: relative;
-  }
-  .hero-desc {
-    opacity: 0.8;
-    font-size: 0.9rem;
-    position: relative;
-  }
-  .hero-cognition-link {
-    display: inline-block;
-    margin-top: 0.5rem;
-    font-size: 0.85rem;
-    color: #94a3b8;
-    text-decoration: none;
-    opacity: 0.8;
-    transition: opacity 0.2s;
-  }
-  .hero-cognition-link:hover {
-    opacity: 1;
-    color: #cbd5e1;
-  }
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 1.5rem;
-    position: relative;
-  }
-  .hero-stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .hero-stat-value {
-    font-size: 2.8rem;
-    font-weight: 900;
-    line-height: 1.1;
-    font-variant-numeric: tabular-nums;
-  }
-  .hero-stat-label {
-    font-size: 0.85rem;
-    opacity: 0.7;
-    margin-top: 0.3rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
 
   .section {
