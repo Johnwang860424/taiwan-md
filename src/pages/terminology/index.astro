@@ -162,39 +162,80 @@ const subcategories = Object.entries(subcatCounts)
 const termsJSON = JSON.stringify(terms);
 ---
 
+<!--
+  Phase 6 partial migration — terminology/index.astro
+  ───────────────────────────────────────────────────
+  - Wrappers (header, filter bar, grid container, footer, fork popup)
+    moved to inline Tailwind
+  - `.term-page` kept as hook: referenced in global.css
+    `body.page-default main.term-page { padding-top: 0 }`
+  - Repeating card pattern (.term-card + all .card-* / .expand-* /
+    .fork-badge / .fork-point children) stays in scoped <style>
+    because it repeats per term (~100s of cards)
+  - .filter-btn / .subcat-btn stay scoped because they use the
+    `.active` state class + `--fork-color` CSS variable for the
+    per-type accent color; inlining would need both [&.active]:
+    AND arbitrary `hover:border-[var(--fork-color)]` on every button
+-->
 <Layout title="📖 用語保存計畫 — Taiwan.md">
-  <main class="term-page">
+  <main class="term-page flex min-h-screen flex-col bg-[#f8f8f8]">
     <!-- ── Header ─────────────────────────────────────────────── -->
-    <div class="term-header">
-      <div class="header-inner">
-        <h1>
-          📖 用語保存計畫 <span class="header-en"
-            >Terminology Preservation</span>
+    <div
+      class="bg-[#1a1a2e] px-[var(--space-page-x,2rem)] pb-8 pt-10 text-white max-[640px]:px-4 max-[640px]:pb-5 max-[640px]:pt-6"
+    >
+      <div class="mx-auto max-w-[72rem]">
+        <h1
+          class="m-0 mb-3 font-[var(--font-editorial,Georgia,serif)] text-[clamp(1.6rem,3.5vw,2.4rem)] font-extrabold leading-[1.2] -tracking-[0.01em]"
+        >
+          📖 用語保存計畫 <span
+            class="mt-[0.2em] block font-[var(--font-ui,system-ui,sans-serif)] text-[0.62em] font-normal tracking-[0.04em] opacity-[0.65]"
+            >Terminology Preservation</span
+          >
         </h1>
-        <p class="header-tagline">
+        <p
+          class="m-0 mb-5 max-w-[42rem] text-[clamp(0.9rem,1.8vw,1.05rem)] leading-[1.65] opacity-[0.82]"
+        >
           Taiwan.md
           的文字應該讀起來像在台灣長大的人寫的——這不是政治立場，是生活經驗的真實性。
         </p>
-        <div class="header-bottom">
-          <div class="header-stats">
-            <span class="stat"><strong>{totalTerms}</strong> 個詞條</span>
-            <span class="stat-sep">|</span>
-            <span class="stat"><strong>6</strong> 種分歧類型</span>
-            <span class="stat-sep">|</span>
-            <span class="stat"><strong>{totalSources}</strong> 個來源</span>
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div
+            class="flex flex-wrap items-center gap-[0.6rem] text-[0.9rem] opacity-75 [&_strong]:text-[1.05em] [&_strong]:text-white [&_strong]:opacity-100"
+          >
+            <span><strong>{totalTerms}</strong> 個詞條</span>
+            <span class="opacity-40">|</span>
+            <span><strong>6</strong> 種分歧類型</span>
+            <span class="opacity-40">|</span>
+            <span><strong>{totalSources}</strong> 個來源</span>
           </div>
-          <a href="/terminology/converter" class="fork-link-btn">
+          <a
+            href="/terminology/converter"
+            class="inline-flex items-center gap-[0.4rem] whitespace-nowrap rounded-lg border border-white/25 bg-white/10 px-4 py-[0.45rem] text-[0.88rem] font-semibold text-white no-underline transition-[background,border-color] duration-150 hover:border-white/40 hover:bg-white/20 hover:no-underline"
+          >
             🔄 用語轉換器 →
           </a>
-          <a href="/fork-graph" class="fork-link-btn"> 🌿 語言分支樹 → </a>
+          <a
+            href="/fork-graph"
+            class="inline-flex items-center gap-[0.4rem] whitespace-nowrap rounded-lg border border-white/25 bg-white/10 px-4 py-[0.45rem] text-[0.88rem] font-semibold text-white no-underline transition-[background,border-color] duration-150 hover:border-white/40 hover:bg-white/20 hover:no-underline"
+          >
+            🌿 語言分支樹 →
+          </a>
         </div>
       </div>
     </div>
 
     <!-- ── Filter bar ─────────────────────────────────────────── -->
-    <div class="filter-bar">
-      <div class="filter-inner">
-        <div class="filter-buttons" role="group" aria-label="依分歧類型篩選">
+    <div
+      class="sticky top-0 z-10 border-b border-[#e5e5e5] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
+    >
+      <div
+        class="mx-auto flex max-w-[72rem] flex-wrap items-center gap-4 px-[var(--space-page-x,2rem)] py-[0.85rem] max-[640px]:flex-col max-[640px]:items-stretch max-[640px]:px-4 max-[640px]:py-3"
+      >
+        <div
+          class="flex flex-1 flex-wrap gap-[0.4rem]"
+          role="group"
+          aria-label="依分歧類型篩選"
+        >
           <button class="filter-btn active" data-fork="all">全部</button>
           {
             Object.entries(forkTypeLabels).map(([key, label]) => (
@@ -208,21 +249,29 @@ const termsJSON = JSON.stringify(terms);
             ))
           }
         </div>
-        <div class="search-wrap">
+        <div class="flex min-w-[180px] items-center gap-2 max-[640px]:w-full">
           <input
             id="term-search"
             type="search"
             placeholder="搜尋詞條…"
             aria-label="搜尋用語詞條"
+            class="w-[180px] rounded-md border-[1.5px] border-[#ddd] px-[0.8rem] py-[0.38rem] font-[inherit] text-[0.9rem] outline-none transition-colors duration-200 focus:border-[#1a1a2e] max-[640px]:w-full max-[640px]:flex-1"
           />
-          <span id="result-count" class="result-count"></span>
+          <span
+            id="result-count"
+            class="whitespace-nowrap text-[0.8rem] text-[#888]"></span>
         </div>
-        <div class="subcat-row" role="group" aria-label="依子分類篩選">
+        <div
+          class="mt-[0.6rem] flex w-full flex-wrap gap-[0.35rem] border-t border-[#eee] pt-[0.6rem]"
+          role="group"
+          aria-label="依子分類篩選"
+        >
           <button class="subcat-btn active" data-subcat="all">全部分類</button>
           {
             subcategories.map((s) => (
               <button class="subcat-btn" data-subcat={s.name}>
-                {s.name} <span class="subcat-count">{s.count}</span>
+                {s.name}{' '}
+                <span class="text-[0.65rem] opacity-60">{s.count}</span>
               </button>
             ))
           }
@@ -231,8 +280,13 @@ const termsJSON = JSON.stringify(terms);
     </div>
 
     <!-- ── Cards grid ─────────────────────────────────────────── -->
-    <div class="terms-section">
-      <div class="terms-grid" id="terms-grid">
+    <div
+      class="mx-auto box-border w-full max-w-[72rem] flex-1 px-[var(--space-page-x,2rem)] py-8 max-[640px]:px-4 max-[640px]:py-5"
+    >
+      <div
+        class="grid grid-cols-3 gap-5 max-[1024px]:grid-cols-2 max-[640px]:grid-cols-1"
+        id="terms-grid"
+      >
         {
           cards.map((c, i) => (
             <div
@@ -341,42 +395,74 @@ const termsJSON = JSON.stringify(terms);
           ))
         }
       </div>
-      <p class="no-results" id="no-results" style="display:none">
+      <p
+        class="hidden py-12 text-center text-[0.95rem] text-[#999]"
+        id="no-results"
+      >
         找不到符合條件的詞條。
       </p>
     </div>
 
     <!-- ── Footer ─────────────────────────────────────────────── -->
-    <div class="term-footer">
-      <div class="footer-inner">
-        <div class="footer-links">
+    <div
+      class="mt-auto bg-[#1a1a2e] px-[var(--space-page-x,2rem)] py-8 text-white max-[640px]:px-4 max-[640px]:py-6"
+    >
+      <div class="mx-auto flex max-w-[72rem] flex-col gap-3">
+        <div
+          class="flex flex-wrap items-center gap-4 max-[640px]:flex-col max-[640px]:items-start"
+        >
           <a
             href="https://github.com/taiwan-md/taiwan-md/tree/main/data/terminology"
             target="_blank"
             rel="noopener noreferrer"
-            class="footer-link"
+            class="py-[0.3rem] text-[0.9rem] text-white/75 no-underline transition-colors duration-150 hover:text-white hover:underline"
           >
             📂 在 GitHub 瀏覽詞條資料
           </a>
-          <a href="/contribute" class="footer-link footer-cta"> ✏️ 貢獻詞條 </a>
-          <a href="/culture/台灣華語的演化" class="footer-link">
+          <a
+            href="/contribute"
+            class="rounded-md border border-white/30 bg-white/15 px-4 py-[0.4rem] text-[0.9rem] !font-semibold !text-white no-underline transition-colors duration-150 hover:bg-white/[0.22] hover:!no-underline"
+          >
+            ✏️ 貢獻詞條
+          </a>
+          <a
+            href="/culture/台灣華語的演化"
+            class="py-[0.3rem] text-[0.9rem] text-white/75 no-underline transition-colors duration-150 hover:text-white hover:underline"
+          >
             📝 台灣華語的演化
           </a>
         </div>
-        <p class="footer-note">
+        <p class="m-0 text-[0.8rem] opacity-45">
           用語保存計畫持續收錄中。每個詞條都有詞源考據與使用建議。
         </p>
       </div>
     </div>
     <!-- ── Fork Tree Popup ────────────────────────────────────── -->
-    <div class="fork-popup-overlay" id="fork-popup" aria-hidden="true">
-      <div class="fork-popup-box">
-        <button class="fork-popup-close" aria-label="關閉">✕</button>
-        <h3 class="fork-popup-title" id="fork-popup-title"></h3>
-        <div class="fork-popup-graph">
+    <div
+      class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/50 p-4 backdrop-blur-[4px] [&.visible]:flex"
+      id="fork-popup"
+      aria-hidden="true"
+    >
+      <div
+        class="relative max-h-[90vh] w-full max-w-[560px] overflow-y-auto rounded-2xl bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.2)]"
+      >
+        <button
+          class="fork-popup-close absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full border-none bg-[#f0f0f0] text-base transition-colors duration-150 hover:bg-[#ddd]"
+          aria-label="關閉">✕</button
+        >
+        <h3
+          class="m-0 mb-4 text-[1.2rem] font-bold text-[#1a1a2e]"
+          id="fork-popup-title"
+        >
+        </h3>
+        <div class="mb-4 overflow-x-auto">
           <svg id="fork-popup-svg" width="100%" height="180"></svg>
         </div>
-        <div class="fork-popup-info" id="fork-popup-info"></div>
+        <div
+          class="text-[0.85rem] leading-[1.6] text-[#555] [&_.info-label]:min-w-[3.5rem] [&_.info-label]:whitespace-nowrap [&_.info-label]:font-semibold [&_.info-label]:text-[#333] [&_.info-row]:mb-[0.4rem] [&_.info-row]:flex [&_.info-row]:gap-2"
+          id="fork-popup-info"
+        >
+        </div>
       </div>
     </div>
   </main>
@@ -416,7 +502,7 @@ const termsJSON = JSON.stringify(terms);
     });
 
     if (noResults) {
-      noResults.style.display = visible === 0 ? 'block' : 'none';
+      noResults.classList.toggle('hidden', visible !== 0);
     }
     if (resultCount) {
       resultCount.textContent =
@@ -594,120 +680,9 @@ const termsJSON = JSON.stringify(terms);
 </script>
 
 <style>
-  /* ── Fork Link Button (in header) ────────────────────────────── */
-  .header-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-  .fork-link-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.45rem 1rem;
-    background: rgba(255, 255, 255, 0.12);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 0.88rem;
-    font-weight: 600;
-    transition:
-      background 0.15s,
-      border-color 0.15s;
-    white-space: nowrap;
-  }
-  .fork-link-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(255, 255, 255, 0.4);
-    text-decoration: none;
-  }
-
-  /* ── Page layout ──────────────────────────────────────────────── */
-  .term-page {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background: #f8f8f8;
-  }
-
-  /* ── Header ──────────────────────────────────────────────────── */
-  .term-header {
-    background: #1a1a2e;
-    color: white;
-    padding: 2.5rem var(--space-page-x, 2rem) 2rem;
-  }
-  .header-inner {
-    max-width: 72rem;
-    margin: 0 auto;
-  }
-  .term-header h1 {
-    font-family: var(--font-editorial, Georgia, serif);
-    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-    font-weight: 800;
-    line-height: 1.2;
-    margin: 0 0 0.75rem;
-    letter-spacing: -0.01em;
-  }
-  .header-en {
-    font-size: 0.62em;
-    font-weight: 400;
-    opacity: 0.65;
-    display: block;
-    margin-top: 0.2em;
-    letter-spacing: 0.04em;
-    font-family: var(--font-ui, system-ui, sans-serif);
-  }
-  .header-tagline {
-    font-size: clamp(0.9rem, 1.8vw, 1.05rem);
-    opacity: 0.82;
-    margin: 0 0 1.25rem;
-    max-width: 42rem;
-    line-height: 1.65;
-  }
-  .header-stats {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    flex-wrap: wrap;
-    font-size: 0.9rem;
-    opacity: 0.75;
-  }
-  .stat strong {
-    color: white;
-    opacity: 1;
-    font-size: 1.05em;
-  }
-  .stat-sep {
-    opacity: 0.4;
-  }
-
-  /* ── Filter bar ──────────────────────────────────────────────── */
-  .filter-bar {
-    background: white;
-    border-bottom: 1px solid #e5e5e5;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  }
-  .filter-inner {
-    max-width: 72rem;
-    margin: 0 auto;
-    padding: 0.85rem var(--space-page-x, 2rem);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-  .filter-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    flex: 1;
-  }
+  /* ── Filter buttons (repeat × N fork types, per-type --fork-color
+     accent, JS-toggled .active state — scoped is cleaner than 7+
+     Tailwind arbitrary variants per button) ────────────────────── */
   .filter-btn {
     padding: 0.3rem 0.75rem;
     border-radius: 999px;
@@ -734,34 +709,8 @@ const termsJSON = JSON.stringify(terms);
     background: #1a1a2e;
     border-color: #1a1a2e;
   }
-  .search-wrap {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    min-width: 180px;
-  }
-  #term-search {
-    padding: 0.38rem 0.8rem;
-    border: 1.5px solid #ddd;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    outline: none;
-    width: 180px;
-    transition: border-color 0.2s;
-    font-family: inherit;
-  }
-  #term-search:focus {
-    border-color: #1a1a2e;
-  }
-  /* ── Subcategory filter ─────────────────────────────── */
-  .subcat-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-    margin-top: 0.6rem;
-    padding-top: 0.6rem;
-    border-top: 1px solid #eee;
-  }
+
+  /* ── Subcategory buttons (same .active pattern) ──────────────── */
   .subcat-btn {
     padding: 0.2rem 0.6rem;
     border: 1px solid #ddd;
@@ -782,33 +731,8 @@ const termsJSON = JSON.stringify(terms);
     color: white;
     border-color: #1a1a2e;
   }
-  .subcat-count {
-    font-size: 0.65rem;
-    opacity: 0.6;
-  }
 
-  .result-count {
-    font-size: 0.8rem;
-    color: #888;
-    white-space: nowrap;
-  }
-
-  /* ── Grid ────────────────────────────────────────────────────── */
-  .terms-section {
-    flex: 1;
-    padding: 2rem var(--space-page-x, 2rem);
-    max-width: 72rem;
-    margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  .terms-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
-
-  /* ── Card ────────────────────────────────────────────────────── */
+  /* ── Term card pattern (repeats × 100s of terms) ─────────────── */
   .term-card {
     background: white;
     border-radius: 12px;
@@ -886,78 +810,7 @@ const termsJSON = JSON.stringify(terms);
     opacity: 1;
   }
 
-  /* ── Fork Popup ──────────────────────────────────────────── */
-  .fork-popup-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-  }
-  .fork-popup-overlay.visible {
-    display: flex;
-  }
-  .fork-popup-box {
-    background: white;
-    border-radius: 16px;
-    padding: 1.5rem;
-    max-width: 560px;
-    width: 100%;
-    position: relative;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-    max-height: 90vh;
-    overflow-y: auto;
-  }
-  .fork-popup-close {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
-    background: #f0f0f0;
-    border: none;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.15s;
-  }
-  .fork-popup-close:hover {
-    background: #ddd;
-  }
-  .fork-popup-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin: 0 0 1rem;
-    color: #1a1a2e;
-  }
-  .fork-popup-graph {
-    margin-bottom: 1rem;
-    overflow-x: auto;
-  }
-  .fork-popup-info {
-    font-size: 0.85rem;
-    color: #555;
-    line-height: 1.6;
-  }
-  .fork-popup-info .info-row {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.4rem;
-  }
-  .fork-popup-info .info-label {
-    font-weight: 600;
-    color: #333;
-    white-space: nowrap;
-    min-width: 3.5rem;
-  }
-
+  /* ── Card children (.fork-badge / .fork-point) ──────────────── */
   .fork-badge {
     font-size: 0.72rem;
     padding: 0.2rem 0.55rem;
@@ -1057,97 +910,7 @@ const termsJSON = JSON.stringify(terms);
     display: inline-block;
   }
 
-  /* ── No results ──────────────────────────────────────────────── */
-  .no-results {
-    text-align: center;
-    color: #999;
-    font-size: 0.95rem;
-    padding: 3rem 0;
-  }
-
-  /* ── Footer ──────────────────────────────────────────────────── */
-  .term-footer {
-    background: #1a1a2e;
-    color: white;
-    padding: 2rem var(--space-page-x, 2rem);
-    margin-top: auto;
-  }
-  .footer-inner {
-    max-width: 72rem;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: center;
-  }
-  .footer-link {
-    color: rgba(255, 255, 255, 0.75);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.15s;
-    padding: 0.3rem 0;
-  }
-  .footer-link:hover {
-    color: white;
-    text-decoration: underline;
-  }
-  .footer-cta {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 6px;
-    padding: 0.4rem 1rem;
-    font-weight: 600;
-    color: white !important;
-  }
-  .footer-cta:hover {
-    background: rgba(255, 255, 255, 0.22);
-    text-decoration: none !important;
-  }
-  .footer-note {
-    font-size: 0.8rem;
-    opacity: 0.45;
-    margin: 0;
-  }
-
-  /* ── Responsive ──────────────────────────────────────────────── */
-  @media (max-width: 1024px) {
-    .terms-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (max-width: 640px) {
-    .term-header {
-      padding: 1.5rem 1rem 1.25rem;
-    }
-    .filter-inner {
-      padding: 0.75rem 1rem;
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .search-wrap {
-      width: 100%;
-    }
-    #term-search {
-      width: 100%;
-      flex: 1;
-    }
-    .terms-section {
-      padding: 1.25rem 1rem;
-    }
-    .terms-grid {
-      grid-template-columns: 1fr;
-    }
-    .term-footer {
-      padding: 1.5rem 1rem;
-    }
-    .footer-links {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
+  /* ── Fork popup (also still used by fork-graph popup CSS hooks
+     — the JS-rendered .info-row / .info-label content receives
+     styling via arbitrary child variants in the markup above) ── */
 </style>
