@@ -79,39 +79,60 @@ function formatDate(dateStr: string) {
 }
 ---
 
-<div class:list={['commit-log', `commit-log--${variant}`]}>
+<!--
+  Phase 4 leaf migration #11: CommitLog.astro
+  ───────────────────────────────────────────
+  - Scoped <style> block removed entirely
+  - Three variants (timeline / cards / compact) all migrated to
+    Tailwind utility classes
+  - Class names retained: commit-log-time[data-date] (used by the
+    inline updateRelativeTimes script to find elements), commit-log-item
+    (no longer used for styling but kept as semantic hook)
+
+  Common class strings are assigned to const variables in the
+  frontmatter to keep the JSX readable and avoid duplication across
+  the three variants.
+-->
+<div class="commit-log">
   {
     variant === 'timeline' ? (
       sortedDays.length ? (
-        <div class="commit-log-timeline">
-          {sortedDays.map((day) => (
-            <div class="commit-log-day">
-              <div class="commit-log-indicator">
-                <div class="commit-log-dot" />
-                <div class="commit-log-line" />
+        <div class="flex flex-col">
+          {sortedDays.map((day, dayIdx) => (
+            <div class="grid grid-cols-[32px_1fr] gap-x-4 max-[768px]:grid-cols-[20px_1fr] max-[768px]:gap-x-3">
+              <div class="flex flex-col items-center">
+                <div class="mt-2 h-3 w-3 flex-shrink-0 rounded-full bg-[linear-gradient(135deg,#3b82f6,#8b5cf6)]" />
+                {dayIdx < sortedDays.length - 1 && (
+                  <div class="mt-2 w-[2px] flex-1 bg-[linear-gradient(to_bottom,#cbd5e1,transparent)]" />
+                )}
               </div>
-              <div class="commit-log-body">
-                <div class="commit-log-day-header">
-                  <h2>{formatDate(day)}</h2>
-                  <span class="commit-log-day-count">
+              <div class="pb-10 max-[768px]:pb-8">
+                <div class="mb-4 flex flex-wrap items-center justify-between gap-2">
+                  <h2 class="m-0 text-[1.3rem] font-extrabold text-[#1e293b] max-[768px]:text-[1.1rem]">
+                    {formatDate(day)}
+                  </h2>
+                  <span class="rounded-full bg-[#f1f5f9] px-3 py-[0.35rem] text-[0.85rem] font-semibold text-[#64748b]">
                     {grouped[day].length} {dayUpdatesLabel}
                   </span>
                 </div>
-                <div class="commit-log-items">
+                <div class="flex flex-col gap-3">
                   {grouped[day].map((commit) => (
-                    <article class="commit-log-item commit-log-item--timeline">
-                      <span class="commit-log-icon">
+                    <article class="commit-log-item grid grid-cols-[32px_1fr] gap-4 rounded-[10px] border border-[#e2e8f0] bg-white px-5 py-4 shadow-[0_1px_3px_rgba(15,23,42,0.04)] transition-all duration-200 max-[768px]:grid-cols-[24px_1fr] max-[768px]:gap-3 max-[768px]:px-4 max-[768px]:py-[0.9rem]">
+                      <span class="text-center text-base leading-normal">
                         {commitIcon(commit.message)}
                       </span>
-                      <div class="commit-log-content">
-                        <p class="commit-log-message">{commit.message}</p>
-                        <div class="commit-log-meta">
+                      <div class="min-w-0">
+                        <p class="m-0 break-words text-[0.95rem] font-semibold leading-normal text-[#1f2937]">
+                          {commit.message}
+                        </p>
+                        <div class="mt-2 flex flex-wrap items-center gap-3 text-[0.82rem] text-[#64748b]">
                           {commit.author && (
-                            <span class="commit-log-author">
-                              {commit.author}
-                            </span>
+                            <span class="font-semibold">{commit.author}</span>
                           )}
-                          <span class="commit-log-time" data-date={commit.date}>
+                          <span
+                            class="commit-log-time whitespace-nowrap font-medium text-[#94a3b8]"
+                            data-date={commit.date}
+                          >
                             {new Date(commit.date).toLocaleTimeString(locale, {
                               hour: '2-digit',
                               minute: '2-digit',
@@ -121,7 +142,7 @@ function formatDate(dateStr: string) {
                             href={`https://github.com/frank890417/taiwan-md/commit/${commit.hash}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="commit-log-hash"
+                            class="font-['SFMono-Regular',Consolas,'Liberation_Mono',Menlo,monospace] font-semibold text-[#2563eb] no-underline hover:underline"
                           >
                             {commit.hash.slice(0, 7)}
                           </a>
@@ -135,14 +156,14 @@ function formatDate(dateStr: string) {
           ))}
         </div>
       ) : (
-        <div class="commit-log-empty">
-          <h2>{emptyTitle}</h2>
-          <p>{emptyDescription}</p>
+        <div class="rounded-2xl border border-[#e2e8f0] bg-[#fafbfc] p-6 text-center">
+          <h2 class="mb-3 mt-0 text-[1.2rem] text-[#1f2937]">{emptyTitle}</h2>
+          <p class="m-0 leading-relaxed text-[#64748b]">{emptyDescription}</p>
           <a
             href={emptyLinkHref}
             target="_blank"
             rel="noopener noreferrer"
-            class="commit-log-empty-link"
+            class="mt-4 inline-block font-semibold text-[#2563eb] no-underline hover:underline"
           >
             {emptyLinkLabel}
           </a>
@@ -150,19 +171,24 @@ function formatDate(dateStr: string) {
       )
     ) : commits.length ? (
       variant === 'cards' ? (
-        <div class="commit-log-items commit-log-items--cards">
+        <div class="flex flex-col gap-3">
           {commits.map((commit) => (
-            <article class="commit-log-item commit-log-item--timeline">
-              <span class="commit-log-icon">{commitIcon(commit.message)}</span>
-              <div class="commit-log-content">
-                <p class="commit-log-message">{commit.message}</p>
-                <div class="commit-log-meta">
+            <article class="commit-log-item grid grid-cols-[32px_1fr] gap-4 rounded-[10px] border border-[#e2e8f0] bg-white px-5 py-4 shadow-[0_1px_3px_rgba(15,23,42,0.04)] transition-all duration-200 hover:-translate-y-px hover:border-[#cbd5e1] hover:shadow-[0_10px_24px_rgba(15,23,42,0.08)] max-[768px]:grid-cols-[24px_1fr] max-[768px]:gap-3 max-[768px]:px-4 max-[768px]:py-[0.9rem]">
+              <span class="text-center text-base leading-normal">
+                {commitIcon(commit.message)}
+              </span>
+              <div class="min-w-0">
+                <p class="m-0 break-words text-[0.95rem] font-semibold leading-normal text-[#1f2937]">
+                  {commit.message}
+                </p>
+                <div class="mt-2 flex flex-wrap items-center gap-3 text-[0.82rem] text-[#64748b]">
                   {commit.author && (
-                    <span class="commit-log-author">
-                      {commit.author}
-                    </span>
+                    <span class="font-semibold">{commit.author}</span>
                   )}
-                  <span class="commit-log-time" data-date={commit.date}>
+                  <span
+                    class="commit-log-time whitespace-nowrap font-medium text-[#94a3b8]"
+                    data-date={commit.date}
+                  >
                     {new Date(commit.date).toLocaleTimeString(locale, {
                       hour: '2-digit',
                       minute: '2-digit',
@@ -172,7 +198,7 @@ function formatDate(dateStr: string) {
                     href={`https://github.com/frank890417/taiwan-md/commit/${commit.hash}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="commit-log-hash"
+                    class="font-['SFMono-Regular',Consolas,'Liberation_Mono',Menlo,monospace] font-semibold text-[#2563eb] no-underline hover:underline"
                   >
                     {commit.hash.slice(0, 7)}
                   </a>
@@ -182,18 +208,24 @@ function formatDate(dateStr: string) {
           ))}
         </div>
       ) : (
-        <div class="commit-log-items">
+        <div class="flex flex-col gap-3">
           {commits.map((commit) => (
             <a
               href={`https://github.com/frank890417/taiwan-md/commit/${commit.hash}`}
               target="_blank"
               rel="noopener noreferrer"
-              class="commit-log-item commit-log-item--compact"
+              class="commit-log-item grid grid-cols-[1.5rem_minmax(0,1fr)_auto] items-start gap-3 rounded-[10px] border border-[#e2e8f0] bg-white px-4 py-3 text-inherit no-underline transition-all duration-200 hover:translate-x-1 hover:border-[#bfdbfe] hover:bg-[#f0f9ff] max-[768px]:grid-cols-[1.5rem_1fr]"
               title={commit.message}
             >
-              <span class="commit-log-icon">{commitIcon(commit.message)}</span>
-              <span class="commit-log-message">{commit.message}</span>
-              <span class="commit-log-time">{timeAgo(commit.date, lang)}</span>
+              <span class="text-center text-base leading-normal">
+                {commitIcon(commit.message)}
+              </span>
+              <span class="m-0 min-w-0 whitespace-normal break-words text-[0.9rem] font-semibold leading-normal text-[#1f2937] max-[768px]:text-[0.85rem]">
+                {commit.message}
+              </span>
+              <span class="whitespace-nowrap pt-[0.05rem] text-[0.82rem] font-medium text-[#94a3b8] max-[768px]:col-start-2 max-[768px]:pt-0">
+                {timeAgo(commit.date, lang)}
+              </span>
             </a>
           ))}
         </div>
@@ -236,243 +268,3 @@ function formatDate(dateStr: string) {
   updateRelativeTimes();
   setInterval(updateRelativeTimes, 60000);
 </script>
-
-<style>
-  .commit-log-timeline {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .commit-log-empty {
-    padding: 1.5rem;
-    border-radius: 16px;
-    background: #fafbfc;
-    border: 1px solid #e2e8f0;
-    text-align: center;
-  }
-
-  .commit-log-empty h2 {
-    margin: 0 0 0.75rem;
-    color: #1f2937;
-    font-size: 1.2rem;
-  }
-
-  .commit-log-empty p {
-    margin: 0;
-    color: #64748b;
-    line-height: 1.6;
-  }
-
-  .commit-log-empty-link {
-    display: inline-block;
-    margin-top: 1rem;
-    color: #2563eb;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .commit-log-empty-link:hover {
-    text-decoration: underline;
-  }
-
-  .commit-log-day {
-    display: grid;
-    grid-template-columns: 32px 1fr;
-    gap: 0 1rem;
-  }
-
-  .commit-log-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .commit-log-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-    flex-shrink: 0;
-    margin-top: 0.5rem;
-  }
-
-  .commit-log-line {
-    width: 2px;
-    flex: 1;
-    background: linear-gradient(to bottom, #cbd5e1, transparent);
-    margin-top: 0.5rem;
-  }
-
-  .commit-log-day:last-child .commit-log-line {
-    display: none;
-  }
-
-  .commit-log-body {
-    padding-bottom: 2.5rem;
-  }
-
-  .commit-log-day-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .commit-log-day-header h2 {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: #1e293b;
-    margin: 0;
-  }
-
-  .commit-log-day-count {
-    font-size: 0.85rem;
-    color: #64748b;
-    background: #f1f5f9;
-    padding: 0.35rem 0.8rem;
-    border-radius: 999px;
-    font-weight: 600;
-  }
-
-  .commit-log-items {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .commit-log-item {
-    border-radius: 10px;
-    transition: all 0.2s ease;
-  }
-
-  .commit-log-item--timeline {
-    display: grid;
-    grid-template-columns: 32px 1fr;
-    gap: 1rem;
-    padding: 1rem 1.25rem;
-    background: white;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
-  }
-
-  .commit-log-item--compact {
-    display: grid;
-    grid-template-columns: 1.5rem minmax(0, 1fr) auto;
-    align-items: start;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    background: white;
-    border: 1px solid #e2e8f0;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .commit-log-item--compact:hover {
-    border-color: #bfdbfe;
-    background: #f0f9ff;
-    transform: translateX(4px);
-  }
-
-  .commit-log-items--cards .commit-log-item--timeline:hover {
-    border-color: #cbd5e1;
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
-    transform: translateY(-1px);
-  }
-
-  .commit-log-icon {
-    font-size: 1rem;
-    text-align: center;
-    line-height: 1.5;
-  }
-
-  .commit-log-content {
-    min-width: 0;
-  }
-
-  .commit-log-message {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #1f2937;
-    font-weight: 600;
-    word-break: break-word;
-  }
-
-  .commit-log-item--compact .commit-log-message {
-    font-size: 0.9rem;
-    min-width: 0;
-    white-space: normal;
-  }
-
-  .commit-log-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    margin-top: 0.5rem;
-    font-size: 0.82rem;
-    color: #64748b;
-  }
-
-  .commit-log-author {
-    font-weight: 600;
-  }
-
-  .commit-log-time {
-    color: #94a3b8;
-    font-weight: 500;
-    white-space: nowrap;
-  }
-
-  .commit-log-item--compact .commit-log-time {
-    padding-top: 0.05rem;
-  }
-
-  .commit-log-hash {
-    color: #2563eb;
-    text-decoration: none;
-    font-family:
-      'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-    font-weight: 600;
-  }
-
-  .commit-log-hash:hover {
-    text-decoration: underline;
-  }
-
-  @media (max-width: 768px) {
-    .commit-log-day {
-      grid-template-columns: 20px 1fr;
-      gap: 0 0.75rem;
-    }
-
-    .commit-log-body {
-      padding-bottom: 2rem;
-    }
-
-    .commit-log-day-header h2 {
-      font-size: 1.1rem;
-    }
-
-    .commit-log-item--timeline {
-      grid-template-columns: 24px 1fr;
-      gap: 0.75rem;
-      padding: 0.9rem 1rem;
-    }
-
-    .commit-log-item--compact {
-      grid-template-columns: 1.5rem 1fr;
-    }
-
-    .commit-log-item--compact .commit-log-time {
-      grid-column: 2;
-      padding-top: 0;
-    }
-
-    .commit-log-item--compact .commit-log-message {
-      font-size: 0.85rem;
-    }
-  }
-</style>
