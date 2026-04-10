@@ -16,16 +16,55 @@ const { lang = 'zh-TW', sectionTitle, cards } = Astro.props;
 const isZh = lang === 'zh-TW';
 ---
 
-<section class:list={['features', { 'features--zh': isZh }]}>
-  <h2 class="section-title">{sectionTitle}</h2>
-  <div class="features-grid">
+<!--
+  Phase 4 leaf migration #2: FeatureCards.astro
+  ────────────────────────────────────────────
+  - Scoped <style> block removed entirely
+  - Replaced with Tailwind atomic utilities:
+    - Section wrapper: my-20 mx-auto max-w-[1400px] px-8 (md:mx-5 md:my-14)
+    - Section title: centered, font-bold 2.5rem (md: 2rem), cat-zh overrides family
+    - 4-col grid → 2-col on md
+    - Cards: white bg, rounded-xl, soft shadow, hover lift via pattern
+    - Icons use drop-shadow filter to preserve the subtle depth
+
+  Colors: #1f2937 (title ink), #6b7280 (muted body), #f1f5f9 / #e2e8f0
+  (card borders) kept as arbitrary values because they're from a gray
+  palette that doesn't match our ink tokens. Could be promoted to
+  tokens in a later pass if reused.
+-->
+<section
+  class:list={[
+    'mx-auto my-20 max-w-[1400px] px-8 md:my-14 md:mx-5 md:px-0',
+    { 'features--zh': isZh },
+  ]}
+>
+  <h2
+    class:list={[
+      'mb-12 text-center text-[2.5rem] font-bold text-[#1f2937] md:mb-8 md:text-[2rem]',
+      {
+        "font-extrabold font-['jf-lanyanghei','Noto_Sans_TC','Source_Han_Sans_TC',sans-serif]":
+          isZh,
+      },
+    ]}
+  >
+    {sectionTitle}
+  </h2>
+  <div
+    class="mx-auto grid max-w-[1100px] grid-cols-4 gap-4 md:grid-cols-2 md:gap-5"
+  >
     {
       cards.map((card) => (
-        <div class="feature-card">
-          <div class="feature-icon">{card.icon}</div>
-          <div class="feature-content">
-            <h3>{card.title}</h3>
-            <p>{card.description}</p>
+        <div class="flex flex-col items-start gap-2 rounded-xl border border-[#f1f5f9] bg-white p-5 shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#e2e8f0] hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)] md:gap-4 md:p-6">
+          <div class="flex-shrink-0 text-[2.5rem] leading-none [filter:drop-shadow(0_2px_4px_rgba(0,0,0,0.1))] md:text-[2.25rem]">
+            {card.icon}
+          </div>
+          <div>
+            <h3 class="mb-2 text-[1.15rem] font-semibold leading-tight text-[#1f2937] md:text-[1.1rem]">
+              {card.title}
+            </h3>
+            <p class="m-0 text-[0.95rem] leading-relaxed text-[#6b7280] md:text-[0.9rem]">
+              {card.description}
+            </p>
           </div>
         </div>
       ))
@@ -33,108 +72,3 @@ const isZh = lang === 'zh-TW';
   </div>
   <slot />
 </section>
-
-<style>
-  .features {
-    margin: 5rem auto;
-    padding: 0 2rem;
-    max-width: 1400px;
-  }
-
-  .section-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #1f2937;
-    font-weight: 700;
-  }
-
-  .features--zh .section-title {
-    font-weight: 800;
-    font-family:
-      'jf-lanyanghei', 'Noto Sans TC', 'Source Han Sans TC', sans-serif;
-  }
-
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin: 0 auto;
-    max-width: 1100px;
-  }
-
-  .feature-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    padding: 1.25rem 1.25rem;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    border: 1px solid #f1f5f9;
-    transition: all 0.3s ease;
-  }
-
-  .feature-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    border-color: #e2e8f0;
-  }
-
-  .feature-icon {
-    font-size: 2.5rem;
-    flex-shrink: 0;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-    line-height: 1;
-  }
-
-  .feature-content h3 {
-    font-size: 1.15rem;
-    margin-bottom: 0.5rem;
-    color: #1f2937;
-    font-weight: 600;
-    line-height: 1.3;
-  }
-
-  .feature-content p {
-    color: #6b7280;
-    line-height: 1.6;
-    margin: 0;
-    font-size: 0.95rem;
-  }
-
-  @media (max-width: 768px) {
-    .features {
-      margin: 3.5rem 1.25rem;
-      padding: 0;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .features-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-    }
-
-    .feature-card {
-      padding: 1.5rem;
-      gap: 1rem;
-    }
-
-    .feature-icon {
-      font-size: 2.25rem;
-    }
-
-    .feature-content h3 {
-      font-size: 1.1rem;
-    }
-
-    .feature-content p {
-      font-size: 0.9rem;
-    }
-  }
-</style>
