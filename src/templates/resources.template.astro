@@ -372,28 +372,52 @@ const mindmapData = JSON.stringify({
   description={t('resources.meta.description')}
   lang={lang}
 >
-  <main class="resources-page">
-    <div class="container">
-      <section class="hero">
-        <div class="hero-content">
-          <h1 class="hero-title">{t('resources.hero.title')}</h1>
+  <!--
+    Phase 7.5 partial migration — resources.template.astro
+    ──────────────────────────────────────────────────────
+    Wrappers (hero, container, reading-guide, footer-stats,
+    back-to-home, btn-primary) moved to inline Tailwind.
+    Kept in scoped <style>:
+    - .chapter-nav / .chapter-link (sticky nav with JS-toggled
+      .active state per scroll position)
+    - .site-card / .featured-card / .subcategory / .insight-card
+      / .section-footer / .related-articles / .related-link
+      — all repeating patterns rendered per-chapter × per-site
+    - .site-card.hidden / .subcategory.all-hidden — JS-toggled
+      filter states used by the search-input script
+    - One template serves 4 language pages (zh-TW/en/ja/ko)
+      via getLangFromUrl + useTranslations in the frontmatter
+  -->
+  <main
+    class="resources-page min-h-screen bg-white font-['jf-jinxuanlatte','Noto_Sans_TC',sans-serif]"
+  >
+    <div class="mx-auto max-w-[1200px] px-8 max-[768px]:px-4 max-[480px]:px-3">
+      <section class="mb-12 py-16 text-center max-[768px]:py-8">
+        <div>
+          <h1
+            class="mb-4 bg-[linear-gradient(135deg,#065f46,#059669,#10b981)] bg-clip-text text-[3.5rem] font-black -tracking-[0.02em] text-transparent max-[768px]:text-[2.5rem] max-[480px]:text-[2rem]"
+          >
+            {t('resources.hero.title')}
+          </h1>
           <p
-            class="hero-subtitle"
+            class="mx-auto max-w-[600px] text-[1.3rem] leading-[1.7] text-[#64748b] max-[768px]:text-[1.1rem]"
             set:html={t('resources.hero.subtitle.html')}
           />
         </div>
-        <!-- Mindmap hidden for now
-        <div class="resources-mindmap">
-          <div id="resources-graph"></div>
-        </div>
-        -->
+        <!-- Mindmap hidden for now -->
       </section>
 
       <!-- breadcrumb removed -->
 
-      <div class="reading-guide">
-        <h2 class="reading-guide-title">{t('resources.guide.title')}</h2>
-        <p class="reading-guide-desc">{t('resources.guide.desc')}</p>
+      <div
+        class="mb-8 rounded-xl border border-[#d1fae5] bg-[#ecfdf5] px-8 py-6"
+      >
+        <h2 class="mb-2 text-[1.2rem] font-bold text-[#065f46]">
+          {t('resources.guide.title')}
+        </h2>
+        <p class="m-0 text-[0.95rem] leading-[1.6] text-[#047857]">
+          {t('resources.guide.desc')}
+        </p>
       </div>
 
       <nav class="chapter-nav" id="chapter-nav">
@@ -531,23 +555,35 @@ const mindmapData = JSON.stringify({
         ))
       }
 
-      <div class="footer-stats">
-        <div class="stat-item">
-          <span class="stat-number">{totalCount}+</span><span class="stat-label"
-            >{t('resources.stats.collected')}</span>
+      <div
+        class="mt-8 flex justify-center gap-12 border-t-2 border-[#d1fae5] py-12 max-[768px]:gap-6"
+      >
+        <div class="text-center">
+          <span class="block text-[2rem] font-extrabold text-[#059669]"
+            >{totalCount}+</span
+          ><span class="text-[0.9rem] text-[#64748b]"
+            >{t('resources.stats.collected')}</span
+          >
         </div>
-        <div class="stat-item">
-          <span class="stat-number">5</span><span class="stat-label"
-            >{t('resources.stats.chapters')}</span>
+        <div class="text-center">
+          <span class="block text-[2rem] font-extrabold text-[#059669]">5</span
+          ><span class="text-[0.9rem] text-[#64748b]"
+            >{t('resources.stats.chapters')}</span
+          >
         </div>
-        <div class="stat-item">
-          <span class="stat-number">15+</span><span class="stat-label"
-            >{t('resources.stats.subcategories')}</span>
+        <div class="text-center">
+          <span class="block text-[2rem] font-extrabold text-[#059669]"
+            >15+</span
+          ><span class="text-[0.9rem] text-[#64748b]"
+            >{t('resources.stats.subcategories')}</span
+          >
         </div>
       </div>
 
-      <div class="back-to-home">
-        <a href={translatePath('/')} class="btn-primary"
+      <div class="mt-8 pb-12 text-center">
+        <a
+          href={translatePath('/')}
+          class="inline-flex items-center gap-3 rounded-xl bg-[linear-gradient(135deg,#065f46,#059669)] px-10 py-4 text-[1.05rem] font-semibold text-white !no-underline shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] !border-b-0 transition-all duration-300 hover:-translate-y-px hover:bg-[linear-gradient(135deg,#064e3b,#047857)] hover:shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1)]"
           >{t('resources.backToHome')}</a
         >
       </div>
@@ -556,102 +592,6 @@ const mindmapData = JSON.stringify({
 </Layout>
 
 <style>
-  .resources-page {
-    min-height: 100vh;
-    background: #ffffff;
-    font-family: 'jf-jinxuanlatte', 'Noto Sans TC', sans-serif;
-  }
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-  .hero {
-    text-align: center;
-    margin-bottom: 3rem;
-    padding: 4rem 0;
-  }
-  .hero-title {
-    font-size: 3.5rem;
-    font-weight: 900;
-    background: linear-gradient(135deg, #065f46, #059669, #10b981);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-  }
-  .hero-subtitle {
-    font-size: 1.3rem;
-    color: #64748b;
-    line-height: 1.7;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  .resources-mindmap {
-    margin-top: 3rem;
-    padding: 2rem;
-    background: #fafffe;
-    border-radius: 16px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  }
-  #resources-graph {
-    overflow: visible;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    height: auto;
-    min-height: 700px;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    position: relative;
-    overflow: hidden;
-  }
-  .breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-    font-size: 0.95rem;
-    color: #64748b;
-  }
-  .breadcrumb a {
-    color: #059669;
-    text-decoration: none;
-    border-bottom: none !important;
-    padding-bottom: 0 !important;
-    transition: color 0.2s ease;
-  }
-  .breadcrumb a:hover {
-    color: #065f46;
-  }
-  .separator {
-    color: #94a3b8;
-  }
-  .current {
-    font-weight: 600;
-    color: #374151;
-  }
-  .reading-guide {
-    background: #ecfdf5;
-    border: 1px solid #d1fae5;
-    border-radius: 12px;
-    padding: 1.5rem 2rem;
-    margin-bottom: 2rem;
-  }
-  .reading-guide-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #065f46;
-    margin-bottom: 0.5rem;
-  }
-  .reading-guide-desc {
-    font-size: 0.95rem;
-    color: #047857;
-    line-height: 1.6;
-    margin: 0;
-  }
   .chapter-nav {
     position: sticky;
     top: 0;
@@ -916,65 +856,7 @@ const mindmapData = JSON.stringify({
     color: #065f46;
     text-decoration: underline;
   }
-  .footer-stats {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    padding: 3rem 0;
-    border-top: 2px solid #d1fae5;
-    margin-top: 2rem;
-  }
-  .stat-item {
-    text-align: center;
-  }
-  .stat-number {
-    display: block;
-    font-size: 2rem;
-    font-weight: 800;
-    color: #059669;
-  }
-  .stat-label {
-    font-size: 0.9rem;
-    color: #64748b;
-  }
-  .back-to-home {
-    text-align: center;
-    margin-top: 2rem;
-    padding-bottom: 3rem;
-  }
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 2.5rem;
-    background: linear-gradient(135deg, #065f46, #059669);
-    color: white;
-    text-decoration: none !important;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 1.05rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    border-bottom: none !important;
-  }
-  .btn-primary:hover {
-    background: linear-gradient(135deg, #064e3b, #047857);
-    transform: translateY(-1px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  }
   @media (max-width: 768px) {
-    .container {
-      padding: 1rem;
-    }
-    .hero {
-      padding: 2rem 0;
-    }
-    .hero-title {
-      font-size: 2.5rem;
-    }
-    .hero-subtitle {
-      font-size: 1.1rem;
-    }
     .chapter-title {
       font-size: 1.8rem;
     }
@@ -1010,17 +892,8 @@ const mindmapData = JSON.stringify({
     .site-card {
       padding: 0.875rem 1rem;
     }
-    .footer-stats {
-      gap: 1.5rem;
-    }
   }
   @media (max-width: 480px) {
-    .container {
-      padding: 0.75rem;
-    }
-    .hero-title {
-      font-size: 2rem;
-    }
     .chapter-title {
       font-size: 1.5rem;
     }
