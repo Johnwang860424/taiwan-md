@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
 import ProticoScript from '../components/ProticoScript.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
@@ -20,14 +21,15 @@ const t = useTranslations(lang);
       stay scoped as design primitives used across 6 sections.
     -->
     <!-- Section 1: 為什麼叫 Taiwan.md？ -->
-    <section
-      class="pt-16 pb-12 [&_.section-title]:text-[3.5rem] [&_.section-title]:mb-3"
-      id="story"
-    >
+    <section id="story">
+      <PageHero
+        containerWidth="wide"
+        padding="default"
+        titleColor="#1a3c34"
+        title={t('about.naming.title')}
+        subtitle={t('about.naming.subtitle')}
+      />
       <div class="section-inner">
-        <h1 class="section-title hero-title">{t('about.naming.title')}</h1>
-        <p class="section-subtitle">{t('about.naming.subtitle')}</p>
-
         <div class="naming-grid">
           <div class="naming-card">
             <div class="naming-icon">{t('about.naming.tech.icon')}</div>

@@ -1,28 +1,33 @@
 # PageHero — shared page hero component
 
-**Status**: shipped 2026-04-11 (round 2: added taiwan-shape + dashboard, overview-first nav pattern)
+**Status**: shipped 2026-04-11 (round 3: bgTone rename + about migrated → 10/10 main pages)
 **Location**: `src/components/PageHero.astro`
 **Complements**: `ArticleHero.astro` (individual articles with cover image + breadcrumb)
 
-The top-level section index pages (`/soundscape`, `/resources`, `/contribute`, `/data`, `/map`, `/assets`, `/changelog`) used to each hand-roll their own hero section. Adding a new hero axis (e.g. the broken `📊` emoji on `/data` that kept falling back to a box) meant editing one page at a time, and visual consistency drifted. `PageHero` collapses all those heroes into one component driven by enum props + slots.
+The top-level section index pages (`/soundscape`, `/resources`, `/contribute`, `/data`, `/map`, `/assets`, `/changelog`, `/about`) used to each hand-roll their own hero section. Adding a new hero axis (e.g. the broken `📊` emoji on `/data` that kept falling back to a box) meant editing one page at a time, and visual consistency drifted. `PageHero` collapses all those heroes into one component driven by enum props + slots.
 
-## Pattern matrix (9 migrated pages, as of 2026-04-11)
+## Pattern matrix (10 migrated pages, as of 2026-04-11)
 
-| Page                        | bgVariant  | tone  | titleVariant | titleFont | titleSize | containerWidth | Special slots / notes                   |
-| --------------------------- | ---------- | ----- | ------------ | --------- | --------- | -------------- | --------------------------------------- |
-| `/soundscape` (all 4 langs) | `none`     | light | `solid`      | display   | lg        | full           | eyebrow / meta / footer                 |
-| `/resources`                | `none`     | light | `gradient`   | display   | lg        | full           | —                                       |
-| `/contribute`               | `gradient` | dark  | `inherit`    | display   | lg        | full           | note                                    |
-| `/map`                      | `solid`    | dark  | `inherit`    | display   | lg        | wide           | eyebrow                                 |
-| `/data`                     | `none`     | dark  | `gradient`   | display   | clamp     | wide           | default (extra desc)                    |
-| `/assets`                   | `none`     | light | `solid`      | **sans**  | sm        | full           | —                                       |
-| `/changelog`                | `none`     | light | `solid`      | **sans**  | sm        | full           | meta (embedded link)                    |
-| `/taiwan-shape`             | `none`     | light | `solid`      | **sans**  | clamp     | **820 (num)**  | `eyebrowTracking=tight`                 |
-| `/dashboard`                | `none`     | dark  | `inherit`    | display   | sm        | full           | nested inside custom rounded-card shell |
+| Page                        | bgVariant  | bgTone | titleVariant | titleFont | titleSize | containerWidth | Special slots / notes                   |
+| --------------------------- | ---------- | ------ | ------------ | --------- | --------- | -------------- | --------------------------------------- |
+| `/soundscape` (all 4 langs) | `none`     | light  | `solid`      | display   | lg        | full           | eyebrow / meta / footer                 |
+| `/resources`                | `none`     | light  | `gradient`   | display   | lg        | full           | —                                       |
+| `/contribute`               | `gradient` | dark   | `inherit`    | display   | lg        | full           | note                                    |
+| `/map`                      | `solid`    | dark   | `inherit`    | display   | lg        | wide           | eyebrow                                 |
+| `/data`                     | `none`     | dark   | `gradient`   | display   | clamp     | wide           | default (extra desc)                    |
+| `/assets`                   | `none`     | light  | `solid`      | **sans**  | sm        | full           | —                                       |
+| `/changelog`                | `none`     | light  | `solid`      | **sans**  | sm        | full           | meta (embedded link)                    |
+| `/taiwan-shape`             | `none`     | light  | `solid`      | **sans**  | clamp     | **820 (num)**  | `eyebrowTracking=tight`                 |
+| `/dashboard`                | `none`     | dark   | `inherit`    | display   | sm        | full           | nested inside custom rounded-card shell |
+| `/about`                    | `none`     | light  | `solid`      | display   | lg        | wide           | first section of multi-section page     |
 
-## Deliberately not migrated
+## All main pages now migrated
 
-- **`/about`** — the "hero" there is actually a section heading inside an existing multi-section page, not a top page hero. Different component entirely.
+There are no remaining "deliberately not migrated" main pages. The earlier holdouts (`/about`, `/dashboard`, `/taiwan-shape`) all found a path in:
+
+- **`/taiwan-shape`** uses `containerWidth: number` (820) + `eyebrowTracking: 'tight'` — two generic props that justified themselves
+- **`/dashboard`** uses partial migration (nested PageHero inside the custom rounded-card shell)
+- **`/about`** uses PageHero for its first section (the page-level hero), while the other 5 sections keep their own `.section-title` h2 styling — those h2s are _section_ headings, not page heroes
 
 ## Partial migration: `/dashboard`
 
@@ -64,8 +69,13 @@ interface Props {
   titleWeight?: 'normal' | 'bold' | 'extrabold' | 'black'; // default 'black'
   titleTracking?: 'tight' | 'normal' | 'wide'; // default 'tight'
 
-  // ── Background / tone ──
-  tone?: 'light' | 'dark'; // default 'light'
+  // ── Background ──
+  /**
+   * The tone of the BACKGROUND this hero sits on, NOT the text color.
+   * `light` (default) → text cascades to dark (#1a1a2e).
+   * `dark`            → text cascades to white.
+   */
+  bgTone?: 'light' | 'dark'; // default 'light'
   bgVariant?: 'none' | 'solid' | 'gradient'; // default 'none'
   bgColor?: string; // when bgVariant='solid'
   bgGradient?: string; // when bgVariant='gradient'
@@ -77,7 +87,7 @@ interface Props {
   padding?: 'compact' | 'default' | 'spacious'; // default 'default'
 
   // ── Accent ──
-  accentColor?: string; // eyebrow color; falls back to tone default
+  accentColor?: string; // eyebrow color; falls back to bgTone default
   eyebrowTracking?: 'default' | 'tight'; // default 0.15em, tight 0.08em (taiwan-shape)
 }
 ```
@@ -164,7 +174,7 @@ Sits inside an existing 900px wrapper, so `containerWidth='full'` opts out of ex
 <PageHero
   bgVariant="gradient"
   bgGradient="linear-gradient(135deg,#2d5016,#4a7c59)"
-  tone="dark"
+  bgTone="dark"
   titleVariant="inherit"
   containerWidth="full"
   title={t('contribute.hero.title')}
@@ -180,7 +190,7 @@ Sits inside an existing 900px wrapper, so `containerWidth='full'` opts out of ex
 <PageHero
   bgVariant="solid"
   bgColor="#1a3c34"
-  tone="dark"
+  bgTone="dark"
   titleVariant="inherit"
   containerWidth="wide"
   eyebrow={t('map.hero.kicker')}
@@ -194,7 +204,7 @@ Sits inside an existing 900px wrapper, so `containerWidth='full'` opts out of ex
 
 ```astro
 <PageHero
-  tone="dark"
+  bgTone="dark"
   titleVariant="gradient"
   titleGradient="linear-gradient(135deg,#38bdf8,#818cf8,#c084fc)"
   titleSize="clamp"
@@ -243,11 +253,15 @@ Sits inside an existing 900px wrapper, so `containerWidth='full'` opts out of ex
 </PageHero>
 ```
 
-## Gotcha: `tone` refers to the background, not the text
+## Why `bgTone`, not `tone`
 
-`tone="dark"` means "dark background, light text" — the hero sets `text-white` on the inner container so everything cascades correctly. If you set `tone="dark"` on a page that actually has a _light_ background (e.g. `/en/soundscape`, which looks dark because of the page fonts but whose `<body>` is light), the title will inherit `text-white` and become invisible against the light background.
+The prop is named `bgTone` (not `tone`) deliberately. An earlier iteration used `tone='dark'` and the migration of `/en/soundscape` triggered an invisible-text bug — I assumed `tone='dark'` meant "dark text" when it actually meant "dark background → white text cascades down". Took a screenshot + DOM inspection to figure out.
 
-**Before setting `tone`, inspect the actual `background-color` on `<body>` or the parent container.** Do not infer from font styling.
+The rename to `bgTone` makes it impossible to misread: the prop describes the **background**, the resulting text color is the cascade.
+
+**General rule**: when naming props, prefer words that describe the rendered effect (`bgTone`, `textColor`, `surfaceColor`) over words that describe the context (`tone`, `mood`, `theme`). If the docs need a sentence to clarify "what does this prop actually change?", the name is too abstract — rename the prop instead of writing the gotcha.
+
+See the auto-memory entry `feedback_api_naming_effect_not_context.md` for the full lesson.
 
 ## Related files
 

@@ -10,7 +10,7 @@
  * All axes derived from analysis of 聲景 / 資源導覽 / 參與:
  * - eyebrow kicker (聲景)
  * - plain vs gradient-clip vs inherit title color (資源 / 參與)
- * - light-on-dark vs dark-on-light tone (參與)
+ * - light-on-dark vs dark-on-light bgTone (參與)
  * - i18n set:html subtitle (資源)
  * - stats meta line (聲景)
  * - glass "note" card (參與)
@@ -69,8 +69,16 @@ export interface Props {
   titleTracking?: 'tight' | 'normal' | 'wide';
 
   // ── Background / tone ──
-  /** Sets default text color for children. */
-  tone?: 'light' | 'dark';
+  /**
+   * The tone of the **background** this hero sits on, NOT the text color.
+   * - `light` (default) → background is light, so text cascades to dark (#1a1a2e)
+   * - `dark`            → background is dark, so text cascades to white
+   *
+   * Named `bgTone` (not `tone`) specifically to avoid the ambiguity trap
+   * where future readers interpret `tone='dark'` as "dark text". Describe
+   * the effect, not the context. See docs/refactor/PAGE-HERO-COMPONENT.md.
+   */
+  bgTone?: 'light' | 'dark';
   bgVariant?: 'none' | 'solid' | 'gradient';
   /** Solid CSS color (e.g. '#1a3c34'); required when bgVariant='solid'. */
   bgColor?: string;
@@ -118,7 +126,7 @@ const {
   titleFont = 'display',
   titleWeight = 'black',
   titleTracking = 'tight',
-  tone = 'light',
+  bgTone = 'light',
   bgVariant = 'none',
   bgColor,
   bgGradient,
@@ -216,18 +224,18 @@ if (bgVariant === 'gradient' && bgGradient) {
 }
 
 // ── Tone-driven default colors ──
-const toneTextClass = tone === 'dark' ? 'text-white' : 'text-[#1a1a2e]';
+const toneTextClass = bgTone === 'dark' ? 'text-white' : 'text-[#1a1a2e]';
 
-const subtitleToneClass = tone === 'dark' ? 'opacity-90' : 'text-[#64748b]';
+const subtitleToneClass = bgTone === 'dark' ? 'opacity-90' : 'text-[#64748b]';
 
-const metaToneClass = tone === 'dark' ? 'opacity-75' : 'text-[#64748b]';
+const metaToneClass = bgTone === 'dark' ? 'opacity-75' : 'text-[#64748b]';
 
 const noteToneClass =
-  tone === 'dark'
+  bgTone === 'dark'
     ? 'border-white/20 bg-white/[0.12] opacity-90'
     : 'border-[#e2e8f0] bg-[#f8fafc] text-[#334155]';
 
-const eyebrowDefaultClass = tone === 'dark' ? 'opacity-80' : 'text-[#64748b]';
+const eyebrowDefaultClass = bgTone === 'dark' ? 'opacity-80' : 'text-[#64748b]';
 
 const eyebrowTrackingClass =
   eyebrowTracking === 'tight' ? 'tracking-[0.08em]' : 'tracking-[0.15em]';
