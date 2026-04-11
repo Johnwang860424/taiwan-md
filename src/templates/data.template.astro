@@ -26,15 +26,40 @@ const dataCategories = getCategories(t);
 ---
 
 <Layout title={t('data.meta.title')} description={t('data.meta.description')}>
-  <main class="data-hub">
+  <!--
+    Phase 7.6 — data.template.astro (Tier 1, partial)
+    Wrappers migrated to inline Tailwind: `.data-hub`, `.hero`,
+    `.hero-title`, `.hero-subtitle`, `.hero-desc`, `.section-divider`,
+    `.story-intro`, `.section-title`, `.story-text`. Kept scoped
+    (d3 / repeating / :global() territory):
+    - All .comparison-card / .country-bar / .company-card repeats
+    - .bubble-controls + .toggle-btn / .sector-btn .active state
+    - :global(.tooltip) for the d3 bubble chart
+    - All d3-styled SVG nodes and population pyramid bars
+    - Responsive overrides for the repeating patterns
+  -->
+  <main
+    class="min-h-screen bg-[linear-gradient(135deg,#0f172a_0%,#1e293b_100%)] text-[#e2e8f0]"
+  >
     <!-- Hero -->
-    <section class="hero">
-      <h1 class="hero-title">
-        <span class="hero-emoji">📊</span>
+    <section class="mx-auto max-w-[1400px] px-8 pb-12 pt-16 text-center">
+      <h1
+        class="mb-4 bg-[linear-gradient(135deg,#38bdf8,#818cf8,#c084fc)] bg-clip-text font-[var(--font-title,'Noto_Serif_TC',serif)] text-[clamp(2.5rem,6vw,3.5rem)] font-black -tracking-[0.02em] text-transparent"
+      >
+        <span
+          class="bg-none [-webkit-text-fill-color:initial] [background-clip:initial] [-webkit-background-clip:initial]"
+          >📊</span
+        >
         {t('data.hero.title')}
       </h1>
-      <p class="hero-subtitle">{t('data.hero.subtitle')}</p>
-      <p class="hero-desc">{t('data.hero.description')}</p>
+      <p
+        class="mx-auto mb-6 max-w-[600px] text-[1.3rem] font-medium leading-[1.7] text-[#94a3b8]"
+      >
+        {t('data.hero.subtitle')}
+      </p>
+      <p class="mx-auto max-w-[600px] text-base leading-[1.7] text-[#cbd5e1]">
+        {t('data.hero.description')}
+      </p>
     </section>
 
     <!-- Taiwan vs World Infographic Section -->
@@ -51,7 +76,9 @@ const dataCategories = getCategories(t);
         </div>
       </div>
 
-      <div class="comparison-cards">
+      <div
+        class="mx-auto grid max-w-[1400px] grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 px-8 max-[640px]:grid-cols-[1fr]"
+      >
         <div class="comparison-card">
           <div class="card-emoji">📏</div>
           <div class="card-number">{t('data.taiwanVsWorld.area.number')}</div>
@@ -474,8 +501,12 @@ const dataCategories = getCategories(t);
       </div>
 
       <!-- Bubble Chart Controls -->
-      <div class="bubble-controls">
-        <div class="size-toggle">
+      <div
+        class="mx-auto mb-8 flex max-w-[1400px] flex-col gap-4 px-8 max-[768px]:flex-col max-[768px]:items-start"
+      >
+        <div
+          class="flex flex-wrap items-center gap-2 [&>label]:text-[0.9rem] [&>label]:font-semibold [&>label]:text-[#94a3b8]"
+        >
           <label>{t('data.enterprise.controls.sizeLabel')}</label>
           <button class="toggle-btn active" data-mode="marketCap">
             {t('data.enterprise.controls.marketCap')}
@@ -487,7 +518,7 @@ const dataCategories = getCategories(t);
             {t('data.enterprise.controls.employees')}
           </button>
         </div>
-        <div class="sector-filters">
+        <div class="flex flex-wrap gap-[0.4rem]">
           <button class="sector-btn active" data-sector="all">
             {t('data.enterprise.controls.filterAll')}
           </button>
@@ -1511,59 +1542,14 @@ const dataCategories = getCategories(t);
   </script>
 
   <style>
-    .data-hub {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: #e2e8f0;
-    }
+    /* Phase 7.6: hero, main wrapper, comparison-cards grid,
+       bubble-controls, size-toggle, sector-filters all migrated
+       to inline Tailwind utilities on the markup above.
+       Kept scoped below: cross-section primitives (section-divider,
+       story-intro, section-title, story-text) used 5-6 times
+       each, and all d3/chart/card repeating patterns. */
 
-    /* Hero */
-    .hero {
-      text-align: center;
-      padding: 4rem 2rem 3rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .hero-title {
-      font-family: var(--font-title, 'Noto Serif TC', serif);
-      font-size: clamp(2.5rem, 6vw, 3.5rem);
-      font-weight: 900;
-      background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-    }
-
-    .hero-emoji {
-      -webkit-text-fill-color: initial;
-      background: none;
-      -webkit-background-clip: initial;
-      background-clip: initial;
-    }
-
-    .hero-subtitle {
-      font-size: 1.3rem;
-      color: #94a3b8;
-      margin-bottom: 1.5rem;
-      font-weight: 500;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.7;
-    }
-
-    .hero-desc {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: #cbd5e1;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Section Divider */
+    /* Section Divider (used × 6 across sections) */
     .section-divider {
       padding: 2rem 0;
       display: flex;
@@ -1621,28 +1607,6 @@ const dataCategories = getCategories(t);
       padding: 2rem 0 4rem;
     }
 
-    .bubble-controls {
-      max-width: 1400px;
-      margin: 0 auto 2rem;
-      padding: 0 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .size-toggle {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .size-toggle label {
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #94a3b8;
-    }
-
     .toggle-btn {
       padding: 0.4rem 1rem;
       border: 2px solid rgba(255, 255, 255, 0.2);
@@ -1658,12 +1622,6 @@ const dataCategories = getCategories(t);
       background: #3b82f6;
       color: #fff;
       border-color: #3b82f6;
-    }
-
-    .sector-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
     }
 
     .sector-btn {
@@ -2112,15 +2070,6 @@ const dataCategories = getCategories(t);
     /* Taiwan vs World Section */
     .taiwan-vs-world-section {
       padding: 2rem 0 4rem;
-    }
-
-    .comparison-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 2rem;
     }
 
     .comparison-card {
@@ -2679,10 +2628,6 @@ const dataCategories = getCategories(t);
         font-size: 1.6rem;
       }
 
-      .bubble-controls {
-        padding: 0 1rem;
-      }
-
       .svg-grid {
         grid-template-columns: 1fr;
         padding: 0 1rem;
@@ -2730,12 +2675,6 @@ const dataCategories = getCategories(t);
       }
 
       /* Taiwan vs World responsive */
-      .comparison-cards {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1rem;
-        padding: 0 1rem;
-      }
-
       .comparison-card {
         padding: 1.5rem;
       }

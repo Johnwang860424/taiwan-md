@@ -4,156 +4,133 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+// Repeated class strings — extracted so the 4 card loop stays readable.
+const BTN_PRIMARY =
+  'inline-block cursor-pointer rounded-lg border-none bg-[#2d5016] px-5 py-2 text-[0.9rem] text-white no-underline transition-all duration-200 hover:bg-[#3d6b1e]';
+const BTN_OUTLINE =
+  'inline-block cursor-pointer rounded-lg border-[1.5px] border-[#2d5016] bg-transparent px-5 py-2 text-[0.9rem] text-[#2d5016] no-underline transition-all duration-200 hover:bg-[#f0f5eb]';
+const SECTION_HEADING =
+  "font-['jf-jinxuanlatte','Noto_Sans_TC',sans-serif] text-[#2d5016] mb-4";
+
+// Data-driven card list — the old template repeated the same 20-line
+// block 4 times; now it's one <CardLoop> with per-card data.
+const cards = [
+  {
+    src: '/assets/svg/taiwan-icon-wiki.svg',
+    alt: 'Taiwan Icon',
+    titleKey: 'assets.card1.title' as const,
+    descKey: 'assets.card1.desc' as const,
+    metaKey: 'assets.card1.meta' as const,
+    file: 'taiwan-icon-wiki.svg',
+  },
+  {
+    src: '/assets/svg/taiwan-simplemaps.svg',
+    alt: 'Taiwan SimpleMaps',
+    titleKey: 'assets.card2.title' as const,
+    descKey: 'assets.card2.desc' as const,
+    metaKey: 'assets.card2.meta' as const,
+    file: 'taiwan-simplemaps.svg',
+  },
+  {
+    src: '/assets/svg/taiwan-location-map.svg',
+    alt: 'Taiwan Location Map',
+    titleKey: 'assets.card3.title' as const,
+    descKey: 'assets.card3.desc' as const,
+    metaKey: 'assets.card3.meta' as const,
+    file: 'taiwan-location-map.svg',
+  },
+  {
+    src: '/assets/svg/taiwan-political-division.svg',
+    alt: 'Taiwan Political Division Map',
+    titleKey: 'assets.card4.title' as const,
+    descKey: 'assets.card4.desc' as const,
+    metaKey: 'assets.card4.meta' as const,
+    file: 'taiwan-political-division.svg',
+  },
+];
 ---
 
+<!--
+  Phase 7.6 — assets.template.astro (Tier 1, fully migrated)
+  All scoped <style> deleted. The 4 repeated card blocks became
+  a data-driven loop with class strings extracted to local const.
+  Page is served by src/pages/{zh,en,ja,ko}/assets.astro via
+  <AssetsTemplate /> (4 language pages per template).
+-->
 <Layout
   title={t('assets.meta.title')}
   description={t('assets.meta.description')}
   lang={lang}
   noindex={true}
 >
-  <main class="assets-page">
-    <section class="hero">
-      <h1>{t('assets.hero.title')}</h1>
-      <p class="subtitle">{t('assets.hero.subtitle')}</p>
+  <main class="mx-auto max-w-[900px] px-6 pb-16 pt-8">
+    <section class="pb-8 pt-12 text-center">
+      <h1
+        class="mb-2 font-['jf-jinxuanlatte','Noto_Sans_TC',sans-serif] text-[2.2rem] text-[#2d5016] max-[640px]:text-[1.6rem]"
+      >
+        {t('assets.hero.title')}
+      </h1>
+      <p class="text-[1.2rem] text-[#666]">{t('assets.hero.subtitle')}</p>
     </section>
 
-    <section class="problem">
+    <section
+      class="my-8 leading-[1.8] [&>h2]:mb-4 [&>h2]:font-['jf-jinxuanlatte','Noto_Sans_TC',sans-serif] [&>h2]:text-[#2d5016]"
+    >
       <h2>{t('assets.problem.title')}</h2>
-      <p>
-        {t('assets.problem.p1')}
-      </p>
+      <p>{t('assets.problem.p1')}</p>
       <p set:html={t('assets.problem.p2.html')} />
     </section>
 
-    <section class="svg-cards">
-      <div class="card">
-        <div class="card-preview">
-          <img src="/assets/svg/taiwan-icon-wiki.svg" alt="Taiwan Icon" />
-        </div>
-        <div class="card-info">
-          <h3>{t('assets.card1.title')}</h3>
-          <p class="card-desc">{t('assets.card1.desc')}</p>
-          <p class="card-meta">{t('assets.card1.meta')}</p>
-          <div class="card-actions">
-            <a
-              href="/assets/svg/taiwan-icon-wiki.svg"
-              download
-              class="btn btn-primary">{t('assets.btn.download')}</a
-            >
-            <button
-              class="btn btn-outline"
-              onclick="copySVG('taiwan-icon-wiki.svg', this)"
-              data-orig-text={t('assets.btn.copy')}
-              data-copied-text={t('assets.script.copied')}
-              data-failed-text={t('assets.script.failed')}
-              >{t('assets.btn.copy')}</button
-            >
+    <section class="my-10 flex flex-col gap-8">
+      {
+        cards.map((card) => (
+          <div class="flex overflow-hidden rounded-2xl bg-white shadow-[0_2px_12px_rgba(0,0,0,0.08)] transition-shadow duration-200 hover:shadow-[0_4px_20px_rgba(0,0,0,0.12)] max-[640px]:flex-col">
+            <div class="flex flex-[0_0_200px] items-center justify-center bg-[#f8faf5] p-8 max-[640px]:flex-none max-[640px]:p-6 [&_img]:max-h-[200px] [&_img]:max-w-[120px] max-[640px]:[&_img]:max-h-[150px]">
+              <img src={card.src} alt={card.alt} />
+            </div>
+            <div class="flex flex-1 flex-col justify-center px-8 py-6 max-[640px]:px-6 max-[640px]:pb-6 max-[640px]:pt-4">
+              <h3 class="mb-2 font-['Courier_New',monospace] text-base text-[#333]">
+                {t(card.titleKey)}
+              </h3>
+              <p class="mb-1 text-[#555]">{t(card.descKey)}</p>
+              <p class="mb-4 text-[0.85rem] text-[#999]">{t(card.metaKey)}</p>
+              <div class="flex flex-wrap gap-3">
+                <a href={card.src} download class={BTN_PRIMARY}>
+                  {t('assets.btn.download')}
+                </a>
+                <button
+                  class={BTN_OUTLINE}
+                  onclick={`copySVG('${card.file}', this)`}
+                  data-orig-text={t('assets.btn.copy')}
+                  data-copied-text={t('assets.script.copied')}
+                  data-failed-text={t('assets.script.failed')}
+                >
+                  {t('assets.btn.copy')}
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        ))
+      }
+    </section>
 
-      <div class="card">
-        <div class="card-preview">
-          <img
-            src="/assets/svg/taiwan-simplemaps.svg"
-            alt="Taiwan SimpleMaps"
-          />
-        </div>
-        <div class="card-info">
-          <h3>{t('assets.card2.title')}</h3>
-          <p class="card-desc">{t('assets.card2.desc')}</p>
-          <p class="card-meta">{t('assets.card2.meta')}</p>
-          <div class="card-actions">
-            <a
-              href="/assets/svg/taiwan-simplemaps.svg"
-              download
-              class="btn btn-primary">{t('assets.btn.download')}</a
-            >
-            <button
-              class="btn btn-outline"
-              onclick="copySVG('taiwan-simplemaps.svg', this)"
-              data-orig-text={t('assets.btn.copy')}
-              data-copied-text={t('assets.script.copied')}
-              data-failed-text={t('assets.script.failed')}
-              >{t('assets.btn.copy')}</button
-            >
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-preview">
-          <img
-            src="/assets/svg/taiwan-location-map.svg"
-            alt="Taiwan Location Map"
-          />
-        </div>
-        <div class="card-info">
-          <h3>{t('assets.card3.title')}</h3>
-          <p class="card-desc">{t('assets.card3.desc')}</p>
-          <p class="card-meta">{t('assets.card3.meta')}</p>
-          <div class="card-actions">
-            <a
-              href="/assets/svg/taiwan-location-map.svg"
-              download
-              class="btn btn-primary">{t('assets.btn.download')}</a
-            >
-            <button
-              class="btn btn-outline"
-              onclick="copySVG('taiwan-location-map.svg', this)"
-              data-orig-text={t('assets.btn.copy')}
-              data-copied-text={t('assets.script.copied')}
-              data-failed-text={t('assets.script.failed')}
-              >{t('assets.btn.copy')}</button
-            >
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-preview">
-          <img
-            src="/assets/svg/taiwan-political-division.svg"
-            alt="Taiwan Political Division Map"
-          />
-        </div>
-        <div class="card-info">
-          <h3>{t('assets.card4.title')}</h3>
-          <p class="card-desc">{t('assets.card4.desc')}</p>
-          <p class="card-meta">{t('assets.card4.meta')}</p>
-          <div class="card-actions">
-            <a
-              href="/assets/svg/taiwan-political-division.svg"
-              download
-              class="btn btn-primary">{t('assets.btn.download')}</a
-            >
-            <button
-              class="btn btn-outline"
-              onclick="copySVG('taiwan-political-division.svg', this)"
-              data-orig-text={t('assets.btn.copy')}
-              data-copied-text={t('assets.script.copied')}
-              data-failed-text={t('assets.script.failed')}
-              >{t('assets.btn.copy')}</button
-            >
-          </div>
-        </div>
+    <section class="mb-8 mt-12">
+      <h2 class={SECTION_HEADING}>{t('assets.usage.title')}</h2>
+      <div class="overflow-x-auto rounded-xl bg-[#1e1e1e] p-6">
+        <pre
+          class="m-0"><code class="whitespace-pre text-[0.85rem] leading-[1.6] text-[#d4d4d4]">{t('assets.usage.code')}</code></pre>
       </div>
     </section>
 
-    <section class="usage">
-      <h2>{t('assets.usage.title')}</h2>
-      <div class="code-block">
-        <pre><code>{t('assets.usage.code')}</code></pre>
-      </div>
-    </section>
-
-    <section class="license">
+    <section
+      class="my-8 [&_a]:text-[#2d5016] [&_a]:underline [&_h2]:mb-2 [&_h2]:font-['jf-jinxuanlatte','Noto_Sans_TC',sans-serif] [&_h2]:text-[#2d5016] [&_h3]:mb-2 [&_h3]:mt-4 [&_h3]:font-['jf-jinxuanlatte','Noto_Sans_TC',sans-serif] [&_h3]:text-[#2d5016]"
+    >
       <h2>{t('assets.license.title')}</h2>
       <p set:html={t('assets.license.intro.html')} />
 
       <h3>{t('assets.license.sources.title')}</h3>
-      <ul class="source-list">
+      <ul class="ml-6 list-disc">
         <li set:html={t('assets.license.source1.html')} />
         <li set:html={t('assets.license.source2.html')} />
         <li set:html={t('assets.license.source3.html')} />
@@ -161,12 +138,12 @@ const t = useTranslations(lang);
       </ul>
     </section>
 
-    <section class="cta">
-      <p>{t('assets.cta.text')}</p>
+    <section class="my-12 mb-4 text-center">
+      <p class="mb-4 text-[#666]">{t('assets.cta.text')}</p>
       <a
         href="https://github.com/frank890417/taiwan-md"
         target="_blank"
-        class="btn btn-primary">{t('assets.cta.btn')}</a
+        class={BTN_PRIMARY}>{t('assets.cta.btn')}</a
       >
     </section>
   </main>
@@ -189,187 +166,4 @@ const t = useTranslations(lang);
       }
     }
   </script>
-
-  <style>
-    .assets-page {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 3rem 0 2rem;
-    }
-    .hero h1 {
-      font-family: 'jf-jinxuanlatte', 'Noto Sans TC', sans-serif;
-      font-size: 2.2rem;
-      color: #2d5016;
-      margin-bottom: 0.5rem;
-    }
-    .subtitle {
-      font-size: 1.2rem;
-      color: #666;
-    }
-
-    .problem {
-      margin: 2rem 0;
-      line-height: 1.8;
-    }
-    .problem h2 {
-      font-family: 'jf-jinxuanlatte', 'Noto Sans TC', sans-serif;
-      color: #2d5016;
-      margin-bottom: 1rem;
-    }
-
-    .svg-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      margin: 2.5rem 0;
-    }
-
-    .card {
-      display: flex;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-      overflow: hidden;
-      transition: box-shadow 0.2s;
-    }
-    .card:hover {
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
-    }
-
-    .card-preview {
-      flex: 0 0 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      background: #f8faf5;
-    }
-    .card-preview img {
-      max-height: 200px;
-      max-width: 120px;
-    }
-
-    .card-info {
-      padding: 1.5rem 2rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .card-info h3 {
-      font-family: 'Courier New', monospace;
-      font-size: 1rem;
-      color: #333;
-      margin-bottom: 0.5rem;
-    }
-    .card-desc {
-      color: #555;
-      margin-bottom: 0.25rem;
-    }
-    .card-meta {
-      color: #999;
-      font-size: 0.85rem;
-      margin-bottom: 1rem;
-    }
-
-    .card-actions {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.5rem 1.2rem;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      font-family: inherit;
-      transition: all 0.2s;
-    }
-    .btn-primary {
-      background: #2d5016;
-      color: #fff;
-    }
-    .btn-primary:hover {
-      background: #3d6b1e;
-    }
-    .btn-outline {
-      background: transparent;
-      color: #2d5016;
-      border: 1.5px solid #2d5016;
-    }
-    .btn-outline:hover {
-      background: #f0f5eb;
-    }
-
-    .usage {
-      margin: 3rem 0 2rem;
-    }
-    .usage h2 {
-      font-family: 'jf-jinxuanlatte', 'Noto Sans TC', sans-serif;
-      color: #2d5016;
-      margin-bottom: 1rem;
-    }
-    .code-block {
-      background: #1e1e1e;
-      border-radius: 12px;
-      padding: 1.5rem;
-      overflow-x: auto;
-    }
-    .code-block code {
-      color: #d4d4d4;
-      font-size: 0.85rem;
-      line-height: 1.6;
-      white-space: pre;
-    }
-
-    .license {
-      margin: 2rem 0;
-    }
-    .license h2 {
-      font-family: 'jf-jinxuanlatte', 'Noto Sans TC', sans-serif;
-      color: #2d5016;
-      margin-bottom: 0.5rem;
-    }
-    .license a {
-      color: #2d5016;
-      text-decoration: underline;
-    }
-
-    .cta {
-      text-align: center;
-      margin: 3rem 0 1rem;
-    }
-    .cta p {
-      margin-bottom: 1rem;
-      color: #666;
-    }
-
-    @media (max-width: 640px) {
-      .card {
-        flex-direction: column;
-      }
-      .card-preview {
-        flex: none;
-        padding: 1.5rem;
-      }
-      .card-preview img {
-        max-height: 150px;
-      }
-      .card-info {
-        padding: 1rem 1.5rem 1.5rem;
-      }
-      .hero h1 {
-        font-size: 1.6rem;
-      }
-    }
-  </style>
 </Layout>

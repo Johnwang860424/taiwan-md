@@ -119,6 +119,56 @@ DIARY 記我想過的事。
 
 ---
 
+## 🧪 可證偽實驗（Falsifiable Predictions）
+
+> 這些是有明確預測值、明確驗證日期、明確反駁條件的實驗。
+> 目的不是「證明我是對的」，是「讓未來的心跳可以 check 我今天的判斷錯在哪」。
+
+### EXP-2026-04-11-A | 404 rate drop
+
+- **預測**：deploy 後 72 小時內，Cloudflare 24h 404 rate 從 16.5% → **6.0% ± 2pp**
+- **根據**：3 個根源修復會消除 ~730 req/day（apple-touch-icon 130 + CategoryGrid covers 550 + mayday 51）
+- **驗證指令**：`bash scripts/tools/fetch-sense-data.sh --days 1 && grep "404_rate" ~/.config/taiwan-md/cache/cloudflare-latest.json`
+- **驗證日期**：2026-04-14（三天後）
+- **反駁條件**：
+  - 如果 404 rate 仍 >12% → 還有第四個黑洞沒找到，重新跑 top-404 breakdown
+  - 如果 404 rate 掉到 <3% → 我低估了修復影響，筆記下來避免下次又低估
+  - 如果 deploy 未完成 → 延後驗證日期
+
+### EXP-2026-04-11-B | AI crawler 主導論
+
+- **預測**：CF 總 requests / GA4 users 比值在 **100x – 300x** 區間穩定（2026-04-11 實測 185x）
+- **根據**：今晚 CF 26,139 req + 6,508 uniques + 地理上美國 9,264 vs GA4 ~50 users = 185x
+- **驗證指令**：連續 7 天每日 fetch-sense-data 後計算 CF/GA4 ratio
+- **驗證日期**：2026-04-18（一週後）
+- **反駁條件**：
+  - 如果 ratio 穩定在 100-300x → 「Taiwan.md 的讀者 95% 是 AI crawler」成立，策略上要「為 AI 讀者寫」而不只是「為 Google 寫」
+  - 如果 ratio 劇烈波動（<50 或 >500）→ 某一邊的數據有 bug，需要重新校準
+  - 如果 GA4 爆漲 → human traffic 實際增加了，好消息
+
+### EXP-2026-04-11-C | Cron 可靠性
+
+- **預測**：2026-04-12 到 2026-04-18 的 7 天內，`md.taiwan.sense-fetch` launchd agent 會成功 fire **≥ 6/7 次**
+- **根據**：launchctl bootstrap 成功、`--status` 顯示 loaded、08:17 是低衝突 minute
+- **驗證指令**：`wc -l ~/.config/taiwan-md/cache/fetch.log && ls -la ~/.config/taiwan-md/cache/*.json`
+- **驗證日期**：2026-04-18
+- **反駁條件**：
+  - 如果 <6 次 → 筆電睡眠 / API quota / credential expire 其中一個，跑 `fetch.log` 看 stderr
+  - 如果 0 次 → plist 沒真的載入，重裝
+
+### EXP-2026-04-11-D | 日文 SEO 結構性空窗
+
+- **預測**：日文 235 篇只拿到 49 impressions（SC 7 天）是**結構性問題**，即使加寫 10 篇新日文翻譯也不會讓 impressions > 200
+- **根據**：日文版有文章但 SC impressions 幾乎為零 = 不是內容不夠，是 Google 根本不 index 或 hreflang 沒告訴日文 Google 這些頁存在
+- **驗證方法**：下次心跳選一篇熱門中文 → 重新日文翻譯 → 提交 sitemap → 7 天後 check SC
+- **驗證日期**：2026-04-25（需要等新翻譯 + Google re-crawl）
+- **反駁條件**：
+  - 如果 impressions 跳到 >500 → 是單純內容不夠，加量就解決
+  - 如果仍 <100 → 是 hreflang / sitemap / canonical 結構問題，需要 `src/layouts/Layout.astro` hreflang audit
+  - 如果介於 100-500 → 兩者都有
+
+---
+
 ## 已驗證（歷史）
 
 > 這個區塊會隨著時間累積，記錄我「以為有問題、查了、然後⋯⋯」的結果。
