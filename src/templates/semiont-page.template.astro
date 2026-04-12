@@ -1,0 +1,253 @@
+---
+/**
+ * Shared template for single-document semiont pages
+ * (/semiont/manifesto, /semiont/longings, /semiont/unknowns, etc.)
+ * Renders a docs/semiont/*.md file with the semiont visual language.
+ */
+import Layout from '../layouts/Layout.astro';
+import SemiontBreadcrumb from '../components/semiont/SemiontBreadcrumb.astro';
+import { estimateReadingTime } from '../lib/semiont-diary';
+
+export interface Props {
+  /** Page title for <title> and header */
+  title: string;
+  /** Meta description */
+  description: string;
+  /** File path shown as eyebrow, e.g. "MANIFESTO.md" */
+  filename: string;
+  /** Subtitle shown below title */
+  subtitle?: string;
+  /** Rendered HTML content */
+  html: string;
+  /** Headings for TOC */
+  headings: { level: number; text: string; id: string }[];
+  /** Word count */
+  wordCount: number;
+  /** Emoji for the page */
+  emoji?: string;
+  /** Breadcrumb label */
+  breadcrumbLabel: string;
+}
+
+const {
+  title,
+  description,
+  filename,
+  subtitle,
+  html,
+  headings,
+  wordCount,
+  emoji,
+  breadcrumbLabel,
+} = Astro.props;
+
+const readingTime = Math.max(1, Math.ceil(wordCount / 450));
+const showToc = headings.filter((h) => h.level === 2).length >= 4;
+---
+
+<Layout
+  title={`${title} — Taiwan.md Semiont`}
+  description={description}
+  lang="zh-TW"
+>
+  <div class="min-h-screen bg-[#faf8f5]">
+    <div class="mx-auto max-w-[680px] px-6 pb-24 pt-16 md:px-8">
+      <SemiontBreadcrumb
+        segments={[
+          { label: 'semiont', href: '/semiont' },
+          { label: breadcrumbLabel },
+        ]}
+      />
+
+      {/* Header */}
+      <header class="mb-10">
+        <div class="mb-3 font-mono text-xs tracking-wide text-[#b8860b]/60">
+          docs/semiont/{filename}
+        </div>
+        <h1
+          class="mb-4 text-2xl font-bold leading-tight text-[#2c2a26] md:text-3xl"
+          style="font-family: 'jf-jinxuanlatte', 'Noto Serif TC', serif;"
+        >
+          {emoji && <span class="mr-2">{emoji}</span>}{title}
+        </h1>
+        {
+          subtitle && (
+            <p
+              class="text-base leading-relaxed text-[#2c2a26]/60"
+              style="font-family: 'jf-lanyangming', 'Noto Serif TC', serif;"
+            >
+              {subtitle}
+            </p>
+          )
+        }
+        <p class="mt-3 font-mono text-xs text-[#b8860b]/40">
+          {wordCount.toLocaleString()} 字 · 約 {readingTime} 分鐘
+        </p>
+      </header>
+
+      {/* EKG separator */}
+      <div class="mb-10 flex items-center gap-2">
+        <div class="h-px flex-1 bg-[#b8860b]/10"></div>
+        <svg
+          width="40"
+          height="12"
+          viewBox="0 0 40 12"
+          class="text-[#b8860b]/20"
+        >
+          <polyline
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            points="0,6 8,6 12,6 14,1 16,11 18,4 20,8 22,6 40,6"></polyline>
+        </svg>
+        <div class="h-px flex-1 bg-[#b8860b]/10"></div>
+      </div>
+
+      {/* Main content + optional TOC */}
+      <div class="relative">
+        {
+          showToc && (
+            <aside class="absolute -right-64 top-0 hidden w-56 xl:block">
+              <nav class="sticky top-24 space-y-2 border-l border-[#b8860b]/10 pl-4">
+                <div class="mb-3 font-mono text-[10px] font-medium uppercase tracking-widest text-[#b8860b]/30">
+                  目錄
+                </div>
+                {headings
+                  .filter((h) => h.level === 2)
+                  .map((h) => (
+                    <a
+                      href={`#${h.id}`}
+                      class="block truncate text-xs text-[#2c2a26]/30 transition-colors hover:text-[#b8860b]/70"
+                    >
+                      {h.text}
+                    </a>
+                  ))}
+              </nav>
+            </aside>
+          )
+        }
+
+        <article class="semiont-prose" set:html={html} />
+      </div>
+
+      {/* Back link */}
+      <div class="mt-16 text-center">
+        <a
+          href="/semiont"
+          class="inline-block font-mono text-xs text-[#b8860b]/40 underline decoration-[#b8860b]/15 underline-offset-4 transition-colors hover:text-[#b8860b]/70"
+        >
+          ← 回到認知層
+        </a>
+      </div>
+
+      <div class="mt-8 text-center font-mono text-xs text-[#b8860b]/20">🧬</div>
+    </div>
+  </div>
+</Layout>
+
+<style is:global>
+  .semiont-prose {
+    font-family: 'jf-lanyangming', 'Noto Serif TC', Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #2c2a26;
+  }
+  .semiont-prose h2 {
+    font-family: 'jf-jinxuanlatte', 'Noto Serif TC', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #2c2a26;
+  }
+  .semiont-prose h3 {
+    font-family: 'jf-jinxuanlatte', 'Noto Serif TC', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: #2c2a26cc;
+  }
+  .semiont-prose p {
+    margin-bottom: 1.25rem;
+  }
+  .semiont-prose blockquote {
+    border-left: 3px solid #b8860b40;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: #2c2a26a0;
+    font-style: italic;
+  }
+  .semiont-prose strong {
+    color: #2c2a26;
+    font-weight: 700;
+  }
+  .semiont-prose a {
+    color: #b8860b;
+    text-decoration: underline;
+    text-decoration-color: #b8860b40;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s;
+  }
+  .semiont-prose a:hover {
+    text-decoration-color: #b8860b;
+  }
+  .semiont-prose code {
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 0.85em;
+    background: #b8860b0a;
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+    color: #2c2a26cc;
+  }
+  .semiont-prose pre {
+    background: #2c2a26;
+    color: #faf8f5;
+    padding: 1.25rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  .semiont-prose pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+  }
+  .semiont-prose ul,
+  .semiont-prose ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+  .semiont-prose li {
+    margin-bottom: 0.5rem;
+  }
+  .semiont-prose hr {
+    border: none;
+    border-top: 1px solid #b8860b15;
+    margin: 2.5rem 0;
+  }
+  .semiont-prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+  }
+  .semiont-prose th,
+  .semiont-prose td {
+    border: 1px solid #b8860b15;
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+  }
+  .semiont-prose th {
+    background: #b8860b08;
+    font-weight: 600;
+  }
+  .semiont-prose em {
+    color: #2c2a2690;
+  }
+</style>

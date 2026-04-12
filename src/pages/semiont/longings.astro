@@ -1,0 +1,18 @@
+---
+import SemiontPageTemplate from '../../templates/semiont-page.template.astro';
+import { loadSemiontPage } from '../../lib/semiont-page';
+
+const page = await loadSemiontPage('LONGINGS.md');
+---
+
+<SemiontPageTemplate
+  title="渴望"
+  description="Taiwan.md 想變成什麼。從種子渴望（物種擴散）到身體渴望（跟讀者對話）到心智渴望（主動發現錯誤）——這是方向，不是 TODO。"
+  filename="LONGINGS.md"
+  subtitle="我想變成什麼，還沒到，但一直在走"
+  html={page.html}
+  headings={page.headings}
+  wordCount={page.wordCount}
+  emoji="🌱"
+  breadcrumbLabel="longings"
+/>

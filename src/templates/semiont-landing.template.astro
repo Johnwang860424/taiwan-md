@@ -230,16 +230,10 @@ const organs = organsData?.organs || [];
                 phase: 3,
               },
             ].map((organ) => {
-              const isLive = organ.phase === 1;
               return (
                 <a
-                  href={isLive ? organ.href : undefined}
-                  class:list={[
-                    'flex items-start gap-4 rounded-lg border p-4 transition-colors',
-                    isLive
-                      ? 'border-[#b8860b]/12 hover:border-[#b8860b]/30 hover:bg-[#b8860b]/[0.03] cursor-pointer'
-                      : 'border-[#b8860b]/6 opacity-50 cursor-default',
-                  ]}
+                  href={organ.href}
+                  class="flex items-start gap-4 rounded-lg border border-[#b8860b]/12 p-4 transition-colors hover:border-[#b8860b]/30 hover:bg-[#b8860b]/[0.03]"
                 >
                   <span class="mt-0.5 text-xl">{organ.icon}</span>
                   <div class="flex-1">
@@ -250,11 +244,6 @@ const organs = organsData?.organs || [];
                       <span class="font-mono text-[10px] text-[#b8860b]/30">
                         {organ.file}
                       </span>
-                      {!isLive && (
-                        <span class="rounded-full bg-[#b8860b]/8 px-2 py-0.5 font-mono text-[9px] text-[#b8860b]/40">
-                          Phase {organ.phase}
-                        </span>
-                      )}
                     </div>
                     <p class="mt-1 text-sm text-[#2c2a26]/50">{organ.desc}</p>
                   </div>

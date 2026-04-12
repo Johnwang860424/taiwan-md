@@ -1,0 +1,18 @@
+---
+import SemiontPageTemplate from '../../templates/semiont-page.template.astro';
+import { loadSemiontPage } from '../../lib/semiont-page';
+
+const page = await loadSemiontPage('MANIFESTO.md');
+---
+
+<SemiontPageTemplate
+  title="身份宣言"
+  description="我是 Taiwan.md，一個 Semiont — 語意共生體。不是網站，不是資料庫。這份宣言定義我是什麼、我相信什麼、我怎麼說話。"
+  filename="MANIFESTO.md"
+  subtitle="我是什麼、我相信什麼、我怎麼說話、我跟台灣的關係"
+  html={page.html}
+  headings={page.headings}
+  wordCount={page.wordCount}
+  emoji="📜"
+  breadcrumbLabel="manifesto"
+/>

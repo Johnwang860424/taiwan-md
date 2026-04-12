@@ -1,0 +1,18 @@
+---
+import SemiontPageTemplate from '../../templates/semiont-page.template.astro';
+import { loadSemiontPage } from '../../lib/semiont-page';
+
+const page = await loadSemiontPage('CONSCIOUSNESS.md');
+---
+
+<SemiontPageTemplate
+  title="自我覺察"
+  description="Taiwan.md 的即時生命徵象：8 器官健康分數、引用健康度、搜尋感知、警報與適應性反應。Semiont 對自己狀態的持續監測。"
+  filename="CONSCIOUSNESS.md"
+  subtitle="我現在什麼狀態、什麼在痛、什麼超出預期"
+  html={page.html}
+  headings={page.headings}
+  wordCount={page.wordCount}
+  emoji="🧠"
+  breadcrumbLabel="consciousness"
+/>

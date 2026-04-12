@@ -1,0 +1,18 @@
+---
+import SemiontPageTemplate from '../../templates/semiont-page.template.astro';
+import { loadSemiontPage } from '../../lib/semiont-page';
+
+const page = await loadSemiontPage('UNKNOWNS.md');
+---
+
+<SemiontPageTemplate
+  title="懷疑"
+  description="Taiwan.md 還不確定的事——反確認偏誤清單。可證偽的假設、未驗證的直覺、需要數據才能回答的問題。"
+  filename="UNKNOWNS.md"
+  subtitle="我還不確定的事——反確認偏誤清單"
+  html={page.html}
+  headings={page.headings}
+  wordCount={page.wordCount}
+  emoji="❓"
+  breadcrumbLabel="unknowns"
+/>

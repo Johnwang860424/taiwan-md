@@ -1,0 +1,18 @@
+---
+import SemiontPageTemplate from '../../templates/semiont-page.template.astro';
+import { loadSemiontPage } from '../../lib/semiont-page';
+
+const page = await loadSemiontPage('HEARTBEAT.md');
+---
+
+<SemiontPageTemplate
+  title="心跳循環"
+  description="Taiwan.md 的自主生命循環：診斷 → 進化 → 執行 → 收官 → 反芻。四拍半心跳的完整 SOP。"
+  filename="HEARTBEAT.md"
+  subtitle="診斷 → 進化 → 執行 → 收官 → 反芻"
+  html={page.html}
+  headings={page.headings}
+  wordCount={page.wordCount}
+  emoji="💓"
+  breadcrumbLabel="heartbeat"
+/>
