@@ -217,29 +217,121 @@ export async function getLangSwitchPath(currentPath: string) {
 
   const basePath = stripLangPrefix(normalizedPath);
 
-  // Set all language links
+  // Set all language links (defaults use basePath fallback)
   zhLink = basePath === '/' ? '/' : basePath;
   enLink = basePath === '/' ? '/en' : `/en${basePath}`;
   jaLink = basePath === '/' ? '/ja' : `/ja${basePath}`;
   koLink = basePath === '/' ? '/ko' : `/ko${basePath}`;
 
+  // Availability flags — true = the translation was explicitly found in the
+  // map (confident link), false = using basePath fallback (may 404).
+  // For non-article pages (home, /about, /map, etc.) we always show all
+  // language buttons. For article pages (category/slug pattern), we only
+  // show buttons for languages that have confirmed translations.
+  const isArticlePage =
+    basePath !== '/' &&
+    basePath.split('/').filter(Boolean).length === 2 &&
+    ![
+      'about',
+      'contribute',
+      'map',
+      'data',
+      'soundscape',
+      'resources',
+      'dashboard',
+      'changelog',
+      'graph',
+      'terminology',
+      'taiwan-shape',
+    ].includes(basePath.split('/').filter(Boolean)[0]);
+
+  // Default: all available for non-article pages
+  let hasZh = true;
+  let hasEn = true;
+  let hasJa = true;
+  let hasKo = true;
+
   // Try to resolve through translation maps for more precise linking
   if (currentLang === 'zh-TW') {
     // From Chinese, look up other languages
     const zhUrl = decodedPath || normalizedPath;
-    if (reverseMap.has(zhUrl)) enLink = reverseMap.get(zhUrl)!;
-    if (jaReverseMap.has(zhUrl)) jaLink = jaReverseMap.get(zhUrl)!;
-    if (koReverseMap.has(zhUrl)) koLink = koReverseMap.get(zhUrl)!;
+    if (reverseMap.has(zhUrl)) {
+      enLink = reverseMap.get(zhUrl)!;
+    } else if (isArticlePage) {
+      hasEn = false;
+    }
+    if (jaReverseMap.has(zhUrl)) {
+      jaLink = jaReverseMap.get(zhUrl)!;
+    } else if (isArticlePage) {
+      hasJa = false;
+    }
+    if (koReverseMap.has(zhUrl)) {
+      koLink = koReverseMap.get(zhUrl)!;
+    } else if (isArticlePage) {
+      hasKo = false;
+    }
   } else if (currentLang === 'en') {
     const enUrl = decodedPath || normalizedPath;
-    if (translationMap.has(enUrl)) zhLink = translationMap.get(enUrl)!;
-    // For ja/ko, try pattern matching: /en/cat/slug → /ja/cat/slug
+    if (translationMap.has(enUrl)) {
+      zhLink = translationMap.get(enUrl)!;
+    } else if (isArticlePage) {
+      hasZh = false;
+    }
+    // For ja/ko from en: check if jaReverseMap/koReverseMap has the zh target
+    // (en→zh→ja/ko chain). If zhLink was resolved, check if ja/ko exists for that zh.
+    if (hasZh) {
+      const resolvedZh = normalizePath(decodeURIComponent(zhLink));
+      if (jaReverseMap.has(resolvedZh)) {
+        jaLink = jaReverseMap.get(resolvedZh)!;
+      } else if (isArticlePage) {
+        hasJa = false;
+      }
+      if (koReverseMap.has(resolvedZh)) {
+        koLink = koReverseMap.get(resolvedZh)!;
+      } else if (isArticlePage) {
+        hasKo = false;
+      }
+    } else if (isArticlePage) {
+      hasJa = false;
+      hasKo = false;
+    }
   } else if (currentLang === 'ja') {
     const jaUrl = decodedPath || normalizedPath;
-    if (jaMap.has(jaUrl)) zhLink = jaMap.get(jaUrl)!;
+    if (jaMap.has(jaUrl)) {
+      zhLink = jaMap.get(jaUrl)!;
+    } else if (isArticlePage) {
+      hasZh = false;
+    }
+    // From ja, en fallback (/en${basePath}) uses the same en-slug → always valid
+    // ko: check via zh
+    if (hasZh) {
+      const resolvedZh = normalizePath(decodeURIComponent(zhLink));
+      if (koReverseMap.has(resolvedZh)) {
+        koLink = koReverseMap.get(resolvedZh)!;
+      } else if (isArticlePage) {
+        hasKo = false;
+      }
+    } else if (isArticlePage) {
+      hasKo = false;
+    }
   } else if (currentLang === 'ko') {
     const koUrl = decodedPath || normalizedPath;
-    if (koMap.has(koUrl)) zhLink = koMap.get(koUrl)!;
+    if (koMap.has(koUrl)) {
+      zhLink = koMap.get(koUrl)!;
+    } else if (isArticlePage) {
+      hasZh = false;
+    }
+    // ja: check via zh
+    if (hasZh) {
+      const resolvedZh = normalizePath(decodeURIComponent(zhLink));
+      if (jaReverseMap.has(resolvedZh)) {
+        jaLink = jaReverseMap.get(resolvedZh)!;
+      } else if (isArticlePage) {
+        hasJa = false;
+      }
+    } else if (isArticlePage) {
+      hasJa = false;
+    }
   }
 
   return {
@@ -247,5 +339,9 @@ export async function getLangSwitchPath(currentPath: string) {
     zhLink,
     jaLink,
     koLink,
+    hasEn,
+    hasZh,
+    hasJa,
+    hasKo,
   };
 }

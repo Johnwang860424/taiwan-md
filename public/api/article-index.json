@@ -2226,10 +2226,10 @@
     "langs": ["zh-TW", "en", "ja"]
   },
   "technology/taiwan-drone-industry": {
-    "zhTitle": "台灣電視產業史",
+    "zhTitle": "台灣無人機產業",
     "enTitle": "Taiwan's Drone Industry: From Toy Planes to Pentagon Procurement",
     "category": "technology",
-    "langs": ["zh-TW", "en", "ja", "ko"]
+    "langs": ["zh-TW", "en", "ja"]
   },
   "technology/taiwan-electric-vehicle-industry-chain": {
     "zhTitle": "台灣電動車產業鏈發展",

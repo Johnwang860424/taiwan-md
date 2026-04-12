@@ -53,6 +53,21 @@ export async function getStaticPaths() {
     if (!folderName) continue;
     const articles = [];
 
+    // ── Load _translations.json for ja article lookup ──────────────────────
+    // URL convention: /ja/<cat>/<en-slug>. The index page must list articles
+    // using the SAME en-slug that ja/[category]/[slug].astro generates,
+    // otherwise clicking an article card leads to 404. We iterate en/ files,
+    // filter by ja translation existence, and read ja frontmatter for display.
+    let translations: Record<string, string> = {};
+    try {
+      const trPath = resolve(process.cwd(), 'knowledge', '_translations.json');
+      translations = JSON.parse(await readFile(trPath, 'utf-8'));
+    } catch {}
+    const zhToJa: Record<string, string> = {};
+    for (const [lf, zf] of Object.entries(translations)) {
+      if (lf.startsWith('ja/')) zhToJa[zf] = lf;
+    }
+
     try {
       const enFolderPath = resolve(
         process.cwd(),
@@ -62,19 +77,34 @@ export async function getStaticPaths() {
       );
       const enFiles = await readdir(enFolderPath);
       const enMarkdownFiles = enFiles.filter(
-        (file) => file.endsWith('.md') && !file.startsWith('_'),
+        (file: string) => file.endsWith('.md') && !file.startsWith('_'),
       );
 
       for (const file of enMarkdownFiles) {
-        const filePath = join(enFolderPath, file);
-        const fileContent = await readFile(filePath, 'utf-8');
-        const { data: frontmatter } = safeMatter(fileContent);
-        const slug = basename(file, '.md');
+        const enSlug = basename(file, '.md');
+        // Check if ja translation exists via en→zh→ja
+        const enKey = `en/${folderName}/${file}`;
+        const zhFile = translations[enKey];
+        if (!zhFile) continue;
+        const jaFile = zhToJa[zhFile];
+        if (!jaFile) continue;
 
-        const fnCount = (fileContent.match(/^\[\^\d+\]:/gm) || []).length;
+        // Read ja content for title/description (in Japanese)
+        const jaFilePath = resolve(process.cwd(), 'knowledge', jaFile);
+        let frontmatter: Record<string, any> = {};
+        let fnCount = 0;
+        try {
+          const jaContent = await readFile(jaFilePath, 'utf-8');
+          const parsed = safeMatter(jaContent);
+          frontmatter = parsed.data;
+          fnCount = (jaContent.match(/^\[\^\d+\]:/gm) || []).length;
+        } catch {
+          continue;
+        }
+
         articles.push({
-          slug,
-          title: frontmatter.title || slug,
+          slug: enSlug, // Use EN slug for URL consistency with slug.astro
+          title: frontmatter.title || enSlug,
           description: frontmatter.description || '',
           status: frontmatter.status || '',
           readingTime: frontmatter.readingTime || null,

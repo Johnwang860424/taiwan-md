@@ -13,7 +13,8 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-const { zhLink, enLink, jaLink, koLink } = await getLangSwitchPath(currentPath);
+const { zhLink, enLink, jaLink, koLink, hasZh, hasEn, hasJa, hasKo } =
+  await getLangSwitchPath(currentPath);
 
 const normalizedPath = currentPath.replace(/\/$/, '') || '/';
 const isHome = normalizedPath === '/' || normalizedPath === '/en';
@@ -505,34 +506,67 @@ const categoryList = [
           role="group"
           aria-label={t('nav.aria-language-selection')}
         >
-          <a
-            href={zhLink}
-            class:list={[
-              'lang-btn',
-              {
-                active:
-                  !currentPath.startsWith('/en') &&
-                  !currentPath.startsWith('/ja') &&
-                  !currentPath.startsWith('/ko'),
-              },
-            ]}
-            aria-label={t('nav.aria-switch-to-zh-tw')}>中文</a
-          >
-          <a
-            href={enLink}
-            class:list={['lang-btn', { active: currentPath.startsWith('/en') }]}
-            aria-label={t('nav.aria-switch-to-en')}>EN</a
-          >
-          <a
-            href={jaLink}
-            class:list={['lang-btn', { active: currentPath.startsWith('/ja') }]}
-            aria-label="日本語に切替">JA</a
-          >
-          <a
-            href={koLink}
-            class:list={['lang-btn', { active: currentPath.startsWith('/ko') }]}
-            aria-label="한국어로 전환">KO</a
-          >
+          {
+            hasZh && (
+              <a
+                href={zhLink}
+                class:list={[
+                  'lang-btn',
+                  {
+                    active:
+                      !currentPath.startsWith('/en') &&
+                      !currentPath.startsWith('/ja') &&
+                      !currentPath.startsWith('/ko'),
+                  },
+                ]}
+                aria-label={t('nav.aria-switch-to-zh-tw')}
+              >
+                中文
+              </a>
+            )
+          }
+          {
+            hasEn && (
+              <a
+                href={enLink}
+                class:list={[
+                  'lang-btn',
+                  { active: currentPath.startsWith('/en') },
+                ]}
+                aria-label={t('nav.aria-switch-to-en')}
+              >
+                EN
+              </a>
+            )
+          }
+          {
+            hasJa && (
+              <a
+                href={jaLink}
+                class:list={[
+                  'lang-btn',
+                  { active: currentPath.startsWith('/ja') },
+                ]}
+                aria-label="日本語に切替"
+              >
+                JA
+              </a>
+            )
+          }
+          {
+            hasKo && (
+              <a
+                href={koLink}
+                class:list={[
+                  'lang-btn',
+                  { active: currentPath.startsWith('/ko') },
+                ]}
+                aria-label="한국어로 전환"
+              >
+                KO
+              </a>
+            )
+          }
         </div>
       </div>
 
@@ -592,42 +626,67 @@ const categoryList = [
             >{`🌐 ${t('nav.language-switch')}:`}</span
           >
           <div class="mobile-lang-buttons">
-            <a
-              href={zhLink}
-              class:list={[
-                'mobile-lang-btn',
-                { active: !currentPath.startsWith('/en') },
-              ]}
-              onclick="document.querySelector('.nav-mobile').classList.remove('open')"
-              >中文</a
-            >
-            <a
-              href={enLink}
-              class:list={[
-                'mobile-lang-btn',
-                { active: currentPath.startsWith('/en') },
-              ]}
-              onclick="document.querySelector('.nav-mobile').classList.remove('open')"
-              >English</a
-            >
-            <a
-              href={jaLink}
-              class:list={[
-                'mobile-lang-btn',
-                { active: currentPath.startsWith('/ja') },
-              ]}
-              onclick="document.querySelector('.nav-mobile').classList.remove('open')"
-              >日本語</a
-            >
-            <a
-              href={koLink}
-              class:list={[
-                'mobile-lang-btn',
-                { active: currentPath.startsWith('/ko') },
-              ]}
-              onclick="document.querySelector('.nav-mobile').classList.remove('open')"
-              >한국어</a
-            >
+            {
+              hasZh && (
+                <a
+                  href={zhLink}
+                  class:list={[
+                    'mobile-lang-btn',
+                    {
+                      active:
+                        !currentPath.startsWith('/en') &&
+                        !currentPath.startsWith('/ja') &&
+                        !currentPath.startsWith('/ko'),
+                    },
+                  ]}
+                  onclick="document.querySelector('.nav-mobile').classList.remove('open')"
+                >
+                  中文
+                </a>
+              )
+            }
+            {
+              hasEn && (
+                <a
+                  href={enLink}
+                  class:list={[
+                    'mobile-lang-btn',
+                    { active: currentPath.startsWith('/en') },
+                  ]}
+                  onclick="document.querySelector('.nav-mobile').classList.remove('open')"
+                >
+                  English
+                </a>
+              )
+            }
+            {
+              hasJa && (
+                <a
+                  href={jaLink}
+                  class:list={[
+                    'mobile-lang-btn',
+                    { active: currentPath.startsWith('/ja') },
+                  ]}
+                  onclick="document.querySelector('.nav-mobile').classList.remove('open')"
+                >
+                  日本語
+                </a>
+              )
+            }
+            {
+              hasKo && (
+                <a
+                  href={koLink}
+                  class:list={[
+                    'mobile-lang-btn',
+                    { active: currentPath.startsWith('/ko') },
+                  ]}
+                  onclick="document.querySelector('.nav-mobile').classList.remove('open')"
+                >
+                  한국어
+                </a>
+              )
+            }
           </div>
         </div>
       </nav>
