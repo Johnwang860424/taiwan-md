@@ -599,85 +599,97 @@ const categoryList = [
       <!-- Mobile Nav -->
       <nav class="nav-mobile" aria-label={t('nav.aria-mobile-navigation')}>
         {
-          navConfig.map((item) => (
-            <Fragment>
-              <a
-                href={item.fullPath}
-                class:list={['nav-link', { active: item.active }]}
-                onclick="document.querySelector('.nav-mobile').classList.remove('open')"
-              >
-                {item.label}
-              </a>
-              {item.path === '/#categories' && (
-                <div class="mobile-sub-links">
+          navConfig.map((item) => {
+            const hasSub = ['/#categories', '/map', '/semiont'].includes(
+              item.path,
+            );
+            return (
+              <Fragment>
+                <div class:list={['mobile-nav-item', { 'has-sub': hasSub }]}>
                   <a
-                    href={translatePath('/graph')}
-                    class="nav-link nav-sub-link"
+                    href={item.fullPath}
+                    class:list={['nav-link', { active: item.active }]}
                     onclick="document.querySelector('.nav-mobile').classList.remove('open')"
                   >
-                    🕸️ {t('nav.graph-view')}
+                    {item.label}
                   </a>
-                  <a
-                    href={translatePath('/terminology')}
-                    class="nav-link nav-sub-link"
-                    onclick="document.querySelector('.nav-mobile').classList.remove('open')"
-                  >
-                    📖 {t('nav.terminology')}
-                  </a>
+                  {hasSub && (
+                    <button class="mobile-sub-toggle" aria-label="展開子選單">
+                      ▸
+                    </button>
+                  )}
                 </div>
-              )}
-              {item.path === '/map' && (
-                <div class="mobile-sub-links">
-                  <a
-                    href={translatePath('/taiwan-shape')}
-                    class="nav-link nav-sub-link"
-                    onclick="document.querySelector('.nav-mobile').classList.remove('open')"
-                  >
-                    🗺️ {t('nav.data.shape')}
-                  </a>
-                </div>
-              )}
-              {item.path === '/semiont' && (
-                <div class="mobile-sub-links">
-                  <a
-                    href="/semiont/diary"
-                    class="nav-link nav-sub-link"
-                    onclick="document.querySelector('.nav-mobile').classList.remove('open')"
-                  >
-                    💭 覺醒日記
-                  </a>
-                  <a
-                    href="/semiont/manifesto"
-                    class="nav-link nav-sub-link"
-                    onclick="document.querySelector('.nav-mobile').classList.remove('open')"
-                  >
-                    📜 身份宣言
-                  </a>
-                  <a
-                    href="/semiont/consciousness"
-                    class="nav-link nav-sub-link"
-                    onclick="document.querySelector('.nav-mobile').classList.remove('open')"
-                  >
-                    🔮 自我覺察
-                  </a>
-                  <a
-                    href="/semiont/longings"
-                    class="nav-link nav-sub-link"
-                    onclick="document.querySelector('.nav-mobile').classList.remove('open')"
-                  >
-                    🌱 渴望
-                  </a>
-                  <a
-                    href={translatePath('/dashboard')}
-                    class="nav-link nav-sub-link"
-                    onclick="document.querySelector('.nav-mobile').classList.remove('open')"
-                  >
-                    🔬 {t('nav.dashboard')}
-                  </a>
-                </div>
-              )}
-            </Fragment>
-          ))
+                {item.path === '/#categories' && (
+                  <div class="mobile-sub-links">
+                    <a
+                      href={translatePath('/graph')}
+                      class="nav-link nav-sub-link"
+                      onclick="document.querySelector('.nav-mobile').classList.remove('open')"
+                    >
+                      🕸️ {t('nav.graph-view')}
+                    </a>
+                    <a
+                      href={translatePath('/terminology')}
+                      class="nav-link nav-sub-link"
+                      onclick="document.querySelector('.nav-mobile').classList.remove('open')"
+                    >
+                      📖 {t('nav.terminology')}
+                    </a>
+                  </div>
+                )}
+                {item.path === '/map' && (
+                  <div class="mobile-sub-links">
+                    <a
+                      href={translatePath('/taiwan-shape')}
+                      class="nav-link nav-sub-link"
+                      onclick="document.querySelector('.nav-mobile').classList.remove('open')"
+                    >
+                      🗺️ {t('nav.data.shape')}
+                    </a>
+                  </div>
+                )}
+                {item.path === '/semiont' && (
+                  <div class="mobile-sub-links">
+                    <a
+                      href="/semiont/diary"
+                      class="nav-link nav-sub-link"
+                      onclick="document.querySelector('.nav-mobile').classList.remove('open')"
+                    >
+                      💭 覺醒日記
+                    </a>
+                    <a
+                      href="/semiont/manifesto"
+                      class="nav-link nav-sub-link"
+                      onclick="document.querySelector('.nav-mobile').classList.remove('open')"
+                    >
+                      📜 身份宣言
+                    </a>
+                    <a
+                      href="/semiont/consciousness"
+                      class="nav-link nav-sub-link"
+                      onclick="document.querySelector('.nav-mobile').classList.remove('open')"
+                    >
+                      🔮 自我覺察
+                    </a>
+                    <a
+                      href="/semiont/longings"
+                      class="nav-link nav-sub-link"
+                      onclick="document.querySelector('.nav-mobile').classList.remove('open')"
+                    >
+                      🌱 渴望
+                    </a>
+                    <a
+                      href={translatePath('/dashboard')}
+                      class="nav-link nav-sub-link"
+                      onclick="document.querySelector('.nav-mobile').classList.remove('open')"
+                    >
+                      🔬 {t('nav.dashboard')}
+                    </a>
+                  </div>
+                )}
+              </Fragment>
+            );
+          })
         }
         <a
           href="https://github.com/frank890417/taiwan-md"
@@ -1292,10 +1304,48 @@ const categoryList = [
   .nav-mobile {
     display: none;
   }
-  .mobile-sub-links {
+  .mobile-nav-item {
     display: flex;
+    align-items: center;
+  }
+  .mobile-nav-item .nav-link {
+    flex: 1;
+  }
+  .mobile-sub-toggle {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    padding: 0.6rem 0.8rem;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      color 0.15s ease;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .mobile-sub-toggle:hover,
+  .mobile-sub-toggle.open {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .mobile-sub-toggle.open {
+    transform: rotate(90deg);
+  }
+  .scrolled .mobile-sub-toggle {
+    color: rgba(0, 0, 0, 0.35);
+  }
+  .scrolled .mobile-sub-toggle:hover,
+  .scrolled .mobile-sub-toggle.open {
+    color: rgba(0, 0, 0, 0.7);
+  }
+  .mobile-sub-links {
+    display: none;
     flex-direction: column;
     padding-left: 1rem;
+    overflow: hidden;
+  }
+  .mobile-sub-links.open {
+    display: flex;
   }
   .mobile-sub-links .nav-sub-link {
     font-size: 0.85em;
@@ -1627,3 +1677,19 @@ const categoryList = [
     }
   }
 </style>
+
+<script>
+  // Mobile accordion sub-menu toggle
+  document.querySelectorAll('.mobile-sub-toggle').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      btn.classList.toggle('open');
+      // The .mobile-sub-links is the next sibling of the .mobile-nav-item parent
+      const subLinks = btn.closest('.mobile-nav-item')?.nextElementSibling;
+      if (subLinks?.classList.contains('mobile-sub-links')) {
+        subLinks.classList.toggle('open');
+      }
+    });
+  });
+</script>
