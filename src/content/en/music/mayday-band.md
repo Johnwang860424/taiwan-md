@@ -19,6 +19,7 @@ date: 2026-03-23
 readingTime: 12min
 lastVerified: 2026-04-13
 lastHumanReview: '2026-04-13'
+translatedFrom: 'Music/五月天.md'
 ---
 
 # Mayday (五月天)

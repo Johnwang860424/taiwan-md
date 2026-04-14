@@ -17,7 +17,7 @@ difficulty: 'intermediate'
 readingTime: 10
 featured: false
 category: People
-translatedFrom: 'People/小虎隊.md'
+translatedFrom: 'Music/小虎隊.md'
 ---
 
 # 小虎隊（シャオフードゥイ）
