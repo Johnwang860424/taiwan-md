@@ -1,8 +1,8 @@
 {
-  "totalArticles": 1194,
+  "totalArticles": 1196,
   "totalCategories": 20,
-  "estimatedContributors": 51,
-  "totalTags": 2871,
+  "estimatedContributors": 80,
+  "totalTags": 2870,
   "categories": [
     {
       "name": "Society",
@@ -14,7 +14,7 @@
     },
     {
       "name": "History",
-      "count": 31
+      "count": 32
     },
     {
       "name": "Culture",
@@ -22,7 +22,7 @@
     },
     {
       "name": "ja",
-      "count": 255
+      "count": 256
     },
     {
       "name": "Music",
@@ -168,13 +168,8 @@
     }
   ],
   "languageDistribution": {
-    "zh-TW": 1194,
+    "zh-TW": 1196,
     "en": 0
   },
-  "lastUpdated": "2026-04-13T04:36:58.081Z",
-  "stars": 926,
-  "forks": 130,
-  "zhPages": 795,
-  "enPages": 399,
-  "totalPages": 1194
+  "lastUpdated": "2026-04-14T01:49:50.293Z"
 }

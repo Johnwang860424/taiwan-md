@@ -2,20 +2,20 @@
   "languages": ["zh-TW", "en", "es", "ja", "ko"],
   "summary": {
     "zh-TW": {
-      "total": 471,
+      "total": 472,
       "percentage": 100
     },
     "en": {
       "total": 395,
-      "percentage": 83.9
+      "percentage": 83.7
     },
     "es": {
       "total": 36,
       "percentage": 7.6
     },
     "ja": {
-      "total": 255,
-      "percentage": 54.1
+      "total": 256,
+      "percentage": 54.2
     },
     "ko": {
       "total": 28,
@@ -66,7 +66,7 @@
       "ko": 2
     },
     "history": {
-      "zh-TW": 31,
+      "zh-TW": 32,
       "en": 19,
       "es": 8,
       "ja": 27,
@@ -111,16 +111,17 @@
       "zh-TW": 29,
       "en": 22,
       "es": 2,
-      "ja": 28,
+      "ja": 29,
       "ko": 2
     }
   },
   "missing": {
     "en": [
+      "Music/從張懸到安溥——兩個名字，同一個問題.md",
+      "Music/滅火器——游泳池旁撿到的名字，唱了二十五年.md",
+      "History/大罷免.md",
       "Music/五月天.md",
       "Music/小虎隊.md",
-      "Music/從張懸到安溥——兩個名字，同一個問題.md",
-      "Music/滅火器樂團.md",
       "Society/TikTok.md",
       "History/乙未之役：臺灣民主國的 148 天.md",
       "History/臺灣島史觀：被反覆統治的島，如何發明自己的主體性.md",
@@ -582,10 +583,11 @@
       "Technology/台灣音響產業發展.md"
     ],
     "es": [
+      "Music/從張懸到安溥——兩個名字，同一個問題.md",
+      "Music/滅火器——游泳池旁撿到的名字，唱了二十五年.md",
+      "History/大罷免.md",
       "Music/五月天.md",
       "Music/小虎隊.md",
-      "Music/從張懸到安溥——兩個名字，同一個問題.md",
-      "Music/滅火器樂團.md",
       "Society/TikTok.md",
       "History/乙未之役：臺灣民主國的 148 天.md",
       "History/臺灣島史觀：被反覆統治的島，如何發明自己的主體性.md",
@@ -1050,10 +1052,11 @@
       "Technology/台灣音響產業發展.md"
     ],
     "ja": [
+      "Music/從張懸到安溥——兩個名字，同一個問題.md",
+      "Music/滅火器——游泳池旁撿到的名字，唱了二十五年.md",
+      "History/大罷免.md",
       "Music/五月天.md",
       "Music/小虎隊.md",
-      "Music/從張懸到安溥——兩個名字，同一個問題.md",
-      "Music/滅火器樂團.md",
       "Society/TikTok.md",
       "History/乙未之役：臺灣民主國的 148 天.md",
       "History/日治時期.md",
@@ -1305,10 +1308,11 @@
       "Technology/台灣5G網路建設與數位轉型.md"
     ],
     "ko": [
+      "Music/從張懸到安溥——兩個名字，同一個問題.md",
+      "Music/滅火器——游泳池旁撿到的名字，唱了二十五年.md",
+      "History/大罷免.md",
       "Music/五月天.md",
       "Music/小虎隊.md",
-      "Music/從張懸到安溥——兩個名字，同一個問題.md",
-      "Music/滅火器樂團.md",
       "Society/TikTok.md",
       "History/乙未之役：臺灣民主國的 148 天.md",
       "History/臺灣島史觀：被反覆統治的島，如何發明自己的主體性.md",

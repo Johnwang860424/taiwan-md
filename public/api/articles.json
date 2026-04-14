@@ -253,6 +253,17 @@
     "path": "ja/Economy/largan-precision.md"
   },
   {
+    "title": "大罷免",
+    "description": "2025 年，台灣公民社會發動史上規模最大的罷免行動，針對推動爭議性法案的國民黨立委，試圖修正立法院權力失衡。最終三波投票全數否決，成為台灣直接民主的一次大型實踐與檢驗。",
+    "category": "History",
+    "tags": ["罷免", "國民黨", "公民行動", "立法院", "兩岸關係", "2025"],
+    "url": "https://taiwan.md/History/%E5%A4%A7%E7%BD%B7%E5%85%8D",
+    "readingTime": 12,
+    "featured": true,
+    "date": "2026-04-13",
+    "path": "History/大罷免.md"
+  },
+  {
     "title": "小虎隊",
     "description": "1988年從華視選秀節目中誕生的小虎隊，由吳奇隆、陳志朋、蘇有朋組成，憑藉陽光活力形象與勵志舞曲，成為台灣第一個男子偶像團體，開啟華語流行音樂的青春偶像時代，並成為兩岸三地共同的青春記憶。",
     "category": "Music",
@@ -2375,6 +2386,17 @@
     "featured": false,
     "date": "2026-03-28",
     "path": "ja/Music/taiwan-pop-music-and-the-golden-melody-awards.md"
+  },
+  {
+    "title": "台湾ロボット産業",
+    "description": "半導体で世界首位の島は、なぜロボット時代に「追補授業」を受けることになったのか。2026年の NCAIR 発足から、台湾の精密機械産業が持つ強みと盲点を振り返ります。",
+    "category": "ja",
+    "tags": [],
+    "url": "https://taiwan.md/ja/Technology/taiwan-robotics-industry",
+    "readingTime": 34,
+    "featured": false,
+    "date": "2026-04-11",
+    "path": "ja/Technology/taiwan-robotics-industry.md"
   },
   {
     "title": "台湾を見る — 歴史に刻まれた島の印象",
@@ -6862,9 +6884,9 @@
       "太陽花學運"
     ],
     "url": "https://taiwan.md/Music/%E5%BC%B5%E6%87%B8%E8%88%87%E5%AE%89%E6%BA%A5",
-    "readingTime": 29,
+    "readingTime": 30,
     "featured": false,
-    "date": "2026-04-12",
+    "date": "2026-04-13",
     "path": "Music/張懸與安溥.md"
   },
   {
@@ -7786,23 +7808,14 @@
     "path": "Lifestyle/溫泉文化.md"
   },
   {
-    "title": "滅火器樂團",
-    "description": "從高雄高中生組團，到唱出世代心聲的台語龐克樂團，滅火器用音樂記錄了台灣二十年來的憤怒、迷惘與希望，並以「火氣音樂」證明南方也能是音樂產業的中心。",
+    "title": "滅火器——游泳池旁撿到的名字，唱了二十五年",
+    "description": "2000 年三個高雄高中生在游泳池旁撿了一個滅火器當團名。二十五年後，他們用台語龐克唱出太陽花學運的時代之聲，把廠牌搬回南方，在打狗祭舞台上花七分鐘告訴全場：失望可以，但不要變成你討厭的那種人。",
     "category": "Music",
-    "tags": [
-      "搖滾",
-      "龐克",
-      "高雄",
-      "島嶼天光",
-      "太陽花學運",
-      "台語音樂",
-      "火氣音樂",
-      "楊大正"
-    ],
+    "tags": [],
     "url": "https://taiwan.md/Music/%E6%BB%85%E7%81%AB%E5%99%A8%E6%A8%82%E5%9C%98",
-    "readingTime": 9,
-    "featured": false,
-    "date": "2026-04-12",
+    "readingTime": 23,
+    "featured": true,
+    "date": "2026-04-14",
     "path": "Music/滅火器樂團.md"
   },
   {

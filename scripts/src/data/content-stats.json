@@ -6,14 +6,14 @@
     "Economy": 88,
     "Food": 54,
     "Geography": 23,
-    "History": 68,
+    "History": 69,
     "Language": 1,
     "Lifestyle": 28,
     "Music": 33,
     "Nature": 33,
     "People": 173,
     "Society": 78,
-    "Technology": 61,
+    "Technology": 62,
     "resources": 2,
     "people": 2
   },
@@ -124,8 +124,8 @@
     },
     {
       "date": "2026-04-13",
-      "count": 1
+      "count": 3
     }
   ],
-  "updated": "2026-04-13"
+  "updated": "2026-04-14"
 }

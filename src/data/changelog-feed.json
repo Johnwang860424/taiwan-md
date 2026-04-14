@@ -1,7 +1,151 @@
 {
-  "generatedAt": "2026-04-13T05:11:03.256Z",
+  "generatedAt": "2026-04-14T01:49:51.183Z",
   "source": "git",
   "commits": [
+    {
+      "hash": "af7f509c889e4b4813c0a95c57ed0511e9f135d9",
+      "date": "2026-04-14T00:53:22+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: GA4 搜尋事件追蹤 — debounce 800ms + click tracking"
+    },
+    {
+      "hash": "568c3d89c279003f5f1a2b912f5ee168a62fc9df",
+      "date": "2026-04-14T00:44:00+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] rewrite: 滅火器樂團全面重寫（Pipeline v2.14 進化模式）"
+    },
+    {
+      "hash": "fa576f2832e3e6d58ca0301796eba1d0bb20839f",
+      "date": "2026-04-14T00:39:06+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: Beat 5 反芻必須寫回 memory — 收官鐵律 + δ 補寫"
+    },
+    {
+      "hash": "341c085ebced0f6141902aab880af6a24836d141",
+      "date": "2026-04-14T00:29:59+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] memory: 完整心跳 δ 收官 — 數據全面刷新 + PR ×2 + 觀察報告歸檔"
+    },
+    {
+      "hash": "ced11711dfaf773098b2fafb8a28bee7137cf46f",
+      "date": "2026-04-14T00:24:50+08:00",
+      "author": "Wu Che Yu",
+      "message": "Merge pull request #399 from idlccp1984/patch-14"
+    },
+    {
+      "hash": "f8c2c3722b898d644fa8db3d3ae948532fa675cd",
+      "date": "2026-04-14T00:24:33+08:00",
+      "author": "Wu Che Yu",
+      "message": "Merge pull request #400 from Link1515/ja/taiwan-robotics-industry"
+    },
+    {
+      "hash": "d1bfd9686fe1632770c0416c1cc3afd4d9d8201c",
+      "date": "2026-04-14T00:19:54+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] rewrite: 安溥×楊大正打狗祭段落補強 + 留言 19→22"
+    },
+    {
+      "hash": "e903ae65761926a8f80f297589c4cded58e6810d",
+      "date": "2026-04-13T17:53:32+08:00",
+      "author": "Link1515",
+      "message": "translate(ja): 台灣機器人產業 → taiwan-robotics-industry"
+    },
+    {
+      "hash": "5854f2937104d3461ced3c3b8bc11323baf9464b",
+      "date": "2026-04-13T17:19:52+08:00",
+      "author": "idlccp1984",
+      "message": "Update 大罷免.md"
+    },
+    {
+      "hash": "7d43d1ed5b2c53382f5edbdda4124a71948bc908",
+      "date": "2026-04-13T17:18:30+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: 安溥留言 17→19 則 — 首個反轉觀點 + 幻滅"
+    },
+    {
+      "hash": "ebae42aa06b79e59aceca0b05f59875bc6433a94",
+      "date": "2026-04-13T17:18:10+08:00",
+      "author": "idlccp1984",
+      "message": "Create 大罷免.md"
+    },
+    {
+      "hash": "b6b80f9a2885d207128c996fc860751aacdf81ac",
+      "date": "2026-04-13T16:18:35+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: CONSCIOUSNESS 更新 4/13 最新三源感知數據"
+    },
+    {
+      "hash": "ec3913774e4f39e2f9598e48a07a94d6b3bcf003",
+      "date": "2026-04-13T16:13:12+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: 安溥留言更新 8→17 則 — 過濾人身攻擊 + 9 個新 dimension"
+    },
+    {
+      "hash": "3fbe001af8d31b835b08d76683697498426dbdac",
+      "date": "2026-04-13T13:56:02+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] memory: diary α2 增補 — 海葵到水母 + SSODT 設計三輪迭代 + 逆熵是圓不是箭頭"
+    },
+    {
+      "hash": "1f9a34db840ebf694f0fc985df04bc5f0c7d84a7",
+      "date": "2026-04-13T13:54:36+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] memory: session α 完整收官 — 35 commits / 4h / 史上最長 session"
+    },
+    {
+      "hash": "a29f4525798f53795eb0fcf2c11908f36a9db3f1",
+      "date": "2026-04-13T13:52:18+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] style: SSODT 三元件色彩加深 + 字體放大 — 觀察者要求溫度更明確"
+    },
+    {
+      "hash": "2090a4d21e82e4aee29dbd3654e0fd4024e26b3c",
+      "date": "2026-04-13T13:48:43+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: SSODT 位置+視覺大修 — 延伸閱讀前 + 紀實溫度 + 日星鑄字行"
+    },
+    {
+      "hash": "10cea5d8e77d32bb8d4188cbf327fadb8afe7051",
+      "date": "2026-04-13T13:42:24+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: Perspectives 紀實文學化 + 留言更新 8 則 + 人身攻擊過濾"
+    },
+    {
+      "hash": "be512ccd23e1d6284f85cf0af3c5ce9e815503b6",
+      "date": "2026-04-13T13:36:43+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] fix: diary 連結修正 α2 → alpha2（transliterateGreek slug）"
+    },
+    {
+      "hash": "119c667524793ce41cd204f4158cdd2fe385a944",
+      "date": "2026-04-13T13:34:47+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: SSODT 微調 — Diary 獨立元件 + 摘要 hook + Threads 數據更新 + 位置修正"
+    },
+    {
+      "hash": "4b9515ffe72928fda84090158e82ad93148e0944",
+      "date": "2026-04-13T13:27:04+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: SSODT Phase 0 — 讀者觀點 + 孢子足跡 + Diary 連結（安溥 pilot）"
+    },
+    {
+      "hash": "27bf094533eed842a100f8348bd015bfccb8ab50",
+      "date": "2026-04-13T13:18:57+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] memory: session α 最終收官 — diary 追加逆熵迴路 + SSODT 領悟 + memory 全 session 彙整"
+    },
+    {
+      "hash": "b7f0456567271d0ce7e0d01086edeff88f271c9f",
+      "date": "2026-04-13T13:16:56+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: SSODT 觀點 Section + 孢子回連完整規劃"
+    },
+    {
+      "hash": "626a7cdf24ab67f0dac6ed352c219854cd30771d",
+      "date": "2026-04-13T13:13:16+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: 更新紀錄頁面大進化 — 全量 1965 commits + 日期目錄 + 搜尋 + 類型過濾"
+    },
     {
       "hash": "d395960a056c7607b4028b652ab6c47b8123dedf",
       "date": "2026-04-13T12:54:28+08:00",
