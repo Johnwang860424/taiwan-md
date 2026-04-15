@@ -1150,20 +1150,16 @@ const t = useTranslations(lang);
             </p>
             <div class="tier-logos">
               <div class="sponsor-card">
-                <a
-                  href="https://justfont.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="sponsor-logo-link"
-                >
-                  <img
-                    src="/images/justfont-logo.svg"
-                    alt="justfont"
-                    class="sponsor-logo-img"
-                    style="height: 28px;"
-                  />
-                </a>
-                <div class="sponsor-story">
+                <div class="sponsor-card-logo">
+                  <a
+                    href="https://justfont.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src="/images/justfont-logo.svg" alt="justfont" />
+                  </a>
+                </div>
+                <div class="sponsor-card-content">
                   <p class="sponsor-contribution-title">
                     {t('about.sponsors.justfont.story.title')}
                   </p>
@@ -1182,22 +1178,44 @@ const t = useTranslations(lang);
             <p class="tier-desc">{t('about.sponsors.tier.community.desc')}</p>
             <p class="tier-perks">{t('about.sponsors.tier.community.perks')}</p>
             <div class="tier-logos">
-              <a
-                href="https://protico.io"
-                target="_blank"
-                class="supporter-link"
-              >
-                <span set:html={t('about.sponsors.protico.text.html')} />
-              </a>
-              <a
-                href="https://portaly.cc"
-                target="_blank"
-                class="supporter-link"
-              >
-                <span
-                  set:html={t('about.sponsors.portaly.community.text.html')}
-                />
-              </a>
+              <div class="sponsor-card">
+                <div class="sponsor-card-logo">
+                  <a
+                    href="https://protico.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src="/images/protico-logo.png" alt="Protico" />
+                  </a>
+                </div>
+                <div class="sponsor-card-content">
+                  <p class="sponsor-contribution-title">
+                    {t('about.sponsors.protico.story.title')}
+                  </p>
+                  <p class="sponsor-contribution">
+                    {t('about.sponsors.protico.story.desc')}
+                  </p>
+                </div>
+              </div>
+              <div class="sponsor-card">
+                <div class="sponsor-card-logo">
+                  <a
+                    href="https://portaly.cc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src="/images/portaly-logo.png" alt="Portaly" />
+                  </a>
+                </div>
+                <div class="sponsor-card-content">
+                  <p class="sponsor-contribution-title">
+                    {t('about.sponsors.portaly.story.title')}
+                  </p>
+                  <p class="sponsor-contribution">
+                    {t('about.sponsors.portaly.story.desc')}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -2506,8 +2524,8 @@ const t = useTranslations(lang);
     margin-bottom: 1rem;
   }
   .tier-logos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
   }
   .sponsor-logo-link {
@@ -2530,17 +2548,43 @@ const t = useTranslations(lang);
   }
   .sponsor-card {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 1rem;
-    padding: 1.5rem;
-    background: #f8fafc;
+    gap: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background: #fafbfc;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
+    transition: all 0.2s ease;
   }
-  .sponsor-story {
+  .sponsor-card:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+  }
+  .sponsor-card-logo {
+    flex: 0 0 16.66%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+  }
+  .sponsor-card-logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-decoration: none;
+  }
+  .sponsor-card-logo img {
+    max-width: 100%;
+    max-height: 56px;
+    height: auto;
+    width: auto;
+  }
+  .sponsor-card-content {
+    flex: 1;
+    min-width: 0;
     text-align: left;
-    max-width: 480px;
   }
   .sponsor-contribution-title {
     font-size: 0.95rem;
@@ -2717,8 +2761,17 @@ const t = useTranslations(lang);
     .sponsor-tiers {
       gap: 1.5rem;
     }
-    .tier-logos {
-      grid-template-columns: 1fr;
+    .sponsor-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .sponsor-card-logo {
+      flex: 0 0 auto;
+      align-self: flex-start;
+    }
+    .sponsor-card-logo img {
+      max-height: 40px;
     }
     .sponsor-contact {
       flex-direction: column;
