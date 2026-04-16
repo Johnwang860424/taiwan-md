@@ -2,7 +2,16 @@
 title: '대만의 유기동물 문화'
 description: '열두 밤의 눈물에서 제로 안락사의 약속까지 — 한 섬이 거리의 생명들을 어떻게 다시 대우하는 법을 배웠는가'
 date: 2026-03-18
-tags: ['유기동물', '동물보호', '제로안락사', 'TNR', '열두 밤', '보호소', '입양 문화']
+tags:
+  [
+    '유기동물',
+    '동물보호',
+    '제로안락사',
+    'TNR',
+    '열두 밤',
+    '보호소',
+    '입양 문화',
+  ]
 subcategory: '지역사회와 일상'
 category: 'Society'
 author: 'Taiwan.md Translation Team'

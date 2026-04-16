@@ -88,4 +88,5 @@ lastVerified: 2026-03-19
 - [전환적 정의 - 위키피디아](https://zh.wikipedia.org/wiki/%E8%BD%89%E5%9E%8B%E6%AD%A3%E7%BE%A9)
 
 ## 관련 주제
+
 - [민주 제도](/society/民主制度)

@@ -2,7 +2,8 @@
 title: '대만 게임 산업과 디지털 엔터테인먼트'
 description: '초기 게임 유통사에서 오리지널 개발사로, 대만이 글로벌 게임 시장에서 자신만의 목소리를 찾아가는 과정'
 date: 2026-03-18
-tags: ['게임 산업', '디지털 엔터테인먼트', '문화 콘텐츠', 'IT 산업', '인디 게임']
+tags:
+  ['게임 산업', '디지털 엔터테인먼트', '문화 콘텐츠', 'IT 산업', '인디 게임']
 subcategory: '반도체와 하드웨어'
 category: 'Technology'
 author: 'Taiwan.md Translation Team'

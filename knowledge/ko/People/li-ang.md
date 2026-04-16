@@ -2,7 +2,8 @@
 title: '리앙 (李昂)'
 description: '《남편 죽이기》《미원》의 작가. 대만 페미니즘 문학의 선구자.'
 date: 2026-03-19
-tags: ['인물', '리앙', '남편 죽이기', '미원', '페미니즘 문학', '젠더 이슈', '루강']
+tags:
+  ['인물', '리앙', '남편 죽이기', '미원', '페미니즘 문학', '젠더 이슈', '루강']
 subcategory: '문학'
 category: 'People'
 author: 'Taiwan.md Translation Team'

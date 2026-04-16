@@ -76,4 +76,5 @@ lastVerified: 2026-03-19
 - [중화민국 총통 및 부총통 대만에서의 직접 선거 - 위키백과](https://zh.wikipedia.org/zh-hant/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E7%B8%BD%E7%B5%B1%E5%8F%8A%E5%89%AF%E7%B8%BD%E7%B5%B1%E5%9C%A8%E8%87%BA%E7%81%A3%E4%B9%8B%E5%85%AC%E6%B0%91%E7%9B%B4%E6%8E%A5%E9%81%B8%E8%88%89%E8%88%87%E7%BD%B7%E5%85%8D)
 
 ## 관련 주제
+
 - [인권과 성평등](/society/人權與性別平等)

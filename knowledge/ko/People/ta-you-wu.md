@@ -64,9 +64,15 @@ translatedFrom: 'People/吳大猷.md'
 ## 참고 자료
 
 [^1]: [우다여우 — 위키백과(번체 중국어)](https://zh.wikipedia.org/zh-tw/%E5%90%B3%E5%A4%A7%E7%8C%B7)
+
 [^2]: [분자분광학 — Encyclopedia Britannica](https://www.britannica.com/science/molecular-spectroscopy)
+
 [^3]: [양전닝 — 노벨상 공식 전기](https://www.nobelprize.org/prizes/physics/1957/yang/biographical/)
+
 [^4]: [리정다오 — 노벨상 공식 전기](https://www.nobelprize.org/prizes/physics/1957/lee/biographical/)
+
 [^5]: [1957년 노벨물리학상 — 노벨상 공식 홈페이지](https://www.nobelprize.org/prizes/physics/1957/summary/)
+
 [^6]: [중앙연구원 역대 원장 — 중앙연구원 공식 홈페이지](https://www.sinica.edu.tw/ch/about/president)
+
 [^7]: [우다여우 생애 — 국립자연과학박물관 과학인물지](https://www.nmns.edu.tw/)

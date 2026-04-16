@@ -2,7 +2,8 @@
 title: '대만 아틀라스나방'
 description: '세상에서 가장 큰 나방, 날개를 펼치면 펼쳐진 책 같다 — 평생 아무것도 먹지 않고 오직 한 번의 비행을 위해 존재한다'
 date: 2026-03-19
-tags: ['아틀라스나방', '뱀머리나방', 'Atlas Moth', '나방', '보전', '곤충', '생태']
+tags:
+  ['아틀라스나방', '뱀머리나방', 'Atlas Moth', '나방', '보전', '곤충', '생태']
 subcategory: '야생동물'
 category: 'Nature'
 author: 'Taiwan.md Translation Team'

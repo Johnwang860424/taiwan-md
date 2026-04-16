@@ -2,7 +2,8 @@
 title: '천잉전 (陳映真)'
 description: '《장군족》《산길》의 작가, 대만 사회 리얼리즘 문학의 기수'
 date: 2026-03-19
-tags: ['인물', '천잉전', '장군족', '산길', '사회 리얼리즘', '향토문학', '제3세계']
+tags:
+  ['인물', '천잉전', '장군족', '산길', '사회 리얼리즘', '향토문학', '제3세계']
 subcategory: '문학'
 category: 'People'
 author: 'Taiwan.md Translation Team'

@@ -2,7 +2,15 @@
 title: '선성보'
 description: '컴퓨터 과학을 전공했지만 프로그래밍 언어를 대만 현대 미술 현장으로 가져온 선성보. 34년이라는 짧은 생애에 남긴 것은 디지털 아트 작품만이 아니다. 프로그램을 삶으로, 자유 소프트웨어를 창작 윤리로 삼은 실험 정신이다.'
 date: 2026-03-23
-tags: ['인물', '디지털 아트', '뉴미디어 아트', 'FLOSS+ART', 'OpenLab.Taipei', '대만']
+tags:
+  [
+    '인물',
+    '디지털 아트',
+    '뉴미디어 아트',
+    'FLOSS+ART',
+    'OpenLab.Taipei',
+    '대만',
+  ]
 subcategory: '예술 및 디자인'
 category: 'People'
 author: 'Taiwan.md Translation Team'
@@ -120,5 +128,6 @@ OpenLab.Taipei가 커뮤니티와 네트워크를 대표한다면, 유웨이 공
 - [기술의 온도 속 고결한 순수: 선성보의 《pin shadow》와 《texture》](https://atatw.org/hta-archive/%E7%A7%91%E6%8A%80%E6%BA%AB%E5%BA%A6%E4%B8%AD%E7%9A%84%E9%AB%98%E5%B0%9A%E7%B4%94%E6%BD%94%EF%BC%9A%E6%B2%88%E8%81%96%E5%8D%9A%E7%9A%84%E3%80%8Apin-shadow%E3%80%8B%E8%88%87%E3%80%8Atexture%E3%80%8B/)
 
 ## 관련 주제
+
 - [우저위](/people/吳哲宇): 프로그래밍에서 예술로 향한 또 다른 대만의 창작 경로
 - [탕펑](/people/唐鳳): 기술적 사유가 공공 영역으로 들어가는 방식

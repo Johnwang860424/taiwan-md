@@ -2,7 +2,8 @@
 title: '덩리쥔 (Teresa Teng)'
 description: '영원한 아시아의 가희, 노래로 이념의 장벽을 허문 냉전 시대의 문화 사절'
 date: 2026-03-17
-tags: ['인물', '덩리쥔', '가수', '아시아 가희', '화어 음악', '냉전', '문화적 영향']
+tags:
+  ['인물', '덩리쥔', '가수', '아시아 가희', '화어 음악', '냉전', '문화적 영향']
 subcategory: '음악'
 category: 'People'
 author: 'Taiwan.md Translation Team'

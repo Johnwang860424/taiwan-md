@@ -191,23 +191,23 @@ translatedFrom: 'Music/台灣聲音地景.md'
 
 **🎧 감상: 타이베이 지하철 소리 풍경(2018년 3월, 大禾音樂 녹음)**
 
-| 역 / 장소 | 소리 | 감상 |
-| ------------ | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 行天宮 | 참배(격점, 염불) | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-xingtian-temple-worship.mp3" type="audio/mpeg"></audio> |
-| 西門町 | 타투 가게 | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-ximending-tattoo-parlor.mp3" type="audio/mpeg"></audio> |
-| 迪化街 | 새해 명절 쇼핑 | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-dihua-street-lunar-new-year-shopping.mp3" type="audio/mpeg"></audio> |
-| 타이베이 101 | 새해 카운트다운 | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-taipei-101-new-year-countdown.mp3" type="audio/mpeg"></audio> |
-| 中正紀念堂 | 비둘기 날기 | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-cks-memorial-hall-pigeons-flying.mp3" type="audio/mpeg"></audio> |
-| 中正紀念堂 | 관광객 사진 찍기 | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-cks-memorial-hall-camera-shutters.mp3" type="audio/mpeg"></audio> |
-| 大安森林公園 | 오리 구경 | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-daan-forest-park-ducks.mp3" type="audio/mpeg"></audio> |
-| 大湖公園 | 호수 물소리 | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-dahu-park-lake-water.mp3" type="audio/mpeg"></audio> |
-| 小碧潭 | 새 관찰 | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-xiaobitan-birdsong.mp3" type="audio/mpeg"></audio> |
-| 淡水 | 꽃오징어 사기 | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-tamsui-buying-squid.mp3" type="audio/mpeg"></audio> |
-| 美麗華 | 영화 보기 | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-miramar-cinema.mp3" type="audio/mpeg"></audio> |
-| 三民書局 | 책 넘기는 소리 | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-sanmin-bookstore-page-flipping.mp3" type="audio/mpeg"></audio> |
-| 北門郵局 | 편지 부치기 | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-beimen-post-office-mailing.mp3" type="audio/mpeg"></audio> |
-| 中山站 | 전동드릴 소리 | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-zhongshan-station-power-drill.mp3" type="audio/mpeg"></audio> |
-| 中山國中站 | 보고하는 소리 | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-zhongshan-junior-high-station-announcement.mp3" type="audio/mpeg"></audio> |
+| 역 / 장소    | 소리             | 감상                                                                                                                                                 |
+| ------------ | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 行天宮       | 참배(격점, 염불) | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-xingtian-temple-worship.mp3" type="audio/mpeg"></audio>                    |
+| 西門町       | 타투 가게        | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-ximending-tattoo-parlor.mp3" type="audio/mpeg"></audio>                    |
+| 迪化街       | 새해 명절 쇼핑   | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-dihua-street-lunar-new-year-shopping.mp3" type="audio/mpeg"></audio>       |
+| 타이베이 101 | 새해 카운트다운  | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-taipei-101-new-year-countdown.mp3" type="audio/mpeg"></audio>              |
+| 中正紀念堂   | 비둘기 날기      | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-cks-memorial-hall-pigeons-flying.mp3" type="audio/mpeg"></audio>           |
+| 中正紀念堂   | 관광객 사진 찍기 | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-cks-memorial-hall-camera-shutters.mp3" type="audio/mpeg"></audio>          |
+| 大安森林公園 | 오리 구경        | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-daan-forest-park-ducks.mp3" type="audio/mpeg"></audio>                     |
+| 大湖公園     | 호수 물소리      | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-dahu-park-lake-water.mp3" type="audio/mpeg"></audio>                       |
+| 小碧潭       | 새 관찰          | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-xiaobitan-birdsong.mp3" type="audio/mpeg"></audio>                         |
+| 淡水         | 꽃오징어 사기    | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-tamsui-buying-squid.mp3" type="audio/mpeg"></audio>                        |
+| 美麗華       | 영화 보기        | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-miramar-cinema.mp3" type="audio/mpeg"></audio>                             |
+| 三民書局     | 책 넘기는 소리   | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-sanmin-bookstore-page-flipping.mp3" type="audio/mpeg"></audio>             |
+| 北門郵局     | 편지 부치기      | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-beimen-post-office-mailing.mp3" type="audio/mpeg"></audio>                 |
+| 中山站       | 전동드릴 소리    | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-zhongshan-station-power-drill.mp3" type="audio/mpeg"></audio>              |
+| 中山國中站   | 보고하는 소리    | <audio controls preload="none"><source src="/assets/sounds/mrt-soundscape-zhongshan-junior-high-station-announcement.mp3" type="audio/mpeg"></audio> |
 
 ---
 

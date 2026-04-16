@@ -2,7 +2,8 @@
 title: '탕펑'
 description: '8세에 혼자 프로그래밍을 독학하고, 세계 최초의 트랜스젠더 장관이 되어 오픈소스 정신으로 디지털 민주주의를 재정의하다'
 date: 2026-03-21
-tags: [인물, 탕펑, 디지털발전부, g0v, 트랜스젠더, 프로그래밍, 열린 정부, vTaiwan]
+tags:
+  [인물, 탕펑, 디지털발전부, g0v, 트랜스젠더, 프로그래밍, 열린 정부, vTaiwan]
 subcategory: '교육과 사회'
 category: 'People'
 author: 'Taiwan.md Translation Team'

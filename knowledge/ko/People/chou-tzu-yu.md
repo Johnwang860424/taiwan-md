@@ -156,8 +156,8 @@ featured: true
 
 9개월 후인 2026년 3월 20일~22일, TWICE는 타이베이 다쥐단에서 3회 연속 공연을 열었다. 3일 12만 명이 몰렸고, 타이베이 지하철은 3월 21일 단일 운행 일일 이용객 **260만 6천 명**을 기록해 그달 최고 기록을 갈아치웠다. 그녀는 다쥐단 중앙에 서서 다시 한번 울었다.
 
-| 1999/6/14 | 2012/11/15 | 2015/10/20 | 2016/1/15 | 2019/4 | 2024/9/6 | 2024/12/15 | 2025/11/22 | 2026/3/20-22 |
-|---|---|---|---|---|---|---|---|---|
+| 1999/6/14   | 2012/11/15  | 2015/10/20 | 2016/1/15      | 2019/4            | 2024/9/6        | 2024/12/15       | 2025/11/22                  | 2026/3/20-22             |
+| ----------- | ----------- | ---------- | -------------- | ----------------- | --------------- | ---------------- | --------------------------- | ------------------------ |
 | 타이난 출생 | 13세 한국행 | TWICE 데뷔 | 90초 사과 영상 | 인스타 첫 솔직 글 | abouTZU 솔로 EP | 심리학 석사 공개 | 가오슝 세계경기장 친필 편지 | 타이베이 다쥐단 3회 연속 |
 
 ---
@@ -194,13 +194,23 @@ featured: true
 ## 참고자료
 
 [^1]: [周子瑜 - 維基百科](https://zh.wikipedia.org/wiki/周子瑜)
+
 [^3]: [周子瑜國旗事件 - 維基百科](https://zh.wikipedia.org/wiki/周子瑜国旗事件)
+
 [^4]: [她的一句對不起 撼動台灣大選 - 今周刊](https://www.businesstoday.com.tw/article/category/80392/post/201601210022/)
+
 [^7]: [蔡英文：我當總統一天，沒人需要為他的認同而道歉 - 自由時報](https://election.ltn.com.tw/2016/news/breakingnews/1575237)
+
 [^8]: [Teen pop star Chou Tzu-yu's apology for waving Taiwan flag swayed young voters - South China Morning Post](https://www.scmp.com/news/china/policies-politics/article/1902195/teen-pop-star-chou-tzu-yus-apology-waving-taiwan-flag)
+
 [^10]: [The politics of apology: The 'Tzuyu Scandal' - SAGE Journals](https://doi.org/10.1177/1748048518802947)
+
 [^12]: [子瑜Solo曲〈Run Away〉點閱一天就破4百萬 - NOWnews](https://www.nownews.com/news/6518459)
+
 [^13]: [TWICE高雄新裝首登場 - 噓星聞](https://stars.udn.com/star/story/10092/9156781)
+
 [^14]: [TWICE大巨蛋演唱會懶人包 - Yahoo 新聞](https://tw.news.yahoo.com/twice%E5%A4%A7%E5%B7%A8%E8%9B%8B%E6%BC%94%E5%94%B1%E6%9C%83%E6%87%B6%E4%BA%BA%E5%8C%85-%E5%AD%90%E7%91%9C%E7%88%86%E5%93%AD%E3%80%8112%E8%90%AC%E4%BA%BA%E6%9C%9D%E8%81%96%E5%8C%97%E6%8D%B7%E7%A0%B4%E7%B4%80%E9%8C%84-014124971.html)
+
 [^18]: [子瑜獲得歐洲心理學碩士學位 - 噓星聞](https://stars.udn.com/star/story/10091/8426512)
+
 [^22]: [歡迎回家！子瑜手寫信曝光 - 噓星聞](https://stars.udn.com/star/story/10092/9156905)

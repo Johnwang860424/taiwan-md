@@ -48,14 +48,14 @@ lastVerified: 2026-03-25
 
 TSMC의 규모는 글로 설명하기 어렵다. 숫자로 보는 편이 더 직접적이다:
 
-| 지표 | 수치 | 출처 |
-| --- | --- | --- |
-| 2025년 매출 | 1,220억 달러(전년 대비 약 30% 증가) | [Manufacturing Dive](https://www.manufacturingdive.com/news/tsmc-q4-full-year-2025-earnings-ai-taiwan/809775/) |
-| 글로벌 선단 공정 점유율 | 90% 이상(3나노) | TSMC 2025년 연간 보고서 |
-| 글로벌 반도체 파운드리 점유율 | 약 54% | TrendForce 2025년 Q4 |
-| 2026년 3월 시가총액 | 약 1.76조 달러(글로벌 6위) | [CompaniesMarketCap](https://companiesmarketcap.com/tsmc/marketcap/) |
-| 2026년 설비투자 예산 | 560억 달러(전년 대비 25% 이상 증가) | [경제일보](https://money.udn.com/money/story/5612/9283226) |
-| 임직원 수 | 약 76,000명 | TSMC 2025년 연간 보고서 |
+| 지표                          | 수치                                | 출처                                                                                                           |
+| ----------------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| 2025년 매출                   | 1,220억 달러(전년 대비 약 30% 증가) | [Manufacturing Dive](https://www.manufacturingdive.com/news/tsmc-q4-full-year-2025-earnings-ai-taiwan/809775/) |
+| 글로벌 선단 공정 점유율       | 90% 이상(3나노)                     | TSMC 2025년 연간 보고서                                                                                        |
+| 글로벌 반도체 파운드리 점유율 | 약 54%                              | TrendForce 2025년 Q4                                                                                           |
+| 2026년 3월 시가총액           | 약 1.76조 달러(글로벌 6위)          | [CompaniesMarketCap](https://companiesmarketcap.com/tsmc/marketcap/)                                           |
+| 2026년 설비투자 예산          | 560억 달러(전년 대비 25% 이상 증가) | [경제일보](https://money.udn.com/money/story/5612/9283226)                                                     |
+| 임직원 수                     | 약 76,000명                         | TSMC 2025년 연간 보고서                                                                                        |
 
 웨이저자는 2026년 1월 실적 설명회에서 이런 말을 남겼다. "AI는 끝이 없는 수요처럼 보입니다." ([경제일보](https://money.udn.com/money/story/5612/9283226))
 

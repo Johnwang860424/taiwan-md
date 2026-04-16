@@ -2,7 +2,16 @@
 title: '동물원과 전시 동물 윤리'
 description: '철장 속 코끼리에서 Xpark의 해파리 벽까지 — 대만이 전시 동물과의 관계를 새롭게 정의하는 과정'
 date: 2026-03-18
-tags: ['동물원', '전시동물', '동물복지', 'Xpark', '타이베이동물원', '동물윤리', '신주동물원']
+tags:
+  [
+    '동물원',
+    '전시동물',
+    '동물복지',
+    'Xpark',
+    '타이베이동물원',
+    '동물윤리',
+    '신주동물원',
+  ]
 subcategory: '동물과 윤리'
 category: 'Society'
 author: 'Taiwan.md Translation Team'

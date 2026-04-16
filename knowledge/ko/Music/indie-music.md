@@ -2,7 +2,15 @@
 title: '대만 인디 음악: 월급도 못 주던 레코드 가게 하나가 어떻게 섬 전체의 귀를 열었나'
 description: '수정음반이 빚더미 위에서 시작한 모험부터, 草東沒有派對(No Party for Cao Dong)가 카페에서 초판을 완판하기까지. 대만 인디 음악 35년은 역전 스토리가 아니라, "보이지 않던 소리를 들리게 하겠다"는 사람들의 기나긴 도박이었다'
 date: 2026-03-29
-tags: ['인디 음악', '언더그라운드 밴드', '록 음악', 'live house', '인디 레이블', '음악 산업']
+tags:
+  [
+    '인디 음악',
+    '언더그라운드 밴드',
+    '록 음악',
+    'live house',
+    '인디 레이블',
+    '음악 산업',
+  ]
 subcategory: '인디 & 록'
 category: 'Music'
 author: 'Taiwan.md Translation Team'

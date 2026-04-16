@@ -91,7 +91,7 @@ translatedFrom: 'People/鄭南榕.md'
 
 한 가족의 상처가 섬 전체의 자산으로 바뀌었다.
 
-2016년 12월 22일, 행정원은 공식적으로 4월 7일을 '[언론자유일](https://zh.wikipedia.org/wiki/%E8%A8%80%E8%AB%96%E8%87%AA%E7%94%B1%E6%97%A5_(%E8%87%BA%E7%81%A3))'로 지정했다. 타이베이에 있는 [정난룽 기념관](https://www.nfreedommemorialfoundation.org/)(옛 잡지사 자리)에는 마지막 집무실이 보존되어 있으며, 벽에는 화재의 흔적이 그대로 남아 있다.
+2016년 12월 22일, 행정원은 공식적으로 4월 7일을 '[언론자유일](<https://zh.wikipedia.org/wiki/%E8%A8%80%E8%AB%96%E8%87%AA%E7%94%B1%E6%97%A5_(%E8%87%BA%E7%81%A3)>)'로 지정했다. 타이베이에 있는 [정난룽 기념관](https://www.nfreedommemorialfoundation.org/)(옛 잡지사 자리)에는 마지막 집무실이 보존되어 있으며, 벽에는 화재의 흔적이 그대로 남아 있다.
 
 ## 행동하는 사상가의 유산
 

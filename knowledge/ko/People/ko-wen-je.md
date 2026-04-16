@@ -80,7 +80,7 @@ TPP의 정치적 포지션은 "파란과 녹색 이외의 제3의 선택"으로,
 
 선거 자료는 중앙선거관리위원회 선거 데이터베이스(1차 자료)에서: [103년 직할시장 선거](https://db.cec.gov.tw/ElecTable/Election?type=ELC)、[107년 직할시장 선거](https://db.cec.gov.tw/ElecTable/Election?type=ELC)、[제16대 총통·부총통 선거](https://db.cec.gov.tw/ElecTable/Election?type=P).
 
-의학 배경: 커 원저 2002년 타이완대학교 임상의학 박사 논문(타이완대학교 도서관): *Extracorporeal membrane oxygenation: Clinical applications and prognosis projection*; 타이베이대학병원 외과 장기이식 관련 연보(타이베이대학병원 공식 발행).
+의학 배경: 커 원저 2002년 타이완대학교 임상의학 박사 논문(타이완대학교 도서관): _Extracorporeal membrane oxygenation: Clinical applications and prognosis projection_; 타이베이대학병원 외과 장기이식 관련 연보(타이베이대학병원 공식 발행).
 
 언론 보도 참고: [연합보 — 커 원저 관련 보도](https://udn.com); [자유시보 — 2014 타이베이 시장 개표](https://news.ltn.com.tw); [The Guardian — Taiwan's third-party candidate Ko Wen-je](https://www.theguardian.com) (영어 1차 보도).
 

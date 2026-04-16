@@ -31,7 +31,7 @@ translatedFrom: 'People/林良.md'
 
 ## 참고 자료
 
-- [위키피디아 - 린 량 (대만 작가)](https://zh.wikipedia.org/zh-tw/%E6%9E%97%E8%89%AF_(%E8%87%BA%E7%81%A3%E4%BD%9C%E5%AE%B6))
+- [위키피디아 - 린 량 (대만 작가)](<https://zh.wikipedia.org/zh-tw/%E6%9E%97%E8%89%AF_(%E8%87%BA%E7%81%A3%E4%BD%9C%E5%AE%B6)>)
 - [국립대만사범대학 - 아동문학에 평생을 헌신한 뛰어난 동문 린 량 타계](https://pr.ntnu.edu.tw/ntnunews/index.php?mode=data&id=19058&type_id=72)
 - [국가문화예술기금회 - 작가 린 량 수상 소개](https://www.ncafroc.org.tw/artsaward/winnerDetail@1279)
 - [Openbook 독서지 - 인터뷰: 반세기 동안 대만을 따뜻하게 한 작은 태양의 집, 린 량과 딸 린웨이](https://www.openbook.org.tw/article/p-39482)

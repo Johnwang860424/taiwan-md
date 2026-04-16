@@ -2,7 +2,8 @@
 title: '니에융전(聶永真)'
 description: '2012년 대만 최초로 AGI에 가입한 그래픽 디자이너. 차이잉원의 두 차례 대선 비주얼을 맡고 금곡상 최우수 앨범 패키지상을 세 번 수상했다'
 date: 2026-03-21
-tags: [인물, 니에융전, 디자이너, 그래픽 디자인, AGI, 금곡상, 비주얼 디자인, 대만]
+tags:
+  [인물, 니에융전, 디자이너, 그래픽 디자인, AGI, 금곡상, 비주얼 디자인, 대만]
 subcategory: '예술과 디자인'
 category: 'People'
 author: 'Taiwan.md Translation Team'

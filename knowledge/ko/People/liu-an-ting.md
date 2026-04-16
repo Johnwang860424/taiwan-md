@@ -166,16 +166,29 @@ translatedFrom: 'People/劉安婷.md'
 ## 참고 자료
 
 [^1]: [劉安婷 - 維基百科，自由的百科全書](https://zh.wikipedia.org/zh-tw/%E5%8A%89%E5%AE%89%E5%A9%B7)
+
 [^2]: [開明媽媽林宜蓉 vs. 資優女兒劉安婷 談生命意義 - wongliin 痞客邦](https://wongliin.pixnet.net/blog/post/283133884)
+
 [^3]: [為台灣而教 TFT 劉安婷 - IOH 開放個人經驗平台](https://ioh.tw/talks/%E7%82%BA%E5%8F%B0%E7%81%A3%E8%80%8C%E6%95%99-tft-%E5%8A%89%E5%AE%89%E5%A9%B7-anting-liu-tw-startup)
+
 [^4]: [TFT 為台灣而教 - 關於我們](https://www.teach4taiwan.org/about/)
+
 [^5]: [劉安婷：你拿幸運做什麼？── 2016 成大畢業典禮致詞 - 翻轉教育](https://flipedu.parenting.com.tw/article/002451)
+
 [^6]: [不要相信我個人！TFT 創辦人劉安婷：有影響力的不是我個人，而是我相信的信念 - Cheers 快樂工作人](https://www.cheers.com.tw/article/article.action?id=5086065)
+
 [^7]: [林妍希 / 為台灣而教 (TFT) 董事長 - DDI Land 部落格](http://ddiland.blogspot.com/)
+
 [^8]: [TFT 為台灣而教 - 10 年影響力報告](https://10yearimpact.teach4taiwan.org/)
+
 [^9]: [學會堅強：我考上普林斯頓【修訂版】- 書店](https://www.books.com.tw/products/0010676071)
+
 [^10]: [EP10 翻轉教育夫妻檔劉安婷、呂冠緯：從人才培育著手改變台灣的風景 - 名人書房 Apple Podcasts](https://podcasts.apple.com/us/podcast/ep10-%E7%BF%BB%E8%BD%89%E6%95%99%E8%82%B2%E5%A4%AB%E5%A6%BB%E6%AA%94%E5%8A%89%E5%AE%89%E5%A9%B7-%E5%91%82%E5%86%A0%E7%B7%AF-%E5%BE%9E%E4%BA%BA%E6%89%8D%E5%9F%B9%E8%82%B2%E8%91%97%E6%89%8B%E6%94%B9%E8%AE%8A%E5%8F%B0%E7%81%A3%E7%9A%84%E9%A2%A8%E6%99%AF/id1552178275?i=1000507931963)
+
 [^11]: [呂冠緯 - Taiwan.md](https://taiwan.md/people/%E5%91%82%E5%86%A0%E7%B7%AF/)
+
 [^12]: [TFT thinkings/46444 - 串連教育這張網，是回應挑戰的溫柔解方 - TFT 為台灣而教](https://www.teach4taiwan.org/wp-json/wp/v2/posts/46444)
+
 [^13]: [TFT thinkings/46434 - TFT 的下一個十年 - TFT 為台灣而教](https://www.teach4taiwan.org/wp-json/wp/v2/posts/46434)
+
 [^14]: [TFT 董事長劉安婷：先做能接受失敗和不完整的大人 - 翻轉教育](https://flipedu.parenting.com.tw/article/008693)

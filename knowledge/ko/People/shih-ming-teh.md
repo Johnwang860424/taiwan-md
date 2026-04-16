@@ -2,7 +2,8 @@
 title: '스밍더 — 25년을 감옥에서 보낸 민주 투사'
 description: '미리다오(美麗島) 사건의 핵심 지도자, 대만 민주화의 살아있는 역사'
 date: 2026-03-19
-tags: ['민주화 운동', '미리다오 사건', '정치 수난자', '홍삼군 운동', '정치 지도자']
+tags:
+  ['민주화 운동', '미리다오 사건', '정치 수난자', '홍삼군 운동', '정치 지도자']
 subcategory: '정치와 민주주의'
 category: 'People'
 author: 'Taiwan.md Translation Team'

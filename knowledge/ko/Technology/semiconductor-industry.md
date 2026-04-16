@@ -2,7 +2,15 @@
 title: '반도체 산업'
 description: '장중머우의 역사적 도박부터 2나노 시대까지: TSMC는 어떻게 대만을 세계 기술의 생명선으로 만들었나'
 date: 2026-03-17
-tags: ['반도체', 'TSMC', '대만 적체전로 제조', '선진 공정', '실리콘 섬', '실리콘 방패']
+tags:
+  [
+    '반도체',
+    'TSMC',
+    '대만 적체전로 제조',
+    '선진 공정',
+    '실리콘 섬',
+    '실리콘 방패',
+  ]
 subcategory: '반도체와 하드웨어'
 category: 'Technology'
 author: 'Taiwan.md Translation Team'

@@ -50,5 +50,6 @@ translatedFrom: 'Nature/黑冠麻鷺.md'
 - [국립 자연과학박물관: 말레이밤왜가리 표본과 생태 관찰](https://www.nmns.edu.tw/ch/research/specimen/featured/Collection-000530/)
 
 ## 관련 주제
+
 - [고유종](/nature/特有種)
 - [국가공원](/nature/國家公園)

@@ -2,7 +2,8 @@
 title: '대만 로봇 산업'
 description: '세계 1위 반도체 섬이 왜 로봇 시대에 "보충 학습"을 해야 하는가? 2026년 NCAIR 개소를 계기로 돌아보는 대만 정밀기계의 기적과 맹점'
 date: 2026-04-11
-tags: ['로봇', '정밀기계', '반도체', 'AI', '산업전환', '하이윈', 'NCAIR', '2026']
+tags:
+  ['로봇', '정밀기계', '반도체', 'AI', '산업전환', '하이윈', 'NCAIR', '2026']
 subcategory: '기술 산업'
 category: 'Technology'
 author: 'Taiwan.md Translation Team'

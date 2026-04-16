@@ -126,21 +126,21 @@ Taiwan.md는 마크다운(Markdown) 형식(.md 도메인의 유래)으로 대만
 
 ## 주요 전시 기록
 
-| 연도 | 전시 | 장소 |
-| --- | --- | --- |
-| 2025 | Symphony of Fragments 미래의 예술 | 타이베이 101 AMBI SPACE ONE |
-| 2025 | 병 속의 영원한 정원 몰입 인터랙티브 연주전 | 가오슝 보얼 예술특구 |
-| 2025 | 커피 몽상 The Coffee Dreamscape | Starbucks DreamPlaza 타이베이 |
-| 2025 | Physis is not a thing, it's an act | LG x MonoLab |
-| 2025 | 알고리즘 시편 몰입형 피아노 연주회 | 화산 문화창의파크 |
-| 2024 | 레지던시 — 병 속의 영원한 정원 | CENTQUATRE-PARIS 파리 |
-| 2024 | 제너러티브 아트 돔 프로젝션 | C-LAB 대만 당대문화실험장 |
-| 2024 | 소울피시 SoulFish Collabs | 베니스 비엔날레 |
-| 2023 | 꽃의 영혼 The Soul of Flowers | Art Basel Miami × Tezos |
-| 2023 | 만물의 공식 개인전 | 타이베이 101 AMBI SPACE ONE |
-| 2022 | 카오스 연구소 Chaos Laboratory | 타이베이 101 AMBI SPACE ONE |
-| 2022 | The Soul | Unit London |
-| 2022 | Fairy Village | Unit London |
+| 연도 | 전시                                       | 장소                          |
+| ---- | ------------------------------------------ | ----------------------------- |
+| 2025 | Symphony of Fragments 미래의 예술          | 타이베이 101 AMBI SPACE ONE   |
+| 2025 | 병 속의 영원한 정원 몰입 인터랙티브 연주전 | 가오슝 보얼 예술특구          |
+| 2025 | 커피 몽상 The Coffee Dreamscape            | Starbucks DreamPlaza 타이베이 |
+| 2025 | Physis is not a thing, it's an act         | LG x MonoLab                  |
+| 2025 | 알고리즘 시편 몰입형 피아노 연주회         | 화산 문화창의파크             |
+| 2024 | 레지던시 — 병 속의 영원한 정원             | CENTQUATRE-PARIS 파리         |
+| 2024 | 제너러티브 아트 돔 프로젝션                | C-LAB 대만 당대문화실험장     |
+| 2024 | 소울피시 SoulFish Collabs                  | 베니스 비엔날레               |
+| 2023 | 꽃의 영혼 The Soul of Flowers              | Art Basel Miami × Tezos       |
+| 2023 | 만물의 공식 개인전                         | 타이베이 101 AMBI SPACE ONE   |
+| 2022 | 카오스 연구소 Chaos Laboratory             | 타이베이 101 AMBI SPACE ONE   |
+| 2022 | The Soul                                   | Unit London                   |
+| 2022 | Fairy Village                              | Unit London                   |
 
 ## 참고 자료
 

@@ -111,7 +111,7 @@ translatedFrom: 'People/蕭敬騰.md'
 - [위키백과: 잠 샤오(蕭敬騰)](https://zh.wikipedia.org/zh-tw/%E8%95%AD%E6%95%AC%E9%A8%B0) — 상세 생애 및 작품 목록
 - [국가문화기억저장소: 제24회 대중음악 골든멜로디어워드 잠 샤오 남자가수상 수상](https://tcmb.culture.tw/zh-tw/detail?indexCode=Culture_Object&id=507328) — 골든멜로디어워드 수상 기록
 - [공영방송 뉴스: 잠 샤오 골든멜로디 남자가수상](https://news.pts.org.tw/article/244506) — 2013년 골든멜로디 보도
-- [위키백과: 슈퍼스타탄생 1회](https://zh.wikipedia.org/zh-tw/%E8%B6%85%E7%B4%9A%E6%98%9F%E5%85%89%E5%A4%A7%E9%81%93_(%E7%AC%AC%E4%B8%80%E5%B1%86)) — 난입 세그먼트 역사 기록
+- [위키백과: 슈퍼스타탄생 1회](<https://zh.wikipedia.org/zh-tw/%E8%B6%85%E7%B4%9A%E6%98%9F%E5%85%89%E5%A4%A7%E9%81%93_(%E7%AC%AC%E4%B8%80%E5%B1%86)>) — 난입 세그먼트 역사 기록
 - [위키백과: 라이온 LION](https://zh-yue.wikipedia.org/wiki/%E7%8D%85%E5%AD%90LION) — 밴드 결성 및 싱어 2017 참가 자료
 - [ETtoday: 잠 샤오의 부업 또 추가, 1억 5천만 투자해 식당 개업](https://star.ettoday.net/news/1962443) — 외식업 투자 보도
 - [Top 10 of Asia: Taiwan's King of Golden Melody](https://www.top10asia.org/feature-story/taiwans-king-of-golden-melody/) — 국제 시각의 잠 샤오 소개

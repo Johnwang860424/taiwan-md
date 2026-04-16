@@ -132,23 +132,43 @@ translatedFrom: 'People/鄭麗文.md'
 ## 참고자료
 
 [^1]: [鄭麗文 - 위키피디아](https://zh.wikipedia.org/zh-tw/%E9%84%AD%E9%BA%97%E6%96%87)
+
 [^2]: [Cheng Li-wun - Wikipedia](https://en.wikipedia.org/wiki/Cheng_Li-wun)
+
 [^3]: [정리원은 누구인가? - KidsMedia](https://kidsmedia.com.tw/2025/10/20/from-green-to-blue-cheng-li-wen-becomes-kmts-first-chairperson-with-dpp-roots/)
+
 [^4]: [Cheng Li-wun - Wikipedia](https://en.wikipedia.org/wiki/Cheng_Li-wun)
+
 [^5]: [Who is Cheng Li-wun? - Taipei Times](https://www.taipeitimes.com/News/feat/archives/2025/11/19/2003847439)
+
 [^6]: [鄭麗文 - 위키피디아](https://zh.wikipedia.org/zh-tw/%E9%84%AD%E9%BA%97%E6%96%87)
+
 [^7]: [민진당 자진 탈당 재확인 정리원: 대만 독립이 오래전부터 웃음거리이자 사기극이라는 것을 깨달았다 - 자유시보](https://news.ltn.com.tw/news/politics/breakingnews/3703655)
+
 [^8]: [전장 이미지로 돌파구 만든 정리원, 녹색 진영 출신으로 국민당 주석 당선 - 중앙통신사](https://www.cna.com.tw/news/aipl/202510180186.aspx)
+
 [^9]: [郑丽文 - 바이두 백과](https://baike.baidu.com/item/%E9%83%91%E4%B8%BD%E6%96%87/2093188)
+
 [^10]: [Cheng Li-wun - Wikipedia](https://en.wikipedia.org/wiki/Cheng_Li-wun)
+
 [^11]: [전장 이미지로 돌파구 만든 정리원 - 중앙통신사](https://www.cna.com.tw/news/aipl/202510180186.aspx)
+
 [^12]: [민진당 탈당 원인 직접 공개 정리원: 대만 독립이 거짓말임을 깨달았다 - 중시신문](https://www.chinatimes.com/realtimenews/20211014002067-260407)
+
 [^13]: [연합보 인터뷰 / 정리원: 대만 독립은 사기, 남색은 떨쳐 일어나야 - 연합신문](https://udn.com/news/story/122404/9044503)
+
 [^14]: [정리원의 백색테러 추도 참석, 공산당 간첩 제사 비판 - 경제일보](https://money.udn.com/money/story/5603/9126873)
+
 [^15]: [국민당 주석 정리원의 전 반역 공산 간첩 추도, 육위회 엄정 입장 - 육위회 공식 사이트](https://www.mac.gov.tw/News_Content.aspx?n=05B73310C5C3A632&sms=1A40B00E4C745211&s=0064E84717B052BD)
+
 [^16]: [백색테러 추도식 참석 정리원: 우스 포함 사전에 몰랐다 - 공시뉴스](https://news.pts.org.tw/article/780371)
+
 [^17]: [정리원: 백색테러 추도는 우스 등을 주인공으로 한 것이 아니다 - 중앙통신사](https://www.cna.com.tw/news/aipl/202511080093.aspx)
+
 [^18]: [시진핑-정리원 회담 종료, 정리원: 5가지 주장 제시, 대만 국제 활동 공간 확대 포함 - 중앙통신사](https://www.cna.com.tw/news/acn/202604100199.aspx)
+
 [^19]: [시진핑-정리원 회담》시진핑 발언 전문 공개, 양안 평화 교류 조건 제시 - Newtalk](https://newtalk.tw/news/view/2026-04-10/1029065)
+
 [^20]: [China's Xi meets Taiwan opposition leader - NPR](https://www.npr.org/2026/04/10/nx-s1-5780605/china-xi-taiwan-opposition)
+
 [^21]: [육위회: 정리원에게 말해달라고 한 것 '하나도 말하지 않아', 오히려 상대방 입장에 동조 - ETtoday](https://www.ettoday.net/news/20260410/3147289.htm)

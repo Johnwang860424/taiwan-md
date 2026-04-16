@@ -2,7 +2,8 @@
 title: '요가 린(林宥嘉): 8년의 공백, 그리고 사랑이 왕이 되는 자리'
 description: '오디션 우승자에서 실험적 뮤지션으로—요가 린은 전성기와 행복한 가정 생활 한복판에서 8년간 병마와 침묵과 싸운 끝에, 사랑이 모든 것의 왕임을 노래하는 음악으로 돌아왔다'
 date: 2026-03-28
-tags: ['요가 린', '화어 팝', '슈퍼 스타 레도', '과민성 대장 증후군', '왕 Love Lord']
+tags:
+  ['요가 린', '화어 팝', '슈퍼 스타 레도', '과민성 대장 증후군', '왕 Love Lord']
 subcategory: '음악'
 category: 'People'
 author: 'Taiwan.md Translation Team'

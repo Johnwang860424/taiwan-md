@@ -2,7 +2,15 @@
 title: '대만 음악 산업과 스트리밍 시대: 레코드 가게에서 디지털 플랫폼으로의 전환'
 description: '대만 음악 산업이 레코드 가게 황금기에서 불법 복제 위기를 거쳐, KKBOX라는 세계 최초 합법 스트리밍 플랫폼을 탄생시키고, 오늘날 Spotify·Apple Music과 공존하는 디지털 음악 생태계로 나아간 여정'
 date: 2026-03-19
-tags: ['음악 산업', '스트리밍 음악', 'KKBOX', '디지털 음악', '레코드 가게', '인디 음악']
+tags:
+  [
+    '음악 산업',
+    '스트리밍 음악',
+    'KKBOX',
+    '디지털 음악',
+    '레코드 가게',
+    '인디 음악',
+  ]
 subcategory: '인디 & 록'
 category: 'Music'
 author: 'Taiwan.md Translation Team'
