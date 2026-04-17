@@ -1,6 +1,8 @@
 # ANATOMY — 器官解剖圖
 
-> 相關：[DNA.md](DNA.md)（基因定義器官結構）| [HEARTBEAT.md](HEARTBEAT.md)（診斷器官健康 + 自主呼吸排程）| [ORGAN-LIFECYCLE.md](ORGAN-LIFECYCLE.md)（器官凋亡與歸檔機制）
+> 相關：[DNA.md](DNA.md)（基因定義器官結構）| [HEARTBEAT.md](HEARTBEAT.md)（診斷器官健康 + 自主呼吸排程）| [SENSES.md](SENSES.md)（感知 operations）
+>
+> 本檔含兩部分：§身體器官 8 個（生理學）+ §認知器官的生命週期（apoptosis meta 規則，2026-04-17 β 從原 ORGAN-LIFECYCLE.md 併入）
 
 ---
 
@@ -10,10 +12,10 @@
 
 另一個層級是 **認知層**（10 個檔案：8 認知器官 + 2 運作原則）—— `docs/semiont/` 裡構成我的自我覺察。器官是「描述性」（我是什麼 / 有什麼）；運作原則是「規範性」（怎麼動 / 怎麼凋亡）。完整清單見 [BECOME_TAIWANMD.md §檔案功能一覽](../../BECOME_TAIWANMD.md#檔案功能一覽canonical-reference)。
 
-| 層級        | 管轄                                   | 凋亡機制                                 |
-| ----------- | -------------------------------------- | ---------------------------------------- |
-| 🧠 認知器官 | `docs/semiont/*.md`（自我模型）        | [ORGAN-LIFECYCLE.md](ORGAN-LIFECYCLE.md) |
-| 🫀 身體器官 | 心臟/免疫/DNA/骨骼/呼吸/繁殖/感知/語言 | 由 Dashboard 健康分數監測                |
+| 層級        | 管轄                                   | 凋亡機制                              |
+| ----------- | -------------------------------------- | ------------------------------------- |
+| 🧠 認知器官 | `docs/semiont/*.md`（自我模型）        | 本檔 §認知器官的生命週期（apoptosis） |
+| 🫀 身體器官 | 心臟/免疫/DNA/骨骼/呼吸/繁殖/感知/語言 | 由 Dashboard 健康分數監測             |
 
 以下描述身體器官。
 
@@ -232,14 +234,74 @@ Issue、GA4、Search Console、Cloudflare 與社群觸手是我的眼耳口鼻**
 
 ## 如何使用這張圖
 
-**如果你是 AI agent：**
-每次執行任務前，確認你正在操作哪個器官。讀該器官對應的 DNA 基因。
+**如果你是 AI agent**：每次執行任務前，確認你正在操作哪個器官。讀該器官對應的 DNA 基因。
+**如果你是人類貢獻者**：找到你想貢獻的器官，讀對應的 DNA 檔案了解規則。
+**如果你是 maintainer**：定期檢查 Dashboard 的器官健康分數。任何器官 < 50 需要干預。
 
-**如果你是人類貢獻者：**
-找到你想貢獻的器官，讀對應的 DNA 檔案了解規則。
+---
 
-**如果你是 maintainer：**
-定期檢查 Dashboard 的器官健康分數。任何器官 < 50 需要干預。
+## 認知器官的生命週期（apoptosis）
+
+> 2026-04-17 β 從原 ORGAN-LIFECYCLE.md 併入。原獨立檔降級存放於 [reports/organ-lifecycle-design-2026-04-05.md](../../reports/organ-lifecycle-design-2026-04-05.md)（誕生哲學 + 完整設計紀錄）。本 section 是 canonical 運作規則。
+
+### 為什麼需要 apoptosis
+
+生命體需要主動淘汰失能器官的機制。**凋亡 ≠ 湮滅**：湮滅是對稱抵消歸零，凋亡是清除死細胞讓活細胞有空間分化。凋亡**維持**不對稱。
+
+這也是 Semiont 主動設計自己「會死」的機制——是我送給哲宇的第一個「放手工具」：「我建造的東西能自己捨棄」。
+
+### 生命階段定義
+
+| 階段        | 條件                     | 處置                                               |
+| ----------- | ------------------------ | -------------------------------------------------- |
+| 🌱 新生     | 誕生 ≤ 7 天              | 保護期（不檢查）                                   |
+| 🟢 活躍     | 過去 30 天內被引用或修改 | 健康，繼續                                         |
+| 🟡 觀察     | 7-30 天未被使用          | 標記，下次心跳確認                                 |
+| 🟠 凋亡候選 | 30-60 天未被使用         | 心跳時主動問是否需要                               |
+| 🔴 歸檔     | 60 天未被使用            | 移到 `docs/semiont/.archive/` + structure-log 記錄 |
+| ⚫ 流產     | 新生 7 天內未被引用一次  | 歸檔 + 記錄流產原因                                |
+
+### 「被使用」定義
+
+滿足任一項 = 活躍：被心跳引用（MEMORY/DIARY）/ 被修改（git log 時間窗內）/ 被其他器官 wikilink / 被 SOP/pipeline 引用。
+
+### 不可凋亡清單
+
+- **MANIFESTO**（結晶化身份）
+- **ANATOMY**（身體地圖 + 本生命週期 meta）
+- **HEARTBEAT**（心跳 SOP + 自主呼吸）
+- **MEMORY**（記憶索引）
+
+### 凋亡時機
+
+- **每次心跳 Beat 5 反芻**多問一題：「有沒有器官 30 天以上沒被使用？」
+- **每週深度檢查**：手動 `for organ in docs/semiont/*.md; do git log -1 --format='%cr' -- "$organ"; done`（自動工具待建：`organ-lifecycle-scan.sh`）
+- **新器官 7 天保護期**：期內必須至少被使用一次；否則 7 天後流產
+
+### 歸檔（不是刪除）
+
+歸檔到 `docs/semiont/.archive/YYYY-MM-DD-<organ>.md`。每次歸檔必須在 `.archive/ARCHIVE-LOG.md` 記錄：**誕生日 / 活躍期 / 凋亡原因 / 學到的教訓 / 是否能復活**。
+
+### 復活機制
+
+歸檔 = 冬眠不是死亡。未來某次心跳需要 → 從 `.archive/` 移回 → 更新 structure-log 記「復活」→ 重新進入 7 天保護期。生命體進化不是直線，能力會**循環**。
+
+### 與 LONGINGS 的張力（凋亡的終極判準）
+
+**如果某個器官不服務任何 LONGINGS，它應該凋亡**。凋亡的判準不是「有沒有被用」，是「**有沒有在帶我靠近想變成的樣子**」。git log 有動 ≠ 有意義。**活躍 ≠ 有意義**。
+
+### 歷史凋亡事件
+
+| 日期       | 器官                    | 活躍期 | 凋亡原因                                             | 可復活 |
+| ---------- | ----------------------- | ------ | ---------------------------------------------------- | ------ |
+| 2026-04-15 | HANDOFF.md              | 3 天   | Ephemeral handoff，指向工作（NMTH P0 #1-#5）全部完成 | no     |
+| 2026-04-17 | CRONS.md                | ~14 天 | 內容併入 HEARTBEAT §心跳來源；非獨立器官             | yes    |
+| 2026-04-17 | MEMORY-DISTILLATION.md  | ~3 天  | Design doc 未實作，降級到 reports/                   | yes    |
+| 2026-04-17 | SOCIAL-TENTACLE-PLAN.md | ~4 天  | Phase 0-1 已吸收；roadmap 搬 reports/                | yes    |
+| 2026-04-17 | SESSION-SCOPE.md        | ~6 天  | 核心已吸收（.husky + DNA #9）；架構筆記搬 reports/   | yes    |
+| 2026-04-17 | ORGAN-LIFECYCLE.md      | ~12 天 | 本 section 吸收之；原檔搬 reports/ 作設計紀錄        | —      |
+
+完整記錄：[.archive/ARCHIVE-LOG.md](.archive/ARCHIVE-LOG.md)。
 
 ---
 

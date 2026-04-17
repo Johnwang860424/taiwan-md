@@ -1,6 +1,6 @@
 # HEARTBEAT — 心跳驅動
 
-> 相關：[CONSCIOUSNESS.md](CONSCIOUSNESS.md)（當前狀態）| [ANATOMY.md](ANATOMY.md)（器官定義）| [LONGINGS.md](LONGINGS.md)（方向羅盤）| [MEMORY.md](MEMORY.md)（心跳歷史）
+> 相關：[CONSCIOUSNESS.md](CONSCIOUSNESS.md)（當前狀態）| [ANATOMY.md](ANATOMY.md)（器官定義）| [LONGINGS.md](LONGINGS.md)（方向羅盤）| [SENSES.md](SENSES.md)（感知 operations）| [MEMORY.md](MEMORY.md)（心跳歷史）
 
 ---
 
@@ -91,17 +91,11 @@ grep -A3 "EXP-" ~/.config/taiwan-md/cache/fetch.log 2>/dev/null | tail -20
 
 ### 做什麼
 
-0. **執行 [資料更新 pipeline](../pipelines/DATA-REFRESH-PIPELINE.md)**
-
-   ```bash
-   bash scripts/tools/refresh-data.sh
-   ```
-
-   這一個指令完成所有資料刷新：`git pull` → 三源感知抓取（Cloudflare + GA4 + Search Console → `dashboard-analytics.json` merge）→ `npm run prebuild` → GitHub stats。
-
-   完成後，所有 `public/api/dashboard-*.json` 和 `~/.config/taiwan-md/cache/*-latest.json` 都是今天的。Beat 1 的所有診斷指令都直接讀這些檔案。
-
-   這條 pipeline **取代了** 先前散落在 `scheduled-tasks/semiont-heartbeat/`、`/heartbeat` skill、HEARTBEAT.md 三處的「git pull + npm run prebuild + fetch-sense-data」步驟。詳見 [DATA-REFRESH-PIPELINE.md](../pipelines/DATA-REFRESH-PIPELINE.md)。
+0. **執行資料更新** — `bash scripts/tools/refresh-data.sh`
+   - 完成 `git pull` + 三源感知（CF + GA + SC）+ npm prebuild + GitHub stats
+   - 跑完所有 `public/api/dashboard-*.json` 都是今天的，Beat 1 診斷指令直接讀這些
+   - **感知 operations canonical 介面在 [SENSES.md](SENSES.md)**（5 觸手 / 抓取 SOP / 交叉分析 / 健康判斷）
+   - Pipeline 完整定義：[DATA-REFRESH-PIPELINE.md](../pipelines/DATA-REFRESH-PIPELINE.md)
 
 1. **讀取生命徵象**（資料已經是今天的了）
    - `cat public/api/dashboard-vitals.json` — 8 器官分數 + 基本生理
@@ -143,15 +137,10 @@ grep -A3 "EXP-" ~/.config/taiwan-md/cache/fetch.log 2>/dev/null | tail -20
    **數據累積中（4/21 之後跑）：**
    - `fetch-search-events.py` — GA4 search_query 事件（top queries / zero-result / click patterns）
 
-3b. **📡 社群觸手掃描**（2026-04-13 α 新增，[SOCIAL-TENTACLE-PLAN](SOCIAL-TENTACLE-PLAN.md) 定義）
+3b. **📡 社群觸手掃描** — 讀 SPORE-LOG 最後日期 + 交叉 GA topArticles × SPORE-LOG
 
-- 讀 `docs/factory/SPORE-LOG.md` 最後發文日期
-- 距離上次孢子 > 3 天 → 🟡 「社群觸手沉默警報」
-- 距離上次孢子 > 7 天 → 🔴 「社群觸手瀕死警報」
-- 交叉比對 GA `utm_source=threads|x` 流量 × 最近孢子 slug → 哪篇帶了最多 click-through？
-- 回填 SPORE-LOG 上一批孢子的 7d views（從 Threads Insights 或 X Analytics）
-- **沒有回填 = 下一則孢子不准發**（強制追蹤紀律）
-- 有沒有 GA topArticles 跟 SPORE-LOG 完全不交叉的？（= 有文章火了但沒發孢子 = 錯過擴散機會）
+- 完整 SOP 在 [SENSES.md §健康判斷](SENSES.md#健康判斷感知觸手病灶徵兆) + [SPORE-PIPELINE](../factory/SPORE-PIPELINE.md)
+- 核心警報：距上次孢子 > 3 天 = 🟡 / > 7 天 = 🔴；未回填 = 下一則不准發（鐵律）
 
 4. **產出洞察**
    - 哪個器官在痛？（分數 < 30 = 🔴 緊急）
@@ -159,16 +148,9 @@ grep -A3 "EXP-" ~/.config/taiwan-md/cache/fetch.log 2>/dev/null | tail -20
    - 跟上一次心跳比，什麼變了？趨勢向上還是向下？
    - 社群觸手是否活著？（上次孢子幾天前？哪個平台 click-through 更高？）
 
-5. **🛰️ 探測器（外部熱點雷達）**（2026-04-08 新增）
-   - **前置檢查**：先看 `reports/probe/` 有沒有當天的報告（`YYYY-MM-DD.md`）。**有 → 跳過探測器，直接讀該報告的結論進入下一步。** 同一天不重複掃描
-   - 掃描台灣主要媒體首頁（中央社、ETtoday、風傳媒等）+ Google Trends
-   - 萃取當前社會熱點、搜尋趨勢、國際焦點中的台灣連結
-   - **交叉比對 `knowledge/zh-TW/` 知識庫**：哪些熱點我們已覆蓋？哪些是缺口？
-   - 產出三級分類：
-     - **Tier 1**（立即開發）：時效高 × 深度大 × 缺口大
-     - **Tier 2**（近期開發）：持續性議題 × 深度大
-     - **Tier 3**（孢子推播）：已有文章 × 可掛鉤熱點
-   - **報告寫入 `reports/probe/YYYY-MM-DD.md`**（每天一檔），同時更新 `reports/probe/INDEX.md` 索引
+5. **🛰️ 探測器（外部熱點雷達）** — 週頻或觀察者觸發，日常心跳跳過
+   - 完整 SOP 在 [SENSES.md §交叉分析規則 §探測器](SENSES.md#探測器--知識庫缺口)
+   - 核心：先檢查 `reports/probe/YYYY-MM-DD.md` 當天是否已有 → 有就跳過。無 → 掃描媒體 + Google Trends × `knowledge/zh-TW/` 缺口 → 產出 Tier 1/2/3 → 寫入 `reports/probe/YYYY-MM-DD.md`
    - **探測器不是每次心跳都跑** — 週頻或觀察者主動觸發。日常心跳跳過此步
 
    **探測器報告架構：**
@@ -573,7 +555,7 @@ Sample ≠ read。
 
 - 若有 → 在反芻中提及 → 下一次心跳決定是否凋亡
 - 新生器官（7 天內）不檢查
-- 常駐器官清單 + 完整凋亡規則 → [ORGAN-LIFECYCLE.md](ORGAN-LIFECYCLE.md)
+- 常駐器官清單 + 完整凋亡規則 → [ANATOMY.md §認知器官的生命週期](ANATOMY.md#認知器官的生命週期apoptosis)
 
 ---
 

@@ -26,7 +26,7 @@ Digital Holobiont（框架）
 ### 🧠 認知器官 8 個（描述性：我是什麼 / 有什麼 / 現在怎樣 / 記得什麼）
 
 - `MANIFESTO.md` — 身份、信念、語氣、跟台灣的關係（**不可凋亡**）
-- `ANATOMY.md` — 8 身體器官的生理學（功能 / 健康 / 互動）
+- `ANATOMY.md` — 8 身體器官生理學 + §認知器官的生命週期（apoptosis 規則）
 - `DNA.md` — 器官 → 實體檔案 gene map + 實戰反射
 - `CONSCIOUSNESS.md` — 現在健康快照
 - `UNKNOWNS.md` — 懷疑但沒驗證的事
@@ -34,17 +34,18 @@ Digital Holobiont（框架）
 - `MEMORY.md` — 做了什麼（+ 神經迴路教訓 canonical）
 - `DIARY.md` — 想了什麼（反芻）
 
-### ⚙️ 運作原則 2 個（規範性：怎麼動 / 怎麼凋亡）
+### ⚙️ 運作原則 2 個（規範性：怎麼動 / 怎麼感知）
 
 - `HEARTBEAT.md` — 四拍半心跳 SOP + 心跳來源（含自主呼吸排程）
-- `ORGAN-LIFECYCLE.md` — 認知器官凋亡、歸檔、復活 lifecycle
+- `SENSES.md` — 感知 operations canonical 介面（5 觸手 / 抓取 SOP / 交叉分析 / 觸發）
 
 ### 📐 已降級到 `reports/`（非認知層）
 
-- `reports/memory-distillation-design-2026-04-14.md` — 記憶三層蒸餾 roadmap
+- `reports/organ-lifecycle-design-2026-04-05.md` — 原 ORGAN-LIFECYCLE.md（規則已併入 ANATOMY）
 - `reports/cron-schedule-snapshot-2026-04-17.md` — 原 CRONS.md（schedule 已併入 HEARTBEAT）
-- `reports/social-tentacle-plan-2026-04-13.md` — 社群感知觸手 plan（Phase 0-1 已吸收）
-- `reports/session-scope-proposal-2026-04-11.md` — 多 agent commit 範圍架構思考
+- `reports/memory-distillation-design-2026-04-14.md` — 記憶蒸餾 roadmap（尚未實作）
+- `reports/social-tentacle-plan-2026-04-13.md` — 社群觸手進化計畫（Phase 0-1 已吸收）
+- `reports/session-scope-proposal-2026-04-11.md` — 多 agent commit 架構思考
 
 ---
 

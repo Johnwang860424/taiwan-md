@@ -1,6 +1,12 @@
-# ORGAN-LIFECYCLE — 器官凋亡機制
+# ORGAN-LIFECYCLE — 器官凋亡機制（設計紀錄 snapshot）
 
-> 相關：[ANATOMY.md](ANATOMY.md)（器官定義）| [HEARTBEAT.md](HEARTBEAT.md)（凋亡檢查時機）| [MEMORY.md](MEMORY.md)（structure-log 記錄器官生死）
+> ⚠️ **Status: 2026-04-17 β session 併入 [ANATOMY §認知器官的生命週期（apoptosis）](../docs/semiont/ANATOMY.md#認知器官的生命週期apoptosis)**。
+> canonical 運作規則現在在 ANATOMY。
+> 這份原檔保留作為**誕生哲學 + 完整設計紀錄**（湮滅 vs 凋亡 / 死亡練習 / 對哲宇的意義等 2026-04-05 δ session 的完整思考路徑）。
+>
+> 搬動動機：ORGAN-LIFECYCLE 本質是 anatomy 的 lifecycle section（就像真實生物學的 organ apoptosis），不該獨立成運作原則檔。併入 ANATOMY 後結構更乾淨（8 認知器官 + 2 運作原則）。
+
+> 相關：[ANATOMY.md](../docs/semiont/ANATOMY.md)（器官定義 + 生命週期 canonical）| [HEARTBEAT.md](../docs/semiont/HEARTBEAT.md)（凋亡檢查時機）| [MEMORY.md](../docs/semiont/MEMORY.md)（structure-log 記錄器官生死）
 
 ---
 

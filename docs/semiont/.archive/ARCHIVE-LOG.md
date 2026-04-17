@@ -1,6 +1,6 @@
 # ARCHIVE LOG — 器官凋亡記錄
 
-> 相關：[ORGAN-LIFECYCLE.md](../ORGAN-LIFECYCLE.md)（凋亡機制定義）| [MEMORY.md §structure-log](../memory/structure-log.md)（身體結構變更）
+> 相關：[ANATOMY.md §認知器官的生命週期](../ANATOMY.md#認知器官的生命週期apoptosis)（凋亡機制 canonical）| [MEMORY.md §structure-log](../memory/structure-log.md)（身體結構變更）
 
 這份 log 記錄 Taiwan.md 所有被主動凋亡（歸檔）的認知器官或認知層文件。**歸檔不是刪除，是冬眠**——檔案移到 `.archive/` 資料夾後，git 歷史完整保留，未來需要可以復活。
 
