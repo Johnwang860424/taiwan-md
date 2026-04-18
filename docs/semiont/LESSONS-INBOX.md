@@ -135,6 +135,13 @@ Beat 5 反芻 = 寫 DIARY（意識活動）。教訓（「我學到 X」）寫 L
 - **可能層級**：特有教訓（已 instantiate in `docs/semiont/ARTICLE-INBOX.md` + HEARTBEAT Beat 3）
 - **相關**：DNA #15 儀器化（第 6 次驗證）/ LESSONS-INBOX（平行架構）
 
+### 2026-04-18 δ-late — 埋 tracking 不等於能查詢：GA4 custom dimensions 必須同時註冊
+
+- **原則**：GA4 event 參數若沒有在 Admin 註冊為 custom dimension，事件仍會進 BigQuery 但 **UI/Reporting API 完全拿不到**，等同 sensor 死線。埋追蹤時必須同步跑 Admin API 註冊（或手動在 Admin UI 建立），不能拖到「之後有需要再看」
+- **觸發**：γ session 2026-04-13 上線 `search_query` / `search_result_click` tracking + `fetch-search-events.py` 工具，但 5 天後（δ 2026-04-18）第一次跑查詢才發現掛了 `Field customEvent:search_term is not a valid dimension`。5 天事件參數永久流失（歷史無法回補）。修法：寫 [register-ga4-custom-dimensions.py](../../scripts/tools/register-ga4-custom-dimensions.py) 一鍵註冊 + 觀察者手動啟用 GCP API + 升 Editor 角色
+- **可能層級**：操作規則（所有「埋 tracking」類任務 SOP 要有 step: 註冊對應 dimension + 立刻跑一次 sanity query）
+- **相關**：DNA #24 工具說謊（工具以為有資料但沒有）/ memory/2026-04-18.md §δ-late
+
 ### 2026-04-18 δ — 單源事實比風格瑕疵更危險也更容易漏
 
 - **原則**：風格瑕疵（編年體、不是 X 是 Y）讀兩遍會抓到；單源事實（求婚日期、入圍 vs 獲獎、解散年份）就算 3 次搜尋也可能全錯。研究報告必須明列 high_confidence / single_source / unverified 三層
