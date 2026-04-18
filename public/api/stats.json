@@ -1,8 +1,8 @@
 {
-  "totalArticles": 2202,
+  "totalArticles": 2211,
   "totalCategories": 21,
-  "estimatedContributors": 147,
-  "totalTags": 5146,
+  "estimatedContributors": 148,
+  "totalTags": 5162,
   "categories": [
     {
       "name": "ko",
@@ -10,7 +10,7 @@
     },
     {
       "name": "Society",
-      "count": 39
+      "count": 41
     },
     {
       "name": "en",
@@ -22,7 +22,7 @@
     },
     {
       "name": "Culture",
-      "count": 42
+      "count": 43
     },
     {
       "name": "ja",
@@ -42,7 +42,7 @@
     },
     {
       "name": "People",
-      "count": 156
+      "count": 159
     },
     {
       "name": "Art",
@@ -50,7 +50,7 @@
     },
     {
       "name": "Food",
-      "count": 29
+      "count": 30
     },
     {
       "name": "Technology",
@@ -58,11 +58,11 @@
     },
     {
       "name": "Nature",
-      "count": 26
+      "count": 27
     },
     {
       "name": "Geography",
-      "count": 19
+      "count": 20
     },
     {
       "name": "About",
@@ -163,17 +163,17 @@
       "count": 19
     },
     {
-      "name": "g0v",
+      "name": "文化",
       "count": 18
     },
     {
-      "name": "文化",
-      "count": 17
+      "name": "g0v",
+      "count": 18
     }
   ],
   "languageDistribution": {
-    "zh-TW": 2202,
+    "zh-TW": 2211,
     "en": 0
   },
-  "lastUpdated": "2026-04-17T04:01:11.699Z"
+  "lastUpdated": "2026-04-18T02:02:22.282Z"
 }

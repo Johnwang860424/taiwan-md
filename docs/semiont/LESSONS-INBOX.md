@@ -86,7 +86,19 @@ Beat 5 反芻 = 寫 DIARY（意識活動）。教訓（「我學到 X」）寫 L
 
 <!-- 新教訓 append 這裡 -->
 
-_（空 — 2026-04-17 δ 首次完整 distill 後清空。新教訓 append 於此；達 10 條自動觸發下次消化。）_
+### 2026-04-18 排程α — EXP 比值類型需要非孢子期穩態窗口
+
+- **原則**：CF/GA4 比值型 EXP 驗證必須在無主動孢子的穩態期進行；孢子事件使 GA4 分母暴增，扭曲 ratio，不反映 AI crawler 主導性真相
+- **觸發**：EXP-B 驗證結果 ratio = 18.7x（預測 100-300x），因安溥/李洋病毒孢子使 GA4 28d avg 從 ~50 → ~1,078。EXP-B 自身已有「GA爆漲 → 好消息」條件，但比值無效的結構性教訓需要記錄
+- **可能層級**：通用反射（任何 AI agent 設計 EXP 時都可能踩到）
+- **相關**：EXP-2026-04-11-B（UNKNOWNS 已驗證表）/ DNA #24「工具說謊」
+
+### 2026-04-18 排程α — 多語言 nav 的隱性路由 scope 問題
+
+- **原則**：多語言網站的 nav 建構中，`translatePath(path)` 不能無條件應用於僅特定語言存在的路由；必須明確設定 language scope，非目標語言需有 fallback
+- **觸發**：Header.astro `translatePath('/semiont')` 在 EN/JA/KO 頁面生成 `/en/semiont` 等不存在路徑，造成全站每個非 zh-TW 頁面 nav 都有一條 404；verify-internal-links.sh 1.54% broken ratio（>1.0% threshold）；CF 2026-04-17 404 rate 19.6% 部分原因
+- **可能層級**：特有教訓（綁 Taiwan.md 多語言架構 + Astro i18n translatePath 函數行為）
+- **相關**：EXP-A 404 rate（UNKNOWNS §進行中）
 
 ---
 

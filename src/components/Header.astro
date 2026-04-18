@@ -41,7 +41,12 @@ const navConfig = [
       currentPath.startsWith('/semiont') ||
       currentPath.startsWith('/dashboard');
   }
-  return { ...item, fullPath, active };
+  // semiont pages only exist in zh-TW; never translate path to /en/semiont etc.
+  return {
+    ...item,
+    fullPath: item.path === '/semiont' ? '/semiont' : fullPath,
+    active,
+  };
 });
 
 const categoryList = [

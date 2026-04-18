@@ -2667,6 +2667,17 @@
     "path": "Music/台灣台語歌曲演進.md"
   },
   {
+    "title": "台灣司法改革與預防性羈押制度",
+    "description": "從 1997 年引入到 2026 年四月擴大納入酒駕與兒少性剝削，預防性羈押在台灣走了 29 年。擴大保護被害人的同時，無罪推定的底線也在後退：這是進步，還是一種結構性的妥協？",
+    "category": "Society",
+    "tags": [],
+    "url": "https://taiwan.md/Society/%E5%8F%B0%E7%81%A3%E5%8F%B8%E6%B3%95%E6%94%B9%E9%9D%A9%E8%88%87%E9%A0%90%E9%98%B2%E6%80%A7%E7%BE%88%E6%8A%BC%E5%88%B6%E5%BA%A6",
+    "readingTime": 27,
+    "featured": false,
+    "date": "2026-04-17",
+    "path": "Society/台灣司法改革與預防性羈押制度.md"
+  },
+  {
     "title": "台灣外來語與語言接觸現象",
     "description": "從便當到視頻：一座島嶼的語言接觸史，揭示台灣如何成為全世界最成功的外來語融合實驗室",
     "category": "Culture",
@@ -3132,6 +3143,17 @@
     "path": "Economy/台灣自媒體創作者經濟.md"
   },
   {
+    "title": "台灣行政區劃：從「地方會議」到「五都」的權力拼圖",
+    "description": "台灣行政區劃不只是地圖上的線條，更是一場跨越四百年的權力實驗。從荷西時期的部落議會，到日治時期的「五州三廳」雅化運動，再到戰後差點出現的「爽文市」，每一道邊界背後都藏著統治意志與地方認同的拉扯。",
+    "category": "Geography",
+    "tags": ["行政區劃", "台灣歷史", "國土規劃", "地方自治"],
+    "url": "https://taiwan.md/Geography/%E5%8F%B0%E7%81%A3%E8%A1%8C%E6%94%BF%E5%8D%80%E5%8A%83",
+    "readingTime": 15,
+    "featured": false,
+    "date": "2026-04-17",
+    "path": "Geography/台灣行政區劃.md"
+  },
+  {
     "title": "台灣志工文化與公益參與：一個島嶼的日常善意",
     "description": "30 個家庭主婦每天存五��錢，60 年後變成橫跨 128 國的慈善帝國——台灣的志工文化不是口號，是寫在日常裡的集體DNA",
     "category": "Society",
@@ -3545,6 +3567,17 @@
     "featured": true,
     "date": "2026-03-18",
     "path": "Music/台灣原住民音樂傳統.md"
+  },
+  {
+    "title": "台灣原住民神話：從洪水到創世的口傳史詩",
+    "description": "台灣原住民神話不僅是古老故事，更是族群記憶與文化傳承的活化石，承載著與自然共存的智慧與生命觀。",
+    "category": "Culture",
+    "tags": ["原住民", "神話", "口傳文學", "台灣文化"],
+    "url": "https://taiwan.md/Culture/%E5%8E%9F%E4%BD%8F%E6%B0%91%E7%A5%9E%E8%A9%B1",
+    "readingTime": 13,
+    "featured": false,
+    "date": "2026-04-17",
+    "path": "Culture/原住民神話.md"
   },
   {
     "title": "台灣原住民族16族文化地圖",
@@ -5116,6 +5149,17 @@
     "featured": false,
     "date": "2026-03-23",
     "path": "Geography/地形與地質.md"
+  },
+  {
+    "title": "地震：與地牛共舞的島嶼記憶",
+    "description": "為什麼外國人嚇得要命，台灣人卻只關心泡麵糊了沒？從清領「地生毛」到 921 的 102 秒，看這座島嶼如何把災難內化成日常。",
+    "category": "Society",
+    "tags": ["文化", "日常", "歷史", "災難記憶", "地牛傳說"],
+    "url": "https://taiwan.md/Society/%E5%9C%B0%E9%9C%87",
+    "readingTime": 14,
+    "featured": false,
+    "date": "2026-04-17",
+    "path": "Society/地震.md"
   },
   {
     "title": "地震が来たとき、誰が当直か——台湾の災害医療体制の制度的秘密",
@@ -7239,6 +7283,24 @@
     "path": "People/張惠妹.md"
   },
   {
+    "title": "從地下室到總統府：妮妃雅與台灣變裝皇后的自我賦權史",
+    "description": "一個曾因性別氣質受霸凌的台灣男孩，如何將被視為次文化的變裝藝術帶上國際舞台，並以「香蕉」為符號，讓世界看見台灣的多元與自信。",
+    "category": "People",
+    "tags": [
+      "妮妃雅",
+      "變裝皇后",
+      "LGBTQ+",
+      "性別平權",
+      "台灣文化",
+      "魯保羅變裝皇后秀"
+    ],
+    "url": "https://taiwan.md/People/%E5%A6%AE%E5%A6%83%E9%9B%85",
+    "readingTime": 14,
+    "featured": false,
+    "date": "2026-04-18",
+    "path": "People/妮妃雅.md"
+  },
+  {
     "title": "從張懸到安溥——兩個名字，同一個問題",
     "description": "13 歲寫出〈寶貝〉，32 歲因一面旗子被中國封殺，34 歲親手殺死自己的藝名。焦安溥用兩段人生回答了一個台灣人都在問的問題：你到底站哪邊？",
     "category": "Music",
@@ -7297,7 +7359,7 @@
     "category": "History",
     "tags": ["淡水", "淡江中學", "教育史", "馬偕", "日治時期"],
     "url": "https://taiwan.md/History/%E6%B7%A1%E6%B1%9F%E4%B8%AD%E5%AD%B8",
-    "readingTime": 16,
+    "readingTime": 15,
     "featured": false,
     "date": "2026-03-24",
     "path": "History/淡江中學.md"
@@ -7420,6 +7482,17 @@
     "featured": false,
     "date": "2026-03-19",
     "path": "People/許芳宜.md"
+  },
+  {
+    "title": "許美華：從反紫光到大罷免，一個匿名公民代號的十年",
+    "description": "「許美華」不是本名，而是一個在台灣公民社會兩次關鍵時刻出現的代號——2015 年以「四騎士」之一的身份擋下中國紫光的半導體併購案，2025 年則成為大罷免浪潮裡最反直覺的「課金中心」：不經手一毛錢，卻調度了超過兩千萬的公民捐款。",
+    "category": "People",
+    "tags": ["許美華", "反紫光", "大罷免", "公民運動", "半導體", "台灣民主"],
+    "url": "https://taiwan.md/People/%E8%A8%B1%E7%BE%8E%E8%8F%AF",
+    "readingTime": 21,
+    "featured": false,
+    "date": "2026-04-17",
+    "path": "People/許美華.md"
   },
   {
     "title": "許倬雲",
@@ -7689,6 +7762,17 @@
     "featured": false,
     "date": "2026-03-22",
     "path": "ko/People/chen-wei-yin.md"
+  },
+  {
+    "title": "陳菊",
+    "description": "從美麗島的死囚到南霸天「花媽」，她是台灣民主轉型最鮮明的見證者。",
+    "category": "People",
+    "tags": ["政治", "民主運動", "高雄", "人權"],
+    "url": "https://taiwan.md/People/%E9%99%B3%E8%8F%8A",
+    "readingTime": 10,
+    "featured": false,
+    "date": "2026-04-17",
+    "path": "People/陳菊.md"
   },
   {
     "title": "陳澄波",
@@ -8085,6 +8169,17 @@
     "path": "ja/Music/taiwan-pop-music.md"
   },
   {
+    "title": "黑松汽水與沙士：從被嘲笑的「三流貨」到擊退可樂霸主的百年傳奇",
+    "description": "這不是一瓶普通的碳酸飲料，而是一段台灣民族資本在日治統制與全球化浪潮中，如何靠著「17元資產」與「我的未來不是夢」活下來的生存史。",
+    "category": "Food",
+    "tags": ["黑松汽水", "黑松沙士", "台灣品牌", "飲食文化", "張雨生"],
+    "url": "https://taiwan.md/Food/%E9%BB%91%E6%9D%BE",
+    "readingTime": 11,
+    "featured": false,
+    "date": "2026-04-16",
+    "path": "Food/黑松.md"
+  },
+  {
     "title": "黑冠麻鷺：都市裡的「大笨鳥」生存哲學",
     "description": "探索台灣校園與公園最常見的「大笨鳥」黑冠麻鷺，了解牠如何從深山隱士轉化為都市共生者的傳奇故事。",
     "category": "Nature",
@@ -8261,6 +8356,17 @@
     "featured": true,
     "date": "2026-04-14",
     "path": "Music/滅火器樂團.md"
+  },
+  {
+    "title": "當「護國神山」成為雙面刃：台灣與颱風的地理宿命",
+    "description": "從日治時期的氣象觀測到莫拉克滅村，再到颱風假文化與科技預警，重新理解這座島嶼如何與每年 3.5 個颱風共生。",
+    "category": "Nature",
+    "tags": [],
+    "url": "https://taiwan.md/Nature/%E9%A2%B1%E9%A2%A8",
+    "readingTime": 15,
+    "featured": false,
+    "date": "2026-04-16",
+    "path": "Nature/颱風.md"
   },
   {
     "title": "當代台灣文學：破格與重構的年代",

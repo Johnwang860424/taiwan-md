@@ -1,30 +1,30 @@
 {
-  "lastUpdated": "2026-04-17T04:01:12.515Z",
+  "lastUpdated": "2026-04-18T02:02:23.157Z",
   "languages": ["zh-TW", "en", "ja", "ko", "es", "fr"],
   "summary": {
     "zh-TW": {
-      "total": 494,
+      "total": 503,
       "percentage": 100
     },
     "en": {
       "total": 415,
-      "percentage": 84
+      "percentage": 82.5
     },
     "ja": {
       "total": 276,
-      "percentage": 55.9
+      "percentage": 54.9
     },
     "ko": {
       "total": 491,
-      "percentage": 99.4
+      "percentage": 97.6
     },
     "es": {
       "total": 36,
-      "percentage": 7.3
+      "percentage": 7.2
     },
     "fr": {
       "total": 479,
-      "percentage": 97
+      "percentage": 95.2
     }
   },
   "matrix": {
@@ -45,7 +45,7 @@
       "fr": 25
     },
     "culture": {
-      "zh-TW": 42,
+      "zh-TW": 43,
       "en": 34,
       "ja": 42,
       "ko": 42,
@@ -61,7 +61,7 @@
       "fr": 49
     },
     "food": {
-      "zh-TW": 29,
+      "zh-TW": 30,
       "en": 30,
       "ja": 11,
       "ko": 29,
@@ -69,7 +69,7 @@
       "fr": 29
     },
     "geography": {
-      "zh-TW": 19,
+      "zh-TW": 20,
       "en": 16,
       "ja": 2,
       "ko": 19,
@@ -101,7 +101,7 @@
       "fr": 32
     },
     "nature": {
-      "zh-TW": 26,
+      "zh-TW": 27,
       "en": 21,
       "ja": 6,
       "ko": 26,
@@ -109,7 +109,7 @@
       "fr": 26
     },
     "people": {
-      "zh-TW": 156,
+      "zh-TW": 159,
       "en": 135,
       "ja": 46,
       "ko": 155,
@@ -117,7 +117,7 @@
       "fr": 135
     },
     "society": {
-      "zh-TW": 39,
+      "zh-TW": 41,
       "en": 27,
       "ja": 33,
       "ko": 39,
@@ -135,6 +135,16 @@
   },
   "missing": {
     "en": [
+      "Food/黑松汽水與沙士：從被嘲笑的「三流貨」到擊退可樂霸主的百年傳奇.md",
+      "People/從地下室到總統府：妮妃雅與台灣變裝皇后的自我賦權史.md",
+      "Culture/台灣原住民神話：從洪水到創世的口傳史詩.md",
+      "Geography/台灣行政區劃：從「地方會議」到「五都」的權力拼圖.md",
+      "History/淡江中學：一座校園，如何濃縮台灣近代教育史.md",
+      "Nature/當「護國神山」成為雙面刃：台灣與颱風的地理宿命.md",
+      "People/許美華：從反紫光到大罷免，一個匿名公民代號的十年.md",
+      "People/陳菊.md",
+      "Society/台灣司法改革與預防性羈押制度.md",
+      "Society/地震：與地牛共舞的島嶼記憶.md",
       "Music/小虎隊.md",
       "People/李洋.md",
       "History/大罷免.md",
@@ -194,7 +204,6 @@
       "Society/台灣省籍矛盾.md",
       "Technology/台灣電視產業史：從老三台到植劇場的溫柔革命.md",
       "Art/植劇場：一個做筆電的人，如何種下台劇復興的種子.md",
-      "History/淡江中學：一座校園，如何濃縮台灣近代教育史.md",
       "Culture/台灣華語的演化——四百年的語言地層學.md",
       "Economy/台灣自媒體創作者經濟：2,300 萬人的碎片戰場.md",
       "People/李昌鈺.md",
@@ -238,6 +247,15 @@
       "Economy/新創生態系.md"
     ],
     "ja": [
+      "Food/黑松汽水與沙士：從被嘲笑的「三流貨」到擊退可樂霸主的百年傳奇.md",
+      "People/從地下室到總統府：妮妃雅與台灣變裝皇后的自我賦權史.md",
+      "Culture/台灣原住民神話：從洪水到創世的口傳史詩.md",
+      "Geography/台灣行政區劃：從「地方會議」到「五都」的權力拼圖.md",
+      "Nature/當「護國神山」成為雙面刃：台灣與颱風的地理宿命.md",
+      "People/許美華：從反紫光到大罷免，一個匿名公民代號的十年.md",
+      "People/陳菊.md",
+      "Society/台灣司法改革與預防性羈押制度.md",
+      "Society/地震：與地牛共舞的島嶼記憶.md",
       "Geography/台灣五大地形與地理結構：從山脈到平原的島嶼風貌.md",
       "People/李洋.md",
       "History/大罷免.md",
@@ -461,11 +479,30 @@
       "People/Ray(YouTuber).md"
     ],
     "ko": [
+      "Food/黑松汽水與沙士：從被嘲笑的「三流貨」到擊退可樂霸主的百年傳奇.md",
+      "People/從地下室到總統府：妮妃雅與台灣變裝皇后的自我賦權史.md",
+      "Culture/台灣原住民神話：從洪水到創世的口傳史詩.md",
+      "Geography/台灣行政區劃：從「地方會議」到「五都」的權力拼圖.md",
+      "Nature/當「護國神山」成為雙面刃：台灣與颱風的地理宿命.md",
+      "People/許美華：從反紫光到大罷免，一個匿名公民代號的十年.md",
+      "People/陳菊.md",
+      "Society/台灣司法改革與預防性羈押制度.md",
+      "Society/地震：與地牛共舞的島嶼記憶.md",
       "People/李洋.md",
       "Lifestyle/台灣 YouBike 文化與城市微交通革命.md",
       "History/History of Railways in Taiwan.md"
     ],
     "es": [
+      "Food/黑松汽水與沙士：從被嘲笑的「三流貨」到擊退可樂霸主的百年傳奇.md",
+      "People/從地下室到總統府：妮妃雅與台灣變裝皇后的自我賦權史.md",
+      "Culture/台灣原住民神話：從洪水到創世的口傳史詩.md",
+      "Geography/台灣行政區劃：從「地方會議」到「五都」的權力拼圖.md",
+      "History/淡江中學：一座校園，如何濃縮台灣近代教育史.md",
+      "Nature/當「護國神山」成為雙面刃：台灣與颱風的地理宿命.md",
+      "People/許美華：從反紫光到大罷免，一個匿名公民代號的十年.md",
+      "People/陳菊.md",
+      "Society/台灣司法改革與預防性羈押制度.md",
+      "Society/地震：與地牛共舞的島嶼記憶.md",
       "Geography/台灣五大地形與地理結構：從山脈到平原的島嶼風貌.md",
       "Music/小虎隊.md",
       "People/李洋.md",
@@ -583,7 +620,6 @@
       "About/為什麼台灣需要自己的知識庫.md",
       "Art/植劇場：一個做筆電的人，如何種下台劇復興的種子.md",
       "Food/台灣辦桌文化.md",
-      "History/淡江中學：一座校園，如何濃縮台灣近代教育史.md",
       "Nature/台灣石虎保育.md",
       "People/杜奕瑾.md",
       "People/柯文哲.md",
@@ -926,6 +962,15 @@
       "Technology/台灣音響產業發展.md"
     ],
     "fr": [
+      "Food/黑松汽水與沙士：從被嘲笑的「三流貨」到擊退可樂霸主的百年傳奇.md",
+      "People/從地下室到總統府：妮妃雅與台灣變裝皇后的自我賦權史.md",
+      "Culture/台灣原住民神話：從洪水到創世的口傳史詩.md",
+      "Geography/台灣行政區劃：從「地方會議」到「五都」的權力拼圖.md",
+      "Nature/當「護國神山」成為雙面刃：台灣與颱風的地理宿命.md",
+      "People/許美華：從反紫光到大罷免，一個匿名公民代號的十年.md",
+      "People/陳菊.md",
+      "Society/台灣司法改革與預防性羈押制度.md",
+      "Society/地震：與地牛共舞的島嶼記憶.md",
       "People/李洋.md",
       "Lifestyle/台灣 YouBike 文化與城市微交通革命.md",
       "Lifestyle/台灣醫療與全民健保.md",

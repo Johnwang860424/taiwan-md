@@ -10,9 +10,9 @@
     "Language": 1,
     "Lifestyle": 58,
     "Music": 88,
-    "Nature": 84,
-    "People": 502,
-    "Society": 162,
+    "Nature": 85,
+    "People": 503,
+    "Society": 164,
     "Technology": 118,
     "resources": 4,
     "people": 2
@@ -137,6 +137,10 @@
     {
       "date": "2026-04-16",
       "count": 1
+    },
+    {
+      "date": "2026-04-17",
+      "count": 4
     }
   ],
   "updated": "2026-04-17"
