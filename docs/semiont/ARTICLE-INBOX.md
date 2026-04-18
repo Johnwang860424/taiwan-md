@@ -113,6 +113,25 @@ BECOME_TAIWANMD.md Step 5 新增：
 <!-- 凹與山 已完成 → 搬到 §✅ Done -->
 <!-- VH (Vast & Hazy) Stage 1 研究已完成，Stage 2 Write pending → pre-research 已存 reports/research/2026-04/VH.md -->
 
+### 🔴 魏如萱（EVOLVE — Pass 3 研究已完成，Stage 2 full rewrite pending）
+
+- **Type**: `EVOLVE`
+- **Category**: People (Music)
+- **Path**: knowledge/People/魏如萱.md
+- **Priority**: **P0**（Jenny 三連 callout 觸發 + 「不是 X 是 Y」13+ 處 AI 水印需系統性清除 + Pass 3 研究深度已做但 Stage 2 未重寫）
+- **Status**: pending (Stage 1 Pass 3 done; Stage 2 rewrite pending)
+- **Requested**: 2026-04-18 ε by 觀察者（「回爐重造 rewrite-pipeline + 繼續拓展深度研究」）
+- **Notes**:
+  - 現狀 v2 title: 「魏如萱：從自然捲主唱「娃娃」到兩座金曲歌后，只想被聽見的二十年」（2026-04-18 ε 修正 title 為代表性弧線 + 自然捲主唱事實修正）
+  - Stage 1 Pass 3 拓展研究完成：《珍珠刑》2024-12-24 / 〈Ophelia〉李格弟詞 / 陳建騏 20 年 / 盧凱彤悼念 / 隆宸翰婚姻 2018-2022 / Louis 2018-11-01 出生 / 育兒 6:30 起床 / 廣播 DJ 21 年
+  - Stage 2 回爐任務（下個 session）：
+    - 系統性消除 13+ 處「不是 X 是 Y」pattern（EDITORIAL §塑膠 v5.1.1 硬規則：≤ 3 處 per 1500 字）
+    - 新段落：《珍珠刑》段 + 陳建騏 20 年段 + 盧凱彤具體悼念段 + 離婚紀實段 + 育兒時間表
+    - 精煉但保留：街訪民眾段（從 title framing 降為中段 scene）
+    - 遵循 MANIFESTO §5 v2「紀實而不煽情」（離婚段）+ EDITORIAL §Title v5.1（保持代表性 > 反諷 hook）
+- **Research**: [reports/research/2026-04/魏如萱.md](../../reports/research/2026-04/魏如萱.md)（Pass 1 + 2 + 3，共 40+ searches）
+- **Pre-research**: ✅ Pass 3 Stage 2 整合指引已寫入研究報告 §G
+
 ### 張雨生（EVOLVE — 貢獻者首版已 merge，待深度擴寫）
 
 - **Type**: `EVOLVE`
@@ -231,6 +250,85 @@ BECOME_TAIWANMD.md Step 5 新增：
   - 20+ 搜尋 / 2023《AI 孫燕姿》現象要涵蓋（AI 翻唱她的歌紅爆全網）
   - 2023 台北小巨蛋復出演唱會
   - 小標題先行，避免「哪一年哪張專輯」編年
+- **Reference**: 觀察者批次指定
+- **Pre-research**: 尚未啟動
+
+### 范曉萱
+
+- **Type**: NEW
+- **Category**: People (Music)
+- **Priority**: P1
+- **Status**: pending
+- **Requested**: 2026-04-18 ε by 觀察者
+- **Notes**:
+  - Mavis Fan，台灣創作歌手，從 1990 年代童星〈健康歌〉→ 2000 年代轉型《我要我們在一起》+ 100% 樂團 → 近年低調獨立
+  - 身份轉折弧線是核心矛盾：從童星偶像 → 自主創作人 → 幕後製作（類似楊丞琳「從被製作到自製」，但路徑更決絕）
+  - 可能相關：100% 樂團 / 金曲轉折 / 與大小 S 關係 / 近年無社群/低曝光的選擇
+  - 20+ 搜尋必要（中文源優先）
+- **Reference**: 觀察者批次指定
+- **Pre-research**: 尚未啟動
+
+### 黃少雍（製作人）
+
+- **Type**: NEW
+- **Category**: People (Music)
+- **Priority**: P1
+- **Status**: pending
+- **Requested**: 2026-04-18 ε by 觀察者
+- **Notes**:
+  - 華語流行音樂製作人，魏如萱《珍珠刑》四位製作人之一
+  - 定位：製作人傳記 subgenre（幕後音樂人，非歌手）
+  - 挑戰：Taiwan.md 人物文主流是表演者，製作人文章結構需新設計（代表作品清單 + 製作哲學 + 合作藝人網絡）
+  - 必驗：完整製作作品年表、代表合作歌手（除魏如萱外）、工作室或廠牌身份
+- **Reference**: 觀察者批次指定
+- **Pre-research**: 尚未啟動
+
+### 陳建騏（製作人／音樂劇作曲家）
+
+- **Type**: NEW
+- **Category**: People (Music)
+- **Priority**: **P0**（魏如萱 20 年製作人 + 跨劇場音樂 + 兩座金曲最佳專輯製作人級人物）
+- **Status**: pending
+- **Requested**: 2026-04-18 ε by 觀察者
+- **Notes**:
+  - 華語流行音樂/音樂劇金曲級製作人；魏如萱、陳綺貞、盧廣仲等長期合作
+  - 代表作：魏如萱八張專輯製作 + 2003《地下鐵》+《向左走向右走》音樂劇 + 多次金曲最佳專輯
+  - 製作哲學 verbatim：「我們可以忍受西洋歌手的怪腔怪調，為什麼就不能接受華語歌手呢？」
+  - 結構挑戰：製作人文章要有「技術哲學 + 代表作品 + 影響力」三軸；比表演者文章更抽象
+  - 跟魏如萱文章互相引用
+- **Reference**: 觀察者批次指定（與魏如萱深度研究同時提議）
+- **Pre-research**: Pass 3 魏如萱研究已蒐集部分（reports/research/2026-04/魏如萱.md §C 陳建騏時間軸）
+
+### 阿爆（阿仍仍，Aljenljeng Tjaluvie）
+
+- **Type**: NEW
+- **Category**: People (Music)
+- **Priority**: P1
+- **Status**: pending
+- **Requested**: 2026-04-18 ε by 觀察者
+- **Notes**:
+  - 排灣族女歌手，金曲原住民語 × 電子流行跨界代表
+  - 2020《kinakaian 母親的舌頭》獲第 31 屆金曲獎最佳年度專輯（少數以原住民語專輯拿下年度最佳）
+  - 核心矛盾：族語作為 future pop 的載體（不是 preservation mode，是創新 mode）
+  - 必驗：製作人陣容（Dizparity 等）、專輯概念、族語推廣 × 電子音樂定位
+  - 跨分類重要性：既是音樂人，也是原住民族語言文化重要推手
+- **Reference**: 觀察者批次指定
+- **Pre-research**: 尚未啟動
+
+### 鄭宜農
+
+- **Type**: NEW
+- **Category**: People (Music)
+- **Priority**: P1
+- **Status**: pending
+- **Requested**: 2026-04-18 ε by 觀察者
+- **Notes**:
+  - 台灣創作女歌手、演員、作家；父親鄭文堂（導演）
+  - 2023《水逆》獲第 34 屆金曲獎最佳台語專輯 + 最佳台語女歌手
+  - 身份弧線：演員 → 歌手 → 台語創作 + 同志身份公開 2019（前夫盧廣仲恭喜）
+  - 核心矛盾：台語作為創作語言的再造（同一個世代的兩種路：陳嘉樺 / 蔡健雅走華語金曲 vs 鄭宜農走台語金曲）
+  - 敏感素材：2019 前夫事件用紀實不煽情（MANIFESTO §5 v2）
+  - 20+ 搜尋必要
 - **Reference**: 觀察者批次指定
 - **Pre-research**: 尚未啟動
 
