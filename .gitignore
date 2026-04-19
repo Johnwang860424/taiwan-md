@@ -2,6 +2,8 @@
 dist/
 # generated types
 .astro/
+# generated spore images (produced by scripts/tools/generate-spore-image.mjs)
+public/spore-images/
 
 # dependencies
 node_modules/

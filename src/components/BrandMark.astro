@@ -1,0 +1,112 @@
+---
+/**
+ * BrandMark — Taiwan.md wordmark + favicon, reusable across contexts.
+ *
+ * Three variants cover every current use case:
+ *   - `auto`    : inherits `--logo-color` and `--dot-color` CSS vars
+ *                 from the surrounding element. Used by Header.astro
+ *                 so the existing hero/scroll/dark state switching
+ *                 still drives colour.
+ *   - `light`   : forced white wordmark + green accent dot. Used by
+ *                 the shot-mode watermark (dark-green poster bg).
+ *   - `dark`    : forced dark wordmark + green accent dot. For light
+ *                 backgrounds where we don't want var inheritance.
+ *
+ * `href` turns the mark into an <a>; omit for a bare <span> (e.g. a
+ * static watermark). Size is a numeric rem value so callers can tune
+ * the wordmark without a new CSS class per size.
+ */
+
+interface Props {
+  href?: string;
+  variant?: 'auto' | 'light' | 'dark';
+  /** Wordmark font size in rem. Default 1.3 matches nav. */
+  size?: number;
+  /** Accessibility label (only applied when `href` is set, i.e. is a link). */
+  ariaLabel?: string;
+  class?: string;
+}
+
+const {
+  href,
+  variant = 'auto',
+  size = 1.3,
+  ariaLabel,
+  class: extraClass = '',
+} = Astro.props;
+
+const Tag = href ? 'a' : 'span';
+const fontSize = `${size}rem`;
+const iconSize = `${size * 1.08}rem`; // icon roughly matches x-height
+---
+
+<Tag
+  href={href}
+  aria-label={href ? ariaLabel : undefined}
+  class:list={['brand-mark', `brand-mark--${variant}`, extraClass]}
+  style={`--brand-size: ${fontSize}; --brand-icon-size: ${iconSize};`}
+>
+  <img
+    src="/favicon.png"
+    alt=""
+    class="brand-icon"
+    width="24"
+    height="24"
+    aria-hidden="true"
+  />
+  <span class="brand-text">Taiwan<span class="brand-dot">.md</span> </span>
+</Tag>
+
+<style>
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: var(--brand-size, 1.3rem);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .brand-icon {
+    width: var(--brand-icon-size, 1.4rem);
+    height: var(--brand-icon-size, 1.4rem);
+    vertical-align: middle;
+  }
+  .brand-dot {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 600;
+    transition: color 0.45s;
+  }
+
+  /* auto: colours come from parent via CSS vars (Header.astro pattern) */
+  .brand-mark--auto {
+    color: var(--logo-color, #1a1a2e);
+    transition:
+      color 0.45s,
+      transform 0.3s;
+  }
+  .brand-mark--auto .brand-dot {
+    color: var(--dot-color, #00d4aa);
+  }
+  a.brand-mark--auto:hover {
+    transform: translateY(-1px);
+  }
+
+  /* light: hardcoded white + green accent (shot-mode watermark etc.) */
+  .brand-mark--light {
+    color: #ffffff;
+  }
+  .brand-mark--light .brand-dot {
+    color: #00d4aa;
+  }
+
+  /* dark: for light backgrounds where we want a specific dark wordmark */
+  .brand-mark--dark {
+    color: #1a1a2e;
+  }
+  .brand-mark--dark .brand-dot {
+    color: #00d4aa;
+  }
+</style>

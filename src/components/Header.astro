@@ -1,5 +1,6 @@
 ---
 import Banner from './Banner.astro';
+import BrandMark from './BrandMark.astro';
 import {
   useTranslations,
   getLangFromUrl,
@@ -123,20 +124,11 @@ const categoryList = [
       class:list={[{ scrolled: !isHome }]}
     >
       <div class="header-inner">
-        <a
+        <BrandMark
           href={translatePath('/')}
-          class="logo"
-          aria-label={t('nav.aria-home')}
-        >
-          <img
-            src="/favicon.png"
-            alt={t('nav.aria-img-label')}
-            class="logo-icon"
-            width="24"
-            height="24"
-          />
-          <span class="logo-text">Taiwan<span class="logo-dot">.md</span></span>
-        </a>
+          variant="auto"
+          ariaLabel={t('nav.aria-home')}
+        />
 
         <nav class="nav-desktop" aria-label={t('nav.aria-main-navigation')}>
           {

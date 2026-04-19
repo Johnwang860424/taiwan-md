@@ -5,6 +5,7 @@ import matter from 'gray-matter';
 import Layout from '../../layouts/Layout.astro';
 import { marked } from 'marked';
 import ArticleHero from '../../components/ArticleHero.astro';
+import BrandMark from '../../components/BrandMark.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
 import ArticleSidebar from '../../components/ArticleSidebar.astro';
 import RelatedArticleCard from '../../components/RelatedArticleCard.astro';
@@ -341,6 +342,11 @@ const estimatedReadingTime =
 const articleUrl = `https://taiwan.md/${category}/${slug}`;
 const encodedUrl = encodeURIComponent(articleUrl);
 const encodedTitle = encodeURIComponent(title);
+
+// ── Screenshot mode (?shot=1) — toggled client-side ────────────────────────
+// Astro static build strips search params at prerender; so a tiny inline
+// script toggles `data-shot="1"` on <main> at runtime. Used by
+// scripts/tools/generate-spore-image.mjs for spore image generation.
 ---
 
 <Layout
@@ -367,6 +373,13 @@ const encodedTitle = encodeURIComponent(title);
     meta-subcategory in the meta strip (not present in en/ja/ko).
     Prose font is 'Noto Serif TC' instead of 'Inter'.
   -->
+  <!-- Shot-mode watermark (hidden by default; shown when html[data-shot='1']).
+       Must sit outside <main> so the "hide everything inside main except
+       first section" rule doesn't swallow it. -->
+  <div class="shot-watermark" aria-hidden="true">
+    <BrandMark variant="light" size={1.8} />
+  </div>
+
   <main class="article-page min-h-screen bg-[#f8f1e9]" lang="zh-TW">
     <!-- ── Hero ─────────────────────────────────────────────────── -->
     <ArticleHero
@@ -867,6 +880,156 @@ const encodedTitle = encodeURIComponent(title);
 </Layout>
 
 <!-- ── Scripts ──────────────────────────────────────────────────────────────── -->
+<script is:inline>
+  // Screenshot mode (?shot=1): toggle data-shot on <html> + <main> before
+  // paint so global CSS fires without a flash. Also supports ?title= /
+  // ?desc= query overrides — lets the spore generator tweak hook wording
+  // per post without editing article SSOT.
+  (function () {
+    try {
+      var qs = new URLSearchParams(location.search);
+      if (qs.get('shot') !== '1') return;
+      document.documentElement.setAttribute('data-shot', '1');
+      var m = document.querySelector('main.article-page');
+      if (m) m.setAttribute('data-shot', '1');
+      var titleOverride = qs.get('title');
+      if (titleOverride) {
+        var h1 = document.querySelector('.hero-title');
+        if (h1) h1.textContent = titleOverride;
+      }
+      var descOverride = qs.get('desc');
+      if (descOverride) {
+        var p = document.querySelector(
+          'main.article-page > section > div:nth-child(2) > p',
+        );
+        if (p) {
+          p.textContent = descOverride;
+        } else {
+          // Article had no description; inject one after h1
+          var inner = document.querySelector(
+            'main.article-page > section > div:nth-child(2)',
+          );
+          var hero = inner && inner.querySelector('.hero-title');
+          if (inner && hero) {
+            var np = document.createElement('p');
+            np.textContent = descOverride;
+            hero.insertAdjacentElement('afterend', np);
+          }
+        }
+      }
+    } catch (_) {}
+  })();
+</script>
+
+<style is:global>
+  /* ── Screenshot mode (?shot=1) global overrides ────────────────────────
+     Crosses Astro component boundaries (ArticleHero, Layout's Header /
+     Footer / floating .md button). Hides every chrome + promotes the
+     hero to full viewport, so Playwright gets a clean spore image with
+     the justfont 日星鑄字行 rixingsong-semibold H1.
+     ──────────────────────────────────────────────────────────────────── */
+  html[data-shot='1'],
+  html[data-shot='1'] body {
+    background: #1a3c34 !important;
+  }
+  html[data-shot='1'] #header-container,
+  html[data-shot='1'] body > footer,
+  html[data-shot='1'] #md-btn,
+  html[data-shot='1'] #search-modal,
+  html[data-shot='1'] astro-dev-toolbar,
+  html[data-shot='1'] .reading-progress,
+  html[data-shot='1'] main.article-page > *:not(section:first-of-type) {
+    display: none !important;
+  }
+  html[data-shot='1'] main.article-page {
+    min-height: 100vh !important;
+    background: #1a3c34 !important;
+    position: relative !important;
+  }
+  /* Hero anchored to top-third, poster-style — align-items:center makes
+     short-content articles (2-char titles like 李洋) float centre with
+     huge empty top+bottom. flex-start + padding-top visually anchors
+     content at the golden-ratio sweet spot across all 3 aspect ratios. */
+  html[data-shot='1'] main.article-page > section:first-of-type {
+    min-height: 100vh !important;
+    align-items: flex-start !important;
+    padding-top: 18vh !important;
+    padding-bottom: 8vh !important;
+  }
+  /* Inner container — tight left/right padding (6vw) + no top/bottom
+     since parent section handles it. */
+  html[data-shot='1'] main.article-page > section > div:nth-child(2) {
+    max-width: none !important;
+    width: 100% !important;
+    padding: 0 6vw !important;
+  }
+  /* Hide category badge (1st <div> inside inner container) */
+  html[data-shot='1']
+    main.article-page
+    > section
+    > div:nth-child(2)
+    > div:first-of-type {
+    display: none !important;
+  }
+  /* Hide TTS 朗讀 wrapper (last <div> inside inner container) */
+  html[data-shot='1']
+    main.article-page
+    > section
+    > div:nth-child(2)
+    > div:last-of-type {
+    display: none !important;
+  }
+  /* H1 — fixed rem so vertical/square viewports (1080w) get the same
+     big-poster feel as landscape (1600w). `vw` scaling was the bug
+     that made square 李洋 字太小 vs landscape. */
+  html[data-shot='1'] main.article-page .hero-title {
+    font-size: 4.5rem !important; /* 72px */
+    line-height: 1.22 !important;
+    margin-bottom: 1.5rem !important;
+    max-width: none !important;
+  }
+  /* Description — also fixed, matches landscape cap. */
+  html[data-shot='1'] main.article-page > section > div:nth-child(2) > p {
+    font-size: 1.35rem !important; /* ~21.6px */
+    max-width: min(900px, 100%) !important;
+    line-height: 1.7 !important;
+  }
+  /* Breadcrumb — bump size so it still reads at poster scale. */
+  html[data-shot='1'] main.article-page > section > div:nth-child(2) > nav {
+    margin-bottom: 1.6rem !important;
+  }
+  html[data-shot='1'] main.article-page > section > div:nth-child(2) > nav a,
+  html[data-shot='1']
+    main.article-page
+    > section
+    > div:nth-child(2)
+    > nav
+    span {
+    font-size: 0.95rem !important;
+  }
+  /* Shot-mode watermark — reuses the nav <BrandMark> component (light
+     variant). Fixed-positioned to viewport bottom-right; hidden outside
+     shot mode so it doesn't pollute normal article pages. */
+  .shot-watermark {
+    display: none;
+  }
+  html[data-shot='1'] .shot-watermark {
+    display: block;
+    position: fixed;
+    right: 48px;
+    bottom: 40px;
+    z-index: 9999;
+    pointer-events: none;
+  }
+  /* Also neutralise the 56px top offset that pushes the hero down —
+     the Layout reserves space for the fixed header which we already
+     hid. Shift main back to the top so hero centring is honest. */
+  html[data-shot='1'] body > main {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+</style>
+
 <script>
   // Reading progress bar
   function updateProgress() {
@@ -928,6 +1091,11 @@ const encodedTitle = encodeURIComponent(title);
     catColorLight: categoryInfo.colorLight,
   }}
 >
+  /* ── Screenshot mode (?shot=1) global overrides moved to <style is:global>
+     above the main <style> block — Astro scoped CSS doesn't cross
+     component boundaries (ArticleHero section, Layout header/footer).
+     ──────────────────────────────────────────────────────────────────── */
+
   /* ── Reading progress ──────────────────────────────────────────────────── */
   /* ── Reading progress (JS animates width via requestAnimationFrame,
      `var(--catColor)` comes from the `define:vars` block above) ─ */
