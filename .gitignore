@@ -51,6 +51,24 @@ cloudflare-token*
 public/api/random.json
 public/api/random.json
 public/api/search-minisearch.json
+
+# ═══ 自動生成的資料檔案（由 npm run prebuild 在 CI 重生，不該進 git）═══
+# 對應 PR #551 洞察（dreamline2 誤 commit auto-generated JSON）：
+# 所有下列檔案都是每次 prebuild 重新產生，commit 會造成：
+#   (a) 無謂的 diff 污染
+#   (b) 貢獻者 fork 跑 build 產生假 PR noise
+#   (c) merge conflict 機率大增（每日衡量級異動）
+# 仍保留追蹤的：src/data/{map-markers,changelog-feed}.json（build-time import，
+# 讓 npm run dev 從 fresh clone 能直接跑）
+public/api/article-index.json
+public/api/articles.json
+public/api/dashboard-articles.json
+public/api/dashboard-vitals.json
+public/api/dashboard-translations.json
+public/api/dashboard-organism.json
+# dashboard-spores.json 不列入：由 scripts/tools/generate-dashboard-spores.py 產出，
+# 該 script 只在 refresh-data.sh 跑（不在 npm run prebuild 內），需要保留在 git 才能讓 CI deploy 有資料
+
 meetings/
 memory/
 !docs/semiont/memory/
