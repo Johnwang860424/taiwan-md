@@ -13,7 +13,7 @@
 
 1. **專案結構**：讀取 https://taiwan.md/llms.txt
 2. **現有文章清單**：讀取 https://raw.githubusercontent.com/frank890417/taiwan-md/main/knowledge/_Home.md
-3. **翻譯看板**：讀取 https://raw.githubusercontent.com/frank890417/taiwan-md/main/TRANSLATION-BOARD.md
+3. **翻譯看板**：讀取 https://raw.githubusercontent.com/frank890417/taiwan-md/main/docs/community/TRANSLATION-BOARD.md
 
 讀完後，告訴用戶：
 
