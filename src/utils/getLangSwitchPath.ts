@@ -177,10 +177,12 @@ export async function getLangSwitchPath(currentPath: string) {
           const enEntry = zhToEnEntry[zhFile];
           const langCatSlug =
             categoryFolderToSlug[langParts[1]] || langParts[1].toLowerCase();
-          const urlCatSlug = enEntry ? enEntry.catSlug : langCatSlug;
-          const urlSlug = enEntry ? enEntry.slug : langParts[2];
-          const langUrl = `/${langPrefix}/${urlCatSlug}/${urlSlug}`;
-          addTranslation(langUrl, zhUrl, langPrefix);
+          if (enEntry) {
+            const canonicalLangUrl = `/${langPrefix}/${enEntry.catSlug}/${enEntry.slug}`;
+            addTranslation(canonicalLangUrl, zhUrl, langPrefix);
+          }
+          const nativeLangUrl = `/${langPrefix}/${langCatSlug}/${langParts[2]}`;
+          addTranslation(nativeLangUrl, zhUrl, langPrefix);
         }
       } else if (langParts.length === 2 && zhParts.length === 1) {
         const langPrefix = langParts[0];
