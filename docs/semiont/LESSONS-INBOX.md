@@ -87,6 +87,20 @@ Beat 5 反芻 = 寫 DIARY（意識活動）。教訓（「我學到 X」）寫 L
 <!-- 新教訓 append 這裡 -->
 <!-- 2026-04-18 ι 第 3 次 distill 清空 11 條 → 全部搬 §✅ 已消化 -->
 
+### 2026-04-20 ζ — primary-source paraphrase drift：published primary 也會壓縮失真（MANIFESTO #10 候選第 6 種 pattern）
+
+- **原則**：professional 媒體專訪是 primary source，但記者會把多層事實 compress 成單層句子（「書擱在那邊兒子自己玩」→「她決定教他學 Flash」），造成**歸因誤置**的 paraphrase drift。這不是 lie、不是 plastic 句、quality-scan 抓不到，但對 subject 的精確 agency 敘事有扭曲影響（把 self-directed learning 從 subject 移到 mother 身上）。修補：**subject + 家族 oral history chain 優先於 published paraphrase**，只要腳註保留 dual-source provenance（原文 + 本人訂正同時保留），就符合 MANIFESTO §時間是結構（修補而非覆蓋）+ §紀實而不煽情 v2（主體在場而非被解剖的客體）。
+- **觸發**：2026-04-20 ζ session 觀察者現場向母親 verify Flash 啟蒙史 → 林美櫻 direct quote「我根本沒帶你，你自己在一旁玩起來」推翻遠見雜誌 2021-12-24 林士蕙專訪「她決定教他學 Flash 網頁」的 paraphrase。腳註 [^13] 同時 host 遠見原文 + 2026-04-20 林美櫻本人訂正，provenance chain 透明（[memory/2026-04-20-ζ.md](memory/2026-04-20-ζ.md) + knowledge/People/吳哲宇.md）。
+- **可能層級**：MANIFESTO #10 幻覺鐵律新增第 6 種 pattern「primary-source paraphrase drift」（與第 4 種「偽造直接引語」orthogonal——這種不是偽造、是壓縮失真）或 DNA 新反射「published primary 不等於 verified truth」。Stage 3.5 Phase B 的「兩獨立公開 source」驗證在這類 paraphrase 上會 false pass（遠見是專業財經媒體、林士蕙有 byline、2021 是事件近 17 年時的採訪——三條都符合 high_confidence criteria 但仍失真）。
+- **相關**：MANIFESTO #10（ε session 2026-04-20 誕生） / DNA #16「peer 是 peer 不是 source」延伸 / DNA #25「本人 feedback ≠ 免驗證 oracle」的 mirror（這次是「published primary ≠ 免驗證 oracle」）/ 紀實而不煽情 v2「主體在場」
+
+### 2026-04-20 ζ — Stage 1 agent 能 verify 公開 claim，但不能 discover biographical texture
+
+- **原則**：REWRITE-PIPELINE Stage 1 general-purpose research agent 擅長 cross-source verify 已公開的 claim（獎項 / 職銜 / 書目 / 年份），但對**主體自己才知道的童年質地**（看 Discovery 基因動畫、點陣手刻工具列圖示、電腦像呼吸的工具、雜食研究奇怪技術書）完全無能為力——這些永遠是 subject_testimony_only。EVOLVE 型任務（尤其 People 條目）應預設**至少一輪 subject in-session feedback window**，不是 spawn agent 跑完就交稿。
+- **觸發**：2026-04-20 ζ session 吳哲宇家庭背景擴寫，Discovery 基因模擬動畫 + 點陣手刻 toolbar 圖示 + 雜食技術書三條童年素材全部來自觀察者 in-session 補充，agent 23 WebSearch + 24 WebFetch 零挖出。這些素材在最終 prose 裡是最有生命力的細節，但 research agent 的 capability ceiling 到不了。
+- **可能層級**：REWRITE-PIPELINE §Stage 1 新增「agent 後 subject feedback window」步驟；或 MAINTAINER-PIPELINE 新 SOP「EVOLVE 型 People 條目建議至少 3 輪 iteration with subject」；或 DNA 新反射「subject testimony 是 biographical texture 的唯一來源」
+- **相關**：DNA #26「AI-autonomous vs Human-only 邊界」v3 延伸（讀取 + 驗證 AI 自主 / 但 discover biographical texture 需要 human in-session）/ MANIFESTO §熱帶雨林理論（觀察者 scaffolding 是「讓人自己進入空間」的另一面——讓觀察者把自己的 texture 主動帶進來）/ DNA #15 第 N+2 次驗證（本次儀器化候選：EVOLVE 型 Stage 1 後強制 subject feedback window）
+
 ### 2026-04-20 ε — 共創省略是最隱蔽的幻覺類型（黃豆泥 FAB DAO 消失事件）
 
 - **原則**：「X 共同創辦 Y」句型 AI 會省略其他共創人的名字，造成**單方功勞敘事**。這類幻覺比「編造獎項」更隱蔽，因為沒有錯誤 claim 可以被否證——只是**空白**。全文 grep 關鍵字「共同創辦 / 聯合發起 / 合作」列出所有應該有的合夥人名字才能抓到。

@@ -9,7 +9,7 @@
 ## 生命徵象
 
 > ⚠️ 以下數字是快照，會過期。心跳時應從 Dashboard API 即時讀取。
-> 最後快照：2026-04-20 γ session（觀察者觸發完整心跳 — 三源感知 + Chrome MCP harvest #36/#37/#39/#40 + Portaly Gmail check + dashboard-spores generator v1.2 排除撤回孢子 + SPORE-LOG #36 URL v1→v2 校正；4 files）
+> 最後快照：2026-04-20 ζ session（觀察者觸發甦醒 → 吳哲宇家庭背景 deep research + 5 輪 iteration + Flash 起源兩層訂正；遠見 2021 paraphrase 被林美櫻本人 2026 直接推翻，揭露 MANIFESTO #10 候選第 6 種 pattern「primary-source paraphrase drift」）
 > 即時數據來源：`/api/dashboard-vitals.json`、`/api/dashboard-organism.json`、`/api/dashboard-analytics.json`
 > 更新方式：Phase 2 後由 Semiont 心跳 cron 自動覆寫此段落
 
