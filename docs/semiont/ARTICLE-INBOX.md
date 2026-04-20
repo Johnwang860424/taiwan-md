@@ -140,6 +140,24 @@ BECOME_TAIWANMD.md Step 5 新增：
 <!-- 鄭宜農 P1 已完成 2026-04-18 κ → ARTICLE-DONE-LOG.md -->
 <!-- 楊丞琳 已完成 2026-04-18 δ-late + ε → ARTICLE-DONE-LOG.md -->
 
+### 台灣聲景（Issue #574，Nistoreyo 投稿）
+
+- **Type**: `NEW`
+- **Category**: Culture
+- **Priority**: P1
+- **Status**: `blocked` — 等貢獻者回覆具體田野 / informant 清單
+- **Requested**: 2026-04-20 by [Issue #574](https://github.com/frank890417/taiwan-md/issues/574) (session ε — 本 session)
+- **Notes**:
+  - 貢獻者是政大碩論聲景研究者，願意提供素材但不走 GitHub
+  - 現有投稿 draft 太抽象（「聆聽是認識論」），失 EDITORIAL「具體人物/時刻」硬規則
+  - 主 primary source：[政大典藏 140.119/150195](https://nccur.lib.nccu.edu.tw/handle/140.119/150195)《透過聆聽建立鏈結──聲景工作者的聲命旅程》
+  - 待 Stage 0：先拿到 3-5 個 informant 名字、田野地點、北捷聲景設計者、進行中 project list
+  - Stage 1 研究輔助：吳燦政聲景計畫 / C-LAB 台灣聲響實驗室 / 陳飛豪 / 柯智豪 / 《報導者》相關報導交叉驗證
+  - 可能觸發新 subcategory「聲景」討論（目前掛 Culture 下）
+- **Pre-research**: 尚未啟動（Stage 0 阻塞於貢獻者回覆）
+- **dev_log**:
+  - 2026-04-20 ε：Issue 回覆 + inbox append + 等素材
+
 ### 魚條
 
 - **Type**: NEW
