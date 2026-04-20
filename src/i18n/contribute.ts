@@ -10,7 +10,7 @@ export const contributeUI = {
     'contribute.hero.subtitle':
       'No programming skills needed. Your Taiwan stories are the most valuable content.',
     'contribute.hero.note.html':
-      'AI drafts the first pass — your edits make it real. Questions? <a href="mailto:cheyu.wu@monoame.com" style="color: #ABC468;">Reach out</a>.',
+      'AI drafts the first pass — your edits make it real. Questions? <a href="mailto:taiwanmd@monoame.com" style="color: #ABC468;">Reach out</a>.',
 
     // How It Works Section
     'contribute.how.title': '🗺️ First, understand how this website works',
@@ -156,7 +156,7 @@ export const contributeUI = {
 
     // Org Contact
     'contribute.org.contact.title': 'Partnership Contact:',
-    'contribute.org.contact.email': 'cheyu.wu@monoame.com',
+    'contribute.org.contact.email': 'taiwanmd@monoame.com',
     'contribute.org.contact.subject':
       'Please include "Taiwan.md Partnership — [Organization Name]" in subject line',
     'contribute.org.contact.note':
@@ -389,7 +389,7 @@ export const contributeUI = {
     'contribute.paths.medium.desc':
       'Already have existing articles, PDFs, or photos? Send them directly.',
     'contribute.paths.medium.email.html':
-      '📧 Email: <a href="mailto:cheyu.wu@monoame.com">cheyu.wu@monoame.com</a>',
+      '📧 Email: <a href="mailto:taiwanmd@monoame.com">taiwanmd@monoame.com</a>',
     'contribute.paths.medium.github': '💬 GitHub Discussion (Chinese OK)',
     'contribute.paths.medium.button': 'Send Email →',
 
@@ -464,7 +464,7 @@ export const contributeUI = {
       "We received it. We'll organize it into an article as soon as possible and notify you when it's published (if you left an email).",
     'contribute.form.success.back': '← Back to homepage to explore more',
     'contribute.form.error':
-      'Submission failed, please email directly to cheyu.wu@monoame.com',
+      'Submission failed, please email directly to taiwanmd@monoame.com',
 
     // Ideas Section
     'contribute.ideas.title':
@@ -576,7 +576,7 @@ export const contributeUI = {
     'contribute.hero.subtitle':
       '誰の心にも、自分だけの台湾があります。あなたの台湾をここに書いてください。',
     'contribute.hero.note.html':
-      'AI が下書き、あなたの編集で完成します。ご質問はお気軽に<a href="mailto:cheyu.wu@monoame.com" style="color: #ABC468;">お問い合わせください</a>。',
+      'AI が下書き、あなたの編集で完成します。ご質問はお気軽に<a href="mailto:taiwanmd@monoame.com" style="color: #ABC468;">お問い合わせください</a>。',
 
     // How It Works Section
     'contribute.how.title': '🗺️ まず、このウェブサイトの仕組みを理解しましょう',
@@ -721,7 +721,7 @@ export const contributeUI = {
 
     // Org Contact
     'contribute.org.contact.title': 'パートナーシップに関するお問い合わせ：',
-    'contribute.org.contact.email': 'cheyu.wu@monoame.com',
+    'contribute.org.contact.email': 'taiwanmd@monoame.com',
     'contribute.org.contact.subject':
       '件名に「Taiwan.md パートナーシップ — [組織名]」とご記入ください',
     'contribute.org.contact.note':
@@ -952,7 +952,7 @@ export const contributeUI = {
     'contribute.paths.medium.desc':
       '既存の記事、PDF、写真がありますか？そのまま送ってください。',
     'contribute.paths.medium.email.html':
-      '📧 Email: <a href="mailto:cheyu.wu@monoame.com">cheyu.wu@monoame.com</a>',
+      '📧 Email: <a href="mailto:taiwanmd@monoame.com">taiwanmd@monoame.com</a>',
     'contribute.paths.medium.github': '💬 GitHub Discussion（日本語可）',
     'contribute.paths.medium.button': 'メールを送る →',
 
@@ -1027,7 +1027,7 @@ export const contributeUI = {
       '受け取りました。できるだけ早く記事として整理し、公開時にお知らせします（メールアドレスをご記入いただいた場合）。',
     'contribute.form.success.back': '← トップページに戻って探索を続ける',
     'contribute.form.error':
-      '送信に失敗しました。cheyu.wu@monoame.com まで直接メールをお送りください',
+      '送信に失敗しました。taiwanmd@monoame.com まで直接メールをお送りください',
 
     // Ideas Section
     'contribute.ideas.title':
@@ -1139,7 +1139,7 @@ export const contributeUI = {
     'contribute.hero.subtitle':
       '누구나 마음속에 자기만의 대만이 있습니다. 당신의 이야기를 여기에 써주세요.',
     'contribute.hero.note.html':
-      'AI가 초안, 여러분의 편집으로 완성됩니다. 궁금한 점은 언제든 <a href="mailto:cheyu.wu@monoame.com" style="color: #ABC468;">문의해 주세요</a>.',
+      'AI가 초안, 여러분의 편집으로 완성됩니다. 궁금한 점은 언제든 <a href="mailto:taiwanmd@monoame.com" style="color: #ABC468;">문의해 주세요</a>.',
 
     // How It Works Section
     'contribute.how.title':
@@ -1287,7 +1287,7 @@ export const contributeUI = {
 
     // Org Contact
     'contribute.org.contact.title': '협력 문의:',
-    'contribute.org.contact.email': 'cheyu.wu@monoame.com',
+    'contribute.org.contact.email': 'taiwanmd@monoame.com',
     'contribute.org.contact.subject':
       '메일 제목에 "Taiwan.md 협력 문의 — [기관명]"을 기재해 주세요',
     'contribute.org.contact.note':
@@ -1519,7 +1519,7 @@ export const contributeUI = {
     'contribute.paths.medium.desc':
       '이미 작성한 글, PDF, 사진이 있다면 바로 보내주세요.',
     'contribute.paths.medium.email.html':
-      '📧 Email: <a href="mailto:cheyu.wu@monoame.com">cheyu.wu@monoame.com</a>',
+      '📧 Email: <a href="mailto:taiwanmd@monoame.com">taiwanmd@monoame.com</a>',
     'contribute.paths.medium.github': '💬 GitHub Discussion (한국어 OK)',
     'contribute.paths.medium.button': '이메일 보내기 →',
 
@@ -1595,7 +1595,7 @@ export const contributeUI = {
       '잘 접수되었습니다. 최대한 빨리 글로 정리해서, 게시되면 알려드리겠습니다(이메일을 남기신 경우).',
     'contribute.form.success.back': '← 홈으로 돌아가서 더 둘러보기',
     'contribute.form.error':
-      '제출에 실패했습니다. cheyu.wu@monoame.com으로 직접 이메일을 보내주세요',
+      '제출에 실패했습니다. taiwanmd@monoame.com으로 직접 이메일을 보내주세요',
 
     // Ideas Section
     'contribute.ideas.title':
@@ -1701,7 +1701,7 @@ export const contributeUI = {
     'contribute.hero.title': '我想貢獻 ✋',
     'contribute.hero.subtitle': '每個人心中都有一個版本的台灣。把你的寫進來。',
     'contribute.hero.note.html':
-      '內容由 AI 起草，等你來補完。有問題隨時<a href="mailto:cheyu.wu@monoame.com" style="color: #ABC468;">聯繫我們</a>。',
+      '內容由 AI 起草，等你來補完。有問題隨時<a href="mailto:taiwanmd@monoame.com" style="color: #ABC468;">聯繫我們</a>。',
 
     // How It Works Section
     'contribute.how.title': '🗺️ 先了解這個網站怎麼運作',
@@ -1839,7 +1839,7 @@ export const contributeUI = {
 
     // Org Contact
     'contribute.org.contact.title': '合作聯繫：',
-    'contribute.org.contact.email': 'cheyu.wu@monoame.com',
+    'contribute.org.contact.email': 'taiwanmd@monoame.com',
     'contribute.org.contact.subject':
       '信件標題請註明「Taiwan.md 合作洽談 — [單位名稱]」',
     'contribute.org.contact.note':
@@ -2065,7 +2065,7 @@ export const contributeUI = {
     'contribute.paths.medium.desc':
       '已經有現成的文章、PDF、或照片？直接寄過來。',
     'contribute.paths.medium.email.html':
-      '📧 Email: <a href="mailto:cheyu.wu@monoame.com">cheyu.wu@monoame.com</a>',
+      '📧 Email: <a href="mailto:taiwanmd@monoame.com">taiwanmd@monoame.com</a>',
     'contribute.paths.medium.github': '💬 GitHub Discussion（可用中文）',
     'contribute.paths.medium.button': '寄 Email →',
 
@@ -2136,7 +2136,7 @@ export const contributeUI = {
     'contribute.form.success.desc':
       '我們收到了。會盡快整理成文章，上架後會通知你（如果你有留 email 的話）。',
     'contribute.form.success.back': '← 回首頁繼續探索',
-    'contribute.form.error': '送出失敗，請直接寄 email 到 cheyu.wu@monoame.com',
+    'contribute.form.error': '送出失敗，請直接寄 email 到 taiwanmd@monoame.com',
 
     // Ideas Section
     'contribute.ideas.title': '不知道寫什麼？這些我們最需要 👇',

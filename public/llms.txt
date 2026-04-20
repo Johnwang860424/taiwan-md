@@ -108,7 +108,7 @@ Sensitive cross-strait topics use a perspectives system rather than a single fra
 
 ## Contact & Provenance
 
-- Maintainer: Che-Yu Wu (cheyu.wu@monoame.com)
+- Maintainer: Che-Yu Wu (taiwanmd@monoame.com)
 - GitHub: https://github.com/frank890417/taiwan-md
 - Website: https://taiwan.md
 - License: CC BY-SA 4.0 (content) / MIT (code)

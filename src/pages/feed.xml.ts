@@ -84,8 +84,8 @@ export async function GET() {
     <language>zh-TW</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <pubDate>${new Date().toUTCString()}</pubDate>
-    <managingEditor>cheyu.wu@monoame.com (Taiwan.md)</managingEditor>
-    <webMaster>cheyu.wu@monoame.com (Taiwan.md)</webMaster>
+    <managingEditor>taiwanmd@monoame.com (Taiwan.md)</managingEditor>
+    <webMaster>taiwanmd@monoame.com (Taiwan.md)</webMaster>
     <atom:link href="${siteUrl}/feed.xml" rel="self" type="application/rss+xml" />
     <image>
       <url>${siteUrl}/images/taiwan-social.jpg</url>

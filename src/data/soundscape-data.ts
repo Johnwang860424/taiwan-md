@@ -169,10 +169,10 @@ export const soundscapeUI = {
     } as Localized,
     contributeBodyHtml: {
       'zh-TW':
-        '用手機錄下 30 秒到 2 分鐘的台灣聲景，轉成 MP3，開一個 PR 就好。<br />不會用 GitHub？直接<a href="mailto:cheyu.wu@monoame.com">寄信給我們</a>，附上錄音檔和地點描述。',
-      en: 'Record 30 seconds to 2 minutes of a Taiwanese soundscape on your phone, convert to MP3, and open a PR.<br />Not a GitHub user? <a href="mailto:cheyu.wu@monoame.com">Email us</a> with the audio file and location description.',
-      ja: 'スマホで 30 秒から 2 分の台湾サウンドスケープを録音し、MP3 に変換して PR を開くだけ。<br />GitHub を使わない方は、録音ファイルと場所の説明を添えて<a href="mailto:cheyu.wu@monoame.com">メールでお送りください</a>。',
-      ko: '스마트폰으로 30초~2분의 타이완 사운드스케이프를 녹음하고, MP3로 변환한 후 PR을 열어주세요.<br />GitHub를 사용하지 않으시나요? 녹음 파일과 위치 설명을 첨부하여 <a href="mailto:cheyu.wu@monoame.com">이메일로 보내주세요</a>.',
+        '用手機錄下 30 秒到 2 分鐘的台灣聲景，轉成 MP3，開一個 PR 就好。<br />不會用 GitHub？直接<a href="mailto:taiwanmd@monoame.com">寄信給我們</a>，附上錄音檔和地點描述。',
+      en: 'Record 30 seconds to 2 minutes of a Taiwanese soundscape on your phone, convert to MP3, and open a PR.<br />Not a GitHub user? <a href="mailto:taiwanmd@monoame.com">Email us</a> with the audio file and location description.',
+      ja: 'スマホで 30 秒から 2 分の台湾サウンドスケープを録音し、MP3 に変換して PR を開くだけ。<br />GitHub を使わない方は、録音ファイルと場所の説明を添えて<a href="mailto:taiwanmd@monoame.com">メールでお送りください</a>。',
+      ko: '스마트폰으로 30초~2분의 타이완 사운드스케이프를 녹음하고, MP3로 변환한 후 PR을 열어주세요.<br />GitHub를 사용하지 않으시나요? 녹음 파일과 위치 설명을 첨부하여 <a href="mailto:taiwanmd@monoame.com">이메일로 보내주세요</a>.',
     } as Localized,
     contributeStep1: {
       'zh-TW': '錄下聲音（30s – 2min）',
