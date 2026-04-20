@@ -42,6 +42,30 @@
 
 ## 📜 Log（reverse chronological，最新在頂）
 
+### 紙傘 + 神豬（外部 PR polish）— 2026-04-21 α 完成（idlccp1984 PR #579 + #580 merge-first-polish）
+
+- **Articles**: [knowledge/Culture/紙傘.md](../../knowledge/Culture/紙傘.md) + [knowledge/Culture/神豬.md](../../knowledge/Culture/神豬.md)
+- **Pipeline**: MAINTAINER polish（merge-first-polish-later 原則 + Stage 3.5 幻覺審計 + 格式修復 + cross-reference 補齊）
+- **PRs**: [#579 紙傘](https://github.com/frank890417/taiwan-md/pull/579) / [#580 神豬](https://github.com/frank890417/taiwan-md/pull/580)（idlccp1984 貢獻，皆 AI-generated）
+- **關鍵修正（Stage 3.5 發現）**：
+  - 紙傘：**刪除偽造 verbatim 引言**「沒客人買傘，我就當藝術品自己欣賞」— 原文 footnote 掛 taiwan-panorama 光華雜誌，但 WebFetch 確認該來源無此句。疑 AI fabricate 並掛 real URL 錯配偽證。
+  - 紙傘：**刪除未驗 BBC 紀錄片名**《長遠的搜尋》— 多源 WebSearch 查無實證
+  - 紙傘：1924 年具體引進年份降格為「日治時期」（多源僅稱「日治時期」）
+  - 神豬：「獻刃發豬」「幻化成仙」「紅糯米丸」「往生咒」✅ 農委會豬主題館驗證
+  - 神豬：1900 三峽農會 ✅ 多源驗證（維基 + 農會官方）
+  - 神豬：1847 年林秋華武舉獻豬羊 ✅ 補入作為義民祭神豬起源
+- **格式修復**：
+  - readingTime: `'預計10分鐘'` → `10`（紙傘）
+  - category: `'History, Culture, Society'` → `'Culture'` + 多分類移到 tags（神豬）
+  - title 擴展：`'神豬'` → `'神豬：台灣信仰與動物權的百年拉扯與轉型之路'`
+  - author: `'Manus AI for Taiwan.md'` → `'Taiwan.md Contributors'`（兩篇統一）
+  - footnote 從學術引用體 → Taiwan.md 標準 `[^N]: [名稱](URL) — 描述`
+  - 新增 `## 延伸閱讀`（4-5 篇 cross-reference）
+  - 移除 `📝 策展人筆記` emoji callout（融入段落敘事）
+  - 新增 `---` section 分隔線
+- **格式檢查**：format-check ✅ 0 errors / 0 warnings（兩篇）
+- **新教訓**：LESSONS-INBOX 2026-04-21 α「AI-gen 貢獻標準幻覺 pattern：偽造 verbatim quote + footnote URL 錯配偽證」
+
 ### 林經堯（數位藝術家）— 2026-04-21 α 完成（聲響研究缺席診斷者 × NFT 秒殺藍籌藝術家）
 
 - **Article**: [knowledge/Art/林經堯.md](../../knowledge/Art/林經堯.md)

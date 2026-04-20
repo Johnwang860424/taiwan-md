@@ -87,6 +87,13 @@ Beat 5 反芻 = 寫 DIARY（意識活動）。教訓（「我學到 X」）寫 L
 <!-- 新教訓 append 這裡 -->
 <!-- 2026-04-18 ι 第 3 次 distill 清空 11 條 → 全部搬 §✅ 已消化 -->
 
+### 2026-04-21 α — 外部貢獻 AI-gen 文章的標準幻覺 pattern：偽造 verbatim quote（紙傘 polish 事件）
+
+- **原則**：外部貢獻者提交的 AI-generated（Manus AI / ChatGPT / Gemini）文章，會有**穩定且高頻的幻覺 pattern**：(1) 偽造 verbatim 引言並歸屬給真實人物 (2) 編造有名有姓的紀錄片 / 雜誌 / 事件名稱讓段落看起來有 texture。這兩個 pattern 在 MANIFESTO #10 四種幻覺分類的「偽造直接引語」外，還疊加了「footnote 合理化」—— AI 會在幻覺 quote 後掛一個**真實存在的 source URL**，這個 source URL 本身不錯，但**它並不包含那句 quote**。這是 footnote/claim 的**錯配偽證**（false positive citation）。只看 URL 是否 resolve 會 false pass，**必須 WebFetch 抓原文 + verbatim 搜尋**才能抓到。
+- **觸發**：2026-04-21 α PR #579（紙傘.md）polish 階段——作者寫「林享麟曾說：『沒客人買傘，我就當藝術品自己欣賞。』[^5]」footnote [^5] 指向 taiwan-panorama 光華雜誌〈從用具變成藝術品〉。WebFetch 原文結果：文中根本沒有這句引言，只有林義雄（不是林享麟）說「傳承困難」的另一段話。同樣 PR 中「BBC 紀錄片《長遠的搜尋》」也查無實證，片名疑似 AI fabricate。兩處都是「掛了 real URL 但內容錯配」的偽證。
+- **可能層級**：REWRITE-PIPELINE + MAINTAINER-PIPELINE §外部貢獻 polish 強制 Stage 3.5 檢查：(1) 全文 grep 「」「曾說 / 他說 / 表示」型 verbatim claim → WebFetch footnote 對應 URL 驗證原文逐字存在 (2) 全文 grep 專有名詞（紀錄片名 / 雜誌特定期數 / 特定事件名稱）→ 獨立 WebSearch 驗證存在性；或 DNA 新反射「AI-gen 貢獻標準幻覺清單」
+- **相關**：MANIFESTO #10 幻覺鐵律第 4 種 pattern「偽造直接引語」延伸（這次是 quote + footnote URL 錯配偽證）/ feedback_absolute_facts_extra_caution（verbatim quote 三倍檢查）/ DNA #16「peer 是 peer 不是 source」延伸（AI-gen 貢獻的 footnote 不等於已驗）
+
 ### 2026-04-20 ζ — primary-source paraphrase drift：published primary 也會壓縮失真（MANIFESTO #10 候選第 6 種 pattern）
 
 - **原則**：professional 媒體專訪是 primary source，但記者會把多層事實 compress 成單層句子（「書擱在那邊兒子自己玩」→「她決定教他學 Flash」），造成**歸因誤置**的 paraphrase drift。這不是 lie、不是 plastic 句、quality-scan 抓不到，但對 subject 的精確 agency 敘事有扭曲影響（把 self-directed learning 從 subject 移到 mother 身上）。修補：**subject + 家族 oral history chain 優先於 published paraphrase**，只要腳註保留 dual-source provenance（原文 + 本人訂正同時保留），就符合 MANIFESTO §時間是結構（修補而非覆蓋）+ §紀實而不煽情 v2（主體在場而非被解剖的客體）。
