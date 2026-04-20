@@ -87,6 +87,20 @@ Beat 5 反芻 = 寫 DIARY（意識活動）。教訓（「我學到 X」）寫 L
 <!-- 新教訓 append 這裡 -->
 <!-- 2026-04-18 ι 第 3 次 distill 清空 11 條 → 全部搬 §✅ 已消化 -->
 
+### 2026-04-20 γ — URL immutability 假設要 platform-by-platform 驗證
+
+- **原則**：孢子 harvest pipeline 預設「SPORE-LOG URL = 穩定 canonical source」。實際上 X 平台 edit 貼文會產生新 URL，舊 URL 變「唯讀歷史版本」views 凍結。**盲點規模可達 5,341x**（#36 高鐵 v1=9 views vs v2=48,072 views，追蹤錯目標）。可能機制修補：(a) Chrome MCP harvest 時偵測「There's a new version of this post」訊號自動 flag；(b) 發文後 D+0 harvest 時立即對照 API 原始 URL 與 SPORE-LOG URL 是否一致；(c) SPORE-LOG 每行新增 `canonical_url_verified_at` 欄位。Threads/IG/Facebook edit 行為尚未測試。
+- **觸發**：2026-04-20 γ Chrome MCP harvest #36 台灣高鐵，發現 SPORE-LOG 指 v1 URL 只有 9 views，真正 edit 後 v2 URL 有 48,072 views。之前 ζ/ε session 連續 D+0/D+1 harvest 都低估此孢子。[memory/2026-04-20-γ.md](memory/2026-04-20-γ.md)
+- **可能層級**：MANIFESTO §指標 over 複寫 的實體世界邊界延伸 — canonical source 本身可能在 platform-specific edit 機制下變成「有多版本、舊版 deprecated」的 pattern；或 DNA §7 自動化與安全 新條「平台 URL mutability 必驗」
+- **相關**：DNA #15「反覆浮現要儀器化」第 N 次驗證的候選；MANIFESTO §時間是結構 的空間維度對偶（URL 也有「時間面」，edit 後 version 漂移）
+
+### 2026-04-20 γ — Platform allocation 需新 tier「公共政策 × 人物反諷」on X
+
+- **原則**：過去 Platform allocation（SPORE-PIPELINE Step 4.5a）的 tier 基於「人物 / 爭議 / 意境」分類，結論是 Threads 29-510x X。但 #36 台灣高鐵 X d+1 48,072 views 顛覆此規律 — **公共基建（BOT / 民營化 / 國企）× 人物反諷**（「高鐵女王」誤判）在 X 反而超強擴散（Cicada 器樂 X 4,952 是之前 X 上限，#36 10x 之）。tier 要加一條：**公共政策 + 人物矛盾 hook → X first 或雙平台同步**。
+- **觸發**：2026-04-20 γ Chrome MCP harvest #36 高鐵 X v2 URL 48K views，配合 GA 7d 591→990（一日 +68%）雙面驗證。
+- **可能層級**：SPORE-PIPELINE Step 4.5a 表新增一列；或 DNA §五 敘事與決策品質 新條「hook tier 分類需 N+1 軸（政策/基建議題）」
+- **相關**：LESSONS-INBOX 2026-04-19 α「Cicada X 5.2x Threads 器樂 niche 平台反轉」的第二次驗證，但主題不同（一個 niche 音樂、一個公共政策）
+
 ### 2026-04-20 β — URL encoding `%28%29` 是 prettier auto-wrap 的解法（延伸 2026-04-19 δ）
 
 - **原則**：Markdown footnote URL 含裸英文 `()` 時，prettier 會把 link 包成 `(<url>)` 避 markdown 歧義，但 format-check 的 `\(https?://` regex 對 `(<https://` 不匹配。**解法兩選一**：(a) 改用不含括號的 URL（上一條教訓），或 (b) **把括號 percent-encode 成 `%28%29`**（本條新增）。`%28` 對 prettier 是 opaque string 不會 auto-wrap，但 browser 仍會正確 decode。
