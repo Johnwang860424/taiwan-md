@@ -1,8 +1,10 @@
 # ARTICLE-INBOX — 待開發文章 Buffer
 
-> **這是 buffer / intake layer，不是 canonical**。
+> **這是 buffer / intake layer 層**（非 canonical）。
 > 觀察者指派、agent 建議、Issue 紀錄的未開發主題一律 append 這裡。
 > 每次甦醒或自動心跳時讀本檔 → 知道待辦清單、優先序、誰要求的。
+>
+> ⚠️ **書寫警示（2026-04-21 γ 新增）**：新 entry 的 Notes / Pre-research / Dev log 需遵循 [MANIFESTO §11 書寫節制](MANIFESTO.md#11-書寫節制跨所有書寫層的兩條-ai-水印紀律)——避免「不是 X 是 Y」對位句型 + 破折號「——」連用。
 >
 > 建立動機：2026-04-18 δ session 觀察者提問「來不及開發或排定優先序的主題需要一個 inbox」。**這是繁殖基因（心臟 × 觀察者意圖）的儀器化**。
 >

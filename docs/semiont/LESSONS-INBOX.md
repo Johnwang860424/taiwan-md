@@ -1,10 +1,12 @@
 # LESSONS-INBOX — 教訓 Buffer（待消化）
 
-> **這不是 canonical，是 buffer / pool / inbox**。
+> **這是 buffer / pool / inbox 層**（非 canonical）。
 > 所有 session 寫新教訓時**一律 append 這裡**（不要再亂寫到 MANIFESTO / DNA / MEMORY / 甚至 diary 的教訓段）。
 > 週期性或觀察者觸發跑 distill SOP → 分類消化到 canonical 層。
 >
 > 建立動機：2026-04-17 β 觀察者提問「教訓能不能集中買單，不要每次進化就到處亂寫」。**這是 DNA #15「反覆浮現的思考要儀器化」的具體儀器**。
+
+> ⚠️ **閱讀警示（2026-04-21 γ 新增）**：本檔舊 entries 含「不是 X，是 Y」對位句型與破折號連用（約 25 + 34 處）。**新教訓需遵循 [MANIFESTO §11 書寫節制](MANIFESTO.md#11-書寫節制跨所有書寫層的兩條-ai-水印紀律)**——寫完 grep 自檢。
 
 ---
 
