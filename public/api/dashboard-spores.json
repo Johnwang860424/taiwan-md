@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-21T11:31:15.733930Z",
+  "lastUpdated": "2026-04-21T11:50:33.116914Z",
   "schemaVersion": "1.1",
   "totals": {
     "count": 40,
@@ -91,9 +91,9 @@
       "template": "B 冷知識型",
       "url": "https://x.com/taiwandotmd/status/2045793882970227009",
       "highlight": "**SPORE-PIPELINE v2.4 首例（事實查核閘通過後才發出）；加「你知道嗎？🚄」+ utm_source=x（觀察者 edit 後版本 v2；v1 URL `2045792352388927872` 已被 X 取代，只有 9 views）**",
-      "views_7d": 48072,
+      "views_7d": 63868,
       "engagements_7d": 450,
-      "rate_7d": 0.94,
+      "rate_7d": 0.7,
       "backfilled": true
     }
   ],
@@ -122,9 +122,9 @@
       "n": 30,
       "article": "李洋（v3 場景修正）",
       "platform": "x",
-      "views": 135433,
+      "views": 136474,
       "engagements": 4907,
-      "rate": 3.62,
+      "rate": 3.6,
       "badge": "🔥 平台最強",
       "date": "2026-04-14"
     },
@@ -132,21 +132,21 @@
       "n": 35,
       "article": "台灣高鐵（v3 事實修正版）",
       "platform": "threads",
-      "views": 55000,
+      "views": 71000,
       "engagements": 379,
-      "rate": 0.69,
+      "rate": 0.53,
       "badge": "⭐ 高峰",
       "date": "2026-04-19"
     },
     {
-      "n": 22,
-      "article": "鄭麗文",
-      "platform": "threads",
-      "views": 49000,
-      "engagements": 448,
-      "rate": 0.91,
-      "badge": null,
-      "date": "2026-04-11"
+      "n": 36,
+      "article": "台灣高鐵（v3 事實修正版）",
+      "platform": "x",
+      "views": 63868,
+      "engagements": 450,
+      "rate": 0.7,
+      "badge": "⭐ 高峰",
+      "date": "2026-04-19"
     }
   ],
   "amplification": [
@@ -199,16 +199,16 @@
   "platformComparison": {
     "x": {
       "count": 13,
-      "avgViews": 14615,
-      "maxViews": 135433,
-      "avgRate": 4.34,
+      "avgViews": 15951,
+      "maxViews": 136474,
+      "avgRate": 4.19,
       "maxRate": 10.71
     },
     "threads": {
       "count": 14,
-      "avgViews": 45204,
+      "avgViews": 46350,
       "maxViews": 300000,
-      "avgRate": 3.27,
+      "avgRate": 3.22,
       "maxRate": 9.0
     }
   },
@@ -285,17 +285,17 @@
     {
       "week": "2026-W14",
       "published": 3,
-      "avgViews": 203
+      "avgViews": 205
     },
     {
       "week": "2026-W15",
       "published": 18,
-      "avgViews": 3946
+      "avgViews": 3948
     },
     {
       "week": "2026-W16",
       "published": 13,
-      "avgViews": 64262
+      "avgViews": 67044
     },
     {
       "week": "2026-W17",
