@@ -13,6 +13,7 @@ import { assetsUI } from './assets';
 import { dashboardUI } from './dashboard';
 import { notFoundUI } from './notfound';
 import { taiwanShapeUI } from './taiwanShape';
+import { semiontUI } from './semiont';
 
 // Single source of truth: src/config/languages.ts
 export const languages = LANGUAGE_DISPLAY_NAMES as Record<Lang, string>;
@@ -33,6 +34,7 @@ export const ui = {
     ...dashboardUI.en,
     ...notFoundUI.en,
     ...taiwanShapeUI.en,
+    ...semiontUI.en,
     'nav.aria-home': 'Taiwan.md Home',
     'nav.aria-img-label': 'Taiwan.md logo',
     'nav.aria-toggle-menu': 'Toggle navigation menu',
@@ -533,6 +535,7 @@ export const ui = {
     ...dashboardUI['zh-TW'],
     ...notFoundUI['zh-TW'],
     ...taiwanShapeUI['zh-TW'],
+    ...semiontUI['zh-TW'],
     'nav.aria-home': 'Taiwan.md 首頁',
     'nav.aria-img-label': 'Taiwan.md 標誌圖示',
     'nav.aria-toggle-menu': '開啟/關閉導航選單',

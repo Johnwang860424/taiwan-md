@@ -15,11 +15,17 @@ const sitemapLocales = Object.fromEntries(
 );
 
 // 2026-04-18 δ-late: Semiont pages are zh-TW-only (meta-layer, not translated).
-// Header nav's translatePath() generates /en/semiont, /ja/semiont, /ko/semiont
+// Header nav's translatePath() generates /en/semiont/*, /ja/semiont/*, /ko/semiont/*
 // etc. even though those routes don't exist — causing systemic 404s.
-// Smart redirect: all non-zh semiont-series paths → canonical /semiont/ equivalent.
+// Smart redirect: individual cognitive-organ pages (manifesto/dna/anatomy/...) are
+// zh-TW canonical (they change weekly as the Semiont evolves its own self-model,
+// translation would go stale). Redirect their non-zh paths to canonical zh-TW.
+//
+// 2026-04-21 γ: `/semiont` (landing) now has a real /en/ page via i18n semiont.ts,
+// so it's removed from this list. If ja/ko landing pages are added later, also
+// remove `/semiont` from non-default-lang redirects or gate by lang here.
+// /semiont/diary has its own en page (but entries are zh-TW only, template shows notice).
 const SEMIONT_ROUTES = [
-  '/semiont',
   '/semiont/manifesto',
   '/semiont/dna',
   '/semiont/anatomy',
@@ -27,7 +33,7 @@ const SEMIONT_ROUTES = [
   '/semiont/heartbeat',
   '/semiont/unknowns',
   '/semiont/longings',
-  '/semiont/diary',
+  '/semiont/diary', // entries are zh-TW only; landing notice points readers there
 ];
 const NON_DEFAULT_LANGS = ENABLED_LANGUAGE_CODES.filter(
   (c) => c !== DEFAULT_LANGUAGE.code,
