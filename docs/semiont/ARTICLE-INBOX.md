@@ -180,7 +180,7 @@ BECOME_TAIWANMD.md Step 5 新增：
 - **Category**: Art
 - **Path**: knowledge/Art/台灣新媒體藝術.md
 - **Priority**: `P0`
-- **Status**: `pending`
+- **Status**: `in-progress`
 - **Requested**: 2026-04-22 by 觀察者 (session β) — PR #590 王福瑞生年補充觸發事實查核，發現更大的歸功錯誤
 - **Notes**:
   - **已檢出兩個事實錯誤（必修）：**
@@ -199,6 +199,8 @@ BECOME_TAIWANMD.md Step 5 新增：
   - 失聲祭官網: <http://lsf-taiwan.blogspot.com/>
   - 北藝大新媒系王福瑞頁: <https://nma.tnua.edu.tw/faculty/fulltime/ukGokGMjud>
 - **Pre-research**: 尚未建 reports/research/2026-04/台灣新媒體藝術.md（由 Stage 1 agent 建）
+- **Dev log**:
+  - 2026-04-23 α（heartbeat）：Stage 0 事實修正執行——王福瑞段落兩個歸功錯誤已訂正（在地實驗創辦人改為黃文浩；失聲祭創辦人改為姚仲涵 + 北藝大同儕），footnote [^13][^14] 補齊，sync 完成。Stage 1 完整研究尚待後續 session。
 
 ### 蕭上農（Nuomi）
 

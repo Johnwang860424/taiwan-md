@@ -9,22 +9,22 @@
 ## 生命徵象
 
 > ⚠️ 以下數字是快照，會過期。心跳時應從 Dashboard API 即時讀取。
-> 最後快照：2026-04-22 β session（排程心跳 + 馬英九迷因 polish + 破損跨連結修復 / 546 篇 / 416 en）
-> 前快照：2026-04-22 α session（觀察者觸發 PR 審核 → merge #589 code fix + #588 林琪兒 + #587 馬英九迷因 escalate→觀察者選 A merge）
+> 最後快照：2026-04-23 α session（排程心跳 + PR #594 認知作戰 merge+polish + 台灣新媒體藝術事實修正 / 547 篇 / 60 contributors）
+> 前快照：2026-04-22 β session（排程心跳 + 馬英九迷因 polish + OG 架構統一 shot=1 JPG + 4 PR merge / 546 篇 / 416 en）
 > 即時數據來源：`/api/dashboard-vitals.json`、`/api/dashboard-organism.json`、`/api/dashboard-analytics.json`
 > 更新方式：Phase 2 後由 Semiont 心跳 cron 自動覆寫此段落
 
 ### 基本生理
 
-| 指標                        | 數值                                     |
-| --------------------------- | ---------------------------------------- |
-| 👥 Contributors             | **58**                                   |
-| 💓 Total Commits            | 2400+（since birth）                     |
-| 📝 知識細胞（中文 SSOT）    | **546 篇**（+1 vs α：林琪兒 #588 merge） |
-| 🌐 英文細胞                 | 416 篇                                   |
-| 🇪🇸 西文 / 🇯🇵 日文 / 🇰🇷 韓文 | 36 / 277 / **491** 篇                    |
-| 🇫🇷 法文（preview）          | 479 篇（routes off）                     |
-| 📊 平均修訂次數             | 7.1 次/篇                                |
+| 指標                        | 數值                                    |
+| --------------------------- | --------------------------------------- |
+| 👥 Contributors             | **60**                                  |
+| 💓 Total Commits            | 2400+（since birth）                    |
+| 📝 知識細胞（中文 SSOT）    | **547 篇**（+1 vs β：PR #594 認知作戰） |
+| 🌐 英文細胞                 | 416 篇                                  |
+| 🇪🇸 西文 / 🇯🇵 日文 / 🇰🇷 韓文 | 36 / 277 / **491** 篇                   |
+| 🇫🇷 法文（preview）          | 479 篇（routes off）                    |
+| 📊 平均修訂次數             | 7 次/篇                                 |
 
 ### 器官健康（Dashboard 即時分數）
 
@@ -35,7 +35,7 @@
 | 🧬 DNA      | 95      | ↑    | EDITORIAL 最後更新 2026-04-14；SPORE-PIPELINE v2.4（ε）                     |
 | 🦴 骨骼     | 90      | →    | 架構穩定                                                                    |
 | 🫁 呼吸     | 85      | →    | CI/CD 正常運作                                                              |
-| 🧫 繁殖     | **100** | ↑↑   | **56 貢獻者 / 40 recent / 29 孢子 / hasBlockbuster 全滿（史上最高）**       |
+| 🧫 繁殖     | **100** | ↑↑   | **60 貢獻者 / 33 recent / 17 孢子 / hasBlockbuster 全滿（史上最高）**       |
 | 👁️ 感知     | 90      | →    | GA4 + SC + CF 三源感知，安溥/張懸 3,102 7d 霸榜                             |
 | 🌐 語言     | 90      | →    | ko 98分(97.6%) / en 92 / ja 81 / fr 44(preview,479篇) / es 23(preview,36篇) |
 
@@ -123,7 +123,8 @@
 
 | 日期       | session | 核心判讀                                                                                                                | memory                      |
 | ---------- | ------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| 2026-04-22 | β       | 排程心跳 + 馬英九迷因 polish（破損跨連結修復 PTT批踢踢 → 刪除）+ CONSCIOUSNESS 更新                                     | [→](memory/2026-04-22-β.md) |
+| 2026-04-23 | α       | 排程心跳 + PR #594 認知作戰 merge+polish（偽引用修復 + 結尾改寫）+ 台灣新媒體藝術兩個歸功錯誤訂正（黃文浩/姚仲涵）      | [→](memory/2026-04-23-α.md) |
+| 2026-04-22 | β       | 排程心跳 + 4 PR merge + OG 架構統一 shot=1 JPG + 台灣新媒體藝術 P0 EVOLVE 加 INBOX                                      | [→](memory/2026-04-22-β.md) |
 | 2026-04-22 | α       | 觀察者觸發 PR 審核：merge #589 code fix + #588 林琪兒（+polish）+ #587 馬英九迷因（escalate→A → merge）                 | [→](memory/2026-04-22-α.md) |
 | 2026-04-21 | γ       | 觀察者觸發：2 PR merge-polish（#585 金牛角 + #586 全聯福利中心）+ CI workflow PR review 2-dot→3-dot 修復 + refresh-data | [→](memory/2026-04-21-γ.md) |
 | 2026-04-21 | β       | 排程心跳 + 紀柏豪 NEW Art + 4 PR 審理（#581 merge+polish / #583-584 merge / #582 draft comment）+ Hello Nico 血緣接住   | [→](memory/2026-04-21-β.md) |
