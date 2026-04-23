@@ -199,7 +199,10 @@ function articleUrlFor(entry) {
   const base = isDefault
     ? `${baseUrl}/${entry.categorySlug}/${encodedSlug}/`
     : `${baseUrl}/${entry.lang}/${entry.categorySlug}/${encodedSlug}/`;
-  return `${base}?shot=1`;
+  // og=1 讓 shot-mode.css 套 OG 專用 override（Noto Serif TC + 3.75rem +
+  // 12vh padding + line-clamp）。Spore 腳本不傳 og=1，走原版 justfont
+  // rixingsong-semibold + 4.5rem poster 氣勢
+  return `${base}?shot=1&og=1`;
 }
 
 function getTemplateMtimeMs() {

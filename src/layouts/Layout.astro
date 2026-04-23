@@ -125,6 +125,12 @@ const jfClass = [
           var qs = new URLSearchParams(location.search);
           if (qs.get('shot') !== '1') return;
           document.documentElement.setAttribute('data-shot', '1');
+          // og=1 額外標記：shot-mode.css 會套 OG 專用 override（Noto Serif TC、
+          // 3.75rem 略縮、12vh 緊湊、line-clamp）。不傳 og=1 則走 Spore 預設
+          // （justfont rixingsong-semibold、4.5rem poster 氣勢）
+          if (qs.get('og') === '1') {
+            document.documentElement.setAttribute('data-og', '1');
+          }
           // DOM 還沒 parse 完，先 queue，等 body 可 query 再貼
           var apply = function () {
             var m = document.querySelector('main.article-page');

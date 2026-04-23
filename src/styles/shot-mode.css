@@ -2,12 +2,18 @@
  * 共用於 spore-image 與 OG 圖片產生器（scripts/tools/generate-spore-image.mjs
  * 與 scripts/core/generate-og-images.mjs）。四種語言的 article page 都適用。
  *
- * 字體策略：強制用 Google Fonts 的 Noto Serif TC（已在 Layout.astro 預載），
- * 不等 justfont SDK 動態注入 — 原因：
- *   1. justfont SDK 批次產圖會觸發 rate limit（2026-04-22 β 實測）
- *   2. 英文/日文/韓文的 .hero-title 根本沒吃 rixingsong，無意義等 12 秒
- *   3. Noto Serif TC 跨 CJK 全語言通用，視覺一致
+ * 2026-04-23 重構（β session）：Spore 與 OG 需求不同，用 [data-og='1']
+ * 屬性分離兩套 override：
+ *   - Spore（`?shot=1`）：justfont rixingsong-semibold 品牌字體 + 4.5rem
+ *     大字號 + 18vh 錨點位置（單張手產、品牌感優先）
+ *   - OG（`?shot=1&og=1`）：Noto Serif TC 穩定字體 + 3.75rem 略縮 +
+ *     12vh 緊湊位置 + line-clamp（批次產圖穩定、長標題完整顯示）
+ *
+ * Base 層保留原本的 Spore 樣式（2026-04-20 ε 調校過的 poster 氣勢），
+ * OG 走 `[data-og='1']` override 子集。
  * ──────────────────────────────────────────────────────────────────── */
+
+/* ═══ Base: Spore 模式（?shot=1 預設）═══════════════════════════════ */
 
 html[data-shot='1'],
 html[data-shot='1'] body {
@@ -30,14 +36,12 @@ html[data-shot='1'] main.article-page {
   position: relative !important;
 }
 
-/* Hero anchored to top-third, poster-style — flex-start + padding-top 視覺錨點
- * 2026-04-22 β v4：padding-top 從 18vh 縮到 12vh、底部從 8vh 縮到 6vh，
- * 給 3 行標題 + 4 行描述留足垂直空間。 */
+/* Hero anchored to top-third, poster-style — Spore 原本的黃金比例錨點 */
 html[data-shot='1'] main.article-page > section:first-of-type {
   min-height: 100vh !important;
   align-items: flex-start !important;
-  padding-top: 12vh !important;
-  padding-bottom: 6vh !important;
+  padding-top: 18vh !important;
+  padding-bottom: 8vh !important;
 }
 
 /* Inner container tight padding */
@@ -47,7 +51,7 @@ html[data-shot='1'] main.article-page > section > div:nth-child(2) {
   padding: 0 6vw !important;
 }
 
-/* Hide category badge (1st <div>) + TTS 朗讀 wrapper (last <div>) */
+/* Hide category badge + TTS 朗讀 wrapper */
 html[data-shot='1']
   main.article-page
   > section
@@ -61,34 +65,21 @@ html[data-shot='1']
   display: none !important;
 }
 
-/* ── H1 字體 — 強制 Noto Serif TC（Google Fonts 已由 Layout.astro 預載）──
- * 加 !important 覆寫 justfont SDK 動態注入的 rixingsong-semibold。
- * 2026-04-22 β v4：字體略縮（3.75rem），line-clamp 3 讓長標題完整顯示；
- * 短標題視覺仍有 poster 氣勢。 */
+/* H1 — Spore 不 force 字體，讓 global.css `.jf-history h1, .hero-title` 的
+ * justfont rixingsong-semibold 規則接管（單張手產圖不會觸發 rate limit）。
+ * 字號 4.5rem poster 氣勢，無 line-clamp（原始 Spore 設計）。*/
 html[data-shot='1'] main.article-page .hero-title {
-  font-family: 'Noto Serif TC', 'Source Han Serif TC', serif !important;
-  font-weight: 900 !important;
-  font-size: 3.75rem !important; /* 60px — 從 72px 略縮容納 3 行標題 */
-  line-height: 1.2 !important;
-  margin-bottom: 1.25rem !important;
+  font-size: 4.5rem !important; /* 72px */
+  line-height: 1.22 !important;
+  margin-bottom: 1.5rem !important;
   max-width: none !important;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 3 !important;
-  -webkit-box-orient: vertical !important;
-  overflow: hidden !important;
 }
 
-/* Description — line-clamp 4 + 留右下角 watermark 空間（max-width 75%）
- * 2026-04-22 β v4：從 3 行放寬到 4 行，字體微縮（1.2rem）容納更多內文。 */
+/* Description — Spore 原始寬版 */
 html[data-shot='1'] main.article-page > section > div:nth-child(2) > p {
-  font-family: 'Noto Serif TC', serif !important;
-  font-size: 1.2rem !important; /* 19.2px — 從 21.6px 微縮 */
-  max-width: min(900px, 75%) !important;
-  line-height: 1.65 !important;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 4 !important;
-  -webkit-box-orient: vertical !important;
-  overflow: hidden !important;
+  font-size: 1.35rem !important; /* ~21.6px */
+  max-width: min(900px, 100%) !important;
+  line-height: 1.7 !important;
 }
 
 /* Breadcrumb */
@@ -117,4 +108,45 @@ html[data-shot='1'] .shot-watermark {
 html[data-shot='1'] body > main {
   padding-top: 0 !important;
   margin-top: 0 !important;
+}
+
+/* ═══ OG 模式 override（?shot=1&og=1）═══════════════════════════════
+ * 給批次 OG 圖產生器用：
+ *   - 強制 Noto Serif TC（Google Fonts Layout 已預載）— 避 justfont rate limit
+ *   - 字號略縮 3.75rem，容納更多文字
+ *   - 12vh / 6vh padding，緊湊排版
+ *   - line-clamp 2/3，避免長標題溢出或壓 watermark
+ *   - description max-width 75% + line-clamp 3，避開右下 watermark
+ * ──────────────────────────────────────────────────────────────────── */
+
+html[data-shot='1'][data-og='1'] main.article-page > section:first-of-type {
+  padding-top: 12vh !important;
+  padding-bottom: 6vh !important;
+}
+
+html[data-shot='1'][data-og='1'] main.article-page .hero-title {
+  font-family: 'Noto Serif TC', 'Source Han Serif TC', serif !important;
+  font-weight: 900 !important;
+  font-size: 3.75rem !important; /* 60px */
+  line-height: 1.2 !important;
+  margin-bottom: 1.25rem !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+html[data-shot='1'][data-og='1']
+  main.article-page
+  > section
+  > div:nth-child(2)
+  > p {
+  font-family: 'Noto Serif TC', serif !important;
+  font-size: 1.2rem !important; /* 19.2px */
+  max-width: min(860px, 75%) !important;
+  line-height: 1.65 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 4 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
 }
