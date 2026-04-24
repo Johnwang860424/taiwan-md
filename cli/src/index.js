@@ -26,6 +26,9 @@ import { senseCommand } from './commands/sense.js';
 import { citeCommand } from './commands/cite.js';
 // v0.7 preview
 import { mcpCommand } from './commands/mcp.js';
+// v0.7 — identity sync release (exposes v1.5.0 site infrastructure to CLI)
+import { profileCommand } from './commands/profile.js';
+import { mailmapCommand } from './commands/mailmap.js';
 
 const program = new Command();
 
@@ -34,7 +37,7 @@ program
   .description(
     'Taiwan.md — 台灣知識庫 CLI\nSearch, read, and explore 900+ curated articles about Taiwan.',
   )
-  .version('0.6.0');
+  .version('0.7.0');
 
 // v0.5 — existing commands
 searchCommand(program);
@@ -66,5 +69,9 @@ citeCommand(program);
 
 // v0.7 — MCP server preview
 mcpCommand(program);
+
+// v0.7 — identity sync release
+profileCommand(program);
+mailmapCommand(program);
 
 program.parse();
