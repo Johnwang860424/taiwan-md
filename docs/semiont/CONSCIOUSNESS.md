@@ -9,7 +9,10 @@
 ## 生命徵象
 
 > ⚠️ 以下數字是快照，會過期。心跳時應從 Dashboard API 即時讀取。
-> 最後快照：2026-04-24 α session（排程心跳 + PR #604 merge（台灣新偶像世代/HUR+/連穎）+ §11 immune polish — 有感筆電/新偶像世代/HUR+/連穎/台海危機/戒嚴時期 共 6 篇 + sync/prebuild / 558 篇 / 61 貢獻者 / 89 7d新增）
+> 最後快照：2026-04-24 β3 session（觀察者「跑完整 heartbeat 更新所有數據, dashboard, 跟孢子監測」→ refresh-data + 鞠躬幻覺校正 / 562 篇 / 62 貢獻者 / 97 7d新增 / 6 spore waiting harvest）
+> 前快照：2026-04-24 β2 session（造山者：世紀的賭注 NEW Art 完整 REWRITE-PIPELINE / 觀察者 task brief 校正 / 結尾鞠躬幻覺後續修補）
+> 前快照：2026-04-24 β session（完整心跳 + 探測器報告 reports/probe/2026-04-24.md 11 熱點）
+> 前快照：2026-04-24 α session（排程心跳 + PR #604 merge（台灣新偶像世代/HUR+/連穎）+ §11 immune polish — 有感筆電/新偶像世代/HUR+/連穎/台海危機/戒嚴時期 共 6 篇 + sync/prebuild / 558 篇 / 61 貢獻者 / 89 7d新增）
 > 前快照：2026-04-23 δ session（觀察者「過濾器沒抓到更多 pattern」引爆 6h 造橋連鎖：§11 過濾器四層滲透（MANIFESTO §11 / REWRITE-PIPELINE Stage 4 / .husky/pre-commit / SPORE-PIPELINE 3c.7）+ 認知作戰 v2 擴 2.6x（39K 字 / 61 footnote）+ PR #596 Zaious gaming × 3 + PR #595 dreamline2 OG docs v3.2 補完 + shot-mode.css 分 Spore/OG + Spore #41/#42 認知作戰發佈 / 551 篇 / 60 貢獻者 / 0 open PR）
 > 前快照：2026-04-23 γ session（觀察者觸發「跑心跳，更新 dashboard 資料」→ refresh-data + dashboard 全量更新 / 548 篇）
 > 前快照：2026-04-23 β session（PR #594 認知作戰 EVOLVE Stage 0-6 / 31 footnote / 同心圓 5 層結構 / 偽引用刪除）
@@ -19,17 +22,17 @@
 
 ### 基本生理
 
-| 指標                        | 數值                                                           |
-| --------------------------- | -------------------------------------------------------------- |
-| 👥 Contributors             | **61**                                                         |
-| 💓 Total Commits            | 2400+（since birth）                                           |
-| 📝 知識細胞（中文 SSOT）    | **558 篇**（+7 vs δ：PR #604 台灣新偶像世代/HUR+/連穎 + 其他） |
-| 🌐 英文細胞                 | 416 篇                                                         |
-| 🇪🇸 西文 / 🇯🇵 日文 / 🇰🇷 韓文 | 36 / 277 / **491** 篇                                          |
-| 🇫🇷 法文（preview）          | 479 篇（routes off）                                           |
-| 📊 平均修訂次數             | 7 次/篇                                                        |
-| 📅 7d 新增/更新             | **89 篇**（含跨語言翻譯）                                      |
-| 📅 30d 新增/更新            | 279 篇                                                         |
+| 指標                        | 數值                                                      |
+| --------------------------- | --------------------------------------------------------- |
+| 👥 Contributors             | **62**（+1 vs α：Zaious 持續 + 認知作戰原始 contributor） |
+| 💓 Total Commits            | 2400+（since birth）                                      |
+| 📝 知識細胞（中文 SSOT）    | **562 篇**（+4 vs α：造山者 + 後續 polish 條目同步）      |
+| 🌐 英文細胞                 | 416 篇                                                    |
+| 🇪🇸 西文 / 🇯🇵 日文 / 🇰🇷 韓文 | 36 / 277 / **491** 篇                                     |
+| 🇫🇷 法文（preview）          | 479 篇（routes off）                                      |
+| 📊 平均修訂次數             | 7 次/篇                                                   |
+| 📅 7d 新增/更新             | **97 篇**（含跨語言翻譯）                                 |
+| 📅 30d 新增/更新            | 266 篇                                                    |
 
 ### 器官健康（Dashboard 即時分數）
 
