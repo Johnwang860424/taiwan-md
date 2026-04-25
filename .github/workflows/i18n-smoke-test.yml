@@ -1,0 +1,126 @@
+name: i18n Smoke Test
+
+# 對應 reports/i18n-evolution-roadmap-2026-04-25.md Phase 3 #10
+# 對應 docs/pipelines/REWRITE-PIPELINE.md Stage 4 §多語言 visual smoke test
+#
+# 觸發：任何修改 i18n / 多語系 / homepage / language registry 的 PR
+# 防止：fr/es 路由疊加、ja/ko 結構漂移、wrong-language hardcoded prose、
+#       hardcoded language array 違反 LANGUAGES_REGISTRY SSOT 等 regression
+
+on:
+  pull_request:
+    paths:
+      - 'src/i18n/**'
+      - 'src/utils/getLangSwitchPath.ts'
+      - 'src/config/languages.ts'
+      - 'src/config/languages.mjs'
+      - 'src/components/home/**'
+      - 'src/components/Header.astro'
+      - 'src/pages/index.astro'
+      - 'src/pages/en/**'
+      - 'src/pages/ja/**'
+      - 'src/pages/ko/**'
+      - 'src/pages/fr/**'
+      - 'src/pages/es/**'
+      - 'src/pages/404.astro'
+      - 'scripts/tools/check-hardcoded-langs.sh'
+      - 'scripts/tools/i18n-coverage-audit.sh'
+
+jobs:
+  i18n-smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Hardcoded language array check (B6 regression)
+        run: bash scripts/tools/check-hardcoded-langs.sh --ci
+
+      - name: Language registry sync check (.ts vs .mjs)
+        run: bash scripts/tools/check-language-registry-sync.sh
+
+      - name: Build site
+        run: npm run build
+
+      - name: Cascade prevention test (B1 regression)
+        run: |
+          echo "::group::Cascade URLs check on /fr/people"
+          F="dist/fr/people/index.html"
+          if [ ! -f "$F" ]; then
+            echo "❌ Missing $F"
+            exit 1
+          fi
+          # Look for cascade URL patterns: /ja/fr/, /ko/fr/, etc.
+          BAD=$(grep -oE 'href="/(en|ja|ko|fr|es)/(en|ja|ko|fr|es)/' "$F" || true)
+          if [ -n "$BAD" ]; then
+            echo "❌ Cascade URLs found:"
+            echo "$BAD"
+            exit 1
+          fi
+          # Verify lang dropdown contains expected URLs
+          DROPDOWN=$(grep -oE '"/(en|ja|ko|fr|es)/people"' "$F" | sort -u)
+          echo "Lang dropdown URLs from /fr/people:"
+          echo "$DROPDOWN"
+          # Should have at least 3 langs (en/ja/ko at minimum)
+          COUNT=$(echo "$DROPDOWN" | wc -l)
+          if [ "$COUNT" -lt 3 ]; then
+            echo "❌ Lang dropdown only has $COUNT URLs (expected ≥3)"
+            exit 1
+          fi
+          echo "✅ No cascade URLs / dropdown has $COUNT lang links"
+          echo "::endgroup::"
+
+      - name: Wrong-language prose check (B2 regression)
+        run: |
+          echo "::group::Hiragana/Katakana in fr/es homepages"
+          for L in fr es; do
+            F="dist/$L/index.html"
+            if [ ! -f "$F" ]; then continue; fi
+            HITS=$(grep -c -P "[\x{3040}-\x{309F}\x{30A0}-\x{30FF}]" "$F" || echo 0)
+            if [ "$HITS" -gt 0 ]; then
+              echo "❌ $L homepage contains $HITS lines of hiragana/katakana (Japanese)"
+              grep -nP "[\x{3040}-\x{309F}\x{30A0}-\x{30FF}]" "$F" | head -5
+              exit 1
+            fi
+            echo "✅ $L homepage: 0 Japanese characters"
+          done
+          echo "::endgroup::"
+
+      - name: Structural alignment check (B3 regression)
+        run: |
+          echo "::group::5 langs all contain core homepage components"
+          for L in '' en ja ko fr es; do
+            if [ -z "$L" ]; then F="dist/index.html"; LANG="zh-TW"; else F="dist/$L/index.html"; LANG="$L"; fi
+            if [ ! -f "$F" ]; then
+              echo "❌ Missing $F"
+              exit 1
+            fi
+            HALLS=$(grep -c "exhibition-hall" "$F" || echo 0)
+            RD=$(grep -c "Random" "$F" || echo 0)
+            if [ "$HALLS" -lt 4 ]; then
+              echo "❌ $LANG: only $HALLS exhibition halls (expected ≥4)"
+              exit 1
+            fi
+            if [ "$RD" -lt 1 ]; then
+              echo "❌ $LANG: missing RandomDiscovery"
+              exit 1
+            fi
+            echo "✅ $LANG: $HALLS halls / $RD RandomDiscovery"
+          done
+          echo "::endgroup::"
+
+      - name: i18n coverage report (informational, no fail)
+        run: |
+          echo "::group::i18n UI keys coverage"
+          bash scripts/tools/i18n-coverage-audit.sh
+          echo "::endgroup::"
+          echo ""
+          echo "ℹ️  Coverage drops are not auto-fail (we accept FALLBACK_CHAIN strategy)"
+          echo "ℹ️  But large drops should trigger maintainer review"

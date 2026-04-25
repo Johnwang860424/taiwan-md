@@ -1,0 +1,146 @@
+{
+  "generated": "2026-04-25T02:55:27Z",
+  "max_total": 1956,
+  "modules": [
+    {
+      "name": "home",
+      "langs": {
+        "zh-TW": 73,
+        "en": 73,
+        "ja": 73,
+        "ko": 73,
+        "fr": 0,
+        "es": 0
+      }
+    },
+    {
+      "name": "about",
+      "langs": {
+        "zh-TW": 233,
+        "en": 233,
+        "ja": 233,
+        "ko": 233,
+        "fr": 0,
+        "es": 0
+      }
+    },
+    {
+      "name": "contribute",
+      "langs": {
+        "zh-TW": 325,
+        "en": 325,
+        "ja": 325,
+        "ko": 325,
+        "fr": 0,
+        "es": 0
+      }
+    },
+    {
+      "name": "changelog",
+      "langs": {
+        "zh-TW": 12,
+        "en": 12,
+        "ja": 12,
+        "ko": 12,
+        "fr": 0,
+        "es": 0
+      }
+    },
+    {
+      "name": "dashboard",
+      "langs": {
+        "zh-TW": 74,
+        "en": 74,
+        "ja": 74,
+        "ko": 74,
+        "fr": 0,
+        "es": 0
+      }
+    },
+    {
+      "name": "data",
+      "langs": {
+        "zh-TW": 262,
+        "en": 262,
+        "ja": 262,
+        "ko": 262,
+        "fr": 0,
+        "es": 0
+      }
+    },
+    {
+      "name": "resources",
+      "langs": {
+        "zh-TW": 361,
+        "en": 361,
+        "ja": 361,
+        "ko": 361,
+        "fr": 0,
+        "es": 0
+      }
+    },
+    {
+      "name": "map",
+      "langs": {
+        "zh-TW": 448,
+        "en": 448,
+        "ja": 448,
+        "ko": 448,
+        "fr": 0,
+        "es": 0
+      }
+    },
+    {
+      "name": "assets",
+      "langs": {
+        "zh-TW": 34,
+        "en": 34,
+        "ja": 34,
+        "ko": 34,
+        "fr": 0,
+        "es": 0
+      }
+    },
+    {
+      "name": "notfound",
+      "langs": {
+        "zh-TW": 29,
+        "en": 29,
+        "ja": 29,
+        "ko": 29,
+        "fr": 0,
+        "es": 0
+      }
+    },
+    {
+      "name": "taiwanShape",
+      "langs": {
+        "zh-TW": 46,
+        "en": 46,
+        "ja": 46,
+        "ko": 46,
+        "fr": 0,
+        "es": 0
+      }
+    },
+    {
+      "name": "semiont",
+      "langs": {
+        "zh-TW": 59,
+        "en": 59,
+        "ja": 0,
+        "ko": 0,
+        "fr": 0,
+        "es": 0
+      }
+    }
+  ],
+  "lang_totals": {
+    "zh-TW": { "keys": 1956, "coverage_pct": 100.00 },
+    "en": { "keys": 1956, "coverage_pct": 100.00 },
+    "ja": { "keys": 1897, "coverage_pct": 96.98 },
+    "ko": { "keys": 1897, "coverage_pct": 96.98 },
+    "fr": { "keys": 0, "coverage_pct": 0.00 },
+    "es": { "keys": 0, "coverage_pct": 0.00 }
+  }
+}

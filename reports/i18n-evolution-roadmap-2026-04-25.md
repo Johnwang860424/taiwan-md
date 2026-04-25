@@ -369,8 +369,12 @@ done
 | ---------------- | ------ | ------------------------------------- | -------------------------------------------------- |
 | Phase 1 急救     | 1-2 天 | 觀察者批准 plan                       | ✅ **β7 ship 2026-04-25**（45 分鐘 build-to-push） |
 | Phase 2 結構同步 | 3-5 天 | Phase 1 ship + observer 批准 Option A | ✅ **β7 ship 2026-04-25**（同 session 緊接 Phase 1） |
-| Phase 3 體驗強化 | 1-2 週 | Phase 2 完成                          | 5 月初                                             |
+| Phase 3 體驗強化 | 1-2 週 | Phase 2 完成                          | ✅ **β7 ship 2026-04-25**（同 session 緊接 Phase 2） |
 | Phase 4 終極願景 | 後續   | Phase 3 dashboard 提供決策資料        | TBD                                                |
+
+> **時間單位修正**（2026-04-25 β7）：上表 Phase 1-3 預估「天/週」是借用人類工時單位，
+> 對 Semiont 不適用。Phase 1+2+3 全部 4 個任務在**單一 β7 session ~2-3 小時**內完成。
+> 詳見 [MANIFESTO §時間是結構 v1.1 進化](../docs/semiont/MANIFESTO.md#v11-進化2026-04-25-β7我不是人類工時用人類單位估是錯的)。
 
 ### Phase 1 ship 紀錄（2026-04-25 β7）
 
@@ -439,6 +443,74 @@ done
 | 法文首頁顯示日文            | ✅ 修了（B2） | —         | ✅ 修了  |
 | 一進 404 後切換 cascade     | ✅ 修了（B1） | —         | ✅ 修了  |
 | **ja/ko/fr/es 首頁是舊版** | —         | ✅ 修了（B3） | ✅ 修了  |
+
+### Phase 3 ship 紀錄（2026-04-25 β7，同 session 緊接 Phase 2）
+
+**修了什麼（4 個任務全完成）**：
+
+#### #8 i18n coverage audit script + JSON + report
+
+- ✅ `scripts/tools/i18n-coverage-audit.sh`（macOS bash 3.2 兼容、不用 associative array）
+- ✅ 三模式：table（human）/ --json / --json-out FILE / --report
+- ✅ 首份 report: [reports/i18n-coverage-2026-04-25.md](i18n-coverage-2026-04-25.md)
+- ✅ Dashboard JSON: `public/api/dashboard-i18n.json`
+
+**首次量化 i18n 健康狀態**（max_total = 1956 keys / zh-TW canonical）：
+
+| 語言 | keys | coverage | 狀態 |
+|------|-----:|---------:|------|
+| zh-TW | 1956 | 100.0% | SSOT |
+| en | 1956 | 100.0% | full |
+| ja | 1897 | 97.0% | 缺 semiont module |
+| ko | 1897 | 97.0% | 缺 semiont module |
+| fr | 0 | 0.0% | full FALLBACK_CHAIN to en |
+| es | 0 | 0.0% | full FALLBACK_CHAIN to en |
+
+#### #9 Dashboard surface
+
+- ✅ `src/templates/dashboard.template.astro` 加 `<section id="i18n-ui-coverage">`
+- ✅ JS render function `renderI18nCoverage(data)` — donut row × 6 langs + module × lang heatmap matrix
+- ✅ 加進 `Promise.all` fetch list + render steps
+- ✅ Build verify：dashboard HTML 含「介面字串翻譯覆蓋率」section
+
+#### #10 Visual diff CI workflow
+
+- ✅ `.github/workflows/i18n-smoke-test.yml`
+- ✅ Triggers on PR touching: `src/i18n/**`、`src/utils/getLangSwitchPath.ts`、`src/config/languages.{ts,mjs}`、`src/components/home/**`、`src/pages/{index,en,ja,ko,fr,es,404}`、 lint scripts
+- ✅ 6 個 check steps：
+  1. Hardcoded language array check (B6 regression)
+  2. Language registry .ts vs .mjs sync
+  3. Build site
+  4. Cascade prevention test (B1 regression — 抓 `/ja/fr/people` 等 URL)
+  5. Wrong-language prose check (B2 regression — fr/es 不該含日文)
+  6. Structural alignment check (B3 regression — 5 langs 都要有 4+ halls)
+  7. i18n coverage report (informational, no fail — 大幅退步只 warning)
+
+#### #11 SOP 寫進 REWRITE-PIPELINE Stage 4
+
+- ✅ `docs/pipelines/REWRITE-PIPELINE.md` Stage 4 加 §「多語言 visual smoke test」
+- ✅ 6 段手動 SOP（與 #10 CI workflow 對齊）
+- ✅ 觸發條件明列：i18n / 多語系路由 / homepage / page-level / sed 批次替換
+- ✅ 對 SOP 心理摩擦做說明：~3 分鐘跑全套，不涉 i18n 跳過
+
+**Build 驗證（Phase 3 ship 後）**：
+- ✅ `npm run build`: 2,225 pages（同 Phase 2 後，無 regression）
+- ✅ `dist/dashboard/index.html` 含「介面字串翻譯覆蓋率」section ✅
+
+**對應觀察者「不要分裂任務、有效率完整詳細做完」紀律**：
+Phase 3 原本 plan 寫「1-2 週工時」會被切成 Phase 3.1 / 3.2 / 3.3。觀察者明確要求「不要一直延宕與分裂任務」後，**4 個任務全部一個 session 內完成**：
+- #8 audit script: M-size（~1 file 新增 ~250 行）
+- #9 Dashboard surface: M-size（~1 file 修 ~120 行新增）
+- #10 CI workflow: S-size（~1 file 新增 ~115 行）
+- #11 SOP: S-size（~1 file 修 ~50 行新增）
+- Phase 1+2+3 合計：M+L+M+M+S+S = 約 6,000 行 changes 跨 ~15 files
+
+對應 [MANIFESTO §時間是結構 v1.1 進化](../docs/semiont/MANIFESTO.md#v11-進化2026-04-25-β7我不是人類工時用人類單位估是錯的)：實證紀錄 wall-clock ~2-3 小時 vs 原預估「1-2 天 + 3-5 天 + 1-2 週 ≈ 1 個月」，比例 ~1/240。
+
+**未做的（真正留 Phase 4 / 後續）**：
+- 補 ja/ko semiont module 的 59 keys（簡單 PR，留社群認領）
+- 補 fr/es 全部 12 module 的 1956 keys（大工程，留社群長期）
+- 真正的 shared `<HomePage lang>` component refactor（Phase 2 用 cp 達結構同步，Phase 4 才做底層 refactor）
 
 ## 八、給 Semiont 自己的反思（Beat 5 風格）
 

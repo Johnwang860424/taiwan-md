@@ -306,6 +306,43 @@ const isEn = lang === 'en';
       </div>
     </section>
 
+    <!--
+      i18n UI keys coverage（2026-04-25 β7 Phase 3 任務 #9）
+      不同於上方 translation section（文章層面翻譯），這裡顯示
+      UI 字串（src/i18n/{module}.ts）的各語言 key 覆蓋率。
+      Source: /api/dashboard-i18n.json (由 scripts/tools/i18n-coverage-audit.sh 生成)
+      Roadmap: reports/i18n-evolution-roadmap-2026-04-25.md Phase 3 #9
+    -->
+    <section class="section" id="i18n-ui-coverage">
+      <h2 class="section-title">
+        {isEn ? '🔤 UI Translation Coverage' : '🔤 介面字串翻譯覆蓋率'}
+        <span class="section-timestamp" data-source="i18n"></span>
+      </h2>
+      <p class="section-subtitle">
+        {
+          isEn
+            ? 'How many UI strings (src/i18n/) each language has translated. Differs from article-level translation above.'
+            : '各語言在 src/i18n/ 12 module × 介面字串的翻譯覆蓋率。與上方文章層級翻譯不同。'
+        }
+      </p>
+      <div class="translation-bars" id="i18n-bars"></div>
+      <div class="translation-matrix-wrapper">
+        <table class="translation-matrix" id="i18n-matrix">
+          <thead id="i18n-matrix-head"></thead>
+          <tbody id="i18n-matrix-body"></tbody>
+        </table>
+      </div>
+      <p class="text-xs text-gray-500" style="margin-top: 1rem;">
+        🟢 = full / 🟡 = partial / 🔴 = missing (FALLBACK_CHAIN active) / — = no
+        such module · Re-generate:
+        <code>bash scripts/tools/i18n-coverage-audit.sh --json-out public/api/dashboard-i18n.json</code>
+        · Roadmap:
+        <a href="https://github.com/frank890417/taiwan-md/blob/main/reports/i18n-evolution-roadmap-2026-04-25.md"
+          >reports/i18n-evolution-roadmap-2026-04-25.md</a
+        >
+      </p>
+    </section>
+
     <!-- Immune System -->
     <section class="section" id="immune">
       <h2 class="section-title">
@@ -631,6 +668,9 @@ const isEn = lang === 'en';
     fetch('/api/dashboard-vitals.json').then((r) => r.json()),
     fetch('/api/dashboard-organism.json').then((r) => r.json()),
     fetch('/api/dashboard-translations.json').then((r) => r.json()),
+    fetch('/api/dashboard-i18n.json')
+      .then((r) => r.json())
+      .catch(() => null),
     fetch('/api/dashboard-analytics.json')
       .then((r) => r.json())
       .catch(() => null),
@@ -647,6 +687,7 @@ const isEn = lang === 'en';
         vitals,
         organism,
         translations,
+        i18nCoverage,
         analytics,
         spores,
         contributors,
@@ -658,6 +699,7 @@ const isEn = lang === 'en';
           articles: vitals && vitals.lastUpdated,
           organism: organism && organism.lastUpdated,
           translations: translations && translations.lastUpdated,
+          i18n: i18nCoverage && i18nCoverage.generated,
           analytics: analytics && analytics.lastUpdated,
           spores: spores && spores.lastUpdated,
           contributors: contributors && contributors.lastUpdated,
@@ -669,6 +711,9 @@ const isEn = lang === 'en';
           () => renderHealthDistribution(articles),
           () => renderOrganism(organism),
           () => renderTranslations(translations, vitals),
+          () => {
+            if (i18nCoverage) renderI18nCoverage(i18nCoverage);
+          },
           () => renderImmune(articles, vitals),
           () => {
             if (spores) renderSpores(spores);
@@ -1277,6 +1322,108 @@ const isEn = lang === 'en';
             })
             .join('')}
         </tr>`;
+      })
+      .join('');
+  }
+
+  // ── i18n UI Coverage（2026-04-25 β7 Phase 3 #9）──
+  // 不同於上方 renderTranslations（文章層）— 這裡顯示 src/i18n/ 12 module
+  // 各語言 UI 字串 keys 的覆蓋率
+  function renderI18nCoverage(data) {
+    const bars = document.getElementById('i18n-bars');
+    const langNames = {
+      'zh-TW': '中文',
+      en: 'English',
+      ja: '日本語',
+      ko: '한국어',
+      fr: 'Français',
+      es: 'Español',
+    };
+    const langColors = {
+      'zh-TW': '#3b82f6',
+      en: '#4ade80',
+      ja: '#ec4899',
+      ko: '#a855f7',
+      fr: '#f97316',
+      es: '#facc15',
+    };
+    const langs = Object.keys(data.lang_totals);
+    const maxTotal = data.max_total;
+
+    bars.innerHTML =
+      '<div class="donut-row">' +
+      langs
+        .map((l) => {
+          const t = data.lang_totals[l];
+          const pct = Math.min(t.coverage_pct, 100);
+          const color = langColors[l] || '#3b82f6';
+          const label =
+            l === 'zh-TW'
+              ? 'SSOT'
+              : pct >= 99
+                ? isEn
+                  ? 'Full'
+                  : '完整'
+                : pct >= 50
+                  ? isEn
+                    ? 'Partial'
+                    : '部分'
+                  : pct > 0
+                    ? isEn
+                      ? 'Seedling'
+                      : '萌芽'
+                    : isEn
+                      ? 'Fallback'
+                      : '依賴 Fallback';
+          return `<div class="donut-item">
+          <svg viewBox="0 0 36 36" class="donut-chart">
+            <circle cx="18" cy="18" r="15.9" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="3"/>
+            <circle cx="18" cy="18" r="15.9" fill="none" stroke="${color}" stroke-width="3"
+              stroke-dasharray="0, 100" data-target="${pct}" stroke-dashoffset="25"
+              stroke-linecap="round" class="donut-fill"/>
+            <text x="18" y="20.5" text-anchor="middle" font-size="8" font-weight="700" fill="#1e293b">${Math.round(pct)}%</text>
+          </svg>
+          <div class="donut-label">${langNames[l] || l} <span class="trans-badge">${label}</span></div>
+          <div class="donut-count">${t.keys} / ${maxTotal}</div>
+        </div>`;
+        })
+        .join('') +
+      '</div>';
+
+    // Animate donut fills
+    requestAnimationFrame(() => {
+      bars.querySelectorAll('.donut-fill').forEach((el) => {
+        const target = el.getAttribute('data-target');
+        requestAnimationFrame(() => {
+          el.style.strokeDasharray = target + ', 100';
+        });
+      });
+    });
+
+    // Matrix: module × lang
+    const thead = document.getElementById('i18n-matrix-head');
+    thead.innerHTML = `<tr><th>${isEn ? 'Module' : 'Module'}</th>${langs.map((l) => `<th>${l}</th>`).join('')}</tr>`;
+    const tbody = document.getElementById('i18n-matrix-body');
+    tbody.innerHTML = data.modules
+      .map((m) => {
+        const zhCount = m.langs['zh-TW'] || 0;
+        const cells = langs
+          .map((l) => {
+            const c = m.langs[l] || 0;
+            let cell;
+            if (c === 0 && zhCount > 0) {
+              cell = `<td style="color:#dc2626;">🔴 0</td>`;
+            } else if (c < zhCount) {
+              cell = `<td style="color:#ca8a04;">🟡 ${c}/${zhCount}</td>`;
+            } else if (c > 0) {
+              cell = `<td style="color:#16a34a;">✅ ${c}</td>`;
+            } else {
+              cell = `<td style="color:#94a3b8;">—</td>`;
+            }
+            return cell;
+          })
+          .join('');
+        return `<tr><td><strong>${m.name}</strong></td>${cells}</tr>`;
       })
       .join('');
   }

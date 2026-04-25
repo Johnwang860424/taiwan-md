@@ -665,6 +665,50 @@ bash scripts/tools/check-manifesto-11.sh knowledge/{Category}/{文章}.md
 > 規則在本文件 v2.10 已經寫過、工具 `check-wikilinks.sh` 存在、我還自己造了 `wikilink-validate.sh`——
 > 然後還是寫錯了。教訓：**擁有工具 ≠ 使用工具**。所以現在寫進 pre-commit 強制執行。
 
+#### 多語言 visual smoke test（DNA #19 + i18n Phase 3 #11，hard gate for 大型 refactor）
+
+> **觸發條件**：commit 涉及任何 i18n 系統 / 多語系路由 / homepage components / `src/pages/{lang}/` / `src/i18n/`、或加新語言、或大型 sed 批次替換。
+> 對應 [DNA #19 大型 refactor 後 visual smoke test](../semiont/DNA.md#四工程衛生) + [reports/i18n-evolution-roadmap-2026-04-25.md Phase 3 任務 #11](../../reports/i18n-evolution-roadmap-2026-04-25.md)
+
+**強制 SOP**：
+
+```bash
+# 1. Build verify
+npm run build  # 必須 ✅ all categories healthy
+
+# 2. Cascade prevention test（驗 Phase 1 fix 仍 work）
+F="dist/fr/people/index.html"
+grep -oE '"/[a-z][a-z-]*/people"' "$F" | sort -u
+# 預期：/en/people、/ja/people、/ko/people、/fr/people（+ /es/people if dropdown 完整）
+# 不應出現：/ja/fr/people、/ko/fr/people 等 cascade URL
+
+# 3. 5 langs 結構對齊檢查
+for L in '' en ja ko fr es; do
+  if [ -z "$L" ]; then f="dist/index.html"; lang="zh-TW"; else f="dist/$L/index.html"; lang="$L"; fi
+  echo "$lang: halls=$(grep -c 'exhibition-hall' $f) RD=$(grep -c 'Random' $f)"
+done
+# 預期：5 langs 都有 exhibition halls + RandomDiscovery
+
+# 4. Wrong-language prose 檢查（fr/es 不該含日文/中文 hardcoded）
+for L in fr es; do
+  hits=$(grep -c -P "[\x{3040}-\x{309F}\x{30A0}-\x{30FF}]" "dist/$L/index.html")
+  echo "$L: $hits 平假名/片假名 occurrences"
+done
+# 預期：0 / 0
+
+# 5. LANGUAGES_REGISTRY SSOT 對齊
+bash scripts/tools/check-hardcoded-langs.sh
+# 預期：✅ 無 hardcoded language array 違反
+
+# 6. i18n coverage audit（看哪些語言 module 缺 keys）
+bash scripts/tools/i18n-coverage-audit.sh
+# 預期：知道目前覆蓋率，發現大幅退步主動修
+```
+
+**任何一項失敗 = revert 該 commit，不 ship**。歷史教訓：Tailwind Phase 6 反向 sed 讓 ja/ko 壞 2 天 / fr 上線 cp + sed 漏抓日文 prose 持續 1 天 / fr/es 路由疊加 cascade 4 天才被發現——三次都因為缺這層 smoke test。
+
+**對於 SOP 心理摩擦**：跑全套 6 步只要 ~3 分鐘（npm build 是大宗）。如果 commit 不涉及 i18n/multilingual，跳過此 section；只要涉及就強制跑。
+
 ---
 
 ### Stage 5: CROSS-LINK（交叉連結）
