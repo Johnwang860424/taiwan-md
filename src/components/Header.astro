@@ -1449,32 +1449,37 @@ const categoryList = [
   }
 
   /* =============================================
-     ENGLISH — collapse to mobile earlier (≤1024px)
+     TABLET / SMALL DESKTOP — collapse to mobile menu (≤1024px)
+
+     2026-04-25 β7：對應 issue #573（@assanges 報告），原本只有 EN
+     在 1024px collapse，其他語言（zh-TW / ja / ko / fr / es）在
+     768-1023px 會被裁切（dropdown UI + 5 lang switcher 加進來後尤甚）。
+     現在所有語言統一在 ≤1024px collapse 為 mobile menu。
   ============================================= */
   @media (max-width: 1024px) {
-    :global(html[lang='en']) .nav-desktop {
+    .nav-desktop {
       display: none;
     }
-    :global(html[lang='en']) .gh-link {
+    .gh-link {
       display: none;
     }
-    :global(html[lang='en']) .menu-toggle {
+    .menu-toggle {
       display: flex;
       order: 4;
     }
-    :global(html[lang='en']) :global(.brand-mark) {
+    :global(.brand-mark) {
       margin-right: auto;
     }
-    :global(html[lang='en']) .search-toggle {
+    .search-toggle {
       order: 2;
     }
-    :global(html[lang='en']) .search-toggle kbd {
+    .search-toggle kbd {
       display: none;
     }
-    :global(html[lang='en']) .lang-toggle {
+    .lang-toggle {
       order: 3;
     }
-    :global(html[lang='en']) .nav-mobile {
+    .nav-mobile {
       position: absolute;
       top: 100%;
       left: 0.75rem;
@@ -1492,16 +1497,16 @@ const categoryList = [
         0 18px 42px rgba(0, 0, 0, 0.35),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
     }
-    :global(html[lang='en']) .scrolled .nav-mobile {
+    .scrolled .nav-mobile {
       background: rgba(255, 255, 255, 0.995);
       backdrop-filter: blur(32px);
       border: 1px solid rgba(0, 0, 0, 0.08);
       box-shadow: 0 18px 42px rgba(15, 23, 42, 0.14);
     }
-    :global(html[lang='en']) .nav-mobile.open {
+    .nav-mobile.open {
       display: flex;
     }
-    :global(html[lang='en']) .nav-mobile .nav-link {
+    .nav-mobile .nav-link {
       padding: 0.55rem 0.2rem;
       font-size: 0.95rem;
       color: rgba(255, 255, 255, 0.8);
@@ -1509,11 +1514,11 @@ const categoryList = [
       border-radius: 0;
       background: transparent;
     }
-    :global(html[lang='en']) .scrolled .nav-mobile .nav-link {
+    .scrolled .nav-mobile .nav-link {
       color: #334155;
       border-bottom-color: #f1f5f9;
     }
-    :global(html[lang='en']) .nav-mobile .nav-link::after {
+    .nav-mobile .nav-link::after {
       display: none;
     }
   }
