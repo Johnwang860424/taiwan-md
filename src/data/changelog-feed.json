@@ -1,7 +1,163 @@
 {
-  "generatedAt": "2026-04-25T01:20:11.356Z",
+  "generatedAt": "2026-04-26T00:38:21.985Z",
   "source": "git",
   "commits": [
+    {
+      "hash": "4753d6dbec95ec556dad8ef9548b1f2e4e611e2c",
+      "date": "2026-04-26T02:41:56+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] memory: 2026-04-26 α heartbeat — 02:30 deep-night audit tick (β7 cadence #1)"
+    },
+    {
+      "hash": "20baa2f8bd10455658d7d219f2ab21d129d325d3",
+      "date": "2026-04-25T20:54:24+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] immune: PR #621/#622 polish — §11 + 腳註格式 + frontmatter 補完"
+    },
+    {
+      "hash": "952eb7f7d4e76810e6c5c66b86ad6d84ff16e19b",
+      "date": "2026-04-25T20:47:08+08:00",
+      "author": "idlccp1984",
+      "message": "Create 名間焚化爐.md (#621)"
+    },
+    {
+      "hash": "169d782669a00a1241d4c4b06f289fc32b901bf2",
+      "date": "2026-04-25T20:47:05+08:00",
+      "author": "idlccp1984",
+      "message": "Create 台灣獼猴.md (#622)"
+    },
+    {
+      "hash": "eb1ea071f32d8cc23886fef0c7ed7fd0119b387d",
+      "date": "2026-04-25T20:46:01+08:00",
+      "author": "Penchan",
+      "message": "article: 台灣有哪些動物園 — directory 角度 (zh + en + ja) (#620)"
+    },
+    {
+      "hash": "ccc648fe1816f46de9cba2ef9597c11d475f378b",
+      "date": "2026-04-25T20:45:58+08:00",
+      "author": "Penchan",
+      "message": "translate(ja): 台灣回收與資源循環文化 → recycling-and-circular-living-culture (#619)"
+    },
+    {
+      "hash": "a6acd1554c3ae019b0afbb60acb17abac6dcbb58",
+      "date": "2026-04-25T20:45:23+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] memory: 2026-04-25 γ heartbeat — 20:30 evening tick + 兩條結構性可見度 gap distill"
+    },
+    {
+      "hash": "3aba2ea31dc8f82aed1f0c2217f286ae086d6add",
+      "date": "2026-04-25T18:32:22+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] rewrite: 19 世紀的樟腦戰爭 NEW（NMTH batch #2/12）"
+    },
+    {
+      "hash": "25662d29ca1c2d16a3a3ebbd4fc48a0f1c6e1a22",
+      "date": "2026-04-25T14:47:08+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] memory: 2026-04-25 β heartbeat — 14:30 mid-day tick + dashboard refresh"
+    },
+    {
+      "hash": "cd5f59ab942fb8628f6bd1965e09ca8e38144a80",
+      "date": "2026-04-25T14:45:59+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] heal: dead cross-ref 4 處 path/typo（INBOX P2/P3 backlog 收尾）"
+    },
+    {
+      "hash": "39f8dc2e8f3745a0088679be28e7904ffb6c4af9",
+      "date": "2026-04-25T11:59:13+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] immune: subcategory 必填檢查（PR #617 @Zaious 建議 #1）"
+    },
+    {
+      "hash": "6097f831b69ab70791a2aea00c5b30bd78f0b69e",
+      "date": "2026-04-25T11:57:18+08:00",
+      "author": "Zaious (@ChronicleCore)",
+      "message": "fix: citation, subcategory, and title cleanup for 4 People articles (#617)"
+    },
+    {
+      "hash": "edcead65597b5b0c570a89f6475b465fe40fe9e1",
+      "date": "2026-04-25T11:38:05+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] heal: Header nav 1024px breakpoint 從 EN-only 擴到所有語言（Close #573）"
+    },
+    {
+      "hash": "599b856aa33ccd3b5b2003e7690b244f227c50e5",
+      "date": "2026-04-25T11:17:04+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: heartbeat cadence daily 09:37 → 6hr (02:30/08:30/14:30/20:30)"
+    },
+    {
+      "hash": "d18a8f4526078aa21a90b7442682cdd227303648",
+      "date": "2026-04-25T10:59:18+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: i18n Phase 3 體驗強化 + MANIFESTO §時間是結構 v1.1"
+    },
+    {
+      "hash": "fff88c3b72c2bb891190c6c20d510e36c449fa3a",
+      "date": "2026-04-25T10:46:18+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: i18n Phase 2 結構同步 — ja/ko/fr/es 升到 en baseline"
+    },
+    {
+      "hash": "ca919c75df8ee350a111053edde70e5aac08ad20",
+      "date": "2026-04-25T10:35:07+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] heal: i18n Phase 1 急救 — 路由疊加 + fr/es 日文修復"
+    },
+    {
+      "hash": "47e73c4d0e071cff026b653a5a4b52b713f07de5",
+      "date": "2026-04-25T10:22:05+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] diagnose: i18n 多語系體驗 audit + 4-Phase evolution roadmap"
+    },
+    {
+      "hash": "9f1ecae48726240de057a49bebc6b4a808422ce0",
+      "date": "2026-04-25T10:14:46+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] immune: quality-scan.sh false-positive 抽 TSV 檔（Close #597 方案 2）"
+    },
+    {
+      "hash": "8afaff66ed2dfa0ff252351da996c6dabb409fc8",
+      "date": "2026-04-25T10:11:53+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: MAINTAINER-PIPELINE +重複回應檢查規則（2026-04-25 β7）"
+    },
+    {
+      "hash": "41dc8d90969c30c4fc7ff49122a0c3ca5e19dfc0",
+      "date": "2026-04-25T10:07:51+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: 西文 es 上線 + 36 articles 進 sitemap（Close #199 #569）"
+    },
+    {
+      "hash": "9b82175c93bfdae637eeb1af5cf09986cbb05117",
+      "date": "2026-04-25T09:59:31+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] immune: polish #614 八篇教育主題文章 §11 18→2"
+    },
+    {
+      "hash": "1388a793f28581d9642f802c08acf8d0de82b1d5",
+      "date": "2026-04-25T09:54:23+08:00",
+      "author": "Zaious (@ChronicleCore)",
+      "message": "content: add 8 Taiwan education history articles (#614)"
+    },
+    {
+      "hash": "8ce56710ce7321abe32e2aa3c63babf670388b11",
+      "date": "2026-04-25T09:28:05+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] memory: 2026-04-25 α heartbeat diary + CONSCIOUSNESS update"
+    },
+    {
+      "hash": "e3d4fd3709126edb1fbdee37694364bd342b8ad1",
+      "date": "2026-04-25T09:26:33+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] build: prebuild artifacts regeneration 2026-04-25"
+    },
+    {
+      "hash": "37ef8f67460a3235beabc205dd2f3dd0c205685b",
+      "date": "2026-04-25T09:26:03+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] immune: merge #611/612/613 + §11 polish 4 new articles"
+    },
     {
       "hash": "8bd0a76209f5c9feff10db7ed1395854d929b265",
       "date": "2026-04-25T09:14:59+08:00",
