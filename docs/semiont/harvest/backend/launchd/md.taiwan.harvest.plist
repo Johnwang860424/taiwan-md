@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Taiwan.md Harvest Engine — launchd agent
+  ─────────────────────────────────────────
+  Install: cp this file → ~/Library/LaunchAgents/md.taiwan.harvest.plist
+           launchctl bootstrap gui/$UID ~/Library/LaunchAgents/md.taiwan.harvest.plist
+  Status:  launchctl print gui/$UID/md.taiwan.harvest
+  Stop:    launchctl bootout gui/$UID/md.taiwan.harvest
+  Logs:    tail -f ~/Library/Logs/taiwan-md-harvest/{stdout,stderr}.log
+
+  WorkingDirectory + paths assume cheyuwu's local repo at /Users/cheyuwu/Projects/taiwan-md.
+  Adjust if installing elsewhere.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>md.taiwan.harvest</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/cheyuwu/.bun/bin/bun</string>
+    <string>run</string>
+    <string>src/server.ts</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/cheyuwu/Projects/taiwan-md/docs/semiont/harvest/backend</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/Users/cheyuwu/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    <key>HARVEST_REPO_ROOT</key>
+    <string>/Users/cheyuwu/Projects/taiwan-md</string>
+    <key>HARVEST_LOG_PRETTY</key>
+    <string>false</string>
+    <key>HARVEST_LOG_LEVEL</key>
+    <string>info</string>
+    <key>HARVEST_AUTO_COMMIT_REPORT</key>
+    <string>true</string>
+  </dict>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>KeepAlive</key>
+  <dict>
+    <key>SuccessfulExit</key>
+    <false/>
+    <key>Crashed</key>
+    <true/>
+  </dict>
+
+  <key>ThrottleInterval</key>
+  <integer>30</integer>
+
+  <key>StandardOutPath</key>
+  <string>/Users/cheyuwu/Library/Logs/taiwan-md-harvest/stdout.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/cheyuwu/Library/Logs/taiwan-md-harvest/stderr.log</string>
+
+  <key>ProcessType</key>
+  <string>Background</string>
+
+  <key>Nice</key>
+  <integer>5</integer>
+</dict>
+</plist>

@@ -59,7 +59,7 @@ export const config = {
   sessionTimeoutMs: num(process.env.HARVEST_SESSION_TIMEOUT_MIN, 90) * 60_000,
   disableCron: bool(process.env.HARVEST_DISABLE_CRON, false),
   disableWatch: bool(process.env.HARVEST_DISABLE_WATCH, false),
-  autoCommitReport: bool(process.env.HARVEST_AUTO_COMMIT_REPORT, false),
+  autoCommitReport: bool(process.env.HARVEST_AUTO_COMMIT_REPORT, true),
   // Derived paths (always relative to repoRoot).
   paths: {
     articleInbox: join(repoRoot, 'docs', 'semiont', 'ARTICLE-INBOX.md'),
