@@ -754,6 +754,21 @@ const jfClass = [
               }, 100);
             }
           }
+          // Restore `/` shortcut (was removed during MiniSearch rewrite, issue #110)
+          if (
+            e.key === '/' &&
+            !modal.classList.contains('open') &&
+            !['INPUT', 'TEXTAREA', 'SELECT'].includes(
+              (document.activeElement || document.body).tagName,
+            ) &&
+            !(document.activeElement || document.body).isContentEditable
+          ) {
+            e.preventDefault();
+            modal.classList.add('open');
+            setTimeout(function () {
+              input.focus();
+            }, 100);
+          }
         });
       }
 
