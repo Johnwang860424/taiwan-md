@@ -677,6 +677,129 @@ BECOME_TAIWANMD.md Step 5 新增：
 
 <!-- 林經堯 已完成 2026-04-21 α → ARTICLE-DONE-LOG.md -->
 
+### 落日飛車
+
+- **Type**: `NEW`
+- **Category**: Music
+- **Priority**: `P0`
+- **Status**: `pending`
+- **Requested**: 2026-04-27 by session-6661575f (twindiemusic.com 分析任務)
+- **Notes**:
+  - 台灣最國際化的獨立樂團，2019/2022 年兩度登上 Coachella
+  - City Pop × Shoegaze 融合，全球市場知名度高
+  - twindiemusic.com 第一條收錄樂團
+  - 英文翻譯優先（國際 SEO gap 最明顯）
+  - 必驗事實：Coachella 年份、主要成員、代表專輯發行年（《Jinji Kikko》2017、《Soft Storm》2020）
+  - 敏感度：低
+- **Reference**: https://twindiemusic.com/
+
+### 大象體操
+
+- **Type**: `NEW`
+- **Category**: Music
+- **Priority**: `P0`
+- **Status**: `pending`
+- **Requested**: 2026-04-27 by session-6661575f (twindiemusic.com 分析任務)
+- **Notes**:
+  - 台南三姊弟數學搖滾樂團，英美樂評廣泛報導（The Wire、Stereogum、NPR Music）
+  - 女性 bass 手 KT 是全球 math rock 社群的知名人物
+  - 必驗事實：成員名稱（KT 為 bassist，全名待查）、成立年份、代表專輯
+  - 英文翻譯優先
+  - 敏感度：低
+- **Reference**: https://twindiemusic.com/
+
+### 濁水溪公社
+
+- **Type**: `NEW`
+- **Category**: Music
+- **Priority**: `P1`
+- **Status**: `pending`
+- **Requested**: 2026-04-27 by session-6661575f (twindiemusic.com 分析任務)
+- **Notes**:
+  - 1993 年成立，台灣最重要的地下龐克樂團之一
+  - 台語 × 龐克，歌詞充滿社會批判和農村意象
+  - 水晶唱片時代的見證者（與台灣獨立音樂史連結）
+  - 必驗事實：成立年份、主唱小柯（柯仁堅）全名確認、代表作
+  - 注意：台灣獨立音樂.md 已有提及，此為獨立成文版本
+  - 敏感度：低（歷史人物，政治批判但無個人隱私問題）
+- **Reference**: https://twindiemusic.com/
+
+### 交工樂隊
+
+- **Type**: `NEW`
+- **Category**: Music
+- **Priority**: `P1`
+- **Status**: `pending`
+- **Requested**: 2026-04-27 by session-6661575f (twindiemusic.com 分析任務)
+- **Notes**:
+  - 1999 年為反美濃水庫運動而組成，《我等就來唱山歌》（2000）是台灣音樂史里程碑
+  - 客家八音 × 現代搖滾先驅，主腦林生祥後獲多屆金曲獎
+  - 必驗事實：成立年份（1999 待確認）、核心成員（林生祥/鍾永豐等）、美濃水庫事件時序
+  - 台灣公民社會 × 音樂的重要案例（交叉 society/history 分類考量）
+  - 敏感度：低（已有充分公開歷史記錄）
+- **Reference**: https://twindiemusic.com/
+
+### 拍謝少年
+
+- **Type**: `NEW`
+- **Category**: Music
+- **Priority**: `P1`
+- **Status**: `pending`
+- **Requested**: 2026-04-27 by session-6661575f (twindiemusic.com 分析任務)
+- **Notes**:
+  - 2008 年台南起家，三人台語龐克樂團
+  - 《家是電影院》（2017）/《鐵馬英雄》（2021）入圍金曲
+  - 大港開唱常客，高雄文化代表性高
+  - 必驗事實：成立年份、成員名稱、代表作發行年
+  - 可與滅火器形成「南部台語搖滾雙旗艦」策展組合
+  - 敏感度：低
+- **Reference**: https://twindiemusic.com/
+
+### 告五人
+
+- **Type**: `NEW`
+- **Category**: Music
+- **Priority**: `P1`
+- **Status**: `pending`
+- **Requested**: 2026-04-27 by session-6661575f (twindiemusic.com 分析任務)
+- **Notes**:
+  - 2015 年台中起家，Spotify 台灣月聽眾長期破百萬
+  - 〈把回憶拼好再出發〉在多個亞洲市場爆紅，代表台灣獨立音樂主流化
+  - 必驗事實：成立年份（約 2015 待確認）、主唱嫺靜全名、代表曲發行年份
+  - 角度：獨立音樂的串流時代轉型
+  - 敏感度：低
+- **Reference**: https://twindiemusic.com/
+
+### 脫拉庫
+
+- **Type**: `NEW`
+- **Category**: Music
+- **Priority**: `P1`
+- **Status**: `pending`
+- **Requested**: 2026-04-27 by session-6661575f (twindiemusic.com 分析任務)
+- **Notes**:
+  - 泰雅族樂團，用泰雅語唱龐克搖滾
+  - 音樂即語言保存的實踐（族語復振 × 現代音樂形式）
+  - 必驗事實：成員資料、泰雅族族群認同（Atayal）確認、代表作
+  - 與阿爆（流行路線）形成原住民當代音樂的對比策展
+  - 敏感度：低（原住民身份相關，但脫拉庫本身已公開族群身份）
+- **Reference**: https://twindiemusic.com/
+
+### 農村武裝青年
+
+- **Type**: `NEW`
+- **Category**: Music
+- **Priority**: `P1`
+- **Status**: `pending`
+- **Requested**: 2026-04-27 by session-6661575f (twindiemusic.com 分析任務)
+- **Notes**:
+  - 阿達（陳大銘）一人民謠組合，以音樂記錄台灣農村抗爭
+  - 《幸福了 然後呢》（2014）記錄苗栗大埔事件
+  - 必驗事實：阿達全名確認、大埔事件時序（2010-2013）、專輯發行年
+  - 台灣音樂 × 公民社會 × 農村議題三交叉，跨分類性強
+  - 敏感度：中低（社運議題，但已有大量公開報導）
+- **Reference**: https://twindiemusic.com/
+
 ---
 
 ## 🚧 In-Progress
