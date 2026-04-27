@@ -254,10 +254,24 @@
     font-weight: 600;
   }
 
-  /* justfont loading transition — smooth font swap */
-  .jf-active *,
-  .jf-inactive * {
-    transition: opacity 0.3s ease-out;
+  /* FOUC prevention: hide body while justfont is loading (#401).
+     justfont SDK adds jf-loading to <html> synchronously before body
+     renders, switches to jf-active (or jf-inactive on timeout) when
+     fonts are ready. Hiding with opacity (not visibility) preserves
+     layout so there's no shift when content appears. */
+  html.jf-loading > body {
+    opacity: 0;
+  }
+  html.jf-active > body,
+  html.jf-inactive > body {
+    opacity: 1;
+    transition: opacity 0.25s ease-out;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.jf-active > body,
+    html.jf-inactive > body {
+      transition: none;
+    }
   }
 
   /* ------------------------------------------------------------------------

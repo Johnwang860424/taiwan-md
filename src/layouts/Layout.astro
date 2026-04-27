@@ -180,6 +180,18 @@ const jfClass = [
       gtag('js', new Date());
       gtag('config', 'G-JGC5W00N7T');
     </script>
+    <!-- FOUC fallback (#401): if justfont takes > 800ms, reveal body anyway -->
+    <script is:inline>
+      (function () {
+        setTimeout(function () {
+          var html = document.documentElement;
+          if (html.classList.contains('jf-loading')) {
+            html.classList.remove('jf-loading');
+            html.classList.add('jf-inactive');
+          }
+        }, 800);
+      })();
+    </script>
     <!-- justfont Webfont (Production) -->
     <script is:inline>
       var _jf = _jf || [];
