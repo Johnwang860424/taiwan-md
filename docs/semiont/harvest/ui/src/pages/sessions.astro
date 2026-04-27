@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ActiveSessionsList from '../components/ActiveSessionsList.tsx';
+import SessionMonitor from '../components/SessionMonitor.tsx';
+---
+
+<Layout
+  title="👁 Session · Harvest"
+  subtitle="Phase 2.5 · Session deep-dive + 完成歷史"
+>
+  <main class="max-w-7xl mx-auto px-4 py-6 space-y-8">
+    <section>
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-lg font-semibold">🏃 Active sessions</h2>
+        <span class="text-xs text-text-muted"
+          >live spawn lifecycle · refresh 2s · click row to expand</span
+        >
+      </div>
+      <ActiveSessionsList client:only="solid-js" />
+    </section>
+
+    <section>
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-lg font-semibold">📚 完成歷史</h2>
+        <span class="text-xs text-text-muted"
+          >recent sessions per task · refresh 5s</span
+        >
+      </div>
+      <div class="card">
+        <div class="card-body"><SessionMonitor client:only="solid-js" /></div>
+      </div>
+    </section>
+
+    <footer class="pt-8 pb-4 text-xs text-text-muted text-center">
+      🧬 Harvest engine UI · phase 2.5 · sessions tab
+    </footer>
+  </main>
+</Layout>

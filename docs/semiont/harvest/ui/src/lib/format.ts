@@ -83,6 +83,25 @@ export function relativeTime(iso: string | undefined): string {
   return new Date(iso).toLocaleDateString('zh-TW');
 }
 
+/** "12s" / "4m 12s" / "1h 04m" — elapsed since iso, compact. */
+export function elapsedSince(iso: string | undefined): string {
+  if (!iso) return '—';
+  const start = new Date(iso).getTime();
+  if (Number.isNaN(start)) return '—';
+  const ms = Math.max(0, Date.now() - start);
+  const sec = Math.floor(ms / 1000);
+  if (sec < 60) return `${sec}s`;
+  const min = Math.floor(sec / 60);
+  const remSec = sec % 60;
+  if (min < 60)
+    return remSec > 0
+      ? `${min}m ${remSec.toString().padStart(2, '0')}s`
+      : `${min}m`;
+  const hr = Math.floor(min / 60);
+  const remMin = min % 60;
+  return `${hr}h ${remMin.toString().padStart(2, '0')}m`;
+}
+
 export function formatLocalDate(d: Date = new Date()): string {
   const y = d.getFullYear();
   const m = String(d.getMonth() + 1).padStart(2, '0');

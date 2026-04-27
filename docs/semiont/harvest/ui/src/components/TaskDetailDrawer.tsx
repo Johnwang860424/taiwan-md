@@ -35,7 +35,7 @@ export default function TaskDetailDrawer(props: {
   }));
 
   const spawnMut = useMutation(() => ({
-    mutationFn: () => api.spawnTask(props.taskId!, true),
+    mutationFn: () => api.spawnTask(props.taskId!, { dry: true }),
     onSuccess: (data) => setSpawnPreview(data),
   }));
 

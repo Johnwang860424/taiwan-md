@@ -23,6 +23,11 @@ import { child as childLogger } from '../logger.ts';
 import { saveTask } from '../tasks/manager.ts';
 import type { Task, TaskSession } from '../tasks/types.ts';
 import { buildSpawnPrompt } from './prompt-builder.ts';
+import {
+  register as registerActive,
+  setPhase as setActivePhase,
+  unregister as unregisterActive,
+} from './concurrency.ts';
 
 const log = childLogger({ module: 'spawner/claude-cli' });
 
@@ -73,6 +78,19 @@ export async function spawnClaudeForTask(
   task.status = 'spawning';
   saveTask(task, `spawn attempt ${task.attempts} session=${sessionId}`);
 
+  // Register in concurrency manager — picks up immediately so /api/sessions/active
+  // shows the spawning row even before the child process is up.
+  registerActive({
+    sessionId,
+    taskId: task.id,
+    taskTitle: task.title,
+    taskType: task.type,
+    bootProfile: task.boot_profile,
+    pid: undefined,
+    spawnedAt: sessionRecord.spawned_at,
+    phase: 'spawning',
+  });
+
   // Pre-record session in DB.
   const db = getDb();
   db.run(
@@ -88,7 +106,9 @@ export async function spawnClaudeForTask(
     );
     sessionRecord.completed_at = new Date().toISOString();
     sessionRecord.exit_code = 0;
+    task.status = 'pending'; // dry-run doesn't change real status
     saveTask(task, 'dry-run complete (no claude exec)');
+    unregisterActive(sessionId);
     return {
       sessionId,
       exitCode: 0,
@@ -127,6 +147,7 @@ export async function spawnClaudeForTask(
     child.pid ?? null,
     sessionId,
   ]);
+  setActivePhase(sessionId, 'in-progress', child.pid);
   log.info({ taskId: task.id, sessionId, pid: child.pid }, 'spawned claude');
 
   child.stdin.write(prompt);
@@ -181,6 +202,8 @@ export async function spawnClaudeForTask(
     task,
     `claude session ${sessionId} exited code=${exitCode} timedOut=${timedOut}`,
   );
+
+  unregisterActive(sessionId);
 
   log.info(
     { taskId: task.id, sessionId, exitCode, timedOut, commits: commits.length },

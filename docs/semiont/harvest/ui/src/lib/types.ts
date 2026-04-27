@@ -111,3 +111,32 @@ export interface TaskListResponse {
   count: number;
   tasks: Task[];
 }
+
+/**
+ * Phase 2.5 — concurrent spawn lifecycle.
+ * Source of truth: backend /api/sessions/active endpoint.
+ */
+export interface ActiveSession {
+  sessionId: string;
+  taskId: string;
+  taskTitle: string;
+  taskType: string;
+  bootProfile: string;
+  pid?: number;
+  spawnedAt: string;
+  phase: 'spawning' | 'in-progress';
+}
+
+export interface ActiveSessionsResponse {
+  count: number;
+  max: number;
+  sessions: ActiveSession[];
+}
+
+export interface SpawnAcceptedResponse {
+  task_id: string;
+  status: 'spawning';
+  active_now: number;
+  max_concurrent: number;
+  message?: string;
+}

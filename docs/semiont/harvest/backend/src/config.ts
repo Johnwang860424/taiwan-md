@@ -60,6 +60,8 @@ export const config = {
   disableCron: bool(process.env.HARVEST_DISABLE_CRON, false),
   disableWatch: bool(process.env.HARVEST_DISABLE_WATCH, false),
   autoCommitReport: bool(process.env.HARVEST_AUTO_COMMIT_REPORT, true),
+  /** Max concurrent claude sessions. Above this → spawn 409s with queued advice. */
+  maxConcurrentSessions: num(process.env.HARVEST_MAX_CONCURRENT, 3),
   // Derived paths (always relative to repoRoot).
   paths: {
     articleInbox: join(repoRoot, 'docs', 'semiont', 'ARTICLE-INBOX.md'),

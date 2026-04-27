@@ -73,6 +73,7 @@ app.use('*', async (c, next) => {
   }
   if (c.req.method === 'OPTIONS') return c.body(null, 204);
   await next();
+  return;
 });
 
 app.get('/api/health', (c) => {
@@ -174,20 +175,102 @@ app.post('/api/tasks/:id/cancel', (c) => {
 });
 
 /**
- * Manual spawn trigger. Builds the prompt and (if dry=true OR
- * HARVEST_DISABLE_CLAUDE=true) returns it without invoking the CLI. Live
- * spawn is wired but cheyu's MVP verification doesn't fire it; we keep the
- * happy path callable.
+ * Manual spawn trigger.
+ *
+ * Behaviour:
+ * - dry=true: synchronous, returns the built prompt without invoking claude.
+ * - dry=false (default): **fire-and-forget**. Returns 202 Accepted immediately
+ *   with the session metadata. The actual claude run continues in the
+ *   background; the UI sees status transitions via /api/tasks polling and
+ *   /api/sessions/active. Multiple concurrent spawns are allowed up to
+ *   HARVEST_MAX_CONCURRENT (default 3).
+ * - 409 Conflict if (a) task is already in `spawning` or `in-progress` state
+ *   for one of its sessions, or (b) max concurrent reached.
  */
 app.post('/api/tasks/:id/spawn', async (c) => {
   const id = c.req.param('id');
   const task = getTask(id);
   if (!task) return c.json({ error: 'not found' }, 404);
   const dry = c.req.query('dry') === 'true';
-  // Lazy-import to avoid pulling node:child_process unless needed.
+
   const { spawnClaudeForTask } = await import('./spawner/claude-cli.ts');
-  const result = await spawnClaudeForTask(task, { dryRun: dry });
-  return c.json(result);
+  const { canSpawn, activeForTask, activeCount, maxConcurrent } =
+    await import('./spawner/concurrency.ts');
+
+  if (dry) {
+    const result = await spawnClaudeForTask(task, { dryRun: true });
+    return c.json(result);
+  }
+
+  const existing = activeForTask(id);
+  if (existing) {
+    return c.json(
+      {
+        error: 'task already has an active session',
+        active_session_id: existing.sessionId,
+        phase: existing.phase,
+      },
+      409,
+    );
+  }
+
+  if (!canSpawn()) {
+    return c.json(
+      {
+        error: 'max concurrent sessions reached',
+        active: activeCount(),
+        max: maxConcurrent(),
+        hint: 'wait for a session to finish or raise HARVEST_MAX_CONCURRENT',
+      },
+      409,
+    );
+  }
+
+  if (
+    task.status !== 'pending' &&
+    task.status !== 'failed' &&
+    task.status !== 'awaiting-cheyu'
+  ) {
+    return c.json(
+      {
+        error: `cannot spawn task in status=${task.status} (allowed: pending, failed, awaiting-cheyu)`,
+      },
+      409,
+    );
+  }
+
+  // Fire-and-forget. We don't await — return 202 immediately.
+  spawnClaudeForTask(task, { dryRun: false }).catch((err) => {
+    logger.error(
+      { err: String(err), taskId: id },
+      'background spawn failed unexpectedly',
+    );
+  });
+
+  return c.json(
+    {
+      task_id: id,
+      status: 'spawning',
+      active_now: activeCount() + 1,
+      max_concurrent: maxConcurrent(),
+      message: 'spawn dispatched; poll /api/tasks/:id or /api/sessions/active',
+    },
+    202,
+  );
+});
+
+/**
+ * Live snapshot of currently-running claude sessions (in-memory).
+ * Polled by the UI header badge + Sections that need real-time runs.
+ */
+app.get('/api/sessions/active', async (c) => {
+  const { listActive, activeCount, maxConcurrent } =
+    await import('./spawner/concurrency.ts');
+  return c.json({
+    count: activeCount(),
+    max: maxConcurrent(),
+    sessions: listActive(),
+  });
 });
 
 /**

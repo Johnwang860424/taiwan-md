@@ -1,9 +1,18 @@
 ---
 import '../styles/global.css';
+import BackendStatusBanner from '../components/BackendStatusBanner.tsx';
+import HeaderBadge from '../components/HeaderBadge.tsx';
+import Tabs from '../components/Tabs.astro';
+
 interface Props {
   title?: string;
+  /** Subtitle shown under "Taiwan.md · Harvest" — e.g. "Phase 2.5 · Live Operations" */
+  subtitle?: string;
 }
-const { title = 'Harvest · Taiwan.md' } = Astro.props;
+const {
+  title = 'Harvest · Taiwan.md',
+  subtitle = 'Phase 2.5 Dashboard · localhost:4321 → backend :4319',
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -14,12 +23,28 @@ const { title = 'Harvest · Taiwan.md' } = Astro.props;
     <meta name="color-scheme" content="dark" />
     <meta
       name="description"
-      content="Taiwan.md Harvest engine dashboard — Phase 2 Web UI."
+      content="Taiwan.md Harvest engine dashboard — Phase 2.5 Web UI."
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
   <body class="min-h-screen bg-bg-base text-text-primary">
+    <header
+      class="border-b border-line bg-bg-surface/60 backdrop-blur sticky top-0 z-30"
+    >
+      <div class="max-w-7xl mx-auto px-4 py-3 flex items-center gap-3">
+        <span class="text-2xl">🧬</span>
+        <div class="leading-tight min-w-0">
+          <div class="text-sm font-semibold">Taiwan.md · Harvest</div>
+          <div class="text-xs text-text-muted truncate">{subtitle}</div>
+        </div>
+        <div class="ml-auto flex items-center gap-2">
+          <BackendStatusBanner client:only="solid-js" />
+          <HeaderBadge client:only="solid-js" />
+        </div>
+      </div>
+    </header>
+    <Tabs />
     <slot />
   </body>
 </html>

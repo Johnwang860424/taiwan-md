@@ -1,44 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import BackendStatusBanner from '../components/BackendStatusBanner.tsx';
-import VitalRadar from '../components/VitalRadar.tsx';
+import ActiveSessionsBanner from '../components/ActiveSessionsBanner.tsx';
 import TodayTasks from '../components/TodayTasks.tsx';
 import TaskQueue from '../components/TaskQueue.tsx';
-import DailyReport from '../components/DailyReport.tsx';
-import SessionMonitor from '../components/SessionMonitor.tsx';
 import ManualInput from '../components/ManualInput.tsx';
-import HistoryLog from '../components/HistoryLog.tsx';
 ---
 
-<Layout title="🧬 Harvest · Taiwan.md">
-  <header
-    class="border-b border-line bg-bg-surface/60 backdrop-blur sticky top-0 z-30"
-  >
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center gap-3">
-      <span class="text-2xl">🧬</span>
-      <div class="leading-tight">
-        <div class="text-sm font-semibold">Taiwan.md · Harvest</div>
-        <div class="text-xs text-text-muted">
-          Phase 2 Dashboard · localhost:4321 → backend :4319
-        </div>
-      </div>
-      <div class="ml-auto">
-        <BackendStatusBanner client:only="solid-js" />
-      </div>
-    </div>
-  </header>
-
+<Layout
+  title="🧬 即時運作 · Harvest"
+  subtitle="Phase 2.5 · Live Operations · 即時運作 / 任務佇列 / 手動操作"
+>
   <main class="max-w-7xl mx-auto px-4 py-6 space-y-8">
-    <!-- Section 1: Vital signs -->
-    <section>
-      <div class="flex items-center justify-between mb-3">
-        <h2 class="text-lg font-semibold">🫀 生命徵象</h2>
-        <span class="text-xs text-text-muted">organ scores · refresh 30s</span>
-      </div>
-      <VitalRadar client:only="solid-js" />
-    </section>
+    <!-- Live spawn banner — only renders when count > 0 -->
+    <ActiveSessionsBanner client:only="solid-js" />
 
-    <!-- Section 2 + Section 6 side by side on desktop -->
     <div class="grid lg:grid-cols-[1fr,1fr] gap-6">
       <section>
         <div class="flex items-center justify-between mb-3">
@@ -63,12 +38,11 @@ import HistoryLog from '../components/HistoryLog.tsx';
       </section>
     </div>
 
-    <!-- Section 3: Task queue -->
     <section>
       <div class="flex items-center justify-between mb-3">
         <h2 class="text-lg font-semibold">📋 任務佇列</h2>
         <span class="text-xs text-text-muted"
-          >all tasks · click row for detail</span
+          >all tasks · click row for detail · ▶️ to spawn</span
         >
       </div>
       <div class="card">
@@ -76,42 +50,8 @@ import HistoryLog from '../components/HistoryLog.tsx';
       </div>
     </section>
 
-    <!-- Section 4 + Section 5 side by side -->
-    <div class="grid lg:grid-cols-[1.4fr,1fr] gap-6">
-      <section>
-        <div class="flex items-center justify-between mb-3">
-          <h2 class="text-lg font-semibold">📜 每日 status report</h2>
-          <span class="text-xs text-text-muted">refresh 30s</span>
-        </div>
-        <div class="card">
-          <div class="card-body"><DailyReport client:only="solid-js" /></div>
-        </div>
-      </section>
-
-      <section>
-        <div class="flex items-center justify-between mb-3">
-          <h2 class="text-lg font-semibold">👁 Session 監控</h2>
-          <span class="text-xs text-text-muted">refresh 5s</span>
-        </div>
-        <div class="card">
-          <div class="card-body"><SessionMonitor client:only="solid-js" /></div>
-        </div>
-      </section>
-    </div>
-
-    <!-- Section 7: History -->
-    <section>
-      <div class="flex items-center justify-between mb-3">
-        <h2 class="text-lg font-semibold">🗂 歷史 log</h2>
-        <span class="text-xs text-text-muted">terminal tasks · 7/30d</span>
-      </div>
-      <div class="card">
-        <div class="card-body"><HistoryLog client:only="solid-js" /></div>
-      </div>
-    </section>
-
     <footer class="pt-8 pb-4 text-xs text-text-muted text-center">
-      🧬 Harvest engine UI · phase 2 · MVP
+      🧬 Harvest engine UI · phase 2.5 · 3-tab structure
     </footer>
   </main>
 </Layout>

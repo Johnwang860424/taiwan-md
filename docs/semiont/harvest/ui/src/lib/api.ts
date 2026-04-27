@@ -5,8 +5,10 @@
  */
 
 import type {
+  ActiveSessionsResponse,
   HealthResponse,
   NewTaskBody,
+  SpawnAcceptedResponse,
   Task,
   TaskListResponse,
   VitalsResponse,
@@ -70,7 +72,8 @@ export const api = {
     return request<TaskListResponse>(`/api/tasks${qs ? `?${qs}` : ''}`);
   },
 
-  getTask: (id: string) => request<Task>(`/api/tasks/${id}`),
+  getTask: (id: string) =>
+    request<Task>(`/api/tasks/${encodeURIComponent(id)}`),
 
   createTask: (body: NewTaskBody) =>
     request<Task>('/api/tasks', {
@@ -79,15 +82,26 @@ export const api = {
     }),
 
   cancelTask: (id: string) =>
-    request<Task>(`/api/tasks/${id}/cancel`, { method: 'POST' }),
+    request<Task>(`/api/tasks/${encodeURIComponent(id)}/cancel`, {
+      method: 'POST',
+    }),
 
-  spawnTask: (id: string, dryRun = true) =>
-    request<unknown>(
-      `/api/tasks/${id}/spawn?dry=${dryRun ? 'true' : 'false'}`,
-      {
-        method: 'POST',
-      },
-    ),
+  /**
+   * Spawn a task. dry=true returns synchronous prompt preview; dry=false
+   * returns 202 Accepted (fire-and-forget) and the spawn happens in the
+   * background. 409 = task in wrong state OR concurrent limit reached.
+   *
+   * Task IDs may contain `#`, CJK, parens — encode aggressively.
+   */
+  spawnTask: (id: string, opts: { dry?: boolean } = {}) => {
+    const dry = opts.dry ?? false;
+    return request<SpawnAcceptedResponse | unknown>(
+      `/api/tasks/${encodeURIComponent(id)}/spawn?dry=${dry ? 'true' : 'false'}`,
+      { method: 'POST' },
+    );
+  },
+
+  activeSessions: () => request<ActiveSessionsResponse>('/api/sessions/active'),
 
   reportToday: () =>
     request<string>('/api/reports/today', { asText: true }).catch((err) => {

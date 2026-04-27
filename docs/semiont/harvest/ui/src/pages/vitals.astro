@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import VitalRadar from '../components/VitalRadar.tsx';
+import DailyReport from '../components/DailyReport.tsx';
+import HistoryLog from '../components/HistoryLog.tsx';
+---
+
+<Layout
+  title="🫀 生命徵象 · Harvest"
+  subtitle="Phase 2.5 · 生命徵象 + 報告 + 歷史"
+>
+  <main class="max-w-7xl mx-auto px-4 py-6 space-y-8">
+    <section>
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-lg font-semibold">🫀 生命徵象</h2>
+        <span class="text-xs text-text-muted">organ scores · refresh 30s</span>
+      </div>
+      <VitalRadar client:only="solid-js" />
+    </section>
+
+    <section>
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-lg font-semibold">📜 每日 status report</h2>
+        <span class="text-xs text-text-muted">refresh 30s</span>
+      </div>
+      <div class="card">
+        <div class="card-body"><DailyReport client:only="solid-js" /></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-lg font-semibold">🗂 歷史 log</h2>
+        <span class="text-xs text-text-muted">terminal tasks · 7/30d</span>
+      </div>
+      <div class="card">
+        <div class="card-body"><HistoryLog client:only="solid-js" /></div>
+      </div>
+    </section>
+
+    <footer class="pt-8 pb-4 text-xs text-text-muted text-center">
+      🧬 Harvest engine UI · phase 2.5 · vitals tab
+    </footer>
+  </main>
+</Layout>
