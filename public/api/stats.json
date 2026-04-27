@@ -1,8 +1,8 @@
 {
-  "totalArticles": 2276,
+  "totalArticles": 2282,
   "totalCategories": 21,
   "estimatedContributors": 57,
-  "totalTags": 5322,
+  "totalTags": 5341,
   "categories": [
     {
       "name": "History",
@@ -10,15 +10,15 @@
     },
     {
       "name": "ko",
-      "count": 481
+      "count": 480
     },
     {
       "name": "Society",
-      "count": 52
+      "count": 53
     },
     {
       "name": "en",
-      "count": 412
+      "count": 411
     },
     {
       "name": "Culture",
@@ -26,15 +26,15 @@
     },
     {
       "name": "ja",
-      "count": 269
+      "count": 268
     },
     {
       "name": "People",
-      "count": 188
+      "count": 190
     },
     {
       "name": "Music",
-      "count": 25
+      "count": 29
     },
     {
       "name": "Food",
@@ -46,23 +46,23 @@
     },
     {
       "name": "Technology",
-      "count": 37
+      "count": 38
     },
     {
       "name": "Lifestyle",
-      "count": 20
+      "count": 21
+    },
+    {
+      "name": "Geography",
+      "count": 23
     },
     {
       "name": "Art",
-      "count": 31
+      "count": 30
     },
     {
       "name": "Nature",
       "count": 32
-    },
-    {
-      "name": "Geography",
-      "count": 21
     },
     {
       "name": "About",
@@ -78,7 +78,7 @@
     },
     {
       "name": "fr",
-      "count": 480
+      "count": 479
     },
     {
       "name": "es",
@@ -172,13 +172,13 @@
     }
   ],
   "languageDistribution": {
-    "zh-TW": 2276,
+    "zh-TW": 2282,
     "en": 0
   },
-  "lastUpdated": "2026-04-27T12:39:04.177Z",
+  "lastUpdated": "2026-04-27T18:38:41.506Z",
   "stars": 958,
   "forks": 143,
-  "zhPages": 1864,
-  "enPages": 412,
-  "totalPages": 2276
+  "zhPages": 1871,
+  "enPages": 411,
+  "totalPages": 2282
 }

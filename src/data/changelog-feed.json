@@ -1,7 +1,355 @@
 {
-  "generatedAt": "2026-04-27T12:39:03.476Z",
+  "generatedAt": "2026-04-27T18:38:41.015Z",
   "source": "git",
   "commits": [
+    {
+      "hash": "131e1ac1d2ae2d56e5f9ab6d02d9676d63f91be6",
+      "date": "2026-04-28T01:56:19+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] heal: build slowness fix + ε diary 完整補記"
+    },
+    {
+      "hash": "c404895110565c4227959c062f4e94d4a111bfb6",
+      "date": "2026-04-28T01:49:17+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] heal: ε diary 補記 — 越過任務邊界的反思 + Harvest 計畫整體評估"
+    },
+    {
+      "hash": "3745912023ff3b3a02f510e0832a9c078a3386c5",
+      "date": "2026-04-28T01:25:17+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] memory: 2026-04-27 ε — Harvest engine ship → stress test → autonomous run"
+    },
+    {
+      "hash": "6ff75b614b18a407f691a6e68f9ae48c14981fab",
+      "date": "2026-04-28T01:16:26+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-28-006-Polish-Issue-_107-__-good-first-article-_____-55c2d012"
+    },
+    {
+      "hash": "8951c944151d01a4fca1d789c1538926c2dfbfa9",
+      "date": "2026-04-28T01:16:00+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] article-evolve: 修復台灣海外僑民與離散社群 MANIFESTO §11 Tier 1 違規 [sid:55c2d012]"
+    },
+    {
+      "hash": "ea783b6e1d902ed440949feb7552ee386cb5ed34",
+      "date": "2026-04-28T01:12:47+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-28-005-PR-_651-Create-____md-a5dd564d"
+    },
+    {
+      "hash": "6fee3ae61dacaec198f9bd973252b8cc99ca8a32",
+      "date": "2026-04-28T01:12:13+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] add: 日月潭 Geography 條目（from PR #651 @idlccp1984，維護者整合修正）[sid:a5dd564d]"
+    },
+    {
+      "hash": "8f044170585c0acc5175a27091ae43c3b3c775a8",
+      "date": "2026-04-28T01:09:13+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-28-003-PR-_653-Create-____md-a8c7cc40"
+    },
+    {
+      "hash": "56fa1bf127337df1c121d9817ef0b391add12b7a",
+      "date": "2026-04-28T01:08:18+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] pr-review: apply PR #653 尪仔標.md + footnote + editorial polish [sid:a8c7cc40]"
+    },
+    {
+      "hash": "fb3ef30701bf44ab58014bf0c46cca6bd7e8d5f8",
+      "date": "2026-04-28T01:05:57+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-28-004-PR-_652-Create-___md-14d91fe7"
+    },
+    {
+      "hash": "168debc6364944e5aa0e376e95e486124dcfbc29",
+      "date": "2026-04-28T01:05:27+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] pr-review: merge PR #652 玉山.md 並修正三類問題 [sid:14d91fe7]"
+    },
+    {
+      "hash": "67f221749ddd5f79bb303d7ce1f44d3fdfce3c8d",
+      "date": "2026-04-28T01:00:46+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-28-002-PR-_654-Create-___-095e3dc9"
+    },
+    {
+      "hash": "969713992637fb29d4c27bcb5ba8e3a968db224b",
+      "date": "2026-04-28T00:59:54+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] add: 徐熙媛 People 條目（from PR #654 @idlccp1984，維護者整合修正）[sid:095e3dc9]"
+    },
+    {
+      "hash": "74961f2ad1ec8dba0a283f09b8162977956b0d1f",
+      "date": "2026-04-28T00:58:15+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-28-001-Polish-Issue-_635-_____________-_quality-gate-278e216c"
+    },
+    {
+      "hash": "91ae043fd63f375f06cf0b397bd532f82bbbf928",
+      "date": "2026-04-28T00:57:44+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: 戰後台灣文學 — 修復 MANIFESTO §11 Tier2 縫隙密度 + Tier3 不可言說 [sid:278e216c]"
+    },
+    {
+      "hash": "22d24703b91f0dd99a50f374f325649fd41ab500",
+      "date": "2026-04-28T00:49:11+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-27-044-Polish-____-_quality-gate-failures_-0f06c86b"
+    },
+    {
+      "hash": "bb7a2ab04d949f0f96267bff94a7ed9e3f978530",
+      "date": "2026-04-28T00:48:46+08:00",
+      "author": "Che-Yu Wu",
+      "message": "polish: 拍謝少年 MANIFESTO §11 最終 violation 修復 [sid:0f06c86b]"
+    },
+    {
+      "hash": "11886b26f031858efe458e5718005c2c10adb3ed",
+      "date": "2026-04-28T00:42:36+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-27-042-Issue-_110-__-UI-UX-____-aaa0a290"
+    },
+    {
+      "hash": "70c131e6274229f2ceb6b2f949391608e5afed14",
+      "date": "2026-04-28T00:42:06+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] fix: restore / shortcut to open search modal (issue #110) [sid:aaa0a290]"
+    },
+    {
+      "hash": "00ef725a543431aacb5b3247ef220eadc17f7e46",
+      "date": "2026-04-28T00:35:50+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] add: 台灣海外僑民與離散社群 — FAPA、矽谷工程師、不在籍投票 [sid:cf63a8ff]"
+    },
+    {
+      "hash": "b6c130af37add30d74e42d312e631c8557c62bce",
+      "date": "2026-04-28T00:21:41+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-27-033-Issue-_401-_Bug_-FOUC-________-967dc483"
+    },
+    {
+      "hash": "2e99090c9ba896a89cd8e3ed36e422ad42d78392",
+      "date": "2026-04-28T00:20:51+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] fix: prevent FOUC during font loading / language switch (Issue #401) [sid:967dc483]"
+    },
+    {
+      "hash": "1b03fc054a0d76c0c6073287c29a98a58a9a2ac7",
+      "date": "2026-04-28T00:11:36+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-27-026-Issue-_635-_____________-c6e4a037"
+    },
+    {
+      "hash": "a1f4dd46a9fa0632567fc304c4d217b13a1d0a6e",
+      "date": "2026-04-28T00:10:14+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] drop: 台灣當代文學發展 Phase 4/4 — 退場並重定向至台灣文學史 [sid:c6e4a037]"
+    },
+    {
+      "hash": "620becfc44c5548723a52ad198cee92a5848a739",
+      "date": "2026-04-28T00:08:54+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] rewrite: 解嚴後台灣文學 EVOLVE Phase 2/4 — Issue #635 1987-2000 純化 [sid:c6e4a037]"
+    },
+    {
+      "hash": "8fbd247a97255a0442fa1fbc90d803c0b56a9c9e",
+      "date": "2026-04-28T00:02:24+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] issue-handle: add validate-china-fp-tsv.py (Issue #616 prep) [sid:387c7f7f]"
+    },
+    {
+      "hash": "b2b0e5d556da1baf39a8502e569595dc7a9e9d42",
+      "date": "2026-04-27T23:58:52+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-27-022-Polish-_____-_quality-gate-failures_-cc66e0d0"
+    },
+    {
+      "hash": "83b8a92b0ca5d31d625f7bf4bad4e398ea322e22",
+      "date": "2026-04-27T23:58:29+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] polish: 清除台語龐克三件 MANIFESTO §11 對位句型違反 [sid:cc66e0d0]"
+    },
+    {
+      "hash": "42b145b02899c3c04a82a131278e18b635fc6020",
+      "date": "2026-04-27T23:57:09+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] issue-handle: add people-title-check.sh v1.0 (Issue #618 Layer 2) [sid:5ad31b44]"
+    },
+    {
+      "hash": "b59f62a3afd9aace371db071bce2ea35c7dcf1b0",
+      "date": "2026-04-27T23:46:03+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-27-023-Polish-______-_quality-gate-failures_-de245b54"
+    },
+    {
+      "hash": "dac7394ca1b80e4a965beb47f990b08f6bf0a203",
+      "date": "2026-04-27T23:45:38+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: 農村武裝青年 — 修復 MANIFESTO §11 Tier-1 對位句型違規（4 處）[sid:de245b54]"
+    },
+    {
+      "hash": "d2137efc4a30c807915f290981b3306eec15a5da",
+      "date": "2026-04-27T23:40:24+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-27-021-Polish-____-_quality-gate-failures_-cef61ef7"
+    },
+    {
+      "hash": "c4dd4684f3b4d6f01fdfc956b8061a3e52a8c400",
+      "date": "2026-04-27T23:40:09+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] rewrite: 拍謝少年 EVOLVE — MANIFESTO §11 對位句型修復 9→2 violations [sid:cef61ef7]"
+    },
+    {
+      "hash": "31272c2c9671eec7520e9d3e772524f5a76639ec",
+      "date": "2026-04-27T23:38:36+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: 當代台灣文學 — 修復 manifesto §11 違反（Tier1 對位句型 + Tier2 重量密度）[sid:bc0431f9]"
+    },
+    {
+      "hash": "d64e7ee0cba1d239c7839682c1ed45236a0da76e",
+      "date": "2026-04-27T23:29:39+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] heal: concurrency race fix — atomic tryRegister + slot-before-await"
+    },
+    {
+      "hash": "1e9b2ffb062201a3a049970b9560916d5ec1a682",
+      "date": "2026-04-27T23:26:11+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] rewrite: 交工樂隊 NEW — 客家八音×反美濃水庫社運，四年兩張百大 [sid:bf7203f2]"
+    },
+    {
+      "hash": "23fafeaa3b8b1e8571905cc340e67a31dc3be51e",
+      "date": "2026-04-27T23:21:57+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-27-014-_____-41fabd33"
+    },
+    {
+      "hash": "242ac9e468d592afd2cf25cbe0479a8f170902e3",
+      "date": "2026-04-27T23:21:54+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-27-019-______-400880d9"
+    },
+    {
+      "hash": "d2120d8f517f552fc24679bd31bd697d2cf94658",
+      "date": "2026-04-27T23:21:37+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] rewrite: 濁水溪公社 新文章 — A級 8腳註 Stage3.5+3.6 PASS [sid:41fabd33]"
+    },
+    {
+      "hash": "46b8a7b4cf5d531acdec32585a602c18178c6331",
+      "date": "2026-04-27T23:21:30+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] rewrite: 農村武裝青年 — 從樂生到田埂，用吉他記錄台灣土地的吶喊 [sid:400880d9]"
+    },
+    {
+      "hash": "0afa678af1fa366b7df2149acbd349496a2f5f79",
+      "date": "2026-04-27T23:17:46+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-27-016-____-58b7f2fe"
+    },
+    {
+      "hash": "93704df081d7f686c678bcd6c167fdaddfa5d456",
+      "date": "2026-04-27T23:17:33+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] rewrite: 拍謝少年 NEW — 台語搖滾旗手二十年 [sid:58b7f2fe]"
+    },
+    {
+      "hash": "212b0c37df430b0401b6a2f3a44591e2a815acae",
+      "date": "2026-04-27T23:11:02+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-27-011-____Nuomi_-63c1e6d4"
+    },
+    {
+      "hash": "d6fe13b5cf8006c98677b48552320d942fb7e5c1",
+      "date": "2026-04-27T23:10:51+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] audit: 蕭上農 Stage 3.5+3.6 hallucination+atom audit + memory log [sid:63c1e6d4]"
+    },
+    {
+      "hash": "5861023738b21263e4c9688bc597915308e4a476",
+      "date": "2026-04-27T23:07:37+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-27-018-___-62915d0a"
+    },
+    {
+      "hash": "66a515c4cba2a208a4a403db55bd99fca2686e09",
+      "date": "2026-04-27T23:07:05+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] memory: harvest 2026-04-27-018-脫拉庫 [sid:62915d0a]"
+    },
+    {
+      "hash": "a1d4ceec40687b1593ce95417069b241e643d8f9",
+      "date": "2026-04-27T23:06:52+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] diagnose: 脫拉庫 — 任務前提錯誤，標記 awaiting-cheyu [sid:62915d0a]"
+    },
+    {
+      "hash": "cd0a3bad34eec77b36f9e53e255865a26262e3df",
+      "date": "2026-04-27T22:55:37+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-27-002-______-EVOLVE_Issue-_635-Phase-3-4_-c4c836f1"
+    },
+    {
+      "hash": "d604aaaa4407f9453dd750c0e9de11f8d5c5c752",
+      "date": "2026-04-27T22:54:33+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] merge harvest worktree harvest/2026-04-27-009-___rewrite-pipeline-_______-ec40174c"
+    },
+    {
+      "hash": "845aaa3571fc7244d6b137aefab9356c4e0f98d8",
+      "date": "2026-04-27T22:54:19+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] sync: 當代台灣文學 → src/content/ 投影層 [sid:c4c836f1]"
+    },
+    {
+      "hash": "5aad6d274e2777ca977eda8cde0313c3d096f194",
+      "date": "2026-04-27T22:54:19+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] diagnose: twindiemusic.com 分析 — 音樂策略 + INBOX 8 條新增 [sid:6661575f]"
+    },
+    {
+      "hash": "50d2f676d2628ffa13db0bb011077ce293386531",
+      "date": "2026-04-27T22:54:02+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: 沈伯洋 Stage 4 polish — 📝 策展人筆記 ×2 [sid:ec40174c]"
+    },
+    {
+      "hash": "3846e6f1f5da13edd8b8dd56f00a258d6715ab64",
+      "date": "2026-04-27T22:53:44+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] rewrite: 當代台灣文學 EVOLVE Phase 3/4 — 修正事實/吸納C+B/補新作家 [sid:c4c836f1]"
+    },
+    {
+      "hash": "fac911087786d6fedacf6119bdeef7032c31bb3f",
+      "date": "2026-04-27T22:26:35+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] evolve: per-spawn git worktree isolation (race-condition fix)"
+    },
+    {
+      "hash": "b50810dc05ce7e2024d82f0b04055ee6ec150e43",
+      "date": "2026-04-27T22:17:08+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] rewrite: 沈伯洋 EVOLVE — 修正日期/偽造引語/description [sid:ae4f8864]"
+    },
+    {
+      "hash": "8b740583dc8579dd5ea65336e8e1fab3095a44c4",
+      "date": "2026-04-27T21:53:32+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] heal: revert detached:true on claude child (was breaking spawn boot)"
+    },
+    {
+      "hash": "87a5b0ad15629671f2a8e9d03d4523f60076d6d8",
+      "date": "2026-04-27T21:40:49+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] heal: Harvest 短期清單 — Bug 1 v2 + start.sh port-check + UI/auth caveats"
+    },
+    {
+      "hash": "64b5ebd9691a7980bd9716c8457a65939fda1bb8",
+      "date": "2026-04-27T20:48:06+08:00",
+      "author": "Che-Yu Wu",
+      "message": "🧬 [semiont] memory: δ 20:30 cron + cherry-pick PR #650 (Game Jam) + INBOX 收尾 + dashboard refresh"
+    },
     {
       "hash": "5756deba337c90ed5982f36c44445a02bffec119",
       "date": "2026-04-27T20:35:06+08:00",

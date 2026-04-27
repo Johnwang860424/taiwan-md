@@ -645,6 +645,24 @@
     "path": "People/方序中.md"
   },
   {
+    "title": "日月潭：在 18.18 公尺水位之下，被淹沒與被看見的台灣之心",
+    "description": "2026 年的日月潭，是全球最大的抽蓄發電電池，也是邵族人失落的祖靈地。從 1934 年水位上升 18.18 公尺改變地貌開始，這座湖泊在觀光勝地與能源心臟之間，承載了百年來的族群遷徙與電力奇蹟。",
+    "category": "Geography",
+    "tags": [
+      "日月潭",
+      "邵族",
+      "抽蓄發電",
+      "台灣歷史",
+      "觀光",
+      "水力工程"
+    ],
+    "url": "https://taiwan.md/Geography/%E6%97%A5%E6%9C%88%E6%BD%AD",
+    "readingTime": 18,
+    "featured": false,
+    "date": "2026-04-27",
+    "path": "Geography/日月潭.md"
+  },
+  {
     "title": "日本統治時代",
     "description": "1895年から1945年の50年間に及ぶ日本の台湾統治。全面的な近代化建設と制度化された管理を推進する一方、同化政策を実施し、台湾社会の発展に深い影響を与えた",
     "category": "ja",
@@ -2499,23 +2517,6 @@
     "path": "ja/Society/education-system.md"
   },
   {
-    "title": "台湾の現代文学：断絶と禁忌の中から生まれた魂の指紋",
-    "description": "日本語から中国語への「言語断絶」、モダニズムと郷土文学の激しい論争——台湾文学はわずか数十年のうちに、中国本土でさえ想像し得なかった豊かな花を咲かせました。",
-    "category": "ja",
-    "tags": [
-      "台湾文学",
-      "白先勇",
-      "郷土文学論争",
-      "呉明益",
-      "モダニズム"
-    ],
-    "url": "https://taiwan.md/ja/Art/contemporary-literature",
-    "readingTime": 13,
-    "featured": true,
-    "date": "2026-04-01",
-    "path": "ja/Art/contemporary-literature.md"
-  },
-  {
     "title": "台湾の現代アート",
     "description": "北美館からヴェネツィア・ビエンナーレ台湾館まで——台湾の現代アートが世界舞台で占める独自の位置",
     "category": "ja",
@@ -3103,6 +3104,24 @@
     "featured": true,
     "date": "2026-03-17",
     "path": "ja/About/seeing-taiwan-quotes.md"
+  },
+  {
+    "title": "台灣 Game Jam 社群",
+    "description": "從 Global Game Jam 落地台灣，到 KUSO GAME JAM 以廢作為哲學——台灣 Game Jam 社群十年間如何成為獨立遊戲生態的孵化皿與試驗場",
+    "category": "Technology",
+    "tags": [
+      "遊戲",
+      "獨立遊戲",
+      "Game Jam",
+      "社群",
+      "KUSO",
+      "創作"
+    ],
+    "url": "https://taiwan.md/Technology/%E5%8F%B0%E7%81%A3Game-Jam%E7%A4%BE%E7%BE%A4",
+    "readingTime": 16,
+    "featured": false,
+    "date": "2026-04-27",
+    "path": "Technology/台灣Game-Jam社群.md"
   },
   {
     "title": "台灣 VR 十年：從王雪紅宣告元年到把團隊賣給 Google",
@@ -4934,6 +4953,24 @@
     "path": "Nature/台灣氣候危機與淨零轉型.md"
   },
   {
+    "title": "台灣海外僑民：從流亡學生到矽谷工程師，兩百萬人的離散地圖",
+    "description": "台灣至今沒有不在籍投票，兩百萬海外公民每次大選必須親自飛回戶籍地。從 1960 年代留美學生的政治流亡、1982 年洛杉磯成立的 FAPA 遊說組織，到矽谷工程師的歸鄉效應，這是一段關於身份與行動力的離散故事。",
+    "category": "Society",
+    "tags": [
+      "海外台灣人",
+      "僑民",
+      "離散社群",
+      "政治",
+      "矽谷",
+      "FAPA"
+    ],
+    "url": "https://taiwan.md/Society/%E5%8F%B0%E7%81%A3%E6%B5%B7%E5%A4%96%E5%83%91%E6%B0%91%E8%88%87%E9%9B%A2%E6%95%A3%E7%A4%BE%E7%BE%A4",
+    "readingTime": 18,
+    "featured": false,
+    "date": "2026-04-28",
+    "path": "Society/台灣海外僑民與離散社群.md"
+  },
+  {
     "title": "台灣海岸地形與海洋地景",
     "description": "在地球上，很少有地方能讓你從近4,000公尺的山頂出發，不到150公里就墜入7,500公尺深的海溝。台灣可以。這座島嶼的海岸線，是一場仍在進行的車禍現場——美到令人窒息。",
     "category": "Geography",
@@ -5812,23 +5849,6 @@
     "featured": false,
     "date": "2026-03-23",
     "path": "Nature/台灣溫泉與地熱.md"
-  },
-  {
-    "title": "台灣當代文學：在斷層與禁忌中長出的靈魂指紋",
-    "description": "從日治轉中文的「語言斷層」，到現代主義與鄉土文學的激烈火拚，台灣文學在短短數十年間，長出了連中文母土都無法想像的繁花。",
-    "category": "Art",
-    "tags": [
-      "台灣文學",
-      "白先勇",
-      "鄉土文學論戰",
-      "吳明益",
-      "現代主義"
-    ],
-    "url": "https://taiwan.md/Art/%E5%8F%B0%E7%81%A3%E7%95%B6%E4%BB%A3%E6%96%87%E5%AD%B8%E7%99%BC%E5%B1%95",
-    "readingTime": 12,
-    "featured": true,
-    "date": "2026-04-01",
-    "path": "Art/台灣當代文學發展.md"
   },
   {
     "title": "台灣當代雕塑發展",
@@ -6791,6 +6811,23 @@
     "path": "ja/Art/fab-dao-and-hundred-peaks.md"
   },
   {
+    "title": "玉山：從「新高山」到台灣靈魂的最高點",
+    "description": "1897年，日本拓殖者將它命名為「新高山」，象徵帝國超越富士山的高度野心。百年後的玉山，仍是台灣最高峰——從原住民族的聖山、清代文獻的記載、殖民地圖上的皇冠，到今日爭議中的登山聖地與環境倫理的試煉場。",
+    "category": "Geography",
+    "tags": [
+      "玉山",
+      "百岳",
+      "布農族",
+      "國家公園",
+      "登山"
+    ],
+    "url": "https://taiwan.md/Geography/%E7%8E%89%E5%B1%B1",
+    "readingTime": 15,
+    "featured": false,
+    "date": "2026-04-27",
+    "path": "Geography/玉山.md"
+  },
+  {
     "title": "生態多樣性",
     "description": "台灣面積僅佔全球0.025%，卻擁有超過5萬種生物，森林覆蓋率60.71%排名全球第33位",
     "category": "Nature",
@@ -6836,6 +6873,26 @@
     "featured": true,
     "date": "2026-03-19",
     "path": "People/白先勇.md"
+  },
+  {
+    "title": "交工樂隊",
+    "description": "1998年秋天，林生祥關掉淡水帳戶只剩57元返鄉美濃，和詩人鍾永豐一起為反水庫運動寫歌。1999年到2003年，交工樂隊以客家八音融合現代搖滾，兩張專輯紀錄了農村在全球化中的生存掙扎——嗩吶第一次站上了台灣搖滾舞台的中心。",
+    "category": "Music",
+    "tags": [
+      "交工樂隊",
+      "林生祥",
+      "客家音樂",
+      "獨立音樂",
+      "美濃",
+      "社運音樂",
+      "金曲獎",
+      "嗩吶"
+    ],
+    "url": "https://taiwan.md/Music/%E4%BA%A4%E5%B7%A5%E6%A8%82%E9%9A%8A",
+    "readingTime": 12,
+    "featured": false,
+    "date": "2026-04-27",
+    "path": "Music/交工樂隊.md"
   },
   {
     "title": "伍佰",
@@ -7456,6 +7513,24 @@
     "path": "Economy/台灣企業：宏碁.md"
   },
   {
+    "title": "尪仔標：從選舉傳單到童年戰場，台灣記憶的戰鬥紙牌",
+    "description": "1950年代，台灣學童手中一張張印有布袋戲、漫畫人物的圓形紙牌，在校園裡構成一場場激烈對戰。從日本「面子」遊戲的啟發，到塑膠產業興盛後的材質轉變，尪仔標承載著跨越世代的集體記憶，也反映了台灣社會文化的變遷。",
+    "category": "Lifestyle",
+    "tags": [
+      "童玩",
+      "尪仔標",
+      "台灣文化",
+      "懷舊",
+      "遊戲",
+      "選舉"
+    ],
+    "url": "https://taiwan.md/Lifestyle/%E5%B0%AA%E4%BB%94%E6%A8%99",
+    "readingTime": 17,
+    "featured": false,
+    "date": "2026-04-27",
+    "path": "Lifestyle/尪仔標.md"
+  },
+  {
     "title": "戒厳令解除後の台湾文学",
     "description": "38年間の禁錮が一夜にして解かれ、文学創作は爆発的な広がりを見せた――しかし自由は無制約を意味せず、新たな挑戦が静かに訪れていた",
     "category": "ja",
@@ -7830,11 +7905,11 @@
   },
   {
     "title": "沈伯洋：他研究中國認知戰，最後成了北京親自追的人",
-    "description": "從犯罪學者到立委，沈伯洋花了七年研究中共對台資訊戰，二○二五年成為第一位被中國以「分裂國家罪」立案偵查的台灣民選政治人物。",
+    "description": "二〇二四年以不分區立委身份入國會、創辦黑熊學院訓練三百萬民防志士，沈伯洋研究中共認知戰七年後，二〇二五年成為首位被中國以「分裂國家罪」立案偵查的台灣民選政治人物，並被央視製播七分半「起底」影片列入全球追緝——他的回應是飛到海牙國際法院前拍照，配字「沒在怕」。",
     "category": "People",
     "tags": [],
     "url": "https://taiwan.md/People/%E6%B2%88%E4%BC%AF%E6%B4%8B",
-    "readingTime": 46,
+    "readingTime": 48,
     "featured": false,
     "date": "2026-04-27",
     "path": "People/沈伯洋.md"
@@ -8137,6 +8212,17 @@
     "featured": false,
     "date": "2026-03-22",
     "path": "Lifestyle/宗教與民間信仰.md"
+  },
+  {
+    "title": "拍謝少年：三個南部囝仔用台語唱外地人的孤單，二十年後成了世代的聲音",
+    "description": "2005年，三個在台南海邊聽搖滾樂長大的男生決定用台語寫歌，目標是讓阿公阿媽也能點頭。困難之處：三個人裡只有薑薑一個從小說台語。《海口味》到《噪音公寓》，四張全台語專輯、三座金音獎最佳搖滾、兩次打破飛天V募資紀錄，拍謝少年把外地打工仔的孤單唱成了整個世代的共同語言。",
+    "category": "Music",
+    "tags": [],
+    "url": "https://taiwan.md/Music/%E6%8B%8D%E8%AC%9D%E5%B0%91%E5%B9%B4",
+    "readingTime": 12,
+    "featured": true,
+    "date": "2026-04-27",
+    "path": "Music/拍謝少年.md"
   },
   {
     "title": "明華園",
@@ -9493,6 +9579,25 @@
     "path": "People/徐佳瑩.md"
   },
   {
+    "title": "徐熙媛：從古靈精怪美少女到「二死一重傷」的剛烈女王",
+    "description": "1994年以S.O.S出道，2001年憑《流星花園》紅遍亞洲，2005年以《美容大王》確立美學標籤，2025年2月以48歲辭世。她以對美的極致追求對抗人生失控，在婚姻風暴中以「二死一重傷」的聲明留下當代女性困境的最深刻切面。",
+    "category": "People",
+    "tags": [
+      "徐熙媛",
+      "大S",
+      "汪小菲",
+      "具俊曄",
+      "流星花園",
+      "美容大王",
+      "娛樂百分百"
+    ],
+    "url": "https://taiwan.md/People/%E5%BE%90%E7%86%99%E5%AA%9B",
+    "readingTime": 8,
+    "featured": false,
+    "date": "2026-04-28",
+    "path": "People/徐熙媛.md"
+  },
+  {
     "title": "捐款永動機：FAB DAO 與百岳計畫的社會實驗",
     "description": "一位離職醫師如何用一面壓線球國旗，開啟台灣 Web3 公益的全新想像。FAB DAO 與百岳計畫重新定義了捐款的本質：收藏即捐款，藝術即社會行動。",
     "category": "Art",
@@ -10766,6 +10871,17 @@
     "path": "People/陳樹菊.md"
   },
   {
+    "title": "魚條：名字像路邊小吃，聲音是要打人的後硬核",
+    "description": "2019年12月31日，魚條在一年最後一天發行首張完整專輯《治本》。三個臺北市立中正高中的同學，從2011年底玩到2019年，歷經五人縮編為三人、2016年春浪大賞第四名、受邀上海演出——說自己「沒有說教」，吼出的每首歌卻比任何宣言更直白。",
+    "category": "People",
+    "tags": [],
+    "url": "https://taiwan.md/People/%E9%AD%9A%E6%A2%9D",
+    "readingTime": 11,
+    "featured": false,
+    "date": "2026-04-27",
+    "path": "People/魚條.md"
+  },
+  {
     "title": "勝利路的兩面：從裝甲兵政變到「大停車場」的湖口記憶",
     "description": "在新竹湖口勝利路上，營區圍牆的一側是戰車與政治風暴，另一側則是民居、福利社與消失的電影院。這是一段關於鄰里、意外與社會正義的在地史。",
     "category": "History",
@@ -11514,8 +11630,8 @@
     "path": "Nature/颱風.md"
   },
   {
-    "title": "當代台灣文學：破格與重構的年代",
-    "description": "",
+    "title": "當代台灣文學：吳明益、林奕含，與一個安靜的閱讀危機",
+    "description": "2018年，吳明益以《單車失竊記》入圍曼布克國際獎初選名單，國籍欄位清楚寫著「Taiwan」。但同一年代，台灣純文學書籍首刷多已降到三千本以下。從施叔青橫跨清代到日治的史詩三部曲，到林奕含用一本書推動防狼師立法——當代台灣文學正以最在地的聲音觸碰最普世的問題，只是聽見它的人，越來越少。",
     "category": "Art",
     "tags": [
       "文學",
@@ -11524,9 +11640,9 @@
       "數位轉型"
     ],
     "url": "https://taiwan.md/Art/%E7%95%B6%E4%BB%A3%E5%8F%B0%E7%81%A3%E6%96%87%E5%AD%B8",
-    "readingTime": 20,
+    "readingTime": 19,
     "featured": false,
-    "date": "2026-03-24",
+    "date": "2026-04-27",
     "path": "Art/當代台灣文學.md"
   },
   {
@@ -11689,10 +11805,21 @@
       "多元文學"
     ],
     "url": "https://taiwan.md/Art/%E8%A7%A3%E5%9A%B4%E5%BE%8C%E5%8F%B0%E7%81%A3%E6%96%87%E5%AD%B8",
-    "readingTime": 21,
+    "readingTime": 19,
     "featured": false,
     "date": "2026-03-18",
     "path": "Art/解嚴後台灣文學.md"
+  },
+  {
+    "title": "農村武裝青年",
+    "description": "江育達與他的民謠，在抗爭現場唱了十年，然後回到故鄉彰化，失去了兩年創作能力——他說，那才是他最革命的時刻。",
+    "category": "Music",
+    "tags": [],
+    "url": "https://taiwan.md/Music/%E8%BE%B2%E6%9D%91%E6%AD%A6%E8%A3%9D%E9%9D%92%E5%B9%B4",
+    "readingTime": 13,
+    "featured": false,
+    "date": "2026-04-27",
+    "path": "Music/農村武裝青年.md"
   },
   {
     "title": "農業科技與精緻農業",
@@ -12509,6 +12636,17 @@
     "featured": false,
     "date": "2026-03-17",
     "path": "History/戰後經濟發展.md"
+  },
+  {
+    "title": "濁水溪公社：台語、龐克、農友，以及一座遲來三十年的獎座",
+    "description": "1989 年，師大附中一群學生為了畢業表演組了樂團。台大法律系的柯仁堅（小柯）加入後，改名濁水溪公社。此後三十年，他們用台語唱政客、農民、慾望、社運，在台大被開除、在地下場館演出，從未進入主流。2020 年解散當年，《裝潢》奪得第 31 屆金曲獎最佳台語專輯，首度入圍就拿獎。頒獎典禮上，主唱沒有來——他現在是國稅局公務員。",
+    "category": "Music",
+    "tags": [],
+    "url": "https://taiwan.md/Music/%E6%BF%81%E6%B0%B4%E6%BA%AA%E5%85%AC%E7%A4%BE",
+    "readingTime": 12,
+    "featured": false,
+    "date": "2026-04-27",
+    "path": "Music/濁水溪公社.md"
   },
   {
     "title": "燃え尽きても錆びつかない：マッカイと彼が愛したフォルモサ",
@@ -15345,17 +15483,6 @@
     "featured": false,
     "date": "2026-03-17",
     "path": "es/History/postwar-economic-development.md"
-  },
-  {
-    "title": "Development of Contemporary Taiwanese Literature",
-    "description": "Exploring the literary development from post-war Taiwan to the present, from modernism to nativist literature, from rural literature debates to multicultural writing",
-    "category": "en",
-    "tags": [],
-    "url": "https://taiwan.md/en/Art/development-of-contemporary-taiwanese-literature",
-    "readingTime": 80,
-    "featured": true,
-    "date": "2026-03-18",
-    "path": "en/Art/development-of-contemporary-taiwanese-literature.md"
   },
   {
     "title": "Development of Contemporary Taiwanese Sculpture",
@@ -19468,23 +19595,6 @@
     "featured": false,
     "date": "2026-03-31",
     "path": "fr/History/transitional-justice.md"
-  },
-  {
-    "title": "La littérature contemporaine de Taïwan : une âme forgée dans la rupture et les interdits",
-    "description": "Du « fossé linguistique » imposé par la transition du japonais au chinois, jusqu'aux affrontements passionnés entre modernisme et littérature du terroir, la littérature taïwanaise a fleuri en quelques décennies d'une façon que même la Chine continentale n'aurait pu imaginer.",
-    "category": "fr",
-    "tags": [
-      "littérature taïwanaise",
-      "Pai Hsien-yung",
-      "controverse de la littérature du terroir",
-      "Wu Ming-yi",
-      "modernisme"
-    ],
-    "url": "https://taiwan.md/fr/Art/contemporary-literature-development",
-    "readingTime": 34,
-    "featured": true,
-    "date": "2026-04-01",
-    "path": "fr/Art/contemporary-literature-development.md"
   },
   {
     "title": "La littérature des peuples autochtones de Taïwan",
@@ -34194,23 +34304,6 @@
     "featured": false,
     "date": "2026-03-18",
     "path": "ko/History/taiwan-strait-crises.md"
-  },
-  {
-    "title": "타이완 현대문학: 단층과 금기 속에서 자라난 영혼의 지문",
-    "description": "일본 통치기에서 중국어로의 \"언어 단층\"부터, 모더니즘과 향토문학의 격렬한 충돌까지 — 타이완 문학은 불과 수십 년 만에 중국 본토도 상상하지 못한 꽃밭을 피워냈다.",
-    "category": "ko",
-    "tags": [
-      "타이완 문학",
-      "바이셴융",
-      "향토문학논쟁",
-      "우밍이",
-      "모더니즘"
-    ],
-    "url": "https://taiwan.md/ko/Art/taiwan-contemporary-literature",
-    "readingTime": 16,
-    "featured": true,
-    "date": "2026-04-01",
-    "path": "ko/Art/taiwan-contemporary-literature.md"
   },
   {
     "title": "타이완 흑곰(台灣黑熊)",
