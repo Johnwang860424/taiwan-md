@@ -104,18 +104,18 @@ In a world seeking new food futures, Taiwan’s vegetarian landscape offers a ma
 
 _References:_
 
-[^1]: [CNN Travel: 10 best vegetarian-friendly cities - Taipei selected](http://www.cnn.com/travel/article/best-vegetarian-friendly-cities/index.html)
+[^1]: [CNN Travel: 10 best vegetarian-friendly cities - Taipei selected](http://www.cnn.com/travel/article/best-vegetarian-friendly-cities/index.html) — CNN Travel: 10 best vegetarian-friendly cities - Taipei selected
 
-[^2]: [Ministry of Health and Welfare: Statistics on Taiwan's Vegetarian Population and Market Scale](https://www.mohw.gov.tw/)
+[^2]: [Ministry of Health and Welfare: Statistics on Taiwan's Vegetarian Population and Market Scale](https://www.mohw.gov.tw/) — Ministry of Health and Welfare: Statistics on Taiwan's Vegetarian Population and Market Scale
 
-[^3]: [Buddhist Culture Research: Definition and Tradition of the Five Pungent Herbs](https://zh.wikipedia.org/zh-tw/%E4%BA%94%E8%BE%9B)
+[^3]: [Buddhist Culture Research: Definition and Tradition of the Five Pungent Herbs](https://zh.wikipedia.org/zh-tw/%E4%BA%94%E8%BE%9B) — Buddhist Culture Research: Definition and Tradition of the Five Pungent Herbs
 
-[^4]: [Taiwan Vegetarian Nutrition Association: Analysis of Restaurant Density and Types](https://www.tvna.org.tw/)
+[^4]: [Taiwan Vegetarian Nutrition Association: Analysis of Restaurant Density and Types](https://www.tvna.org.tw/) — Taiwan Vegetarian Nutrition Association: Analysis of Restaurant Density and Types
 
-[^5]: [FDA Taiwan: Mandatory Labeling Regulations for Vegetarian Packaged Foods](https://www.fda.gov.tw/TC/siteContent.aspx?sid=1658)
+[^5]: [FDA Taiwan: Mandatory Labeling Regulations for Vegetarian Packaged Foods](https://www.fda.gov.tw/TC/siteContent.aspx?sid=1658) — FDA Taiwan: Mandatory Labeling Regulations for Vegetarian Packaged Foods
 
-[^6]: [Food Industry Monthly: Global Competitiveness of Taiwan's Alternative Meat Industry](https://www.cgprdi.org.tw/)
+[^6]: [Food Industry Monthly: Global Competitiveness of Taiwan's Alternative Meat Industry](https://www.cgprdi.org.tw/) — Food Industry Monthly: Global Competitiveness of Taiwan's Alternative Meat Industry
 
-[^7]: [Tzu Chi Foundation: The Social Impact of 'One Meal a Day' Plant-Based Movement](https://www.tzuchi.org.tw/)
+[^7]: [Tzu Chi Foundation: The Social Impact of 'One Meal a Day' Plant-Based Movement](https://www.tzuchi.org.tw/) — Tzu Chi Foundation: The Social Impact of 'One Meal a Day' Plant-Based Movement
 
-[^8]: [Michelin Guide Taiwan: Bib Gourmand Vegetarian Restaurants in Taipei](https://guide.michelin.com/tw/en/article/features/vegetarian-restaurants-taipei-taichung)
+[^8]: [Michelin Guide Taiwan: Bib Gourmand Vegetarian Restaurants in Taipei](https://guide.michelin.com/tw/en/article/features/vegetarian-restaurants-taipei-taichung) — Michelin Guide Taiwan: Bib Gourmand Vegetarian Restaurants in Taipei

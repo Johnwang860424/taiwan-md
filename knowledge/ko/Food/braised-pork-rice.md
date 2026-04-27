@@ -67,14 +67,14 @@ translatedFrom: 'Food/台灣滷肉飯.md'
 
 ## 참고 자료
 
-[^1]: [음식사학자 逯耀東(Lu Yao-dong): 잊을 수 없는 그 맛, 루러우판의 기억](https://zh.wikipedia.org/zh-tw/%E6%BB%B7%E8%82%89%E9%A3%AF)
+[^1]: [음식사학자 逯耀東(Lu Yao-dong): 잊을 수 없는 그 맛, 루러우판의 기억](https://zh.wikipedia.org/zh-tw/%E6%BB%B7%E8%82%89%E9%A3%AF) — 음식사학자 逯耀東(Lu Yao-dong): 잊을 수 없는 그 맛, 루러우판의 기억
 
-[^2]: [대만 재정부: 滷肉飯 vs 肉燥飯, 데이터로 보는 남북 차이](https://lndatatech.github.io/taiwan-drink/)
+[^2]: [대만 재정부: 滷肉飯 vs 肉燥飯, 데이터로 보는 남북 차이](https://lndatatech.github.io/taiwan-drink/) — 대만 재정부: 滷肉飯 vs 肉燥飯, 데이터로 보는 남북 차이
 
-[^3]: [카드뉴스: 2011년 타이베이 루러우판 대전과 정명運動](https://www.cardu.com.tw/news/detail.php?33555)
+[^3]: [카드뉴스: 2011년 타이베이 루러우판 대전과 정명運動](https://www.cardu.com.tw/news/detail.php?33555) — 카드뉴스: 2011년 타이베이 루러우판 대전과 정명運動
 
-[^4]: [ETtoday: 미쉐린의 실수, 루러우판은 산둥 음식이 아니다](https://www.ettoday.net/news/20110620/12345.htm)
+[^4]: [ETtoday: 미쉐린의 실수, 루러우판은 산둥 음식이 아니다](https://www.ettoday.net/news/20110620/12345.htm) — ETtoday: 미쉐린의 실수, 루러우판은 산둥 음식이 아니다
 
-[^5]: [미쉐린 가이드 타이완: 최고의 루러우판 必比登(Bib Gourmand) 리스트](https://guide.michelin.com/tw/zh_TW/article/features/best-lu-rou-fan-in-taipei)
+[^5]: [미쉐린 가이드 타이완: 최고의 루러우판 必比登(Bib Gourmand) 리스트](https://guide.michelin.com/tw/zh_TW/article/features/best-lu-rou-fan-in-taipei) — 미쉐린 가이드 타이완: 최고의 루러우판 必比登(Bib Gourmand) 리스트
 
-[^6]: [타이완 관광국 공식 가이드: 국민 밥 루러우판](https://www.taiwan.net.tw/)
+[^6]: [타이완 관광국 공식 가이드: 국민 밥 루러우판](https://www.taiwan.net.tw/) — 타이완 관광국 공식 가이드: 국민 밥 루러우판

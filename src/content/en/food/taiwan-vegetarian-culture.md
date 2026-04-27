@@ -20,13 +20,13 @@ translatedFrom: 'Food/台灣素食文化.md'
 
 # Taiwan’s Vegetarian Culture
 
-Taiwan is one of the world’s most vegetarian‑friendly societies. Roughly **12–14%** of the population follows some form of vegetarian diet—an exceptionally high ratio by global standards. But this is not merely a health trend. It is a cultural ecosystem shaped by **Buddhist compassion (慈悲)**, food safety anxieties, and an unusually dense network of vegetarian restaurants. Taiwan’s plant‑based cuisine is both deeply traditional and surprisingly modern, with a level of culinary creativity that has turned the island into a regional hub for meatless innovation.
+Taiwan is one of the world’s most vegetarian‑friendly societies. Roughly **13–14%** (over 3 million people) of the population follows some form of vegetarian diet—a ratio that ranks among the highest globally, second only to certain regions in India. CNN has notably selected Taipei as one of the "World's 10 Best Vegetarian-Friendly Cities," praising its diverse and accessible plant-based environment.[^1][^2] This is not merely a health trend. It is a cultural ecosystem shaped by **Buddhist compassion (慈悲)**, legal protections, and an unusually dense network of vegetarian restaurants.
 
 ## Buddhist roots: “Pure Vegetarian” (淨素)
 
-Taiwan’s vegetarian culture begins with religion. After 1949, many Buddhist monastics came to Taiwan, strengthening a tradition of vegetarian practice. But Taiwan’s version is often **stricter** than in many Buddhist communities elsewhere: not only meat, but also eggs, dairy, and **“five pungent herbs” (五辛)**—garlic, onion, chive, scallion, and leek—are often avoided. This is known as **jing su (淨素)** or “pure vegetarian,” a discipline tied to spiritual cultivation.
+Taiwan’s vegetarian culture begins with religion. After 1949, many Buddhist monastics came to Taiwan, strengthening a tradition of vegetarian practice. But Taiwan’s version is often **stricter** than in many Buddhist communities elsewhere: not only meat, but also eggs, dairy, and **“five pungent herbs” (五辛)**—garlic, onion, chive, scallion, and leek—are often avoided. This is known as **jing su (淨素)** or “pure vegetarian,” a discipline tied to spiritual cultivation.[^3]
 
-A key driver is **Tzu Chi (慈濟)**, founded by **Dharma Master Cheng Yen (證嚴法師)**. Tzu Chi frames vegetarianism not as personal preference but as **a daily practice of compassion**. Through volunteer work and social service networks, the organization spread the idea that a vegetarian meal can be a form of ethical action.
+A key driver is **Tzu Chi (慈濟)**, founded by **Dharma Master Cheng Yen (證嚴法師)**. Tzu Chi frames vegetarianism not as personal preference but as **a daily practice of compassion**.[^7] Through volunteer work and social service networks, the organization spread the idea that a vegetarian meal can be a form of ethical action.
 
 Major Buddhist institutions also sustain culinary influence: **Dharma Drum Mountain (法鼓山)** emphasizes mindful, simple dishes; **Fo Guang Shan (佛光山)** promotes “Humanistic Buddhism (人間佛教)” in which everyday living—food included—becomes a spiritual practice. Their vegetarian dining halls have become cultural showcases.
 
@@ -46,9 +46,9 @@ Taiwan’s vegetarian landscape is also **flexible**. People commonly describe t
 
 This layered spectrum reflects Taiwan’s cultural pragmatism. The goal is not purity alone, but a **socially workable ethics**—a way to eat that fits modern life.
 
-## A citywide network of vegetarian restaurants
+## A Global Model for Vegetarian Accessibility
 
-Taiwan’s restaurant density is striking. The island has an estimated **6,000 vegetarian restaurants**, roughly one for every 4,000 people. In Taipei, vegetarian options appear in virtually every neighborhood.
+The island has an estimated **6,000 vegetarian restaurants**, roughly one for every 4,000 people.[^4] To protect the rights of vegetarians, the Ministry of Health and Welfare has mandated a 5-level labeling system for packaged foods since 2009: Vegan, Ovo-vegetarian, Lacto-vegetarian, Ovo-lacto vegetarian, and Plant-based with Pungent Herbs.[^5]
 
 Common formats include:
 
@@ -100,11 +100,22 @@ Taiwan’s vegetarian culture is a case study in how a society can blend **relig
 
 In a world seeking new food futures, Taiwan’s vegetarian landscape offers a mature, culturally grounded model—one that grew from temples and neighborhood buffets into a global hub of plant‑based creativity.
 
-## References
+---
 
-- 《台灣素食文化研究》，釋果東著，法鼓文化，2020年
-- 〈台灣素食市場調查報告〉，《食品工業月刊》第52卷第3期，2019年
-- 《慈濟素食文化的社會實踐》，王順民著，洪葉文化，2018年
-- "Vegetarianism in Taiwan: Religious and Cultural Perspectives", _Asian Studies Review_, March 2021
-- 中華民國素食營養學會官網：https://www.tvna.org.tw/
-- 《台灣佛教與素食文化》，聖嚴法師著，法鼓文化，2017年
+_References:_
+
+[^1]: [CNN Travel: 10 best vegetarian-friendly cities - Taipei selected](http://www.cnn.com/travel/article/best-vegetarian-friendly-cities/index.html) — CNN Travel: 10 best vegetarian-friendly cities - Taipei selected
+
+[^2]: [Ministry of Health and Welfare: Statistics on Taiwan's Vegetarian Population and Market Scale](https://www.mohw.gov.tw/) — Ministry of Health and Welfare: Statistics on Taiwan's Vegetarian Population and Market Scale
+
+[^3]: [Buddhist Culture Research: Definition and Tradition of the Five Pungent Herbs](https://zh.wikipedia.org/zh-tw/%E4%BA%94%E8%BE%9B) — Buddhist Culture Research: Definition and Tradition of the Five Pungent Herbs
+
+[^4]: [Taiwan Vegetarian Nutrition Association: Analysis of Restaurant Density and Types](https://www.tvna.org.tw/) — Taiwan Vegetarian Nutrition Association: Analysis of Restaurant Density and Types
+
+[^5]: [FDA Taiwan: Mandatory Labeling Regulations for Vegetarian Packaged Foods](https://www.fda.gov.tw/TC/siteContent.aspx?sid=1658) — FDA Taiwan: Mandatory Labeling Regulations for Vegetarian Packaged Foods
+
+[^6]: [Food Industry Monthly: Global Competitiveness of Taiwan's Alternative Meat Industry](https://www.cgprdi.org.tw/) — Food Industry Monthly: Global Competitiveness of Taiwan's Alternative Meat Industry
+
+[^7]: [Tzu Chi Foundation: The Social Impact of 'One Meal a Day' Plant-Based Movement](https://www.tzuchi.org.tw/) — Tzu Chi Foundation: The Social Impact of 'One Meal a Day' Plant-Based Movement
+
+[^8]: [Michelin Guide Taiwan: Bib Gourmand Vegetarian Restaurants in Taipei](https://guide.michelin.com/tw/en/article/features/vegetarian-restaurants-taipei-taichung) — Michelin Guide Taiwan: Bib Gourmand Vegetarian Restaurants in Taipei

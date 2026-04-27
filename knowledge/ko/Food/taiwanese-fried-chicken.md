@@ -71,14 +71,14 @@ translatedFrom: 'Food/台灣鹹酥雞.md'
 
 ## 참고 자료
 
-[^1]: [음식문화연구: 타이완 젠수지의 기원과 '제1가'의 영향력](https://zh.wikipedia.org/zh-tw/%E9%B9%BD%E9%85%A5%E9%9B%9E)
+[^1]: [음식문화연구: 타이완 젠수지의 기원과 '제1가'의 영향력](https://zh.wikipedia.org/zh-tw/%E9%B9%BD%E9%85%A5%E9%9B%9E) — 음식문화연구: 타이완 젠수지의 기원과 '제1가'의 영향력
 
-[^2]: [자유시보: 타이난 유아이 젠수지, 40년 전통의 맛](https://ltn.com.tw/news/life/breakingnews/33555)
+[^2]: [자유시보: 타이난 유아이 젠수지, 40년 전통의 맛](https://ltn.com.tw/news/life/breakingnews/33555) — 자유시보: 타이난 유아이 젠수지, 40년 전통의 맛
 
-[^3]: [Taiwan Panorama: 대만 야시장 문화 - 보이지 않는 전설](https://www.taiwan-panorama.com/Articles/Details?Guid=8c15ae35-f89b-461c-bed1-f481e2681fb7)
+[^3]: [Taiwan Panorama: 대만 야시장 문화 - 보이지 않는 전설](https://www.taiwan-panorama.com/Articles/Details?Guid=8c15ae35-f89b-461c-bed1-f481e2681fb7) — Taiwan Panorama: 대만 야시장 문화 - 보이지 않는 전설
 
-[^4]: [중앙연구원: 대만 야시장 노점 통계 및 사회학적 관찰](https://www.moea.gov.tw/)
+[^4]: [중앙연구원: 대만 야시장 노점 통계 및 사회학적 관찰](https://www.moea.gov.tw/) — 중앙연구원: 대만 야시장 노점 통계 및 사회학적 관찰
 
-[^5]: [타이완 야시장 공식 가이드: 추천 젠수지 맛집](https://www.nightmarket.tw/)
+[^5]: [타이완 야시장 공식 가이드: 추천 젠수지 맛집](https://www.nightmarket.tw/) — 타이완 야시장 공식 가이드: 추천 젠수지 맛집
 
-[^6]: [타이완 간식 도감: 튀김 요리의 미학](https://www.worldcat.org/title/134567890)
+[^6]: [타이완 간식 도감: 튀김 요리의 미학](https://www.worldcat.org/title/134567890) — 타이완 간식 도감: 튀김 요리의 미학

@@ -58,16 +58,16 @@ translatedFrom: 'Food/台灣滷肉飯.md'
 
 _参考資料：_
 
-[^1]: [CNN Travel: 台湾で欠かせない40の料理](http://www.cnn.com/travel/article/40-taiwan-food/index.html)
+[^1]: [CNN Travel: 台湾で欠かせない40の料理](http://www.cnn.com/travel/article/40-taiwan-food/index.html) — CNN Travel: 台湾で欠かせない40の料理
 
-[^2]: [自由時報: 北部と南部の魯肉飯、呼び名と調理法の境界線](https://food.ltn.com.tw/article/10452)
+[^2]: [自由時報: 北部と南部の魯肉飯、呼び名と調理法の境界線](https://food.ltn.com.tw/article/10452) — 自由時報: 北部と南部の魯肉飯、呼び名と調理法の境界線
 
-[^3]: [BBC News: ミシュランの「山東省発祥」説に対する台湾の反論](https://www.bbc.com/news/world-asia-pacific-14066371)
+[^3]: [BBC News: ミシュランの「山東省発祥」説に対する台湾の反論](https://www.bbc.com/news/world-asia-pacific-14066371) — BBC News: ミシュランの「山東省発祥」説に対する台湾の反論
 
-[^4]: [台北市政府: 郝龍斌市長、魯肉飯の在地発祥を強く主張](https://www.gov.taipei/News_Content.aspx?n=D001237&s=7D001237)
+[^4]: [台北市政府: 郝龍斌市長、魯肉飯の在地発祥を強く主張](https://www.gov.taipei/News_Content.aspx?n=D001237&s=7D001237) — 台北市政府: 郝龍斌市長、魯肉飯の在地発祥を強く主張
 
-[^5]: [聯合報: 魯肉飯が台湾の「国民食」に選出](https://udn.com/news/story/7270/2534567)
+[^5]: [聯合報: 魯肉飯が台湾の「国民食」に選出](https://udn.com/news/story/7270/2534567) — 聯合報: 魯肉飯が台湾の「国民食」に選出
 
-[^6]: [焦桐: 『台湾飲食文化』二魚文化](https://www.2-fish.com.tw/)
+[^6]: [焦桐: 『台湾飲食文化』二魚文化](https://www.2-fish.com.tw/) — 焦桐: 『台湾飲食文化』二魚文化
 
-[^7]: [交通部観光署: 台湾グルメガイド](https://www.taiwan.net.tw/)
+[^7]: [交通部観光署: 台湾グルメガイド](https://www.taiwan.net.tw/) — 交通部観光署: 台湾グルメガイド

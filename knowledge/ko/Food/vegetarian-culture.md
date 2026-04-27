@@ -91,18 +91,18 @@ translatedFrom: 'Food/台灣素食文化.md'
 
 ## 참고 자료
 
-[^1]: [CNN Travel: 전 세계 10대 채식 우호 도시 - 타이베이 선정](http://www.cnn.com/travel/article/best-vegetarian-friendly-cities/index.html)
+[^1]: [CNN Travel: 전 세계 10대 채식 우호 도시 - 타이베이 선정](http://www.cnn.com/travel/article/best-vegetarian-friendly-cities/index.html) — CNN Travel: 전 세계 10대 채식 우호 도시 - 타이베이 선정
 
-[^2]: [중화민국 위생복지부: 타이완 채식 인구 및 시장 규모 통계 보고서](https://www.mohw.gov.tw/)
+[^2]: [중화민국 위생복지부: 타이완 채식 인구 및 시장 규모 통계 보고서](https://www.mohw.gov.tw/) — 중화민국 위생복지부: 타이완 채식 인구 및 시장 규모 통계 보고서
 
-[^3]: [불교 문화 연구: 오신채(五辛)의 정의와 금기 전통](https://zh.wikipedia.org/zh-tw/%E4%BA%94%E8%BE%9B)
+[^3]: [불교 문화 연구: 오신채(五辛)의 정의와 금기 전통](https://zh.wikipedia.org/zh-tw/%E4%BA%94%E8%BE%9B) — 불교 문화 연구: 오신채(五辛)의 정의와 금기 전통
 
-[^4]: [타이완 채식 영양 학회: 전국 채식 식당 밀도 및 유형 분석](https://www.tvna.org.tw/)
+[^4]: [타이완 채식 영양 학회: 전국 채식 식당 밀도 및 유형 분석](https://www.tvna.org.tw/) — 타이완 채식 영양 학회: 전국 채식 식당 밀도 및 유형 분석
 
-[^5]: [위생복지부 식품약물관리서: 포장 식품의 채식 표시 규정 안내](https://www.fda.gov.tw/TC/siteContent.aspx?sid=1658)
+[^5]: [위생복지부 식품약물관리서: 포장 식품의 채식 표시 규정 안내](https://www.fda.gov.tw/TC/siteContent.aspx?sid=1658) — 위생복지부 식품약물관리서: 포장 식품의 채식 표시 규정 안내
 
-[^6]: [식품 공업 월간: 타이완 채식 대체 식품 산업의 글로벌 경쟁력](https://www.cgprdi.org.tw/)
+[^6]: [식품 공업 월간: 타이완 채식 대체 식품 산업의 글로벌 경쟁력](https://www.cgprdi.org.tw/) — 식품 공업 월간: 타이완 채식 대체 식품 산업의 글로벌 경쟁력
 
-[^7]: [자제공덕회: 채식과 환경 보호 - '하루 한 끼 채식' 운동의 사회적 영향](https://www.tzuchi.org.tw/)
+[^7]: [자제공덕회: 채식과 환경 보호 - '하루 한 끼 채식' 운동의 사회적 영향](https://www.tzuchi.org.tw/) — 자제공덕회: 채식과 환경 보호 - '하루 한 끼 채식' 운동의 사회적 영향
 
-[^8]: [미쉐린 가이드 타이완: 빕 구르망에 선정된 타이베이 채식 식당 리스트](https://guide.michelin.com/tw/zh_TW/article/features/vegetarian-restaurants-taipei-taichung)
+[^8]: [미쉐린 가이드 타이완: 빕 구르망에 선정된 타이베이 채식 식당 리스트](https://guide.michelin.com/tw/zh_TW/article/features/vegetarian-restaurants-taipei-taichung) — 미쉐린 가이드 타이완: 빕 구르망에 선정된 타이베이 채식 식당 리스트

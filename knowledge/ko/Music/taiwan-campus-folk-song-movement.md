@@ -157,20 +157,20 @@ translatedFrom: 'music/taiwan-campus-folk-song-movement.md'
 - [《뤄따유와 대만 대중음악의 전환》, 국립교통대학교 논문](https://shs.ntu.edu.tw/)
 - [중화음악인교류협회: 민가 40주년 '다시 한번 사상을 노래하다' 공식 기록](http://www.musicman.org.tw/)
 
-[^1]: [단수이 위키관: 단장 사건 항목](http://tamsui.dils.tku.edu.tw/wiki/index.php/%E6%B7%A1%E6%B1%9F%E4%BA%8B%E4%BB%B6)
+[^1]: [단수이 위키관: 단장 사건 항목](http://tamsui.dils.tku.edu.tw/wiki/index.php/%E6%B7%A1%E6%B1%9F%E4%BA%8B%E4%BB%B6) — 단수이 위키관: 단장 사건 항목
 
-[^2]: [《"우리 노래를 부르자"! 요절한 리솽쩌가 여러 세대 창작자들에게 미친 영향》, 파우트 미디어](https://www.fountmedia.io/article/104260)
+[^2]: [《"우리 노래를 부르자"! 요절한 리솽쩌가 여러 세대 창작자들에게 미친 영향》, 파우트 미디어](https://www.fountmedia.io/article/104260) — 《"우리 노래를 부르자"! 요절한 리솽쩌가 여러 세대 창작자들에게 미친 영향》, 파우트 미디어
 
-[^3]: [해협교류기금會 《교류雜誌》: 민가 40주년 특집](https://www.sef.org.tw/article-1-129-5006)
+[^3]: [해협교류기금會 《교류雜誌》: 민가 40주년 특집](https://www.sef.org.tw/article-1-129-5006) — 해협교류기금會 《교류雜誌》: 민가 40주년 특집
 
-[^4]: [위키백과: 캠퍼스 민가 항목](https://zh.wikipedia.org/zh-tw/%E6%A0%A1%E5%9C%92%E6%B0%91%E6%AD%8C)
+[^4]: [위키백과: 캠퍼스 민가 항목](https://zh.wikipedia.org/zh-tw/%E6%A0%A1%E5%9C%92%E6%B0%91%E6%AD%8C) — 위키백과: 캠퍼스 민가 항목
 
-[^5]: [《타이베이 대중음악 메모》, 타이베이시 데이터 플랫폼](https://data.taipei/dataset/detail?id=4cc90cd2-540d-4b51-a8dd-be72cb0e2892)
+[^5]: [《타이베이 대중음악 메모》, 타이베이시 데이터 플랫폼](https://data.taipei/dataset/detail?id=4cc90cd2-540d-4b51-a8dd-be72cb0e2892) — 《타이베이 대중음악 메모》, 타이베이시 데이터 플랫폼
 
-[^6]: [대만 국가문화기억고: 후더푸와 민가 계몽](https://memory.culture.tw/Home/Detail?Id=608488)
+[^6]: [대만 국가문화기억고: 후더푸와 민가 계몽](https://memory.culture.tw/Home/Detail?Id=608488) — 대만 국가문화기억고: 후더푸와 민가 계몽
 
-[^7]: [《용의 후예》 창작 배경: 1978년 대만-미국 단교 사건과 집단 정서, 국립타이완대학교 디지털 보관소](https://digital.lib.ntu.edu.tw/)
+[^7]: [《용의 후예》 창작 배경: 1978년 대만-미국 단교 사건과 집단 정서, 국립타이완대학교 디지털 보관소](https://digital.lib.ntu.edu.tw/) — 《용의 후예》 창작 배경: 1978년 대만-미국 단교 사건과 집단 정서, 국립타이완대학교 디지털 보관소
 
-[^8]: [《뤄따유와 대만 대중음악의 전환》, 국립교통대학교 논문](https://shs.ntu.edu.tw/)
+[^8]: [《뤄따유와 대만 대중음악의 전환》, 국립교통대학교 논문](https://shs.ntu.edu.tw/) — 《뤄따유와 대만 대중음악의 전환》, 국립교통대학교 논문
 
-[^9]: [중화음악인교류협회: 민가 40주년 '다시 한번 사상을 노래하다' 공식 기록](http://www.musicman.org.tw/)
+[^9]: [중화음악인교류협회: 민가 40주년 '다시 한번 사상을 노래하다' 공식 기록](http://www.musicman.org.tw/) — 중화음악인교류협회: 민가 40주년 '다시 한번 사상을 노래하다' 공식 기록

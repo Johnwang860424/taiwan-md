@@ -111,18 +111,18 @@ translatedFrom: 'Food/牛肉麵.md'
 
 _参考資料：_
 
-[^1]: [Encyclopedia of Taiwan: 台湾牛肉麺の進化と歴史](https://nrch.culture.tw/)
+[^1]: [Encyclopedia of Taiwan: 台湾牛肉麺の進化と歴史](https://nrch.culture.tw/) — Encyclopedia of Taiwan: 台湾牛肉麺の進化と歴史
 
-[^2]: [The News Lens: なぜ昔の台湾人は牛肉を食べなかったのか？](https://www.thenewslens.com/article/115535)
+[^2]: [The News Lens: なぜ昔の台湾人は牛肉を食べなかったのか？](https://www.thenewslens.com/article/115535) — The News Lens: なぜ昔の台湾人は牛肉を食べなかったのか？
 
-[^3]: [自由時報: 岡山豆板醤と牛肉麺の起源を探る](https://food.ltn.com.tw/article/10125)
+[^3]: [自由時報: 岡山豆板醤と牛肉麺の起源を探る](https://food.ltn.com.tw/article/10125) — 自由時報: 岡山豆板醤と牛肉麺の起源を探る
 
-[^4]: [台北市政府: 台北牛肉麺文化の歩み](https://www.gov.taipei/)
+[^4]: [台北市政府: 台北牛肉麺文化の歩み](https://www.gov.taipei/) — 台北市政府: 台北牛肉麺文化の歩み
 
-[^5]: [CNN Travel: 世界の40大料理 - 台湾牛肉麺](http://www.cnn.com/travel/article/world-best-food-dishes/index.html)
+[^5]: [CNN Travel: 世界の40大料理 - 台湾牛肉麺](http://www.cnn.com/travel/article/world-best-food-dishes/index.html) — CNN Travel: 世界の40大料理 - 台湾牛肉麺
 
-[^6]: [ミシュランガイド台湾: ビブグルマン牛肉麺推奨リスト](https://guide.michelin.com/tw/ja/article/features/michelin-guide-taipei-beef-noodle-recommendations)
+[^6]: [ミシュランガイド台湾: ビブグルマン牛肉麺推奨リスト](https://guide.michelin.com/tw/ja/article/features/michelin-guide-taipei-beef-noodle-recommendations) — ミシュランガイド台湾: ビブグルマン牛肉麺推奨リスト
 
-[^7]: [台北国際牛肉麺フェスティバル公式サイト](https://tpebeefnoodle.com.tw/)
+[^7]: [台北国際牛肉麺フェスティバル公式サイト](https://tpebeefnoodle.com.tw/) — 台北国際牛肉麺フェスティバル公式サイト
 
-[^8]: [交通部観光署 - 台湾グルメガイド](https://www.taiwan.net.tw/)
+[^8]: [交通部観光署 - 台湾グルメガイド](https://www.taiwan.net.tw/) — 交通部観光署 - 台湾グルメガイド

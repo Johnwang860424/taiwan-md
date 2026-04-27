@@ -81,16 +81,16 @@ In Taiwan, every bowl carries a story: a grandmother in a village kitchen, a lat
 
 _References:_
 
-[^1]: [CNN Travel: 40 Taiwanese foods we can't live without](http://www.cnn.com/travel/article/40-taiwan-food/index.html)
+[^1]: [CNN Travel: 40 Taiwanese foods we can't live without](http://www.cnn.com/travel/article/40-taiwan-food/index.html) — CNN Travel: 40 Taiwanese foods we can't live without
 
-[^2]: [Liberty Times: The linguistic and culinary divide between Northern and Southern Braised Pork Rice](https://food.ltn.com.tw/article/10452)
+[^2]: [Liberty Times: The linguistic and culinary divide between Northern and Southern Braised Pork Rice](https://food.ltn.com.tw/article/10452) — Liberty Times: The linguistic and culinary divide between Northern and Southern Braised Pork Rice
 
-[^3]: [BBC News: Michelin's 'Shandong' claim over Taiwan's braised pork rice](https://www.bbc.com/news/world-asia-pacific-14066371)
+[^3]: [BBC News: Michelin's 'Shandong' claim over Taiwan's braised pork rice](https://www.bbc.com/news/world-asia-pacific-14066371) — BBC News: Michelin's 'Shandong' claim over Taiwan's braised pork rice
 
-[^4]: [Taipei City Government: Mayor Hau Lung-bin defends local origin of Braised Pork Rice](https://www.gov.taipei/News_Content.aspx?n=D001237&s=7D001237)
+[^4]: [Taipei City Government: Mayor Hau Lung-bin defends local origin of Braised Pork Rice](https://www.gov.taipei/News_Content.aspx?n=D001237&s=7D001237) — Taipei City Government: Mayor Hau Lung-bin defends local origin of Braised Pork Rice
 
-[^5]: [United Daily News: Braised Pork Rice voted Taiwan's National Dish](https://udn.com/news/story/7270/2534567)
+[^5]: [United Daily News: Braised Pork Rice voted Taiwan's National Dish](https://udn.com/news/story/7270/2534567) — United Daily News: Braised Pork Rice voted Taiwan's National Dish
 
-[^6]: [Chiao Tung (焦桐): The Cultural History of Taiwanese Cuisine](https://www.2-fish.com.tw/)
+[^6]: [Chiao Tung (焦桐): The Cultural History of Taiwanese Cuisine](https://www.2-fish.com.tw/) — Chiao Tung (焦桐): The Cultural History of Taiwanese Cuisine
 
-[^7]: [Taiwan Tourism Bureau: Official Guide to Local Delicacies](https://www.taiwan.net.tw/)
+[^7]: [Taiwan Tourism Bureau: Official Guide to Local Delicacies](https://www.taiwan.net.tw/) — Taiwan Tourism Bureau: Official Guide to Local Delicacies

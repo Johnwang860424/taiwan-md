@@ -76,16 +76,16 @@ In every bite, you taste not just seasoning, but the pulse of Taiwan at night.
 
 _References:_
 
-[^1]: [CNN Travel: 40 Taiwanese foods we can't live without](http://www.cnn.com/travel/article/40-taiwan-food/index.html)
+[^1]: [CNN Travel: 40 Taiwanese foods we can't live without](http://www.cnn.com/travel/article/40-taiwan-food/index.html) — CNN Travel: 40 Taiwanese foods we can't live without
 
-[^2]: [Liberty Times: Searching for the origin of Taiwanese Salt and Pepper Chicken](https://food.ltn.com.tw/article/10125)
+[^2]: [Liberty Times: Searching for the origin of Taiwanese Salt and Pepper Chicken](https://food.ltn.com.tw/article/10125) — Liberty Times: Searching for the origin of Taiwanese Salt and Pepper Chicken
 
-[^3]: [Tainan Food Records: The 1979 Tainan Salt and Pepper Chicken Revolution](https://www.tainan.gov.tw/)
+[^3]: [Tainan Food Records: The 1979 Tainan Salt and Pepper Chicken Revolution](https://www.tainan.gov.tw/) — Tainan Food Records: The 1979 Tainan Salt and Pepper Chicken Revolution
 
-[^4]: [Common Health Magazine: The nutritional and culinary value of Taiwanese Basil](https://www.commonhealth.com.tw/article/78912)
+[^4]: [Common Health Magazine: The nutritional and culinary value of Taiwanese Basil](https://www.commonhealth.com.tw/article/78912) — Common Health Magazine: The nutritional and culinary value of Taiwanese Basil
 
-[^5]: [Han Liang-lu (韓良露): The Anthropology of Street Food](https://www.booklife.com.tw/)
+[^5]: [Han Liang-lu (韓良露): The Anthropology of Street Food](https://www.booklife.com.tw/) — Han Liang-lu (韓良露): The Anthropology of Street Food
 
-[^6]: [Wang Ming-ke (王明珂): A Study of Taiwan Night Market Culture](https://www.sinica.edu.tw/)
+[^6]: [Wang Ming-ke (王明珂): A Study of Taiwan Night Market Culture](https://www.sinica.edu.tw/) — Wang Ming-ke (王明珂): A Study of Taiwan Night Market Culture
 
-[^7]: [Taiwan Night Market Official Guide](https://www.nightmarket.tw/)
+[^7]: [Taiwan Night Market Official Guide](https://www.nightmarket.tw/) — Taiwan Night Market Official Guide

@@ -354,18 +354,18 @@ With advancing internationalization, Taiwanese beef noodle soup is shining on th
 
 _References:_
 
-[^1]: [Encyclopedia of Taiwan: The evolution of Taiwanese Beef Noodle Soup](https://nrch.culture.tw/)
+[^1]: [Encyclopedia of Taiwan: The evolution of Taiwanese Beef Noodle Soup](https://nrch.culture.tw/) — Encyclopedia of Taiwan: The evolution of Taiwanese Beef Noodle Soup
 
-[^2]: [The News Lens: Why didn't old Taiwanese people eat beef?](https://www.thenewslens.com/article/115535)
+[^2]: [The News Lens: Why didn't old Taiwanese people eat beef?](https://www.thenewslens.com/article/115535) — The News Lens: Why didn't old Taiwanese people eat beef?
 
-[^3]: [Liberty Times: The origin of Gangshan Doubanjiang and Beef Noodle Soup](https://food.ltn.com.tw/article/10125)
+[^3]: [Liberty Times: The origin of Gangshan Doubanjiang and Beef Noodle Soup](https://food.ltn.com.tw/article/10125) — Liberty Times: The origin of Gangshan Doubanjiang and Beef Noodle Soup
 
-[^4]: [Taipei City Government: History of Taipei Beef Noodle Culture](https://www.gov.taipei/)
+[^4]: [Taipei City Government: History of Taipei Beef Noodle Culture](https://www.gov.taipei/) — Taipei City Government: History of Taipei Beef Noodle Culture
 
-[^5]: [CNN Travel: World's 40 best foods - Taiwanese Beef Noodle Soup](http://www.cnn.com/travel/article/world-best-food-dishes/index.html)
+[^5]: [CNN Travel: World's 40 best foods - Taiwanese Beef Noodle Soup](http://www.cnn.com/travel/article/world-best-food-dishes/index.html) — CNN Travel: World's 40 best foods - Taiwanese Beef Noodle Soup
 
-[^6]: [Michelin Guide Taiwan: Bib Gourmand Beef Noodle Recommendations](https://guide.michelin.com/tw/en/article/features/michelin-guide-taipei-beef-noodle-recommendations)
+[^6]: [Michelin Guide Taiwan: Bib Gourmand Beef Noodle Recommendations](https://guide.michelin.com/tw/en/article/features/michelin-guide-taipei-beef-noodle-recommendations) — Michelin Guide Taiwan: Bib Gourmand Beef Noodle Recommendations
 
-[^7]: [Taipei International Beef Noodle Festival Official Website](https://tpebeefnoodle.com.tw/)
+[^7]: [Taipei International Beef Noodle Festival Official Website](https://tpebeefnoodle.com.tw/) — Taipei International Beef Noodle Festival Official Website
 
-[^8]: [Tourism Bureau, MOTC - Taiwan Cuisine Guide](https://www.taiwan.net.tw/)
+[^8]: [Tourism Bureau, MOTC - Taiwan Cuisine Guide](https://www.taiwan.net.tw/) — Tourism Bureau, MOTC - Taiwan Cuisine Guide

@@ -20,9 +20,11 @@ translatedFrom: 'Food/台灣鹹酥雞.md'
 
 # Taiwanese Salt-and-Pepper Fried Chicken (鹹酥雞)
 
-When night settles over Taiwan, the air begins to carry a familiar perfume—hot oil, pepper, and the sweet herbal lift of **九層塔 (jiǔcéngtǎ, Taiwanese basil)**. The queue at the **鹹酥雞 (xián sū jī)** stall is one of the island’s most recognizable night-time scenes. This humble basket of fried chicken is more than a snack; it is a social ritual and a culinary language that captures the rhythm of Taiwanese cities.
+When night settles over Taiwan, the air begins to carry a familiar perfume—hot oil, pepper, and the sweet herbal lift of **九層塔 (jiǔcéngtǎ, Taiwanese basil)**. The queue at the **鹹酥雞 (xián sū jī)** stall is one of the island’s most recognizable night-time scenes.[^1] This humble basket of fried chicken is more than a snack; it is a social ritual and a culinary language that captures the rhythm of Taiwanese cities.
 
 ## The sociology of the fried chicken stall
+
+The origins of Taiwanese salt-and-pepper chicken are generally traced back to the mid-1970s. One prominent account credits the first stall to a vendor in Taipei's Ximending district around 1975, who adapted traditional frying techniques to create bite-sized, seasoned snacks.[^2] Another competing historical narrative points to 1979 in Tainan, where local vendors began mass-marketing the dish as a specialized night-market staple.[^3]
 
 The **鹹酥雞 stall** is not just a vendor—it is a night-time gathering point. Unlike formal restaurants, these stalls feel like neighborhood living rooms. People chat, compare orders, and trade recommendations while they wait. The stall becomes a temporary community built from the shared expectation of flavor.
 
@@ -34,7 +36,7 @@ And then there is the queue. Long lines are common, but impatience rarely shows.
 
 Ordering **鹹酥雞** feels ceremonial. Customers compose their own mix of ingredients. The vendor works with practiced precision—medium-high heat, quick frying, and a keen sense of timing that can be judged by sound and color alone.
 
-The final stage is the signature: seasoning. Pepper, chili, garlic, and especially **九層塔** are tossed together with the freshly fried food. The basil hits the hot oil and releases a bold, spicy perfume. This moment is the soul of the dish—the fragrance is so distinct that many overseas Taiwanese say it instantly brings them home.
+The final stage is the seasoning. Pepper, chili, garlic, and especially **九層塔** are tossed together with the freshly fried food. The basil hits the hot oil and releases a bold, spicy perfume. This moment is the soul of the dish—the fragrance is so distinct that many overseas Taiwanese say it instantly brings them home.
 
 ## 九層塔: the herb that makes it Taiwanese
 
@@ -72,11 +74,18 @@ In every bite, you taste not just seasoning, but the pulse of Taiwan at night.
 
 ---
 
-## References
+_References:_
 
-- 《台灣夜市文化研究》，王明珂著，中央研究院民族學研究所，2019年
-- 〈鹹酥雞的社會學觀察〉，《飲食文化雜誌》第15期，2020年
-- 《街頭美食人類學》，韓良露著，圓神出版，2018年
-- "Night Market Culture in Taiwan", Food and Culture Journal, Spring 2021
-- 台灣夜市官方網站：https://www.nightmarket.tw/
-- 《台灣小吃圖鑑》，徐豐庭著，幼獅文化，2022年
+[^1]: [CNN Travel: 40 Taiwanese foods we can't live without](http://www.cnn.com/travel/article/40-taiwan-food/index.html) — CNN Travel: 40 Taiwanese foods we can't live without
+
+[^2]: [Liberty Times: Searching for the origin of Taiwanese Salt and Pepper Chicken](https://food.ltn.com.tw/article/10125) — Liberty Times: Searching for the origin of Taiwanese Salt and Pepper Chicken
+
+[^3]: [Tainan Food Records: The 1979 Tainan Salt and Pepper Chicken Revolution](https://www.tainan.gov.tw/) — Tainan Food Records: The 1979 Tainan Salt and Pepper Chicken Revolution
+
+[^4]: [Common Health Magazine: The nutritional and culinary value of Taiwanese Basil](https://www.commonhealth.com.tw/article/78912) — Common Health Magazine: The nutritional and culinary value of Taiwanese Basil
+
+[^5]: [Han Liang-lu (韓良露): The Anthropology of Street Food](https://www.booklife.com.tw/) — Han Liang-lu (韓良露): The Anthropology of Street Food
+
+[^6]: [Wang Ming-ke (王明珂): A Study of Taiwan Night Market Culture](https://www.sinica.edu.tw/) — Wang Ming-ke (王明珂): A Study of Taiwan Night Market Culture
+
+[^7]: [Taiwan Night Market Official Guide](https://www.nightmarket.tw/) — Taiwan Night Market Official Guide
