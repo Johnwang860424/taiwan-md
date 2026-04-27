@@ -37,6 +37,7 @@ import {
   reconcileOrphanSessions,
 } from './lifecycle/shutdown.ts';
 import { handleGithubWebhook } from './webhook/github.ts';
+import { cleanupStaleWorktrees } from './spawner/worktree.ts';
 import {
   logPathForSession,
   pollLogSince,
@@ -59,6 +60,7 @@ const db = getDb();
 loadProfiles();
 reindexFromDisk();
 reconcileOrphanSessions();
+cleanupStaleWorktrees();
 
 const inbox = new ArticleInboxAdapter();
 if (!config.disableWatch) {

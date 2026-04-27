@@ -15,7 +15,7 @@ import { dirname } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const CURRENT_SCHEMA_VERSION = 2;
+const CURRENT_SCHEMA_VERSION = 3;
 
 export function applyMigrations(db: Database): void {
   const schemaPath = join(__dirname, 'schema.sql');
@@ -27,6 +27,8 @@ export function applyMigrations(db: Database): void {
   ensureColumn(db, 'sessions', 'spawn_start_iso', 'TEXT');
   ensureColumn(db, 'sessions', 'cancelled', 'INTEGER NOT NULL DEFAULT 0');
   ensureColumn(db, 'sessions', 'killed_reason', 'TEXT');
+  ensureColumn(db, 'sessions', 'worktree_path', 'TEXT');
+  ensureColumn(db, 'sessions', 'worktree_branch', 'TEXT');
 
   const row = db
     .query<

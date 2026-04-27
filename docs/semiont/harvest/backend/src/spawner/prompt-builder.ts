@@ -14,6 +14,7 @@ import { join, relative } from 'node:path';
 import { config } from '../config.ts';
 import { getProfile } from './boot-profiles.ts';
 import type { Task } from '../tasks/types.ts';
+import type { Worktree } from './worktree.ts';
 
 /** Pick the prompt template file for a given task type, with fallback. */
 export function templatePathForTask(task: Task): string {
@@ -49,7 +50,11 @@ function renderTemplate(body: string, task: Task): string {
 }
 
 /** The main prompt-building entry point. */
-export function buildSpawnPrompt(task: Task, sessionId?: string): string {
+export function buildSpawnPrompt(
+  task: Task,
+  sessionId?: string,
+  worktree?: Worktree | null,
+): string {
   const profile = getProfile(task.boot_profile);
   const sidShort = sessionId?.slice(0, 8) ?? 'no-sid';
   const templatePath = templatePathForTask(task);
@@ -94,6 +99,11 @@ Inputs and prior research live under \`${repoRel}/inputs/\`. Write outputs to \`
 1. **Follow the canonical pipeline.** The boot profile loaded the relevant pipeline doc — that document is the SOP, not your memory of it.
 2. **Commit messages** must follow Taiwan.md convention: \`🧬 [semiont] {type}: {short imperative} [sid:${sidShort}]\`. The \`{type}\` matches the task type when reasonable. The \`[sid:${sidShort}]\` marker is REQUIRED on every commit you make in this session — the engine uses it to attribute commits to your session and distinguish them from manual commits made elsewhere during the same window.
 3. **Pre-commit hook is the final gate.** If it fails, fix the underlying issue. Do NOT pass \`--no-verify\`.
+${
+  worktree
+    ? `3a. **You are in a git worktree.** Your cwd is \`${worktree.path}\`, on branch \`${worktree.branch}\` (forked from main HEAD at spawn time). \`git add\` + \`git commit\` here. Do NOT \`git push\`, \`git checkout\`, or \`git branch\` — the engine handles merging your branch back to main and pushing after you exit. Just commit normally and exit.`
+    : ''
+}
 4. **Stuck or controversial?** Mark the task as \`awaiting-cheyu\` by writing the reason to \`${repoRel}/status.log\` and exiting cleanly. Do not guess on disputed factual matters or political-sensitive calls.
 5. **No silent skips.** If you cannot complete a stage, log why in \`status.log\` before exiting.
 6. **Wall-clock timestamps.** Use \`git log %ai\` style real time, not subjective time sense (MANIFESTO §時間是結構).

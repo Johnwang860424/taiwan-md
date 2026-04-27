@@ -36,6 +36,7 @@ import {
   setPhase as setActivePhase,
   unregister as unregisterActive,
 } from './concurrency.ts';
+import { createWorktree, finalizeWorktree, type Worktree } from './worktree.ts';
 
 const log = childLogger({ module: 'spawner/claude-cli' });
 
@@ -70,7 +71,23 @@ export async function spawnClaudeForTask(
   const logPath = join(sessionsDir, `${sessionId}.log`);
   const promptPath = join(sessionsDir, `${sessionId}.prompt.md`);
 
-  const prompt = buildSpawnPrompt(task, sessionId);
+  // Worktree isolation per spawn: prevents concurrent spawns from racing on
+  // shared working tree. Created here BEFORE prompt build so the prompt can
+  // tell the spawn its cwd + branch.
+  let worktree: Worktree | null = null;
+  if (!options.dryRun) {
+    try {
+      worktree = await createWorktree(sessionId, task.id);
+    } catch (err) {
+      log.error(
+        { taskId: task.id, sessionId, error: String(err) },
+        'failed to create worktree — aborting spawn',
+      );
+      throw err;
+    }
+  }
+
+  const prompt = buildSpawnPrompt(task, sessionId, worktree);
   writeFileSync(promptPath, prompt, 'utf8');
 
   const spawnedAt = new Date();
@@ -99,9 +116,18 @@ export async function spawnClaudeForTask(
 
   const db = getDb();
   db.run(
-    `INSERT INTO sessions (id, task_id, pid, spawned_at, spawn_start_iso, log_path, prompt_path)
-     VALUES (?, ?, NULL, ?, ?, ?, ?)`,
-    [sessionId, task.id, spawnStartIso, spawnStartIso, logPath, promptPath],
+    `INSERT INTO sessions (id, task_id, pid, spawned_at, spawn_start_iso, log_path, prompt_path, worktree_path, worktree_branch)
+     VALUES (?, ?, NULL, ?, ?, ?, ?, ?, ?)`,
+    [
+      sessionId,
+      task.id,
+      spawnStartIso,
+      spawnStartIso,
+      logPath,
+      promptPath,
+      worktree?.path ?? null,
+      worktree?.branch ?? null,
+    ],
   );
 
   if (options.dryRun) {
@@ -140,13 +166,15 @@ export async function spawnClaudeForTask(
   // upstream in tmux start.sh via `setsid bun ...` so bun gets its own session
   // and tmux's SIGINT no longer reaches our spawned children.
   const child = spawn(config.claudeBin, cliArgs, {
-    cwd: config.repoRoot,
+    cwd: worktree?.path ?? config.repoRoot,
     stdio: ['pipe', 'pipe', 'pipe'],
     env: {
       ...process.env,
       HARVEST_TASK_ID: task.id,
       HARVEST_SESSION_ID: sessionId,
       HARVEST_SESSION_SHORT: sessionId.slice(0, 8),
+      HARVEST_WORKTREE_PATH: worktree?.path ?? '',
+      HARVEST_WORKTREE_BRANCH: worktree?.branch ?? '',
     },
   });
 
@@ -198,15 +226,38 @@ export async function spawnClaudeForTask(
   const completedAt = new Date();
   sessionRecord.completed_at = completedAt.toISOString();
   sessionRecord.exit_code = exitCode;
-  // Bug 1 fix v2: prefer session-marker grep over time+author window.
-  // The prompt requires every spawned-session commit to contain `[sid:<short>]`.
-  // Falls back to the v1 time-window approach for legacy sessions whose commits
-  // predate the marker convention.
-  const commits = await commitsInWindow(
-    spawnStartIso,
-    completedAt,
-    sessionId.slice(0, 8),
-  );
+
+  // Worktree finalize: when worktree-isolated, count commits on the branch
+  // (not via main-repo log) since they're not yet in main HEAD's history.
+  // Then merge branch back to main + remove worktree (or keep on failure).
+  let commits: string[] = [];
+  if (worktree) {
+    commits = await commitsOnBranch(worktree.branch);
+    const failed = exitCode !== 0 || timedOut;
+    const result = await finalizeWorktree(worktree, {
+      failed,
+      commitsCount: commits.length,
+    });
+    if (result.conflicts) {
+      logStream.write(
+        `\n[spawner] WARNING: merge conflict on branch ${worktree.branch} — worktree kept at ${worktree.path}\n`,
+      );
+    }
+    if (result.merged && commits.length > 0) {
+      try {
+        await runGit(['push', 'origin', 'HEAD']);
+      } catch (err) {
+        logStream.write(`\n[spawner] git push failed: ${String(err)}\n`);
+      }
+    }
+  } else {
+    // dryRun or worktree-disabled fallback: use legacy session-marker grep
+    commits = await commitsInWindow(
+      spawnStartIso,
+      completedAt,
+      sessionId.slice(0, 8),
+    );
+  }
   if (commits.length) sessionRecord.commits = commits;
 
   db.run('UPDATE sessions SET completed_at = ?, exit_code = ? WHERE id = ?', [
@@ -290,6 +341,18 @@ async function commitsInWindow(
     const args = ['log', '--pretty=%H', ...sinceUntil];
     if (author) args.push(`--author=${author}`);
     const out = await runGit(args);
+    return out
+      .split('\n')
+      .map((l) => l.trim())
+      .filter(Boolean);
+  } catch {
+    return [];
+  }
+}
+
+async function commitsOnBranch(branch: string): Promise<string[]> {
+  try {
+    const out = await runGit(['log', '--pretty=%H', `${branch}`, '^HEAD']);
     return out
       .split('\n')
       .map((l) => l.trim())
