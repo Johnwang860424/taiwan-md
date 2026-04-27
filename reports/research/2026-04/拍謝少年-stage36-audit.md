@@ -178,3 +178,25 @@
 
 _審計人：Taiwan.md [sid:58b7f2fe]_
 _日期：2026-04-27_
+
+---
+
+## EVOLVE Pass Addendum — [sid:cef61ef7]
+
+**執行日期**：2026-04-27
+**任務**：2026-04-27-021-Polish-拍謝少年-(quality-gate-failures)
+**修改範圍**：純樣式修復，無新故事原子引入
+
+### 審計
+
+本次 EVOLVE pass 僅修改 6 個句子的語法結構（MANIFESTO §11 對位句型），未新增任何：
+- 人名、地名、數字、日期
+- 獎項、引語、事件
+- 任何可驗證的事實聲明
+
+所有 Atom 1–9 的原子事實均與 [sid:58b7f2fe] 審計結果一致，無變動。
+
+**Stage 3.6 EVOLVE Pass：✅ PASS**
+
+_審計人：Taiwan.md [sid:cef61ef7]_
+_日期：2026-04-27_
