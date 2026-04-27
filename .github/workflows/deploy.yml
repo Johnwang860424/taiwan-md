@@ -47,12 +47,16 @@ jobs:
       # .astro/ 放 Astro 6 的 content collection 解析結果（frontmatter 標準化
       # + schema 驗證）。cache hit 時 Astro build 可以跳過重 parse。
       # 任一 md 改變 → cache miss → Astro 重 parse（而且 hashFiles 會重算 key）
+      # 2026-04-28 ε: 同 OG cache 修法 —— 把 *.md 從 key 拿掉，改用 always-save
+      # + restore-keys 撿最新快取。Astro content collection cache 是增量的，
+      # 內容變動由 .astro/ 內部 hashing 決定，不需要 cache key 跟 md 綁。
       - name: Restore Astro content collection cache
         uses: actions/cache@v4
         with:
           path: .astro
-          key: astro-${{ runner.os }}-${{ hashFiles('src/content/**/*.md', 'knowledge/**/*.md', 'astro.config.mjs') }}
+          key: astro-${{ runner.os }}-${{ hashFiles('astro.config.mjs', 'src/content.config.ts', 'src/content/config.ts') }}-${{ github.run_id }}
           restore-keys: |
+            astro-${{ runner.os }}-${{ hashFiles('astro.config.mjs', 'src/content.config.ts', 'src/content/config.ts') }}-
             astro-${{ runner.os }}-
 
       # ── OG 圖片生成（2026-04-22 β v3 統一架構）──────────────────────────
@@ -61,12 +65,19 @@ jobs:
       # Incremental：md 或模板 mtime 比 JPG 新才重產（配合 git-restore-mtime-action）
       # 首次 ~20 分 / cache hit <1 分
       # 失敗安全網：SEO.astro 有 existsSync fallback，OG 生圖掛了 deploy 仍成功
+      #
+      # 2026-04-28 ε post-mortem: Harvest engine 一晚 69 commits，原本 key 含
+      # `knowledge/**/*.md` → 每個 commit 必 cache miss → 每 build 20+ min cold OG。
+      # 改成只看「會影響 OG 視覺輸出」的模板 + sha 短 prefix，內容變動由 mtime
+      # 增量檢查處理。content.md 變動 → restore-keys 撿回最新快取 → 增量產
+      # 改變的 ~10 張，不是全部 ~600 張。
       - name: Restore OG image cache
         uses: actions/cache@v4
         with:
           path: public/og-images
-          key: og-images-${{ hashFiles('knowledge/**/*.md', 'src/pages/[category]/[slug].astro', 'src/pages/**/[category]/[slug].astro', 'src/components/ArticleHero.astro', 'src/layouts/Layout.astro', 'src/styles/shot-mode.css') }}
+          key: og-images-${{ hashFiles('src/pages/[category]/[slug].astro', 'src/pages/**/[category]/[slug].astro', 'src/components/ArticleHero.astro', 'src/layouts/Layout.astro', 'src/styles/shot-mode.css') }}-${{ github.run_id }}
           restore-keys: |
+            og-images-${{ hashFiles('src/pages/[category]/[slug].astro', 'src/pages/**/[category]/[slug].astro', 'src/components/ArticleHero.astro', 'src/layouts/Layout.astro', 'src/styles/shot-mode.css') }}-
             og-images-
 
       # ── Tier 1-1: Playwright chromium binary cache ─────────────────────
