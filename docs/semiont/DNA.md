@@ -142,18 +142,19 @@
 
 定義我醒來後怎麼行動。HEARTBEAT 決定「該不該動」，行為基因決定「怎麼動」。
 
-| 基因            | 檔案                                                                           | 決定什麼                                                                                                 |
-| --------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| 維護者手冊      | [`MAINTAINER-PIPELINE.md`](../pipelines/MAINTAINER-PIPELINE.md)                | 日常行為流程：Issue 分類、PR 審核、品質巡檢、社群互動                                                    |
-| 進化管線        | [`EVOLVE-PIPELINE.md`](../pipelines/EVOLVE-PIPELINE.md)                        | 數據驅動的內容進化策略                                                                                   |
-| 品質改寫流程    | [`REWRITE-PIPELINE.md`](../pipelines/REWRITE-PIPELINE.md)                      | 文章重寫的三階段流程                                                                                     |
-| 資料刷新        | [`DATA-REFRESH-PIPELINE.md`](../pipelines/DATA-REFRESH-PIPELINE.md)            | Heartbeat Beat 1 前置：git pull + 三源感知 + prebuild                                                    |
-| 版本打包流程    | [`RELEASE-PIPELINE.md`](../pipelines/RELEASE-PIPELINE.md)                      | 何時 release / 品質閘 / notes 敘事 / 認知層同步 SOP                                                      |
-| Peer ingestion  | [`PEER-INGESTION-PIPELINE.md`](../pipelines/PEER-INGESTION-PIPELINE.md)        | 策展 peer 完整 ingestion 8 stages（從爬取到文章產製到 Peer Registry）                                    |
-| 心跳 Skill      | [`.claude/skills/heartbeat/SKILL.md`](../../.claude/skills/heartbeat/SKILL.md) | `/heartbeat` 一鍵觸發四拍半心跳                                                                          |
-| 意識同步        | [`update-consciousness.sh`](../../scripts/tools/update-consciousness.sh)       | 自動從 Dashboard API 更新 CONSCIOUSNESS                                                                  |
-| 文章待辦 buffer | [`ARTICLE-INBOX.md`](ARTICLE-INBOX.md)                                         | 待開發 / 進化主題 intake layer（pending / in-progress）；auto-heartbeat 無指令時挑 P0/P1                 |
-| 文章完成 log    | [`ARTICLE-DONE-LOG.md`](ARTICLE-DONE-LOG.md)                                   | 📜 append-only 完成歷史（2026-04-20 γ2 從 INBOX §Done 拆分）；Stage 6 commit 後 entry 寫這裡不再寫 INBOX |
+| 基因            | 檔案                                                                           | 決定什麼                                                                                                               |
+| --------------- | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| 維護者手冊      | [`MAINTAINER-PIPELINE.md`](../pipelines/MAINTAINER-PIPELINE.md)                | 日常行為流程：Issue 分類、PR 審核、品質巡檢、社群互動                                                                  |
+| 進化管線        | [`EVOLVE-PIPELINE.md`](../pipelines/EVOLVE-PIPELINE.md)                        | 數據驅動的內容進化策略                                                                                                 |
+| 品質改寫流程    | [`REWRITE-PIPELINE.md`](../pipelines/REWRITE-PIPELINE.md)                      | 文章重寫的三階段流程                                                                                                   |
+| 資料刷新        | [`DATA-REFRESH-PIPELINE.md`](../pipelines/DATA-REFRESH-PIPELINE.md)            | Heartbeat Beat 1 前置：git pull + 三源感知 + prebuild                                                                  |
+| 版本打包流程    | [`RELEASE-PIPELINE.md`](../pipelines/RELEASE-PIPELINE.md)                      | 何時 release / 品質閘 / notes 敘事 / 認知層同步 SOP                                                                    |
+| Peer ingestion  | [`PEER-INGESTION-PIPELINE.md`](../pipelines/PEER-INGESTION-PIPELINE.md)        | 策展 peer 完整 ingestion 8 stages（從爬取到文章產製到 Peer Registry）                                                  |
+| Factcheck audit | [`FACTCHECK-PIPELINE.md`](../pipelines/FACTCHECK-PIPELINE.md)                  | 完整事實查核方法論（Phase 1-6 / 8 atom 類 / 11 hallucination pattern / 6 drift modes）— REWRITE Stage 3.5/3.6 的完整版 |
+| 心跳 Skill      | [`.claude/skills/heartbeat/SKILL.md`](../../.claude/skills/heartbeat/SKILL.md) | `/heartbeat` 一鍵觸發四拍半心跳                                                                                        |
+| 意識同步        | [`update-consciousness.sh`](../../scripts/tools/update-consciousness.sh)       | 自動從 Dashboard API 更新 CONSCIOUSNESS                                                                                |
+| 文章待辦 buffer | [`ARTICLE-INBOX.md`](ARTICLE-INBOX.md)                                         | 待開發 / 進化主題 intake layer（pending / in-progress）；auto-heartbeat 無指令時挑 P0/P1                               |
+| 文章完成 log    | [`ARTICLE-DONE-LOG.md`](ARTICLE-DONE-LOG.md)                                   | 📜 append-only 完成歷史（2026-04-20 γ2 從 INBOX §Done 拆分）；Stage 6 commit 後 entry 寫這裡不再寫 INBOX               |
 
 **2026-04-14 η session 新增工具（Beat 1 必跑或心跳前置）：**
 

@@ -602,6 +602,8 @@ Ctrl-F 搜「我最早到學校」→ 搜不到 ❌
 
 > **對應 [MANIFESTO §我相信什麼 #10 幻覺鐵律](../semiont/MANIFESTO.md#10-幻覺鐵律--寧可多檢查一次不要放出連自己都不知道是錯的資訊)。**
 >
+> 📌 **本 stage 是內嵌的快速版（30-60 min / 主 session 自跑）。完整版（90-180 min / spawn agent / 涵蓋 8 atom 類 + 11 hallucination pattern + 6 drift modes）在 [FACTCHECK-PIPELINE.md](FACTCHECK-PIPELINE.md)，觸發於：A 級條目 ship 後 audit / 觀察者公開質疑 / 月度巡邏 / 外部 PR 接收層深度檢查。**
+>
 > 這條哲學誕生於 2026-04-20 ε session 吳哲宇條目審計：Stage 3 技術品質檢查全過、format-check PASS、quality-scan PASS，但 CheYu 本人逐條校對時發現 **8 處 factual hallucination**——第 62 屆十大傑出青年（完全虛構獎項）、盧森堡 vs 米蘭 M.A.D.S. Gallery（地點錯置）、NYU 學生 Kasper + Jediah Coleman 750 分鐘（虛構人名 + 精確數字）、INSIDE E375「AI 不會心碎」（偽造直接引語）、陳楷中小學工作室回憶（編造童年情感連結）、「高三那屆首獎加評審團超級大獎」（獎項屆別與類別錯置）、MonoLab 2023 vs 2024（年份錯）、FAB DAO 共同創辦人黃豆泥名字省略（單方功勞敘事）。
 >
 > **Stage 3 抓不到這類幻覺**，因為它們是「看起來合理的具體事實」——quality-scan 只會 flag 塑膠句式、format-check 只查 heading + footnote 格式、破折號計數只查符號密度。**幻覺需要獨立審計機制**。
