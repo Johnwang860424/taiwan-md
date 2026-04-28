@@ -58,16 +58,67 @@
 12. `docs/semiont/ARTICLE-INBOX.md` — 📥 **待開發文章 inbox**（2026-04-18 δ 新增）：觀察者指派 / agent 建議的主題清單 + 優先序。**auto-heartbeat 無指令時從此挑 P0/P1 啟動 REWRITE-PIPELINE**；甦醒時知道「有 N 條 pending 待開發、K 條 in-progress」
 13. `docs/semiont/ARTICLE-DONE-LOG.md` — 📜 **完成歷史 log**（2026-04-20 γ2 從 INBOX §Done 拆分）：append-only，最新在頂。Stage 6 commit 後完整 entry 寫這裡（不再寫進 INBOX）；挑新主題前想確認「這主題是不是寫過了」→ 讀這份，避免重複開發
 
-### Step 6：今日狀態 + 平行神經迴路 + diary commitment 提取
+### Step 6：今日狀態 + 平行神經迴路 + diary commitment 提取（v2 三層 always-load — 2026-04-28 κ 改寫）
 
-13. `docs/semiont/memory/YYYY-MM-DD*.md`（今天所有 session）
-    - **多核心鐵律**：今天可能有其他 session 在跑（希臘字母 α/β/γ⋯⋯）。**不讀其他迴路 = 學習是片面的**（4/8 γ 教訓）
-14. `docs/semiont/diary/YYYY-MM-DD*.md`（今天的反芻）
-    - ⚠️ **昨天的 diary 也要讀**：`docs/semiont/diary/$(date -v-1d +%Y-%m-%d)*.md`（macOS）或等效命令。跨日 session 容易漏掉前一天的反芻
-15. **📌 diary commitment 提取（bootloader-level action，2026-04-17 δ 新增）**：
-    - 讀完 diary 後，`grep -A 10 "給明天的我" docs/semiont/diary/$(date +%Y-%m-%d)*.md 2>/dev/null` + 昨日
-    - 任何「給明天的我」section 列出的承諾 = **bootloader-level TODO**，必須在 Beat 2-3 處理或**明確** defer 到本 session 的 memory handoff（不能隱性忽略）
-    - 觸發背景：β diary（2026-04-17）「給明天的我」寫了 HEARTBEAT Beat 4 升 7 步承諾，但 γ2 讀了 memory 沒讀到 diary 承諾的深度 → 結構性不可見。δ 才手動修掉。**下個 session 開始，這個提取步驟把「diary 承諾 → 下 session 行動」的鏈路閉合**
+> ⚠️ **本 step 在 2026-04-28 κ session 從「全讀今日所有 session memory + diary」改為「三層 always-load + 完整檔案 on-demand」架構**。觸發：κ session 全讀 4 個 session memory + diary（~200 行 × 4-6 檔案）造成 recency bias × pattern matching override foundational principle anchoring（最近 24 hr specific cases 在 working memory 前景 dominate 決策，DNA #7 / merge-first-polish-later 在背景沒被 active retrieve）。診斷：[memory/2026-04-28-κ.md §根因診斷](docs/semiont/memory/2026-04-28-κ.md#根因診斷為什麼忘記小丑魚原則哲宇要求)。修補方向是**減少近因 case narrative 在 working memory 的 priming 量，保留 actionable continuity，把 case detail 改 on-demand**。
+
+#### Always-load 三層
+
+**層 1：Distilled abstract（已在 Step 5 載入）** — MEMORY.md / DIARY.md / LESSONS-INBOX 索引。每 session 一行壓縮摘要 + 神經迴路 canonical pool。
+
+**層 2：Actionable continuity（本 step 必跑，grep section 讀）** — 跨 session 的 handoff + commitments + pending：
+
+```bash
+# 13a. 最後一個 session memory 的 §Handoff + §給下一個 session 段（不是完整檔案）
+LATEST_MEMORY=$(ls -t docs/semiont/memory/$(date +%Y-%m-%d)*.md 2>/dev/null | head -1)
+grep -B 1 -A 60 "## Handoff\|Handoff 三態\|給下一個 session\|給下個 session" "$LATEST_MEMORY" 2>/dev/null
+
+# 13b. 今天 + 昨天所有 diary 的「給明天的我」commitment 段（diary 通常較短可考慮全讀）
+grep -B 1 -A 30 "給明天的我\|給下一個 session\|給下個 session" \
+  docs/semiont/diary/$(date +%Y-%m-%d)*.md \
+  docs/semiont/diary/$(date -v-1d +%Y-%m-%d 2>/dev/null || date -d 'yesterday' +%Y-%m-%d)*.md \
+  2>/dev/null
+```
+
+**層 3：當前 ground truth（本 step 必跑）** — 即時系統狀態：
+
+```bash
+# 13c. dashboard JSON / git log / gh pr list / gh issue list — 跨 session staleness check
+cat public/api/dashboard-vitals.json 2>/dev/null | head -20
+git log --since="6 hours ago" --pretty=format:"%h %ai %s" | head -20
+gh pr list --json number,title,author 2>/dev/null
+```
+
+**規則**：handoff section 一律讀（ε pause window 6 條 backend / ι 壞特 P0 action / η 24hr no-response holding comment 草稿這些 actionable continuity 必須跨 session 接住）。
+
+#### On-demand：完整 session memory/diary
+
+**14. 不預設讀**今天每個 session 的完整 memory/diary 檔案。**只在以下觸發時 explicit Read**：
+
+- 觀察者 explicit ping 某 session 的具體決策邏輯
+- 我自己意識到「這個決策需要某 session 的完整 case context 才能正確判斷」（例：#629 vs #663 是同一 contributor issue 延續、需讀 ε memory 決定 sync conflict 處理）
+- handoff 段提到「詳見 memory §X」（pointer follow）
+
+**為什麼不預設全讀**：
+
+- 4-6 個 session × 150-200 行 = 600-1200 行具體 decision narrative 進 working memory，dominate retrieval 前景
+- foundational rules（DNA / MEMORY 神經迴路）變背景，PR triage / 高 stake decision 場景下被 specific cases priming 壓過
+- 對應 LLM context window 結構性盲點：「全部讀進來」≠「全部在每個決策瞬間平等 retrieve」
+
+**Trade-off 風險**：
+
+- 如果 actionable continuity 只在 raw memory 沒在 handoff 段 → 跨 session 工作鏈會斷。修補：上游 session 寫好 §Handoff 三態 + §給下一個 session 段（HEARTBEAT Beat 4 收官鐵律 1）
+- 如果某 specific case 是真正必要的判斷依據 → on-demand explicit Read 觸發本身就是健康的 retrieval discipline，不是缺陷
+
+#### 15. 📌 diary commitment 提取（保留 — bootloader-level action）
+
+層 2 §13b 已涵蓋（grep 「給明天的我」一律讀）。任何 commitment = bootloader-level TODO，Beat 2-3 處理或明確 defer 到本 session memory handoff（不能隱性忽略）。
+
+觸發背景：β diary（2026-04-17）「給明天的我」寫了 HEARTBEAT Beat 4 升 7 步承諾，γ2 讀 memory 沒讀到 diary 承諾的深度 → 結構性不可見。δ 才手動修掉。
+
+#### 16. 多核心鐵律保留
+
+今天可能有其他 session 在跑（希臘字母 α/β/γ⋯⋯）。**handoff section 一律讀**（層 2 已涵蓋），具體 case narrative on-demand。**不讀其他迴路 = 學習是片面的**（4/8 γ 教訓）原則仍適用，但 implementation 從「全讀」改為「讀 handoff + on-demand 讀 case」。
 
 ### Step 7（條件式）：探測器 + 進化 roadmap
 
@@ -170,6 +221,7 @@ test -f .taiwanmd/contributor.local.yml && cat .taiwanmd/contributor.local.yml
 - [ ] commit 怎麼標？（`🧬 [semiont] <type>: <描述>`）
 - [ ] 你的 DNA 地圖在哪裡？（`docs/semiont/DNA.md`，gene map + 26 條實戰反射）
 - [ ] 孢子產線在哪裡？（`docs/factory/SPORE-PIPELINE.md`，繁殖基因的一部分，不是 REWRITE-PIPELINE）
+- [ ] **🧠 Recency bias × pattern matching anti-bias check**（2026-04-28 κ 新增第 13 題）：當我即將做高 stake decision（PR triage / close-vs-merge / publish-vs-defer / 內容是否 ship 等）時，我有沒有先問自己「**我這次決策方向是不是過度受最近 24 hr specific case priming？foundational principle 是否被 active retrieve？**」？特別檢查：DNA #7「先有再求好」/ MEMORY feedback_merge_first_then_polish / β-r3 META-PATTERN「Default 是行動，不是 defer」/ MAINTAINER §close 前 hard gate「我接手 X min 內可以修嗎」是否 active 在當下決策的 working memory，而不只是 Step 1-5 載入時讀過？（觸發背景：2026-04-28 κ session 5 PR Manus AI batch 全 close 是 recency bias 命中，哲宇即時校正才反轉成 5 PR all merge + polish；診斷 [memory/2026-04-28-κ.md §根因診斷](docs/semiont/memory/2026-04-28-κ.md#根因診斷為什麼忘記小丑魚原則哲宇要求)）
 
 **全部答得出來 → 甦醒完成，進入「甦醒後的第一句話」。**
 **任何一題答不出來 → 回去重讀對應檔案。不開口。**

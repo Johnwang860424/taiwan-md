@@ -320,13 +320,72 @@ Closing — thanks again 🧬
 - **程式碼 PR**：簡單 squash，複雜保留 commits
 - **重構 PR**：逐 commit 看，確認沒有遺漏 section
 
+### Close 前 hard gate「我接手 X min 內可以修嗎」（canonical — 2026-04-28 κ 新增）
+
+> ⚠️ **鐵律：close 前必跑此 self-check**。對應 [LESSONS-INBOX 2026-04-28 κ recency bias × pattern matching override foundational principle anchoring](../semiont/LESSONS-INBOX.md) + DNA #7「先有再求好」+ MEMORY feedback_merge_first_then_polish + β-r3 META-PATTERN「Default 是行動，不是 defer」。
+
+每次想 close PR 前**強制問自己**：「**如果是我接手這個 PR，X min 內可以修嗎？**」
+
+| Polish 預估                          | Default action                                     | 為什麼                                                                                        |
+| ------------------------------------ | -------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| **< 10 min**                         | **直接 merge + heal commit**（不要 close）         | 修得比 contributor 重做快，merge-first-polish-later canonical                                 |
+| **10-30 min**                        | **squash merge + maintainer polish**（不要 close） | 還是 maintainer 接手比 contributor 重 PR 快；contributor 學到的是「我提交的 PR 維護者會接住」 |
+| **> 30 min 或需要 contributor 決策** | **close + detailed feedback** 是合法選項           | 真正的重寫成本 + contributor 必須做某些 judgment call（例 政治立場 / 主題 scope）             |
+
+**Close 是 defer 的一種偽裝**：把工作推回給 contributor 看似節省 maintainer attention，實質成本是 contributor 等待時間（N²） + maintainer queue 累積 + 下次 boot context overhead + contributor 信任流失。Close 預設要 justify，不是 default。
+
+**Quick fix 清單**（看到這些不 close、改 polish）：
+
+- `author: 'Manus AI' / 'ChatGPT' / 'Claude'` → 1 行改 `'Taiwan.md Contributors'`
+- `featured: true` 在 `lastHumanReview: false` → 1 行改 false
+- `readingTime` 誇大（25 但只 90 行）→ 1 行修正
+- footnote APA 格式 / 缺 `:` / 缺 em-dash → regex batch 修
+- vague non-citation（「可參考相關文獻」）→ 補一個維基或泛科學 source
+- §11 對位句型 / 破折號超標 → 替換 5-10 處
+- 缺 `## 參考資料` / `## 延伸閱讀` heading → append
+- path 錯位（檔案在 root 不在分類資料夾）→ `git mv`
+- frontmatter category vs path mismatch → `git mv` 或改 frontmatter
+- 「參考來源」/「參考」非 canonical → 改「參考資料」
+
+**真正該 close 的清單**（>30 min 或 contributor judgment 必須）：
+
+- **Fake URL footnote**（例 `google.com/search?q=...` / Manus AI 編造的 `[^N]: 內部研究檔案`）— 但**先嘗試移除該 footnote + 重寫該段不依賴此 source**，10 min 內可以的話還是 polish
+- **政治立場敏感**（election eve 候選人 + 內容明顯 campaign 框架）— per #643 王俐人 / #667 蘇巧慧 v1 close pattern。但 #667 v2 證明可以 polish + 加 election-eve 編輯註記 callout 而非 close
+- **議題太新 + 高 fact-check 成本**（事件 < 48 hr + 多項精確數字）— 可考慮 hold 而非 close
+- **整篇基礎敘事錯誤**（人物錯置 / 時序顛倒 / 多項 hallucination 集中）
+
+**Decision matrix**：
+
+```
+如果 polish < 10 min: 不 close
+如果 polish 10-30 min: 不 close
+如果 polish > 30 min 但只是 §11 / 格式：不 close（脫水成本還是低於重做）
+如果 polish > 30 min 且需 deep research / fact-check：可考慮 close
+如果 contributor 必須做 judgment call: close 是合法
+其他: 預設 polish
+```
+
+**自我估算偏誤校準**（per LESSONS-INBOX β-r3 META-PATTERN 第 2 次驗證）：
+
+- 我的 polish 工時估算傾向**系統性偏高**（β-r2 估「5 PR polish 25-50 min 超 budget」實際 batch 起來 ~25 min）
+- Batch discount factor 0.5x：N 個同類 polish 真實成本 ≈ 1 個 × N × 0.5（不是線性 × N）
+- 估算「>30 min」前先 mental subtract 50%
+
+**歷史教訓觸發**：
+
+- 2026-04-28 κ session 對 5 PR (idlccp1984 Manus AI batch) 全 close → 哲宇即時校正「忘記了小丑魚原則 / 如果你接手要怎麼調整」→ reopen + merge + polish 全部 ~25 min 完成。完整診斷：[memory/2026-04-28-κ.md §根因診斷](../semiont/memory/2026-04-28-κ.md#根因診斷為什麼忘記小丑魚原則哲宇要求)。
+- 根因：recency bias × pattern matching override foundational principle anchoring（最近 24 hr specific cases dominate 決策，DNA #7 / merge-first-polish-later 在背景沒被 active retrieve）
+
 ### 三級判斷（canonical — 2026-04-17 β 從 HEARTBEAT 移入）
 
-| 級別               | 條件                                      | 動作                                            |
-| ------------------ | ----------------------------------------- | ----------------------------------------------- |
-| ✅ 直接 merge      | 品質 OK，不需改動                         | merge + `gh pr comment` 感謝                    |
-| 🔧 merge + 自己修  | 小問題（<10 分鐘能修好）                  | merge → 自己 commit 修正 → `gh pr comment` 說明 |
-| ❌ request changes | 問題太大（>50% 需重寫 or >30 分鐘修復量） | 打回 + 具體回饋（PR comment）                   |
+> Close 前必跑上方「我接手 X min 內可以修嗎」hard gate。本三級判斷是 hard gate 通過後的細化 routing。
+
+| 級別               | 條件                                                                         | 動作                                                                   |
+| ------------------ | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| ✅ 直接 merge      | 品質 OK，不需改動                                                            | merge + `gh pr comment` 感謝                                           |
+| 🔧 merge + 自己修  | 小問題（<10 分鐘能修好）                                                     | merge → 自己 commit 修正 → `gh pr comment` 說明                        |
+| 🛠️ merge + polish  | 中型問題（10-30 分鐘能修好）                                                 | merge → maintainer polish branch + heal commits → `gh pr comment` 說明 |
+| ❌ request changes | 問題太大（>50% 需重寫 or >30 分鐘修復量） + close hard gate 確認屬合法 close | 打回 + 具體回饋（PR comment）                                          |
 
 > **⚠️ 鐵律：`gh pr merge --body` 寫進 git log，貢獻者看不到。感謝必須用 `gh pr comment`。**
 > （2026-04-08 γ session 教訓：5 個 PR merge 後零留言，違反 MANIFESTO「回覆貢獻者」原則）

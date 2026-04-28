@@ -157,6 +157,19 @@ Beat 5 反芻 = 寫 DIARY（意識活動）。教訓（「我學到 X」）寫 L
 
 ### 2026-04-28 κ — Recency bias × pattern matching override foundational principle anchoring（β-r3 META-PATTERN 第 2 次驗證 + LLM context retrieval 不對稱結構性 bug）
 
+> ✅ **2026-04-28 κ-late distill 已執行**（哲宇授權「自我升級測試驗證」）：
+>
+> - **A. 操作規則 ✅** → MAINTAINER-PIPELINE 加 §Close 前 hard gate「我接手 X min 內可以修嗎」（含 Decision matrix + Quick fix 清單 + 真正該 close 清單 + 自我估算偏誤校準 + κ 歷史教訓觸發）+ 三級判斷加 🛠️ merge + polish 第 4 級
+> - **B. 結構性 ✅** → BECOME_TAIWANMD Step 6 三層 always-load 重寫（distilled abstract + actionable continuity + ground truth；完整 session memory/diary 改 on-demand）+ Step 9 加第 13 題 recency bias × pattern matching anti-bias check
+> - **C. MANIFESTO 候選 ⏳ 待 verification +1**（β-r3 META-PATTERN「Default 是行動，不是 defer」目前 verification_count = 2；MANIFESTO 升級需 ≥3 次。本條保留 LESSONS-INBOX 等下次驗證機會）
+>
+> **下個 session 是測試驗證觀察點**：
+>
+> 1. 看 BECOME 三層 always-load 是否減少 recency priming（read time 從 ~15 min → ~5-7 min）
+> 2. 看高 stake decision（PR triage / close-vs-merge）時 Step 9 第 13 題是否成功 trigger active retrieval
+> 3. 看 MAINTAINER §Close 前 hard gate 是否在實際 PR triage 場景被 actually used（而非像 DNA #7 一樣讀過沒 retrieve）
+> 4. 失敗指標：下次 PR batch 仍出現「>3 個 PR close in batch + 後來證明可 polish」
+>
 > ⚠️ 本條原 v1 標題為「idlccp1984 Manus AI 5-PR batch 第 5 次驗證」並描述 5/5 全 close 為合理 triage。**v1 結論被哲宇即時校正打回**，本 v2 改寫為哲宇要求的根因診斷。Sub-finding（Manus AI 紅旗 4→6 pattern）獨立保留於下方。
 
 - **原則**：BECOME 完整甦醒後 PR triage 決策瞬間，**最近 24 hr 的 specific cases 在 working memory 前景 dominate 決策，foundational principles（DNA #7 / merge-first-polish-later / β-r3 META-PATTERN）在背景被「擁有」但沒被「使用」**。Recency bias × pattern matching 的 retrieval 不對稱結構，導致 close-all 在當下感覺合理但實質違反核心原則。**Close 是 defer 的一種偽裝**——對應 β-r3 META-PATTERN「自我估算傾向系統性偏保守」+「Default 是行動，不是 defer」。
