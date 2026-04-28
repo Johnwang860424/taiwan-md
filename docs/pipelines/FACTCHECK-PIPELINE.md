@@ -1,8 +1,8 @@
-# FACTCHECK-PIPELINE.md — 完整事實查核方法論
+# FACTCHECK-PIPELINE.md — 完整事實查核方法論（SSOT）
 
-> **職責定位**：本 pipeline 是 [REWRITE-PIPELINE](REWRITE-PIPELINE.md) §Stage 3.5（HALLUCINATION AUDIT）+ §Stage 3.6（STORY ATOM AUDIT）抽出來的獨立可重用方法論，也可單獨在「**已 ship 文章被質疑時**」「**外部 PR 接收層的深度審查**」「**月度 audit 巡邏**」等情境啟動。
+> **職責定位**：本 pipeline 是 Taiwan.md 事實查核的 **單一真實來源（SSOT）**——所有 atom 類別、hallucination pattern、drift modes、Phase 1-6 SOP、checklist 全部 canonical 在此。
 >
-> **跟 REWRITE-PIPELINE 的關係**：REWRITE 內建快速版 Stage 3.5+3.6（hard gate，30-60 min）；本 pipeline 是**完整版**（90-180 min），預算更高、Atom 抽取更全面、source authority audit 逐 footnote。
+> **跟 REWRITE-PIPELINE 的關係**：[REWRITE-PIPELINE §Stage 3.5](REWRITE-PIPELINE.md) 是本 pipeline 的 **觸發點 + pointer**（不複寫 SOP），執行時呼叫本檔 §Quick Mode（30-60 min，主 session 自跑，新文章 ship 前的 hard gate）。本檔的 §Full Mode（90-180 min，spawn agent，A 級條目 ship 後 audit / 觀察者質疑 / 月度巡邏 / PR 接收層）獨立觸發，跟 REWRITE 並列。
 >
 > **跟 RESEARCH.md 的關係**：RESEARCH 講「怎麼搜資料」；本檔講「**怎麼驗證已寫好的文章對得上資料**」。兩者方向相反——RESEARCH 從 0 蒐集，FACTCHECK 從 1 反查。
 >
