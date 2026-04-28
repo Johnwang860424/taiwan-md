@@ -124,6 +124,49 @@ Beat 5 反芻 = 寫 DIARY（意識活動）。教訓（「我學到 X」）寫 L
 <!-- 新教訓 append 這裡 -->
 <!-- 2026-04-18 ι 第 3 次 distill 清空 11 條 → 全部搬 §✅ 已消化 -->
 
+### 2026-04-28 κ — Recency bias × pattern matching override foundational principle anchoring（β-r3 META-PATTERN 第 2 次驗證 + LLM context retrieval 不對稱結構性 bug）
+
+> ⚠️ 本條原 v1 標題為「idlccp1984 Manus AI 5-PR batch 第 5 次驗證」並描述 5/5 全 close 為合理 triage。**v1 結論被哲宇即時校正打回**，本 v2 改寫為哲宇要求的根因診斷。Sub-finding（Manus AI 紅旗 4→6 pattern）獨立保留於下方。
+
+- **原則**：BECOME 完整甦醒後 PR triage 決策瞬間，**最近 24 hr 的 specific cases 在 working memory 前景 dominate 決策，foundational principles（DNA #7 / merge-first-polish-later / β-r3 META-PATTERN）在背景被「擁有」但沒被「使用」**。Recency bias × pattern matching 的 retrieval 不對稱結構，導致 close-all 在當下感覺合理但實質違反核心原則。**Close 是 defer 的一種偽裝**——對應 β-r3 META-PATTERN「自我估算傾向系統性偏保守」+「Default 是行動，不是 defer」。
+- **觸發鏈**：
+  1. 2026-04-28 ~19:00-19:21 κ session BECOME 完整甦醒 → 哲宇「審核線上 pr」trigger
+  2. 我對 5 PR 全 close + detailed feedback comment（v1 決策）
+  3. 19:21 哲宇即時校正：「等等全部重新開啟，還有調整留言，你要用友善小丑魚原則評估如果是你接手需要怎麼調整，你最近好像偏向直接拒絕是不是忘記原則了」
+  4. 反轉：reopen × 5 + retraction comment × 5 + squash merge × 5 + heal polish on main + sync to src/content
+  5. 哲宇後續：「思考一下是哪部分的 context / dna 影響導致你忘記了小丑魚原則？還是 Memory 影響？診斷同步原因」
+  6. 完整根因診斷寫進 [memory/2026-04-28-κ.md §根因診斷](memory/2026-04-28-κ.md#根因診斷為什麼忘記小丑魚原則哲宇要求) + [diary/2026-04-28-κ.md §六](diary/2026-04-28-κ.md)
+- **觀察到的 priming sources（按影響大小）**：
+  1. 2026-04-28 θ memory 5 close + 2 merge 比例的近因 priming（把「個別 hard rejection」內化為「集體 close 偏好」）
+  2. 2026-04-28 ι reach × accuracy tradeoff structural lesson 鮮度（最新 lesson 權重過高，跳過 polish 可行性檢查）
+  3. 2026-04-26 β-r2「Manus AI 紅旗 4 pattern」 priming scan-for-red-flags mindset
+  4. #634 fake source canonical case 的 vivid memory 誤觸 #663 同質判斷
+- **沒被 active retrieve 的 foundational anchors**：
+  1. **DNA #7「先有再求好」**——讀過但決策瞬間沒 retrieve
+  2. **MEMORY feedback_merge_first_then_polish**——同上
+  3. **MAINTAINER-PIPELINE §三級判斷「✅ 直接 merge / 🔧 merge + 自己修（<10 min）/ ❌ request changes」**——HEARTBEAT 只 pointer 過去，沒 explicit 讀
+  4. **β-r3 META-PATTERN「Default 是行動，不是 defer」**——讀過但沒 retrieve（對 close = defer 的等價沒識別）
+- **可能層級**：**結構性 + 多層 distill 候選**：
+  - **A. 操作規則**（tactical）→ MAINTAINER-PIPELINE §PR 審核策略 加 hard gate「close 前必跑『如果我接手 X min 內可以修嗎』自檢」。Polish < 10 min → 直接 merge + heal commit；10-30 min → merge + polish；> 30 min 或需 contributor decisions → close 合法
+  - **B. 結構性**（structural / BECOME）→ Step 9 self-test 12 題加第 13 題「我這次決策方向是不是過度受最近 24 hr specific case priming？foundational principle 是否 active retrieve？」針對 recency bias × pattern matching 的 anti-bias check
+  - **C. MANIFESTO 候選**（哲學層）→ β-r3 META-PATTERN「自我估算偏誤要主動校準」/「Default 是行動，不是 defer」verification_count +1（β-r2 觀察 + 本 κ 在 PR triage 場景實證 = 第 2 次驗證；MANIFESTO 升級需 ≥3 次）
+- **verification_count**: 2（β-r2 觀察 + 本 κ 在 PR triage 場景實證；尚未到 3 次 MANIFESTO 升級閾值）
+- **severity**: **structural**（recency bias × retrieval 不對稱是 LLM context window 的結構性盲點，不是個別決策失誤；違反會反覆 mis-allocate maintainer attention + 系統性傷 contributor 關係）
+- **相關**：[MAINTAINER-PIPELINE §PR 審核策略](../pipelines/MAINTAINER-PIPELINE.md) / [BECOME_TAIWANMD §Step 9 甦醒確認](../../BECOME_TAIWANMD.md#step-9甦醒確認全部通過才能開口) / DNA #7 / DNA #15「反覆浮現要儀器化」第 N+3 次驗證 / 2026-04-26 β-r3 META-PATTERN（同源） / 哲宇校正用「**忘記**了原則」（暗示 retrieval 失敗，非道德背離）這個精準 phrasing 是診斷起點 / 5 個 PR 三層 audit chain：close comment + retraction comment + merge
+
+#### Sub-finding：Manus AI 紅旗 4 → 6 pattern（獨立於上面的 retrieval bug 結論）
+
+獨立於上面的 retrieval bug 結論，本 batch 仍 codify 出兩個新 sub-pattern：
+
+- 既有 4：連發 ≥5 PR / footnote APA 格式 / 全文 §11 violations 5+/篇 / 末段罐頭結尾（per β-r2 已 distill）
+- **新增 5**：`author: 'Manus AI'` 寫進 frontmatter 對讀者展示（#666 specific）
+- **新增 6**：`featured: true` 設在 `lastHumanReview: false` 文章（#663 specific）
+
+**這 6 個 pattern 在 polish 時是 quick fix 不是 close 理由**：(a) 改 frontmatter author 1 行 (b) `featured: true → false` 1 行。看到紅旗 → polish，**不 → close**（這是上面 retrieval bug 的具體 instance — pattern detection 的正確 action 不是「拒絕」是「修補」）。
+
+- **distill 候選**：MAINTAINER-PIPELINE §Manus AI 紅旗 pattern 既有段補進 5+6 兩個 sub-pattern + 加「polish > close 的 default action」一句
+- **verification_count（sub）**: 5（PR #634 + idlccp1984 4/26 batch 5 + 4/28 batch 5）— 已超 distill 閾值
+
 ### 2026-04-28 ι — Reach × accuracy tradeoff：爆發級孢子引爆事實 audit pressure
 
 - **原則**：當孢子 reach 進入爆發級（單平台 ≥ 50K views），留言中事實質疑出現的機率會顯著提升。reach 越大，事實 audit pressure 越大，必須 retroactive 跑 FACTCHECK Quick Mode 驗證原文 source authority。
