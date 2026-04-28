@@ -297,3 +297,99 @@ verification:
 - `[^30]: TaiwanPlus News 中央大學演講側錄 (2026-04, YouTube PnqZCdHqFyA)` — primary verbatim source for 引語 #20-21
 
 **注意**：字幕含 auto-generated 部分（音譯人名「Shaw Lingren」/「Chel」/「Lauren Chang」是 ASR 拼音雜訊不是真實人名），prose 不引用 ASR 雜訊。中文字幕 zh-TW 視為人工字幕（公視官方）較可靠。
+
+---
+
+## 2026-04-28 ι Spore #49/#50 + Article FACTCHECK Quick Mode（reach × accuracy tradeoff 第 3 次驗證）
+
+> Trigger: 觀察者「裡面有很多數據哦，風險較大，幫我完整做一次孢子的 fact check」
+> 既有 article 在 ι session ship 後立刻被 spore Fact Check 反向 audit
+> Mode: Quick Mode 主 session 自跑 / 6 WebFetch + 1 WebSearch / atom 表 15 條
+
+### 🚨 Critical Finding: 「USAFA 大三氣喘誤診」是 hallucination
+
+**孢子 + article 既有 description / 30 秒概覽 / 內文** 都寫「空軍官校大三那年（or 大三時）一紙氣喘誤診」**這 claim 沒有任何 source 支持**。
+
+**多源 cross-check 結果**：
+
+- Wikipedia: not stated specific year
+- CU Med Today: not stated specific year
+- Colorado Women's Medical Legacy: not stated specific year
+- Marie Claire 中文 [^1]: 「**大學時期**」（無提「大三」）
+- TNL [^2]: 不在此頁
+- Science News Explores（新 source）: **「after graduating from the U.S. Air Force Academy and enrolling in pilot training」** ← USAFA 畢業後 pilot training 期間
+- Colorado Springs Gazette: 同 pilot training 期間 framing
+- Lindgren 本人 verbatim（snexplores 直引）：「Being medically discharged from the Air Force was a very challenging time. It obliterated this dream of not only becoming a pilot but really the dream of getting to serve as an astronaut at any point.」← "discharged from the Air Force" 表示已是空軍軍官（USAFA 畢業 + 委任），**不是 cadet**
+
+**判定**：β5 既有 article + ι spore 都把 claim 寫成「大三」是 hallucination — 無 source 支持具體年級，且實際時序錯（pilot training 在 USAFA 畢業之後）。
+
+### Phase 4 Atom-by-atom audit table（孢子 15 atoms）
+
+| #   | Atom                                                 | Source                                                                                                                          | Status              | 處置                                |
+| --- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------- | ----------------------------------- |
+| 1   | 1973-01-23 生於台北                                  | Wikipedia                                                                                                                       | ✅ PASS             | 保留                                |
+| 2   | 2 歲半離台                                           | Marie Claire + TNL verbatim                                                                                                     | ✅ PASS             | 保留                                |
+| 3   | 英格蘭跟維吉尼亞長大                                 | Wikipedia "spent most of his childhood in England" + "Fairfax, Virginia"                                                        | ✅ PASS             | 保留                                |
+| 4   | 8 歲那年看 1981 STS-1                                | 公視「直到二年級」+ 算術（1981-1973=8）+ NASA STS-1 1981-04-12                                                                  | ⚠️ INFERENCE 但合理 | 保留（grade 2 美國通常 7-8 歲對齊） |
+| 5   | 老師把電視機**推進**來                               | 公視 verbatim「**搬**進」                                                                                                       | ⚠️ SOFT-FIX         | 改「搬進來」                        |
+| 6   | 「太空人不是科幻」                                   | 公視 verbatim「並非幻想，也非科幻，而是現實」                                                                                   | ✅ PASS             | paraphrase 合理                     |
+| 7   | 考進空軍官校                                         | Wikipedia + Marie Claire                                                                                                        | ✅ PASS             | 保留                                |
+| 8   | **大三體檢氣喘誤診**                                 | **無 source**                                                                                                                   | ❌ **HARD-FIX**     | 改「畢業後進入飛行訓練時體檢」      |
+| 9   | 繞道走醫學院                                         | 多源                                                                                                                            | ✅ PASS             | 保留                                |
+| 10  | 11 年後重測                                          | Marie Claire verbatim「直到 11 年後」                                                                                           | ✅ PASS             | 保留                                |
+| 11  | 2009 年 3,565 申請者選 9                             | CU Med Today verbatim「3,565 initial applicants」「nine to enroll」（Wikipedia 寫 3,500 為概數，CU Med 直接訪 Lindgren 較精確） | ✅ PASS             | 保留 3,565                          |
+| 12  | 312 天                                               | Wikipedia verbatim「312d 5h 11m」                                                                                               | ✅ PASS             | 保留                                |
+| 13  | 2026-04 中央大學演講                                 | TaiwanPlus News + 多源                                                                                                          | ✅ PASS             | 保留                                |
+| 14  | 「I would not be here today」+「mountains to climb」 | TaiwanPlus News transcript verbatim Ctrl-F ✅                                                                                   | ✅ PASS             | 保留                                |
+| 15  | 找到出生那家醫院                                     | 公視 transcript verbatim「我們找到了我出生的那家醫院」                                                                          | ✅ PASS             | 保留                                |
+
+### Phase 5 Cross-claim consistency
+
+- 1981 STS-1 + 1973 生 = 8 歲 ✅
+- 2009 - (1995 USAFA 畢業 + 飛行訓練 ~1 年) = 約 13-14 年（從 medically discharged 到 NASA 入選），孢子寫「11 年後重測，發現那是誤診。2009 年⋯⋯入選」算術自洽：discharge ~1996 + 11 年 = 2007 重測 → 2009 入選（但 article 既有寫「2006 年左右重測」可能 source 是 [^4] CWM，CWM 確認 not stated 具體年份，所以 article 的「2006 年左右」也是 inference，可保留 hedge）
+- 3,565 / 9 ≈ 396:1 淘汰率（CU Med 三層漏斗：3,565 → 113 interview → 48 finalist → 9 enrolled）✅
+
+### Critical issues requiring article fix
+
+**Article-level 連帶錯誤**（同 hallucination 影響 article）：
+
+1. description L3「空軍官校大三那年一紙氣喘誤診」→ 改「空軍官校畢業後進入飛行訓練時一紙氣喘誤診」
+2. 30 秒概覽 L22「空軍官校大三時⋯⋯」→ 同上修正
+3. 內文 L30「1993 年前後寄到美國空軍官校（USAFA）信箱的一份體檢報告」這個敘事框架也錯，需改為「USAFA 1995 年畢業、進入飛行訓練後拿到體檢報告 + medically discharged」
+4. 「他沒有因此離開軍校。1995 年他從 USAFA 以生物學士畢業」這段也需要重寫——既然氣喘誤診是畢業後才發生的，「沒有因此離開軍校」這個 framing 不成立
+5. L43 「老師把電視推進教室」→ 改「搬進教室」
+
+### Phase 6 Applied fixes（commit pending）
+
+**孢子修補**（blueprint #49 §4a/4c）：
+
+1. 「老師把一台電視機推進來」→「搬進來」（5 處）
+2. 「大三體檢，醫師判他氣喘，他不能飛了」→「進飛行訓練後體檢，醫師判他氣喘，他被空軍醫療退役了」(Threads + X)
+
+**Article 修補**：
+
+1. description ❌ HARD-FIX：「大三那年」→「畢業後進入飛行訓練時」
+2. 30 秒概覽 ❌ HARD-FIX：「大三時」→「畢業後進入飛行訓練時」
+3. 內文 L30-32 ❌ HARD-FIX：原本的 framing「1993 年前後寄到 USAFA 信箱」+「他沒有因此離開軍校。1995 年畢業」需改為畢業後 pilot training 敘事 + Lindgren verbatim「dream obliterated」
+4. 內文 L34 ⚠️ SOFT-FIX：「2006 年左右」hedge 為「約 11 年後 NASA 體檢時」（CWM 沒寫具體年份，hedge 較安全）
+5. 內文 L43 ⚠️ SOFT-FIX：「老師把電視推進教室」→「搬進教室」
+6. 內文 L67-69 ⚠️ SOFT-FIX：「16 年」改「約 14 年」（從 medically discharged ~1996 到 NASA 入選 2009）
+7. 新增 footnote [^32] Science News Explores + Colorado Springs Gazette as primary source for pilot-training-era 誤診時序 + Lindgren verbatim「dream obliterated」
+
+### Self-judge
+
+A: 本次 audit 涵蓋孢子 15 atoms + article 連帶 6 處修補。發現 1 ❌ HARD-FIX（「大三」全 article + spore hallucination）+ 4 ⚠️ SOFT-FIX。修補 wall-clock ~25 min。
+
+B: 仍需注意：
+
+- 「2 歲半離台」公視原話只說「住了兩年」，但 Marie Claire + TNL 中文 source 都寫「2 歲半」── 兩個獨立中文 source verbatim 寫了具體數字，可能是 Lindgren 在其他訪談中曾講過。降階為「兩源 verbatim 互證但無一手 source confirm」
+- 「11 年後重測」Marie Claire verbatim 命中但具體年份 2006 為 inference
+
+C: Audit 盲區：
+
+- snexplores.org WebFetch 一度 403（重新 retry 才成功），若未來相同情境發生需注意 anti-bot
+- Lindgren 本人多場演講都用「dream obliterated」+「mountains to climb」+「I would not be here today」三組 verbatim 反覆使用，研究 agent 第一次抓 article 時若只看一個 source 容易 hallucinate timeline
+
+### LESSONS-INBOX 候選
+
+**reach × accuracy tradeoff verification_count = 3**（#29 李洋 marathon = #0、ι structural codify = #1、#45 壞特 audit = #2、本次林琪兒 article-level hallucination = #3）→ 達 distill 閾值 + 強化證據：**EVOLVE 後文章 ship 前 spore Fact Check 反向 audit 是有效的 second pass — 多次抓到 article 自己的 hallucination**。建議 distill 升 SPORE-PIPELINE Step 2.5 規則：「如果 spore 寫到 article 沒寫過的具體 fact（如年級 / 具體年份 / 具體申請人數），spore stage 必須回查 article source 是否真的支持，發現 article 也沒 source 時要連帶修 article」
