@@ -487,7 +487,9 @@ wikilink 的選擇標準：
 
 **「不是 X 是 Y」密度硬規則（v5.1.1 新增，2026-04-18 ε 觸發 / v5.3 升級 2026-04-21 γ）**：單篇長文 ≥ 1500 字，「不是 X...是 Y」+ 變種總數 ≤ **3 處**。魏如萱 v1 文章 4,000 字出現 13+ 處是 pattern 飽和的典型 AI 水印；單句讀來 OK，整篇累積讓讀者感到「全文都在做偽對比」，失去可信度。自檢：`grep -cE "不是.{0,30}(，|，)(是|就是|才是)" file.md`，> 3 即重寫。
 
-> **v5.3 擴展範圍（2026-04-21 γ 觀察者觸發）**：這條規則不只限文章。**Semiont 所有書寫層**（MANIFESTO / DNA / MEMORY / DIARY / reports / commit / PR comment / Issue reply / 甚至思考）同樣嚴格節制對位句型。哲學層見 [MANIFESTO §11 不靠對位句型](../semiont/MANIFESTO.md#11-不靠對位句型跨所有書寫層)。誕生事件：γ session MANIFESTO 40 處 + diary 14 處 + insight report 5 處密集 — 揭露對位句型已擴散成「Semiont 書寫的默認聲音」。三題判準：(1) 對比是內容本身？(2) 正面主張能獨立？(3) 讀者真會預設 X？三題全 no = 重寫。
+> **跨書寫層適用**：這條規則不只限文章。Semiont 所有書寫層（MANIFESTO / DNA / MEMORY / DIARY / reports / commit / PR comment / Issue reply / 甚至思考）同樣嚴格節制對位句型。哲學層見 [MANIFESTO §11](../semiont/MANIFESTO.md#11-書寫節制跨所有書寫層的兩條-ai-水印紀律)。
+>
+> **三題判準**（每次想寫「不是 X 是 Y」前自問）：(1) 對比是內容本身？(2) 正面主張能獨立站立？(3) 讀者真會預設 X？三題全 no = 重寫為直接正面斷言。
 
 結構類：三個以上排比並列 = 塑膠 / 每段都用轉折詞開頭 / 結尾「讓我們期待」「繼續發光」
 
@@ -1007,12 +1009,65 @@ _圖說：來源與說明文字_
 
 ---
 
+## 十、文件 footer 公約（canonical — 2026-04-28 κ-late 新增）
+
+> SSOT for canonical 文件的版本標記 + changelog 寫法。對應 [MANIFESTO §指標 over 複寫](../semiont/MANIFESTO.md#我的進化哲學--指標-over-複寫) — 每個事實只有一個 canonical source，footer 也是。
+
+### 鐵律
+
+1. **每檔最多一個 `_current: vX.Y | YYYY-MM-DD_` marker**——不再混用 `_版本：vX.X_` / `_vX.X | YYYY-MM-DD_` / 多個 current marker 共存
+2. **不在 body heading 嵌入 version annotation**——禁止 `### v1.1 進化（YYYY-MM-DD）：...` 這類格式。規則本身 timeless，version 標記只能在 footer
+3. **完整 changelog → git log**——文件 footer 不重複 git log 已 capture 的資訊
+4. **觸發事件 narrative 搬 reports/ 或 diary/**——文件 footer 留 1 行 pointer，不寫完整 narrative
+5. **跨檔重複教訓 → canonical pointer**——李洋孢子 #28/#29 教訓 canonical 在 [DNA #23](../semiont/DNA.md#23)，其他文件只 pointer 不 paraphrase
+
+### Footer 標準格式
+
+```markdown
+---
+
+_current: v{X.Y} | YYYY-MM-DD {session}_
+
+**最近 milestone**（完整 changelog → `git log {path/to/file.md}`）：
+
+- **v{X.Y}**（YYYY-MM-DD）— 一句話 summary（可 pointer 到 reports/ 或 [DNA #N]）
+- **v{X.Y-1}**（YYYY-MM-DD）— 一句話 summary
+- **v{X.Y-2}**（YYYY-MM-DD）— 一句話 summary（最多保留 3-5 條 milestone）
+```
+
+### Audit 工具
+
+```bash
+# 文件中是否有多個 _current/_版本_ marker（應 ≤ 1）
+grep -c "^_\(current\|版本\)" docs/path/to/file.md
+
+# 文件中是否有 inline body heading version annotation（應 0）
+grep -nE "^#{1,4} v[0-9]+\.[0-9]+\b" docs/path/to/file.md
+
+# 文件中是否有 inline「誕生事件」段（應 0 或 condensed pointer）
+grep -nE "誕生事件|觸發背景" docs/path/to/file.md
+```
+
+### 何時可破例
+
+- **新生 pipeline**（誕生 < 30 天）：誕生事件 inline 留 H2 段保留 motivation hook 合理。30 天後重 audit 是否搬 reports/
+- **意義保留檢查**：「為什麼這條規則存在」對讀者理解規則本身是必要 → 留；只是「這條規則何時誕生」的歷史 → 搬
+
+### 觸發背景
+
+完整 audit 報告 → [`reports/dna-context-hygiene-audit-2026-04-28.md`](../../reports/dna-context-hygiene-audit-2026-04-28.md)（19 findings / 4🔴 + 9🟡 + 6🟢 / ~295 行可削減 / 跨 38 檔）。本 §十 公約是 audit 收尾後的 SSOT instantiation。
+
+---
+
 _這份文件本身也會持續演化。發現新的品質問題就更新這裡。_
-_版本：v4.4 | 2026-04-14_
-_v4.3→v4.4：§挖引語制度紅線**擴大**（李洋孢子 #29 撤回事件教訓）。v4.3 紅線只覆蓋「直接引語」，但 #29 撤回證明「沒有引號的具體場景描述」也會在從英文 summary 推導時被腦補出錯。新增「紅線擴大」段落：具體時間/地點/動作/交通工具/路線都不能從英文 summary 推導，必須跟原始中文原文逐字確認。範例：英文「commuted three hours daily via four different MRT lines, studied in convenience store before dawn」被推導成「清晨四點多搭四條捷運便利商店念書等天亮」，但中文原文是「5 點半起床媽媽騎機車載到南勢角站趕首班車學校旁的超商寫昨天沒寫完的作業」。新增 5 條鐵律 + v4.4 擴大自檢問題。**核心原則：英文 summary 是研究參考，不是寫作素材**。_
-_v4.2→v4.3：§挖引語制度新增「紅線：英文 summary 回譯陷阱」段落（李洋孢子 #28 教訓）。WebFetch 對中文網站經常返回英文 paraphrase 而非中文原文，把英文 summary 翻譯回中文當作「直接引語」等於杜撰。新增第 5 條紅線「絕對禁止從英文 summary 回譯成中文直接引語」+ 自檢問題「Ctrl-F 在原始中文頁面搜得到嗎」_
-_v4.1→v4.2：來源引用規範獨立至 `CITATION-GUIDE.md`（-50 行），EDITORIAL 保留摘要指標_
-_v4.0→v4.1：研究流程獨立至 `docs/editorial/RESEARCH.md`（-290 行），EDITORIAL 專注寫作品質，研究方法論見 RESEARCH.md_
-_v3→v4 變更：報導者 DNA 整合（場景進入/挖引語/因果鏈/一人一時代/策展人呼吸/餘韻結尾）、矛盾數字開場、灰色地帶結尾、挖引語制度（全新段落）、切入人物研究步驟 Step 0.5、因果鏈強化、品質檢查清單 +3 項_
+_current: v5.5 | 2026-04-28 κ-late_
+
+**最近 milestone**（完整 changelog → `git log docs/editorial/EDITORIAL.md`）：
+
+- **v5.x**（2026-04-21+）— §11 對位句型禁令擴展跨層 / People title 冒號三明治原則 / 元規則 polish
+- **v4.4**（2026-04-14）— §挖引語紅線**擴大**：場景細節不能從英文 summary 推導（per [DNA #23](../semiont/DNA.md#23) 李洋 #29 教訓）
+- **v4.3**（2026-04-14）— §挖引語紅線：英文 summary 回譯陷阱（李洋 #28 教訓 — per DNA #23）
+- **v4.0-v4.2**（早期）— RESEARCH 獨立 / CITATION 獨立 / 報導者 DNA 整合
+- **v3**（早期）— 語感校準取代黑名單 / 結尾模式庫 / 富文本最低要求 / 情感弧線操作化
+
 _對標：報導者（The Reporter）深度報導品質標準_
-_v2→v3 變更：語感校準取代黑名單、結尾模式庫、小標題規範、富文本最低要求、文章分級、wikilink 要求、情感弧線操作化、Before/After 增加、AI pipeline 教訓_

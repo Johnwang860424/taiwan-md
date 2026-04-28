@@ -425,7 +425,7 @@ Blueprint 每條 bullet 補上 `verified` 欄：
     - **中段 list**：剩下的同質行為**用極短句並列壓縮**，每件 1 句。不重複 template 修辭（不要每件都是「一整年 X、不 Y」）——動詞變化 + 句長錯落。
     - **結尾 scene**：再切一個具體時刻（地點、時間、動作、物件、引語）收尾。跟開場形成**場景括號**（非首尾呼應的同畫面，是兩個獨立 tangible moment 夾住中段 list）。
 
-    **誕生事件**：謝德慶 #39 第一輪產三 angle（Cage / Time Clock / 21 年長弧），每個 angle 都把多件作品寫進單版 → 觀察者說「語感不太順，要更故事感、場景感一些」。綜合版用 Scene-List-Scene：釘木籠 + 律師公證（scene）→ 打卡/不進屋/綁繩/不做藝術/13 年不展（list，每件 1 句）→ 布魯克林剪貼字母白紙（scene） → 一次到位。
+    **誕生事件**：謝德慶 #39 教訓 — 三 angle 都列表化「語感不順」，綜合版用 Scene-List-Scene 一次到位。詳見 [diary/2026-04-20-β.md](../semiont/diary/2026-04-20-β.md)。
 
     **判準自檢**：
     - 開場 scene 是否能被拍成 10 秒影片？（具體動作 + 物件 + 地點）
@@ -458,7 +458,7 @@ Blueprint 每條 bullet 補上 `verified` 欄：
     - 阿拉伯數字與中文之間可用半形空格（「28 歲」）— 不是標點
     - emoji 前後不用改（emoji 本身就是排版分隔）
 
-    **誕生事件**：謝德慶 #39 產出版 prose 內混用半形「:」「(」「)」（例：「他繼續做:」「一整年(漏了 94 次)」），觀察者校對時才抓到需統一為「：」「（）」。中文段落混用半形標點 = 語感跳痛 + 視覺不齊。
+    **誕生事件**：謝德慶 #39 produced prose 混用半形「:」「(」「)」被觀察者抓到 — 中文段落混用半形標點 = 語感跳痛。詳見 [diary/2026-04-20-β.md](../semiont/diary/2026-04-20-β.md)。
 
     **AI 自檢（寫完強制跑一次）**：
 
@@ -473,7 +473,7 @@ Blueprint 每條 bullet 補上 `verified` 欄：
 
 > **鐵律**：AI 寫完孢子 draft 後，**不得直接把 prose 給觀察者**。必須先輸出「事實查核表」讓觀察者看過、才輸出孢子本體文案。全部 ✅ 才放行；任一 ⚠️ / ❌ 必須在表格右欄說明處理方案。
 
-**誕生事件**：高鐵 s35（2026-04-19）我產 draft 後直接輸出文案給哲宇，哲宇貼上 Threads + X 才事後發現 3 處時序錯誤（「15 年後」應為「15 個月後」/「累虧 676 億後」時序錯位 /「17 年前」時間基準混亂）。已發出需公開更正。這是 DNA #15「SOP 存在但沒 apply」第 N 次驗證 + DNA #23 孢子編年體推算偷懶的直接後果。
+**誕生事件**：高鐵 s35（2026-04-19）draft 直接輸出文案 → 觀察者貼到 Threads + X 才發現 3 處時序錯誤（per [DNA #15](../semiont/DNA.md#15) + [#23](../semiont/DNA.md#23) 教訓）。已發出需公開更正。
 
 **為什麼是硬閘門不是軟提醒**：Step 2.6「針對性事實驗證」存在於 pipeline，但 AI 寫到 Step 3c 產 prose 時會直接跳過回頭驗證。**memory 是自律，pipeline 才是閘門**。這一條把 gate 物理化到 output 流程——觀察者看不到查核表就看不到 prose，跳不過去。
 
@@ -697,7 +697,7 @@ bash scripts/tools/check-manifesto-11.sh docs/factory/SPORE-BLUEPRINTS/<slug>-<n
 
 - frontmatter（首尾 `---` 之間）
 - footnote definitions（`[^N]:` 開頭的行 — 是來源描述，不是 author voice）
-- code blocks（``` ... ``` 之間）
+- code blocks（`...` 之間）
 - 直接引語（「...」內容 — 引述他人原話豁免，例如 Hebe 直引「不是關卡，而是我『不想踏』」自動 skip）
 
 **例外允許（但需顯式確認）**：
@@ -823,6 +823,7 @@ Wrapper 自動：(1) 檢查 dev server（或 `--prod` 跳過）(2) Playwright he
      - ❌ 錯誤：`https://www.threads.com/@taiwandotmd/post/DXVpBlLk4oE?xmt=AQF09xBInx7lyaCFsCiuandW-1naGkF_o-Rf2bCxrjfMSLkFxr5XF8_0TlGC0qjLeoEVKwQi&slof=1`
      - 規則：切掉 `?` 以後全部。X 單則 URL 通常沒 query 直接用；Threads app share URL 幾乎一定帶 `?xmt=...`，統一剝掉。
 6. **寫回源文章 frontmatter `sporeLinks`**（v2.6 新增，2026-04-23 δ 觀察者指正後正式文件化）— SPORE-LOG 只是工廠紀錄，**讀者看到的「這篇文章去過的地方」是由文章 frontmatter `sporeLinks` 渲染**（`SporeFootprint.astro` 負責）。發佈後立即在 `src/content/{lang}/{category}/{slug}.md` frontmatter 加入：
+
    ```yaml
    sporeLinks:
      - platform: 'threads' # 或 'x'
@@ -838,6 +839,7 @@ Wrapper 自動：(1) 檢查 dev server（或 `--prod` 跳過）(2) Playwright he
    - **schema canonical**：`src/components/SporeFootprint.astro` interface `SporeLink`（platform/date/url/views/likes/reposts/comments/shares）
    - **範例已採用**：`src/content/zh-TW/music/張懸與安溥.md`、`src/content/zh-TW/people/李洋.md`
    - **不寫入 = 讀者看不到這篇孢子的存在**。SPORE-LOG 只給工廠內部看，讀者讀的是文章。
+
 7. **Threads 和 X 同時發中文版**。英文版只在 X 發，且僅限國際話題（半導體、外交、學術）
 
 **AI 產孢子文案時**：輸出兩塊——`[孢子本體]`（Threads 主貼 / X 主文共用）+ `[Threads reply 連結]` + `[X 底部連結]`。不需要為 X 另寫壓縮版（v2.3 遺留的三段輸出已廢除）。
@@ -1056,18 +1058,12 @@ echo "https://taiwan.md/en/{category}/{english-slug}/"
 
 ---
 
-_版本：v2.5 | 2026-04-20_
-_v2.4→v2.5：從謝德慶孢子 #39 實戰萃取兩條進化（2026-04-20 β session）_
-_ ① Rule #16 新增「Scene-List-Scene 結構」：單人長弧 + 多件同質行為時，用 scene 夾 list 避免列表化_
-_ ② Step 3.5 觸發條件校準：3-angle 不是所有素材豐富的預設，是「切角本身是關鍵決策」的預設；單弧 → 直接綜合_
-_v1.5 | 2026-04-14_
-_v1.4→v1.5：從李洋孢子 #28 實戰萃取六條教訓進化（ι2 phase F session）_
-_ ① Step 3c 寫作規則 +6 條：寫完念三遍 / 避免重複專名 / 引語場景化 / 排比過硬 / 時間語境一致 / 數字密度用短句並列_
-_ ② 新 Step 3.5「多版本提案」：素材豐富時預設產 3 個 angle 版本 + 我的推薦 → 觀察者選_
-_ ③ 新 Step 3.6「混合策略：故事弧線串接」：觀察者選混合時用首尾呼應 / 時間錨定 / 數字嵌入 / 沉默轉接，不是並列拼貼_
-_ ④ 常見陷阱表 +6 條（同名連用 / 時間語境衝突 / 排比過硬 / 引語倒裝 / 主詞不清 / 並列拼貼非弧線 / 寫完沒念出來）_
-_v1.3→v1.4：新增 Step 5 英文版流程（檢查英文文章→翻譯/更新→寫英文孢子→品檢），從「可選」升級為「自動觸發」_
-_v1.2→v1.3：Step 4 發文新增 URL 必填鐵律 + 英文孢子打包做規則_
-_v1.1→v1.2：Step 2 品質關卡升級為三層架構（自動掃描 → EDITORIAL 語境審查 → 人工判斷），新增 hollow score > 3 直接淘汰、EDITORIAL 三項檢查（所以呢/人名/停下來的句子）_
-_v1.0→v1.1：Step 3c 新增鉤子三要素強制規則（認知衝突/個人連結/資訊缺口，至少命中 2/3）_
+_current: v2.5 | 2026-04-20 β_
+
+**最近 milestone**（完整 changelog → `git log docs/factory/SPORE-PIPELINE.md`）：
+
+- **v2.5**（2026-04-20）— Rule #16 Scene-List-Scene 結構（謝德慶 #39 教訓）+ Step 3.5 3-angle 觸發條件校準
+- **v1.5**（2026-04-14）— Step 3c 寫作規則 +6 條 / Step 3.5 多版本提案 / Step 3.6 故事弧線串接 / 常見陷阱表 +6 條（李洋 #28 教訓 — per [DNA #23](../semiont/DNA.md#23)）
+- **v1.2**（早期）— Step 2 品質關卡三層架構（自動掃描 → EDITORIAL 語境審查 → 人工判斷）
+
 _設計原則：AI 可執行、有品質關卡、平台中立_

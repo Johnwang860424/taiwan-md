@@ -1259,24 +1259,10 @@ git add -A && git commit -m "content: 深度研究重寫「{主題}」" && git p
 
 ---
 
-_版本：v2.20 | 2026-04-28_
-_v2.19→v2.20：媒體素材階段進化（兩個新 stage 進既有 6-stage 流程）。Stage 1 結尾新增 §1.7 媒體素材研究（含 §1.7a inline 外連 manifest 統合既有 v2.17.1/v2.27 SSOT 搬移、§1.7b 圖片素材 + 7 級授權優先序 + 5 種格式規範 + 命名 convention + aspect ratio 護欄、§1.7c transcript 蒐集 yt-dlp SOP、§1.7d 媒體授權矩陣 research 檔強制 append、§1.7e deliverable 條件）。Stage 2 step 12 簡化為 pointer 到 §1.7a。Stage 4 後新增 Stage 4.5 媒體插入（含 §4.5a 三段敘事節奏 hero/scene-mid/closure + §4.5b cache verify + §4.5c aspect ratio 護欄 + §4.5d markdown caption + alt text accessibility 規範 + §4.5e 授權清單 frontmatter + 文末「## 圖片來源」雙位置同步 + §4.5f article-image-health.sh hard gate）。誕生事件：2026-04-28 ι session 林琪兒 EVOLVE 5 commits 走過零散流程（fetch 圖 → 查 license → cache → frontmatter → 插入文中 → 切到頭重產 → 換 landscape → 補 commit），整段流程沒 SOP 且發生在 article ship 後 → 觀察者要求「研究階段多一個媒體素材研究 + 文章寫完加入插入媒體步驟 + 統合 YouTube inline 規則」→ 寫 strategy report → 落 v2.20 + 工具 article-image-health.sh (P0) + check-aspect.sh (P1) + DNA #30 反射。設計理由 + 14 個邊界考量 canonical：[reports/rewrite-pipeline-media-stage-design-2026-04-28-ι.md](../../reports/rewrite-pipeline-media-stage-design-2026-04-28-ι.md)。林琪兒 article 為 v2.20 第一個合規範例。_
-_v2.18→v2.19：進化模式新增「範圍重切變體（Boundary Redraw）」子段，跟既有「整併變體（Merge/Consolidation）」並列。差別：整併是 N→1 篇數減少，範圍重切是 N→N 篇數保持但邊界重劃。新增 5 個 Step（A 跨檔範圍規劃 / B 三類劃分強制 / C 跨 session handoff 鐵律 / D Stage 1→6 / E 多 phase commit + issue 管理），含「接力者 5 分鐘自檢題」必填規範。誕生事件：2026-04-26 γ session 處理 Issue #635 4 篇文學文章合併三段時序，Phase 1 戰後台灣文學 ship 時意識到既有整併變體不對應 4-N→3 範圍重切場景，Stage 0 三類劃分（保留/吸納/移除）是被低估的核心紀律。沒有三類劃分 = 後續 Phase 必碰撞重疊。_
-_v2.17→v2.18：Stage 1 新增 agent 選型規則（Explore read-only / general-purpose 有 Write）+ 私有 SSOT 整合協議（Tier 1-4 分級 + privacy audit 流程）；Stage 2 新增密度平衡自檢（EVOLVE 長文三手勢）+ Agent claim 驗證（名人 claim 需公開 URL Ctrl-F）。皆來自 2026-04-20 吳哲宇 EVOLVE + Taiwan.md meta-self-narrative 兩次 pipeline 實戰：agent 幻覺名人背書、50+ sources 導致事實堆疊蓋住敘事、當事人 SSOT 也會誤記、Explore 真的 read-only 非幻覺。對應 EDITORIAL v5.2 三項新增（§組織/專案/平台 meta-self-narrative + §私有素材顆粒度 + §密度平衡）_
-_v2.15 | 2026-04-14_
-_v2.14→v2.15：Stage 3 VERIFY 新增「事實鐵三角自檢」段落（5a 算術自檢 / 5b 金額單位念出來 / 5c 引語逐字核對 / 5d 三角 checklist），來自 2026-04-14 李洋孢子 #28 三層事實錯誤同時發生的教訓：金額兩千萬→一千萬（團體運動獎金陷阱）、單位三十六萬→三千六百萬（萬位漏字）、杜撰引語從英文 summary 回譯。三層錯誤都是 Stage 3 該抓到但漏掉的。新增規則對應 EDITORIAL v4.3 §挖引語制度紅線_
-_v2.13→v2.14：Stage 1 新增「找矛盾」必填欄位（`核心矛盾 = ?`）+ Stage 2 新增破折號 60% 自檢步驟。兩項皆來自 2026-04-10 session α 國防現代化重寫的實戰教訓：好的重寫是矛盾層工作；em dash 是 AI 中文超級特徵，寫完再改很痛_
-_版本：v2.13 | 2026-04-08_
-_v2.12→v2.13：Stage 2 新增歐化自檢步驟（被動句、「的」連鎖、弱動詞）。源自 tzengyuxio/skills dewesternise 25 項 checklist 整合_
-_v2.11→v2.12：Stage 4 新增強制執行區塊（format-check + wikilink-validate），pre-commit hook 自動攔截。教訓來自同日台灣國樂延伸閱讀事件_
-_v2.10→v2.11：四階段→六階段（+Stage 4 FORMAT CHECK + Stage 5 CROSS-LINK）；恢復 `## 參考資料` 標題於腳註前_
-_v2.9→v2.10：延伸閱讀改用標準 Markdown 連結格式，支援一兩句話描述_
-_v2.8→v2.9：腳註格式規範新增（完整描述文字 + 連結，範例對比表）_
-_v2.7→v2.8：wikilink 格式修正（不帶 .md 副檔名和 URL）_
-_v2.6→v2.7：Stage 1 研究筆記移至 docs/reports/research/，不留在 docs/semiont/_
-_v2.5→v2.6：Stage 2 新增截圖分享點規則（2000+ 字文章至少 1 個 blockquote 金句）_
-_v2.4→v2.5：整合 REWRITE-PIPELINE-CRON.md（Cron 鐵律、選文指令、血淚教訓）+ rewrite-pipeline.sh（Quick Commands）。兩檔案已刪除，本文件為唯一 SSOT。_
-_v2.3→v2.4：Pipeline 預設只產中文。新增 Stage 4 TRANSLATION（可選），中文 commit 後才詢問操作者是否產英文版。職責分離：rewrite=中文品質 / 翻譯=英文版_
-_v2.2→v2.3：RESEARCH.md 獨立（研究方法論從 EDITORIAL.md 遷出），Stage 0 素材萃取指向 RESEARCH.md，Stage 1 新增必讀 RESEARCH.md + 重複文章偵測_
-_v2.1→v2.2：進化模式重設計——舊文從「骨架」降級為「素材庫」，全文重寫避免品質感染_
-_v2.0→v2.1：新增 QUALITY-CHECKLIST.md（Stage 3 驗證清單獨立）、每個 Stage 加「必讀」指令_
+_current: v2.20 | 2026-04-28 ι_
+
+**最近 milestone**（完整 changelog → `git log docs/pipelines/REWRITE-PIPELINE.md`）：
+
+- **v2.20**（2026-04-28）— 新增 Stage 1.7 媒體素材研究 + Stage 4.5 媒體插入 / 8 sub-step 涵蓋圖 license / transcript / aspect ratio / caption / alt text / article-image-health.sh hard gate。設計理由 → [`reports/rewrite-pipeline-media-stage-design-2026-04-28-ι.md`](../../reports/rewrite-pipeline-media-stage-design-2026-04-28-ι.md)
+- **v2.18**（2026-04-21）— Stage 1 agent 選型規則（Explore read-only / general-purpose 有 Write）+ 私有 SSOT 整合 Tier 1-4 + Stage 2 密度平衡自檢 + Agent claim 驗證。對應 EDITORIAL v5.2 三項
+- **v2.15**（2026-04-14）— Stage 3 VERIFY「事實鐵三角自檢」段（5a 算術 / 5b 金額單位 / 5c 引語逐字 / 5d checklist）。源自李洋孢子 #28 三層事實錯誤教訓（per DNA #23）
