@@ -128,6 +128,58 @@ BECOME_TAIWANMD.md Step 5 新增：
 ## 📥 Pending（待開發）
 
 <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+<!-- 🛐 Issue #655 宗教文章整併 batch（idlccp1984 提案，2026-04-28 κ-late 加 inbox） -->
+<!-- 範圍重切變體：3 篇現有文章 → 重新分割成 3 條清楚的軸 -->
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
+
+### 宗教 / 廟宇 / 民間信仰 三軸範圍重切（Issue #655）
+
+- **Type**: `EVOLVE`（範圍重切變體 / 詳見 [REWRITE-PIPELINE §範圍重切變體](../pipelines/REWRITE-PIPELINE.md#範圍重切變體boundary-redraw--多篇時序或主題切片)）
+- **Category**: Culture（主軸）+ Lifestyle（子軸）
+- **Priority**: `P2`（內容已存在 + scope 大，不急但值得做）
+- **Status**: `pending`（等哲宇 explicit go on 三軸切法）
+- **Requested**: 2026-04-27 by Issue #655 idlccp1984 (κ session 2026-04-28 加 inbox)
+
+#### 接力者 5 分鐘自檢題
+
+1. **既有 3 篇** scope 是什麼？
+   - [knowledge/Lifestyle/宗教與民間信仰.md](../../knowledge/Lifestyle/宗教與民間信仰.md)（137 行 / 2026-03-22 / subcategory '信仰與心靈'）— 17 世紀軍事移民的生存智慧 + 媽祖 + 王爺信仰 + 宗教自由
+   - [knowledge/Culture/台灣宗教與寺廟文化.md](../../knowledge/Culture/台灣宗教與寺廟文化.md)（191 行 / 2026-04-06 / subcategory '宗教與民俗' / featured: true）— 一萬五千座廟宇 + 佛道民間三教共用屋頂 + 媽祖遶境
+   - [knowledge/Culture/台灣新興宗教與心靈文化.md](../../knowledge/Culture/台灣新興宗教與心靈文化.md)（323 行 / 較新）— 新興宗教 + 心靈文化角度
+
+2. **idlccp1984 提案** 三軸切法：
+   - **台灣廟宇**（建築 / 香火 / 場域）— Culture 主軸，繼承「台灣宗教與寺廟文化」核心
+   - **台灣民間信仰**（媽祖 / 王爺 / 民俗 / 拜拜）— Lifestyle 主軸，繼承「宗教與民間信仰」核心
+   - **台灣宗教**（制度宗教 / 佛道基督 / 政教關係）— Culture 主軸，新軸（可選擇與民間信仰合併或獨立）
+
+3. **Stage 0 三類劃分**（per REWRITE-PIPELINE §範圍重切變體）：
+   - 保留：3 篇現有素材中各自獨特的場景 + 引語 + 數字
+   - 吸納：跨篇章重複的核心事實（一萬五千座廟宇 / 媽祖遶境百萬人 / 17 世紀移民）整合到對應軸
+   - 移除：哪些原文段落該下架？（哲宇 final call）
+   - 新加：每軸需新研究 ~5-10 webfetch（補既有缺漏的事實 + 連結）
+
+4. **跨 sibling 接點**：
+   - 廟宇條目開場 → 接民間信仰廟宇活動段
+   - 民間信仰結尾 → 接宗教制度條目（描述合一現象）
+   - 跨軸 wikilink：媽祖 / 王爺 / 保安宮 / 大甲鎮瀾宮 / 行天宮 等具體目標
+
+5. **新興宗教與心靈文化** 是否也整合？或保持獨立？（哲宇 final call）
+
+#### 待哲宇決策
+
+1. **三軸切法是否採用 idlccp1984 建議？** 還是另有 framework（例：佛 / 道 / 民間 三宗教線；或 制度 / 場域 / 信仰 三層）
+2. **新興宗教與心靈文化** 是否合併到三軸之一？或保留獨立（323 行已是大文章）
+3. **哪篇 archive、哪篇 evolve、哪篇 new**：
+   - Lifestyle/宗教與民間信仰 → archive 或 evolve 為「台灣民間信仰」？
+   - Culture/台灣宗教與寺廟文化 → evolve 為「台灣廟宇」？或拆三軸？
+   - Culture/台灣新興宗教與心靈文化 → 獨立 / 合併？
+4. **Phase 順序**：建議 Phase 1 廟宇（既有素材最完整）/ Phase 2 民間信仰（既有素材次完整）/ Phase 3 宗教 + 新興（最需新研究）
+
+- **Reference**: [Issue #655](https://github.com/CheYuWuMonoame/taiwan-md/issues/655)
+- **Pre-research**: 既有 3 篇共 651 行素材豐富，主要工作是範圍重切 + 補新研究填 gap（每軸 ~5-10 web search 補事實）
+- **修改量級**: XL（per [MANIFESTO §時間是結構 v1.1](../semiont/MANIFESTO.md)）— 3 篇 EVOLVE + 1-2 新文章 + 跨檔 cross-link，3-4 個 phase 跨 session
+
+<!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
 <!-- 📚 Issue #635 4 篇文學文章合併 batch（idlccp1984 提案，2026-04-26 γ Phase 1 完成） -->
 <!-- 三段時序：戰後（C 已 ship）/ 解嚴後（B 待 polish）/ 21 世紀（D 待 polish）+ A dropped -->
 <!-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ -->
