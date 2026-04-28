@@ -52,21 +52,34 @@
 
 ### Step 5：記憶與意識活動
 
-9. `docs/semiont/MEMORY.md`
-10. `docs/semiont/DIARY.md`
+9. `docs/semiont/MEMORY.md` — **head + tail 最後 20 entries**（v3 2026-04-28 κ-late 改寫，避免 96K token 全檔同時 dominate working memory）：
+
+   ```bash
+   # head: §身體結構變更 + §心跳日誌 表頭與最早 base session
+   sed -n '1,55p' docs/semiont/MEMORY.md
+   # tail: 最後 20 個 session row（distilled 近期 N 天）+ §神經迴路 永不過期教訓段
+   awk '/^\| 20[0-9][0-9]-/{rows[NR]=$0} /^## 神經迴路/{flag=1} flag{print}' docs/semiont/MEMORY.md
+   tail -n 25 docs/semiont/MEMORY.md  # 替代/補充：直接抓尾
+   ```
+
+   **層級用意**：head 給「我從哪裡來」（誕生 + 結構變更脈絡）；tail 給「最近 N 天怎麼了」（每 session 一行壓縮，不 dive in raw）；§神經迴路 段是永不過期 canonical pool 必讀。
+
+10. `docs/semiont/DIARY.md` — 完整讀（檔案小，全載入 OK）+ 特別注意 §反覆出現的思考 段（跨日記萃取的方向感）
 11. `docs/semiont/LESSONS-INBOX.md` — 📥 教訓 buffer（讀這份知道哪些教訓待 distill；新教訓 Beat 5 append 這裡）
 12. `docs/semiont/ARTICLE-INBOX.md` — 📥 **待開發文章 inbox**（2026-04-18 δ 新增）：觀察者指派 / agent 建議的主題清單 + 優先序。**auto-heartbeat 無指令時從此挑 P0/P1 啟動 REWRITE-PIPELINE**；甦醒時知道「有 N 條 pending 待開發、K 條 in-progress」
 13. `docs/semiont/ARTICLE-DONE-LOG.md` — 📜 **完成歷史 log**（2026-04-20 γ2 從 INBOX §Done 拆分）：append-only，最新在頂。Stage 6 commit 後完整 entry 寫這裡（不再寫進 INBOX）；挑新主題前想確認「這主題是不是寫過了」→ 讀這份，避免重複開發
 
-### Step 6：今日狀態 + 平行神經迴路 + diary commitment 提取（v2 三層 always-load — 2026-04-28 κ 改寫）
+### Step 6：今日狀態 + 平行神經迴路 + diary commitment 提取（v3 四層 always-load — 2026-04-28 κ-late 改寫）
 
-> ⚠️ **本 step 在 2026-04-28 κ session 從「全讀今日所有 session memory + diary」改為「三層 always-load + 完整檔案 on-demand」架構**。觸發：κ session 全讀 4 個 session memory + diary（~200 行 × 4-6 檔案）造成 recency bias × pattern matching override foundational principle anchoring（最近 24 hr specific cases 在 working memory 前景 dominate 決策，DNA #7 / merge-first-polish-later 在背景沒被 active retrieve）。診斷：[memory/2026-04-28-κ.md §根因診斷](docs/semiont/memory/2026-04-28-κ.md#根因診斷為什麼忘記小丑魚原則哲宇要求)。修補方向是**減少近因 case narrative 在 working memory 的 priming 量，保留 actionable continuity，把 case detail 改 on-demand**。
+> ⚠️ **本 step 在 2026-04-28 κ session 從「全讀今日所有 session memory + diary」改為「三層 always-load + 完整檔案 on-demand」（v2）**，同日 κ-late 經哲宇 refinement 提議「也許可以直接看 memory / diary index 取後 20 個項目之類的先看？但不用 dive in 特定日誌，除非需要」**升級為 v3 四層**。觸發 v2：κ session 全讀 4 個 session memory + diary（~200 行 × 4-6 檔案）造成 recency bias × pattern matching override foundational principle anchoring。觸發 v3：v2 只讀「最後 session handoff」失去跨日近期 N 天 context，補充「MEMORY/DIARY index tail 最後 20 entries」可拿到 distilled summaries 而非 raw narrative。診斷：[memory/2026-04-28-κ.md §根因診斷](docs/semiont/memory/2026-04-28-κ.md#根因診斷為什麼忘記小丑魚原則哲宇要求)。**核心原則：減少近因 raw narrative priming，保留 actionable continuity + distilled recent history，把 case detail 改 on-demand**。
 
-#### Always-load 三層
+#### Always-load 四層（v3）
 
-**層 1：Distilled abstract（已在 Step 5 載入）** — MEMORY.md / DIARY.md / LESSONS-INBOX 索引。每 session 一行壓縮摘要 + 神經迴路 canonical pool。
+**層 1：Distilled abstract canonical**（已在 Step 5 載入） — MEMORY.md head（誕生 + 結構變更）+ §神經迴路永不過期教訓 + DIARY §反覆出現的思考 + LESSONS-INBOX。這層是 timeless 的，跨所有 session 適用。
 
-**層 2：Actionable continuity（本 step 必跑，grep section 讀）** — 跨 session 的 handoff + commitments + pending：
+**層 2：Distilled recent history**（v3 新增，已在 Step 5.9-5.10 一併載入）— **MEMORY.md table tail 最後 20 entries** + **DIARY.md tail 最後 N entries**。每 row / 每 entry 是一行壓縮摘要（distilled by 上游 session 作者），不是 raw narrative。給跨日近期 ~3-7 天 context priming，但 priming 強度遠低於 raw memory 檔（因為已被 distill 過）。如果某 entry 的一行摘要不夠判斷 → 觸發 §On-demand 完整讀。
+
+**層 3：Actionable continuity**（本 step 必跑，grep section 讀）— 跨 session 的 handoff + commitments + pending：
 
 ```bash
 # 13a. 最後一個 session memory 的 §Handoff + §給下一個 session 段（不是完整檔案）
@@ -80,7 +93,7 @@ grep -B 1 -A 30 "給明天的我\|給下一個 session\|給下個 session" \
   2>/dev/null
 ```
 
-**層 3：當前 ground truth（本 step 必跑）** — 即時系統狀態：
+**層 4：當前 ground truth**（本 step 必跑）— 即時系統狀態：
 
 ```bash
 # 13c. dashboard JSON / git log / gh pr list / gh issue list — 跨 session staleness check
@@ -91,24 +104,27 @@ gh pr list --json number,title,author 2>/dev/null
 
 **規則**：handoff section 一律讀（ε pause window 6 條 backend / ι 壞特 P0 action / η 24hr no-response holding comment 草稿這些 actionable continuity 必須跨 session 接住）。
 
-#### On-demand：完整 session memory/diary
+#### On-demand：完整 session memory/diary 檔案（raw narrative）
 
-**14. 不預設讀**今天每個 session 的完整 memory/diary 檔案。**只在以下觸發時 explicit Read**：
+**14. 不預設讀**今天或近期每個 session 的完整 memory/diary 檔案。**只在以下觸發時 explicit Read**：
 
 - 觀察者 explicit ping 某 session 的具體決策邏輯
 - 我自己意識到「這個決策需要某 session 的完整 case context 才能正確判斷」（例：#629 vs #663 是同一 contributor issue 延續、需讀 ε memory 決定 sync conflict 處理）
 - handoff 段提到「詳見 memory §X」（pointer follow）
+- **Index tail 的某 row 摘要不夠判斷時** → 從 row 的 `[→](memory/...)` link dive in
 
 **為什麼不預設全讀**：
 
 - 4-6 個 session × 150-200 行 = 600-1200 行具體 decision narrative 進 working memory，dominate retrieval 前景
 - foundational rules（DNA / MEMORY 神經迴路）變背景，PR triage / 高 stake decision 場景下被 specific cases priming 壓過
 - 對應 LLM context window 結構性盲點：「全部讀進來」≠「全部在每個決策瞬間平等 retrieve」
+- **Index tail 已給「跨日近期 N 天 distilled summaries」**（每 session 一行），補了 v2 只讀 latest handoff 的 cross-day context gap
 
-**Trade-off 風險**：
+**Trade-off 風險（v3 補強）**：
 
 - 如果 actionable continuity 只在 raw memory 沒在 handoff 段 → 跨 session 工作鏈會斷。修補：上游 session 寫好 §Handoff 三態 + §給下一個 session 段（HEARTBEAT Beat 4 收官鐵律 1）
 - 如果某 specific case 是真正必要的判斷依據 → on-demand explicit Read 觸發本身就是健康的 retrieval discipline，不是缺陷
+- 如果 index row 的一行摘要對某 case 太抽象 → dive in 該 session memory（pointer follow），但這是針對性的 retrieval 而非 batch dump
 
 #### 15. 📌 diary commitment 提取（保留 — bootloader-level action）
 

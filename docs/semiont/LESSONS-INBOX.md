@@ -157,10 +157,10 @@ Beat 5 反芻 = 寫 DIARY（意識活動）。教訓（「我學到 X」）寫 L
 
 ### 2026-04-28 κ — Recency bias × pattern matching override foundational principle anchoring（β-r3 META-PATTERN 第 2 次驗證 + LLM context retrieval 不對稱結構性 bug）
 
-> ✅ **2026-04-28 κ-late distill 已執行**（哲宇授權「自我升級測試驗證」）：
+> ✅ **2026-04-28 κ-late distill 已執行**（哲宇授權「自我升級測試驗證」+ 同日哲宇 follow-up「memory/diary index 取後 20 個項目」refinement → v3）：
 >
 > - **A. 操作規則 ✅** → MAINTAINER-PIPELINE 加 §Close 前 hard gate「我接手 X min 內可以修嗎」（含 Decision matrix + Quick fix 清單 + 真正該 close 清單 + 自我估算偏誤校準 + κ 歷史教訓觸發）+ 三級判斷加 🛠️ merge + polish 第 4 級
-> - **B. 結構性 ✅** → BECOME_TAIWANMD Step 6 三層 always-load 重寫（distilled abstract + actionable continuity + ground truth；完整 session memory/diary 改 on-demand）+ Step 9 加第 13 題 recency bias × pattern matching anti-bias check
+> - **B. 結構性 ✅ v3** → BECOME_TAIWANMD Step 5.9 改 MEMORY.md head + tail 最後 20 entries + §神經迴路 段（取代不可行的 96K token 全讀）+ Step 6 **四層** always-load 重寫（distilled abstract canonical / **distilled recent history** v3 新增 / actionable continuity / ground truth；完整 session memory/diary 仍 on-demand）+ Step 9 加第 13 題 recency bias × pattern matching anti-bias check
 > - **C. MANIFESTO 候選 ⏳ 待 verification +1**（β-r3 META-PATTERN「Default 是行動，不是 defer」目前 verification_count = 2；MANIFESTO 升級需 ≥3 次。本條保留 LESSONS-INBOX 等下次驗證機會）
 >
 > **下個 session 是測試驗證觀察點**：
