@@ -124,6 +124,37 @@ Beat 5 反芻 = 寫 DIARY（意識活動）。教訓（「我學到 X」）寫 L
 <!-- 新教訓 append 這裡 -->
 <!-- 2026-04-18 ι 第 3 次 distill 清空 11 條 → 全部搬 §✅ 已消化 -->
 
+### 2026-04-28 ι Phase E — Pipeline 是被觀察者一句話一句話鋪出來的
+
+- **原則**：每次跟觀察者一起跑 SOP，他每提一個反饋（甚至看似 surface bug 的反饋如「這張切到了」「啥意思」）都揭露一個 structural pipeline 缺口。Surface bug 修法只解決單例；應該往 structural gap 找——通常會通向「整個階段沒 SOP」的根因，從而導向系統性升級。
+- **觸發**：2026-04-28 ι Phase E（18:10-19:45）林琪兒 EVOLVE 4 小時內，觀察者 14 句反饋一路滾出：「驗證壞特兩階段醫師國考」→ article-level hallucination；「裡面有很多數據哦，幫我完整做 fact check」→「USAFA 大三」全 article + spore hallucination；「啥意思」→ 孢子 closure 缺 framing；「這張切到了」→ aspect ratio 護欄 → DNA #30 + check-aspect.sh；「記得都要標記清楚來源，還有做 cache」→「## 圖片來源」section 規範；「我想要在 rewrite-pipeline 進化⋯⋯」→ 751 行 strategy report；「先完整升級，之後測試」→ v2.20 9 處落版。從一張圖被切（surface symptom）→ 整個媒體素材階段沒 SOP（structural gap）→ v2.20 兩個新 stage + 兩個工具 + DNA #30（systematic fix）。
+- **可能層級**：MANIFESTO 候選（與 θ FACTCHECK-PIPELINE 誕生事件「pipeline 是被它自己的盲區教訓出來的」是同 pattern 不同視角）+ DNA 通用反射候選
+- **相關**：θ session FACTCHECK-PIPELINE 誕生事件（pipeline 自我演化視角）/ MANIFESTO §造橋鋪路 / DNA #15「反覆浮現要儀器化」
+- **verification_count**: 1（θ 同 pattern 不同視角 = #0；本 ι Phase E = #1）
+- **severity**: structural
+
+### 2026-04-28 ι Phase E — Article × pipeline 互相鋪對方的高速公路
+
+- **原則**：v2.20 落版時林琪兒 article 變成「第一個合規範例」不是「為了符合 v2.20 而寫」，是 v2.20 規範「為了具體化林琪兒走過的混亂流程」而寫。Article 跟 pipeline 互相鋪對方——pipeline 是 article 走過的泥巴路鋪成的高速公路（MANIFESTO §造橋鋪路），但同時 article 是 pipeline 落版的活樣本。下次寫類似 article 時 agent 直接讀範例 article，而不是讀 abstract pipeline document。
+- **觸發**：2026-04-28 ι Phase E 林琪兒 article (commits 33ebed7c → cd5b72bf → 608ea990 → 1d09f8fd) + v2.20 落版同 ι session 完成。article 走過 5 commits 的零散流程 → strategy report 把那段亂打變成 SOP → v2.20 落版 → article 同步補 alt text 變第一個合規範例。同 isomorphic pattern 在 θ session：沈伯洋 article + FACTCHECK-PIPELINE 互相鋪。
+- **可能層級**：MANIFESTO §造橋鋪路 延伸（鋪路不只是「走過後造工具」，是「走過 + 立即把活範例變 reference instance」雙向同步）
+- **相關**：θ FACTCHECK-PIPELINE 誕生 / MANIFESTO §造橋鋪路 / DNA #15
+- **verification_count**: 2（沈伯洋 + FACTCHECK 是 #0，林琪兒 + v2.20 是 #1，但因兩例相隔 < 7 天 + 同質性高，verification_count 計 2）
+- **severity**: tactical
+
+### 2026-04-28 ι Phase E — Spore stage 反向 audit article hallucination = stable second-pass（reach × accuracy tradeoff verification #3）
+
+- **原則**：spore stage 因為篇幅壓縮 + 觀察者要求 fact check，常會抓到 article 自己的 hallucination。spore 反向 audit article 是 stable second-pass 機制 — 不是偶然，是 systemic property。寫 spore 時若寫到 article 沒寫過的具體 fact（年級／具體年份／具體申請人數），spore stage 必須回查 article source；發現 article 也沒 source 時連帶修 article。同時 D+1+ harvest 發現任一平台 views ≥ 50K 時自動 spawn FACTCHECK Quick Mode 驗證原文最容易被質疑的 3-5 atom。
+- **觸發**：reach × accuracy tradeoff verification chain：
+  - #0 (2026-04-15 β) #29 李洋 viral 引爆 19hr 勘誤 marathon
+  - #1 (2026-04-28 ι 14:30) ι structural codify 進 LESSONS-INBOX
+  - #2 (2026-04-28 ι 18:10) 壞特 FACTCHECK 抓到「兩階段國考」article hallucination 修 9 處
+  - #3 (2026-04-28 ι 18:43) 林琪兒 spore Fact Check 抓到「USAFA 大三」article hallucination 修 5 處 + 新增 [^32] Science News Explores
+- **verification_count = 3 達 distill 閾值**
+- **可能層級**：操作規則 → distill 升 SPORE-PIPELINE Step 2.5/2.6 + Step 4.5 兩條 hard rule
+- **相關**：MANIFESTO §10 / FACTCHECK-PIPELINE / SPORE-PIPELINE Step 4.5 retroactive trigger / 既有 ι 14:30 reach × accuracy entry（本條為其延伸）
+- **severity**: structural
+
 ### 2026-04-28 κ — Recency bias × pattern matching override foundational principle anchoring（β-r3 META-PATTERN 第 2 次驗證 + LLM context retrieval 不對稱結構性 bug）
 
 > ⚠️ 本條原 v1 標題為「idlccp1984 Manus AI 5-PR batch 第 5 次驗證」並描述 5/5 全 close 為合理 triage。**v1 結論被哲宇即時校正打回**，本 v2 改寫為哲宇要求的根因診斷。Sub-finding（Manus AI 紅旗 4→6 pattern）獨立保留於下方。
