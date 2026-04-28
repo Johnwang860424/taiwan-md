@@ -42,6 +42,20 @@
 
 ## 📜 Log（reverse chronological，最新在頂）
 
+### 林良 EVOLVE — 2026-04-28 ι 完成（廈門推行員 → 戰後台灣兒童文學奠基者 / 1924-2019 全弧 / 九龍江畔 hook）
+
+- **Article**: [knowledge/People/林良.md](../../knowledge/People/林良.md)
+- **Pipeline**: REWRITE-PIPELINE v2.19 — EVOLVE 模式，全 Stage 0-6 + 3.5（FACTCHECK Quick Mode）+ §11 polish + 35 footnote URL 健康全綠
+- **觸發**：ι session 觀察者「完整走 rewrite-pipeline 進化 林良 文章」（ι 第 4 phase，承接 refresh-data + spore harvest 8 之後）
+- **核心矛盾**：「一個被戰火追著跑、22 歲帶著一箱書下船的廈門青年，把一輩子用來證明 ——孩子值得被當成完整的讀者，淺話不是粗話，淺而有味才難。」
+- **Hook**：1944 年漳州九龍江畔，21 歲長子站著看父親跳水救人後再也沒上岸；母親和二弟把寫作的位置讓給他。「為了寫作，我曾經放棄」是他人生最重的一筆——「淺語」的溫柔底下藏著一個失去童年的恐懼
+- **8 個非編年體小標題**：九龍江畔的長子 / 一箱書下船 /「淺是淺，但是要淺而有味」/ 夜深人靜寫小太陽 / 每週五個專欄的早晨六點 / 看圖說話 6000 篇 / 女兒抄寫的最後三個月 / 少年的知音
+- **品質**：37 footnote / ~5500 字 / 破折號 12 / §11 violations 0 / format-check ✅ all green / footnote URL 35 alive 1 redirect 1 timeout 0 dead
+- **Stage 1 研究**：spawn general-purpose agent → 22 WebSearch + 11 WebFetch / 落檔 [reports/research/2026-04/林良.md](../../reports/research/2026-04/林良.md) 504 行 / 18 條 verbatim 直接引語表（11 林良 + 4 林瑋 + 3 他人）/ 完整生平年表
+- **核心矛盾 refine**：agent 推翻原 session 設想的「國語推行員 vs 兒童文學家」hook，refine 為更深層的「九龍江失父 → 寫作的內疚母題」（撐起整篇張力）
+- **Source authority 升級**：取代 7 個 403 dead-link source（books.com.tw + commonhealth.com.tw 是 bot-block）→ 改用 mdnkids 國語日報官方 + 遠見雜誌 + Openbook 等 alive source；保留 verbatim 引語從 Ctrl-F 可驗來源（公視 / 中央社 / 國藝會 / Openbook / 遠見 / 太報）
+- **Cross-link**：4 個 Art 文學系列文章雙向連回（戰後台灣文學 / 解嚴後台灣文學 / 台灣文學史 / 日治時期文學）
+
 ### 林琪兒 EVOLVE — 2026-04-28 ι 完成（從台北銀行櫃檯到 400 公里高 — 加 3 支 YouTube 訪談 verbatim 重塑紀實文體）
 
 - **Article**: [knowledge/People/林琪兒.md](../../knowledge/People/林琪兒.md)
