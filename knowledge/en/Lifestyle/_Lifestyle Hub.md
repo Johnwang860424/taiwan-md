@@ -88,7 +88,7 @@ Dajia Mazu Pilgrimage is a world-class religious spectacle. The 340-kilometer wa
 
 Lord Guan worship embodies Taiwan religion's pragmatism. From jewelry shops and pawn shops to modern enterprises, Lord Guan statues appear everywhere. Merchants worship for prosperity, students for exam success, police for safety. Lord Guan isn't merely deity but moral standard symbol, representing loyalty, integrity, courage core values. This faith-daily life integration helps traditional culture find survival space in modern society.
 
-[[宗教與民間信仰]] | [[媽祖文化與台灣社會]] | [[廟宇經濟學]]
+[[../Culture/taiwan-religion-and-temple-culture|Taiwan Religion]] | [[媽祖文化與台灣社會]] | [[廟宇經濟學]]
 
 ## ☕ Coffee Life: Taiwan's Evolution of the Third Space
 

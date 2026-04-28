@@ -2,7 +2,16 @@
 title: 'Religion et culture des temples à Taïwan'
 description: "Une île qui compte plus de quinze mille temples que de supérettes, où bouddhisme, taoïsme et croyances populaires partagent le même toit, et où un million de pèlerins marchent neuf jours derrière Mazu — la foi taïwanaise ne se trouve pas dans les sutras, elle flotte dans l'encens du coin de la rue."
 date: 2026-04-06
-tags: ['religion', 'temples', 'croyances populaires', 'Mazu', 'bouddhisme', 'taoïsme', 'temple Baoan']
+tags:
+  [
+    'religion',
+    'temples',
+    'croyances populaires',
+    'Mazu',
+    'bouddhisme',
+    'taoïsme',
+    'temple Baoan',
+  ]
 subcategory: 'Religion et traditions populaires'
 category: 'Culture'
 author: 'Taiwan.md Translation Team'
@@ -49,7 +58,7 @@ Chaque système a sa spécialité :
 
 **Le taoïsme** offre une vision du monde où tout est animé. Mazu veille sur la sécurité en mer, le Saint Guan Yu incarne loyauté et intégrité, le Grand Dieu de la Santé protège la médecine, et l'Empereur Wenchang préside aux examens et à la carrière. Chaque besoin de la vie a sa divinité attitrée, comme un service client à l'organisation extrêmement fine.
 
-**Les croyances populaires** sont les plus ancrées dans le quotidien : le dieu du sol gère le feng shui de votre quartier, le Dieu-Roi de la Cité veille à l'ordre local, le Vieux sous la lune noue les liens amoureux, les cinq dieux de la prospérité apportent la fortune. Pas de canon, pas de dogme — juste ce que dit la mamie du voisinage : *vous priez, vous êtes protégé.*
+**Les croyances populaires** sont les plus ancrées dans le quotidien : le dieu du sol gère le feng shui de votre quartier, le Dieu-Roi de la Cité veille à l'ordre local, le Vieux sous la lune noue les liens amoureux, les cinq dieux de la prospérité apportent la fortune. Pas de canon, pas de dogme — juste ce que dit la mamie du voisinage : _vous priez, vous êtes protégé._
 
 > **✦** « La foi des Taïwanais n'est pas exclusive, elle est additive. Prier une divinité de plus n'en offense aucune autre. »
 
@@ -136,7 +145,6 @@ Les Taïwanais ne savent pas toujours formuler ce en quoi ils croient, mais ils 
 
 - [Fêtes traditionnelles et célébrations](/culture/傳統節慶與慶典) — Du festival des fantômes à la nuit du Ciel, comment les célébrations religieuses rythment le quotidien
 - [Culture des fêtes de temple et des troupes de cérémonie](/culture/台灣廟會與陣頭文化) — Les Huit Généraux, le Troisième Prince électronique : arts du spectacle et mobilisation communautaire lors des fêtes votives
-- [Nouvelles religions et spiritualités à Taïwan](/culture/台灣新興宗教與心靈文化) — De Yiguandao aux groupes de développement personnel, le paysage spirituel au-delà des croyances traditionnelles
 - [Carte culturelle des 16 peuples autochtones de Taïwan](/culture/台灣原住民族16族文化地圖) — Les univers spirituels de l'île avant les temples han
 - [Culture populaire de Penghu](/culture/澎湖民俗文化) — L'archipel à la plus forte densité de temples du pays, et son pacte homme-dieu vieux de deux cent cinquante ans
 - [L'esthétique taïwanaise vue par des Coréens](/culture/台灣感性) — Les temples, couleur la plus vive du paysage urbain taïwanais, vus à travers un objectif coréen

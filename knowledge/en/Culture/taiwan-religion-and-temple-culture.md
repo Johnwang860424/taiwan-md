@@ -145,7 +145,6 @@ Taiwanese people might not be able to articulate what they believe. But they kno
 
 - [Traditional Festivals and Celebrations](/en/culture/traditional-festivals-and-celebrations) — From Ghost Month to the Jade Emperor's birthday: how religious festivals inject sacred rhythm into daily life
 - [Taiwan Temple Festivals and Performance Troupes](/en/culture/taiwan-temple-festivals-and-performance-troupes) — Ba Jia Jiang, Electric Neon Gods: the performing arts and community mobilization of temple fairs
-- [Emerging Religions and Spiritual Culture](/en/culture/emerging-religions-and-spiritual-culture) — Beyond traditional faith: the spiritual landscape from Yiguandao to meditation groups
 - [Taiwan Indigenous Culture](/en/culture/taiwan-indigenous-culture) — Before Han Chinese temples arrived, the island already had its own belief systems
 
 ## References

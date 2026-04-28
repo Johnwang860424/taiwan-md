@@ -195,6 +195,27 @@ export default defineConfig({
     '/ja/art/contemporary-literature': '/ja/art/taiwan-literature-history/',
     '/ko/art/taiwan-contemporary-literature': '/ko/art/literary-history/',
     '/fr/art/contemporary-literature-development': '/fr/art/literary-history/',
+    // 2026-04-28 κ-late: issue #655 (@idlccp1984) — 3 篇宗教文章整併為 1 篇深度文章。
+    // canonical: Culture/台灣宗教與寺廟文化.md (slug 沿用 + title EVOLVE 為「台灣宗教信仰：在恐懼裡長出的信仰帝國」)
+    // archive 1: Lifestyle/宗教與民間信仰.md (137 行 / lastHumanReview: false / 0 footnotes)
+    // archive 2: Culture/台灣新興宗教與心靈文化.md (323 行 / 0 footnotes / [LIST-DUMP] 嚴重)
+    // 5 lang redirects (zh-TW + en/ja/ko/fr translation slugs)
+    '/lifestyle/宗教與民間信仰': '/culture/台灣宗教與寺廟文化/',
+    '/en/lifestyle/religion-and-folk-beliefs':
+      '/en/culture/taiwan-religion-and-temple-culture/',
+    '/ko/lifestyle/religion-and-folk-beliefs':
+      '/ko/culture/taiwan-religion-and-temple-culture/',
+    '/fr/lifestyle/religion-folk-beliefs':
+      '/fr/culture/religion-and-temple-culture/',
+    '/culture/台灣新興宗教與心靈文化': '/culture/台灣宗教與寺廟文化/',
+    '/en/culture/emerging-religions-and-spiritual-culture':
+      '/en/culture/taiwan-religion-and-temple-culture/',
+    '/ja/culture/new-religions':
+      '/ja/culture/taiwan-religion-and-temple-culture/',
+    '/ko/culture/new-religions-and-spirituality':
+      '/ko/culture/taiwan-religion-and-temple-culture/',
+    '/fr/culture/new-religions-and-spirituality':
+      '/fr/culture/religion-and-temple-culture/',
   },
   markdown: {
     shikiConfig: {

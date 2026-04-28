@@ -91,7 +91,8 @@ Les nouvelles technologies transforment aussi l'expérience nocturne. KTV en ré
 > 💡 La vie nocturne à Taïwan est le reflet de l'ouverture d'esprit et de la vitalité de cette île. Que vous recherchiez l'animation ou le calme, la tradition ou la modernité, le petit budget ou l'expérience premium, les nuits taïwanaises sauront vous combler.
 
 ## Pour aller plus loin
+
 - [Les transports à Taïwan](/lifestyle/台灣交通系統) : comment les transports nocturnes soutiennent la culture des sorties
 - [Les convenience stores à Taïwan](/lifestyle/台灣便利商店文化) : le lien entre les supérettes ouvertes 24h/24 et la ville sans sommeil
 - [La culture du café à Taïwan](/lifestyle/台灣咖啡文化) : l'évolution des cafés, des coffee shops de quartier aux cafés de nuit
-- [Religions et croyances populaires](/lifestyle/宗教與民間信仰) : fêtes de temple nocturnes et vie festive traditionnelle
+- [Religion à Taïwan](/fr/culture/religion-and-temple-culture/) : fêtes de temple nocturnes et vie festive traditionnelle
