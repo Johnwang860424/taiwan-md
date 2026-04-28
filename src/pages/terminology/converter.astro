@@ -205,7 +205,7 @@ const reverseRulesJSON = JSON.stringify(reverseRules);
       markers
     - .opencc-ready / .opencc-failed state classes (JS-toggled)
   -->
-  <main class="flex min-h-screen flex-col bg-[#f8f8f8]">
+  <div class="flex flex-col bg-[#f8f8f8]">
     <!-- ── Header（共用 PageHero 元件） ─────────────────────────── -->
     <PageHero
       bgVariant="solid"
@@ -412,7 +412,7 @@ const reverseRulesJSON = JSON.stringify(reverseRules);
         </div>
       </div>
     </div>
-  </main>
+  </div>
 
   <script define:vars={{ rulesJSON, reverseRulesJSON }}>
     // ── Parse rules injected from build time ────────────────────────────────
