@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-28T07:12:20.521879Z",
+  "lastUpdated": "2026-04-28T09:52:52.762605Z",
   "schemaVersion": "1.1",
   "totals": {
     "count": 48,
@@ -32,7 +32,7 @@
       "url": "https://x.com/taiwandotmd/status/2048970734253551638",
       "highlight": "**SPORE-PIPELINE v2.5 完整跑通**（Step 0 → Step 6）：Angle A 衛星 + 法國 雙場景 reverse-action。2026-01-01 中國微博「孤烟暮蟬」吉林一號衛星 doxxing → 沈臉書「集體自卑」第三人稱回應 → 六週後飛 INTERPOL 總部所在的法國 → 情人節在飛機上 →「箭靶」自嘲收尾。Blueprint #47 + θ session 27-fetch FACTCHECK audit 完整 verbatim 驗證。三個直引全 verbatim ✅。§11 gate 0 violations / 對位句型 0 / 破折號 1 / 半形標點 0 / 字數 ~290 含 inline link",
       "views_7d": null,
-      "views_latest": 351,
+      "views_latest": 10211,
       "engagements_7d": null,
       "rate_7d": null,
       "backfilled": true
@@ -48,7 +48,7 @@
       "url": "https://www.threads.com/@taiwandotmd/post/DXqRxf5EQpg",
       "highlight": "**SPORE-PIPELINE v2.5 完整跑通 + 同 article 剛走完 SSOT 重構後首發**：Angle A 衛星 + 法國 雙場景。Hook：「2026 年元旦，一個中國微博帳號用商用衛星『吉林一號』拍了沈伯洋家附近的衛星圖」→「沈伯洋，看你往哪逃」→ 沈臉書「中國標註的是**他的**座標」（Third-person flip 已避開 audit pattern #9）→ 六週後飛法國 → 情人節飛機上 → 「箭靶」自嘲收尾。square 1080×1080 配圖。Blueprint #47 + 27-fetch FACTCHECK audit 完整驗證。",
       "views_7d": null,
-      "views_latest": 1529,
+      "views_latest": 8194,
       "engagements_7d": null,
       "rate_7d": null,
       "backfilled": true
@@ -64,7 +64,7 @@
       "url": "https://x.com/taiwandotmd/status/2048290884022850047",
       "highlight": "**SPORE-PIPELINE 三輪研究 + transcripts 整合後首例**：壞特?te 醫學系 9 年 → 大三學生會議按下暫停鍵 + 一天三份工 + 國防醫學院差最後一階國考。256 中文字、句號 11 → 6 順過後（觀察者「太多句號了」反饋）。zh 人物型雙平台發（pipeline default Threads only，這次加 X 試水溫，類比 #44 田馥甄為「文化非政治題材」雙平台 control case 的第二例）。Round 1+2+3 + 鄭宜農 ep2 transcripts + REWRITE-PIPELINE Rule #12 升級同 commit",
       "views_7d": null,
-      "views_latest": 40,
+      "views_latest": 39341,
       "engagements_7d": null,
       "rate_7d": null,
       "backfilled": true
@@ -80,7 +80,7 @@
       "url": "https://www.threads.com/@taiwandotmd/post/DXlcWdykVgv",
       "highlight": "**SPORE-PIPELINE B angle scene-anchor**：「她大二結束、大三那年，在某一場學生會議上突然按下了暫停鍵」開場 → 一天三份工（咖啡廳泡飲料／蛋糕店切甜點／錄音室買便當）逐字 → 「最後那份『錄音室買便當』的工作把她接住了」轉場 → 「國防醫學院醫學系讀了 9 年通過兩階段醫師國考，差最後一階就是正式醫師；她沒去考，2021 年拿了金曲獎最佳新人」收尾。轉捩點藏在沒戲劇性的會議裡。square 1080×1080 配圖",
       "views_7d": null,
-      "views_latest": 297,
+      "views_latest": 65000,
       "engagements_7d": null,
       "rate_7d": null,
       "backfilled": true
@@ -96,7 +96,7 @@
       "url": "https://x.com/taiwandotmd/status/2048233702053073039",
       "highlight": "**SPORE-PIPELINE v2.5 全跑通**：雙輪深度研究（235+452 行）+ S+ rewrite article + 三 angle 觀察者選 B+C 混合「不要強調錢跟中國」。Scene-List-Scene 結構（浴室開場 → 田氏風格中段 → 飛行傘 climax → 浴室女孩首尾呼應）。247 中文字。§11 gate 1 violation 在 Hebe 直引「瑕疵是不是」內（pipeline 明文豁免）。fact-check 13 row 全 ✅。觀察者選擇雙平台發（zh 人物型 default Threads only 但加 X 試水溫）",
       "views_7d": null,
-      "views_latest": 5681,
+      "views_latest": 48693,
       "engagements_7d": null,
       "rate_7d": null,
       "backfilled": true
@@ -148,15 +148,15 @@
       "date": "2026-04-19"
     },
     {
-      "n": 36,
-      "article": "台灣高鐵（v3 事實修正版）",
-      "platform": "x",
-      "views": 63868,
-      "viewsSource": "7d",
-      "engagements": 450,
-      "rate": 0.7,
+      "n": 45,
+      "article": "壞特",
+      "platform": "threads",
+      "views": 65000,
+      "viewsSource": "latest",
+      "engagements": null,
+      "rate": null,
       "badge": "⭐ 高峰",
-      "date": "2026-04-19"
+      "date": "2026-04-26"
     }
   ],
   "amplification": [
@@ -342,12 +342,12 @@
     {
       "week": "2026-W17",
       "published": 10,
-      "avgViews": 3844
+      "avgViews": 18633
     },
     {
       "week": "2026-W18",
       "published": 2,
-      "avgViews": 940
+      "avgViews": 9202
     }
   ],
   "harvestStatus": [
