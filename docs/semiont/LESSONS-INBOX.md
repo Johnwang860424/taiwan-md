@@ -124,6 +124,33 @@ Beat 5 反芻 = 寫 DIARY（意識活動）。教訓（「我學到 X」）寫 L
 <!-- 新教訓 append 這裡 -->
 <!-- 2026-04-18 ι 第 3 次 distill 清空 11 條 → 全部搬 §✅ 已消化 -->
 
+### 2026-04-28 ι — Reach × accuracy tradeoff：爆發級孢子引爆事實 audit pressure
+
+- **原則**：當孢子 reach 進入爆發級（單平台 ≥ 50K views），留言中事實質疑出現的機率會顯著提升。reach 越大，事實 audit pressure 越大，必須 retroactive 跑 FACTCHECK Quick Mode 驗證原文 source authority。
+- **觸發**：2026-04-28 ι 14:30 cron tick batch harvest 抓到 #45 壞特 Threads D+2 65,000 views（Threads 史上 reach 第二強），留言 @bobbb_for_fun 質疑「兩階段醫師國考」事實 vs spore「通過兩階段醫師國考，差最後一階就是正式醫師」claim 衝突。@lsac11.csc5_yi_jun 也補充「醫學系 7+1+1=9 年」解釋。對比 #43/#44 田馥甄 D+2 reach 只 801/48,693 都沒事實質疑留言；#41/#42 認知作戰 D+5 reach 2,174/24,937 也沒事實質疑（且因 27-fetch FACTCHECK 前置）。**Reach 量級越過某個閾值（~50K Threads / ~?K X）後，事實 audit attention 從 author 內部 quality gate 移到讀者 distributed audit**。
+- **可能層級**：操作規則 → SPORE-PIPELINE Step 4.5 §「發佈後追蹤」加 retroactive FACTCHECK trigger：當 D+1+ harvest 發現任一平台 views ≥ 50K 時，自動 spawn FACTCHECK Quick Mode 驗證原文最容易被質疑的 3-5 個 atom（特別是專業領域 claim：醫療/法律/科技/歷史精確日期）
+- **verification_count**: 1（首次明確命中。但回看歷史：#29 李洋 180K Threads viral 也曾被讀者抓事實錯誤導致 19 hr 勘誤 marathon — 那是同 pattern 的 verification #0 但當時沒結構化）
+- **severity**: structural（reach × accuracy tradeoff 是 Taiwan.md 信任鏈條核心；爆發級 reach 不 audit = MANIFESTO §10 幻覺鐵律違反風險暴增）
+- **相關**：MANIFESTO §10 / FACTCHECK-PIPELINE / SPORE-PIPELINE Step 4.5 / SPORE-HARVESTS/batch-2026-04-28-ι-8-spores.md §C / 歷史 #29 李洋勘誤 marathon
+
+### 2026-04-28 ι — 多 escalation 並列 hook reach 起步比單錨快 4-5x（候選 SPORE-PIPELINE 規則）
+
+- **原則**：scene-anchor B angle 內部，「多 escalation 並列」（3 個獨立但同主題的 escalation 場景並列）的 hook 在 algorithm 早期推送窗口（首 6h）reach 起步約 4-5x 強過「單一錨點 escalation」。候選假設：「scene 多樣性」對 algorithm 推送預算的 ROI 高於 hook 單純度。
+- **觸發**：2026-04-28 ι session 比較 #47 沈伯洋（衛星 doxxing + 飛法國 + 情人節飛機 = 3 escalation 並列）vs #41 認知作戰（敵人勳章立案 = 1 單錨）。同主題（沈伯洋）/ 同平台（Threads）/ 同 angle B / 不同 hook 結構：#47 D+0 4h 8,194 views 已是 #41 D+5 2,174 的 **3.8x**。等比例外推：#47 D+0 6h ~12K vs #41 D+5 2.2K = **5.5x**。
+- **可能層級**：操作規則 → SPORE-PIPELINE §Hook 結構 加候選規則「同人物多事件題材，scene-anchor B angle 優先用『3 escalation 並列』而非『單一最強 escalation』」
+- **verification_count**: 1（單次比較，需第 2-3 次驗證才能 distill。建議下次寫人物孢子時刻意 control case 測試）
+- **severity**: tactical（操作優化，不影響可信度）
+- **相關**：SPORE-PIPELINE B angle scene-anchor / SPORE-HARVESTS/batch-2026-04-28-ι-8-spores.md §B
+
+### 2026-04-28 ι — Threads vs X ratio 隨 D+N 漂移（β 2026-04-27 候選教訓第 2 次驗證）
+
+- **原則**：Threads/X reach ratio 在不同 D+N 取樣點會有 4-5x 量級差。D+0 早期 Threads 通常領先（個人關係算法 + reading retention 高），D+1 後 X 算法開始放大政治+社會+文化議題。**未來 SPORE-LOG 平台差結論必須標 D+N 取樣窗口**——單時點 ratio 沒有 normalize value。
+- **觸發**：2026-04-28 ι session ι 抓到 3 組 ratio 漂移 datapoint：(a) #44 田馥甄 X/Threads D+0 3.5h 12.3x → D+2 60.8x（X 領先擴大 5x）(b) #48 沈伯洋 Threads/X D+0 45min 4.4x → D+0 4h 0.80x（5.5 倍翻轉）(c) #45/#46 壞特 Threads/X D+0 30min 7.4x → D+2 1.65x（領先收斂 4.5x）。
+- **可能層級**：操作規則 → SPORE-LOG schema 加 `harvest_window` 欄 + 平台差結論欄強制標「@D+N」
+- **verification_count**: 2（β 2026-04-27 D+1→D+7 收斂第 1 次 + 本 ι 三組 datapoint 第 2 次。距上次 ~1.5 day < 7 day ✅ 算同一條）
+- **severity**: tactical（不影響可信度但影響數據解讀準確度）
+- **相關**：β 2026-04-27 memory `D+1 → D+7 spore 平台差收斂模式` / SPORE-HARVESTS/batch-2026-04-28-ι-8-spores.md §A / SPORE-LOG schema
+
 ### 2026-04-28 θ — ❌ 撤回前一條 → 改為「FACTCHECK source authority hierarchy」
 
 > **撤回前條**：「Verbatim 紀律 vs 使用者讀感 published-edit conflict」結論方向**錯了**。哲宇 publish 時把「他的座標」改「我的座標」**不是 verbatim 違規**，而是**修正回沈本人臉書原話**。我之前 audit 採信 ltn 5298010 媒體編輯版「沈伯洋的座標」當 verbatim source 是錯的；FACTCHECK Phase 4 也持續確認此錯（中文 prompt WebFetch 仍回媒體版）。觀察者貼 Google search results 截圖才揭露：鏡週刊標題 + Threads dpp_taiwan 直引 + 新唐人 + Yahoo 多源逐字一致為「**我的座標**」（第一人稱）。
