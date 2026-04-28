@@ -143,7 +143,41 @@ for (const file of files) {
 // Sort by source length descending (longer matches first to avoid partial replacement)
 rules.sort((a, b) => b.source.length - a.source.length);
 
+// ── Reverse direction (TW → CN) ruleset ────────────────────────────────────
+// Swap source/target. Note: 一個台灣用語可能對應多個中國變體（slash），
+// 反向時用 cleaned china value（已取 first variant）作為 target，避免使用者
+// 看到「滑鼠 → 鼠標 / 滑鼠標」這類混亂。OpenCC frontend 反向用 tw → cn
+// 所以這裡的 source 用 traditional taiwan term（已是繁體），target 也保留繁體
+// （讀者習慣，且 OpenCC 在 frontend 會把整段中國用語版本套 t2s 轉簡體 if needed）
+const reverseRules: ConversionRule[] = [];
+const seenReverseSources = new Set<string>();
+// 防 yaml data bug：若某個 taiwan term 字串等於另一條 rule 的 china term
+// （暗示 yaml 的 display.taiwan / display.china 欄位被顛倒寫，例如
+// 軟件.yaml: taiwan='軟件' china='解除安裝' 是顛倒的），跳過。
+// 這在 forward rules 不會 surface（因為長度排序 + used array），
+// 但 reverse rules 會把錯誤直接暴露給使用者。
+const forwardSources = new Set(rules.map((r) => r.source));
+for (const r of rules) {
+  // Skip the simplified-fallback rules (id ends with _simp) — they have
+  // simplified source which would generate dup entries in reverse mode
+  if (r.id.endsWith('_simp')) continue;
+  if (!r.target || !r.source) continue;
+  if (seenReverseSources.has(r.target)) continue; // avoid TW→CN dup
+  // 跳過 yaml field-swap bug 條目（target 跟某 forward rule 的 source 衝突）
+  if (forwardSources.has(r.target)) continue;
+  reverseRules.push({
+    source: r.target, // TW term
+    target: r.source, // CN term (traditional form)
+    forkType: r.forkType,
+    category: r.category,
+    id: r.id,
+  });
+  seenReverseSources.add(r.target);
+}
+reverseRules.sort((a, b) => b.source.length - a.source.length);
+
 const rulesJSON = JSON.stringify(rules);
+const reverseRulesJSON = JSON.stringify(reverseRules);
 ---
 
 <Layout
@@ -185,15 +219,40 @@ const rulesJSON = JSON.stringify(rules);
           >
         </h1>
         <p
+          id="header-tagline"
           class="m-0 mb-5 max-w-[42rem] text-[clamp(0.9rem,1.8vw,1.05rem)] leading-[1.65] opacity-[0.82]"
         >
           把中國用語轉換為台灣用語——不只是字形，是語感。
         </p>
+
+        <!-- ── Direction toggle ──────────────────────────────────────── -->
+        <div
+          id="direction-toggle"
+          class="mb-5 inline-flex items-stretch overflow-hidden rounded-lg border border-white/25 text-[0.85rem]"
+          role="tablist"
+          aria-label="轉換方向"
+        >
+          <button
+            data-dir="cn2tw"
+            class="dir-btn cursor-pointer border-0 bg-white/15 px-[1rem] py-[0.45rem] font-semibold text-white transition-[background] duration-150 hover:bg-white/25 aria-selected:bg-white aria-selected:text-[#1a1a2e] aria-selected:hover:bg-white"
+            aria-selected="true"
+            role="tab">🇨🇳 → 🇹🇼 中國 → 台灣</button
+          >
+          <button
+            data-dir="tw2cn"
+            class="dir-btn cursor-pointer border-0 border-l border-white/25 bg-white/15 px-[1rem] py-[0.45rem] font-semibold text-white transition-[background] duration-150 hover:bg-white/25 aria-selected:bg-white aria-selected:text-[#1a1a2e] aria-selected:hover:bg-white"
+            aria-selected="false"
+            role="tab">🇹🇼 → 🇨🇳 台灣 → 中國</button
+          >
+        </div>
+
         <div class="flex flex-wrap items-center justify-between gap-3">
           <div
             class="flex items-center gap-[0.6rem] text-[0.9rem] opacity-80 [&_strong]:text-white [&_strong]:opacity-100"
           >
-            <span><strong>{rules.length}</strong> 條轉換規則</span>
+            <span id="rule-count-display"
+              ><strong>{rules.length}</strong> 條轉換規則</span
+            >
           </div>
           <div class="flex flex-wrap gap-2">
             <a
@@ -351,56 +410,100 @@ const rulesJSON = JSON.stringify(rules);
     </div>
   </main>
 
-  <script define:vars={{ rulesJSON }}>
+  <script define:vars={{ rulesJSON, reverseRulesJSON }}>
     // ── Parse rules injected from build time ────────────────────────────────
-    const RULES = JSON.parse(rulesJSON);
+    const RULES_CN2TW = JSON.parse(rulesJSON);
+    const RULES_TW2CN = JSON.parse(reverseRulesJSON);
     const GITHUB_BASE =
       'https://github.com/frank890417/taiwan-md/blob/main/data/terminology/';
 
-    // ── OpenCC (簡→繁) setup ─────────────────────────────────────────────────
-    let openccConverter = null;
+    // ── Direction state (persisted via URL ?dir= + localStorage) ─────────────
+    let direction = 'cn2tw'; // 'cn2tw' | 'tw2cn'
+    function readInitialDirection() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const fromUrl = params.get('dir');
+        if (fromUrl === 'cn2tw' || fromUrl === 'tw2cn') return fromUrl;
+        const fromStorage = localStorage.getItem('terminology-dir');
+        if (fromStorage === 'cn2tw' || fromStorage === 'tw2cn')
+          return fromStorage;
+      } catch {
+        /* ignore storage / URL errors */
+      }
+      return 'cn2tw';
+    }
+    direction = readInitialDirection();
+
+    function getRules() {
+      return direction === 'cn2tw' ? RULES_CN2TW : RULES_TW2CN;
+    }
+
+    // ── OpenCC setup (双方向) ─────────────────────────────────────────────────
+    // cn2tw: 简→繁 (用 ConverterFactory + cn → tw locale)
+    // tw2cn: 繁→简 (用 ConverterFactory + tw → cn locale)
+    // 動態 init 兩個 converter；切換 direction 時 swap activeOpenccConverter
+    let openccCn2Tw = null;
+    let openccTw2Cn = null;
     let openccStatus = 'loading'; // 'loading' | 'ready' | 'failed'
 
+    function getActiveOpenCC() {
+      return direction === 'cn2tw' ? openccCn2Tw : openccTw2Cn;
+    }
+
     async function initOpenCC() {
-      // Try multiple CDN sources with timeout for mobile reliability
+      // Use full opencc-js entry (includes both Locale.from + Locale.to)
+      // The cn2t.js subpath only ships the cn→t Converter, not the bidirectional dictionaries.
       const cdnUrls = [
+        'https://cdn.jsdelivr.net/npm/opencc-js@1/dist/esm/full.js',
+        'https://unpkg.com/opencc-js@1/dist/esm/full.js',
+        // Fallback to cn2t.js (limited to cn→tw direction, tw→cn 將不可用)
         'https://cdn.jsdelivr.net/npm/opencc-js@1/dist/esm/cn2t.js',
         'https://unpkg.com/opencc-js@1/dist/esm/cn2t.js',
       ];
       for (const url of cdnUrls) {
         try {
-          // Race import against a timeout (8s for mobile networks)
           const OpenCC = await Promise.race([
             import(/* @vite-ignore */ url),
             new Promise((_, reject) =>
               setTimeout(() => reject(new Error('timeout')), 8000),
             ),
           ]);
-          // Use cn → tw (standard traditional Chinese used in Taiwan)
-          // cn → t produces archaic characters (麪/喫/裏) that nobody uses,
-          // cn → tw produces modern traditional (麵/吃/裡) matching our terminology rules.
-          openccConverter = OpenCC.ConverterFactory(
+          // cn → tw 一定要有
+          openccCn2Tw = OpenCC.ConverterFactory(
             OpenCC.Locale.from.cn,
             OpenCC.Locale.to.tw,
           );
+          // tw → cn 看 build 是否包進 from.tw + to.cn
+          try {
+            if (OpenCC.Locale.from.tw && OpenCC.Locale.to.cn) {
+              openccTw2Cn = OpenCC.ConverterFactory(
+                OpenCC.Locale.from.tw,
+                OpenCC.Locale.to.cn,
+              );
+            }
+          } catch (e) {
+            console.warn(
+              'OpenCC tw→cn 不可用（fallback build），僅 cn→tw 啟用',
+            );
+          }
           openccStatus = 'ready';
-          return; // success
+          return;
         } catch (e) {
           console.warn(`OpenCC from ${url} failed:`, e.message);
         }
       }
-      // All CDN sources failed
       console.warn('OpenCC 載入失敗，僅做用語替換（字形轉換不可用）');
       openccStatus = 'failed';
     }
     initOpenCC();
 
-    // Apply OpenCC to text outside of HTML tags
+    // Apply active OpenCC to text outside of HTML tags
     function applyOpenCC(html) {
-      if (!openccConverter) return html;
+      const conv = getActiveOpenCC();
+      if (!conv) return html;
       // Replace text nodes (content between tags) but skip content inside tags themselves
       return html.replace(/>([^<]+)</g, (match, text) => {
-        return '>' + openccConverter(text) + '<';
+        return '>' + conv(text) + '<';
       });
     }
 
@@ -421,7 +524,8 @@ const rulesJSON = JSON.stringify(rules);
     const indexAfter = document.getElementById('index-after');
 
     // ── Example texts ─────────────────────────────────────────────────────────
-    const EXAMPLES = {
+    // cn2tw 範例：以中國用語為主（含簡體與中國式詞彙）
+    const EXAMPLES_CN2TW = {
       tech: `最近在学习编程，发现这个软件的视频教程非常实用，信息量很大。用户可以通过下载客户端来使用云存储功能，支持多种操作系统。程序员们在论坛上分享了很多关于人工智能和机器学习的干货内容，楼主还贴心地整理了一份默认配置的排查攻略。如果遇到网络问题，可以尝试刷新缓存或者重启路由器。有个大佬在评论区说他用硬盘做了个集成方案，性价比超高，帧率提升明显。`,
       life: `周末去了一家超级棒的网红餐厅打卡，排了半小时队。点了好几个硬菜，还有用破壁机做的猕猴桃奶昔，味道很赞。服务员小姐姐态度很好，上菜速度很快。吃完饭打车回家，堵车堵了二十分钟，在路上刷手机看了会儿短视频，一个博主分享减肥健身攻略，质量很高。回到小区后去便利店买了酸奶和方便面当宵夜，顺便用洗发水的优惠券囤了几瓶。闺蜜发消息说明天约下午茶，立马答应了。`,
       news: `据报道，该项目总投资达到数十亿元人民币，将在未来三年内建设完成。相关部门通过多个渠道表示，这一举措将有效提升城市基础设施水平，惠及数百万群众。多位专家在接受采访时指出，该政策的出台对于促进经济高质量发展具有重要意义，底层逻辑很清晰。志愿者团队也在积极配合推进工作，国企方面已开始对接落实。与此同时，有关方面估计配套措施将在本月底前全面到位。`,
@@ -432,18 +536,41 @@ const rulesJSON = JSON.stringify(rules);
       office: `新来的项目经理安排了一个视频会议，讨论软件开发的进度。我们需要更新数据库，优化用户界面的交互设计。设计师用鼠标在触控屏上操作，调整了对话框和下拉菜单的样式。文档已经上传到云端硬盘，大家可以在线协作编辑。领导说这个方案很靠谱，底气很足。同事通过渠道反馈了客户的需求，我们立马开始排查问题。下班后打车回家，堵车估计要半小时。`,
     };
 
+    // tw2cn 範例：以台灣用語為主（給跨海溝通 / 中國朋友看的反向情境）
+    const EXAMPLES_TW2CN = {
+      tech: `最近在學寫程式，發現這個軟體的影片教學非常實用，資訊量很大。使用者可以透過下載客戶端來使用雲端儲存功能，支援多種作業系統。工程師們在論壇上分享了很多關於人工智慧和機器學習的乾貨內容，樓主還貼心地整理了一份預設設定的排查指南。如果遇到網路問題，可以試試重新整理快取或者重開路由器。有個大大在留言區說他用硬碟做了個整合方案，CP 值超高，影格率提升明顯。`,
+      life: `週末去了一家超級棒的網紅餐廳打卡，排了半小時隊。點了好幾道硬菜，還有用破壁機做的奇異果奶昔，味道很讚。服務生小姐姐態度很好，上菜速度很快。吃完飯叫計程車回家，塞車塞了二十分鐘，在路上滑手機看了會兒短影音，一個部落客分享減肥健身指南，品質很高。回到社區後去便利商店買了優格和泡麵當宵夜，順便用洗髮精的折價券囤了幾瓶。閨蜜發訊息說明天約下午茶，馬上答應了。`,
+      news: `據報導，該專案總投資達到數十億元新臺幣，將在未來三年內建設完成。相關部門透過多個管道表示，這一舉措將有效提升城市基礎設施水準，惠及數百萬民眾。多位專家在接受採訪時指出，該政策的出臺對於促進經濟高品質發展具有重要意義，底層邏輯很清晰。志工團隊也在積極配合推進工作，國營事業方面已開始對接落實。與此同時，有關方面估計配套措施將在本月底前全面到位。`,
+      medical: `早安，去醫院做了個體檢，醫生說血壓偏高需要注意飲食。掛號排隊等了半小時，做了個超音波和驗血，還貼了個 OK 繃。護士小姐姐很溫柔，說打針一點都不痛，果然沒什麼感覺。開了幾盒處方藥，去藥局取了藥就回家了。回來路上買了杯優格補充一下。現在每天都在用手機上的健康軟體記錄運動數據和血壓資訊，回饋給醫生看診時參考。得了憂鬱症的朋友也推薦我多運動。`,
+      school: `新學期開始了，教授指派了一個關於人工智慧的專題作業，估計要花兩三週才能完成。同學們在網路上搜尋資料，下載了很多學術論文和影片教學。學校的寬頻網路很快，線上看課程完全不卡。學霸室友已經開始刷題複習了，他的 GPA 一直是年級第一。我這個學渣只能抱佛腳。圖書館太捲了，連座位都要搶。晚上回宿舍叫了外送，用手機儲值了飯卡。`,
+      social: `今天在社群媒體上發了一篇貼文，沒想到瀏覽量破萬了，顏值高的照片就是自帶流量。好多網友在留言區互動討論，有人 tag 我說內容很走心。閨蜜轉發到動態，我也收到了很多按讚和追蹤。有個粉絲說「神到爆」，還有人說「絕絕子」。晚上開了個直播跟粉絲聊天，網路訊號很好完全不卡頓。有個酸民在留言裡陰陽怪氣，直接封鎖了。`,
+      gaming: `最新的這款遊戲畫質太讚了，高畫質模式下影格率穩定在 60 fps，觸控螢幕操作也很滑順。下載了最新的更新檔之後，伺服器延遲明顯降低了。和隊友開了語音聊天組隊打排名賽，操作手感比上個版本流暢多了。有個新手在鳥蛋局裡被炸鳥的大大虐得很慘，送頭好幾次。遊戲內建的社交系統很方便，可以直接發訊息給好友，不過小額付費的 CP 值普通。`,
+      office: `新來的專案經理安排了一個視訊會議，討論軟體開發的進度。我們需要更新資料庫，優化使用者介面的互動設計。設計師用滑鼠在觸控螢幕上操作，調整了對話框和下拉選單的樣式。文件已經上傳到雲端硬碟，大家可以線上協作編輯。主管說這個方案很靠譜，很有把握。同事透過管道回饋了客戶的需求，我們馬上開始排查問題。下班後叫計程車回家，塞車估計要半小時。`,
+    };
+
+    function getExamples() {
+      return direction === 'cn2tw' ? EXAMPLES_CN2TW : EXAMPLES_TW2CN;
+    }
+
     // ── Core convert function ───────────────────────────────────────────────
     function convertText(input) {
       if (!input.trim()) return { html: '', matches: [] };
 
       const matches = [];
       let text = input;
+      const RULES = getRules();
+      const activeOpencc = getActiveOpenCC();
 
-      // Step 1: Apply OpenCC (字形 only: 简→繁) FIRST,
-      // so terminology rules can match traditional Chinese source terms
-      if (openccConverter) {
-        text = openccConverter(text);
+      // Step 1: Apply OpenCC 字形 conversion FIRST (cn2tw: 简→繁；tw2cn: 繁→简)
+      // 然後再做 terminology 替換。
+      // cn2tw mode: source 是繁體 → input 簡體要先轉繁體才能比對
+      // tw2cn mode: source 是繁體（台灣用語） → input 已是繁體，OpenCC 可選
+      //   但如果使用者貼的是簡體 input，先 OpenCC 轉繁體仍能比對台灣詞
+      //   然後再對輸出整段做繁→簡轉換（後處理）
+      if (direction === 'cn2tw' && activeOpencc) {
+        text = activeOpencc(text);
       }
+      // tw2cn mode 字形轉換留到 Step 4 整段轉，先用繁體比對 source
 
       // Step 2: Find all match positions FIRST (before any replacement)
       // This gives us accurate character positions for the source highlight overlay
@@ -519,6 +646,15 @@ const rulesJSON = JSON.stringify(rules);
         escaped = escaped.split(marker).join(html);
       }
 
+      // Step 4: tw2cn mode — apply 繁→簡 to text segments outside marks AFTER replacement
+      // We avoid converting the <mark> attributes/HTML structure.
+      if (direction === 'tw2cn' && activeOpencc) {
+        escaped = escaped.replace(/(<[^>]+>)|([^<]+)/g, (match, tag, txt) => {
+          if (tag) return tag;
+          return activeOpencc(txt);
+        });
+      }
+
       // Sort regions for sourceHtml building
       allRegions.sort((a, b) => a.start - b.start);
 
@@ -560,15 +696,26 @@ const rulesJSON = JSON.stringify(rules);
     // ── Render OpenCC status ────────────────────────────────────────────────
     function renderOpenCCStatus(hasMatches) {
       if (!openccStatusEl) return;
-      if (openccStatus === 'ready') {
+      const isCn2Tw = direction === 'cn2tw';
+      const activeReady = isCn2Tw ? !!openccCn2Tw : !!openccTw2Cn;
+      if (openccStatus === 'ready' && activeReady) {
         openccStatusEl.hidden = false;
         openccStatusEl.className = 'opencc-status-row opencc-ready';
-        openccStatusEl.textContent = '🔤 簡體→繁體字形轉換：已套用 OpenCC';
+        openccStatusEl.textContent = isCn2Tw
+          ? '🔤 簡體→繁體字形轉換：已套用 OpenCC'
+          : '🔤 繁體→簡體字形轉換：已套用 OpenCC';
+      } else if (openccStatus === 'ready' && !activeReady) {
+        // ready but the active direction's converter unavailable (fallback build)
+        openccStatusEl.hidden = false;
+        openccStatusEl.className = 'opencc-status-row opencc-failed';
+        openccStatusEl.textContent = isCn2Tw
+          ? '⚠️ 簡→繁 OpenCC 不可用，僅做用語替換'
+          : '⚠️ 繁→簡 OpenCC 不可用（fallback CDN），僅做用語替換 — 字形仍是繁體';
       } else if (openccStatus === 'failed') {
         openccStatusEl.hidden = false;
         openccStatusEl.className = 'opencc-status-row opencc-failed';
         openccStatusEl.textContent =
-          '⚠️ 簡→繁字形轉換載入中或不可用，用語替換仍正常運作（建議先手動轉為繁體再貼入）';
+          '⚠️ OpenCC 字形轉換載入失敗，用語替換仍正常運作';
       } else {
         openccStatusEl.hidden = true;
       }
@@ -576,6 +723,7 @@ const rulesJSON = JSON.stringify(rules);
 
     // ── Render analysis report ──────────────────────────────────────────────
     function renderAnalysis(matches) {
+      const termWord = direction === 'cn2tw' ? '中國用語' : '台灣用語';
       if (matches.length === 0) {
         // Still show analysis box if OpenCC info is relevant
         const showForOpenCC =
@@ -585,7 +733,7 @@ const rulesJSON = JSON.stringify(rules);
           return;
         }
         analysisEl.hidden = false;
-        analysisTitleEl.textContent = `✅ 未偵測到中國用語`;
+        analysisTitleEl.textContent = `✅ 未偵測到${termWord}`;
         renderOpenCCStatus(false);
         mustSection.hidden = true;
         suggestSection.hidden = true;
@@ -593,7 +741,7 @@ const rulesJSON = JSON.stringify(rules);
       }
 
       analysisEl.hidden = false;
-      analysisTitleEl.textContent = `偵測到 ${matches.length} 個中國用語`;
+      analysisTitleEl.textContent = `偵測到 ${matches.length} 個${termWord}`;
       renderOpenCCStatus(true);
 
       const mustMatches = matches.filter(
@@ -667,18 +815,20 @@ const rulesJSON = JSON.stringify(rules);
         return;
       }
 
-      // If OpenCC is still loading, wait a bit and retry
+      // If OpenCC is still loading, wait a bit and proceed anyway
       if (openccStatus === 'loading') {
         outputEl.innerHTML =
           '<span class="output-placeholder">⏳ 正在載入字形轉換模組…</span>';
         await new Promise((resolve) => setTimeout(resolve, 800));
-        // If still loading, proceed anyway (may use plain term replacement)
       }
 
       const { html, matches, sourceRegions } = convertText(input);
+      const noChangeMsg =
+        direction === 'cn2tw'
+          ? '✅ 未偵測到中國用語，文字已符合台灣習慣。'
+          : '✅ 未偵測到台灣用語，文字已符合中國說法（或本工具未涵蓋）。';
       outputEl.innerHTML =
-        html ||
-        '<span class="no-change">✅ 未偵測到中國用語，文字已符合台灣習慣。</span>';
+        html || `<span class="no-change">${noChangeMsg}</span>`;
       lastHtml =
         matches.length > 0 ? outputEl.innerText || outputEl.textContent : input;
       btnCopy.disabled = false;
@@ -705,16 +855,73 @@ const rulesJSON = JSON.stringify(rules);
       inputHighlightEl.scrollLeft = inputEl.scrollLeft;
     });
 
-    // Example buttons
+    // Example buttons (use active direction's examples)
     document.querySelectorAll('[data-example]').forEach((btn) => {
       btn.addEventListener('click', () => {
         const key = btn.dataset.example;
-        if (EXAMPLES[key]) {
-          inputEl.value = EXAMPLES[key];
+        const examples = getExamples();
+        if (examples[key]) {
+          inputEl.value = examples[key];
           run();
         }
       });
     });
+
+    // ── Direction toggle ────────────────────────────────────────────────────
+    const headerTagline = document.getElementById('header-tagline');
+    const ruleCountDisplay = document.getElementById('rule-count-display');
+    const dirButtons = document.querySelectorAll('[data-dir]');
+
+    function applyDirection(newDir) {
+      direction = newDir;
+      try {
+        localStorage.setItem('terminology-dir', newDir);
+        const url = new URL(window.location.href);
+        url.searchParams.set('dir', newDir);
+        window.history.replaceState({}, '', url.toString());
+      } catch {
+        /* ignore */
+      }
+
+      // Update toggle aria-selected
+      dirButtons.forEach((b) => {
+        const sel = b.dataset.dir === newDir;
+        b.setAttribute('aria-selected', sel ? 'true' : 'false');
+      });
+
+      // Update tagline
+      if (headerTagline) {
+        headerTagline.textContent =
+          newDir === 'cn2tw'
+            ? '把中國用語轉換為台灣用語——不只是字形，是語感。'
+            : '把台灣用語轉換為中國用語——跨海溝通、給對岸朋友看，或反向 pattern 確認。';
+      }
+
+      // Update rule count display
+      if (ruleCountDisplay) {
+        const count =
+          newDir === 'cn2tw' ? RULES_CN2TW.length : RULES_TW2CN.length;
+        ruleCountDisplay.innerHTML = `<strong>${count}</strong> 條轉換規則`;
+      }
+
+      // Update input placeholder
+      const inputPlaceholderTw2Cn =
+        '在這裡貼入文字…\n\n例如：這個軟體影片很有用，可以透過下載來使用。';
+      const inputPlaceholderCn2Tw =
+        '在這裡貼入文字…\n\n例如：這個軟件視頻很有用，可以通過下載來使用。';
+      inputEl.placeholder =
+        newDir === 'cn2tw' ? inputPlaceholderCn2Tw : inputPlaceholderTw2Cn;
+
+      // Re-run convert with new direction
+      run();
+    }
+
+    dirButtons.forEach((b) => {
+      b.addEventListener('click', () => applyDirection(b.dataset.dir));
+    });
+
+    // Initial direction state — sync UI to whatever readInitialDirection picked
+    applyDirection(direction);
 
     btnClear.addEventListener('click', () => {
       inputEl.value = '';
