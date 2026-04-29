@@ -93,6 +93,11 @@ ${optionalReadList}
 - Task folder (repo-relative): ${repoRel}
 
 Inputs and prior research live under \`${repoRel}/inputs/\`. Write outputs to \`${repoRel}/outputs/\`. Append progress notes to \`${repoRel}/status.log\` as you go.
+${
+  task.notes
+    ? `\n## Observer notes (additional instructions for this task)\n\n${task.notes}\n`
+    : ''
+}
 
 ## Hard rules
 
