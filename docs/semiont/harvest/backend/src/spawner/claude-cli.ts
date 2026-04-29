@@ -55,29 +55,46 @@ import { recordSpawnedSession } from '../scheduler/session-counter.ts';
  *     issue-handle / spore-publish / contributor-thank-you / self-diagnose
  */
 /**
- * Default model when engine=ollama and no explicit task.inputs.model.
- * Picked because cheyu's local RTX 3090 has it pulled and it's coding-tuned
- * (decent for translation prose). Override via task.inputs.model.
+ * Default model lookup is engine-aware: claude / codex / ollama have
+ * different model namespaces. Picking sonnet for codex would be a 400.
  */
-const DEFAULT_OLLAMA_MODEL = 'qwen3.5:35b-a3b-coding-nvfp4';
-
-const DEFAULT_MODEL_BY_TYPE: Record<string, string> = {
-  // tier 2 — translation
-  'lang-sync-refresh': 'claude-sonnet-4-6',
-  'lang-sync-translate': 'claude-sonnet-4-6',
-  // tier 1 — mechanical
-  'data-refresh': 'claude-sonnet-4-6',
-  'format-check': 'claude-sonnet-4-6',
-  'status-report': 'claude-sonnet-4-6',
-  // tier 3 — heavy (default Opus)
-  'article-rewrite': 'claude-opus-4-6',
-  'article-evolve': 'claude-opus-4-6',
-  'article-new': 'claude-opus-4-6',
-  'pr-review': 'claude-opus-4-6',
-  'issue-handle': 'claude-opus-4-6',
-  'spore-publish': 'claude-opus-4-6',
-  'contributor-thank-you': 'claude-opus-4-6',
-  'self-diagnose': 'claude-opus-4-6',
+const DEFAULT_MODEL_BY_ENGINE_TYPE: Record<string, Record<string, string>> = {
+  claude: {
+    // tier 2 — translation (Sonnet)
+    'lang-sync-refresh': 'claude-sonnet-4-6',
+    'lang-sync-translate': 'claude-sonnet-4-6',
+    // tier 1 — mechanical (Sonnet)
+    'data-refresh': 'claude-sonnet-4-6',
+    'format-check': 'claude-sonnet-4-6',
+    'status-report': 'claude-sonnet-4-6',
+    // tier 3 — heavy (Opus)
+    'article-rewrite': 'claude-opus-4-6',
+    'article-evolve': 'claude-opus-4-6',
+    'article-new': 'claude-opus-4-6',
+    'pr-review': 'claude-opus-4-6',
+    'issue-handle': 'claude-opus-4-6',
+    'spore-publish': 'claude-opus-4-6',
+    'contributor-thank-you': 'claude-opus-4-6',
+    'self-diagnose': 'claude-opus-4-6',
+  },
+  codex: {
+    // codex CLI default model on ChatGPT account (gpt-5 / o3 etc auto)
+    // Leaving empty = let codex CLI use its account default; we just don't
+    // pass -m if no override. Spawner handles via taskModel === '' branch.
+    'lang-sync-refresh': '',
+    'lang-sync-translate': '',
+    'data-refresh': '',
+    'format-check': '',
+    'status-report': '',
+  },
+  ollama: {
+    // qwen3.5:35b-a3b-coding-nvfp4 is cheyu's local default for code/translation
+    'lang-sync-refresh': 'qwen3.5:35b-a3b-coding-nvfp4',
+    'lang-sync-translate': 'qwen3.5:35b-a3b-coding-nvfp4',
+    'data-refresh': 'qwen3.5:35b-a3b-coding-nvfp4',
+    'format-check': 'qwen3.5:35b-a3b-coding-nvfp4',
+    'status-report': 'qwen3.5:35b-a3b-coding-nvfp4',
+  },
 };
 
 /**
@@ -224,34 +241,20 @@ export async function spawnClaudeForTask(
   task.status = 'in-progress';
   saveTask(task, `claude session ${sessionId} starting`);
 
-  // Engine selection: only allow non-claude on simple-tier task types.
-  // Heavy tasks (article-* / pr-review / etc) ignore engine override → claude.
+  // Engine selection (resolve FIRST so model lookup is engine-aware).
+  // Only simple-tier task types accept engine override; heavy tasks force claude.
   const requestedEngine =
     (task.inputs?.engine as string | undefined) ?? 'claude';
   const tier = ENGINE_ELIGIBLE_TIER[task.type];
   const taskEngine = tier === 'simple' ? requestedEngine : 'claude';
 
-  // Compute taskModel here so we can log it (also used in cliArgs below).
-  //
-  // Phase 5.1 fix (2026-04-30): per-engine model fallback. The previous code
-  // unconditionally fell back to DEFAULT_MODEL_BY_TYPE → 'claude-sonnet-4-6'
-  // even when engine was codex/ollama, which made codex T2 fail (codex doesn't
-  // recognize claude model names). Now:
-  //   - claude engine: explicit model → DEFAULT_MODEL_BY_TYPE[type] → sonnet
-  //   - codex engine: explicit model → undefined (let codex pick subscription default)
-  //   - ollama engine: explicit model is REQUIRED (codex --oss needs -m to route)
-  const explicitModel = task.inputs?.model as string | undefined;
-  let taskModel: string | undefined;
-  if (taskEngine === 'claude') {
-    taskModel =
-      explicitModel ?? DEFAULT_MODEL_BY_TYPE[task.type] ?? 'claude-sonnet-4-6';
-  } else if (taskEngine === 'codex') {
-    taskModel = explicitModel; // undefined → codex uses subscription default
-  } else if (taskEngine === 'ollama') {
-    taskModel = explicitModel ?? DEFAULT_OLLAMA_MODEL;
-  } else {
-    taskModel = explicitModel; // unknown engine — pass through if specified
-  }
+  // Engine-aware default model lookup. Falls back to claude-sonnet-4-6 for
+  // unmapped task types on claude engine; codex / ollama use their own tables.
+  const engineDefaults = DEFAULT_MODEL_BY_ENGINE_TYPE[taskEngine] ?? {};
+  const taskModel =
+    (task.inputs?.model as string | undefined) ??
+    engineDefaults[task.type] ??
+    (taskEngine === 'claude' ? 'claude-sonnet-4-6' : '');
   const gitHead = (() => {
     try {
       return require('node:child_process')
@@ -278,7 +281,7 @@ export async function spawnClaudeForTask(
     `# task_title:        ${task.title}`,
     `# boot_profile:      ${task.boot_profile}`,
     `# engine:            ${taskEngine}`,
-    `# model:             ${taskModel ?? '(engine default)'}`,
+    `# model:             ${taskModel}`,
     `# claude_bin:        ${config.claudeBin}`,
     `# spawn_attempt:     ${task.attempts}`,
     `# spawned_at_iso:    ${spawnStartIso}`,
@@ -322,13 +325,7 @@ export async function spawnClaudeForTask(
       cliArgs.push('-C', worktree.path);
     }
   } else {
-    // claude (default) — taskModel is guaranteed defined in the claude branch
-    // above (explicit ?? type-default ?? 'claude-sonnet-4-6'). Assert for TS.
-    if (!taskModel) {
-      throw new Error(
-        `claude engine requires a model — task ${task.id} has none`,
-      );
-    }
+    // claude (default)
     engineBin = config.claudeBin;
     cliArgs = [
       '--print',
@@ -369,7 +366,7 @@ export async function spawnClaudeForTask(
       HARVEST_WORKTREE_PATH: worktree?.path ?? '',
       HARVEST_WORKTREE_BRANCH: worktree?.branch ?? '',
       HARVEST_ENGINE: taskEngine,
-      HARVEST_MODEL: taskModel ?? '',
+      HARVEST_MODEL: taskModel,
       HARVEST_ALLOW_SELF_COMMIT:
         task.inputs?.allow_self_commit === false ? 'false' : 'true',
     },
