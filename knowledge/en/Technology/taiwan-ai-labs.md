@@ -10,11 +10,23 @@ tags:
     'tech innovation',
     'information warfare defense',
   ]
-author: 'Taiwan.md'
+author: 'idlccp02'
 readingTime: 8
 featured: true
-category: 'Technology'
+subcategory: '人工智慧'
 lastVerified: 2026-03-19
+lastHumanReview: false
+category: "Technology"
+translatedFrom: 'Technology/台灣人工智慧實驗室.md'
+sourceCommitSha: 800114ea
+sourceContentHash: sha256:4e74b5658957423e
+translatedAt: 2026-04-29T22:30:00+08:00
+sourceCommitSha: 800114ea
+sourceContentHash: sha256:4e74b5658957423e
+translatedAt: 2026-04-29T22:30:00+08:00
+sourceCommitSha: 800114ea
+sourceContentHash: sha256:4e74b5658957423e
+translatedAt: 2026-04-29T22:30:00+08:00
 translatedFrom: 'Technology/台灣人工智慧實驗室.md'
 ---
 
