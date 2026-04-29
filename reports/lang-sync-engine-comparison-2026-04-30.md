@@ -1,4 +1,4 @@
-# Lang-Sync Engine Comparison — 2026-04-30 v2 (T2 codex re-spawn complete)
+# Lang-Sync Engine Comparison — 2026-04-30 v3 (T3 ollama retest with Phase 5.1 prompt complete)
 
 > **session**: 2026-04-30 morning, harvest captain's bridge Phase 5.1 ship
 > **接續**: [reports/lang-sync-handoff-2026-04-29.md](lang-sync-handoff-2026-04-29.md) §4 (test design)
@@ -277,5 +277,41 @@ Re-running the same 3 engine-test tasks against post-5.1 backend will give a cle
 🧬
 
 _v1.0 | 2026-04-30 morning_
-_v2.0 | 2026-04-30 23:13 +0800 — T2 codex v2 success captured; all 3 engines compared with full data; 5-task batch recommendations finalized_
-_next update: 5-task batch metrics + codex length-cap A/B + T3 ollama retest_
+_v2.0 | 2026-04-30 23:13 +0800 — T2 codex v2 success captured_
+_v3.0 | 2026-04-30 23:42 +0800 — T3 ollama v2 retest captured (subcategory drift FIXED ✅, but ratio 2.85 — same elaborate problem as codex)_
+_next update: 5-task batch metrics + codex length-cap A/B_
+
+---
+
+## 8. T3 v2 ollama qwen retest (2026-04-29-017) ✅
+
+**Status**: `done` / `exit_code: 0` / commit `88635253` on worktree branch.
+
+**Phase 5.1 prompt craft principle 5 effectiveness check**: ✅ subcategory drift FIXED.
+
+| Metric            | T3 v1 (pre-Phase 5.1)                 | T3 v2 (post-Phase 5.1)                                             |
+| ----------------- | ------------------------------------- | ------------------------------------------------------------------ |
+| Wall-clock        | 4m 49s                                | **5m 1s**                                                          |
+| Verify exit       | **1 (HARD FAIL — subcategory drift)** | **2 (WARN only — all gates ✅)**                                   |
+| Subcategory field | `'ren-gong-zhi-hui'` ❌ Pinyin        | `'人工智慧'` ✅ verbatim zh                                        |
+| Translation ratio | unknown (verify failed earlier)       | **2.85 ⚠️ (zh 1922 → en 5487)**                                    |
+| Output committed? | YES — but with hard fail un-resolved  | YES — verify PASS                                                  |
+| Tool reliability  | 7+ failed sed (zsh escapes)           | Some sed escapes still failing, agent fell back to Python (better) |
+
+**Key finding 1 — Phase 5.1 craft principle 5 works**: Prompt-level "frontmatter passthrough fields are sacred — author / subcategory / category / featured / readingTime / lastVerified / lastHumanReview MUST equal zh source verbatim" successfully steered qwen to preserve `subcategory: '人工智慧'` instead of translating to English/Pinyin. **Prompt-level instruction CAN steer model behavior on structural rules** — at least for ollama qwen.
+
+**Key finding 2 — ollama qwen has same elaborate problem as codex**: ratio **2.85** (vs Sonnet 1.47, codex 2.53). Same pattern across both non-claude engines: zh prose gets expanded ~2.5-3x. **This is a model-class issue, not a prompt issue** — Sonnet has better internalized "faithfulness over polish" by default.
+
+**Key finding 3 — sed reliability still poor**: qwen still hit zsh quote-escape issues on multiple sed commands (similar to T3 v1), but **agent self-corrected by falling back to Python in-line scripts**. Improvement attributable to either prompt or model recovery behavior; either way verify passed.
+
+**Updated decision matrix** (replaces §6 conclusion):
+
+| Engine                    | Cost              | Speed  | Verify pass                | Faithfulness (ratio)      | Production-ready?                  |
+| ------------------------- | ----------------- | ------ | -------------------------- | ------------------------- | ---------------------------------- |
+| **claude-sonnet-4-6**     | $1.31/article     | 5m 50s | ✅ exit 2                  | **1.47 (closest to 1.0)** | ✅ Yes — gold standard             |
+| **codex auto** (gpt-5/o3) | $0 (subscription) | 5m 22s | ✅ exit 2                  | 2.53                      | ⚠️ Only with explicit length cap   |
+| **ollama qwen3.5:35b**    | $0 (本機)         | 5m 01s | ✅ exit 2 (post-Phase 5.1) | 2.85                      | ⚠️ Same elaborate concern as codex |
+
+**Final 5-task batch recommendation (unchanged)**: pure Sonnet. Codex / ollama both have ratio drift that violates faithfulness DNA — even though they spawn cleanly and pass verify hard gates.
+
+**597-task implication**: cost analysis shifted slightly. Pure Sonnet remains at ~$782. Mixing in codex / ollama saves money but introduces structural drift; need length-cap A/B test results before committing.
