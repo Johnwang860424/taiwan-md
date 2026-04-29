@@ -98,7 +98,10 @@ app.use('*', async (c, next) => {
   const origin = c.req.header('origin');
   if (origin?.startsWith('http://localhost:')) {
     c.header('Access-Control-Allow-Origin', origin);
-    c.header('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
+    c.header(
+      'Access-Control-Allow-Methods',
+      'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+    );
     c.header('Access-Control-Allow-Headers', 'Content-Type');
   }
   if (c.req.method === 'OPTIONS') return c.body(null, 204);
