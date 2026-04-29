@@ -69,6 +69,26 @@ export async function finalizeWorktree(
   }
 
   if (opts.commitsCount === 0) {
+    // Phase 5.1 fix (2026-04-30): check for staged but uncommitted changes
+    // before remove. Cheyu's KTV task with allow_self_commit=false had agent
+    // stage knowledge/en/Music/ktv-culture.md but the parent never collected
+    // → finalize saw commitsCount=0 → silently nuked the worktree → translation
+    // lost. Now: if `git diff --cached` shows staged work, KEEP worktree and
+    // signal to caller (caller logs warning so cheyu can manually collect).
+    const hasStagedChanges = await new Promise<boolean>((resolve) => {
+      const child = spawn('git', ['diff', '--cached', '--quiet'], {
+        cwd: wt.path,
+      });
+      child.on('exit', (code) => resolve(code !== 0));
+      child.on('error', () => resolve(false));
+    });
+    if (hasStagedChanges) {
+      log.warn(
+        wt,
+        'no commits to merge BUT staged changes present — keeping worktree (cheyu must collect or commit)',
+      );
+      return { merged: false, conflicts: false, removed: false };
+    }
     log.info(wt, 'no commits to merge — removing worktree + branch');
     await safeRemoveWorktree(wt);
     return { merged: true, conflicts: false, removed: true };

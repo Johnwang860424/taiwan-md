@@ -163,11 +163,15 @@ export function listTasks(filter: ListTasksFilter = {}): Task[] {
     params.push(filter.priority);
   }
 
+  // Phase 5.1 fix: don't push LIMIT into SQL — SQLite has stale rows whose
+  // folder was archived externally. listTasks must filter null in JS layer
+  // FIRST, then apply limit. Otherwise SQL `LIMIT 5` could return 5 oldest
+  // ghost rows whose folders are gone, and the user sees count=0 even though
+  // SQLite has 70+ rows. Apply ORDER + WHERE in SQL but limit in JS.
   const sql =
     'SELECT id FROM tasks' +
     (where.length ? ` WHERE ${where.join(' AND ')}` : '') +
-    ' ORDER BY priority ASC, created_at ASC' +
-    (filter.limit ? ` LIMIT ${Number(filter.limit)}` : '');
+    ' ORDER BY priority ASC, created_at ASC';
 
   // bun:sqlite SQLQueryBindings — runtime-safe coercion. We've validated
   // each param above as string; this cast is purely for the type checker.
@@ -176,9 +180,11 @@ export function listTasks(filter: ListTasksFilter = {}): Task[] {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .all(...(params as never[]));
   const tasks: Task[] = [];
+  const cap = filter.limit ? Number(filter.limit) : Infinity;
   for (const row of rows) {
     const t = getTask(row.id);
     if (t) tasks.push(t);
+    if (tasks.length >= cap) break;
   }
   return tasks;
 }
