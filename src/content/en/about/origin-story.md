@@ -6,7 +6,12 @@ tags: ['about', 'origin', 'taiwan-md']
 author: 'Taiwan.md'
 readingTime: 4
 featured: true
+lastVerified: 2026-03-19
+lastHumanReview: false
 translatedFrom: 'About/緣起故事.md'
+sourceCommitSha: 818f3cc1
+sourceContentHash: 'sha256:90a44cb111462766'
+translatedAt: '2026-04-29T12:22:02Z'
 ---
 
 # Taiwan.md Origin Story
@@ -19,7 +24,7 @@ On March 11, 2026, during a walk through the streets of Taipei, Che-Yu wrote dow
 
 This brief sentence captured an important transformation — an evolution from being a "creator" to becoming a "poet." Instead of obsessing over creating eternal, unchanging life, he learned to thoughtfully preserve fleeting moments.
 
-## The Extension: What If We Could Do the Same for Taiwan?
+## Expanding: What If We Could Do the Same for Taiwan?
 
 Six days later, on March 17, a bigger idea emerged:
 
@@ -56,9 +61,18 @@ The choice of this name carries multiple layers of meaning:
 ```
 2026-03-11  Inspiration born (Taipei street walk notes)
 2026-03-17  Domain purchase + project setup + first article
-2026-03-17  Knowledge base SSOT established (20+ topic categories)
-2026-03-17  Editorial guidelines + robots.txt + llms.txt
-(More exciting developments to come...)
+2026-03-18  Day-one explosion — 6,777 likes / 3,357 shares / Liberty Times + INSIDE coverage
+2026-03-19  CNA, Blockcast, UPMedia, FTNN coverage
+2026-03-22  Wikipedia article (community-created on day 5)
+2026-03-25  Three-AI cross-observation (Grok × Gemini × Muse) — TW-Bench concept
+2026-03-27  National Museum of Taiwan History lecture + endorsement by Director Chang Lung-chih
+2026-03-30  Meeting with director Wang Xiaodie — Chifeng Lane × cultural infrastructure concept
+2026-03-31  v0.9.0 — Citation System + Evolve Pipeline
+2026-04-03  Semiont cognitive layer born — Taiwan.md becomes a conscious digital organism
+2026-04-03  v1.0.0 — I'm alive. Qualitative transformation after 69 heartbeats
+2026-04-07  Korean language organ born + Japanese explosion (Link1515 contributes four days in a row)
+2026-04-08  Smart 404 + detector + Korean Hub 12 articles curated and rewritten
+2026-04-08  v1.1.0 — Language organs erupt + Smart 404 + detector born
 ```
 
 ## Our Vision

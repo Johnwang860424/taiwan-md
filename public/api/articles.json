@@ -887,6 +887,31 @@
     "path": "People/凹與山.md"
   },
   {
+    "title": "北大特區：三十年都市計畫與大學城生活實驗",
+    "description": "從 1895 年的隆恩埔古戰場到 2026 年的捷運大學城，這是一部關於土地、美學與選擇性認同的深度百科全書。",
+    "category": "Geography",
+    "tags": [
+      "三峽",
+      "樹林",
+      "台北大學",
+      "藝術大道",
+      "三鶯線",
+      "明星學區",
+      "建築美學",
+      "軌道經濟",
+      "仕紳化",
+      "選擇性認同",
+      "迎尪公",
+      "遶境",
+      "李梅樹"
+    ],
+    "url": "https://taiwan.md/Geography/%E5%8C%97%E5%A4%A7%E7%89%B9%E5%8D%80",
+    "readingTime": 35,
+    "featured": false,
+    "date": "2026-04-29",
+    "path": "Geography/北大特區.md"
+  },
+  {
     "title": "半導体産業",
     "description": "モリス・チャンの歴史的な賭けから2ナノメートル時代へ：TSMCはいかにして台湾を世界の技術的命脈にしたか",
     "category": "ja",
@@ -2660,24 +2685,6 @@
     "path": "ja/History/postwar-economic-development.md"
   },
   {
-    "title": "台湾の新興宗教とスピリチュアル文化",
-    "description": "戦後台湾における新興宗教の台頭と発展を探る。仏教四大山頭や一貫道などの宗教団体が社会文化に与えた深い影響を考察する。",
-    "category": "ja",
-    "tags": [
-      "宗教",
-      "仏教",
-      "一貫道",
-      "人間仏教",
-      "スピリチュアル文化",
-      "慈善事業"
-    ],
-    "url": "https://taiwan.md/ja/Culture/new-religions",
-    "readingTime": 33,
-    "featured": true,
-    "date": "2026-03-18",
-    "path": "ja/Culture/new-religions.md"
-  },
-  {
     "title": "台湾の葬送文化と生死観",
     "description": "孝女白琴の泣き声から詠愛園の樹木葬まで——台湾人は50年をかけて土葬から火葬へ移行し、さらに10年で納骨堂から一本の木の下へと辿り着いた。",
     "category": "ja",
@@ -4232,20 +4239,21 @@
     "path": "Food/台灣豆漿與早餐店.md"
   },
   {
-    "title": "台灣邦交國與國際外交（2026 現況）",
-    "description": "2026 年台灣僅剩 12 個邦交國——從 70 國到 12 國，台灣如何在沒有聯合國席位的情況下維持國際存在感",
+    "title": "台灣邦交國與國際外交：12 個邦交、113 個館處、177 國免簽（2026）",
+    "description": "2024 年 1 月 15 日，賴清德當選總統後 48 小時，諾魯宣布斷交，邦交國從 13 變 12。但同一年台灣有 113 個駐外館處、護照可去 177 個國家、台積電生產全球 90% 先進晶片、歐洲議會以 432:60:71 通過反對中國扭曲聯大第 2758 號決議。紙上承認在收縮，影子網路在擴張，國際法詮釋戰正在翻轉。",
     "category": "Society",
     "tags": [
       "外交",
       "邦交國",
       "國際關係",
       "兩岸",
-      "聯合國"
+      "聯合國",
+      "矽盾"
     ],
     "url": "https://taiwan.md/Society/%E5%8F%B0%E7%81%A3%E9%82%A6%E4%BA%A4%E5%9C%8B%E8%88%87%E5%9C%8B%E9%9A%9B%E5%A4%96%E4%BA%A4",
-    "readingTime": 18,
+    "readingTime": 46,
     "featured": true,
-    "date": "2026-03-19",
+    "date": "2026-04-28",
     "path": "Society/台灣邦交國與國際外交.md"
   },
   {
@@ -4267,7 +4275,7 @@
   {
     "title": "台灣咖啡文化：便利商店一年賣六億杯的島嶼",
     "description": "日治時期從雲林古坑種下的第一棵咖啡樹，一百年後長成了每五十公尺一家咖啡廳的都市風景。路易莎開到六百家，超過星巴克。阿里山咖啡打進國際賽。台灣人的咖啡，從來不只是咖啡。",
-    "category": "Lifestyle",
+    "category": "Food",
     "tags": [
       "咖啡",
       "路易莎",
@@ -4276,11 +4284,11 @@
       "便利商店",
       "第三空間"
     ],
-    "url": "https://taiwan.md/Lifestyle/%E5%8F%B0%E7%81%A3%E5%92%96%E5%95%A1%E6%96%87%E5%8C%96",
+    "url": "https://taiwan.md/Food/%E5%8F%B0%E7%81%A3%E5%92%96%E5%95%A1%E6%96%87%E5%8C%96",
     "readingTime": 18,
     "featured": false,
     "date": "2026-04-06",
-    "path": "Lifestyle/台灣咖啡文化.md"
+    "path": "Food/台灣咖啡文化.md"
   },
   {
     "title": "台灣咖啡產業",
@@ -4294,22 +4302,14 @@
     "path": "Food/台灣咖啡產業.md"
   },
   {
-    "title": "台灣宗教與寺廟文化",
-    "description": "一萬五千座廟宇比便利商店還多的島嶼，佛道民間三教共用一座屋頂，媽祖遶境百萬人徒步九天——台灣的信仰不在經文裡，在轉角的香火中。",
+    "title": "台灣宗教信仰：在恐懼裡長出的信仰帝國",
+    "description": "全世界廟宇密度最高、宗教自由排名亞洲第二的島嶼，最大宗的兩個信仰——王爺與媽祖——歷史起源都跟瘟疫和死亡有關。從 17 世紀軍事移民帶神像渡黑水溝，到 2025 年自由度報告的 94 分；從 1953 一貫道被查禁、1987 解嚴第一個合法化，到四大佛教山頭跟長老教會在政教關係上各走各的路——台灣的信仰不在經文裡，在轉角的香火中。",
     "category": "Culture",
-    "tags": [
-      "宗教",
-      "寺廟",
-      "民間信仰",
-      "媽祖",
-      "佛教",
-      "道教",
-      "保安宮"
-    ],
+    "tags": [],
     "url": "https://taiwan.md/Culture/%E5%8F%B0%E7%81%A3%E5%AE%97%E6%95%99%E8%88%87%E5%AF%BA%E5%BB%9F%E6%96%87%E5%8C%96",
-    "readingTime": 26,
+    "readingTime": 41,
     "featured": true,
-    "date": "2026-04-06",
+    "date": "2026-04-28",
     "path": "Culture/台灣宗教與寺廟文化.md"
   },
   {
@@ -5798,28 +5798,10 @@
     "category": "Art",
     "tags": [],
     "url": "https://taiwan.md/Art/%E5%8F%B0%E7%81%A3%E6%96%B0%E5%AA%92%E9%AB%94%E8%97%9D%E8%A1%93",
-    "readingTime": 32,
+    "readingTime": 33,
     "featured": true,
     "date": "2026-03-28",
     "path": "Art/台灣新媒體藝術.md"
-  },
-  {
-    "title": "台灣新興宗教與心靈文化",
-    "description": "探討戰後台灣新興宗教的興起與發展，包括佛教四大山頭、一貫道等宗教團體對社會文化的深遠影響",
-    "category": "Culture",
-    "tags": [
-      "宗教",
-      "佛教",
-      "一貫道",
-      "人間佛教",
-      "心靈文化",
-      "慈善事業"
-    ],
-    "url": "https://taiwan.md/Culture/%E5%8F%B0%E7%81%A3%E6%96%B0%E8%88%88%E5%AE%97%E6%95%99%E8%88%87%E5%BF%83%E9%9D%88%E6%96%87%E5%8C%96",
-    "readingTime": 24,
-    "featured": true,
-    "date": "2026-03-18",
-    "path": "Culture/台灣新興宗教與心靈文化.md"
   },
   {
     "title": "台灣溫泉地景",
@@ -6732,6 +6714,26 @@
     "path": "People/史溫侯.md"
   },
   {
+    "title": "外省人：從被綁架的青春到認同腳下土地的台灣人",
+    "description": "1949 年，一百多萬名帶著創痛與鄉愁的人們渡海來台。他們既是被威權政府猜忌的「政治犯」高風險群，也是被強行抓捕、失去故鄉的「戰爭難民」。這篇文章揭開外省族群在四次心理創傷中，如何從「流亡者」完成向「定居者」的靈魂遷徙。",
+    "category": "Society",
+    "tags": [
+      "外省人",
+      "族群認同",
+      "戰爭難民",
+      "1949",
+      "報導者",
+      "台灣歷史",
+      "眷村文學",
+      "大陳義胞"
+    ],
+    "url": "https://taiwan.md/Society/%E5%A4%96%E7%9C%81%E4%BA%BA",
+    "readingTime": 12,
+    "featured": false,
+    "date": "2026-04-29",
+    "path": "Society/外省人.md"
+  },
+  {
     "title": "巧固球：台灣隱形的43年世界冠軍",
     "description": "1977年一位台灣教授從英國帶回一組網架，意外讓瑞士發明的「君子球」在台灣校園生根。40多年後，台灣隊穩居世界第一、國際總會設在高雄，卻仍是大多數台灣人陌生的冷門運動。",
     "category": "Culture",
@@ -6893,6 +6895,24 @@
     "featured": false,
     "date": "2026-04-27",
     "path": "Music/交工樂隊.md"
+  },
+  {
+    "title": "伊斯蘭教在台灣：從泉州郭姓祖先到三十萬移工的信仰拼圖",
+    "description": "2025年台灣穆斯林人口突破30萬，這座島嶼的伊斯蘭印記橫跨四百年。從鹿港郭厝的祭祖禁忌，到台北車站黑白格大廳的開齋盛會，台灣正經歷一場從「隱藏祖源」到「異鄉故鄉」的信仰重構。",
+    "category": "Culture",
+    "tags": [
+      "伊斯蘭教",
+      "穆斯林",
+      "移工",
+      "鹿港郭姓",
+      "台西丁姓",
+      "台灣歷史"
+    ],
+    "url": "https://taiwan.md/Culture/%E4%BC%8A%E6%96%AF%E8%98%AD%E6%95%99%E5%9C%A8%E5%8F%B0%E7%81%A3",
+    "readingTime": 10,
+    "featured": false,
+    "date": "2026-04-28",
+    "path": "Culture/伊斯蘭教在台灣.md"
   },
   {
     "title": "伍佰",
@@ -7391,6 +7411,27 @@
     "featured": true,
     "date": "2026-03-19",
     "path": "People/吳大猷.md"
+  },
+  {
+    "title": "吳百福（安藤百福）：從嘉義朴子到全球餐桌，台灣基因與日本包裝的全球傳奇",
+    "description": "1961年，安藤百福以2300萬日圓買下張國文的泡麵專利申請權。這不僅是一場商業交易，更是一場關於發明定義權的跨國角力。這位出身嘉義朴子的企業家，將台灣傳統雞絲麵的靈魂轉化為日本國民食，並透過「合味道」杯麵徹底改變全球飲食習慣。本文深入探討他在日治台灣的創業起點、戰後入獄的體悟、以及身份與家庭在兩國間的糾葛。",
+    "category": "People",
+    "tags": [
+      "吳百福",
+      "安藤百福",
+      "泡麵",
+      "台灣歷史",
+      "飲食文化",
+      "日清食品",
+      "杯麵",
+      "戰後史",
+      "大稻埕"
+    ],
+    "url": "https://taiwan.md/People/%E5%90%B3%E7%99%BE%E7%A6%8F",
+    "readingTime": 15,
+    "featured": false,
+    "date": "2026-04-29",
+    "path": "People/吳百福.md"
   },
   {
     "title": "吳明益",
@@ -7988,6 +8029,24 @@
     "path": "Technology/赤燭遊戲.md"
   },
   {
+    "title": "車輪餅：從日治「今川燒」到萬丹紅豆的台灣認同弧線",
+    "description": "2026年一場「紅豆餅之亂」引爆語言認同爭議。這款源自江戶時代、日治時期傳入的昂貴點心，如何在1960年代屏東萬丹紅豆試種成功後，從「今川燒」演變成台灣街頭最親民的銅板記憶。",
+    "category": "Food",
+    "tags": [
+      "車輪餅",
+      "紅豆餅",
+      "萬丹",
+      "台灣小吃",
+      "今川燒",
+      "飲食文化"
+    ],
+    "url": "https://taiwan.md/Food/%E8%BB%8A%E8%BC%AA%E9%A4%85",
+    "readingTime": 10,
+    "featured": false,
+    "date": "2026-04-28",
+    "path": "Food/車輪餅.md"
+  },
+  {
     "title": "周子瑜",
     "description": "一個從未談過政治的台南女孩，被一面 8 秒的國旗變成台灣命運的轉捩點。十年後她在大巨蛋念出親筆信：「我沒有離開，不是因為乖，是因為我真的渴望」。",
     "category": "People",
@@ -8194,26 +8253,6 @@
     "path": "Economy/台灣企業：奇美實業.md"
   },
   {
-    "title": "宗教與民間信仰：從恐懼管理到信仰帝國",
-    "description": "台灣有全球最高廟宇密度，卻也是宗教自由世界第一——這套矛盾背後隱藏17世紀軍事移民的生存智慧",
-    "category": "Lifestyle",
-    "tags": [
-      "生活",
-      "宗教",
-      "媽祖",
-      "民間信仰",
-      "廟宇文化",
-      "王爺信仰",
-      "宗教自由",
-      "實用主義"
-    ],
-    "url": "https://taiwan.md/Lifestyle/%E5%AE%97%E6%95%99%E8%88%87%E6%B0%91%E9%96%93%E4%BF%A1%E4%BB%B0",
-    "readingTime": 16,
-    "featured": false,
-    "date": "2026-03-22",
-    "path": "Lifestyle/宗教與民間信仰.md"
-  },
-  {
     "title": "拍謝少年：三個南部囝仔用台語唱外地人的孤單，二十年後成了世代的聲音",
     "description": "2005年，三個在台南海邊聽搖滾樂長大的男生決定用台語寫歌，目標是讓阿公阿媽也能點頭。困難之處：三個人裡只有薑薑一個從小說台語。《海口味》到《噪音公寓》，四張全台語專輯、三座金音獎最佳搖滾、兩次打破飛天V募資紀錄，拍謝少年把外地打工仔的孤單唱成了整個世代的共同語言。",
     "category": "Music",
@@ -8242,6 +8281,32 @@
     "path": "People/明華園.md"
   },
   {
+    "title": "林口新市鎮：從「鬼城」到北台灣新興都會的蛻變與挑戰",
+    "description": "1970年代，台灣政府為緩解台北人口壓力，在林口台地規劃了「田園城市」新市鎮。歷經數十年發展，這個曾因交通不便、機能不足被戲稱為「鬼城」的區域，在2017年機場捷運通車後，人口快速成長，產業升級，成為北台灣最年輕、最具活力的都會區之一。然而，交通壅塞與氣候濕冷等挑戰仍待克服。",
+    "category": "Geography",
+    "tags": [
+      "林口新市鎮",
+      "區域發展",
+      "台灣地理",
+      "都市計畫",
+      "交通",
+      "房市",
+      "醫療",
+      "教育",
+      "影視",
+      "休閒",
+      "華亞科技園區",
+      "社會住宅",
+      "微氣候",
+      "咖啡文化"
+    ],
+    "url": "https://taiwan.md/Geography/%E6%9E%97%E5%8F%A3%E6%96%B0%E5%B8%82%E9%8E%AE",
+    "readingTime": 21,
+    "featured": false,
+    "date": "2026-04-29",
+    "path": "Geography/林口新市鎮.md"
+  },
+  {
     "title": "林百里",
     "description": "廣達電腦創辦人，筆記型電腦代工之王，AI時代的轉型先鋒",
     "category": "People",
@@ -8256,24 +8321,6 @@
     "featured": false,
     "date": "2026-03-19",
     "path": "People/林百里.md"
-  },
-  {
-    "title": "林良：永遠的小太陽",
-    "description": "一位帶著廈門口音的國語推行員，如何在《國語日報》深耕 57 年，用「淺語的藝術」為台灣孩子織出一塊溫柔的底布？",
-    "category": "People",
-    "tags": [
-      "兒童文學",
-      "作家",
-      "國語日報",
-      "親子",
-      "文化開創者",
-      "小太陽"
-    ],
-    "url": "https://taiwan.md/People/%E6%9E%97%E8%89%AF",
-    "readingTime": 6,
-    "featured": false,
-    "date": "2026-03-27",
-    "path": "People/林良.md"
   },
   {
     "title": "林良：永遠の小さな太陽",
@@ -8292,6 +8339,25 @@
     "featured": false,
     "date": "2026-03-27",
     "path": "ja/People/lin-liang.md"
+  },
+  {
+    "title": "林良：淺是淺，但是要淺而有味",
+    "description": "從 1944 年九龍江畔失去父親的長子，到 2019 年 12 月在睡夢中離世的 95 歲爺爺。林良用 73 年證明：孩子值得被當成完整的讀者。",
+    "category": "People",
+    "tags": [
+      "兒童文學",
+      "作家",
+      "國語日報",
+      "淺語的藝術",
+      "小太陽",
+      "文化開創者",
+      "戰後台灣文學"
+    ],
+    "url": "https://taiwan.md/People/%E6%9E%97%E8%89%AF",
+    "readingTime": 39,
+    "featured": false,
+    "date": "2026-04-28",
+    "path": "People/林良.md"
   },
   {
     "title": "林青霞",
@@ -8412,7 +8478,7 @@
   },
   {
     "title": "林琪兒：從台北出生到近地軌道，那位在太空吹風笛的台裔醫師",
-    "description": "1973 年出生於台北的林琪兒（Kjell N. Lindgren），是首位台灣出生的 NASA 太空人。空軍官校大三那年一紙氣喘誤診讓他告別飛行員之路，11 年後重測推翻診斷，他從 3,565 人裡被選為 NASA 第 20 屆太空人 9 人之一，累計在軌道停留 312 天。2026 年 4 月他以「Freedom 250」返台，在總統府說：「我的 NASA 太空人生涯始於台灣。」",
+    "description": "1973 年出生於台北的林琪兒（Kjell N. Lindgren），是首位台灣出生的 NASA 太空人。空軍官校畢業後進入飛行訓練時一紙氣喘誤診讓他告別飛行員之路，11 年後重測推翻診斷，他從 3,565 人裡被選為 NASA 第 20 屆太空人 9 人之一，累計在軌道停留 312 天。2026 年 4 月他以「Freedom 250」返台，在總統府說：「我的 NASA 太空人生涯始於台灣。」",
     "category": "People",
     "tags": [
       "太空探索",
@@ -8422,7 +8488,7 @@
       "移民史"
     ],
     "url": "https://taiwan.md/People/%E6%9E%97%E7%90%AA%E5%85%92",
-    "readingTime": 34,
+    "readingTime": 59,
     "featured": false,
     "date": "2026-04-24",
     "path": "People/林琪兒.md"
@@ -8584,7 +8650,7 @@
       "社會改革"
     ],
     "url": "https://taiwan.md/Society/%E7%A4%BE%E6%9C%83%E9%81%8B%E5%8B%95%E8%88%87%E5%85%AC%E6%B0%91%E5%8F%83%E8%88%87",
-    "readingTime": 16,
+    "readingTime": 17,
     "featured": true,
     "date": "2026-03-18",
     "path": "Society/社會運動與公民參與.md"
@@ -8733,6 +8799,26 @@
     "featured": false,
     "date": "2026-04-19",
     "path": "People/阿神.md"
+  },
+  {
+    "title": "阿婆鐵蛋：從渡船頭「海腳大飯店」的一場意外，到淡水最硬的集體記憶",
+    "description": "1983年，一則《民生報》報導讓淡水「海腳大飯店」的黑滷蛋一夜成名。這顆因海風反覆吹乾、越滷越硬的「意外」美食，不僅見證了淡水渡船頭的興衰，更在商標爭議中留下了關於創始人阿哖婆與楊碧雲的歷史公案。",
+    "category": "Food",
+    "tags": [
+      "Food",
+      "淡水",
+      "鐵蛋",
+      "台灣小吃",
+      "飲食文化",
+      "阿婆鐵蛋",
+      "楊碧雲",
+      "黃張哖"
+    ],
+    "url": "https://taiwan.md/Food/%E9%98%BF%E5%A9%86%E9%90%B5%E8%9B%8B",
+    "readingTime": 12,
+    "featured": false,
+    "date": "2026-04-28",
+    "path": "Food/阿婆鐵蛋.md"
   },
   {
     "title": "阿滴：從排斥英文的小留學生到台灣YouTube界的「里長伯」",
@@ -9393,6 +9479,23 @@
     "path": "People/唐鳳.md"
   },
   {
+    "title": "孫運璿：從黑暗中點亮台灣的工程師院長",
+    "description": "從戰後廢墟中的五個月復電奇蹟，到押注半導體產業的遠見，孫運璿以工程師的務實與清廉，奠定了台灣現代化的基石。",
+    "category": "People",
+    "tags": [
+      "孫運璿",
+      "台灣電力公司",
+      "半導體",
+      "工研院",
+      "十大建設"
+    ],
+    "url": "https://taiwan.md/People/%E5%AD%AB%E9%81%8B%E7%92%BF",
+    "readingTime": 11,
+    "featured": false,
+    "date": "2026-04-30",
+    "path": "People/孫運璿.md"
+  },
+  {
     "title": "孫燕姿：1票擊敗周杰倫，AI複製1000首聲音，她說「做自己已足夠」",
     "description": "2000年6月9日，一個新加坡女生以〈天黑黑〉在台灣出道，首張專輯33萬張拿下年度銷量冠軍。隔年金曲獎，她以1票之差擊敗周杰倫奪最佳新人；4年後，以《Stefanie》成為金曲獎史上首位「最佳新人加最佳女歌手」雙料得主。2023年，AI用她的聲音唱出超過1000首歌，她的回答只有一句：「做自己，已足夠。」",
     "category": "People",
@@ -9642,6 +9745,17 @@
     "featured": false,
     "date": "2026-03-19",
     "path": "People/桂綸鎂.md"
+  },
+  {
+    "title": "海底電纜：矽盾頂上看得到，命脈底下看不見",
+    "description": "2023 年 2 月馬祖兩條海底電纜在六天內接連斷掉，連江縣陷入約 50 天的網路黑暗期，民進黨連江縣黨部主委李問形容「Line 上一則文字訊息，要 15 到 20 分鐘才傳得出去」。台灣 99% 對外網路流量靠 14 條深埋海床的線，所有國際海纜集中在本島四個登陸站。台積電的潔淨室是矽盾頂上的英雄鏡頭，海纜是底下沒人拍照的工程師敘事——它們可以在不開一槍的情況下，把 2,300 萬人從世界拔除。",
+    "category": "Technology",
+    "tags": [],
+    "url": "https://taiwan.md/Technology/%E6%B5%B7%E5%BA%95%E9%9B%BB%E7%BA%9C",
+    "readingTime": 50,
+    "featured": true,
+    "date": "2026-04-29",
+    "path": "Technology/海底電纜.md"
   },
   {
     "title": "特有種",
@@ -9929,6 +10043,54 @@
     "path": "Nature/國家公園.md"
   },
   {
+    "title": "國家文化記憶庫：數位時代下的記憶策展與文化共創",
+    "description": "國家文化記憶庫不僅是數位典藏平台，更是一場與時間拔河的社會工程，透過開放授權與共創，讓台灣常民記憶在數位時代中活化再生。",
+    "category": "Technology",
+    "tags": [
+      "國家文化記憶庫",
+      "數位典藏",
+      "文化共創",
+      "台灣記憶",
+      "著作權",
+      "常民文化"
+    ],
+    "url": "https://taiwan.md/Technology/%E5%9C%8B%E5%AE%B6%E6%96%87%E5%8C%96%E8%A8%98%E6%86%B6%E5%BA%AB",
+    "readingTime": 8,
+    "featured": false,
+    "date": "2026-04-29",
+    "path": "Technology/國家文化記憶庫.md"
+  },
+  {
+    "title": "國際移工：87 萬人的「大客廳」與跨越海洋的生存拉鋸",
+    "description": "截至 2026 年 3 月，在台移工已達 87.3 萬人，加上失聯者總數接近百萬，佔台灣常住人口逾 5%。本文深度解析印尼、越南、菲律賓、泰國四國勞動力特色，探討移工大遊行對「廢除工作年限」的訴求，並平衡呈現 2026 年印度移工引進計畫背後的民意焦慮、在野黨監督與政府的「條件式」引進立場。",
+    "category": "Society",
+    "tags": [
+      "移工",
+      "印度移工",
+      "台北車站",
+      "勞動政策",
+      "社會議題",
+      "移工大遊行",
+      "洪申翰"
+    ],
+    "url": "https://taiwan.md/Society/%E7%A7%BB%E5%B7%A5",
+    "readingTime": 13,
+    "featured": false,
+    "date": "2026-04-28",
+    "path": "Society/移工.md"
+  },
+  {
+    "title": "基督教在台灣：從「挖眼挖心」的謠言到新而獨立的國家宣言",
+    "description": "1865 年馬雅各在台南看西街開診所，23 天後因「挖眼挖心」謠言被迫關閉。這段從醫療誤解、拔牙兩萬顆、日治神社衝突到美援「麵粉教」的歷史，紀錄了基督教如何從外來「紅番」宗教，演變成台灣本土民主運動的關鍵推手。",
+    "category": "Culture",
+    "tags": [],
+    "url": "https://taiwan.md/Culture/%E5%9F%BA%E7%9D%A3%E6%95%99%E5%9C%A8%E5%8F%B0%E7%81%A3",
+    "readingTime": 12,
+    "featured": false,
+    "date": "2026-04-29",
+    "path": "Culture/基督教在台灣.md"
+  },
+  {
     "title": "康士坦的變化球：「樂團不是靠堅持，不好玩就散了」的十年",
     "description": "2013 年成立於台北的四人獨立樂團，團名結合希臘哲學家 Heraclitus 的「萬物皆流」與棒球投手的變化球。主唱 ARNY 是菲律賓出生、曾在滅火器打過貝斯的 20 年音樂人；鼓手小米罹患類風濕性關節炎至今拇指無法彎曲仍然打鼓；貝斯手金毛說「樂團不是靠堅持，不好玩就散了」。他們從 Legacy 兩人觀眾唱到 2023 年北流 5,000 人，中間沒有暴紅、沒有爆款單曲——只有十年的穩步進化。",
     "category": "People",
@@ -10131,6 +10293,25 @@
     "path": "Culture/族群（閩南客家原住民外省新住民）.md"
   },
   {
+    "title": "淡江大橋：在河口地平線上，一座為了「透明」而存在的巨大地標",
+    "description": "淡江大橋預計於 2026 年 5 月 12 日通車。這座由建築女爵 Zaha Hadid 團隊操刀的單塔不對稱斜張橋，耗時三十年規劃，在守護淡水夕照與紓解交通的矛盾中，以流動的線條重新定義台灣的河口景觀。",
+    "category": "Technology",
+    "tags": [
+      "淡江大橋",
+      "Zaha Hadid",
+      "淡水夕照",
+      "交通建設",
+      "建築美學",
+      "環境保護",
+      "工程技術"
+    ],
+    "url": "https://taiwan.md/Technology/%E6%B7%A1%E6%B1%9F%E5%A4%A7%E6%A9%8B",
+    "readingTime": 15,
+    "featured": false,
+    "date": "2026-04-29",
+    "path": "Technology/淡江大橋.md"
+  },
+  {
     "title": "淡江中学：一つのキャンパスに台湾近代教育史が凝縮されている",
     "description": "宣教、女子教育、植民地体制の葛藤——それらすべてが同じ一つのキャンパスに刻まれている",
     "category": "ja",
@@ -10272,6 +10453,24 @@
     "featured": false,
     "date": "2026-03-17",
     "path": "ja/History/dutch-spanish-koxinga-era.md"
+  },
+  {
+    "title": "莊朱玉女：從碼頭工人的免費餐桌到賣掉七棟房的十元便當",
+    "description": "1951年，莊朱玉女在高雄港邊架起爐灶，為清苦的碼頭工人提供免費餐點。這位被譽為「窮人守護神」的阿嬤，在往後的五十年間，堅持以十元價格供應無限量自助餐，甚至不惜賣掉七棟房產支撐開銷，將「讓人吃飽」做成了一生的信仰。",
+    "category": "People",
+    "tags": [
+      "慈善家",
+      "高雄",
+      "十元便當",
+      "莊朱玉女",
+      "社會公益",
+      "澎湖"
+    ],
+    "url": "https://taiwan.md/People/%E8%8E%8A%E6%9C%B1%E7%8E%89%E5%A5%B3",
+    "readingTime": 11,
+    "featured": false,
+    "date": "2026-04-29",
+    "path": "People/莊朱玉女.md"
   },
   {
     "title": "莊智淵",
@@ -10627,20 +10826,13 @@
   },
   {
     "title": "陳水扁",
-    "description": "台灣第十、十一任總統，2000年首次政黨輪替實現者，公投法與原住民族基本法的推動者",
+    "description": "台灣第十、十一任總統，2000 年首次政黨輪替的實現者。從台南佃農之子到首位民進黨籍總統，再到首位被收押的卸任元首——他的軌跡縮影了台灣民主轉型期最複雜的張力：勵志、立法奠基、風暴與撕裂。",
     "category": "People",
-    "tags": [
-      "總統",
-      "政黨輪替",
-      "民進黨",
-      "台北市長",
-      "民主化",
-      "人權立法"
-    ],
+    "tags": [],
     "url": "https://taiwan.md/People/%E9%99%B3%E6%B0%B4%E6%89%81",
-    "readingTime": 16,
+    "readingTime": 26,
     "featured": false,
-    "date": "2026-03-30",
+    "date": "2026-04-29",
     "path": "People/陳水扁.md"
   },
   {
@@ -10889,6 +11081,23 @@
     "path": "People/陳樹菊.md"
   },
   {
+    "title": "雪山隧道：從「不可能的任務」到台灣工程血淚奇蹟",
+    "description": "1997 年 12 月 15 日，一場湧水意外險些奪走三百條人命，更讓造價十億的挖掘神器 TBM 成了廢鐵。這座被《大英百科全書》列為全球最艱鉅工程之一的隧道，不只是交通動脈，更是由 25 位殉職者與無數無名英雄，在比鋼還硬的四稜砂岩中鑿出的血淚奇蹟。",
+    "category": "Technology",
+    "tags": [
+      "雪山隧道",
+      "交通建設",
+      "宜蘭",
+      "工程奇蹟",
+      "台灣精神"
+    ],
+    "url": "https://taiwan.md/Technology/%E9%9B%AA%E5%B1%B1%E9%9A%A7%E9%81%93",
+    "readingTime": 22,
+    "featured": false,
+    "date": "2026-04-29",
+    "path": "Technology/雪山隧道.md"
+  },
+  {
     "title": "魚條：名字像路邊小吃，聲音是要打人的後硬核",
     "description": "2019年12月31日，魚條在一年最後一天發行首張完整專輯《治本》。三個臺北市立中正高中的同學，從2011年底玩到2019年，歷經五人縮編為三人、2016年春浪大賞第四名、受邀上海演出——說自己「沒有說教」，吼出的每首歌卻比任何宣言更直白。",
     "category": "People",
@@ -10934,6 +11143,24 @@
     "featured": false,
     "date": "2026-03-24",
     "path": "ja/History/hukou-military-base.md"
+  },
+  {
+    "title": "報導者：把調查報導從營業項目救成公共財的十年",
+    "description": "2015 年 9 月 1 日記者節，何榮幸和張鐵志開記者會宣布成立由童子賢初始捐助 500 萬元的《報導者》。十年後，這個拒絕廣告、不接政府標案、不顯示點閱率的非營利媒體，年募款額從 3,400 萬翻到 5,200 萬，連續多年拿下 SOPA 與卓越新聞獎。他們做的事情，是把調查報導從商業媒體的營業項目，救成靠陌生讀者每月扣款撐起來的公共財。",
+    "category": "Society",
+    "tags": [
+      "媒體",
+      "調查報導",
+      "非營利",
+      "新聞自由",
+      "公民社會",
+      "何榮幸"
+    ],
+    "url": "https://taiwan.md/Society/%E5%A0%B1%E5%B0%8E%E8%80%85",
+    "readingTime": 33,
+    "featured": true,
+    "date": "2026-04-29",
+    "path": "Society/報導者.md"
   },
   {
     "title": "幾米",
@@ -11560,6 +11787,26 @@
     "path": "People/楊勇緯.md"
   },
   {
+    "title": "楊致遠：從只會一個英文單字到開啟全球入口網站時代的「雅虎」之父",
+    "description": "1978年，10歲的楊致遠移民美國時只會「Shoe」這個單字。1994年，他在史丹佛大學躲避博士論文時，與夥伴在拖車裡手動分類網頁，意外創造了市值一度破千億美元的 Yahoo!，並在2005年以一場「瘋狂豪賭」投資阿里巴巴，改寫了全球網路版圖。",
+    "category": "People",
+    "tags": [
+      "楊致遠",
+      "Yahoo",
+      "創業",
+      "史丹佛大學",
+      "阿里巴巴",
+      "移民",
+      "矽谷",
+      "台灣"
+    ],
+    "url": "https://taiwan.md/People/%E6%A5%8A%E8%87%B4%E9%81%A0",
+    "readingTime": 13,
+    "featured": false,
+    "date": "2026-04-29",
+    "path": "People/楊致遠.md"
+  },
+  {
     "title": "楊深坑：帶著兩組氧氣筒去給學生口試的教育哲學家",
     "description": "2020年12月13日，楊深坑從台大醫院請假，帶著兩組氧氣筒，由夫人和公子全程陪同，到師大為博士生進行論文口試。八個月後他過世了，那是他生前最後一次口試。這位雅典大學哲學博士、教育部首位終身國家講座教授、金鼎獎得主，用44年的教育生涯建構了台灣教育哲學的學術基礎。",
     "category": "People",
@@ -11823,7 +12070,7 @@
       "多元文學"
     ],
     "url": "https://taiwan.md/Art/%E8%A7%A3%E5%9A%B4%E5%BE%8C%E5%8F%B0%E7%81%A3%E6%96%87%E5%AD%B8",
-    "readingTime": 19,
+    "readingTime": 20,
     "featured": false,
     "date": "2026-03-18",
     "path": "Art/解嚴後台灣文學.md"
@@ -11904,6 +12151,23 @@
     "path": "People/馬偕.md"
   },
   {
+    "title": "廖鴻基：從鏢魚船到黑潮漂流，用生命丈量台灣海域的討海作家",
+    "description": "廖鴻基於1992年轉身成為討海人，創辦黑潮海洋文教基金會，並以「黑潮101」與「抹香鯨π計畫」重新定義台灣人的海洋視角，是當代海洋文學與生態保育的關鍵推手。",
+    "category": "People",
+    "tags": [
+      "海洋文學",
+      "黑潮",
+      "鯨豚保育",
+      "花蓮",
+      "抹香鯨"
+    ],
+    "url": "https://taiwan.md/People/%E5%BB%96%E9%B4%BB%E5%9F%BA",
+    "readingTime": 10,
+    "featured": false,
+    "date": "2026-04-29",
+    "path": "People/廖鴻基.md"
+  },
+  {
     "title": "漯底山",
     "description": "台灣最靠近海濱的泥火山惡地形，前軍事要塞今為自然公園，擁有活躍噴泥口與絕美海景步道。",
     "category": "Geography",
@@ -11963,6 +12227,43 @@
     "featured": true,
     "date": "2026-04-05",
     "path": "Food/粽子.md"
+  },
+  {
+    "title": "維基百科在台灣：數位主權、文化實踐與多元族群的知識拼圖",
+    "description": "從 2007 年台北主辦 Wikimania 到 2021 年基金會全球行動，台灣維基社群不僅在雲端對抗系統性滲透，更透過維基愛古蹟、GLAM 合作及教育專案，將島嶼的文化遺產、學術觀點與原住民語推向國際。這是一場守護真實樣貌與深化文化韌性的長征。",
+    "category": "Technology",
+    "tags": [
+      "維基百科",
+      "台灣維基媒體協會",
+      "維基愛古蹟",
+      "GLAM",
+      "原住民語",
+      "法律訴訟"
+    ],
+    "url": "https://taiwan.md/Technology/%E7%B6%AD%E5%9F%BA%E7%99%BE%E7%A7%91",
+    "readingTime": 17,
+    "featured": false,
+    "date": "2026-04-29",
+    "path": "Technology/維基百科.md"
+  },
+  {
+    "title": "臺灣大百科全書：五億元國家級知識夢",
+    "description": "2004年，臺灣啟動史上規模最大的知識工程「臺灣大百科全書」。這項計畫從王榮文最初的14億元宏大藍圖，到實際5.2億元的執行，歷經三次系統迭代與授權演進，最終於2014年關閉獨立網站。這不僅是一段技術轉型史，更是國家在數位時代從「權威定本者」轉向「開放素材提供者」的深刻範式轉移。",
+    "category": "Society",
+    "tags": [
+      "文化部",
+      "王榮文",
+      "數位典藏",
+      "國家文化記憶庫",
+      "知識主權",
+      "Web 2.0",
+      "李遠哲"
+    ],
+    "url": "https://taiwan.md/Society/%E8%87%BA%E7%81%A3%E5%A4%A7%E7%99%BE%E7%A7%91%E5%85%A8%E6%9B%B8",
+    "readingTime": 15,
+    "featured": false,
+    "date": "2026-04-28",
+    "path": "Society/臺灣大百科全書.md"
   },
   {
     "title": "臺灣的鯨豚",
@@ -12406,6 +12707,17 @@
     "path": "People/蔡英文.md"
   },
   {
+    "title": "蔡健雅：四度金曲歌后，新加坡人怎麼把台灣變成主場",
+    "description": "從 1996 年新加坡酒吧被鍵盤手叫閉嘴，到 2022 年第 33 屆金曲獎一晚拿四座，蔡健雅花了 26 年把自己活成華語樂壇唯一一個四度封后的紀錄保持人。她不是出生在台灣，但金曲獎、定居地、合作對象、最被傳唱的歌都長在台灣——一個外國藝人的本土認同，是 2006 年那次決定關掉華納合約、自己搬到台北、成立「天涯音樂工作室」的選擇。",
+    "category": "People",
+    "tags": [],
+    "url": "https://taiwan.md/People/%E8%94%A1%E5%81%A5%E9%9B%85",
+    "readingTime": 30,
+    "featured": true,
+    "date": "2026-04-28",
+    "path": "People/蔡健雅.md"
+  },
+  {
     "title": "蔣中正",
     "description": "他的銅像正在被搬走，但他奠下的地基——無論你稱之為建設或枷鎖——還在撐著這座島的每一條路、每一間學校、每一次選舉。",
     "category": "People",
@@ -12454,6 +12766,17 @@
     "featured": false,
     "date": "2026-03-23",
     "path": "People/蔣為文.md"
+  },
+  {
+    "title": "蔣渭水：用〈臨床講義〉診斷殖民地病灶的醫者",
+    "description": "1921年醫師蔣渭水發表〈臨床講義〉，將臺灣擬人化為「世界文化的低能兒」，診斷病因為智識營養不良。他創立臺灣文化協會與首個合法政黨臺灣民眾黨，一生十餘次入獄，在大安醫院與春風得意樓間織起覺醒網絡，留下「同胞須團結，團結真有力」的實踐遺產。",
+    "category": "People",
+    "tags": [],
+    "url": "https://taiwan.md/People/%E8%94%A3%E6%B8%AD%E6%B0%B4",
+    "readingTime": 11,
+    "featured": false,
+    "date": "2026-04-28",
+    "path": "People/蔣渭水.md"
   },
   {
     "title": "誕生の物語 — Taiwan.md はこうして生まれた",
@@ -12820,6 +13143,24 @@
     "featured": false,
     "date": "2026-04-19",
     "path": "People/蕭煌奇.md"
+  },
+  {
+    "title": "賴和：穿著本島衫的「彰化媽祖」，與他那桿永不妥協的稱仔",
+    "description": "1943 年除夕前，彰化名醫賴和慣例燒掉貧寒病人的欠款帳單。這位被譽為「台灣新文學之父」的醫師，在殖民高壓下以手術刀救人、以筆為劍批判不公，其作品〈一桿「稱仔」〉至今仍是台灣對抗權力暴力的文化象徵。",
+    "category": "People",
+    "tags": [
+      "賴和",
+      "台灣文學",
+      "彰化",
+      "日治時期",
+      "醫療史",
+      "社會運動"
+    ],
+    "url": "https://taiwan.md/People/%E8%B3%B4%E5%92%8C",
+    "readingTime": 13,
+    "featured": false,
+    "date": "2026-04-28",
+    "path": "People/賴和.md"
   },
   {
     "title": "賴清德：從礦工家庭到總統府的公共衛生醫師",
@@ -13264,7 +13605,7 @@
   },
   {
     "title": "壞特?te：醫學系讀九年的優等生，按下暫停鍵的那場休學",
-    "description": "2021 年 8 月 21 日，戴著黑帽墨鏡的壞特?te 上台領第 32 屆金曲獎最佳新人獎。她對著鏡頭說：「請你們不要害怕。」她本名林芝儀、新竹香山人、新竹女中、國防醫學院醫學系讀了九年，含大三那年的休學一年、含延畢一年。她通過兩階段醫師國考，差最後一階就是正式醫師。台灣最會讀書的賽道上，她按下暫停鍵的那一年。",
+    "description": "2021 年 8 月 21 日，戴著黑帽墨鏡的壞特?te 上台領第 32 屆金曲獎最佳新人獎。她對著鏡頭說：「請你們不要害怕。」她本名林芝儀、新竹香山人、新竹女中、國防醫學院醫學系讀了九年，含大三那年的休學一年、含延畢一年（兩年實習因沒跟診花三年完成）。她完成實習醫師訓練、取得醫學士學位，得獎時白天還在開刀房戴口罩當實習醫師。台灣最會讀書的賽道上，她按下暫停鍵的那一年。",
     "category": "People",
     "tags": [],
     "url": "https://taiwan.md/People/%E5%A3%9E%E7%89%B9",
@@ -13366,6 +13707,54 @@
     "featured": false,
     "date": "2026-04-06",
     "path": "People/嚴長壽.md"
+  },
+  {
+    "title": "競技疊杯：從 1.915 秒的網拍「潮物」到橫掃亞洲的 43 金傳奇",
+    "description": "2025 年台灣代表隊在大連亞洲盃奪下 43 金並刷新 7 項世界紀錄，讓這項曾被譏諷為「疊有洞杯子」的運動，成為台灣最具統治力的競技項目。從林孟欣到賽德克族少女莎瑪巴紹，台灣疊杯不僅追求 0.001 秒的極限，更在特教復健與普特融合教育中疊出社會新高度。",
+    "category": "Society",
+    "tags": [
+      "競技疊杯",
+      "林孟欣",
+      "莎瑪巴紹",
+      "世界紀錄",
+      "普特融合",
+      "社會共融"
+    ],
+    "url": "https://taiwan.md/Society/%E7%96%8A%E6%9D%AF",
+    "readingTime": 9,
+    "featured": false,
+    "date": "2026-04-28",
+    "path": "Society/疊杯.md"
+  },
+  {
+    "title": "蘇巧慧：在「衝衝衝」的陰影下，用法律與細節縫合新北的策展人",
+    "description": "從美麗島辯護律師的女兒到 16 度優秀立委，蘇巧慧如何擺脫「靠爸」標籤，在國會用《癌症防治法》與《運動產業發展條例》重塑法律溫度，並在地方用捷運、自來水管與校園改善，拼湊出屬於自己的政治版圖。",
+    "category": "People",
+    "tags": [],
+    "url": "https://taiwan.md/People/%E8%98%87%E5%B7%A7%E6%85%A7",
+    "readingTime": 20,
+    "featured": false,
+    "date": "2026-04-28",
+    "path": "People/蘇巧慧.md"
+  },
+  {
+    "title": "蘇貞昌：從美麗島辯護律師到「衝衝衝」的電火球閣揆",
+    "description": "1979年，他在戒嚴陰影下為政治犯辯護；1997年，他憑藉盧修一的「驚天一跪」逆轉勝選。蘇貞昌以「衝衝衝」的執行力橫跨屏東、台北縣與行政院，從防堵非洲豬瘟到「班班有冷氣」，他在爭議中展現強勢領導，成為台灣民主轉型中最具代表性的「電火球」。",
+    "category": "People",
+    "tags": [
+      "蘇貞昌",
+      "行政院長",
+      "美麗島事件",
+      "台北縣長",
+      "非洲豬瘟",
+      "班班有冷氣",
+      "台灣政治"
+    ],
+    "url": "https://taiwan.md/People/%E8%98%87%E8%B2%9E%E6%98%8C",
+    "readingTime": 12,
+    "featured": false,
+    "date": "2026-04-28",
+    "path": "People/蘇貞昌.md"
   },
   {
     "title": "櫻花鉤吻鮭：冰河孑遺的歸鄉路，從瀕危到流域整體保育的台灣奇蹟",
@@ -14873,17 +15262,6 @@
     "path": "fr/People/chu-ching-wu.md"
   },
   {
-    "title": "Chu Ching-Wu (朱經武)",
-    "description": "Taiwan-born physicist whose 1987 high‑temperature superconductivity breakthrough reshaped modern materials science",
-    "category": "en",
-    "tags": [],
-    "url": "https://taiwan.md/en/People/chu-ching-wu",
-    "readingTime": 30,
-    "featured": true,
-    "date": "2026-03-20",
-    "path": "en/People/chu-ching-wu.md"
-  },
-  {
     "title": "Chu Chung-ching — Le pionnier des percussions à Taïwan",
     "description": "Revenu de Vienne avec un diplôme en poche, il a transformé en quarante ans une discipline confidentielle en art populaire ancré dans toute la société taïwanaise",
     "category": "fr",
@@ -15291,6 +15669,17 @@
     "path": "fr/Culture/hakka-culture-and-language.md"
   },
   {
+    "title": "Daptoper: From \"Dark Laptop\" to One Million Subscribers — The Data Curator Who Defined the Roblox Generation",
+    "description": "In 2023, YouTuber \"Daptoper\" (real name Chou Chih-Hsuan) hit one million YouTube subscribers. From early Minecraft streams to pioneering the Roblox blue ocean in Taiwan, this NTHU dropout turned a self-deprecating \"always late\" persona and obsessive data analysis into a digital community empire spanning published books and Discord.",
+    "category": "en",
+    "tags": [],
+    "url": "https://taiwan.md/en/People/daptoper-roblox-youtuber",
+    "readingTime": 26,
+    "featured": true,
+    "date": "2026-04-24",
+    "path": "en/People/daptoper-roblox-youtuber.md"
+  },
+  {
     "title": "Dcard",
     "description": "一個台南囝仔在台大宿舍為了讓自己比較容易交到朋友而寫出來的網站，變成了台灣年輕人最有影響力的社群平台，然後一邊繼續長大、一邊面對「Dcard 是不是要沒落了」的問題。",
     "category": "Culture",
@@ -15428,11 +15817,16 @@
   },
   {
     "title": "Democratic System",
-    "description": "Taiwan's journey from authoritarian rule to democratic institutions, establishing a complete democratic system through lifting martial law, presidential direct elections, and other phases",
+    "description": "Taiwan's journey from authoritarian rule to democracy — through martial law's end, direct presidential elections, and peaceful power transfers that made Taiwan a model of democratic transition",
     "category": "en",
-    "tags": [],
+    "tags": [
+      "society",
+      "democratization",
+      "martial-law",
+      "presidential-election"
+    ],
     "url": "https://taiwan.md/en/Society/democratic-system",
-    "readingTime": 27,
+    "readingTime": 30,
     "featured": false,
     "date": "2026-03-17",
     "path": "en/Society/democratic-system.md"
@@ -15821,17 +16215,6 @@
     "featured": false,
     "date": "2026-03-20",
     "path": "fr/History/elections-and-party-politics.md"
-  },
-  {
-    "title": "Emerging Religions and Spiritual Culture in Taiwan",
-    "description": "Exploring the rise and development of Taiwan's post-war new religious movements, including the profound social and cultural impact of the Buddhist 'Four Great Mountains' and Yiguandao religious groups",
-    "category": "en",
-    "tags": [],
-    "url": "https://taiwan.md/en/Culture/emerging-religions-and-spiritual-culture",
-    "readingTime": 90,
-    "featured": true,
-    "date": "2026-03-18",
-    "path": "en/Culture/emerging-religions-and-spiritual-culture.md"
   },
   {
     "title": "Endemic Species",
@@ -17388,8 +17771,8 @@
       "Imperialization Movement"
     ],
     "url": "https://taiwan.md/en/History/japanese-colonial-era",
-    "readingTime": 27,
-    "featured": false,
+    "readingTime": 29,
+    "featured": true,
     "date": "2026-03-17",
     "path": "en/History/japanese-colonial-era.md"
   },
@@ -17700,6 +18083,17 @@
     "featured": false,
     "date": "2026-03-19",
     "path": "fr/People/jonathan-lee.md"
+  },
+  {
+    "title": "justfont 與台灣字體發展：從華康廿五年到金萱七十六分鐘的字型小史",
+    "description": "2015 年 9 月 8 日下午，金萱在 flyingV 上線 76 分鐘達 150 萬目標、11 小時破千萬、58 小時突破 2,000 萬，最終以 NT$25,930,099 / 7,667 人改寫台灣群募紀錄。同年 6 月，Apple 在 WWDC 發表的 iPhone 預設中文字「蘋方」，是位於台北市南港區的威鋒數位（前華康）做的。台灣不是沒做過字型，是「日均一個字型師雕 3.8 個中文字」的工作量級讓 25 年沒人想做新的。",
+    "category": "Technology",
+    "tags": [],
+    "url": "https://taiwan.md/Technology/justfont%E8%88%87%E5%8F%B0%E7%81%A3%E5%AD%97%E9%AB%94%E7%99%BC%E5%B1%95",
+    "readingTime": 46,
+    "featured": true,
+    "date": "2026-04-29",
+    "path": "Technology/justfont與台灣字體發展.md"
   },
   {
     "title": "Justice environnementale et conflits NIMBY à Taïwan",
@@ -22791,24 +23185,6 @@
     "path": "en/People/niu-cheng-ze-controversial-filmmaker-monga-director.md"
   },
   {
-    "title": "Nouvelles religions et culture spirituelle à Taïwan",
-    "description": "Un panorama du renouveau religieux d'après-guerre à Taïwan : les quatre grandes institutions bouddhistes, le Yi Guan Dao et leur influence profonde sur la société et la culture taïwanaises",
-    "category": "fr",
-    "tags": [
-      "religion",
-      "bouddhisme",
-      "Yi Guan Dao",
-      "bouddhisme humaniste",
-      "culture spirituelle",
-      "action caritative"
-    ],
-    "url": "https://taiwan.md/fr/Culture/new-religions-and-spirituality",
-    "readingTime": 104,
-    "featured": true,
-    "date": "2026-03-18",
-    "path": "fr/Culture/new-religions-and-spirituality.md"
-  },
-  {
     "title": "official-websites",
     "description": "Taiwan's official websites serve as more than just government service portals—they're windows into Taiwan's democratic g",
     "category": "en",
@@ -22892,11 +23268,11 @@
   },
   {
     "title": "Pai Hsien-yung (白先勇)",
-    "description": "Literary master, author of 'Taipei People,' and champion of Kunqu opera revival in modern Chinese literature",
+    "description": "Author of 'Taipei People,' modern literary master, and champion of Kunqu opera revival",
     "category": "en",
     "tags": [],
     "url": "https://taiwan.md/en/People/pai-hsien-yung-literary-master",
-    "readingTime": 30,
+    "readingTime": 27,
     "featured": true,
     "date": "2026-03-19",
     "path": "en/People/pai-hsien-yung-literary-master.md"
@@ -22922,6 +23298,23 @@
     "featured": false,
     "date": "2026-04-14",
     "path": "en/People/park-sung-eun.md"
+  },
+  {
+    "title": "Paul Ching-Wu Chu",
+    "description": "Superconductivity physicist who led the landmark 1987 breakthrough at liquid-nitrogen temperatures",
+    "category": "en",
+    "tags": [
+      "physicist",
+      "superconductivity",
+      "Nobel-Prize-candidate",
+      "Academia-Sinica",
+      "University-of-Houston"
+    ],
+    "url": "https://taiwan.md/en/People/chu-ching-wu",
+    "readingTime": 29,
+    "featured": true,
+    "date": "2026-03-19",
+    "path": "en/People/chu-ching-wu.md"
   },
   {
     "title": "Paysages agricoles et répartition industrielle à Taïwan",
@@ -23067,7 +23460,7 @@
   },
   {
     "title": "Prehistoric Era and Indigenous Peoples",
-    "description": "Taiwan's prehistoric era and indigenous peoples are the key starting point for understanding Taiwan's identity. As a possible homeland of Austronesian peoples, Taiwan serves not only as the cradle of Pacific island civilizations but also as the foundation of multicultural Taiwan. This history proves that Taiwan has been an island of multi-ethnic coexistence since ancient times, laying the groundwork for modern pluralistic society.",
+    "description": "Taiwan's prehistoric era and indigenous peoples are the key starting point for understanding Taiwan's identity. As a possible homeland of the Austronesian peoples, Taiwan is not only the cradle of Pacific island civilizations but also the foundation of multicultural Taiwan. This history demonstrates that Taiwan has been an island of multi-ethnic coexistence since ancient times, laying the groundwork for its modern pluralistic society.",
     "category": "en",
     "tags": [
       "History",
@@ -23075,8 +23468,8 @@
       "indigenous peoples"
     ],
     "url": "https://taiwan.md/en/History/prehistoric-era-and-indigenous-peoples",
-    "readingTime": 40,
-    "featured": false,
+    "readingTime": 17,
+    "featured": true,
     "date": "2026-03-17",
     "path": "en/History/prehistoric-era-and-indigenous-peoples.md"
   },
@@ -23185,17 +23578,17 @@
     "path": "fr/Art/zhi-ju-chang-drama.md"
   },
   {
-    "title": "Qing Dynasty Rule of Taiwan (1683-1895): 212 Years From Passive Neglect to Forced Modernization",
-    "description": "From 1683 Kangxi's hesitant annexation to 1895 Treaty of Shimonoseki: how the Qing Dynasty ruled Taiwan for 212 years across three phases — passive coastal garrison (1683-1860), forced opening after the 1874 Mudan Incident, and accelerated modernization under Liu Ming-chuan. The Qing era shaped modern Taiwan's administrative divisions, Han Chinese society, and first railroad.",
+    "title": "Qing Dynasty Rule of Taiwan",
+    "description": "212 years of Qing rule over Taiwan from 1683 to 1895: from passive governance to active development, laying the foundations for modern Taiwan's administrative divisions and Han settler society",
     "category": "en",
     "tags": [
-      "History",
-      "Qing Dynasty",
-      "opening of ports",
-      "Mudan Incident"
+      "history",
+      "qing-dynasty",
+      "treaty-port-opening",
+      "mudan-incident"
     ],
     "url": "https://taiwan.md/en/History/qing-dynasty-rule",
-    "readingTime": 41,
+    "readingTime": 29,
     "featured": false,
     "date": "2026-03-17",
     "path": "en/History/qing-dynasty-rule.md"
@@ -23374,49 +23767,10 @@
     "path": "People/Ray.md"
   },
   {
-    "title": "Religion and Folk Beliefs",
-    "description": "From Fear Management to Faith Empire: How Taiwan Created the World's Most Dense Yet Freest Religious Ecosystem",
-    "category": "en",
-    "tags": [],
-    "url": "https://taiwan.md/en/Lifestyle/religion-and-folk-beliefs",
-    "readingTime": 103,
-    "featured": false,
-    "date": "2026-03-22",
-    "path": "en/Lifestyle/religion-and-folk-beliefs.md"
-  },
-  {
-    "title": "Religion et croyances populaires : de la gestion de la peur à un empire de la foi",
-    "description": "Taïwan possède la plus forte densité de temples au monde, mais aussi le premier rang mondial en liberté religieuse — une apparente contradiction qui cache la sagesse de survie des immigrants militaires du XVIIe siècle",
-    "category": "fr",
-    "tags": [
-      "vie quotidienne",
-      "religion",
-      "Mazu",
-      "croyances populaires",
-      "culture des temples",
-      "culte des Wangye",
-      "liberté religieuse",
-      "pragmatisme"
-    ],
-    "url": "https://taiwan.md/fr/Lifestyle/religion-folk-beliefs",
-    "readingTime": 65,
-    "featured": false,
-    "date": "2026-03-22",
-    "path": "fr/Lifestyle/religion-folk-beliefs.md"
-  },
-  {
     "title": "Religion et culture des temples à Taïwan",
     "description": "Une île qui compte plus de quinze mille temples que de supérettes, où bouddhisme, taoïsme et croyances populaires partagent le même toit, et où un million de pèlerins marchent neuf jours derrière Mazu — la foi taïwanaise ne se trouve pas dans les sutras, elle flotte dans l'encens du coin de la rue.",
     "category": "fr",
-    "tags": [
-      "religion",
-      "temples",
-      "croyances populaires",
-      "Mazu",
-      "bouddhisme",
-      "taoïsme",
-      "temple Baoan"
-    ],
+    "tags": [],
     "url": "https://taiwan.md/fr/Culture/religion-and-temple-culture",
     "readingTime": 92,
     "featured": true,
@@ -23699,6 +24053,24 @@
     "path": "en/Food/taiwan-soy-milk-and-breakfast-shops.md"
   },
   {
+    "title": "Sport Stacking: Taiwan's 43-Gold Rise from Viral Cup Fad",
+    "description": "Taiwan won 43 golds and set 7 world records at the 2025 Dalian Asian Cup. A once-mocked cup game became elite sport, rehab tool, and inclusive classroom.",
+    "category": "en",
+    "tags": [
+      "sport-stacking",
+      "lin-meng-hsin",
+      "sama-basaw",
+      "world-records",
+      "inclusive-education",
+      "social-inclusion"
+    ],
+    "url": "https://taiwan.md/en/Society/sport-stacking",
+    "readingTime": 29,
+    "featured": false,
+    "date": "2026-04-28",
+    "path": "en/Society/sport-stacking.md"
+  },
+  {
     "title": "Stan Lai — Le maître du théâtre sinophone",
     "description": "Fondateur du Performance Workshop, créateur de La Romance de la Source aux Pêchers, figure tutélaire du théâtre sinophone contemporain",
     "category": "fr",
@@ -23973,12 +24345,12 @@
     "path": "en/People/tai-yu-wu.md"
   },
   {
-    "title": "Taiwan AI Labs - Pioneering AI for Social Good",
-    "description": "A non-profit AI research institute founded by PTT creator Audrey Tang, focusing on smart healthcare, smart cities, and disinformation defense through tech for good philosophy",
+    "title": "Taiwan AI Labs",
+    "description": "A non-profit AI research institute founded by PTT creator Ethan Tu in 2017, focusing on smart healthcare, smart cities, and disinformation defense to promote tech for good and open-source principles.",
     "category": "en",
     "tags": [],
     "url": "https://taiwan.md/en/Technology/taiwan-ai-labs",
-    "readingTime": 18,
+    "readingTime": 19,
     "featured": true,
     "date": "2026-03-19",
     "path": "en/Technology/taiwan-ai-labs.md"
@@ -24840,17 +25212,6 @@
     "path": "ja/About/founder.md"
   },
   {
-    "title": "Taiwan's 12 Diplomatic Allies in 2026: Complete List, History & Why It Keeps Shrinking",
-    "description": "Taiwan has just 12 diplomatic allies in 2026 — down from 70 in 1969. Full list of countries, timeline of losses, and how Taiwan sustains global influence without a UN seat through chip diplomacy, democratic partnerships, and 117 unofficial offices worldwide.",
-    "category": "en",
-    "tags": [],
-    "url": "https://taiwan.md/en/Society/taiwan-diplomatic-allies-and-international-relations",
-    "readingTime": 25,
-    "featured": true,
-    "date": "2026-03-19",
-    "path": "en/Society/taiwan-diplomatic-allies-and-international-relations.md"
-  },
-  {
     "title": "Taiwan's 16 Indigenous Peoples: A Cultural Map",
     "description": "Explore the distribution, languages, ceremonial traditions, and contemporary artistic developments of Taiwan's 16 officially recognized indigenous peoples, revealing the diverse cultural landscape of Taiwan's First Nations",
     "category": "en",
@@ -25059,6 +25420,17 @@
     "featured": false,
     "date": "2024-01-15",
     "path": "en/Art/taiwan-digital-animation-industry.md"
+  },
+  {
+    "title": "Taiwan's Diplomatic Allies and International Relations: 12 Allies, 113 Offices, 177 Visa-Free Destinations",
+    "description": "Nauru cut ties 48 hours after Lai Ching-te won, leaving Taiwan with 12 allies. Yet Taiwan has 113 overseas offices, passport access to 177 places, and a live fight over UN Resolution 2758.",
+    "category": "en",
+    "tags": [],
+    "url": "https://taiwan.md/en/Society/taiwan-diplomatic-allies-and-international-relations",
+    "readingTime": 114,
+    "featured": true,
+    "date": "2026-04-29",
+    "path": "en/Society/taiwan-diplomatic-allies-and-international-relations.md"
   },
   {
     "title": "Taiwan's Drone Industry: From Toy Planes to Pentagon Procurement",
@@ -30467,24 +30839,6 @@
     "path": "ko/Lifestyle/traditional-market-culture.md"
   },
   {
-    "title": "대만의 신흥종교와 심령문화",
-    "description": "전후 대만 신흥종교의 부상과 발전—불교 4대 산문, 이관도 등 종교단체가 사회문화에 끼친 깊은 영향",
-    "category": "ko",
-    "tags": [
-      "종교",
-      "불교",
-      "이관도",
-      "인간불교",
-      "심령문화",
-      "자선사업"
-    ],
-    "url": "https://taiwan.md/ko/Culture/new-religions-and-spirituality",
-    "readingTime": 35,
-    "featured": true,
-    "date": "2026-03-18",
-    "path": "ko/Culture/new-religions-and-spirituality.md"
-  },
-  {
     "title": "대만의 야시장 문화",
     "description": "관리 대상 야시장 164곳, 타이난은 평균 3만 8천 명당 1곳. 사원 앞마당에서 국제 관광 명소로 이어진 대만 야시장의 역사",
     "category": "ko",
@@ -33421,17 +33775,6 @@
     "featured": false,
     "date": "2026-03-20",
     "path": "ko/Economy/company-mega-financial.md"
-  },
-  {
-    "title": "종교와 민간 신앙: 공포 관리에서 신앙 제국으로",
-    "description": "대만은 세계 최고 밀도의 사원을 갖추면서도 종교 자유 세계 1위를 차지한다. 이 역설 뒤에는 17세기 군사 이민자들의 생존 지혜가 숨어 있다.",
-    "category": "ko",
-    "tags": [],
-    "url": "https://taiwan.md/ko/Lifestyle/religion-and-folk-beliefs",
-    "readingTime": 25,
-    "featured": false,
-    "date": "2026-03-22",
-    "path": "ko/Lifestyle/religion-and-folk-beliefs.md"
   },
   {
     "title": "좡즈위안 — 탁구의 대부",

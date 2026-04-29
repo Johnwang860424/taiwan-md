@@ -1,13 +1,18 @@
 ---
 created: 2026-03-17
 tags: [History, Japanese Rule, Modernization, Imperialization Movement]
+subcategory: 'Colonialism and Empire'
 title: Japanese Colonial Era
 description: From 1895-1945, Japan ruled Taiwan for 50 years, bringing comprehensive modernization and institutional management while implementing assimilation policies, profoundly influencing Taiwan's social development
 date: 2026-03-17
 author: Taiwan.md
 readingTime: 12
-featured: false
+featured: true
 translatedFrom: 'History/日治時期.md'
+sourceCommitSha: '3aba2ea3'
+sourceContentHash: 'sha256:fb4775ce7ce7538c'
+translatedAt: '2026-04-25T18:32:22+08:00'
+translatedFromInferred: false
 ---
 
 # Japanese Colonial Era
@@ -68,13 +73,17 @@ The **Imperialization Movement** (皇民化運動) promoted "Common Japanese Usa
 
 The modernization projects of the Japanese colonial period became an important foundation for Taiwan's post-war development. The education system trained talent with modern knowledge, infrastructure provided conditions for economic development, and concepts of rule of law and administrative efficiency influenced later government governance. However, colonial rule also left negative impacts including complicated ethnic identity issues and authoritarian governance traditions.
 
-## Further Reading
+## References
 
 - [Taiwan under Japanese rule - Wikipedia](https://en.wikipedia.org/wiki/Taiwan_under_Japanese_rule)
 - [Government-General of Taiwan - Wikipedia](https://en.wikipedia.org/wiki/Government-General_of_Taiwan)
 
+**Further Reading**:
+
+- The 1895 Japanese Invasion of Taiwan (乙未之役) — The starting point of Japanese rule: the 1895 Japanese landing, the collapse of the Republic of Formosa, and 148 days of resistance
+
 ## Related Topics
 
-- [qing-dynasty-rule](/history/qing-dynasty-rule)
-- [democratic-system](/society/democratic-system)
-- [open-source-and-g0v](/technology/open-source-and-g0v)
+- [Qing Dynasty Rule](/en/history/qing-dynasty-rule)
+- [Martial Law Era](/en/history/martial-law-era)
+- 19th Century Camphor Wars (19世紀的樟腦戰爭) — The 1899 Camphor Monopoly Act and the 1900 Dakekan Incident: Qing-era origins of Japanese camphor policy
