@@ -31,6 +31,12 @@ function emojiForType(t: string): string {
   return '🛠️';
 }
 
+function fmtTickCountdown(s: number | null): string {
+  if (s == null) return '—';
+  if (s < 60) return `${s}s`;
+  return `${Math.floor(s / 60)}m ${s % 60}s`;
+}
+
 function Inner() {
   const qc = useQueryClient();
   const q = useQuery(() => ({
@@ -114,117 +120,107 @@ function Inner() {
         <div class="text-xs text-accent-red">無法連線 backend</div>
       </Show>
       <Show when={cfgQ.data}>
-        {(() => {
-          const cfg = cfgQ.data!;
-          const fmt = (s: number | null): string =>
-            s == null
-              ? '—'
-              : s < 60
-                ? `${s}s`
-                : `${Math.floor(s / 60)}m ${s % 60}s`;
-          return (
-            <div class="border border-line rounded-md p-2 mb-3 bg-bg-raised/40 space-y-2">
-              <div class="flex items-center justify-between text-xs">
-                <span class="text-text-secondary">
-                  ⏱ next check in{' '}
-                  <strong class="text-accent-green-soft">
-                    {fmt(cfg.nextTickInSec)}
-                  </strong>
-                </span>
-                <span class="text-text-muted">
-                  every {Math.floor(cfg.intervalSec / 60)}m
-                </span>
-              </div>
-              <div class="flex items-center gap-1">
-                <span class="text-xs text-text-muted">interval:</span>
-                <For each={intervalChoices}>
-                  {(c) => (
-                    <button
-                      type="button"
-                      class={`text-xs px-1.5 py-0.5 rounded border transition-colors ${
-                        cfg.intervalSec === c.sec
-                          ? 'border-accent-green text-accent-green bg-accent-green/10'
-                          : 'border-line text-text-muted hover:border-accent-green/40'
-                      }`}
-                      disabled={setInterval.isPending}
-                      onClick={() => setInterval.mutate(c.sec)}
-                    >
-                      {c.label}
-                    </button>
-                  )}
-                </For>
-              </div>
-              <Show when={cfg.paused}>
-                <div class="text-xs text-accent-amber">
-                  ⚠️ scheduler paused — 暫停期間不會 auto-spawn
-                </div>
-              </Show>
-              {/* Max concurrent agents */}
-              <div class="flex items-center gap-1 pt-1 border-t border-line/40">
-                <span class="text-xs text-text-muted">max agents:</span>
-                <For each={concurrencyChoices}>
-                  {(n) => (
-                    <button
-                      type="button"
-                      class={`text-xs px-1.5 py-0.5 rounded border transition-colors ${
-                        cfg.maxConcurrent === n
-                          ? 'border-accent-green text-accent-green bg-accent-green/10'
-                          : 'border-line text-text-muted hover:border-accent-green/40'
-                      }`}
-                      disabled={setMax.isPending}
-                      onClick={() => setMax.mutate(n)}
-                    >
-                      {n}
-                    </button>
-                  )}
-                </For>
-                <span class="ml-auto text-xs text-text-muted">
-                  {cfg.activeCount}/{cfg.maxConcurrent} active
-                </span>
-              </div>
-              {/* Pause / resume / scan inbox */}
-              <div class="flex items-center gap-1 pt-1 border-t border-line/40 flex-wrap">
-                <span class="text-xs text-text-muted mr-1">control:</span>
-                <Show
-                  when={!cfg.paused}
-                  fallback={
-                    <button
-                      type="button"
-                      class="text-xs px-2 py-0.5 rounded border border-line hover:border-accent-green text-accent-green-soft"
-                      disabled={resumeMut.isPending}
-                      onClick={() => resumeMut.mutate()}
-                    >
-                      ▶ resume
-                    </button>
-                  }
-                >
-                  <button
-                    type="button"
-                    class="text-xs px-2 py-0.5 rounded border border-line hover:border-accent-red text-text-muted hover:text-accent-red"
-                    disabled={pauseMut.isPending}
-                    onClick={() => pauseMut.mutate()}
-                  >
-                    ⏸ pause
-                  </button>
-                </Show>
+        <div class="border border-line rounded-md p-2 mb-3 bg-bg-raised/40 space-y-2">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-text-secondary">
+              ⏱ next check in{' '}
+              <strong class="text-accent-green-soft">
+                {fmtTickCountdown(cfgQ.data?.nextTickInSec ?? null)}
+              </strong>
+            </span>
+            <span class="text-text-muted">
+              every {Math.floor((cfgQ.data?.intervalSec ?? 0) / 60)}m
+            </span>
+          </div>
+          <div class="flex items-center gap-1">
+            <span class="text-xs text-text-muted">interval:</span>
+            <For each={intervalChoices}>
+              {(c) => (
                 <button
                   type="button"
-                  class="text-xs px-2 py-0.5 rounded border border-line hover:border-accent-blue text-text-muted hover:text-accent-blue"
-                  disabled={scanMut.isPending}
-                  onClick={() => scanMut.mutate()}
-                  title="scan ARTICLE-INBOX"
+                  class={`text-xs px-1.5 py-0.5 rounded border transition-colors ${
+                    cfgQ.data?.intervalSec === c.sec
+                      ? 'border-accent-green text-accent-green bg-accent-green/10'
+                      : 'border-line text-text-muted hover:border-accent-green/40'
+                  }`}
+                  disabled={setInterval.isPending}
+                  onClick={() => setInterval.mutate(c.sec)}
                 >
-                  🔄 scan inbox
+                  {c.label}
                 </button>
-                <Show when={scanMut.isSuccess}>
-                  <span class="text-xs text-text-muted">
-                    · {scanMut.data?.detected ?? 0} new
-                  </span>
-                </Show>
-              </div>
+              )}
+            </For>
+          </div>
+          <Show when={cfgQ.data?.paused}>
+            <div class="text-xs text-accent-amber">
+              ⚠️ scheduler paused — 暫停期間不會 auto-spawn
             </div>
-          );
-        })()}
+          </Show>
+          {/* Max concurrent agents */}
+          <div class="flex items-center gap-1 pt-1 border-t border-line/40">
+            <span class="text-xs text-text-muted">max agents:</span>
+            <For each={concurrencyChoices}>
+              {(n) => (
+                <button
+                  type="button"
+                  class={`text-xs px-1.5 py-0.5 rounded border transition-colors ${
+                    cfgQ.data?.maxConcurrent === n
+                      ? 'border-accent-green text-accent-green bg-accent-green/10'
+                      : 'border-line text-text-muted hover:border-accent-green/40'
+                  }`}
+                  disabled={setMax.isPending}
+                  onClick={() => setMax.mutate(n)}
+                >
+                  {n}
+                </button>
+              )}
+            </For>
+            <span class="ml-auto text-xs text-text-muted">
+              {cfgQ.data?.activeCount ?? 0}/{cfgQ.data?.maxConcurrent ?? 0}{' '}
+              active
+            </span>
+          </div>
+          {/* Pause / resume / scan inbox */}
+          <div class="flex items-center gap-1 pt-1 border-t border-line/40 flex-wrap">
+            <span class="text-xs text-text-muted mr-1">control:</span>
+            <Show
+              when={!cfgQ.data?.paused}
+              fallback={
+                <button
+                  type="button"
+                  class="text-xs px-2 py-0.5 rounded border border-line hover:border-accent-green text-accent-green-soft"
+                  disabled={resumeMut.isPending}
+                  onClick={() => resumeMut.mutate()}
+                >
+                  ▶ resume
+                </button>
+              }
+            >
+              <button
+                type="button"
+                class="text-xs px-2 py-0.5 rounded border border-line hover:border-accent-red text-text-muted hover:text-accent-red"
+                disabled={pauseMut.isPending}
+                onClick={() => pauseMut.mutate()}
+              >
+                ⏸ pause
+              </button>
+            </Show>
+            <button
+              type="button"
+              class="text-xs px-2 py-0.5 rounded border border-line hover:border-accent-blue text-text-muted hover:text-accent-blue"
+              disabled={scanMut.isPending}
+              onClick={() => scanMut.mutate()}
+              title="scan ARTICLE-INBOX"
+            >
+              🔄 scan inbox
+            </button>
+            <Show when={scanMut.isSuccess}>
+              <span class="text-xs text-text-muted">
+                · {scanMut.data?.detected ?? 0} new
+              </span>
+            </Show>
+          </div>
+        </div>
       </Show>
       <Show when={!q.isPending && q.data}>
         <div class="text-xs text-text-muted mb-2">

@@ -134,6 +134,92 @@ export function trendClass(t: string | undefined): string {
   return 'text-text-secondary';
 }
 
+/**
+ * Phase 5.1 (2026-04-30) — derive a short engine/model badge for a task.
+ * Source: task.inputs.engine + task.inputs.model, falling back to type-default
+ * (mirrors backend DEFAULT_MODEL_BY_TYPE in spawner/claude-cli.ts).
+ *
+ * Returns null when nothing meaningful can be derived (e.g. unknown type +
+ * no override) so callers can hide the badge.
+ */
+const DEFAULT_MODEL_BY_TYPE: Record<string, string> = {
+  'lang-sync-refresh': 'claude-sonnet-4-6',
+  'lang-sync-translate': 'claude-sonnet-4-6',
+  'data-refresh': 'claude-sonnet-4-6',
+  'format-check': 'claude-sonnet-4-6',
+  'status-report': 'claude-sonnet-4-6',
+  'article-rewrite': 'claude-opus-4-6',
+  'article-evolve': 'claude-opus-4-6',
+  'article-new': 'claude-opus-4-6',
+  'pr-review': 'claude-opus-4-6',
+  'issue-handle': 'claude-opus-4-6',
+  'spore-publish': 'claude-opus-4-6',
+  'contributor-thank-you': 'claude-opus-4-6',
+  'self-diagnose': 'claude-opus-4-6',
+};
+
+export interface ModelBadge {
+  /** short label e.g. "sonnet" / "opus" / "codex" / "qwen" */
+  label: string;
+  /** engine icon */
+  icon: string;
+  /** tone for tailwind class */
+  tone: 'sonnet' | 'opus' | 'codex' | 'ollama' | 'unknown';
+  /** full model id for tooltip */
+  full: string;
+}
+
+export function modelBadgeForTask(
+  type: string,
+  inputs: Record<string, unknown> | undefined,
+): ModelBadge | null {
+  const engine =
+    typeof inputs?.engine === 'string' ? (inputs.engine as string) : 'claude';
+  const explicitModel =
+    typeof inputs?.model === 'string' ? (inputs.model as string) : null;
+
+  if (engine === 'codex') {
+    return {
+      label: 'codex',
+      icon: '⚙️',
+      tone: 'codex',
+      full: explicitModel ?? 'codex (chatgpt subscription)',
+    };
+  }
+  if (engine === 'ollama') {
+    const m = explicitModel ?? 'ollama';
+    const short = m.includes('qwen') ? 'qwen' : (m.split(':')[0] ?? 'ollama');
+    return { label: short, icon: '🦙', tone: 'ollama', full: m };
+  }
+
+  // claude (default engine)
+  const model = explicitModel ?? DEFAULT_MODEL_BY_TYPE[type];
+  if (!model) return null;
+  if (model.includes('sonnet')) {
+    return { label: 'sonnet', icon: '🤖', tone: 'sonnet', full: model };
+  }
+  if (model.includes('opus')) {
+    return { label: 'opus', icon: '🧠', tone: 'opus', full: model };
+  }
+  if (model.includes('haiku')) {
+    return { label: 'haiku', icon: '🪶', tone: 'sonnet', full: model };
+  }
+  return { label: model, icon: '🤖', tone: 'unknown', full: model };
+}
+
+const MODEL_TONE_CLASSES: Record<ModelBadge['tone'], string> = {
+  sonnet: 'bg-accent-blue/10 text-accent-blue border border-accent-blue/30',
+  opus: 'bg-accent-purple/15 text-accent-purple border border-accent-purple/30',
+  codex:
+    'bg-accent-green/10 text-accent-green-soft border border-accent-green/30',
+  ollama: 'bg-accent-amber/10 text-accent-amber border border-accent-amber/30',
+  unknown: 'bg-bg-raised text-text-muted border border-line',
+};
+
+export function modelBadgeClass(tone: ModelBadge['tone']): string {
+  return MODEL_TONE_CLASSES[tone];
+}
+
 /** First metric value as a short label, e.g. {articlesLast7Days:110} → "110 / 7d". */
 export function firstMetricSummary(
   metrics: Record<string, unknown> | undefined,

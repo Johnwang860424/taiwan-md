@@ -22,6 +22,8 @@ import { Show, createMemo, createSignal } from 'solid-js';
 import { api, ApiError } from '~/lib/api';
 import {
   elapsedSince,
+  modelBadgeClass,
+  modelBadgeForTask,
   priorityBadgeClass,
   relativeTime,
   statusBadgeClass,
@@ -184,6 +186,16 @@ export default function TaskRow(props: {
             <span class={`pill ${priorityBadgeClass(t().priority)}`}>
               {t().priority}
             </span>
+            <Show when={modelBadgeForTask(t().type, t().inputs)}>
+              {(badge) => (
+                <span
+                  class={`pill ${modelBadgeClass(badge().tone)} text-[11px]`}
+                  title={badge().full}
+                >
+                  {badge().icon} {badge().label}
+                </span>
+              )}
+            </Show>
             <Show when={!props.compact}>
               <span class="text-xs text-text-muted truncate">{t().type}</span>
             </Show>

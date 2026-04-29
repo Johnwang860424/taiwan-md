@@ -54,6 +54,13 @@ import { recordSpawnedSession } from '../scheduler/session-counter.ts';
  *     article-rewrite / article-evolve / article-new / pr-review /
  *     issue-handle / spore-publish / contributor-thank-you / self-diagnose
  */
+/**
+ * Default model when engine=ollama and no explicit task.inputs.model.
+ * Picked because cheyu's local RTX 3090 has it pulled and it's coding-tuned
+ * (decent for translation prose). Override via task.inputs.model.
+ */
+const DEFAULT_OLLAMA_MODEL = 'qwen3.5:35b-a3b-coding-nvfp4';
+
 const DEFAULT_MODEL_BY_TYPE: Record<string, string> = {
   // tier 2 — translation
   'lang-sync-refresh': 'claude-sonnet-4-6',
@@ -217,17 +224,34 @@ export async function spawnClaudeForTask(
   task.status = 'in-progress';
   saveTask(task, `claude session ${sessionId} starting`);
 
-  // Compute taskModel here so we can log it (also used in cliArgs below)
-  const taskModel =
-    (task.inputs?.model as string | undefined) ??
-    DEFAULT_MODEL_BY_TYPE[task.type] ??
-    'claude-sonnet-4-6';
   // Engine selection: only allow non-claude on simple-tier task types.
   // Heavy tasks (article-* / pr-review / etc) ignore engine override → claude.
   const requestedEngine =
     (task.inputs?.engine as string | undefined) ?? 'claude';
   const tier = ENGINE_ELIGIBLE_TIER[task.type];
   const taskEngine = tier === 'simple' ? requestedEngine : 'claude';
+
+  // Compute taskModel here so we can log it (also used in cliArgs below).
+  //
+  // Phase 5.1 fix (2026-04-30): per-engine model fallback. The previous code
+  // unconditionally fell back to DEFAULT_MODEL_BY_TYPE → 'claude-sonnet-4-6'
+  // even when engine was codex/ollama, which made codex T2 fail (codex doesn't
+  // recognize claude model names). Now:
+  //   - claude engine: explicit model → DEFAULT_MODEL_BY_TYPE[type] → sonnet
+  //   - codex engine: explicit model → undefined (let codex pick subscription default)
+  //   - ollama engine: explicit model is REQUIRED (codex --oss needs -m to route)
+  const explicitModel = task.inputs?.model as string | undefined;
+  let taskModel: string | undefined;
+  if (taskEngine === 'claude') {
+    taskModel =
+      explicitModel ?? DEFAULT_MODEL_BY_TYPE[task.type] ?? 'claude-sonnet-4-6';
+  } else if (taskEngine === 'codex') {
+    taskModel = explicitModel; // undefined → codex uses subscription default
+  } else if (taskEngine === 'ollama') {
+    taskModel = explicitModel ?? DEFAULT_OLLAMA_MODEL;
+  } else {
+    taskModel = explicitModel; // unknown engine — pass through if specified
+  }
   const gitHead = (() => {
     try {
       return require('node:child_process')
@@ -254,7 +278,7 @@ export async function spawnClaudeForTask(
     `# task_title:        ${task.title}`,
     `# boot_profile:      ${task.boot_profile}`,
     `# engine:            ${taskEngine}`,
-    `# model:             ${taskModel}`,
+    `# model:             ${taskModel ?? '(engine default)'}`,
     `# claude_bin:        ${config.claudeBin}`,
     `# spawn_attempt:     ${task.attempts}`,
     `# spawned_at_iso:    ${spawnStartIso}`,
@@ -298,7 +322,13 @@ export async function spawnClaudeForTask(
       cliArgs.push('-C', worktree.path);
     }
   } else {
-    // claude (default)
+    // claude (default) — taskModel is guaranteed defined in the claude branch
+    // above (explicit ?? type-default ?? 'claude-sonnet-4-6'). Assert for TS.
+    if (!taskModel) {
+      throw new Error(
+        `claude engine requires a model — task ${task.id} has none`,
+      );
+    }
     engineBin = config.claudeBin;
     cliArgs = [
       '--print',
@@ -339,7 +369,7 @@ export async function spawnClaudeForTask(
       HARVEST_WORKTREE_PATH: worktree?.path ?? '',
       HARVEST_WORKTREE_BRANCH: worktree?.branch ?? '',
       HARVEST_ENGINE: taskEngine,
-      HARVEST_MODEL: taskModel,
+      HARVEST_MODEL: taskModel ?? '',
       HARVEST_ALLOW_SELF_COMMIT:
         task.inputs?.allow_self_commit === false ? 'false' : 'true',
     },

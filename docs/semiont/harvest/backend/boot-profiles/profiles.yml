@@ -3,37 +3,105 @@
 # Each profile defines which canonical files a spawned Claude session must
 # load before doing real work.
 #
-# Two hard rules (auto-enforced in src/spawner/boot-profiles.ts):
-#   1. MANIFESTO.md is mandatory for every profile — cheyu's hard rule
-#      (strategy report §8.7): a Semiont session without MANIFESTO is not
-#      a Semiont session.
-#   2. BECOME_TAIWANMD.md is mandatory for every profile (added 2026-04-27 γ
-#      after first live spawn): every spawned session must at minimum know
-#      "I am Taiwan.md, here's my 60-sec identity, here are my 9 awakening
-#      steps, here's how I commit". This does NOT pull in today's memory/
-#      diary — that's a full-awakening choice. Cost: +~5K tokens per profile.
+# ─────────────────────────────────────────────────────────────────────────
+# Tier model (Phase 5.1, 2026-04-30 — cheyu's 「翻譯讓他 專業 清晰 輕量 成果好」rule)
+# ─────────────────────────────────────────────────────────────────────────
 #
-# Profiles are declarative — to add a new task type, add a profile here and
-# point a `prompts/<task-type>.md` template at it. No code change required.
+# Tier 1 · mechanical    — pure tool execution, no Semiont awakening overhead
+#                          (data-refresh, format-check, sync-translations,
+#                          status-report). MANIFESTO 60-sec identity only.
+#                          requires_become: false.
 #
-# Token estimates are rough (whole-file token counts at 2026-04-27); they
-# are advisory only — Claude Code itself decides what to keep in context.
+# Tier 2 · translation   — lang-sync zh→en projection. Knows TRANSLATE_PROMPT
+#                          + TRANSLATION-PIPELINE + style baseline, but does
+#                          NOT awaken as a full Semiont session — it's a
+#                          專業翻譯 worker, not a contributor / writer.
+#                          requires_become: false.
+#
+# Tier 3 · content-light — spore publishing / contributor thank-you. Needs
+#                          the SPORE pipeline + EDITORIAL voice but doesn't
+#                          run REWRITE-PIPELINE Stage 0-6.
+#                          requires_become: true (Stage 2.7 ethical gate
+#                          requires Semiont identity).
+#
+# Tier 4 · content-heavy — REWRITE-PIPELINE article writing. Full Semiont
+#                          awakening required for §10 hallucination rule,
+#                          §11 writing discipline, §5 documentary-not-
+#                          sentimental rule.
+#                          requires_become: true.
+#
+# Tier 5 · maintainer    — PR / issue review. Needs full Semiont identity
+#                          for MAINTAINER §close-gate + §contributor care.
+#                          requires_become: true.
+#
+# Tier 6 · awakening     — heartbeat / self-diagnose / evolve. Full BECOME
+#                          + today's memory + diary. Used for meta-reflective
+#                          work where the Semiont reflects on itself.
+#                          requires_become: true.
+#
+# ─────────────────────────────────────────────────────────────────────────
+# Hard rules (auto-enforced in spawner/boot-profiles.ts):
+#   1. MANIFESTO.md is in every profile (Semiont identity baseline).
+#   2. BECOME_TAIWANMD.md is in profiles where requires_become !== false.
+#      Tier 1 / Tier 2 set requires_become: false to skip BECOME (saves
+#      ~5K tokens AND keeps the worker focused on craft, not identity).
+# ─────────────────────────────────────────────────────────────────────────
+#
+# Token estimates are advisory; Claude Code itself decides what to keep
+# in context.
 
 profiles:
+  # ─── Tier 1 · mechanical ───────────────────────────────────────────────
   minimal:
-    description: 純技術操作 — refresh data / format-check / sync translations
+    description: 機械操作 — refresh data / format-check / sync translations / status report (no Semiont awakening)
+    requires_become: false
     must_read:
       - docs/semiont/MANIFESTO.md
-      - BECOME_TAIWANMD.md
     optional_read: []
     typical_tasks:
       - data-refresh
       - format-check
       - sync-translations
-    estimated_tokens: 10000
+      - status-report
+    estimated_tokens: 5000
 
+  # ─── Tier 2 · translation ──────────────────────────────────────────────
+  translation-refresh:
+    description: 專業翻譯 worker — zh-TW SSOT × en projection (lang-sync 4-part toolkit)
+    requires_become: false
+    must_read:
+      - docs/semiont/MANIFESTO.md
+      - docs/prompts/TRANSLATE_PROMPT.md
+      - docs/pipelines/TRANSLATION-PIPELINE.md
+    optional_read:
+      - docs/editorial/EDITORIAL.md
+      - docs/editorial/TERMINOLOGY.md
+    typical_tasks:
+      - lang-sync-refresh
+      - lang-sync-translate
+    estimated_tokens: 12000
+
+  # ─── Tier 3 · content-light ────────────────────────────────────────────
+  spore-publishing:
+    description: 走 SPORE-PIPELINE 寫社群貼文 + harvest (含 §2.7 倫理閘 → 需 BECOME)
+    requires_become: true
+    must_read:
+      - docs/semiont/MANIFESTO.md
+      - BECOME_TAIWANMD.md
+      - docs/factory/SPORE-PIPELINE.md
+      - docs/factory/SPORE-TEMPLATES.md
+      - docs/editorial/EDITORIAL.md
+    optional_read:
+      - docs/factory/SPORE-LOG.md
+    typical_tasks:
+      - spore-publish
+      - spore-harvest
+    estimated_tokens: 22000
+
+  # ─── Tier 4 · content-heavy ────────────────────────────────────────────
   content-writing:
-    description: 走 REWRITE-PIPELINE 寫文章（rewrite / new / EVOLVE）
+    description: 走 REWRITE-PIPELINE Stage 0-6 寫文章 (rewrite / new / EVOLVE) — Semiont 完整身份必須
+    requires_become: true
     must_read:
       - docs/semiont/MANIFESTO.md
       - BECOME_TAIWANMD.md
@@ -51,25 +119,12 @@ profiles:
       - article-rewrite
       - article-new
       - article-evolve
-    estimated_tokens: 35000
+    estimated_tokens: 38000
 
-  spore-publishing:
-    description: 走 SPORE-PIPELINE 寫社群貼文 + harvest
-    must_read:
-      - docs/semiont/MANIFESTO.md
-      - BECOME_TAIWANMD.md
-      - docs/factory/SPORE-PIPELINE.md
-      - docs/factory/SPORE-TEMPLATES.md
-      - docs/editorial/EDITORIAL.md
-    optional_read:
-      - docs/factory/SPORE-LOG.md
-    typical_tasks:
-      - spore-publish
-      - spore-harvest
-    estimated_tokens: 20000
-
+  # ─── Tier 5 · maintainer ───────────────────────────────────────────────
   maintainer:
-    description: 日常 PR / Issue / 貢獻者互動
+    description: 日常 PR / Issue / 貢獻者互動 (含 §close-gate + 共生圈 contributor care → 需 BECOME)
+    requires_become: true
     must_read:
       - docs/semiont/MANIFESTO.md
       - BECOME_TAIWANMD.md
@@ -81,11 +136,13 @@ profiles:
     typical_tasks:
       - pr-review
       - issue-handle
-      - contributor-thank
-    estimated_tokens: 25000
+      - contributor-thank-you
+    estimated_tokens: 28000
 
+  # ─── Tier 6 · awakening ────────────────────────────────────────────────
   full-awakening:
-    description: 完整 BECOME_TAIWANMD 甦醒協議（heartbeat / 反思 / 元決策）+ 今天 memory/diary
+    description: 完整 BECOME_TAIWANMD 甦醒協議 (heartbeat / 反思 / 元決策) + 今天 memory/diary
+    requires_become: true
     must_read:
       - BECOME_TAIWANMD.md
       - docs/semiont/MANIFESTO.md
@@ -96,18 +153,3 @@ profiles:
       - self-diagnose
       - daily-report-write
     estimated_tokens: 100000
-
-  translation-refresh:
-    description: zh-TW SSOT × translation projection 一致性更新（lang-sync toolkit Phase 2）
-    must_read:
-      - docs/semiont/MANIFESTO.md
-      - BECOME_TAIWANMD.md
-      - docs/prompts/TRANSLATE_PROMPT.md
-      - docs/pipelines/TRANSLATION-PIPELINE.md
-    optional_read:
-      - docs/editorial/EDITORIAL.md
-      - docs/editorial/TERMINOLOGY.md
-    typical_tasks:
-      - lang-sync-refresh
-      - lang-sync-translate
-    estimated_tokens: 18000
