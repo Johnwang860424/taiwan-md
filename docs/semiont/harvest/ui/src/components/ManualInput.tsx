@@ -87,8 +87,17 @@ const MODELS_BY_ENGINE: Record<Engine, { value: string; label: string }[]> = {
     { value: 'o3', label: 'o3' },
   ],
   ollama: [
-    { value: 'qwen3.5:35b-a3b-coding-nvfp4', label: 'qwen3.5 35b coding' },
+    {
+      value: 'qwen3.5:35b-a3b-coding-nvfp4',
+      label: 'qwen3.5 35b coding (nvfp4)',
+    },
     { value: 'qwen3.5:35b-a3b', label: 'qwen3.5 35b' },
+    {
+      value: 'qwen3.6:35b-a3b-coding-mxfp8',
+      label: 'qwen3.6 35b coding (mxfp8)',
+    },
+    { value: 'gemma4:31b', label: 'gemma4 31b' },
+    { value: 'gemma4:e4b-nvfp4', label: 'gemma4 e4b (nvfp4)' },
     { value: 'gemma3:12b', label: 'gemma3 12b' },
     { value: 'gpt-oss:20b', label: 'gpt-oss 20b' },
     { value: 'gpt-oss:120b', label: 'gpt-oss 120b' },
