@@ -81,7 +81,7 @@ export const QUICK_PRESETS: QuickPreset[] = [
     emoji: '🌐',
     label: 'Lang-sync: 1 en article',
     description:
-      '從 lang-sync queue 挑下一個最舊 stale → 翻譯。獨立 worktree + 自動 commit (KTV-loss prevention)',
+      '從 lang-sync queue 挑下一個「最新 stale」(zh 最近修改的) → 翻譯。獨立 worktree + 自動 commit (KTV-loss prevention)',
     taskType: 'lang-sync-refresh',
     bootProfile: 'translation-refresh',
     priority: 'P1',

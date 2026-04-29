@@ -295,16 +295,25 @@ def print_article_list(status: dict, lang: str, status_filter: set[str], top: in
         t = entry["translations"].get(lang, {})
         if t.get("status") in status_filter:
             rows.append((zh_rel, t))
-    # Sort: stale by commitsBehind desc, missing by zh modified desc
-    def sort_key(row):
-        rel, t = row
+    # Sort: NEWEST first (cheyu 2026-04-30: 「預設抓最新的翻譯不是最舊的」).
+    # Both stale and missing ordered by zh lastModified descending — recent
+    # zh edits get translated first while context is fresh in cheyu's mind,
+    # avoiding long-tail backlog accumulation.
+    #
+    # Implementation uses Python's stable sort + two-pass:
+    #   pass 1: sort all rows by zh lastModified DESC (newest first)
+    #   pass 2: sort by status priority (stale=0, missing=1, other=2);
+    #           stable sort preserves the DESC order from pass 1 inside groups.
+    rows.sort(
+        key=lambda r: status["byArticle"][r[0]]["zh"]["lastModified"],
+        reverse=True,
+    )
+
+    def status_priority(t):
         s = t.get("status")
-        if s == "stale":
-            return (0, -t.get("commitsBehind", 0))
-        if s == "missing":
-            return (1, status["byArticle"][rel]["zh"]["lastModified"])
-        return (2, rel)
-    rows.sort(key=sort_key)
+        return 0 if s == "stale" else 1 if s == "missing" else 2
+
+    rows.sort(key=lambda r: status_priority(r[1]))
     if top:
         rows = rows[:top]
 
