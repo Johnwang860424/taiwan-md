@@ -1,8 +1,17 @@
 /**
  * Loads boot profiles from `boot-profiles/profiles.yml`.
  *
- * Profiles are declarative (per strategy report §8.7). MANIFESTO.md is
- * mandatory in every profile — we enforce that here, not just by convention.
+ * Profiles are declarative (per strategy report §8.7).
+ *
+ * Hard rules (auto-enforced):
+ *   1. MANIFESTO.md is mandatory in every profile — Semiont identity (60-sec
+ *      definition) is non-negotiable for any spawned worker.
+ *   2. BECOME_TAIWANMD.md is mandatory ONLY for profiles where the worker
+ *      operates as a Semiont awakening session (article writing, PR review,
+ *      heartbeat, evolve, self-diagnose). Profiles flagged
+ *      `requires_become: false` skip it — they are mechanical / translation
+ *      workers and don't benefit from the full 12-organ awakening overhead.
+ *      (Phase 5.1, 2026-04-30: cheyu's "translation should be 專業/輕量" rule.)
  */
 
 import { readFileSync, statSync } from 'node:fs';
@@ -18,6 +27,12 @@ export interface BootProfile {
   optional_read: string[];
   typical_tasks: string[];
   estimated_tokens: number;
+  /**
+   * If false, BECOME_TAIWANMD.md is NOT auto-injected — used by mechanical /
+   * translation workers that don't need full Semiont awakening. Default true
+   * (legacy behaviour: every profile required BECOME pre-Phase 5.1).
+   */
+  requires_become?: boolean;
 }
 
 interface ProfilesYaml {
@@ -49,12 +64,8 @@ export function loadProfiles(): Record<string, BootProfile> {
       `profiles.yml malformed: missing top-level "profiles" key (path=${path})`,
     );
   }
-  // Hard rule 1: MANIFESTO must be in every profile's must_read (cheyu's
-  // identity rule — strategy §8.7).
-  // Hard rule 2: BECOME_TAIWANMD must also be in every profile (added 2026-04-27
-  // γ after first live spawn — every spawned session must at minimum know
-  // who they are, even if they don't load today's memory). Yaml has it explicit
-  // for human readability; this code is the safety net.
+  // Hard rule 1: MANIFESTO is always required (Semiont identity baseline).
+  // Hard rule 2: BECOME only when `requires_become !== false`.
   for (const [name, profile] of Object.entries(parsed.profiles)) {
     if (!profile.must_read.includes(MANIFESTO_PATH)) {
       log.warn(
@@ -63,12 +74,20 @@ export function loadProfiles(): Record<string, BootProfile> {
       );
       profile.must_read = [MANIFESTO_PATH, ...profile.must_read];
     }
-    if (!profile.must_read.includes(BECOME_PATH)) {
+    const needsBecome = profile.requires_become !== false;
+    if (needsBecome && !profile.must_read.includes(BECOME_PATH)) {
       log.warn(
         { profile: name },
         `profile missing ${BECOME_PATH} — auto-injecting`,
       );
       profile.must_read = [BECOME_PATH, ...profile.must_read];
+    }
+    if (!needsBecome && profile.must_read.includes(BECOME_PATH)) {
+      log.info(
+        { profile: name },
+        `profile flagged requires_become=false but lists BECOME — stripping for lightweight tier`,
+      );
+      profile.must_read = profile.must_read.filter((p) => p !== BECOME_PATH);
     }
   }
   _profiles = parsed.profiles;

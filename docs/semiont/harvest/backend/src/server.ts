@@ -80,9 +80,15 @@ if (!config.disableWatch) {
     .catch((err) => logger.error({ err: String(err) }, 'inbox start failed'));
 }
 if (!config.disableCron) {
-  startScheduler();
-  startAutoSpawn();
+  // Phase 5.1 (2026-04-30): default paused on boot. Do NOT call startScheduler()
+  // or startAutoSpawn() here — UI must POST /api/control/resume first.
+  // Rationale: prevent accidental auto-spawn during config / deploy / mid-debug.
+  // _paused defaults to true in scheduler/cron.ts. resume endpoint kicks both.
+  logger.info(
+    'scheduler default-paused on boot — POST /api/control/resume to start',
+  );
 }
+// Health monitor still runs (read-only checks) — paused only affects spawning.
 startHealthMonitor();
 
 app.use('*', async (c, next) => {
