@@ -122,6 +122,7 @@ function Inner() {
   const [model, setModel] = createSignal<string>(''); // empty = engine default
   const [allowCommit, setAllowCommit] = createSignal(true);
   const [dryRun, setDryRun] = createSignal(false);
+  const [worktree, setWorktree] = createSignal(true); // default: isolated worktree
   const [showAdvanced, setShowAdvanced] = createSignal(false);
 
   // lang-sync specific
@@ -181,6 +182,8 @@ function Inner() {
     if (model()) inputs.model = model();
     if (!allowCommit()) inputs.allow_self_commit = false;
     if (dryRun()) inputs.dry_run = true;
+    // worktree default true; only emit when user disables (avoids noise)
+    if (!worktree()) inputs.worktree = false;
     if (isLangSync()) {
       inputs.zh_path = zhPath().trim();
       inputs.lang = langTarget();
@@ -370,7 +373,21 @@ function Inner() {
                 </select>
               </div>
             </div>
-            <div class="flex items-center gap-4 pt-1">
+            <div class="flex items-center gap-4 pt-1 flex-wrap">
+              <label class="flex items-center gap-2 text-xs cursor-pointer">
+                <input
+                  type="checkbox"
+                  class="cursor-pointer accent-accent-green"
+                  checked={worktree()}
+                  onChange={(e) => setWorktree(e.currentTarget.checked)}
+                />
+                <span>
+                  worktree
+                  <span class="ml-1 text-[10px] text-text-muted">
+                    (uncheck → run in main repo, no isolation)
+                  </span>
+                </span>
+              </label>
               <label class="flex items-center gap-2 text-xs cursor-pointer">
                 <input
                   type="checkbox"
