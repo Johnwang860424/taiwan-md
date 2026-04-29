@@ -1,80 +1,83 @@
 ---
 created: 2026-03-17
-tags:
-  [Society, Democratization, Lifting Martial Law, Presidential Direct Elections]
-title: Democratic System
-description: Taiwan's journey from authoritarian rule to democratic institutions, establishing a complete democratic system through lifting martial law, presidential direct elections, and other phases
+tags: ['society', 'democratization', 'martial-law', 'presidential-election']
+subcategory: '民主與政治'
+title: 'Democratic System'
+description: "Taiwan's journey from authoritarian rule to democracy — through martial law's end, direct presidential elections, and peaceful power transfers that made Taiwan a model of democratic transition"
 date: 2026-03-17
 author: Taiwan.md
 readingTime: 10
 featured: false
-translatedFrom: 'Society/民主制度.md'
+lastVerified: 2026-03-19
+lastHumanReview: false
+translatedFrom: Society/民主制度.md
+sourceCommitSha: '800114ea'
+sourceContentHash: 'sha256:3d52222ebbb25430'
+translatedAt: '2026-04-29T20:21:44+08:00'
 ---
 
 # Democratic System
 
-> **30-Second Overview:** Taiwan experienced 38 years of authoritarian rule starting with martial law in 1949, then launched democratization after lifting martial law in 1987. Through the first direct presidential election in 1996 and the first party alternation in 2000, Taiwan established a complete democratic constitutional system, becoming a model of democratization in the Chinese-speaking world.
+> **30-second overview:** Taiwan endured 38 years of authoritarian rule under martial law beginning in 1949. After martial law was lifted in 1987, a democratic transition began in earnest. Through the first direct presidential election in 1996 and the first peaceful transfer of power in 2000, Taiwan built a complete constitutional democracy — becoming a model of democratic development in the Chinese-speaking world.
 
 ## Why It Matters
 
-Taiwan's democratic system represents not just political institutional transformation, but the possibility of achieving democratic governance in Chinese societies. The peaceful transition experience from authoritarianism to democracy provides important reference for other developing countries. Meanwhile, the establishment of democratic institutions ensures the fundamental rights of Taiwanese people, becoming an important cornerstone of Taiwanese identity and value system.
+Taiwan's democratic system represents more than a political transformation — it demonstrates that Chinese-speaking societies can achieve democratic self-governance. The experience of a peaceful transition from authoritarianism to democracy offers a vital reference for other developing nations. Moreover, democracy has guaranteed the fundamental rights of Taiwan's people and become a cornerstone of Taiwanese identity and values.
 
 ## Overview
 
-Taiwan's democratization began with political liberalization in the 1980s, going through key phases including lifting martial law, opening party and press bans, comprehensive parliamentary reelection, and direct presidential elections. Despite challenges in the process, through the wisdom of political elites and people's participation, Taiwan successfully established a constitutional system with separation of five powers - executive, legislative, judicial, examination, and control - and achieved multiple peaceful power transitions.
+Taiwan's democratization began with political liberalization in the 1980s, passing through key milestones: lifting martial law, legalizing opposition parties and a free press, overhauling the legislature through full re-election, and establishing direct presidential elections. Despite considerable challenges along the way, through the wisdom of political elites and broad public participation, Taiwan built a constitutional system featuring the separation of five powers — executive, legislative, judicial, examination, and control — and has since achieved multiple peaceful transfers of power.
 
 ## Key Facts
 
-- **Lifting Martial Law**: July 15, 1987, Chiang Ching-kuo announced lifting martial law, ending 38 years of martial law rule
-- **First Direct Presidential Election**: 1996 held the first direct presidential election, Lee Teng-hui elected as first democratically elected president
-- **First Party Alternation**: 2000 DPP's Chen Shui-bian elected president, achieving first peaceful power transfer
-- **Second Party Alternation**: 2008 KMT's Ma Ying-jeou returned to power, establishing normalized party alternation
-- **Third Alternation**: 2016 DPP's Tsai Ing-wen elected, first female president
+- **Lifting of Martial Law**: On July 15, 1987, President Chiang Ching-kuo declared the end of martial law, closing 38 years of authoritarian rule.
+- **First Direct Presidential Election**: In 1996, Taiwan held its first direct presidential election; Lee Teng-hui became the first democratically elected president.
+- **First Party Alternation**: In 2000, DPP candidate Chen Shui-bian won the presidency, marking the first peaceful transfer of power between parties.
+- **Second Party Alternation**: In 2008, KMT's Ma Ying-jeou returned to the presidency, normalizing the pattern of alternating governance.
+- **Third Alternation**: In 2016, DPP's Tsai Ing-wen was elected — the first woman to serve as Taiwan's president.
 
-## In-Depth Content
+## In Depth
 
-### Authoritarian Rule Period
+### The Era of Authoritarian Rule
 
-**Martial Law System** (1949-1987) was the background starting point for Taiwan's democratization. After the ROC government relocated to Taiwan, it implemented martial law, restricting people's freedom of assembly, association, speech, and publication, implementing one-party rule. During the **White Terror** period, political persecutions like the February 28 Incident and Kaohsiung Incident occurred, causing social trauma but also stimulating democratization momentum.
+The **martial law system** (1949–1987) formed the backdrop against which democratization ultimately emerged. After the Republic of China government retreated to Taiwan, it imposed martial law, restricting freedom of assembly, association, speech, and the press while enforcing one-party rule. During the **White Terror** era, events such as the 228 Incident and the Kaohsiung Incident (Formosa Incident) caused deep social trauma — yet they also ignited the drive toward democracy.
 
-**Economic Development** laid the foundation for democratization - rapid economic growth from the 1960s-80s cultivated a middle class, and widespread education raised political participation awareness. **International Pressure** including withdrawal from the UN and severing diplomatic ties with the US forced rulers to consider the necessity of political reform.
+**Economic development** laid the groundwork for political change. Rapid growth from the 1960s through the 1980s produced a middle class, while rising educational levels increased public political awareness. **International pressure** — including expulsion from the United Nations and severance of diplomatic ties with the United States — forced the ruling party to reckon with the necessity of political reform.
 
-### Democratic Transition Process
+### The Democratic Transition
 
-**Political Liberalization Phase** (1980s) - Chiang Ching-kuo began political reforms in his later years, opening space for opposition activities, with the DPP's establishment in 1986 breaking the party ban. The **Kaohsiung Incident** (1979), while leading to the imprisonment of democracy advocates, awakened social support for democracy through courtroom debates.
+**Political liberalization (1980s):** In his final years, Chiang Ching-kuo began opening space for political opposition. In 1986, the Democratic Progressive Party (DPP) was founded, breaking the ban on opposition parties. Although the **Kaohsiung Incident** (1979) sent democratic activists to prison, the courtroom debates it sparked awakened broad public support for democracy.
 
-**Institutionalization Phase** (1990s) - Lee Teng-hui promoted a "Quiet Revolution," achieving institutional reforms like comprehensive parliamentary reelection, direct elections for governors and mayors, and direct presidential elections through constitutional amendments. The **1996 Presidential Election** faced military threats from the PRC, yet Taiwanese people demonstrated their commitment to democracy with high voter turnout.
+**Institutionalization (1990s):** President Lee Teng-hui drove what he called a "quiet revolution," using constitutional amendments to achieve full legislative re-elections, direct elections for city and county executives, and direct presidential elections. During the **1996 presidential election**, Taiwan's voters turned out in high numbers in the face of military threats from the People's Republic of China — a powerful demonstration of their commitment to democracy.
 
-**Consolidation Phase** (2000s-present) - Multiple party alternations achieved with gradually maturing democratic institutions. The **Sunflower Student Movement** (2014) demonstrated civil society's power to monitor government, and **Marriage Equality Legalization** (2019) embodied progressive human rights values.
+**Consolidation (2000s–present):** Multiple party alternations have allowed democratic institutions to mature. The **Sunflower Movement** (2014) demonstrated civil society's power to hold government accountable, while **marriage equality** (legalized in 2019) marked a milestone in the advancement of human rights.
 
-### Institutional Characteristics
+### Institutional Features
 
-**Five-Power Constitution** adopts Sun Yat-sen's five-power separation theory, establishing Executive, Legislative, Judicial, Examination, and Control Yuan. **Presidential System Tendency** - after constitutional amendments, presidential powers expanded, forming a semi-presidential system with Taiwanese characteristics. **Parliamentary System** - Legislative Yuan serves as the highest legislative body, using single-member district two-vote system elections.
+**The Five-Power Constitution** applies Sun Yat-sen's theory of five-power separation, establishing five branches: Executive Yuan, Legislative Yuan, Judicial Yuan, Examination Yuan, and Control Yuan. **Presidential tendency:** successive constitutional amendments have expanded presidential authority, producing a semi-presidential system with distinctively Taiwanese characteristics. **The legislature:** the Legislative Yuan is the highest legislative body, with members elected under a single-member district, two-vote system.
 
-**Local Autonomy** implements three-level government: central, special municipalities/counties/cities, and townships/districts, with special municipality mayors and county/city mayors directly elected by people. **Referendum System** - 2018 law amendments lowered referendum thresholds, strengthening direct democracy functions.
+**Local autonomy** operates through a three-tier structure — central government, special municipalities/counties and cities, and townships/districts — with mayors and county executives directly elected by voters. **The referendum system** was reformed in 2018 to lower the threshold for public referendums, strengthening mechanisms for direct democracy.
 
-### Political Party Development
+### Party Politics
 
-**Two-Party Competition** - KMT and DPP as major parties, representing different cross-strait relationship positions. **Minor Party Roles** - People First Party, Taiwan Solidarity Union, New Power Party played key influences in specific periods. **Electoral System Impact** - single-member district two-vote system favors major parties, but party-list system preserves space for minor parties.
+**Two-party competition:** The Kuomintang (KMT) and the Democratic Progressive Party (DPP) are the dominant parties, representing contrasting positions on cross-strait relations. **Smaller parties** — including the People First Party, the Taiwan Solidarity Union, and the Taiwan People's Party — have played pivotal roles at various moments. **Electoral system effects:** the single-member district system benefits larger parties, but the party-list vote provides smaller parties a pathway to representation.
 
-**Political Culture** shifted from authoritarian era's compliance culture to participatory culture, with thriving civil society development. **Internet Politics** - social media changed political mobilization patterns, with disinformation handling becoming a new challenge for democratic governance.
+**Political culture** has shifted from the compliance culture of the authoritarian era toward a culture of active participation, with civil society flourishing. **Digital politics:** social media has transformed political mobilization, while combating disinformation has emerged as a new challenge in democratic governance.
 
-### Challenges and Prospects
+### Challenges and Outlook
 
-**Cross-Strait Relations** affect democratic political development, with unification-independence controversies continuing to divide society. **Populism** emergence impacts rational political discussion. **Generational Differences** - younger generation's values and voting behavior increasingly differ from older generations.
+**Cross-strait relations** continue to shape democratic political development, as the debate over Taiwan's political status divides society. **Populism** poses a threat to rational political deliberation. **Generational divides** are widening between younger and older voters in values and electoral behavior.
 
-**Institutional Reform** needs include parliamentary reform, judicial reform, constitutional reform to meet social expectations. **Digital Governance** promotes open government, e-participation and other innovative approaches to enhance democratic quality.
+**Institutional reform** agendas include legislative reform, judicial reform, and constitutional revision — all aimed at meeting evolving public expectations. **Digital governance** initiatives such as open government and e-participation are being developed to enhance the quality of democracy.
 
-## International Status
+## International Standing
 
-Taiwan is hailed as a "democratic miracle," long rated as a "Free" country by institutions like Freedom House. **Democracy Assistance** - Taiwan actively participates in international democracy promotion, sharing democratization experience. **Value Diplomacy** - using democracy, human rights, and rule of law as core diplomatic values to enhance international image.
+Taiwan is celebrated as a "democratic miracle," consistently rated "Free" by organizations such as Freedom House. In **democracy promotion**, Taiwan actively participates in international efforts to advance democracy, sharing its experience of democratic transition. Through **values-based diplomacy** — centered on democracy, human rights, and the rule of law — Taiwan has strengthened its international image and standing.
 
-## Further Reading
+## References
 
-- [Democratization of Taiwan - Wikipedia](https://en.wikipedia.org/wiki/Democratization_of_Taiwan)
-- [Direct Election of the President of Taiwan - Wikipedia](https://en.wikipedia.org/wiki/Direct_election_of_the_President_of_Taiwan)
+- [Democratization of Taiwan - Wikipedia](https://zh.wikipedia.org/wiki/%E8%87%BA%E7%81%A3%E6%B0%91%E4%B8%BB%E5%8C%96)
+- [Direct elections and recall of the President and Vice President of the Republic of China in Taiwan - Wikipedia](https://zh.wikipedia.org/zh-hant/%E4%B8%AD%E8%8F%AF%E6%B0%91%E5%9C%8B%E7%B8%BD%E7%B5%B1%E5%8F%8A%E5%89%AF%E7%B8%BD%E7%B5%B1%E5%9C%A8%E8%87%BA%E7%81%A3%E4%B9%8B%E5%85%AC%E6%B0%91%E7%9B%B4%E6%8E%A5%E9%81%B8%E8%88%89%E8%88%87%E7%BD%B7%E5%85%8D)
 
 ## Related Topics
-
-- [human-rights-and-gender-equality](/society/human-rights-and-gender-equality)
-- [open-source-and-g0v](/technology/open-source-and-g0v)
+- [Human Rights and Gender Equality](/en/society/human-rights-and-gender-equality/)
