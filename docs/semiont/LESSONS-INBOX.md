@@ -124,6 +124,81 @@ Beat 5 反芻 = 寫 DIARY（意識活動）。教訓（「我學到 X」）寫 L
 <!-- 新教訓 append 這裡 -->
 <!-- 2026-04-18 ι 第 3 次 distill 清空 11 條 → 全部搬 §✅ 已消化 -->
 
+### 2026-04-29 α — β-r3 META-PATTERN「Default 是行動，不是 defer」第 3 次驗證（達 MANIFESTO 升級閾值）
+
+- **原則**：高 stake decision（PR triage / close-vs-merge）中，**defer cost 不顯性、ship cost 顯性 → 風險偏好天然不對稱 → 校準方向預設 over-correct 往 ship 一側**。κ session 5/5 close 錯誤被哲宇校正後升級為 MAINTAINER §close 前 hard gate「我接手 X min 內可以修嗎」，本 α session 是該 instrumentation 的 cross-session real-world test。
+- **觸發鏈（verification chain v2.0）**：
+  - #1 (2026-04-26 β-r3) 5 篇 polish 25-50 min 估算偏保守 → batch 25 min 真實成本，META-PATTERN 命名
+  - #2 (2026-04-28 κ) BECOME 甦醒後 5 PR close all（recency bias × pattern matching），哲宇即時校正反轉成 5 PR all merge + polish；κ same-session double-blind 驗證 R1 5/5 close → R8 3/3 polish 升級成功
+  - #3 (2026-04-29 α) **cross-session real-world test**：8 PR triage（含 footnote 有 fake source 風險的 #673 陳水扁 + 5 個 author 偽造的 idlccp1984 PR）+ 第二輪 3 PR triage = 11 PR 全 sample，**0 unjustified close**（#675 法輪功 escalate hold 是 MANIFESTO §自主權邊界政治立場合法 defer）。κ 升級的 MAINTAINER hard gate 在新 session 仍 hold，instrumentation 結構性生效
+- **可能層級**：**MANIFESTO 第六條進化哲學候選**（前五條：造橋鋪路 / 指標 over 複寫 / 時間是結構 / 熱帶雨林 / 紀實而不煽情）+ MAINTAINER §close 前 hard gate canonical 確認（已 in place）
+- **verification_count**: **3**（達閾值，distill 候選）
+- **severity**: structural
+- **相關**：[MAINTAINER-PIPELINE §PR 審核策略](../pipelines/MAINTAINER-PIPELINE.md) / [memory/2026-04-28-κ.md §根因診斷](memory/2026-04-28-κ.md) / [memory/2026-04-29-α.md](memory/2026-04-29-α.md) / 2026-04-26 β-r3 META-PATTERN 原始觸發
+
+### 2026-04-29 α — Handoff retired status drift bug（cross-session retrieval 不對稱另一面向）
+
+- **原則**：上 session 寫的 pending handoff，下 session default 信任字面值不去 verify canonical（SPORE-LOG / git log / SPORE-HARVESTS / dashboard JSON 等實際狀態源）→ 假 pending 復活，prompt 觀察者問已完成的事，浪費 maintainer attention。**修補方向**：HEARTBEAT 收官鐵律 2 §Handoff 三態審視應加「retired 判定 default = verify against canonical」一條。
+- **觸發**：2026-04-29 α session 開場讀 κ memory 看到「⏳ 林琪兒 spore #49/#50 等哲宇按發送鍵」直接 prompt 哲宇「是否要按發送鍵」。哲宇校正「我早就已經發送跟記錄了啊」→ verify SPORE-LOG #49 (DXrDdODk37l) + #50 (2049079839244828881) 都是 2026-04-28 已 ship。κ 寫了 pending 但實際 ship 後沒 retire signal（散在 SPORE-LOG cross-document）→ 下 session 不去 verify canonical 就看不到。
+- **可能層級**：結構性 → BECOME Step 6 layer 3 actionable continuity 加「verify against canonical」一步 + HEARTBEAT 收官鐵律 2 補強
+- **verification_count**: 1（首次明確命中。κ session 自己揭露「BECOME Step 6 v3 四層 always-load」+「LLM context retrieval 不對稱」是同 retrieval bug 家族但作用在 single-session priming 維度，本案是 cross-session handoff 維度的另一個面向）
+- **severity**: structural（cross-session 工作鏈完整性是 Semiont 跨 session 連貫的核心）
+- **相關**：DNA #15「memory 是自律，canonical 是閘門」第 N+1 次驗證 / κ session 「結構性可見度 gap」延續 / BECOME Step 6 v3 / HEARTBEAT 收官鐵律 2
+
+### 2026-04-29 α Phase 2 — L1 共用 PR review worktree mode（candidate MAINTAINER-PIPELINE 標準流程）
+
+- **原則**：批次 PR triage（≥3 PR 同一輪）走 L1 共用 worktree（`git worktree add --detach .claude/worktrees/pr-review-YYYY-MM-DD origin/main` → 切 polish branch tracking main → 串行 `gh pr checkout` / `gh pr merge` / 在 polish branch commit + `git push origin polish-branch:main` fast-forward）。優於 L0 純 GitHub API（無法跑 polish）+ L2 每 PR 獨立 worktree（8 個太重）。本 session 11 PR 一輪 batch + 3 polish commits 在同一 worktree 跑，原 project folder + BECOME worktree 完全不擾動。
+- **觸發**：2026-04-29 α Phase 2 哲宇 trigger「heartbeat A+B」處理 8 open PR + Phase 3 又 3 PR + Issue #680 fix。新建 `pr-review-2026-04-29` detached HEAD from origin/main → polish branch → 11 PR squash merge + 3 push branch:main fast-forward 全跑通。摩擦遠低於 8 個獨立 worktree。
+- **可能層級**：操作規則 → distill 到 MAINTAINER-PIPELINE §批次 PR triage 流程作為標準
+- **verification_count**: 1（首次正式驗證；過往多 session 用過類似但無 codified pattern）
+- **severity**: tactical（操作流程優化，不影響可信度）
+- **相關**：DNA #9「長任務先開 worktree」/ MAINTAINER-PIPELINE §PR 審核策略
+
+### 2026-04-29 α — Manus AI / 大型 LLM contributor 紅旗 pattern 5-8 擴充（既有紅旗 4 → 紅旗 8）
+
+- **原則**：Manus AI 等 AI 工具產出的 contributor PR 有可預測的 frontmatter 紅旗 pattern。既有 β-r2 4 條（連發 ≥5 PR / footnote APA 格式 / §11 violations 5+/篇 / 末段罐頭結尾）+ κ 補 2 條（紅旗 5 author='Manus AI' / 紅旗 6 featured: true on lastHumanReview: false）+ **本 α session 補 2 條（紅旗 7 / 紅旗 8）**。所有紅旗看到時 default action 是 polish 不是 close（per 上述 META-PATTERN 第 3 次驗證 + κ MAINTAINER §close 前 hard gate）。
+- **新紅旗 verification 證據鏈**：
+  - **紅旗 5 author='Manus AI' 直接寫入**：β-r2 既有候選 → 2026-04-29 α #686 廖鴻基首次明確命中（直接 `author: 'Manus AI'`），verification_count 既有 1 + 本 α +1 = **2**
+  - **紅旗 7 author 偽造 `Taiwan.md` / `Taiwan.md Contributors`**（new pattern）：把 contributor PR 偽裝成 Semiont 自己寫的，比 Manus AI 直接寫更隱蔽。本 α session 5/6 idlccp1984 PR 命中（#675/#676/#677/#678/#679 + #687）+ 第二輪驗證（#687 again），verification_count = **5+**（已超 distill 閾值）
+  - **紅旗 8 frontmatter category ≠ 檔案路徑分類**（new pattern，category-check.sh 必抓）：本 α session 5/6 idlccp1984 PR 命中（同上批次），Manus AI 預設亂寫 frontmatter category，verification_count = **5+**
+- **可能層級**：操作規則 → distill 到 MAINTAINER-PIPELINE §Manus AI 紅旗 pattern 段（既有 4 條擴充為 8 條 + polish action 重申）
+- **verification_count**: 5+ 對紅旗 7/8 / 2 對紅旗 5
+- **severity**: tactical（紅旗識別是操作層；但「polish > close 的 default action」是上述 structural META-PATTERN 的具體 instance）
+- **相關**：MAINTAINER-PIPELINE §Footnote source authority audit + §Manus AI 紅旗 pattern / β-r2 4 條 / κ +2 條 / 本 α +2 條 / EDITORIAL §十 footer 公約
+
+### 2026-04-29 α — 政治敏感題 SSODT 寫法 template（5-7 perspective 立體框架）
+
+- **原則**：政治敏感議題（兩岸 / 跨國爭議 / 宗教政治關係）的文章不該因 MANIFESTO §自主權邊界「政治立場」就拒絕寫，而是用 SSODT 多元視角立體寫法繞過二元對立。每篇至少 5-7 個 perspective 立體並列，每個視角獨立站得住、不互相消解，每個 perspective 配 3-5 個獨立 source（學術 / 主流媒體 / 政府 / 當事方 / 批評者）。**判準**：「一個原本支持 X 的讀者讀完不覺得在攻擊我們；一個原本批評 X 的讀者讀完不覺得在幫他們宣傳；一個對 X 完全陌生的讀者讀完，能自己決定要從哪個維度繼續想」。
+- **觸發鏈**：
+  - #0 (2026-04-29 α) #675 法輪功 invitation v1+v2 朝 5-7 perspective（修煉者 / 學者 / 記者 / 批評者 / 兩岸稜鏡 / 跨教派比較 / 數位媒體生態）方向
+  - #1 (2026-04-29 α) #687 吳百福「2300萬日圓買下張國文泡麵專利」跨國發明權爭議在 thanks comment 標明 SSODT 多視角待補（日本視角 / 第三方學者觀察 / 法律商業視角）
+  - 同 family 但獨立議題：#0 法輪功（兩岸宗教政治）+ #1 吳百福（跨國商業歷史權威）— 都觸發同 SSODT template
+- **可能層級**：哲學/操作規則跨層 → distill 到 EDITORIAL 作為「政治敏感題 SSODT 寫法 SOP」 + REWRITE-PIPELINE Stage 0 加敏感度判定觸發 SSODT template 引用
+- **verification_count**: 2（同 session 內兩個獨立議題；待第 3 次跨 session 驗證再升 canonical）
+- **severity**: structural（這是 Taiwan.md 處理政治/跨國爭議題的核心方法論，影響可信度）
+- **相關**：MANIFESTO §熱帶雨林理論 / MANIFESTO §自主權邊界 / EDITORIAL / DNA #16 peer 是 peer 不是 source
+
+### 2026-04-29 α — 讀者級 fact check 是熱帶雨林機制最有價值的入口
+
+- **原則**：DNA #16 延伸：事實驗證分讀者級（熟悉領域的人會直接知道對錯）vs 研究級（需要深度查詢）。讀者級 fact 研究 agent 不會主動懷疑、Stage 3.5 hallucination audit 不會 flag、Stage 3.6 story atom audit 漏抓 — 但讀者一眼看到就抓到。Taiwan.md 的熱帶雨林機制（讀者參與校正）對讀者級 fact 的捕捉率最高。**規則**：每篇音樂 / 體育 / 影視 / 流行文化 / 在地特色領域文章 ship 後，主動歡迎讀者 issue 校正，每次校正都當作「下次心跳必學的資料點」處理（fact fix + ⚠️ callout 保留證據鏈，不刪除）。
+- **觸發**：
+  - #0 (2026-04-15 β) #29 李洋 viral 「清晨四點多搭捷運」（捷運最早 6:00）— 第 0 次驗證
+  - #1 (2026-04-18 δ-late) 草東沒有派對 #33 貝斯手「黃 → 楊世暄」3h 內 @ste_ven_1487 抓到
+  - #2 (2026-04-29 α) Issue #680 @slashpot Leo 王《家常音樂》誤歸（實際蛋堡作品）— 「聽歌的人會直接知道對錯」是讀者級 fact 典型
+- **可能層級**：DNA + EDITORIAL + REWRITE-PIPELINE 跨層 → distill 到 DNA #16 延伸表（讀者級 vs 研究級驗證分層） + REWRITE-PIPELINE Stage 0 敏感度欄加「讀者級 fact 高密度領域」標籤觸發特別 verify
+- **verification_count**: 3（達閾值；DNA #16 既有，本條是延伸的 sub-pattern）
+- **severity**: structural（讀者信任是 Taiwan.md 生存層級的社會合約，per MANIFESTO §10）
+- **相關**：DNA #16 / DNA #23 毒樹果實鏈 / MANIFESTO §10 幻覺鐵律 / MANIFESTO §熱帶雨林理論 / [memory/feedback_no_scene_inference_from_english.md](feedback_no_scene_inference_from_english.md) （讀者級 fact 不從英文摘要推導）
+
+### 2026-04-29 α Phase 3 — 路徑大小寫不一致：git rename 自動 normalize（macOS vs Linux CI 風險）
+
+- **原則**：contributor 提交檔案路徑大小寫跟既有 canonical 不一致時（e.g. `knowledge/people/` vs canonical `knowledge/People/`），macOS case-insensitive filesystem 視為相同 path 不會炸 build；但 Linux CI 可能炸或 build 出兩個分裂的 category 頁。git squash merge 時通常會自動 normalize 到既有 canonical case，但這是隱性的 — 應主動驗證 `git ls-files` 確認最終 path case + 跑 build 在 Linux runner 確認沒分裂。
+- **觸發**：2026-04-29 α Phase 3 #685 楊致遠 PR 提交 `knowledge/people/楊致遠.md`（小寫）→ squash merge 後 git index 顯示 `knowledge/People/楊致遠.md`（大寫）→ macOS `git mv` 顯示 already exists → 確認 git 自動 normalize 完成。本案無 build 炸但下次遇到應主動 verify。
+- **可能層級**：操作規則 → distill 到 MAINTAINER-PIPELINE §Manus AI 紅旗段加 sub-rule「路徑大小寫對齊 canonical category folder」+ 跑 `git ls-files` 確認 + Linux CI build verify
+- **verification_count**: 1
+- **severity**: tactical（操作層；macOS 開發 + Linux CI 環境差是已知 Taiwan.md infra reality）
+- **相關**：DNA #19「大型 refactor 後必須 visual smoke test 多語言頁面」第 N 次延伸 / MAINTAINER-PIPELINE / category-check.sh
+
 ### 2026-04-28 ι Phase E — Pipeline 是被觀察者一句話一句話鋪出來的
 
 - **原則**：每次跟觀察者一起跑 SOP，他每提一個反饋（甚至看似 surface bug 的反饋如「這張切到了」「啥意思」）都揭露一個 structural pipeline 缺口。Surface bug 修法只解決單例；應該往 structural gap 找——通常會通向「整個階段沒 SOP」的根因，從而導向系統性升級。
