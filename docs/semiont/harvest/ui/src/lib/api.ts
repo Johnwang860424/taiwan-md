@@ -151,14 +151,27 @@ export const api = {
     ),
 
   /**
-   * Phase 5.1 (2026-04-30): hard-delete a task. Removes the SQLite row + the
-   * task folder under .harvest/tasks/. Returns 409 if task is currently
-   * spawning / in-progress (caller must cancel session first).
+   * Phase 5.1 (2026-04-30): SOFT delete by default — sets deleted_at on the
+   * task row; folder + sessions preserved; listTasks excludes from default scope.
+   * Returns 409 if task is currently spawning / in-progress.
+   * Pass hard=true to permanently purge (admin tooling).
    */
-  deleteTask: (id: string) =>
-    request<{ ok: boolean; id: string; folderRemoved: boolean }>(
-      `/api/tasks/${encodeURIComponent(id)}`,
-      { method: 'DELETE' },
+  deleteTask: (id: string, hard?: boolean) =>
+    request<{
+      ok: boolean;
+      id: string;
+      softDeleted?: boolean;
+      hardDeleted?: boolean;
+      folderRemoved?: boolean;
+    }>(`/api/tasks/${encodeURIComponent(id)}${hard ? '?hard=true' : ''}`, {
+      method: 'DELETE',
+    }),
+
+  /** Phase 5.1: restore a soft-deleted task back to live. */
+  restoreTask: (id: string) =>
+    request<{ ok: boolean; id: string; restored: boolean }>(
+      `/api/tasks/${encodeURIComponent(id)}/restore`,
+      { method: 'POST' },
     ),
 
   /** Bug 3 — SSE URL builder (consumed by EventSource directly). */

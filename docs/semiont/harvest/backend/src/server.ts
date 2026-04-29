@@ -18,6 +18,8 @@ import {
   reindexFromDisk,
   saveTask,
   deleteTask,
+  restoreTask,
+  hardDeleteTask,
 } from './tasks/manager.ts';
 import { isTaskPriority } from './tasks/types.ts';
 import { ArticleInboxAdapter } from './intake/article-inbox.ts';
@@ -124,7 +126,12 @@ app.get('/api/tasks', (c) => {
   const status = c.req.query('status');
   const priority = c.req.query('priority');
   const limit = c.req.query('limit');
+  // Phase 5.1: scope = 'live' (default) | 'all' | 'deleted'
+  const scopeRaw = c.req.query('scope');
+  const scope =
+    scopeRaw === 'all' || scopeRaw === 'deleted' ? scopeRaw : 'live';
   const tasks = listTasks({
+    scope,
     ...(status ? { status: status as never } : {}),
     ...(priority ? { priority } : {}),
     ...(limit ? { limit: Number(limit) } : {}),
@@ -190,12 +197,37 @@ app.post('/api/tasks', async (c) => {
 
 app.delete('/api/tasks/:id', (c) => {
   const id = c.req.param('id');
+  // Phase 5.1: ?hard=true escalates to permanent delete (admin tooling only).
+  const hard = c.req.query('hard') === 'true';
+  if (hard) {
+    const result = hardDeleteTask(id);
+    if (!result.ok) {
+      const status = result.reason === 'not found' ? 404 : 409;
+      return c.json({ error: result.reason }, status);
+    }
+    return c.json({
+      ok: true,
+      id,
+      hardDeleted: true,
+      folderRemoved: result.folderRemoved,
+    });
+  }
   const result = deleteTask(id);
   if (!result.ok) {
     const status = result.reason === 'not found' ? 404 : 409;
     return c.json({ error: result.reason }, status);
   }
-  return c.json({ ok: true, id, folderRemoved: result.folderRemoved });
+  return c.json({ ok: true, id, softDeleted: true });
+});
+
+app.post('/api/tasks/:id/restore', (c) => {
+  const id = c.req.param('id');
+  const result = restoreTask(id);
+  if (!result.ok) {
+    const status = result.reason === 'not found' ? 404 : 409;
+    return c.json({ error: result.reason }, status);
+  }
+  return c.json({ ok: true, id, restored: true });
 });
 
 app.post('/api/tasks/:id/cancel', (c) => {

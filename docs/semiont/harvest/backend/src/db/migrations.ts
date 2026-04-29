@@ -30,6 +30,10 @@ export function applyMigrations(db: Database): void {
   ensureColumn(db, 'sessions', 'worktree_path', 'TEXT');
   ensureColumn(db, 'sessions', 'worktree_branch', 'TEXT');
 
+  // Phase 5.1 (2026-04-30): soft delete on tasks (cheyu's request).
+  // deleted_at IS NULL → live; non-NULL → soft-deleted. listTasks excludes by default.
+  ensureColumn(db, 'tasks', 'deleted_at', 'TEXT');
+
   const row = db
     .query<
       { version: number },

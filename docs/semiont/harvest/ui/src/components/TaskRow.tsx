@@ -109,7 +109,9 @@ export default function TaskRow(props: {
     }
     if (
       typeof window !== 'undefined' &&
-      !window.confirm(`確定刪除任務「${t().title}」？此操作不可復原。`)
+      !window.confirm(
+        `確定刪除任務「${t().title}」？(soft delete — 可從 deleted 篩選還原)`,
+      )
     ) {
       return;
     }
