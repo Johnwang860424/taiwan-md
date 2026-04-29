@@ -78,23 +78,26 @@ function Inner() {
                      disabled:opacity-60 transition-colors"
               >
                 <div class="flex items-center gap-2">
-                  <span class="text-base">{p.emoji}</span>
+                  <span class="text-base shrink-0">{p.emoji}</span>
                   <span class="font-medium text-text-primary truncate flex-1">
                     {p.label}
                   </span>
+                </div>
+                <div class="flex items-center gap-1.5 mt-0.5 text-xs text-text-muted">
+                  <span class="shrink-0">{p.priority}</span>
+                  <span class="shrink-0">·</span>
+                  <span class="truncate flex-1">{p.taskType}</span>
                   <Show when={badge}>
                     {(b) => (
                       <span
-                        class={`text-[10px] px-1.5 py-0.5 rounded border ${modelBadgeClass(b().tone)}`}
+                        class={`text-[10px] px-1 py-px rounded border shrink-0 leading-tight ${modelBadgeClass(b().tone)}`}
                         title={b().full}
                       >
-                        {b().icon} {b().label}
+                        {b().icon}
+                        {b().label}
                       </span>
                     )}
                   </Show>
-                </div>
-                <div class="text-xs text-text-muted mt-0.5 truncate">
-                  {p.priority} · {p.taskType}
                 </div>
               </button>
             );
