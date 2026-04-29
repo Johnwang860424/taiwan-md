@@ -186,18 +186,60 @@ export async function spawnClaudeForTask(
   task.status = 'in-progress';
   saveTask(task, `claude session ${sessionId} starting`);
 
-  const logStream = createWriteStream(logPath, { flags: 'a' });
-  logStream.write(
-    `# session ${sessionId}\n# task ${task.id}\n# started ${spawnStartIso}\n# claude bin: ${config.claudeBin}\n\n`,
-  );
-
-  // stream-json gives realtime tool-call visibility; --verbose also enables stream
-  // for monitoring. UI / log tail sees every tool use as soon as it happens.
-  // Model selection: task.inputs.model overrides; default per task.type.
+  // Compute taskModel here so we can log it (also used in cliArgs below)
   const taskModel =
     (task.inputs?.model as string | undefined) ??
     DEFAULT_MODEL_BY_TYPE[task.type] ??
     'claude-sonnet-4-6';
+  const taskEngine = (task.inputs?.engine as string | undefined) ?? 'claude';
+  const gitHead = (() => {
+    try {
+      return require('node:child_process')
+        .execSync('git rev-parse --short HEAD', {
+          cwd: worktree?.path ?? config.repoRoot,
+          encoding: 'utf8',
+        })
+        .trim();
+    } catch {
+      return 'unknown';
+    }
+  })();
+
+  const logStream = createWriteStream(logPath, { flags: 'a' });
+  // Rich metadata header for future diagnostics: model attribution, timing,
+  // worktree branch, git head, task inputs snapshot. Anything we might want
+  // to grep later when comparing successful vs failed runs.
+  const metadataHeader = [
+    `# ═══ Session metadata ═══`,
+    `# session_id:        ${sessionId}`,
+    `# task_id:           ${task.id}`,
+    `# task_type:         ${task.type}`,
+    `# task_priority:     ${task.priority}`,
+    `# task_title:        ${task.title}`,
+    `# boot_profile:      ${task.boot_profile}`,
+    `# engine:            ${taskEngine}`,
+    `# model:             ${taskModel}`,
+    `# claude_bin:        ${config.claudeBin}`,
+    `# spawn_attempt:     ${task.attempts}`,
+    `# spawned_at_iso:    ${spawnStartIso}`,
+    `# spawned_at_local:  ${spawnedAt.toString()}`,
+    `# worktree_path:     ${worktree?.path ?? '(none)'}`,
+    `# worktree_branch:   ${worktree?.branch ?? '(none)'}`,
+    `# repo_head:         ${gitHead}`,
+    `# inputs:            ${JSON.stringify(task.inputs ?? {})}`,
+    `# host:              ${require('node:os').hostname()}`,
+    `# node_version:      ${process.version}`,
+    `# bun_version:       ${process.versions.bun ?? 'n/a'}`,
+    `# pid_parent:        ${process.pid}`,
+    `# ═════════════════════════`,
+    '',
+    '',
+  ].join('\n');
+  logStream.write(metadataHeader);
+
+  // stream-json gives realtime tool-call visibility; --verbose also enables stream
+  // for monitoring. UI / log tail sees every tool use as soon as it happens.
+  // taskModel was computed for metadata header above; reuse here for cliArgs.
   const cliArgs = [
     '--print',
     '--verbose',

@@ -106,12 +106,29 @@ python3 scripts/tools/lang-sync/optimized-translate.py assemble {{task.inputs.zh
 
 # Apply SHA bump
 bash scripts/tools/lang-sync/refresh.sh {{task.inputs.zh_path}} {{task.inputs.lang}} --apply --sha-only
+```
 
-# Verify ratio
-bash scripts/tools/translation-ratio-check.sh "$EN_PATH"
-# Verdict must be OK (not TRUNCATED / THIN)
+#### Step 6 — Hard-gate verify (MANDATORY before commit)
 
-# Commit
+```bash
+python3 scripts/tools/lang-sync/verify-translation.py {{task.inputs.zh_path}} "$EN_PATH"
+```
+
+**Exit code 0 (all PASS) or 2 (WARN only) = OK to commit. Exit 1 = HARD FAIL → fix.**
+
+Common hard failures + fix:
+
+- **passthrough fields drift** (author/subcategory/category changed): re-run assemble OR patch en frontmatter to match zh
+- **sourceCommitSha missing**: Step 5 `--apply --sha-only` failed → re-run
+- **frontmatter has zh CJK in title/description/imageAlt**: agent didn't translate → re-translate those strings
+- **footnote count mismatch**: definitions lost → re-translate body
+- **duplicate `_References:_`**: agent's body included refs separator → re-translate body without it
+
+**Only proceed to git commit AFTER verify returns 0 or 2.**
+
+#### Step 7 — Commit
+
+```bash
 git add "$EN_PATH" knowledge/_translations.json
 git commit -m "🧬 [semiont] heal: lang-sync 4-part refresh {{task.inputs.zh_path}} → {{task.inputs.lang}}
 
@@ -120,7 +137,7 @@ sid: [{{session_short}}]
 "
 ```
 
-#### Step 6 — Report to status.log
+#### Step 8 — Report to status.log
 
 Append one line:
 
