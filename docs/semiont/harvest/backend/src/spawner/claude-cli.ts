@@ -54,23 +54,47 @@ import { recordSpawnedSession } from '../scheduler/session-counter.ts';
  *     article-rewrite / article-evolve / article-new / pr-review /
  *     issue-handle / spore-publish / contributor-thank-you / self-diagnose
  */
-const DEFAULT_MODEL_BY_TYPE: Record<string, string> = {
-  // tier 2 — translation
-  'lang-sync-refresh': 'claude-sonnet-4-6',
-  'lang-sync-translate': 'claude-sonnet-4-6',
-  // tier 1 — mechanical
-  'data-refresh': 'claude-sonnet-4-6',
-  'format-check': 'claude-sonnet-4-6',
-  'status-report': 'claude-sonnet-4-6',
-  // tier 3 — heavy (default Opus)
-  'article-rewrite': 'claude-opus-4-6',
-  'article-evolve': 'claude-opus-4-6',
-  'article-new': 'claude-opus-4-6',
-  'pr-review': 'claude-opus-4-6',
-  'issue-handle': 'claude-opus-4-6',
-  'spore-publish': 'claude-opus-4-6',
-  'contributor-thank-you': 'claude-opus-4-6',
-  'self-diagnose': 'claude-opus-4-6',
+/**
+ * Default model lookup is engine-aware: claude / codex / ollama have
+ * different model namespaces. Picking sonnet for codex would be a 400.
+ */
+const DEFAULT_MODEL_BY_ENGINE_TYPE: Record<string, Record<string, string>> = {
+  claude: {
+    // tier 2 — translation (Sonnet)
+    'lang-sync-refresh': 'claude-sonnet-4-6',
+    'lang-sync-translate': 'claude-sonnet-4-6',
+    // tier 1 — mechanical (Sonnet)
+    'data-refresh': 'claude-sonnet-4-6',
+    'format-check': 'claude-sonnet-4-6',
+    'status-report': 'claude-sonnet-4-6',
+    // tier 3 — heavy (Opus)
+    'article-rewrite': 'claude-opus-4-6',
+    'article-evolve': 'claude-opus-4-6',
+    'article-new': 'claude-opus-4-6',
+    'pr-review': 'claude-opus-4-6',
+    'issue-handle': 'claude-opus-4-6',
+    'spore-publish': 'claude-opus-4-6',
+    'contributor-thank-you': 'claude-opus-4-6',
+    'self-diagnose': 'claude-opus-4-6',
+  },
+  codex: {
+    // codex CLI default model on ChatGPT account (gpt-5 / o3 etc auto)
+    // Leaving empty = let codex CLI use its account default; we just don't
+    // pass -m if no override. Spawner handles via taskModel === '' branch.
+    'lang-sync-refresh': '',
+    'lang-sync-translate': '',
+    'data-refresh': '',
+    'format-check': '',
+    'status-report': '',
+  },
+  ollama: {
+    // qwen3.5:35b-a3b-coding-nvfp4 is cheyu's local default for code/translation
+    'lang-sync-refresh': 'qwen3.5:35b-a3b-coding-nvfp4',
+    'lang-sync-translate': 'qwen3.5:35b-a3b-coding-nvfp4',
+    'data-refresh': 'qwen3.5:35b-a3b-coding-nvfp4',
+    'format-check': 'qwen3.5:35b-a3b-coding-nvfp4',
+    'status-report': 'qwen3.5:35b-a3b-coding-nvfp4',
+  },
 };
 
 /**
@@ -217,17 +241,20 @@ export async function spawnClaudeForTask(
   task.status = 'in-progress';
   saveTask(task, `claude session ${sessionId} starting`);
 
-  // Compute taskModel here so we can log it (also used in cliArgs below)
-  const taskModel =
-    (task.inputs?.model as string | undefined) ??
-    DEFAULT_MODEL_BY_TYPE[task.type] ??
-    'claude-sonnet-4-6';
-  // Engine selection: only allow non-claude on simple-tier task types.
-  // Heavy tasks (article-* / pr-review / etc) ignore engine override → claude.
+  // Engine selection (resolve FIRST so model lookup is engine-aware).
+  // Only simple-tier task types accept engine override; heavy tasks force claude.
   const requestedEngine =
     (task.inputs?.engine as string | undefined) ?? 'claude';
   const tier = ENGINE_ELIGIBLE_TIER[task.type];
   const taskEngine = tier === 'simple' ? requestedEngine : 'claude';
+
+  // Engine-aware default model lookup. Falls back to claude-sonnet-4-6 for
+  // unmapped task types on claude engine; codex / ollama use their own tables.
+  const engineDefaults = DEFAULT_MODEL_BY_ENGINE_TYPE[taskEngine] ?? {};
+  const taskModel =
+    (task.inputs?.model as string | undefined) ??
+    engineDefaults[task.type] ??
+    (taskEngine === 'claude' ? 'claude-sonnet-4-6' : '');
   const gitHead = (() => {
     try {
       return require('node:child_process')
