@@ -238,6 +238,7 @@ export const api = {
     boot_profile: string;
     priority: 'P0' | 'P1' | 'P2' | 'P3';
     title: string;
+    notes?: string;
     inputs?: Record<string, unknown>;
   }) =>
     request<{ id: string; status: string }>('/api/tasks', {
