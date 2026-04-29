@@ -24,35 +24,92 @@ import { getQueryClient } from '~/lib/query-client';
 import { QUICK_PRESETS, type QuickPreset } from '~/lib/quick-presets';
 
 /**
- * Per-engine model options (mirrors ManualInput MODELS_BY_ENGINE).
- * Keep in sync with backend DEFAULT_MODEL_BY_ENGINE_TYPE.
+ * Cross-engine model picker (Phase 5.1.x — cheyu: 「模型選取要包含 codex 的還有 ollama 的」).
+ *
+ * User picks a (engine, model) tuple from a single grouped dropdown. The tuple
+ * is encoded as `${engine}::${model}` for the option value (empty model =
+ * engine default). Submit handler decodes it back into inputs.engine + inputs.model.
+ *
+ * Each preset has an underlying eligibility constraint (mirrors backend
+ * ENGINE_ELIGIBLE_TIER): heavy task types force claude. The dropdown still
+ * shows codex/ollama rows but they're greyed out + non-selectable for those types.
  */
-const MODELS_BY_ENGINE: Record<string, { value: string; label: string }[]> = {
-  claude: [
-    { value: '', label: '(default by type)' },
-    { value: 'claude-sonnet-4-6', label: '🤖 sonnet 4.6' },
-    { value: 'claude-opus-4-6', label: '🧠 opus 4.6' },
-    { value: 'claude-haiku-4-5', label: '🪶 haiku 4.5' },
-  ],
-  codex: [
-    { value: '', label: 'auto (subscription default)' },
-    { value: 'gpt-5', label: 'gpt-5' },
-    { value: 'gpt-5.5', label: 'gpt-5.5' },
-    { value: 'gpt-5-mini', label: 'gpt-5-mini' },
-    { value: 'o3', label: 'o3' },
-  ],
-  ollama: [
-    { value: 'qwen3.5:35b-a3b-coding-nvfp4', label: 'qwen3.5 nvfp4' },
-    { value: 'qwen3.6:35b-a3b-coding-nvfp4', label: 'qwen3.6 nvfp4' },
-    { value: 'qwen3.6:35b-a3b-coding-mxfp8', label: 'qwen3.6 mxfp8' },
-    { value: 'gemma3:12b', label: 'gemma3 12b' },
-    { value: 'gpt-oss:20b', label: 'gpt-oss 20b' },
-  ],
-};
+interface ModelOption {
+  /** "engine::model" — model can be empty for engine default */
+  value: string;
+  label: string;
+  engine: 'claude' | 'codex' | 'ollama';
+  model: string;
+}
+
+const ENGINE_GROUPS: {
+  engine: 'claude' | 'codex' | 'ollama';
+  label: string;
+  options: { value: string; label: string }[];
+}[] = [
+  {
+    engine: 'claude',
+    label: '🤖 Claude',
+    options: [
+      { value: '', label: '(default by type)' },
+      { value: 'claude-sonnet-4-6', label: 'sonnet 4.6 (cheap)' },
+      { value: 'claude-opus-4-6', label: 'opus 4.6 (heavy)' },
+      { value: 'claude-haiku-4-5', label: 'haiku 4.5 (faster)' },
+    ],
+  },
+  {
+    engine: 'codex',
+    label: '⚙️ Codex (ChatGPT subscription, $0)',
+    options: [
+      { value: '', label: 'auto (~/.codex/config.toml)' },
+      { value: 'gpt-5', label: 'gpt-5' },
+      { value: 'gpt-5.5', label: 'gpt-5.5' },
+      { value: 'gpt-5-mini', label: 'gpt-5-mini' },
+      { value: 'o3', label: 'o3' },
+    ],
+  },
+  {
+    engine: 'ollama',
+    label: '🦙 Ollama (本機 RTX 3090, $0)',
+    options: [
+      { value: 'qwen3.5:35b-a3b-coding-nvfp4', label: 'qwen3.5 nvfp4' },
+      { value: 'qwen3.6:35b-a3b-coding-nvfp4', label: 'qwen3.6 nvfp4' },
+      { value: 'qwen3.6:35b-a3b-coding-mxfp8', label: 'qwen3.6 mxfp8' },
+      { value: 'gemma3:12b', label: 'gemma3 12b' },
+      { value: 'gpt-oss:20b', label: 'gpt-oss 20b' },
+    ],
+  },
+];
+
+/**
+ * Task types that accept non-claude engine override (mirrors backend
+ * ENGINE_ELIGIBLE_TIER in spawner/claude-cli.ts). Heavy tasks force claude.
+ */
+const ENGINE_OVERRIDE_OK = new Set([
+  'data-refresh',
+  'format-check',
+  'status-report',
+  'lang-sync-refresh',
+  'lang-sync-translate',
+]);
+
+/** Encode (engine, model) → option value. */
+function encodeOpt(engine: string, model: string): string {
+  return `${engine}::${model}`;
+}
+
+/** Decode option value → (engine, model). */
+function decodeOpt(value: string): { engine: string; model: string } {
+  const idx = value.indexOf('::');
+  if (idx < 0) return { engine: 'claude', model: value };
+  return {
+    engine: value.slice(0, idx),
+    model: value.slice(idx + 2),
+  };
+}
 
 /**
  * Infer current engine from preset.defaultInputs.engine, default 'claude'.
- * Used to scope the model picker dropdown.
  */
 function engineFor(p: QuickPreset): string {
   const e = p.defaultInputs?.engine;
@@ -75,9 +132,21 @@ function Inner() {
 
   const fire = useMutation(() => ({
     mutationFn: (preset: QuickPreset) => {
-      const overrideModel = modelOverrides()[preset.id];
+      const overrideValue = modelOverrides()[preset.id];
       const inputs = { ...(preset.defaultInputs ?? {}) };
-      if (overrideModel) inputs.model = overrideModel;
+      if (overrideValue) {
+        const { engine, model } = decodeOpt(overrideValue);
+        // Only emit engine override if heavy-task tier permits, else silently
+        // drop (backend would force claude anyway).
+        if (engine !== 'claude' && ENGINE_OVERRIDE_OK.has(preset.taskType)) {
+          inputs.engine = engine;
+        } else if (engine === 'claude') {
+          // Reset to claude default — clear any preset-level engine override
+          delete inputs.engine;
+        }
+        if (model) inputs.model = model;
+        else delete inputs.model;
+      }
       return api.createQuickTask({
         type: preset.taskType,
         boot_profile: preset.bootProfile,
@@ -124,13 +193,29 @@ function Inner() {
             const effectiveInputs = (): Record<string, unknown> => {
               const ovr = modelOverrides()[p.id];
               if (!ovr) return p.defaultInputs ?? {};
-              return { ...(p.defaultInputs ?? {}), model: ovr };
+              const { engine, model } = decodeOpt(ovr);
+              const out: Record<string, unknown> = {
+                ...(p.defaultInputs ?? {}),
+              };
+              if (engine !== 'claude') out.engine = engine;
+              else delete out.engine;
+              if (model) out.model = model;
+              else delete out.model;
+              return out;
             };
             const badge = (): ReturnType<typeof modelBadgeForTask> =>
               modelBadgeForTask(p.taskType, effectiveInputs());
-            const engine = engineFor(p);
-            const modelOptions =
-              MODELS_BY_ENGINE[engine] ?? MODELS_BY_ENGINE.claude!;
+            const overrideAllowed = ENGINE_OVERRIDE_OK.has(p.taskType);
+            const currentValue = (): string => {
+              const ovr = modelOverrides()[p.id];
+              if (ovr) return ovr;
+              const e = engineFor(p);
+              const m =
+                typeof p.defaultInputs?.model === 'string'
+                  ? (p.defaultInputs.model as string)
+                  : '';
+              return encodeOpt(e, m);
+            };
 
             return (
               <div
@@ -182,37 +267,56 @@ function Inner() {
                 </div>
                 <Show when={pickerOpen() === p.id}>
                   <div
-                    class="absolute top-7 right-1 z-10 min-w-[180px] py-1
+                    class="absolute top-7 right-1 z-10 min-w-[220px] py-1
                            border border-line rounded-md bg-bg-raised shadow-lg
-                           text-xs"
+                           text-xs max-h-[400px] overflow-y-auto"
                   >
-                    <div class="px-2 py-1 text-text-muted text-[10px] uppercase tracking-wide">
-                      {engine} · model
-                    </div>
-                    <For each={modelOptions}>
-                      {(opt) => {
-                        const current =
-                          modelOverrides()[p.id] ??
-                          (typeof p.defaultInputs?.model === 'string'
-                            ? (p.defaultInputs.model as string)
-                            : '');
-                        const isSelected = current === opt.value;
+                    <Show when={!overrideAllowed}>
+                      <div class="px-2 py-1 text-[10px] text-accent-amber border-b border-line/40">
+                        ⚠️ heavy task — backend forces claude (codex/ollama
+                        ignored)
+                      </div>
+                    </Show>
+                    <For each={ENGINE_GROUPS}>
+                      {(group) => {
+                        const isHeavyClause =
+                          !overrideAllowed && group.engine !== 'claude';
                         return (
-                          <button
-                            type="button"
-                            class={`block w-full text-left px-3 py-1 hover:bg-bg-input ${
-                              isSelected
-                                ? 'text-accent-green-soft font-medium'
-                                : 'text-text-primary'
-                            }`}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              setModel(p.id, opt.value);
-                            }}
-                          >
-                            {isSelected ? '✓ ' : '  '}
-                            {opt.label}
-                          </button>
+                          <div>
+                            <div class="px-2 py-1 text-text-muted text-[10px] uppercase tracking-wide bg-bg-input/30">
+                              {group.label}
+                            </div>
+                            <For each={group.options}>
+                              {(opt) => {
+                                const optValue = encodeOpt(
+                                  group.engine,
+                                  opt.value,
+                                );
+                                const isSelected = currentValue() === optValue;
+                                return (
+                                  <button
+                                    type="button"
+                                    class={`block w-full text-left px-3 py-1 hover:bg-bg-input ${
+                                      isSelected
+                                        ? 'text-accent-green-soft font-medium'
+                                        : isHeavyClause
+                                          ? 'text-text-muted opacity-50 cursor-not-allowed'
+                                          : 'text-text-primary'
+                                    }`}
+                                    disabled={isHeavyClause}
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      if (isHeavyClause) return;
+                                      setModel(p.id, optValue);
+                                    }}
+                                  >
+                                    {isSelected ? '✓ ' : '  '}
+                                    {opt.label}
+                                  </button>
+                                );
+                              }}
+                            </For>
+                          </div>
                         );
                       }}
                     </For>
