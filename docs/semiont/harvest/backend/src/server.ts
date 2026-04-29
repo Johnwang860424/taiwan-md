@@ -17,6 +17,7 @@ import {
   updateTaskStatus,
   reindexFromDisk,
   saveTask,
+  deleteTask,
 } from './tasks/manager.ts';
 import { isTaskPriority } from './tasks/types.ts';
 import { ArticleInboxAdapter } from './intake/article-inbox.ts';
@@ -185,6 +186,16 @@ app.post('/api/tasks', async (c) => {
         : undefined,
   });
   return c.json(task, 201);
+});
+
+app.delete('/api/tasks/:id', (c) => {
+  const id = c.req.param('id');
+  const result = deleteTask(id);
+  if (!result.ok) {
+    const status = result.reason === 'not found' ? 404 : 409;
+    return c.json({ error: result.reason }, status);
+  }
+  return c.json({ ok: true, id, folderRemoved: result.folderRemoved });
 });
 
 app.post('/api/tasks/:id/cancel', (c) => {

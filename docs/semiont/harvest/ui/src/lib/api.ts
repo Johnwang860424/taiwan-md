@@ -150,6 +150,17 @@ export const api = {
       { method: 'POST' },
     ),
 
+  /**
+   * Phase 5.1 (2026-04-30): hard-delete a task. Removes the SQLite row + the
+   * task folder under .harvest/tasks/. Returns 409 if task is currently
+   * spawning / in-progress (caller must cancel session first).
+   */
+  deleteTask: (id: string) =>
+    request<{ ok: boolean; id: string; folderRemoved: boolean }>(
+      `/api/tasks/${encodeURIComponent(id)}`,
+      { method: 'DELETE' },
+    ),
+
   /** Bug 3 — SSE URL builder (consumed by EventSource directly). */
   sessionLogStreamUrl: (sid: string): string =>
     `${API_BASE}/api/sessions/${encodeURIComponent(sid)}/log/stream`,

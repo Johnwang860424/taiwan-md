@@ -81,6 +81,41 @@ export default function TaskRow(props: {
     }
   };
 
+  const deleteMut = useMutation(() => ({
+    mutationFn: () => api.deleteTask(t().id),
+    onSuccess: () => {
+      void qc.invalidateQueries({ queryKey: ['tasks'] });
+      void qc.invalidateQueries({ queryKey: ['sessions', 'active'] });
+    },
+    onError: (err) => {
+      if (err instanceof ApiError) {
+        flashError(
+          err.status === 409
+            ? '409 · 進行中無法刪除（請先取消）'
+            : `delete 失敗 (${err.status})`,
+        );
+      } else {
+        flashError('delete 失敗 · 網路錯誤');
+      }
+    },
+  }));
+
+  const onDeleteClick = (e: MouseEvent): void => {
+    e.stopPropagation();
+    if (deleteMut.isPending) return;
+    if (myActive()) {
+      flashError('正在執行中 — 請先取消 session');
+      return;
+    }
+    if (
+      typeof window !== 'undefined' &&
+      !window.confirm(`確定刪除任務「${t().title}」？此操作不可復原。`)
+    ) {
+      return;
+    }
+    deleteMut.mutate();
+  };
+
   const spawnMut = useMutation(() => ({
     mutationFn: () =>
       api.spawnTask(t().id, { dry: isDryDispatch() ? true : false }),
@@ -229,23 +264,44 @@ export default function TaskRow(props: {
             ⏳ 進行中
           </span>
         </Show>
-        <Show when={!myActive() && eligible()}>
-          <button
-            type="button"
-            class={`btn ${spawnDisabled() ? '' : 'btn-primary'}`}
-            disabled={spawnDisabled()}
-            title={spawnTooltip()}
-            onClick={onSpawnClick}
-          >
-            <Show when={!spawnMut.isPending} fallback={<span>spawning…</span>}>
-              <span>▶️</span>
-              <span>執行</span>
-              <Show when={isDryDispatch()}>
-                <span class="text-[10px] opacity-70">(dry)</span>
+        <div class="flex items-center gap-1">
+          <Show when={!myActive() && eligible()}>
+            <button
+              type="button"
+              class={`btn ${spawnDisabled() ? '' : 'btn-primary'}`}
+              disabled={spawnDisabled()}
+              title={spawnTooltip()}
+              onClick={onSpawnClick}
+            >
+              <Show
+                when={!spawnMut.isPending}
+                fallback={<span>spawning…</span>}
+              >
+                <span>▶️</span>
+                <span>執行</span>
+                <Show when={isDryDispatch()}>
+                  <span class="text-[10px] opacity-70">(dry)</span>
+                </Show>
               </Show>
-            </Show>
-          </button>
-        </Show>
+            </button>
+          </Show>
+          <Show when={!myActive()}>
+            <button
+              type="button"
+              class="text-text-muted hover:text-accent-red disabled:opacity-40
+                     px-1.5 py-1 rounded hover:bg-accent-red/10 transition-colors
+                     text-sm leading-none"
+              disabled={deleteMut.isPending}
+              title="刪除任務（不可復原）"
+              onClick={onDeleteClick}
+              aria-label="delete task"
+            >
+              <Show when={!deleteMut.isPending} fallback={<span>…</span>}>
+                ✕
+              </Show>
+            </button>
+          </Show>
+        </div>
         <Show when={errMsg()}>
           <span class="text-[11px] text-accent-red max-w-[180px] text-right">
             {errMsg()}

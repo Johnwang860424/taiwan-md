@@ -191,6 +191,53 @@ export function saveTask(task: Task, statusNote?: string): void {
   upsertTaskRow(task);
 }
 
+/**
+ * Phase 5.1 (2026-04-30): hard-delete a task. Removes the SQLite row + the
+ * `.harvest/tasks/<id>/` folder (sessions + logs + brief). Returns true if
+ * something was actually removed, false if the task didn't exist.
+ *
+ * Refuses to delete if the task is currently spawning / in-progress (active
+ * session would leak). Caller must cancel first.
+ */
+export function deleteTask(id: string): {
+  ok: boolean;
+  reason?: string;
+  folderRemoved?: boolean;
+} {
+  const task = getTask(id);
+  if (!task) return { ok: false, reason: 'not found' };
+  if (task.status === 'spawning' || task.status === 'in-progress') {
+    return {
+      ok: false,
+      reason: `task is ${task.status} — cancel session first`,
+    };
+  }
+  const db = getDb();
+  // Cascade: sessions table has FK on task_id (or none — best-effort cleanup).
+  try {
+    db.run('DELETE FROM sessions WHERE task_id = ?', [id]);
+  } catch {
+    // older schema may not have sessions table or different FK setup; ignore
+  }
+  db.run('DELETE FROM tasks WHERE id = ?', [id]);
+  let folderRemoved = false;
+  if (task.folder_path && existsSync(task.folder_path)) {
+    try {
+      // Bun + Node support fs.rmSync recursive force; use it directly.
+      const { rmSync } = require('node:fs') as typeof import('node:fs');
+      rmSync(task.folder_path, { recursive: true, force: true });
+      folderRemoved = true;
+    } catch (err) {
+      log.warn(
+        { taskId: id, err: String(err) },
+        'task folder removal failed — DB row deleted but disk leftover',
+      );
+    }
+  }
+  log.info({ taskId: id, folderRemoved }, 'task deleted');
+  return { ok: true, folderRemoved };
+}
+
 function upsertTaskRow(task: Task): void {
   const db = getDb();
   db.run(
