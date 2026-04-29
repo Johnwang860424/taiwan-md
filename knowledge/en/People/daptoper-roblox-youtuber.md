@@ -2,7 +2,14 @@
 title: 'Daptoper: From "Dark Laptop" to One Million Subscribers — The Data Curator Who Defined the Roblox Generation'
 description: 'In 2023, YouTuber "Daptoper" (real name Chou Chih-Hsuan) hit one million YouTube subscribers. From early Minecraft streams to pioneering the Roblox blue ocean in Taiwan, this NTHU dropout turned a self-deprecating "always late" persona and obsessive data analysis into a digital community empire spanning published books and Discord.'
 date: 2026-04-24
-tags: ['YouTuber', 'Roblox', 'gaming-content-creator', 'digital-native', 'self-discipline']
+tags:
+  [
+    'YouTuber',
+    'Roblox',
+    'gaming-content-creator',
+    'digital-native',
+    'self-discipline',
+  ]
 subcategory: 'Digital & Media'
 category: 'People'
 author: 'Taiwan.md Translation Team'
@@ -11,6 +18,10 @@ lastVerified: 2026-04-24
 lastHumanReview: false
 featured: true
 translatedFrom: 'People/有感筆電.md'
+sourceCommitSha: 'd0ae0f3b'
+sourceContentHash: 'sha256:5a21ca32e8e63623'
+translatedAt: '2026-04-24T09:34:39+08:00'
+translatedFromInferred: false
 ---
 
 > **30-second overview:**
@@ -34,7 +45,7 @@ It was a calculated founder's stop-loss. As he once put it: "Passion is the base
 
 The name Daptoper combines "Dapt" with "Laptop," symbolizing his inseparable bond with his computer.[^6] On camera, he jokes about being perpetually late. Off camera, he is a relentless data obsessive.
 
-He turned gaming into curation. He would dissect the retention curve of every video, adjusting comedic beats down to the second. In 2023, he published *Don't Be Late This Time! Daptoper's Top 100 Must-Play Roblox Games* (《這次不遲到！有感筆電超激推100款ROBLOX絕讚遊戲》), which sold out its first print run immediately.[^7] In 2024, he released a sequel, converting digital influence into real momentum in the physical book market. His book-signing events drew crowds rivaling those of pop idols.
+He turned gaming into curation. He would dissect the retention curve of every video, adjusting comedic beats down to the second. In 2023, he published _Don't Be Late This Time! Daptoper's Top 100 Must-Play Roblox Games_ (《這次不遲到！有感筆電超激推100款ROBLOX絕讚遊戲》), which sold out its first print run immediately.[^7] In 2024, he released a sequel, converting digital influence into real momentum in the physical book market. His book-signing events drew crowds rivaling those of pop idols.
 
 ### The Community Empire and the "Daptoper Shaun" Incident
 
@@ -70,7 +81,7 @@ When we talk about Taiwan's digital culture, Chou Chih-Hsuan's story is a modern
 
 [^6]: [Why Daptoper's English Name Is "Daptoper" - YouTube](https://www.youtube.com/watch?v=oxsbtLjWO0s) — Explains the composition and symbolism of his stage name.
 
-[^7]: [Sharp Point Press - *Don't Be Late This Time! Daptoper's Top 100 Must-Play Roblox Games*](https://www.kingstone.com.tw/book/lb/) — Records the publication and market reception of his book.
+[^7]: [Sharp Point Press - _Don't Be Late This Time! Daptoper's Top 100 Must-Play Roblox Games_](https://www.kingstone.com.tw/book/lb/) — Records the publication and market reception of his book.
 
 [^8]: [Discord All-in-One Guidebook: Server Case Studies](https://www.kingstone.com.tw/basic/2013120692169/) — References the "Daptoper Corps" Discord server as a community management example.
 

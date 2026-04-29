@@ -120,6 +120,7 @@ function Inner() {
                         <div class="text-sm text-text-primary truncate mt-0.5">
                           {s.taskTitle}
                         </div>
+                        <LiveProgress sid={s.sessionId} />
                       </div>
                       <div class="text-right text-xs text-text-muted whitespace-nowrap">
                         <div>{elapsedSince(s.spawnedAt)}</div>
@@ -198,6 +199,90 @@ function Inner() {
         taskTitle={openLog()?.title}
         onClose={() => setOpenLog(null)}
       />
+    </div>
+  );
+}
+
+/**
+ * Inline live progress per active session — polls /api/sessions/:sid/log
+ * every 2s, parses last meaningful line (tool_use / tool_result / message
+ * delta / heartbeat marker) and shows it under the task title.
+ *
+ * stream-json output emits one JSON envelope per stdout line. We try to
+ * extract a human-readable summary from each.
+ */
+function LiveProgress(props: { sid: string }) {
+  const q = useQuery(() => ({
+    queryKey: ['session-log', props.sid],
+    queryFn: () => api.pollSessionLog(props.sid, 0),
+    refetchInterval: 2_000,
+    retry: 0,
+  }));
+
+  const summarize = (line: string): string | null => {
+    if (!line) return null;
+    // Try parse as stream-json envelope
+    try {
+      const obj = JSON.parse(line);
+      // tool_use blocks
+      if (obj.type === 'assistant' && obj.message?.content) {
+        for (const block of obj.message.content) {
+          if (block.type === 'tool_use') {
+            const name = block.name;
+            const input = block.input ?? {};
+            if (name === 'Bash')
+              return `🔧 Bash: ${(input.command ?? '').slice(0, 80)}`;
+            if (name === 'Read') return `📖 Read ${input.file_path ?? ''}`;
+            if (name === 'Edit') return `✏️  Edit ${input.file_path ?? ''}`;
+            if (name === 'Write') return `📝 Write ${input.file_path ?? ''}`;
+            if (name === 'Grep') return `🔍 Grep ${input.pattern ?? ''}`;
+            if (name === 'Glob') return `🔍 Glob ${input.pattern ?? ''}`;
+            return `🛠  ${name}`;
+          }
+          if (block.type === 'text' && block.text) {
+            const t = block.text.replace(/\s+/g, ' ').trim();
+            if (t) return `💭 ${t.slice(0, 100)}`;
+          }
+        }
+      }
+      if (obj.type === 'user' && obj.message?.content) {
+        for (const block of obj.message.content) {
+          if (
+            block.type === 'tool_result' &&
+            typeof block.content === 'string'
+          ) {
+            return `← ${block.content.slice(0, 80).replace(/\n/g, ' ')}`;
+          }
+        }
+      }
+      if (obj.type === 'stream_event' && obj.event?.delta?.text) {
+        const t = obj.event.delta.text.replace(/\s+/g, ' ').trim();
+        if (t) return `· ${t.slice(0, 80)}`;
+      }
+      if (obj.type === 'result') {
+        return obj.is_error ? `❌ ${obj.subtype ?? 'error'}` : `✅ done`;
+      }
+    } catch {
+      // Plain text line (header/footer/raw stderr)
+      const trimmed = line.trim();
+      if (!trimmed || trimmed.startsWith('#')) return null;
+      if (trimmed.length < 200) return `· ${trimmed}`;
+    }
+    return null;
+  };
+
+  const lastSummary = (): string => {
+    const lines = q.data?.lines ?? [];
+    for (let i = lines.length - 1; i >= 0; i--) {
+      const s = summarize(lines[i]);
+      if (s) return s;
+    }
+    return q.isPending ? '…' : '(waiting for first event)';
+  };
+
+  return (
+    <div class="text-xs text-accent-green-soft truncate mt-0.5 font-mono">
+      {lastSummary()}
     </div>
   );
 }

@@ -38,6 +38,23 @@ import {
 } from './concurrency.ts';
 import { createWorktree, finalizeWorktree, type Worktree } from './worktree.ts';
 
+/**
+ * Default model per task type. Translation tasks use Sonnet (faster + cheaper);
+ * content-writing / heavy reasoning still defaults to Opus via task.inputs.model
+ * override or the runtime claude CLI default.
+ */
+const DEFAULT_MODEL_BY_TYPE: Record<string, string> = {
+  'lang-sync-refresh': 'claude-sonnet-4-6',
+  'lang-sync-translate': 'claude-sonnet-4-6',
+  'data-refresh': 'claude-sonnet-4-6',
+  'format-check': 'claude-sonnet-4-6',
+  'spore-publish': 'claude-sonnet-4-6',
+  // Heavier task types let claude CLI default (Opus on Max subscription)
+  'article-rewrite': 'claude-opus-4-6',
+  'article-evolve': 'claude-opus-4-6',
+  'article-new': 'claude-opus-4-6',
+};
+
 export class ConcurrencyLimitError extends Error {
   constructor() {
     super('max concurrent sessions reached');
@@ -174,7 +191,23 @@ export async function spawnClaudeForTask(
     `# session ${sessionId}\n# task ${task.id}\n# started ${spawnStartIso}\n# claude bin: ${config.claudeBin}\n\n`,
   );
 
-  const cliArgs = ['--print', '--dangerously-skip-permissions'];
+  // stream-json gives realtime tool-call visibility; --verbose also enables stream
+  // for monitoring. UI / log tail sees every tool use as soon as it happens.
+  // Model selection: task.inputs.model overrides; default per task.type.
+  const taskModel =
+    (task.inputs?.model as string | undefined) ??
+    DEFAULT_MODEL_BY_TYPE[task.type] ??
+    'claude-sonnet-4-6';
+  const cliArgs = [
+    '--print',
+    '--verbose',
+    '--output-format',
+    'stream-json',
+    '--include-partial-messages',
+    '--model',
+    taskModel,
+    '--dangerously-skip-permissions',
+  ];
   if (process.env.ANTHROPIC_API_KEY) cliArgs.unshift('--bare');
   // Bug 2 v2: detached:true broke spawned claude (no controlling terminal →
   // stuck on stdin/keychain). Reverted. SIGINT cascade prevention is now done

@@ -96,3 +96,18 @@ profiles:
       - self-diagnose
       - daily-report-write
     estimated_tokens: 100000
+
+  translation-refresh:
+    description: zh-TW SSOT × translation projection 一致性更新（lang-sync toolkit Phase 2）
+    must_read:
+      - docs/semiont/MANIFESTO.md
+      - BECOME_TAIWANMD.md
+      - docs/prompts/TRANSLATE_PROMPT.md
+      - docs/pipelines/TRANSLATION-PIPELINE.md
+    optional_read:
+      - docs/editorial/EDITORIAL.md
+      - docs/editorial/TERMINOLOGY.md
+    typical_tasks:
+      - lang-sync-refresh
+      - lang-sync-translate
+    estimated_tokens: 18000

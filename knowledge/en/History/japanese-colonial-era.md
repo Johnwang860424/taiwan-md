@@ -9,6 +9,10 @@ author: Taiwan.md
 readingTime: 12
 featured: true
 translatedFrom: 'History/日治時期.md'
+sourceCommitSha: '3aba2ea3'
+sourceContentHash: 'sha256:fb4775ce7ce7538c'
+translatedAt: '2026-04-25T18:32:22+08:00'
+translatedFromInferred: false
 ---
 
 # Japanese Colonial Era
