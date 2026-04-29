@@ -26,8 +26,18 @@ export interface ActiveSession {
 
 const active = new Map<string, ActiveSession>();
 
+// Phase 5 (2026-04-29): runtime-overridable concurrency cap.
+// Default seeded from env (HARVEST_MAX_CONCURRENT) but UI / API can change.
+let currentMaxConcurrent = config.maxConcurrentSessions;
+
 export function maxConcurrent(): number {
-  return config.maxConcurrentSessions;
+  return currentMaxConcurrent;
+}
+
+export function setMaxConcurrent(n: number): number {
+  currentMaxConcurrent = Math.max(1, Math.min(20, Math.floor(n)));
+  log.info({ maxConcurrent: currentMaxConcurrent }, 'updated max concurrent');
+  return currentMaxConcurrent;
 }
 
 export function activeCount(): number {
@@ -50,7 +60,7 @@ export function activeForTask(taskId: string): ActiveSession | undefined {
 }
 
 export function canSpawn(): boolean {
-  return active.size < config.maxConcurrentSessions;
+  return active.size < currentMaxConcurrent;
 }
 
 export function register(session: ActiveSession): void {
@@ -60,7 +70,7 @@ export function register(session: ActiveSession): void {
       sessionId: session.sessionId,
       taskId: session.taskId,
       activeCount: active.size,
-      max: config.maxConcurrentSessions,
+      max: currentMaxConcurrent,
     },
     'session registered',
   );
@@ -74,13 +84,13 @@ export function register(session: ActiveSession): void {
  * unregister on failure). Returns false if at limit (no state changed).
  */
 export function tryRegister(session: ActiveSession): boolean {
-  if (active.size >= config.maxConcurrentSessions) {
+  if (active.size >= currentMaxConcurrent) {
     log.info(
       {
         sessionId: session.sessionId,
         taskId: session.taskId,
         activeCount: active.size,
-        max: config.maxConcurrentSessions,
+        max: currentMaxConcurrent,
       },
       'tryRegister rejected — at max concurrency',
     );
@@ -92,7 +102,7 @@ export function tryRegister(session: ActiveSession): boolean {
       sessionId: session.sessionId,
       taskId: session.taskId,
       activeCount: active.size,
-      max: config.maxConcurrentSessions,
+      max: currentMaxConcurrent,
     },
     'session registered',
   );

@@ -37,6 +37,7 @@ import {
   unregister as unregisterActive,
 } from './concurrency.ts';
 import { createWorktree, finalizeWorktree, type Worktree } from './worktree.ts';
+import { recordSpawnedSession } from '../scheduler/session-counter.ts';
 
 /**
  * Default model + engine per task type.
@@ -350,6 +351,15 @@ export async function spawnClaudeForTask(
   ]);
   setActivePhase(sessionId, 'in-progress', child.pid);
   log.info({ taskId: task.id, sessionId, pid: child.pid }, 'spawned claude');
+  // Phase 5: track session count → trigger Master Review every 10 sessions.
+  // Skip when the task itself is a self-diagnose / Master Review (no recursion).
+  if (task.type !== 'self-diagnose') {
+    try {
+      recordSpawnedSession();
+    } catch (err) {
+      log.warn({ err: String(err) }, 'session counter failed (non-fatal)');
+    }
+  }
 
   child.stdin.write(prompt);
   child.stdin.end();

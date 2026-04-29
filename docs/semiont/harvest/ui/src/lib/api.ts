@@ -154,7 +154,7 @@ export const api = {
   sessionLogStreamUrl: (sid: string): string =>
     `${API_BASE}/api/sessions/${encodeURIComponent(sid)}/log/stream`,
 
-  /** Phase 5 — auto-spawn runtime config (interval + countdown). */
+  /** Phase 5 — auto-spawn runtime config (interval + countdown + max concurrent). */
   schedulerConfig: () =>
     request<{
       paused: boolean;
@@ -162,6 +162,8 @@ export const api = {
       lastTickIso: string | null;
       nextTickInSec: number | null;
       running: boolean;
+      maxConcurrent: number;
+      activeCount: number;
     }>('/api/scheduler/config'),
 
   setSchedulerInterval: (intervalSec: number) =>
@@ -171,6 +173,16 @@ export const api = {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ intervalSec }),
+      },
+    ),
+
+  setMaxConcurrent: (maxConcurrent: number) =>
+    request<{ maxConcurrent: number; activeCount: number }>(
+      '/api/scheduler/config',
+      {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ maxConcurrent }),
       },
     ),
 

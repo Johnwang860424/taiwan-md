@@ -62,6 +62,33 @@ function Inner() {
     },
   }));
 
+  const setMax = useMutation(() => ({
+    mutationFn: (n: number) => api.setMaxConcurrent(n),
+    onSettled: () => {
+      void qc.invalidateQueries({ queryKey: ['scheduler', 'config'] });
+      void qc.invalidateQueries({ queryKey: ['sessions', 'active'] });
+    },
+  }));
+
+  const pauseMut = useMutation(() => ({
+    mutationFn: () => api.pause(),
+    onSettled: () => {
+      void qc.invalidateQueries({ queryKey: ['scheduler', 'config'] });
+      void qc.invalidateQueries({ queryKey: ['health'] });
+    },
+  }));
+  const resumeMut = useMutation(() => ({
+    mutationFn: () => api.resume(),
+    onSettled: () => {
+      void qc.invalidateQueries({ queryKey: ['scheduler', 'config'] });
+      void qc.invalidateQueries({ queryKey: ['health'] });
+    },
+  }));
+  const scanMut = useMutation(() => ({
+    mutationFn: () => api.intakeScan(),
+    onSuccess: () => void qc.invalidateQueries({ queryKey: ['tasks'] }),
+  }));
+
   const intervalChoices: { label: string; sec: number }[] = [
     { label: '1m', sec: 60 },
     { label: '5m', sec: 300 },
@@ -69,6 +96,8 @@ function Inner() {
     { label: '30m', sec: 1800 },
     { label: '60m', sec: 3600 },
   ];
+
+  const concurrencyChoices: number[] = [1, 2, 3, 5, 8, 10];
 
   const types = (): typeof q.data extends undefined
     ? []
@@ -130,6 +159,69 @@ function Inner() {
                   ⚠️ scheduler paused — 暫停期間不會 auto-spawn
                 </div>
               </Show>
+              {/* Max concurrent agents */}
+              <div class="flex items-center gap-1 pt-1 border-t border-line/40">
+                <span class="text-xs text-text-muted">max agents:</span>
+                <For each={concurrencyChoices}>
+                  {(n) => (
+                    <button
+                      type="button"
+                      class={`text-xs px-1.5 py-0.5 rounded border transition-colors ${
+                        cfg.maxConcurrent === n
+                          ? 'border-accent-green text-accent-green bg-accent-green/10'
+                          : 'border-line text-text-muted hover:border-accent-green/40'
+                      }`}
+                      disabled={setMax.isPending}
+                      onClick={() => setMax.mutate(n)}
+                    >
+                      {n}
+                    </button>
+                  )}
+                </For>
+                <span class="ml-auto text-xs text-text-muted">
+                  {cfg.activeCount}/{cfg.maxConcurrent} active
+                </span>
+              </div>
+              {/* Pause / resume / scan inbox */}
+              <div class="flex items-center gap-1 pt-1 border-t border-line/40 flex-wrap">
+                <span class="text-xs text-text-muted mr-1">control:</span>
+                <Show
+                  when={!cfg.paused}
+                  fallback={
+                    <button
+                      type="button"
+                      class="text-xs px-2 py-0.5 rounded border border-line hover:border-accent-green text-accent-green-soft"
+                      disabled={resumeMut.isPending}
+                      onClick={() => resumeMut.mutate()}
+                    >
+                      ▶ resume
+                    </button>
+                  }
+                >
+                  <button
+                    type="button"
+                    class="text-xs px-2 py-0.5 rounded border border-line hover:border-accent-red text-text-muted hover:text-accent-red"
+                    disabled={pauseMut.isPending}
+                    onClick={() => pauseMut.mutate()}
+                  >
+                    ⏸ pause
+                  </button>
+                </Show>
+                <button
+                  type="button"
+                  class="text-xs px-2 py-0.5 rounded border border-line hover:border-accent-blue text-text-muted hover:text-accent-blue"
+                  disabled={scanMut.isPending}
+                  onClick={() => scanMut.mutate()}
+                  title="scan ARTICLE-INBOX"
+                >
+                  🔄 scan inbox
+                </button>
+                <Show when={scanMut.isSuccess}>
+                  <span class="text-xs text-text-muted">
+                    · {scanMut.data?.detected ?? 0} new
+                  </span>
+                </Show>
+              </div>
             </div>
           );
         })()}

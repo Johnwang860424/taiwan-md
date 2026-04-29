@@ -52,6 +52,9 @@ import {
   killSession,
   activeForTask,
   unregister,
+  maxConcurrent,
+  setMaxConcurrent,
+  activeCount,
 } from './spawner/concurrency.ts';
 import { listTypePolicies, setTypePolicy } from './scheduler/type-policy.ts';
 import * as fs from 'node:fs';
@@ -480,21 +483,37 @@ app.get('/api/scheduler/types', (c) => {
   return c.json({ count: policies.length, types: policies });
 });
 
-/** Phase 5 — auto-spawn runtime config (interval + countdown). */
+/** Phase 5 — auto-spawn runtime config (interval + countdown + max concurrent). */
 app.get('/api/scheduler/config', (c) => {
   return c.json({
     paused: isPaused(),
+    maxConcurrent: maxConcurrent(),
+    activeCount: activeCount(),
     ...getAutoSpawnRuntime(),
   });
 });
 
 app.patch('/api/scheduler/config', async (c) => {
   const body = await c.req.json().catch(() => null);
-  if (!body || typeof body.intervalSec !== 'number') {
-    return c.json({ error: 'intervalSec number required (min 30)' }, 400);
+  if (!body || typeof body !== 'object') {
+    return c.json({ error: 'expected { intervalSec? maxConcurrent? }' }, 400);
   }
-  const applied = setAutoSpawnInterval(body.intervalSec);
-  return c.json({ intervalSec: applied, ...getAutoSpawnRuntime() });
+  const out: Record<string, number> = {};
+  if (typeof body.intervalSec === 'number') {
+    out.intervalSec = setAutoSpawnInterval(body.intervalSec);
+  }
+  if (typeof body.maxConcurrent === 'number') {
+    out.maxConcurrent = setMaxConcurrent(body.maxConcurrent);
+  }
+  if (Object.keys(out).length === 0) {
+    return c.json({ error: 'nothing to update' }, 400);
+  }
+  return c.json({
+    ...out,
+    ...getAutoSpawnRuntime(),
+    maxConcurrent: maxConcurrent(),
+    activeCount: activeCount(),
+  });
 });
 
 app.patch('/api/scheduler/types/:type', async (c) => {

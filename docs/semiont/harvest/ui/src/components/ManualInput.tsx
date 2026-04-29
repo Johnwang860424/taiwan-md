@@ -222,50 +222,7 @@ function Inner() {
         </div>
       </form>
 
-      {/* Compact pause/resume + scan — full scheduler controls live in
-          right-column SchedulerControl panel. */}
-      <div class="border-t border-line pt-2 mt-2 flex items-center gap-2 text-xs flex-wrap">
-        <span class="text-text-muted">scheduler:</span>
-        <Show
-          when={health.data?.scheduler_paused}
-          fallback={
-            <span class="text-accent-green-soft font-medium">▶ running</span>
-          }
-        >
-          <span class="text-accent-orange font-medium">⏸ paused</span>
-        </Show>
-        <Show when={!health.data?.scheduler_paused}>
-          <button
-            class="px-2 py-0.5 rounded border border-line hover:border-accent-red text-text-muted hover:text-accent-red"
-            disabled={pauseMut.isPending}
-            onClick={() => pauseMut.mutate()}
-          >
-            pause
-          </button>
-        </Show>
-        <Show when={health.data?.scheduler_paused}>
-          <button
-            class="px-2 py-0.5 rounded border border-line hover:border-accent-green text-text-muted hover:text-accent-green-soft"
-            disabled={resumeMut.isPending}
-            onClick={() => resumeMut.mutate()}
-          >
-            resume
-          </button>
-        </Show>
-        <button
-          class="px-2 py-0.5 rounded border border-line hover:border-accent-blue text-text-muted hover:text-accent-blue"
-          disabled={scanMut.isPending}
-          onClick={() => scanMut.mutate()}
-          title="scan ARTICLE-INBOX for new entries"
-        >
-          🔄 scan inbox
-        </button>
-        <Show when={scanMut.isSuccess}>
-          <span class="text-text-muted">
-            · {scanMut.data?.detected ?? 0} new
-          </span>
-        </Show>
-      </div>
+      {/* Scheduler control moved to right-column SchedulerControl panel */}
     </div>
   );
 }

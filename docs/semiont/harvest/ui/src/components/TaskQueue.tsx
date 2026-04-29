@@ -92,9 +92,17 @@ function Inner() {
 
   const filtered = createMemo<Task[]>(() => {
     const tasks = q.data?.tasks ?? [];
+    const sf = statusF();
     return tasks
       .filter((t) => {
-        if (statusF() !== 'all' && t.status !== statusF()) return false;
+        // Skip in-progress / spawning by default — they live in 今日任務 above.
+        // User can still see them by selecting status filter explicitly.
+        if (
+          sf === 'all' &&
+          (t.status === 'in-progress' || t.status === 'spawning')
+        )
+          return false;
+        if (sf !== 'all' && t.status !== sf) return false;
         if (priorityF() !== 'all' && t.priority !== priorityF()) return false;
         if (
           typeF() &&
@@ -154,43 +162,24 @@ function Inner() {
       </Show>
 
       <Show when={!q.isPending && !q.isError}>
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm">
-            <thead>
-              <tr class="text-left text-xs uppercase tracking-wider text-text-muted border-b border-line">
-                <th class="py-2 pr-2">type</th>
-                <th class="py-2 pr-2">status</th>
-                <th class="py-2 pr-2">P</th>
-                <th class="py-2 pr-2 w-full">title</th>
-                <th class="py-2 pr-2">age</th>
-                <th class="py-2 pr-2 text-right">action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <For each={filtered()}>
-                {(t) => (
-                  <SpawnRow
-                    task={t}
-                    active={activeByTask().get(t.id)}
-                    atCapacity={atCapacity()}
-                    maxConcurrent={sessionsQ.data?.max ?? 3}
-                    onOpen={() => setOpenId(t.id)}
-                  />
-                )}
-              </For>
-              <Show when={filtered().length === 0}>
-                <tr>
-                  <td
-                    colSpan={6}
-                    class="py-6 text-center text-text-muted text-sm"
-                  >
-                    沒有符合條件的任務
-                  </td>
-                </tr>
-              </Show>
-            </tbody>
-          </table>
-        </div>
+        <ul class="space-y-1.5">
+          <For each={filtered()}>
+            {(t) => (
+              <SpawnRow
+                task={t}
+                active={activeByTask().get(t.id)}
+                atCapacity={atCapacity()}
+                maxConcurrent={sessionsQ.data?.max ?? 3}
+                onOpen={() => setOpenId(t.id)}
+              />
+            )}
+          </For>
+          <Show when={filtered().length === 0}>
+            <li class="py-6 text-center text-text-muted text-sm">
+              沒有符合條件的任務
+            </li>
+          </Show>
+        </ul>
       </Show>
 
       <TaskDetailDrawer taskId={openId()} onClose={() => setOpenId(null)} />
@@ -309,53 +298,48 @@ function SpawnRow(props: {
   };
 
   return (
-    <tr
-      class={`border-b border-line/60 cursor-pointer ${
-        props.active ? 'bg-accent-amber/5' : 'hover:bg-bg-raised'
+    <li
+      class={`flex items-center gap-2 px-2 py-1.5 rounded border cursor-pointer transition-colors ${
+        props.active
+          ? 'border-accent-amber/40 bg-accent-amber/5'
+          : 'border-transparent hover:border-line hover:bg-bg-raised'
       }`}
       onClick={() => props.onOpen()}
     >
-      <td class="py-2 pr-2 whitespace-nowrap">
+      <Show when={props.active}>
+        <span
+          class={`inline-block w-1.5 h-1.5 rounded-full shrink-0 animate-pulse ${
+            props.active!.phase === 'spawning'
+              ? 'bg-accent-amber'
+              : 'bg-accent-green'
+          }`}
+          aria-hidden="true"
+        />
+      </Show>
+      <span class="text-base shrink-0" title={props.task.type}>
+        {typeEmoji(props.task.type)}
+      </span>
+      <span class={`pill shrink-0 ${priorityBadgeClass(props.task.priority)}`}>
+        {props.task.priority}
+      </span>
+      <span class={`pill shrink-0 ${statusBadgeClass(props.task.status)}`}>
+        {props.task.status}
+      </span>
+      <div class="min-w-0 flex-1">
+        <div class="text-sm text-text-primary truncate">{props.task.title}</div>
+        <div class="text-[11px] text-text-muted truncate">
+          {props.task.type} · {relativeTime(props.task.created_at)}
+          <Show when={props.active}>
+            {' · '}
+            <span class="text-accent-amber">
+              ✦ {props.active!.phase} · {elapsedSince(props.active!.spawnedAt)}
+            </span>
+          </Show>
+        </div>
+      </div>
+      <div class="shrink-0">
         <Show when={props.active}>
-          <span
-            class={`inline-block w-1.5 h-1.5 rounded-full mr-1 align-middle animate-pulse ${
-              props.active!.phase === 'spawning'
-                ? 'bg-accent-amber'
-                : 'bg-accent-green'
-            }`}
-            aria-hidden="true"
-          />
-        </Show>
-        <span class="mr-1">{typeEmoji(props.task.type)}</span>
-        <span class="text-xs text-text-muted">{props.task.type}</span>
-      </td>
-      <td class="py-2 pr-2">
-        <span class={`pill ${statusBadgeClass(props.task.status)}`}>
-          {props.task.status}
-        </span>
-      </td>
-      <td class="py-2 pr-2">
-        <span class={`pill ${priorityBadgeClass(props.task.priority)}`}>
-          {props.task.priority}
-        </span>
-      </td>
-      <td class="py-2 pr-2 max-w-md">
-        <div class="truncate">{props.task.title}</div>
-        <Show when={props.active}>
-          <div class="text-xs text-accent-amber mt-0.5">
-            ✦ {props.active!.phase} · {elapsedSince(props.active!.spawnedAt)}
-          </div>
-        </Show>
-      </td>
-      <td class="py-2 pr-2 text-xs text-text-muted whitespace-nowrap">
-        {relativeTime(props.task.created_at)}
-      </td>
-      <td class="py-2 pr-2 text-right whitespace-nowrap">
-        <Show when={props.active}>
-          <span
-            class="pill bg-accent-amber/15 text-accent-amber border border-accent-amber/40"
-            title="cancel coming in Phase 3"
-          >
+          <span class="pill bg-accent-amber/15 text-accent-amber border border-accent-amber/40 text-[11px]">
             ⏳ 進行中
           </span>
         </Show>
@@ -367,19 +351,16 @@ function SpawnRow(props: {
             title={tooltip()}
             onClick={onSpawnClick}
           >
-            <Show when={!spawnMut.isPending} fallback={<span>spawning…</span>}>
-              <span>▶️ 執行</span>
-              <Show when={isDryDispatch()}>
-                <span class="text-[10px] opacity-70 ml-1">(dry)</span>
-              </Show>
+            <Show when={!spawnMut.isPending} fallback={<span>…</span>}>
+              <span>▶️</span>
             </Show>
           </button>
         </Show>
         <Show when={errMsg()}>
           <div class="text-[11px] text-accent-red mt-0.5">{errMsg()}</div>
         </Show>
-      </td>
-    </tr>
+      </div>
+    </li>
   );
 }
 
