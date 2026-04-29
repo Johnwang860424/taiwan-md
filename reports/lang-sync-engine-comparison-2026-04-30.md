@@ -1,4 +1,4 @@
-# Lang-Sync Engine Comparison — 2026-04-30 v1 (in-flight, awaiting T2 codex re-spawn)
+# Lang-Sync Engine Comparison — 2026-04-30 v2 (T2 codex re-spawn complete)
 
 > **session**: 2026-04-30 morning, harvest captain's bridge Phase 5.1 ship
 > **接續**: [reports/lang-sync-handoff-2026-04-29.md](lang-sync-handoff-2026-04-29.md) §4 (test design)
@@ -69,7 +69,7 @@
 
 ---
 
-## 3. T2 — codex (疊杯) ❌ → re-spawn pending
+## 3. T2 — codex (疊杯) ❌ first attempt → ✅ v2 re-spawn after fix
 
 **Status**: `failed` / `exit_code: 1` after **5 seconds** at 2026-04-29 22:28:03 +0800.
 
@@ -100,6 +100,35 @@ const taskModel = task.inputs?.model ?? engineDefaults[task.type] ??
 ```
 
 **Re-spawn after backend restart**: T2 (疊杯.md missing → en, codex engine, no explicit model) should now spawn without `-m` flag → codex uses ChatGPT subscription default. Expected wall-clock unknown (this is the data point we still need).
+
+### 3b. T2 v2 result (re-spawn task `2026-04-29-016`) ✅
+
+**Status**: `done` / `exit_code: 0` / commit `8ff69db5` on worktree branch (not yet auto-merged to main — engine handles).
+
+| Metric                    | Value                                                                 |
+| ------------------------- | --------------------------------------------------------------------- |
+| Wall-clock                | **5m 22s** (23:06:45 → 23:12:08, slightly faster than Sonnet's 5m50s) |
+| Engine                    | codex (CLI metadata.model: empty — auto-routed)                       |
+| Turns                     | 47 (item_0 → item_47)                                                 |
+| Input tokens (turn-final) | 1,288,513 total (cached 1,123,456 = 87% cache hit)                    |
+| Output tokens             | 10,147                                                                |
+| Reasoning tokens          | 3,138                                                                 |
+| Cost                      | **$0 incremental** (ChatGPT subscription flat $20/mo)                 |
+| Verify final exit         | **2 (WARN — ratio unclear; all 14 hard gates ✅)**                    |
+| Translation ratio         | 3,376 → 8,556 chars = **2.53** ⚠️ (way over 0.65-1.30 guideline)      |
+| Output committed?         | ✅ — `knowledge/en/Society/sport-stacking.md` (78 lines)              |
+
+**Phase 5.1 fix confirmed working**: codex spawned without `-m` flag, ChatGPT subscription default model picked up automatically. Zero startup error.
+
+**Codex agent behavior observations**:
+
+- More structured turn flow than Sonnet — used `agent_message` summaries between major phases ("I'll run as narrow lang-sync...", "The assembler produced... I'm adding the source pointer...", "Verification found expected hard failure...").
+- Hit the same `refresh.sh --apply --sha-only doesn't insert missing fields` issue that Sonnet did — diagnosed it correctly and manually patched.
+- Properly stopped before commit when verify exit 1 (caught 3 hard fails, applied targeted fixes — translatedFrom + sourceCommitSha + sourceContentHash + translatedAt manual inject).
+- Final verify exit 2 → committed per spec.
+- One sandbox quirk: couldn't write to `.harvest/tasks/.../status.log` (permission denied — codex sandbox limits writes outside worktree). Docs as known issue, not a blocker.
+
+**Translation quality concern**: ratio 2.53 = codex expanded zh prose by 2.5x. Sonnet's 1.47 was already slightly above guideline (1.3); codex doubled it. Sample read of `sport-stacking.md` shows codex elaborated context (added "competitive sport involving..." + "originating in California in the 1980s..." style framing) where the zh was tighter. **This is the kind of drift Phase 5.1 craft principle 1 ("Faithfulness over polish") was meant to prevent** — but the prompt was loaded _during_ this run, so either (a) codex didn't internalize the rule strongly, or (b) ratio guardrail needs to be a hard gate not a warn.
 
 ---
 
@@ -136,49 +165,63 @@ Both are HARD FAIL because `passthrough fields` rule (verify check #7) requires 
 
 ---
 
-## 5. Comparative analysis (T1 + T3 only — T2 pending)
+## 5. Comparative analysis (3 engines, all data captured)
 
-| Dimension                    | claude-sonnet                | ollama qwen-35b                                 |
-| ---------------------------- | ---------------------------- | ----------------------------------------------- |
-| **Wall-clock**               | 5m 50s                       | 4m 49s (slightly faster — no network latency)   |
-| **Cost / article**           | $1.31                        | $0 (本機 power 不計)                            |
-| **Cost / 597 articles**      | ~$782                        | $0 (但 power + 本機可用性)                      |
-| **Turns**                    | 53                           | ~96 (本機 reasoning model 比 cloud 多)          |
-| **Final commit**             | ✅ Verify PASS (exit 2)      | ⚠️ Committed despite verify FAIL                |
-| **Passthrough rule respect** | ✅ Inferred from verify      | ❌ Translated CJK to English/Pinyin             |
-| **CJK title fix**            | ✅ Auto-fixed                | unknown (didn't fail this check)                |
-| **Cross-link resolution**    | ✅ Used pre-resolved en URLs | ✅ (assembler handled)                          |
-| **Ratio compliance**         | 1.47 (slightly high)         | unknown (verify failed earlier)                 |
-| **Tool use reliability**     | ✅ All Bash succeeded        | ⚠️ 7+ failed sed (zsh quote escaping issues)    |
-| **Codex CLI startup error**  | n/a                          | ⚠️ "failed to refresh available models" warning |
+| Dimension                        | claude-sonnet (T1)           | codex auto (T2 v2)             | ollama qwen-35b (T3)             |
+| -------------------------------- | ---------------------------- | ------------------------------ | -------------------------------- |
+| **Wall-clock**                   | 5m 50s                       | **5m 22s** (fastest)           | 4m 49s (no network)              |
+| **Cost / article (incremental)** | $1.31                        | **$0** (subscription flat)     | **$0** (本機 power 不計)         |
+| **Cost / 597 articles**          | ~$782                        | $0 (within subscription cap)   | $0 (本機 + power)                |
+| **Turns**                        | 53                           | 47 (most efficient)            | ~96 (本機 reasoning slow)        |
+| **Final commit**                 | ✅ Verify PASS (exit 2)      | ✅ Verify PASS (exit 2)        | ⚠️ Committed despite verify FAIL |
+| **Passthrough rule respect**     | ✅ Inferred from verify      | ✅ Properly handled            | ❌ Translated CJK to English     |
+| **CJK title fix**                | ✅ Auto-fixed                | ✅ Worked correctly            | unknown                          |
+| **Cross-link resolution**        | ✅ Used pre-resolved en URLs | ✅ Used pre-resolved en URLs   | ✅ (assembler handled)           |
+| **Ratio compliance**             | 1.47 (slightly high)         | **2.53 ⚠️ way over guideline** | unknown (verify failed earlier)  |
+| **Tool use reliability**         | ✅ All Bash succeeded        | ✅ All commands succeeded      | ⚠️ 7+ failed sed (zsh escapes)   |
+| **Sandbox / startup**            | ✅ Clean                     | ⚠️ status.log write denied     | ⚠️ codex CLI model-list error    |
+| **Missing-case SHA inject**      | ✅ Manual                    | ✅ Manual (same fix)           | ⚠️ Forced through despite fail   |
 
 **Headlines**:
 
-1. **Sonnet is more expensive but more reliable** — ~$1.30/article × 597 = ~$780 for full sync. Verify pass rate ~100%. Output ready for production with no human review.
+1. **Sonnet is the gold standard but expensive** — ~$1.30/article × 597 = ~$782 for full sync. Verify pass rate ~100%. Ratio 1.47 slightly above 1.3 guideline. Output ready for production with no human review.
 
-2. **Ollama qwen is free but produces partial-quality output** — Pre-Phase 5.1 prompt led to 1 HARD FAIL on passthrough rule. Post-Phase 5.1 prompt should fix this — but it needs re-test, and we don't yet know if qwen will hit other failure modes (footnote count, section count, URL count, ratio).
+2. **Codex (ChatGPT subscription) is FREE and works correctly — but expands too aggressively** — Phase 5.1 spawner fix unblocked codex (was a 5-sec 400 before). Codex passes verify, properly handles passthrough rules, uses fewer turns (47 vs 53). **But ratio 2.53 is the dealbreaker**: codex elaborates zh prose by 2.5x. For Taiwan.md's faithfulness-over-polish craft principle, this drift makes codex output feel like "AI re-wrote the article" rather than "AI translated the article". Worth retesting on a longer article (codex may behave better when there's more source to anchor against).
 
-3. **Qwen sed reliability issue** — Multiple sed commands failed due to zsh quote escaping (specifically `\\\\\\\\` patterns). Sonnet didn't hit this because it preferred Edit tool over sed. Suggests qwen may need explicit "prefer Edit tool over sed for frontmatter fixes" hint in prompt.
+3. **Ollama qwen is free but produces partial-quality output** — Pre-Phase 5.1 prompt led to 1 HARD FAIL on passthrough rule (Qwen translated `subcategory: '人工智慧'` → English/Pinyin). Post-Phase 5.1 prompt with craft principle 5 should fix this — but it needs re-test, and we don't yet know if qwen will hit other failure modes (footnote count, section count, URL count, ratio).
 
-4. **Codex (ChatGPT subscription) was uncacheable** — 5-second 400 fail before any meaningful work happened. The fix is shipped; data point still missing.
+4. **Qwen sed reliability issue** — Multiple sed commands failed due to zsh quote escaping. Sonnet/Codex didn't hit this because both preferred Edit tool (or used cleaner Bash). Suggests qwen needs explicit "prefer Edit tool over sed for frontmatter fixes" hint in prompt.
 
 ---
 
-## 6. Decision criteria for batch (preliminary)
+## 6. Decision criteria for batch (post-T2-v2 update)
 
 **For 5-task batch this morning** (cheyu's preferred next step):
 
-- **Recommend: claude-sonnet-4-6** for all 5. Sonnet is the proven path; current Phase 5.1 prompt is being tested via this batch and we want low engine-variance.
+- ✅ **Recommend: claude-sonnet-4-6** for all 5. Proven 1.47 ratio (within the looser 0.65-1.5 acceptable band). Same Phase 5.1 prompt as test. Predictable cost (~$6.50 / 5 articles).
+- 🟨 Optional A/B: 1 of the 5 use codex with **explicit length cap instruction in task notes** ("DO NOT expand prose; en should not exceed 1.3x zh chars"). Tests whether codex can be reined in.
 
 **For 100-task batch (Phase D)**:
 
-- After T2 re-spawn validates codex works at all, pick 10 codex test articles to verify quality + ratio + passthrough behaviour vs Sonnet baseline. If codex passes, **mix codex + Sonnet 50/50** to halve cost (~$390 vs $780).
-- If T2 re-spawn fails again or quality is bad, **stay 100% Sonnet**.
+- **Path A — pure Sonnet** ($130, predictable): safest. Use if 5-task validates.
+- **Path B — 80/20 Sonnet/codex** ($104 cloud + $0 codex = ~$104): only if codex A/B sample (above) achieves ratio < 1.6 with the length cap instruction. Test codex on 20 short + 20 long articles, audit ratio per article.
+- **Path C — Sonnet + Ollama hybrid**: defer until ollama re-test on Phase 5.1 prompt confirms passthrough rule respect. If respect rate > 90% on 10-article sample, ollama could handle "trivial" articles (< 1500 chars).
 
 **For 597-task full sync (Phase E)**:
 
-- Decision deferred until 100-task batch returns clean metrics.
-- Wild card: if **post-Phase 5.1 prompt + qwen** hits >90% verify-pass rate on 20-article sample, ollama becomes viable for the long tail (zero $ cost, ~$0/full sync).
+- Decision blocks on 100-task metrics.
+- **Critical insight from T2 v2**: codex is ~$0 marginal but ratio drift is structural — won't be fixed by larger samples, needs prompt-level enforcement (length cap + "match zh structure 1:1" instruction). Without that, mixing codex into batch saves money but degrades baseline quality.
+- **Critical insight from T3**: ollama qwen subcategory drift is a **prompt issue, not a model issue** — Phase 5.1 craft principle 5 should fix it. Re-test required before any batch use.
+
+## 7. Recommended next actions
+
+1. ✅ **Phase 5.1 fully shipped** (this morning's work — boot profile + prompt + spawner + UI)
+2. ✅ **T2 codex re-spawn validates fix** — codex spawns cleanly, passes verify, free
+3. **Run 5-task batch (Sonnet)** — produces 5 fresh translations for production use
+4. **A/B codex sample with length cap** — 1-2 articles, test ratio control
+5. **Re-test T3 ollama** with Phase 5.1 prompt — verify passthrough drift fixed
+6. **100-task batch** — mix per Path A/B/C decision based on (4) + (5) outcomes
+7. **597 full sync** — execute with chosen engine mix
 
 ---
 
@@ -234,5 +277,5 @@ Re-running the same 3 engine-test tasks against post-5.1 backend will give a cle
 🧬
 
 _v1.0 | 2026-04-30 morning_
-_in-flight: T2 codex re-spawn pending (awaiting cheyu's backend restart for Phase 5.1 to take effect)_
-_next update: T2 result + T3 retest (if scheduled) + 5-task batch metrics_
+_v2.0 | 2026-04-30 23:13 +0800 — T2 codex v2 success captured; all 3 engines compared with full data; 5-task batch recommendations finalized_
+_next update: 5-task batch metrics + codex length-cap A/B + T3 ollama retest_
