@@ -1,15 +1,15 @@
 ---
 title: 'Taiwan AI Labs'
-description: 'A non-profit AI research institute founded by PTT creator Ethan Tu, focusing on smart healthcare, smart cities, and disinformation defense with a tech-for-good and open-source philosophy'
+description: 'A non-profit AI research institute founded by PTT creator Ethan Tu in 2017, focusing on smart healthcare, smart cities, and disinformation defense to promote tech for good and open-source principles.'
 date: 2026-03-19
 tags:
-  [
-    'artificial intelligence',
-    'smart healthcare',
-    'Ethan Tu',
-    'tech innovation',
-    'information warfare defense',
-  ]
+   [
+     'artificial intelligence',
+     'smart healthcare',
+     'Ethan Tu',
+     'tech innovation',
+     'information warfare defense',
+   ]
 author: 'idlccp02'
 readingTime: 8
 featured: true
@@ -18,16 +18,9 @@ lastVerified: 2026-03-19
 lastHumanReview: false
 category: "Technology"
 translatedFrom: 'Technology/台灣人工智慧實驗室.md'
-sourceCommitSha: 800114ea
-sourceContentHash: sha256:4e74b5658957423e
-translatedAt: 2026-04-29T22:30:00+08:00
-sourceCommitSha: 800114ea
-sourceContentHash: sha256:4e74b5658957423e
-translatedAt: 2026-04-29T22:30:00+08:00
-sourceCommitSha: 800114ea
-sourceContentHash: sha256:4e74b5658957423e
-translatedAt: 2026-04-29T22:30:00+08:00
-translatedFrom: 'Technology/台灣人工智慧實驗室.md'
+sourceCommitSha: '800114ea'
+sourceContentHash: 'sha256:4e74b5658957423e'
+translatedAt: '2026-04-29T23:37:20+08:00'
 ---
 
 # Taiwan AI Labs (台灣人工智慧實驗室)
@@ -56,7 +49,7 @@ To address medical data privacy concerns, the lab actively promotes Federated Le
 
 ### Smart Cities and Human-Machine Interfaces
 
-This domain encompasses drone inspection systems, smart traffic analysis, and "Yating" (雅婷) — a voice and music AI. Yating delivers precise localized Chinese speech recognition (including Taiwan Mandarin and code-mixed Chinese-English speech) and can even compose music.
+This domain encompasses drone inspection systems, smart traffic analysis, and "Yating (雅婷)" — a voice and music AI. Yating delivers precise localized Chinese speech recognition (including Taiwan Mandarin and code-mixed Chinese-English speech) and can even compose music.
 
 ### Information Warfare and Cognitive Warfare Defense
 
