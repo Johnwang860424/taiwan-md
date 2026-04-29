@@ -14,6 +14,7 @@ import {
 } from '@tanstack/solid-query';
 import { For, Show, createSignal } from 'solid-js';
 import { api } from '~/lib/api';
+import { modelBadgeClass, modelBadgeForTask } from '~/lib/format';
 import { getQueryClient } from '~/lib/query-client';
 import { QUICK_PRESETS, type QuickPreset } from '~/lib/quick-presets';
 
@@ -61,30 +62,43 @@ function Inner() {
       </Show>
       <div class="grid grid-cols-2 gap-2">
         <For each={QUICK_PRESETS}>
-          {(p) => (
-            <button
-              type="button"
-              title={p.description}
-              disabled={busy() === p.id}
-              onClick={() => {
-                setBusy(p.id);
-                fire.mutate(p);
-              }}
-              class="text-left text-sm px-3 py-2 rounded-md border border-line
+          {(p) => {
+            const badge = modelBadgeForTask(p.taskType, p.defaultInputs);
+            return (
+              <button
+                type="button"
+                title={p.description}
+                disabled={busy() === p.id}
+                onClick={() => {
+                  setBusy(p.id);
+                  fire.mutate(p);
+                }}
+                class="text-left text-sm px-3 py-2 rounded-md border border-line
                      bg-bg-raised hover:bg-bg-input hover:border-accent-green/40
                      disabled:opacity-60 transition-colors"
-            >
-              <div class="flex items-center gap-2">
-                <span class="text-base">{p.emoji}</span>
-                <span class="font-medium text-text-primary truncate">
-                  {p.label}
-                </span>
-              </div>
-              <div class="text-xs text-text-muted mt-0.5 truncate">
-                {p.priority} · {p.taskType}
-              </div>
-            </button>
-          )}
+              >
+                <div class="flex items-center gap-2">
+                  <span class="text-base">{p.emoji}</span>
+                  <span class="font-medium text-text-primary truncate flex-1">
+                    {p.label}
+                  </span>
+                  <Show when={badge}>
+                    {(b) => (
+                      <span
+                        class={`text-[10px] px-1.5 py-0.5 rounded border ${modelBadgeClass(b().tone)}`}
+                        title={b().full}
+                      >
+                        {b().icon} {b().label}
+                      </span>
+                    )}
+                  </Show>
+                </div>
+                <div class="text-xs text-text-muted mt-0.5 truncate">
+                  {p.priority} · {p.taskType}
+                </div>
+              </button>
+            );
+          }}
         </For>
       </div>
     </div>
