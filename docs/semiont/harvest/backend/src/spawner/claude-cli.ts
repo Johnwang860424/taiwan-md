@@ -323,7 +323,23 @@ export async function spawnClaudeForTask(
   let cliArgs: string[];
   if (taskEngine === 'codex' || taskEngine === 'ollama') {
     engineBin = 'codex';
-    cliArgs = ['exec', '--json', '--full-auto', '--skip-git-repo-check'];
+    // Phase 5.1.x (2026-04-30): replaced `--full-auto` with explicit
+    // `--dangerously-bypass-approvals-and-sandbox`. Root cause of the
+    // T4' qwen3.6 commit-retry-loop hang: codex --full-auto applies a
+    // macOS sandbox that blocks .git/worktrees/<id>/index.lock writes
+    // (provenance xattr), so `git add` + `git commit` fail with
+    // "Operation not permitted" → agent enters infinite retry trying
+    // alternative approaches (commit-tree / hash-object / replace).
+    // Harvest spawn is already isolated in a fresh worktree forked from
+    // origin/main HEAD; the sandbox is redundant belt-and-suspenders
+    // and counterproductive. Bypass per cheyu's expectation that worktree
+    // tasks have full write access to their own checkout.
+    cliArgs = [
+      'exec',
+      '--json',
+      '--dangerously-bypass-approvals-and-sandbox',
+      '--skip-git-repo-check',
+    ];
     if (taskModel) cliArgs.push('-m', taskModel);
     // 'ollama' alias = codex with --oss --local-provider=ollama
     if (taskEngine === 'ollama') {
@@ -406,11 +422,31 @@ export async function spawnClaudeForTask(
   child.stdout.on('data', (chunk: Buffer) => logStream.write(chunk));
   child.stderr.on('data', (chunk: Buffer) => logStream.write(chunk));
 
+  // Phase 5.1.x (2026-04-30): per-task-type hard timeout (defense against
+  // ollama qwen3.6 commit-retry-loop hang and similar). lang-sync /
+  // mechanical tasks are bounded by Sonnet baseline (~6 min); even slow
+  // ollama with mlx should finish in 12 min. Heavy article tasks keep
+  // the 90 min default. Override via task.inputs.timeout_min.
+  const timeoutMs = (() => {
+    const explicit = task.inputs?.timeout_min;
+    if (typeof explicit === 'number' && explicit > 0) return explicit * 60_000;
+    if (
+      task.type === 'lang-sync-refresh' ||
+      task.type === 'lang-sync-translate' ||
+      task.type === 'data-refresh' ||
+      task.type === 'format-check' ||
+      task.type === 'status-report'
+    ) {
+      return 15 * 60_000; // 15 min — covers slowest ollama mlx run
+    }
+    return config.sessionTimeoutMs; // default 90 min for heavy tasks
+  })();
+
   let timedOut = false;
   const timeout = setTimeout(() => {
     timedOut = true;
     log.warn(
-      { taskId: task.id, sessionId, timeoutMs: config.sessionTimeoutMs },
+      { taskId: task.id, sessionId, timeoutMs },
       'hard timeout — killing claude',
     );
     try {
@@ -427,7 +463,7 @@ export async function spawnClaudeForTask(
         child.kill('SIGKILL');
       }
     }, 5_000);
-  }, config.sessionTimeoutMs);
+  }, timeoutMs);
 
   const exitCode: number = await new Promise((resolve) => {
     child.on('exit', (code) => resolve(code ?? -1));
