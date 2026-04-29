@@ -179,17 +179,38 @@ export function modelBadgeForTask(
     typeof inputs?.model === 'string' ? (inputs.model as string) : null;
 
   if (engine === 'codex') {
+    // codex CLI runs on ChatGPT subscription. Model id can be explicit
+    // (gpt-5 / o3 / etc) or auto (CLI picks subscription default).
+    if (explicitModel) {
+      // Strip any vendor prefix for compactness (e.g. 'openai/gpt-5' → 'gpt-5')
+      const short = explicitModel.includes('/')
+        ? (explicitModel.split('/').pop() ?? explicitModel)
+        : explicitModel;
+      return {
+        label: short,
+        icon: '⚙️',
+        tone: 'codex',
+        full: `codex · ${explicitModel}`,
+      };
+    }
     return {
-      label: 'codex',
+      label: 'codex/auto',
       icon: '⚙️',
       tone: 'codex',
-      full: explicitModel ?? 'codex (chatgpt subscription)',
+      full: 'codex CLI · ChatGPT subscription default (gpt-5 / o3 auto-routed)',
     };
   }
   if (engine === 'ollama') {
     const m = explicitModel ?? 'ollama';
-    const short = m.includes('qwen') ? 'qwen' : (m.split(':')[0] ?? 'ollama');
-    return { label: short, icon: '🦙', tone: 'ollama', full: m };
+    // qwen3.5:35b-a3b-coding-nvfp4 → "qwen3.5"; gemma3:12b → "gemma3"
+    const familySegment = m.split(':')[0] ?? 'ollama';
+    const short = familySegment.replace(/[._].*/, ''); // qwen3.5 → qwen3
+    return {
+      label: short || 'ollama',
+      icon: '🦙',
+      tone: 'ollama',
+      full: `ollama · ${m}`,
+    };
   }
 
   // claude (default engine)

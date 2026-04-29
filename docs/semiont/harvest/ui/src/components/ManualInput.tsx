@@ -1,5 +1,9 @@
 /**
- * Section 6: 手動操作 — drop a topic + scheduler controls.
+ * Section 6: 手動建立 — custom task / topic with full advanced options.
+ *
+ * Phase 5.1 (2026-04-30): added engine / model / allow_self_commit / dry_run
+ * + lang-sync-specific zh_path + mode. Cheyu callout: "要不要 commit 的選項
+ * 還有其他可以指定的選項也放進來".
  */
 import {
   QueryClientProvider,
@@ -29,12 +33,15 @@ const TASK_TYPES: TaskType[] = [
   'status-report',
   'self-diagnose',
   'heartbeat',
+  'lang-sync-refresh',
+  'lang-sync-translate',
 ];
 
 const BOOT_PROFILES: BootProfile[] = [
   'minimal',
-  'content-writing',
+  'translation-refresh',
   'spore-publishing',
+  'content-writing',
   'maintainer',
   'full-awakening',
 ];
@@ -53,7 +60,52 @@ const TYPE_TO_PROFILE: Record<string, BootProfile> = {
   'status-report': 'minimal',
   'self-diagnose': 'full-awakening',
   heartbeat: 'full-awakening',
+  'lang-sync-refresh': 'translation-refresh',
+  'lang-sync-translate': 'translation-refresh',
 };
+
+type Engine = 'claude' | 'codex' | 'ollama';
+
+const ENGINES: Engine[] = ['claude', 'codex', 'ollama'];
+
+/**
+ * Per-engine model dropdown options. Empty string = let engine pick default.
+ * Heavy task types (article-* / pr-review / etc) ignore non-claude engine
+ * server-side, so this list is just suggestion not constraint.
+ */
+const MODELS_BY_ENGINE: Record<Engine, { value: string; label: string }[]> = {
+  claude: [
+    { value: '', label: '(default by type)' },
+    { value: 'claude-sonnet-4-6', label: 'sonnet 4.6 (cheap)' },
+    { value: 'claude-opus-4-6', label: 'opus 4.6 (heavy)' },
+    { value: 'claude-haiku-4-5', label: 'haiku 4.5 (faster)' },
+  ],
+  codex: [
+    { value: '', label: 'auto (subscription default)' },
+    { value: 'gpt-5', label: 'gpt-5' },
+    { value: 'gpt-5-mini', label: 'gpt-5-mini' },
+    { value: 'o3', label: 'o3' },
+  ],
+  ollama: [
+    { value: 'qwen3.5:35b-a3b-coding-nvfp4', label: 'qwen3.5 35b coding' },
+    { value: 'qwen3.5:35b-a3b', label: 'qwen3.5 35b' },
+    { value: 'gemma3:12b', label: 'gemma3 12b' },
+    { value: 'gpt-oss:20b', label: 'gpt-oss 20b' },
+    { value: 'gpt-oss:120b', label: 'gpt-oss 120b' },
+  ],
+};
+
+/**
+ * Task types that accept non-claude engine override (mirrors backend
+ * ENGINE_ELIGIBLE_TIER in spawner/claude-cli.ts). Heavy tasks force claude.
+ */
+const ENGINE_OVERRIDE_OK = new Set([
+  'data-refresh',
+  'format-check',
+  'status-report',
+  'lang-sync-refresh',
+  'lang-sync-translate',
+]);
 
 function Inner() {
   const qc = useQueryClient();
@@ -64,6 +116,19 @@ function Inner() {
   const [priority, setPriority] = createSignal<TaskPriority>('P2');
   const [title, setTitle] = createSignal('');
   const [notes, setNotes] = createSignal('');
+
+  // Phase 5.1 advanced options
+  const [engine, setEngine] = createSignal<Engine>('claude');
+  const [model, setModel] = createSignal<string>(''); // empty = engine default
+  const [allowCommit, setAllowCommit] = createSignal(true);
+  const [dryRun, setDryRun] = createSignal(false);
+  const [showAdvanced, setShowAdvanced] = createSignal(false);
+
+  // lang-sync specific
+  const [zhPath, setZhPath] = createSignal('');
+  const [langTarget, setLangTarget] = createSignal('en');
+  const [mode, setMode] = createSignal<'auto' | 'stale' | 'missing'>('auto');
+
   const [errMsg, setErrMsg] = createSignal('');
 
   // Auto-suggest profile when type changes (unless user manually picked one)
@@ -72,11 +137,24 @@ function Inner() {
     return TYPE_TO_PROFILE[type()] ?? profile();
   });
 
+  const isLangSync = createMemo<boolean>(() => type().startsWith('lang-sync'));
+  const engineOverrideAllowed = createMemo<boolean>(() =>
+    ENGINE_OVERRIDE_OK.has(type()),
+  );
+
+  // Reset model when engine changes (to its default)
+  const onEngineChange = (e: Event): void => {
+    const v = (e.currentTarget as HTMLSelectElement).value as Engine;
+    setEngine(v);
+    setModel(''); // reset to engine default
+  };
+
   const create = useMutation(() => ({
     mutationFn: (body: NewTaskBody) => api.createTask(body),
     onSuccess: () => {
       setTitle('');
       setNotes('');
+      setZhPath('');
       setErrMsg('');
       void qc.invalidateQueries({ queryKey: ['tasks'] });
     },
@@ -89,6 +167,26 @@ function Inner() {
       setErrMsg('title 必填');
       return;
     }
+    if (isLangSync() && !zhPath().trim()) {
+      setErrMsg('lang-sync 任務必須指定 zh path');
+      return;
+    }
+
+    // Build inputs from advanced options
+    const inputs: Record<string, unknown> = {};
+    // Engine override only applied when allowed by backend tier
+    if (engineOverrideAllowed() && engine() !== 'claude') {
+      inputs.engine = engine();
+    }
+    if (model()) inputs.model = model();
+    if (!allowCommit()) inputs.allow_self_commit = false;
+    if (dryRun()) inputs.dry_run = true;
+    if (isLangSync()) {
+      inputs.zh_path = zhPath().trim();
+      inputs.lang = langTarget();
+      inputs.mode = mode();
+    }
+
     create.mutate({
       type: type(),
       boot_profile: effectiveProfile(),
@@ -96,27 +194,15 @@ function Inner() {
       title: title().trim(),
       notes: notes().trim() || undefined,
       created_by: 'cheyu-ui',
+      inputs: Object.keys(inputs).length > 0 ? inputs : undefined,
     });
   };
 
   // Health for scheduler-state-aware buttons
-  const health = useQuery(() => ({
+  const _health = useQuery(() => ({
     queryKey: ['health'],
     queryFn: () => api.health(),
     refetchInterval: 5_000,
-  }));
-
-  const pauseMut = useMutation(() => ({
-    mutationFn: () => api.pause(),
-    onSuccess: () => void qc.invalidateQueries({ queryKey: ['health'] }),
-  }));
-  const resumeMut = useMutation(() => ({
-    mutationFn: () => api.resume(),
-    onSuccess: () => void qc.invalidateQueries({ queryKey: ['health'] }),
-  }));
-  const scanMut = useMutation(() => ({
-    mutationFn: () => api.intakeScan(),
-    onSuccess: () => void qc.invalidateQueries({ queryKey: ['tasks'] }),
   }));
 
   return (
@@ -140,6 +226,11 @@ function Inner() {
             onChange={(e) => {
               setType(e.currentTarget.value as TaskType);
               setProfileTouched(false);
+              // reset engine to claude if new type doesn't allow override
+              if (!ENGINE_OVERRIDE_OK.has(e.currentTarget.value)) {
+                setEngine('claude');
+                setModel('');
+              }
             }}
           >
             <For each={TASK_TYPES}>{(t) => <option value={t}>{t}</option>}</For>
@@ -181,6 +272,137 @@ function Inner() {
             </select>
           </div>
         </div>
+
+        {/* Lang-sync conditional fields */}
+        <Show when={isLangSync()}>
+          <div class="border border-line/50 rounded-md p-2 space-y-2 bg-bg-raised/30">
+            <div class="text-[11px] text-text-muted">
+              lang-sync inputs (required)
+            </div>
+            <div>
+              <label class="section-title block mb-1">zh_path *</label>
+              <input
+                class="input"
+                placeholder="例：People/朱經武.md"
+                value={zhPath()}
+                onInput={(e) => setZhPath(e.currentTarget.value)}
+              />
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="section-title block mb-1">lang target</label>
+                <select
+                  class="select w-full"
+                  value={langTarget()}
+                  onChange={(e) => setLangTarget(e.currentTarget.value)}
+                >
+                  <option value="en">en</option>
+                  <option value="ja">ja</option>
+                  <option value="ko">ko</option>
+                  <option value="fr">fr</option>
+                  <option value="es">es</option>
+                </select>
+              </div>
+              <div>
+                <label class="section-title block mb-1">mode</label>
+                <select
+                  class="select w-full"
+                  value={mode()}
+                  onChange={(e) =>
+                    setMode(
+                      e.currentTarget.value as 'auto' | 'stale' | 'missing',
+                    )
+                  }
+                >
+                  <option value="auto">auto (resolve)</option>
+                  <option value="stale">stale (refresh existing)</option>
+                  <option value="missing">missing (translate fresh)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </Show>
+
+        {/* Advanced options accordion */}
+        <div>
+          <button
+            type="button"
+            class="text-xs text-text-muted hover:text-text-primary inline-flex items-center gap-1"
+            onClick={() => setShowAdvanced(!showAdvanced())}
+          >
+            <span>{showAdvanced() ? '▼' : '▶'}</span>
+            <span>advanced — engine / model / commit / dry-run</span>
+          </button>
+        </div>
+        <Show when={showAdvanced()}>
+          <div class="border border-line/50 rounded-md p-2 space-y-2 bg-bg-raised/30">
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="section-title block mb-1">
+                  engine
+                  <Show when={!engineOverrideAllowed()}>
+                    <span class="ml-1 text-[10px] text-accent-amber">
+                      (heavy task — claude only)
+                    </span>
+                  </Show>
+                </label>
+                <select
+                  class="select w-full"
+                  value={engine()}
+                  disabled={!engineOverrideAllowed()}
+                  onChange={onEngineChange}
+                >
+                  <For each={ENGINES}>
+                    {(e) => <option value={e}>{e}</option>}
+                  </For>
+                </select>
+              </div>
+              <div>
+                <label class="section-title block mb-1">model</label>
+                <select
+                  class="select w-full"
+                  value={model()}
+                  onChange={(e) => setModel(e.currentTarget.value)}
+                >
+                  <For each={MODELS_BY_ENGINE[engine()]}>
+                    {(opt) => <option value={opt.value}>{opt.label}</option>}
+                  </For>
+                </select>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 pt-1">
+              <label class="flex items-center gap-2 text-xs cursor-pointer">
+                <input
+                  type="checkbox"
+                  class="cursor-pointer accent-accent-green"
+                  checked={allowCommit()}
+                  onChange={(e) => setAllowCommit(e.currentTarget.checked)}
+                />
+                <span>
+                  allow self-commit
+                  <span class="ml-1 text-[10px] text-text-muted">
+                    (uncheck → parent squash)
+                  </span>
+                </span>
+              </label>
+              <label class="flex items-center gap-2 text-xs cursor-pointer">
+                <input
+                  type="checkbox"
+                  class="cursor-pointer accent-accent-amber"
+                  checked={dryRun()}
+                  onChange={(e) => setDryRun(e.currentTarget.checked)}
+                />
+                <span>
+                  dry run
+                  <span class="ml-1 text-[10px] text-text-muted">
+                    (build prompt only, no spawn)
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+        </Show>
+
         <div>
           <label class="section-title block mb-1">notes</label>
           <textarea
@@ -214,6 +436,7 @@ function Inner() {
             onClick={() => {
               setTitle('');
               setNotes('');
+              setZhPath('');
               setErrMsg('');
             }}
           >
@@ -221,8 +444,6 @@ function Inner() {
           </button>
         </div>
       </form>
-
-      {/* Scheduler control moved to right-column SchedulerControl panel */}
     </div>
   );
 }
