@@ -61,14 +61,14 @@ function Inner() {
     },
   }));
 
-  const setInterval = useMutation(() => ({
+  const intervalMut = useMutation(() => ({
     mutationFn: (sec: number) => api.setSchedulerInterval(sec),
     onSettled: () => {
       void qc.invalidateQueries({ queryKey: ['scheduler', 'config'] });
     },
   }));
 
-  const setMax = useMutation(() => ({
+  const maxConcurrentMut = useMutation(() => ({
     mutationFn: (n: number) => api.setMaxConcurrent(n),
     onSettled: () => {
       void qc.invalidateQueries({ queryKey: ['scheduler', 'config'] });
@@ -143,8 +143,8 @@ function Inner() {
                       ? 'border-accent-green text-accent-green bg-accent-green/10'
                       : 'border-line text-text-muted hover:border-accent-green/40'
                   }`}
-                  disabled={setInterval.isPending}
-                  onClick={() => setInterval.mutate(c.sec)}
+                  disabled={intervalMut.isPending}
+                  onClick={() => intervalMut.mutate(c.sec)}
                 >
                   {c.label}
                 </button>
@@ -168,8 +168,8 @@ function Inner() {
                       ? 'border-accent-green text-accent-green bg-accent-green/10'
                       : 'border-line text-text-muted hover:border-accent-green/40'
                   }`}
-                  disabled={setMax.isPending}
-                  onClick={() => setMax.mutate(n)}
+                  disabled={maxConcurrentMut.isPending}
+                  onClick={() => maxConcurrentMut.mutate(n)}
                 >
                   {n}
                 </button>
