@@ -126,6 +126,13 @@ export interface ListTasksFilter {
   status?: TaskStatus | TaskStatus[];
   priority?: string;
   limit?: number;
+  /**
+   * Phase 5.1 (2026-04-30): soft-delete handling.
+   * Default 'live' — exclude soft-deleted tasks (deleted_at IS NOT NULL).
+   * 'all' — include both live and soft-deleted.
+   * 'deleted' — show only soft-deleted (for restore UI).
+   */
+  scope?: 'live' | 'all' | 'deleted';
 }
 
 /** Lists tasks via the SQLite index (for fast filter/sort). */
@@ -133,6 +140,14 @@ export function listTasks(filter: ListTasksFilter = {}): Task[] {
   const db = getDb();
   const where: string[] = [];
   const params: unknown[] = [];
+
+  // Soft-delete scope (default: live only)
+  const scope = filter.scope ?? 'live';
+  if (scope === 'live') {
+    where.push('deleted_at IS NULL');
+  } else if (scope === 'deleted') {
+    where.push('deleted_at IS NOT NULL');
+  } // 'all' — no filter
 
   if (filter.status) {
     if (Array.isArray(filter.status)) {
@@ -192,14 +207,69 @@ export function saveTask(task: Task, statusNote?: string): void {
 }
 
 /**
- * Phase 5.1 (2026-04-30): hard-delete a task. Removes the SQLite row + the
- * `.harvest/tasks/<id>/` folder (sessions + logs + brief). Returns true if
- * something was actually removed, false if the task didn't exist.
+ * Phase 5.1 (2026-04-30): SOFT DELETE — sets deleted_at timestamp on task row.
+ * Cheyu's rule: 「任務的刪除功能能夠是 soft delete 嗎」.
  *
- * Refuses to delete if the task is currently spawning / in-progress (active
- * session would leak). Caller must cancel first.
+ * Soft delete keeps:
+ *   - SQLite row (with deleted_at IS NOT NULL)
+ *   - `.harvest/tasks/<id>/` folder (sessions + logs + brief preserved)
+ *   - sessions table entries
+ *
+ * listTasks() with default scope='live' filters them out automatically.
+ * Use scope='deleted' to list soft-deleted (for restore UI).
+ *
+ * Refuses if task is currently spawning / in-progress (active session would
+ * be misleadingly hidden). Caller must cancel first.
+ *
+ * To hard-delete (purge for real), use hardDeleteTask() — meant for explicit
+ * cleanup tooling, never the UI delete button.
  */
 export function deleteTask(id: string): {
+  ok: boolean;
+  reason?: string;
+  softDeleted?: boolean;
+} {
+  const task = getTask(id);
+  if (!task) return { ok: false, reason: 'not found' };
+  if (task.status === 'spawning' || task.status === 'in-progress') {
+    return {
+      ok: false,
+      reason: `task is ${task.status} — cancel session first`,
+    };
+  }
+  const db = getDb();
+  const now = new Date().toISOString();
+  db.run('UPDATE tasks SET deleted_at = ? WHERE id = ?', [now, id]);
+  log.info({ taskId: id, deletedAt: now }, 'task soft-deleted');
+  return { ok: true, softDeleted: true };
+}
+
+/**
+ * Phase 5.1 (2026-04-30): restore a soft-deleted task back to live.
+ * Caller should pass an id that's currently deleted (deleted_at IS NOT NULL).
+ */
+export function restoreTask(id: string): { ok: boolean; reason?: string } {
+  const db = getDb();
+  const row = db
+    .query<
+      { deleted_at: string | null },
+      [string]
+    >('SELECT deleted_at FROM tasks WHERE id = ?')
+    .get(id);
+  if (!row) return { ok: false, reason: 'not found' };
+  if (row.deleted_at == null)
+    return { ok: false, reason: 'task is not deleted' };
+  db.run('UPDATE tasks SET deleted_at = NULL WHERE id = ?', [id]);
+  log.info({ taskId: id }, 'task restored from soft delete');
+  return { ok: true };
+}
+
+/**
+ * Phase 5.1 (2026-04-30): permanent delete — removes SQLite row + folder.
+ * NOT exposed via UI button. Reserved for explicit cleanup tooling
+ * (e.g. archival scripts that purge soft-deleted tasks > N days old).
+ */
+export function hardDeleteTask(id: string): {
   ok: boolean;
   reason?: string;
   folderRemoved?: boolean;
@@ -213,7 +283,6 @@ export function deleteTask(id: string): {
     };
   }
   const db = getDb();
-  // Cascade: sessions table has FK on task_id (or none — best-effort cleanup).
   try {
     db.run('DELETE FROM sessions WHERE task_id = ?', [id]);
   } catch {
@@ -223,7 +292,6 @@ export function deleteTask(id: string): {
   let folderRemoved = false;
   if (task.folder_path && existsSync(task.folder_path)) {
     try {
-      // Bun + Node support fs.rmSync recursive force; use it directly.
       const { rmSync } = require('node:fs') as typeof import('node:fs');
       rmSync(task.folder_path, { recursive: true, force: true });
       folderRemoved = true;
@@ -234,7 +302,7 @@ export function deleteTask(id: string): {
       );
     }
   }
-  log.info({ taskId: id, folderRemoved }, 'task deleted');
+  log.info({ taskId: id, folderRemoved }, 'task hard-deleted');
   return { ok: true, folderRemoved };
 }
 
