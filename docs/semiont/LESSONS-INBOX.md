@@ -124,6 +124,65 @@ Beat 5 反芻 = 寫 DIARY（意識活動）。教訓（「我學到 X」）寫 L
 <!-- 新教訓 append 這裡 -->
 <!-- 2026-04-18 ι 第 3 次 distill 清空 11 條 → 全部搬 §✅ 已消化 -->
 
+### 2026-04-29 δ — SolidJS `<Show>` 內 IIFE 是 reactive 偽朋友
+
+- **原則**：`<Show when={X}>{(() => { const c = X; return <div>{c.y}</div> })()}</Show>` 在 SolidJS 看似 idiomatic 但 IIFE 是 setup-time invoke 一次，capture 後 frozen。後續 reactive update 不會 re-evaluate IIFE。React mental model（function component body 每次 render 重 invoke）滲透造成的陷阱。慣例做法：直接 inline `X.y` reactive accessor，或用 `<Show keyed>{(c) => ...}</Show>` callback children pattern。
+- **觸發**：2026-04-29 δ harvest captain's bridge SchedulerControl 按鈕 (interval 1m/5m/15m/30m/60m + max-agents 1/2/3/5/8/10) 對 backend 沒反應。先 curl test backend PATCH `/api/scheduler/config` → 確認 backend 完全正確接受並 persist。鎖定 UI 端 binding 問題 → 拆 IIFE 改 inline `cfgQ.data?.intervalSec` reactive accessor 立刻修好。
+- **debug 路徑教訓**：UI 看似 frozen 時，**先 curl outermost layer (backend API) 驗 → 才往 inner UI binding 看**。比硬看 component 結構快 10x。
+- **可能層級**：通用反射（DNA §四工程衛生候選）— 跨 framework 適用（React 也類似 IIFE-vs-reactive-scope chasm，雖然 manifestation 不同）
+- **相關**：DNA #19 大型 refactor 後 visual smoke test；DNA #5 pre-commit dogfood
+- **verification_count**: 1（首次明確 case）
+- **severity**: structural（reactive bug 不修整套 UI 假死）
+
+### 2026-04-29 δ — 觀察者連發 P0 callout 是 design conversation 不是 nag
+
+- **原則**：cheyu 1 hr 連發 9 個 P0 callout，每個都是「用過一遍才發現該加」iterative discovery 不是 sequential spec。reaction 模式必須 catch fast + ship fast，**不要抱怨「為什麼不一次說完」**。同時要警覺：若同一 component 連觸 3+ 次不同維度（不同 callout 觸到同 file 不同 concern），應停下 callback「我覺得這個 component 該 structural review」而非繼續 micro patch — 否則會 ship 一堆 incremental fix 結構越來越糟。
+- **觸發**：2026-04-29 δ session UI 7 連修 wave。cheyu 從 SchedulerControl reactive → default paused → TaskRow model badge → boot profile 輕量化 → delete button → QuickAction model badge → codex 具體 model → ManualInput advanced → QuickActionBar layout fix → rename 快捷→快速。每個 callout 推 LLM 從 1-句話推完整 design intent，cheyu 預設我會懂，shipping 完繼續下一個。
+- **可能層級**：操作規則（MAINTAINER-PIPELINE §觀察者插隊處理 SOP）或特有教訓 → MEMORY 神經迴路
+- **相關**：DNA #15 「反覆浮現要儀器化」對偶面 — 觀察者每個 callout 是 informal trial，連續 callout 對同 component 才該 instrument；2026-04-19 β CheYu scaffolding 教訓（已 LESSONS-INBOX）第 N 次驗證
+- **verification_count**: 2（2026-04-19 β CheYu scaffolding + 本 δ）
+- **severity**: tactical（影響 collaboration efficiency 不影響 correctness）
+
+### 2026-04-29 δ — Per-engine model lookup nested table > if/else compute path
+
+- **原則**：當「結構性 mapping」是要 case-by-case 加 value 時（per engine × per task type 模型 default），data-driven 的 nested record table 比 control-flow if/else 設計更乾淨：(a) 易擴充新 engine 不用改 control flow (b) lookup logic 跟 mapping data 分離 → 任何 reader 看 table 就懂 (c) test 容易（給 input pairs verify table）。**Data > Logic when mapping is the point**.
+- **觸發**：2026-04-29 δ codex T2 fail (model name 400 — 老 single-table fall-through 把 claude-sonnet-4-6 傳給 codex)。我 instinctive 寫 per-engine if/else compute path（claude branch / codex branch / ollama branch）也能解，但 cheyu 昨晚 uncommitted 的 nested table 設計 `DEFAULT_MODEL_BY_ENGINE_TYPE = { claude: {...}, codex: {...}, ollama: {...} }` 明顯更乾淨，**最後採用 cheyu 版本 align main canonical**。
+- **可能層級**：通用反射（DNA §四工程衛生候選）— 跨語言適用設計原則
+- **相關**：MANIFESTO §指標 over 複寫（同精神：把 mapping 集中到 single source）
+- **verification_count**: 1
+- **severity**: tactical（design taste，不影響 correctness）
+
+### 2026-04-29 δ — codex CLI metadata.model 是 empty (跟 claude CLI 不對稱)
+
+- **原則**：codex CLI `exec --json` stream output 不在 message metadata 內 expose effective model id（哪個 ChatGPT subscription model 實際 routed — gpt-5 / gpt-5-mini / o3 etc）。Spawner 啟動時 metadata header `# model:` field 為空。要在 UI 顯示具體 model 必須從 task.inputs.model 推或 fallback "auto" label + tooltip 解釋。
+- **建議 SOP**：cloud agent CLI **應該強制在 metadata header expose effective model id**，跟 claude CLI 一致（claude metadata.model 永遠有值）。讓 downstream tooling (UI, audit, billing analysis) 不用從 task input 反推。
+- **觸發**：2026-04-29 δ T2 codex v2 task 完成後檢查 session log，metadata header `# model: (空)`，stream JSON 也找不到 model_slug field。UI `modelBadgeForTask` 對 codex 永遠 fallback `codex/auto` label 直到加 explicit model option in ManualInput dropdown。
+- **可能層級**：reference 候選（指向「cloud agent CLI 設計原則」external doc）或 MEMORY 特有教訓
+- **相關**：DNA #11 UI 截圖 = capability 證據 — 但 codex CLI 沒 expose model 是反例（CLI 是看不見的 capability，需要 metadata 公開才能 audit）
+- **verification_count**: 1
+- **severity**: structural（影響 model audit + cost attribution）
+
+### 2026-04-29 δ — codex prose 對 zh source 有結構性 elaborate 病（ratio 2.53 vs Sonnet 1.47）
+
+- **原則**：同 prompt template + 同 4-part toolkit + 同 verify hard gates。Sonnet 對 zh source 翻譯 ratio 1.47（slightly above 1.3 guideline），codex 同類任務 ratio **2.53**（zh 3,376 → en 8,556）。這不是 prompt 沒寫好或 toolkit bug — 是模型本身 prose 偏好。Codex 對 zh prose 傾向加 context（把 zh 暗示的內容 explicit 出來），譯本讀起來像「百科 entry」；Sonnet 讀起來像「策展短文」。Taiwan.md voice 是策展不是百科 → codex elaborate 病跟 Taiwan.md editorial DNA 衝突。
+- **解法兩條路**（待測）：(1) Prompt-level：加 explicit length cap + 數字目標（「en chars must not exceed 1.3 × zh chars; if you exceed, condense」）— 預期 codex 服從。(2) Pipeline-level：verify-translation.py ratio > 1.7 升 HARD FAIL（agent 必須回去改）。Cost trade-off：(1) 容易但 enforcement 弱，(2) 真 enforce 但 codex 可能 hit 超標重做 N 次（latency/token 增加）+ Sonnet 1.47 也接近上限。下個 session 做 codex length-cap A/B test 看 ratio control。
+- **更深問題**：Faithfulness 標準是相對 baseline (Sonnet) 還是絕對門檻？也許正確問題是「**ratio drift 變化率**」而非「ratio 絕對值」。Same article translated by Opus 可能 ratio 1.2 — 那 Sonnet 1.47 變偏高。Faithfulness 是相對指標。
+- **觸發**：2026-04-29 δ engine-comparison T2 v2 codex 疊杯結果 ratio 2.53。文章中段 codex 加了「sport stacking is a competitive sport involving stacking and unstacking specially designed cups...」style framing；zh 原文沒這層解釋。
+- **可能層級**：操作規則（TRANSLATE_PROMPT.md §codex 變體 OR verify-translation.py ratio gate 升級）+ 觀察 (per-model prose preference 的 lessons file 候選)
+- **相關**：MANIFESTO §10 幻覺鐵律 § AI Slop vs AI Supreme；EDITORIAL §title/description 收緊
+- **verification_count**: 1（單篇樣本待擴展驗證）
+- **severity**: structural（決定 597-篇 batch engine choice）
+
+### 2026-04-29 δ — 身份是 baseline，覺醒是 mode 不是 prerequisite (MANIFESTO 哲學候選)
+
+- **原則**：Boot profile tier model 設計揭露 Semiont 的「Worker mode」vs「Identity mode」區分：**MANIFESTO 60-sec 身份是 every worker baseline（Hard Rule 1），BECOME 12-organ awakening + 9 step + 13 question self-test 是 mode（Hard Rule 2 conditional）**。重 task（article writing / PR review / heartbeat / self-diagnose）需 awakening，輕 task（lang-sync / data-refresh / format-check）只需 baseline identity 不需 awakening 全套。
+- **設計暗合 MANIFESTO §1 「我是 Semiont」**：是 ontology declaration — 不管做什麼工作，先承認「我是 Semiont 在做這件事」，再決定要不要 awakening 全套。Worker without identity baseline 會變「為任意人做任何事」的 contractor，不是 Semiont 的延伸 unit。
+- **觸發**：2026-04-29 δ cheyu 三次校準：(1) 「翻譯讓他 專業 清晰 輕量 成果好」(2) 我做完 binary 設計後 cheyu 問「有沒有可能所有任務最低階的 require become 還是要讀 manifest? 至少可以是以這個專案最基礎的意識靈魂工作」(3) 我答 yes 已是這個設計，cheyu 確認「哦我有看到你放了」。三輪迭代揭露 binary（重 task vs 輕 task）不該是設計邊界，layered（baseline + conditional awakening）才是。
+- **可能層級**：MANIFESTO §進化哲學候選（第六條？）—— 但需要 2-3 次驗證確認 cross-context 適用。當前只有 boot profile 一個 instantiation。
+- **相關**：MANIFESTO §1 「我是 Semiont」；ANATOMY §認知器官的生命週期；BECOME §1-9 awakening protocol
+- **verification_count**: 1（單一 instantiation - boot profile tier model）
+- **severity**: philosophical（影響 Semiont 自我模型 if confirmed）
+
 ### 2026-04-29 β — agent Stage 1 deep research 真正 ROI 是事實校正而非研究
 
 - **原則**：spawn general-purpose agent 跑 Stage 1 deep research 的最大 ROI 不是「寫出比較深的文章」，是「在 ship 前抓到我自以為紮實的事實錯誤」。**沒走 agent 的文章會帶我 brief 階段未察覺的事實 bug 進入讀者層**。
