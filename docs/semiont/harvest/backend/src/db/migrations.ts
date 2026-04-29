@@ -43,6 +43,32 @@ export function applyMigrations(db: Database): void {
       new Date().toISOString(),
     ]);
   }
+
+  // Phase 5 (2026-04-29): seed scheduler_type_policy with default disabled list.
+  // PR-touching task types default OFF (cheyu wants manual oversight).
+  // article-* + lang-sync-* default ON (safe to auto-fire).
+  const seedPolicy: Record<string, number> = {
+    'article-rewrite': 1,
+    'article-evolve': 1,
+    'article-new': 1,
+    'lang-sync-refresh': 1,
+    'lang-sync-translate': 1,
+    'data-refresh': 1,
+    'spore-publish': 0, // outbound, manual
+    'pr-review': 0,
+    'issue-handle': 0,
+    'contributor-thank-you': 0,
+    'self-diagnose': 1,
+    'status-report': 1,
+    'format-check': 1,
+  };
+  const now = new Date().toISOString();
+  for (const [type, enabled] of Object.entries(seedPolicy)) {
+    db.run(
+      'INSERT OR IGNORE INTO scheduler_type_policy (task_type, auto_spawn_enabled, updated_at) VALUES (?, ?, ?)',
+      [type, enabled, now],
+    );
+  }
 }
 
 function ensureColumn(

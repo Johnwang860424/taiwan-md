@@ -28,6 +28,7 @@ import {
   typeEmoji,
 } from '~/lib/format';
 import type { ActiveSession, Task } from '~/lib/types';
+import LiveProgress from './LiveProgress';
 
 const SPAWN_ELIGIBLE = new Set(['pending', 'failed', 'awaiting-cheyu']);
 
@@ -192,6 +193,9 @@ export default function TaskRow(props: {
             <div class="text-xs text-accent-amber">
               ✦ {myActive()!.phase} · {elapsedSince(myActive()!.spawnedAt)}
             </div>
+            <Show when={myActive()!.phase === 'in-progress'}>
+              <LiveProgress sid={myActive()!.sessionId} classExtra="mt-0.5" />
+            </Show>
           </Show>
           <Show when={!props.compact && !myActive()}>
             <div class="text-xs text-text-muted truncate">

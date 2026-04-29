@@ -1,57 +1,122 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ActiveSessionsBanner from '../components/ActiveSessionsBanner.tsx';
 import TodayTasks from '../components/TodayTasks.tsx';
 import TaskQueue from '../components/TaskQueue.tsx';
 import ManualInput from '../components/ManualInput.tsx';
+import QuickActionBar from '../components/QuickActionBar.tsx';
+import SchedulerControl from '../components/SchedulerControl.tsx';
 ---
 
 <Layout
-  title="🧬 即時運作 · Harvest"
-  subtitle="Phase 2.5 · Live Operations · 即時運作 / 任務佇列 / 手動操作"
+  title="🧬 駕駛艙 · Harvest"
+  subtitle="Phase 5 · Captain's Bridge · auto + manual spawn 統一控管"
 >
-  <main class="max-w-7xl mx-auto px-4 py-6 space-y-8">
-    <!-- Live spawn banner — only renders when count > 0 -->
-    <ActiveSessionsBanner client:only="solid-js" />
+  <main class="px-4 lg:px-6 py-5 space-y-6">
+    <!-- (Active sessions live in 今日任務 column to avoid duplication;
+         dedicated deep-dive in /sessions page) -->
 
-    <div class="grid lg:grid-cols-[1fr,1fr] gap-6">
-      <section>
-        <div class="flex items-center justify-between mb-3">
-          <h2 class="text-lg font-semibold">⚡ 今日任務</h2>
-          <span class="text-xs text-text-muted">active + 24h · refresh 5s</span>
-        </div>
-        <div class="card">
-          <div class="card-body"><TodayTasks client:only="solid-js" /></div>
-        </div>
-      </section>
+    <!-- 3-column captain's bridge -->
+    <div class="grid grid-cols-1 xl:grid-cols-12 gap-5">
+      <!-- LEFT column: today + queue (~5/12) -->
+      <div class="xl:col-span-5 space-y-5">
+        <section>
+          <div class="flex items-center justify-between mb-2">
+            <h2 class="text-base font-semibold">⚡ 今日任務</h2>
+            <span class="text-xs text-text-muted">active + 24h · 5s</span>
+          </div>
+          <div class="card">
+            <div class="card-body p-3">
+              <TodayTasks client:only="solid-js" />
+            </div>
+          </div>
+        </section>
 
-      <section>
-        <div class="flex items-center justify-between mb-3">
-          <h2 class="text-lg font-semibold">✍️ 手動操作</h2>
-          <span class="text-xs text-text-muted"
-            >drop topic · scheduler control</span
-          >
-        </div>
-        <div class="card">
-          <div class="card-body"><ManualInput client:only="solid-js" /></div>
-        </div>
-      </section>
+        <section>
+          <div class="flex items-center justify-between mb-2">
+            <h2 class="text-base font-semibold">📋 任務佇列</h2>
+            <span class="text-xs text-text-muted">all · click ▶️ to spawn</span>
+          </div>
+          <div class="card">
+            <div class="card-body p-3">
+              <TaskQueue client:only="solid-js" />
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- CENTER column: quick actions + manual input (~4/12) -->
+      <div class="xl:col-span-4 space-y-5">
+        <section>
+          <div class="flex items-center justify-between mb-2">
+            <h2 class="text-base font-semibold">⚡ 快捷派發</h2>
+            <span class="text-xs text-text-muted">one-click presets</span>
+          </div>
+          <div class="card">
+            <div class="card-body p-3">
+              <QuickActionBar client:only="solid-js" />
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="flex items-center justify-between mb-2">
+            <h2 class="text-base font-semibold">✍️ 手動建立</h2>
+            <span class="text-xs text-text-muted">custom task / topic</span>
+          </div>
+          <div class="card">
+            <div class="card-body p-3">
+              <ManualInput client:only="solid-js" />
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT column: scheduler policy + helper text (~3/12) -->
+      <div class="xl:col-span-3 space-y-5">
+        <section>
+          <div class="flex items-center justify-between mb-2">
+            <h2 class="text-base font-semibold">🎛️ Scheduler 控管</h2>
+            <span class="text-xs text-text-muted">auto-spawn policy</span>
+          </div>
+          <div class="card">
+            <div class="card-body p-3">
+              <SchedulerControl client:only="solid-js" />
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="flex items-center justify-between mb-2">
+            <h2 class="text-base font-semibold">🧭 操作說明</h2>
+          </div>
+          <div class="card">
+            <div class="card-body p-3 text-xs text-text-secondary space-y-2">
+              <p>
+                <strong>快捷派發</strong>: 點按鈕一次建 task → 進 queue。 之後等
+                auto-spawn (符合 priority + scheduler 允許) 或手動 ▶️
+              </p>
+              <p>
+                <strong>Scheduler 控管</strong>: 勾 = auto 派；取消 = 必須手動。
+                PR / spore / issue 預設關。
+              </p>
+              <p>
+                <strong>Active session</strong>: 上方 banner 即時顯示
+                Read/Edit/Bash stream。
+              </p>
+              <p>
+                <strong>Engines</strong>:
+                <code class="text-accent-green-soft">claude</code> (Sonnet) /
+                <code class="text-accent-green-soft">codex</code> (ChatGPT) /
+                <code class="text-accent-green-soft">ollama</code> (本機 qwen)
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
 
-    <section>
-      <div class="flex items-center justify-between mb-3">
-        <h2 class="text-lg font-semibold">📋 任務佇列</h2>
-        <span class="text-xs text-text-muted"
-          >all tasks · click row for detail · ▶️ to spawn</span
-        >
-      </div>
-      <div class="card">
-        <div class="card-body"><TaskQueue client:only="solid-js" /></div>
-      </div>
-    </section>
-
-    <footer class="pt-8 pb-4 text-xs text-text-muted text-center">
-      🧬 Harvest engine UI · phase 2.5 · 3-tab structure
+    <footer class="pt-6 pb-3 text-xs text-text-muted text-center">
+      🧬 Harvest engine · captain's bridge · Phase 5 (2026-04-29)
     </footer>
   </main>
 </Layout>

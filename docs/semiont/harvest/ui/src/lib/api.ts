@@ -153,6 +153,62 @@ export const api = {
   /** Bug 3 — SSE URL builder (consumed by EventSource directly). */
   sessionLogStreamUrl: (sid: string): string =>
     `${API_BASE}/api/sessions/${encodeURIComponent(sid)}/log/stream`,
+
+  /** Phase 5 — auto-spawn runtime config (interval + countdown). */
+  schedulerConfig: () =>
+    request<{
+      paused: boolean;
+      intervalSec: number;
+      lastTickIso: string | null;
+      nextTickInSec: number | null;
+      running: boolean;
+    }>('/api/scheduler/config'),
+
+  setSchedulerInterval: (intervalSec: number) =>
+    request<{ intervalSec: number; nextTickInSec: number | null }>(
+      '/api/scheduler/config',
+      {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ intervalSec }),
+      },
+    ),
+
+  /** Phase 5 — scheduler per-type policy (auto-spawn allow/deny). */
+  schedulerTypes: () =>
+    request<{
+      count: number;
+      types: {
+        task_type: string;
+        auto_spawn_enabled: boolean;
+        updated_at: string;
+      }[];
+    }>('/api/scheduler/types'),
+
+  setSchedulerType: (taskType: string, enabled: boolean) =>
+    request<{
+      task_type: string;
+      auto_spawn_enabled: boolean;
+      updated_at: string;
+    }>(`/api/scheduler/types/${encodeURIComponent(taskType)}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ auto_spawn_enabled: enabled }),
+    }),
+
+  /** Phase 5 — quick task creation (used by QuickActionBar). */
+  createQuickTask: (input: {
+    type: string;
+    boot_profile: string;
+    priority: 'P0' | 'P1' | 'P2' | 'P3';
+    title: string;
+    inputs?: Record<string, unknown>;
+  }) =>
+    request<{ id: string; status: string }>('/api/tasks', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(input),
+    }),
 };
 
 export { ApiError };

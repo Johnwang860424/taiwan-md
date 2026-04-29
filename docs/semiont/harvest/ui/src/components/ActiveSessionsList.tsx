@@ -14,6 +14,7 @@ import { getQueryClient } from '~/lib/query-client';
 import { elapsedSince, formatDateTime, typeEmoji } from '~/lib/format';
 import type { ActiveSession } from '~/lib/types';
 import SessionLogDrawer from './SessionLogDrawer';
+import LiveProgress from './LiveProgress';
 
 function Inner() {
   const qc = useQueryClient();
@@ -204,14 +205,10 @@ function Inner() {
 }
 
 /**
- * Inline live progress per active session — polls /api/sessions/:sid/log
- * every 2s, parses last meaningful line (tool_use / tool_result / message
- * delta / heartbeat marker) and shows it under the task title.
- *
- * stream-json output emits one JSON envelope per stdout line. We try to
- * extract a human-readable summary from each.
+ * @deprecated 已抽出到 components/LiveProgress.tsx；此 inline 版本保留作為 fallback
+ * 直到所有 import 點 migrate 完。下一輪 cleanup 移除。
  */
-function LiveProgress(props: { sid: string }) {
+function _LiveProgressOld(props: { sid: string }) {
   const q = useQuery(() => ({
     queryKey: ['session-log', props.sid],
     queryFn: () => api.pollSessionLog(props.sid, 0),
@@ -261,6 +258,31 @@ function LiveProgress(props: { sid: string }) {
       }
       if (obj.type === 'result') {
         return obj.is_error ? `❌ ${obj.subtype ?? 'error'}` : `✅ done`;
+      }
+
+      // ── codex format ──
+      if (obj.type === 'thread.started') return `🧵 thread started`;
+      if (obj.type === 'turn.started') return `▶️  turn started`;
+      if (obj.type === 'turn.completed') {
+        const u = obj.usage ?? {};
+        return `✅ turn done · in=${u.input_tokens ?? '?'} out=${u.output_tokens ?? '?'}`;
+      }
+      if (obj.type === 'turn.failed') {
+        return `❌ ${(obj.error?.message ?? '').slice(0, 80)}`;
+      }
+      if (obj.type === 'item.completed' && obj.item) {
+        const item = obj.item;
+        if (item.type === 'agent_message')
+          return `💭 ${(item.text ?? '').slice(0, 100)}`;
+        if (item.type === 'reasoning')
+          return `🧠 ${(item.text ?? '').slice(0, 100)}`;
+        if (item.type === 'command_execution' || item.type === 'shell_call')
+          return `🔧 Bash: ${(item.command ?? '').slice(0, 80)}`;
+        if (item.type === 'file_change') return `✏️  ${item.path ?? ''}`;
+        return `🛠  ${item.type}`;
+      }
+      if (obj.type === 'error') {
+        return `❌ ${(obj.message ?? '').slice(0, 80)}`;
       }
     } catch {
       // Plain text line (header/footer/raw stderr)

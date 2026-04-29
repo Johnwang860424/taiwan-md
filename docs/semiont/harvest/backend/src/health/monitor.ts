@@ -227,6 +227,20 @@ function detectLazyCommitsForSession(task: Task, r: RecentSession): void {
 
 /** 3c — run available quality gate scripts on touched files. */
 function runQualityGatesAndMaybePolish(task: Task, r: RecentSession): void {
+  // Phase 5 (2026-04-29): self-correcting task types own their internal
+  // verify loop and should NOT trigger an external Polish followup.
+  // Spawning a fresh task = re-loading full context for what should be
+  // an in-session loop (translate → verify → fix → re-verify).
+  const SELF_VERIFYING = new Set([
+    'lang-sync-refresh',
+    'lang-sync-translate',
+    'data-refresh',
+    'format-check',
+    'status-report',
+    'self-diagnose',
+  ]);
+  if (SELF_VERIFYING.has(task.type)) return;
+
   const sessionRecord = task.sessions.find((s) => s.id === r.id);
   const commits = sessionRecord?.commits ?? [];
   if (commits.length === 0) return;

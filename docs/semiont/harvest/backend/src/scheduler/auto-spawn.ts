@@ -23,10 +23,13 @@ import {
 } from '../spawner/claude-cli.ts';
 import { logger } from '../logger.ts';
 import type { TaskPriority } from '../tasks/types.ts';
+import { isTypeAutoSpawnEnabled } from './type-policy.ts';
 
 const log = childLogger({ module: 'scheduler/auto-spawn' });
 
 let timer: ReturnType<typeof setInterval> | null = null;
+let lastTickAt: number = 0;
+let currentIntervalMs: number = 300_000; // overridable via setAutoSpawnInterval
 
 const PRIORITY_RANK: Record<string, number> = { P0: 0, P1: 1, P2: 2, P3: 3 };
 
@@ -36,21 +39,54 @@ export function startAutoSpawn(): void {
     log.info('auto-spawn disabled via env');
     return;
   }
-  const intervalMs = config.autoSpawnPollSec * 1000;
+  currentIntervalMs = config.autoSpawnPollSec * 1000;
+  startWithInterval(currentIntervalMs);
+}
+
+function startWithInterval(intervalMs: number): void {
+  if (timer) clearInterval(timer);
+  currentIntervalMs = intervalMs;
   timer = setInterval(() => {
+    lastTickAt = Date.now();
     tick().catch((err) =>
       log.error({ err: String(err) }, 'auto-spawn tick failed'),
     );
   }, intervalMs);
   log.info(
     { intervalMs, minPriority: config.autoSpawnMinPriority },
-    'auto-spawn started',
+    'auto-spawn (re)started',
   );
 }
 
 export function stopAutoSpawn(): void {
   if (timer) clearInterval(timer);
   timer = null;
+}
+
+/** Phase 5 — runtime interval override. Resets timer if running. */
+export function setAutoSpawnInterval(seconds: number): number {
+  const ms = Math.max(30, Math.floor(seconds)) * 1000;
+  if (timer) startWithInterval(ms);
+  else currentIntervalMs = ms;
+  return Math.floor(ms / 1000);
+}
+
+export function getAutoSpawnRuntime(): {
+  intervalSec: number;
+  lastTickIso: string | null;
+  nextTickInSec: number | null;
+  running: boolean;
+} {
+  const now = Date.now();
+  const next = lastTickAt
+    ? Math.max(0, Math.ceil((lastTickAt + currentIntervalMs - now) / 1000))
+    : null;
+  return {
+    intervalSec: Math.floor(currentIntervalMs / 1000),
+    lastTickIso: lastTickAt ? new Date(lastTickAt).toISOString() : null,
+    nextTickInSec: next,
+    running: timer !== null,
+  };
 }
 
 async function tick(): Promise<void> {
@@ -95,6 +131,13 @@ async function tick(): Promise<void> {
       log.debug(
         { taskId: task.id, attempts: task.attempts },
         'auto-spawn: max attempts hit, skipping',
+      );
+      continue;
+    }
+    if (!isTypeAutoSpawnEnabled(task.type)) {
+      log.debug(
+        { taskId: task.id, type: task.type },
+        'auto-spawn: task type disabled in policy, skipping (manual only)',
       );
       continue;
     }

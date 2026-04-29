@@ -106,3 +106,11 @@ CREATE TABLE IF NOT EXISTS organ_drift (
   last_checked_at TEXT NOT NULL,
   spawned_task_id TEXT
 );
+
+-- Phase 5 (2026-04-29): per-task-type auto-spawn allow/deny list.
+-- Default policy seeded on first boot via migrations.ts.
+CREATE TABLE IF NOT EXISTS scheduler_type_policy (
+  task_type TEXT PRIMARY KEY,
+  auto_spawn_enabled INTEGER NOT NULL DEFAULT 1,  -- 1 = allow auto, 0 = manual only
+  updated_at TEXT NOT NULL
+);

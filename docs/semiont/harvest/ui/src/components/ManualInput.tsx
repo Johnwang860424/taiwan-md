@@ -120,7 +120,7 @@ function Inner() {
   }));
 
   return (
-    <div class="grid lg:grid-cols-2 gap-4">
+    <div class="space-y-3">
       <form class="space-y-3" onSubmit={submit}>
         <div>
           <label class="section-title block mb-1">title *</label>
@@ -132,22 +132,20 @@ function Inner() {
             required
           />
         </div>
-        <div class="grid grid-cols-3 gap-2">
-          <div>
-            <label class="section-title block mb-1">type</label>
-            <select
-              class="select"
-              value={type()}
-              onChange={(e) => {
-                setType(e.currentTarget.value as TaskType);
-                setProfileTouched(false);
-              }}
-            >
-              <For each={TASK_TYPES}>
-                {(t) => <option value={t}>{t}</option>}
-              </For>
-            </select>
-          </div>
+        <div>
+          <label class="section-title block mb-1">type</label>
+          <select
+            class="select w-full"
+            value={type()}
+            onChange={(e) => {
+              setType(e.currentTarget.value as TaskType);
+              setProfileTouched(false);
+            }}
+          >
+            <For each={TASK_TYPES}>{(t) => <option value={t}>{t}</option>}</For>
+          </select>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
           <div>
             <label class="section-title block mb-1">
               boot profile
@@ -156,7 +154,7 @@ function Inner() {
               </Show>
             </label>
             <select
-              class="select"
+              class="select w-full"
               value={effectiveProfile()}
               onChange={(e) => {
                 setProfile(e.currentTarget.value as BootProfile);
@@ -171,7 +169,7 @@ function Inner() {
           <div>
             <label class="section-title block mb-1">priority</label>
             <select
-              class="select"
+              class="select w-full"
               value={priority()}
               onChange={(e) =>
                 setPriority(e.currentTarget.value as TaskPriority)
@@ -224,61 +222,49 @@ function Inner() {
         </div>
       </form>
 
-      <div class="space-y-3">
-        <div class="section-title">scheduler control</div>
-        <div class="card">
-          <div class="card-body space-y-3">
-            <div class="text-xs">
-              status:{' '}
-              <Show
-                when={health.data?.scheduler_paused}
-                fallback={<span class="text-accent-green-soft">running</span>}
-              >
-                <span class="text-accent-orange">paused</span>
-              </Show>
-              <Show when={health.data}>
-                <span class="text-text-muted">
-                  {' '}
-                  · uptime {health.data?.uptime_s}s · db{' '}
-                  {health.data?.db_ok ? 'ok' : 'down'}
-                </span>
-              </Show>
-            </div>
-            <div class="flex flex-wrap gap-2">
-              <button
-                class="btn btn-danger"
-                disabled={pauseMut.isPending || health.data?.scheduler_paused}
-                onClick={() => pauseMut.mutate()}
-              >
-                🛑 pause
-              </button>
-              <button
-                class="btn btn-primary"
-                disabled={resumeMut.isPending || !health.data?.scheduler_paused}
-                onClick={() => resumeMut.mutate()}
-              >
-                ▶️ resume
-              </button>
-              <button
-                class="btn"
-                disabled={scanMut.isPending}
-                onClick={() => scanMut.mutate()}
-              >
-                🔄 scan inbox
-              </button>
-            </div>
-            <Show when={scanMut.isSuccess}>
-              <div class="text-xs text-text-muted">
-                scan result: {scanMut.data?.detected ?? 0} new entries
-              </div>
-            </Show>
-          </div>
-        </div>
-
-        <div class="text-xs text-text-muted leading-relaxed">
-          submit 後 task 會以 status=pending 進佇列。scheduler 暫停時不會自動
-          spawn — 但你仍可透過 task drawer dry-preview prompt。
-        </div>
+      {/* Compact pause/resume + scan — full scheduler controls live in
+          right-column SchedulerControl panel. */}
+      <div class="border-t border-line pt-2 mt-2 flex items-center gap-2 text-xs flex-wrap">
+        <span class="text-text-muted">scheduler:</span>
+        <Show
+          when={health.data?.scheduler_paused}
+          fallback={
+            <span class="text-accent-green-soft font-medium">▶ running</span>
+          }
+        >
+          <span class="text-accent-orange font-medium">⏸ paused</span>
+        </Show>
+        <Show when={!health.data?.scheduler_paused}>
+          <button
+            class="px-2 py-0.5 rounded border border-line hover:border-accent-red text-text-muted hover:text-accent-red"
+            disabled={pauseMut.isPending}
+            onClick={() => pauseMut.mutate()}
+          >
+            pause
+          </button>
+        </Show>
+        <Show when={health.data?.scheduler_paused}>
+          <button
+            class="px-2 py-0.5 rounded border border-line hover:border-accent-green text-text-muted hover:text-accent-green-soft"
+            disabled={resumeMut.isPending}
+            onClick={() => resumeMut.mutate()}
+          >
+            resume
+          </button>
+        </Show>
+        <button
+          class="px-2 py-0.5 rounded border border-line hover:border-accent-blue text-text-muted hover:text-accent-blue"
+          disabled={scanMut.isPending}
+          onClick={() => scanMut.mutate()}
+          title="scan ARTICLE-INBOX for new entries"
+        >
+          🔄 scan inbox
+        </button>
+        <Show when={scanMut.isSuccess}>
+          <span class="text-text-muted">
+            · {scanMut.data?.detected ?? 0} new
+          </span>
+        </Show>
       </div>
     </div>
   );

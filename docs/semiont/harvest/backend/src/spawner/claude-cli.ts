@@ -39,20 +39,50 @@ import {
 import { createWorktree, finalizeWorktree, type Worktree } from './worktree.ts';
 
 /**
- * Default model per task type. Translation tasks use Sonnet (faster + cheaper);
- * content-writing / heavy reasoning still defaults to Opus via task.inputs.model
- * override or the runtime claude CLI default.
+ * Default model + engine per task type.
+ *
+ * Phase 5 (2026-04-29): Cheyu's policy — DEFAULT EVERYTHING TO CLAUDE OPUS.
+ * Only simple/mechanical tasks get cheaper alternatives (Sonnet) or
+ * external engines (codex/ollama). Override via task.inputs.{model,engine}.
+ *
+ *   tier 1 — simple / mechanical (codex / ollama eligible after testing):
+ *     data-refresh / format-check / status-report
+ *   tier 2 — translation (Sonnet OK; codex/ollama eligible after testing):
+ *     lang-sync-refresh / lang-sync-translate
+ *   tier 3 — heavy creation / decision (always Opus claude):
+ *     article-rewrite / article-evolve / article-new / pr-review /
+ *     issue-handle / spore-publish / contributor-thank-you / self-diagnose
  */
 const DEFAULT_MODEL_BY_TYPE: Record<string, string> = {
+  // tier 2 — translation
   'lang-sync-refresh': 'claude-sonnet-4-6',
   'lang-sync-translate': 'claude-sonnet-4-6',
+  // tier 1 — mechanical
   'data-refresh': 'claude-sonnet-4-6',
   'format-check': 'claude-sonnet-4-6',
-  'spore-publish': 'claude-sonnet-4-6',
-  // Heavier task types let claude CLI default (Opus on Max subscription)
+  'status-report': 'claude-sonnet-4-6',
+  // tier 3 — heavy (default Opus)
   'article-rewrite': 'claude-opus-4-6',
   'article-evolve': 'claude-opus-4-6',
   'article-new': 'claude-opus-4-6',
+  'pr-review': 'claude-opus-4-6',
+  'issue-handle': 'claude-opus-4-6',
+  'spore-publish': 'claude-opus-4-6',
+  'contributor-thank-you': 'claude-opus-4-6',
+  'self-diagnose': 'claude-opus-4-6',
+};
+
+/**
+ * Task types eligible for non-claude engine experimentation. UI / API can
+ * route these to codex or ollama via task.inputs.engine. Other types stay
+ * on claude even if engine override is requested (safer default for v1).
+ */
+const ENGINE_ELIGIBLE_TIER: Record<string, 'simple' | 'heavy'> = {
+  'data-refresh': 'simple',
+  'format-check': 'simple',
+  'status-report': 'simple',
+  'lang-sync-refresh': 'simple',
+  'lang-sync-translate': 'simple',
 };
 
 export class ConcurrencyLimitError extends Error {
@@ -191,7 +221,12 @@ export async function spawnClaudeForTask(
     (task.inputs?.model as string | undefined) ??
     DEFAULT_MODEL_BY_TYPE[task.type] ??
     'claude-sonnet-4-6';
-  const taskEngine = (task.inputs?.engine as string | undefined) ?? 'claude';
+  // Engine selection: only allow non-claude on simple-tier task types.
+  // Heavy tasks (article-* / pr-review / etc) ignore engine override → claude.
+  const requestedEngine =
+    (task.inputs?.engine as string | undefined) ?? 'claude';
+  const tier = ENGINE_ELIGIBLE_TIER[task.type];
+  const taskEngine = tier === 'simple' ? requestedEngine : 'claude';
   const gitHead = (() => {
     try {
       return require('node:child_process')
@@ -237,25 +272,62 @@ export async function spawnClaudeForTask(
   ].join('\n');
   logStream.write(metadataHeader);
 
-  // stream-json gives realtime tool-call visibility; --verbose also enables stream
-  // for monitoring. UI / log tail sees every tool use as soon as it happens.
-  // taskModel was computed for metadata header above; reuse here for cliArgs.
-  const cliArgs = [
-    '--print',
-    '--verbose',
-    '--output-format',
-    'stream-json',
-    '--include-partial-messages',
-    '--model',
-    taskModel,
-    '--dangerously-skip-permissions',
-  ];
-  if (process.env.ANTHROPIC_API_KEY) cliArgs.unshift('--bare');
+  // ════════════════════════════════════════════════════════════════
+  // Engine dispatch — claude / codex / ollama (via codex --oss)
+  // task.inputs.engine selects; default 'claude'.
+  // For codex: optional task.inputs.codexLocalProvider ('ollama' | 'lmstudio')
+  // routes to local OSS provider; otherwise ChatGPT subscription default model.
+  // ════════════════════════════════════════════════════════════════
+  let engineBin: string;
+  let cliArgs: string[];
+  if (taskEngine === 'codex' || taskEngine === 'ollama') {
+    engineBin = 'codex';
+    cliArgs = ['exec', '--json', '--full-auto', '--skip-git-repo-check'];
+    if (taskModel) cliArgs.push('-m', taskModel);
+    // 'ollama' alias = codex with --oss --local-provider=ollama
+    if (taskEngine === 'ollama') {
+      cliArgs.push('--oss', '--local-provider=ollama');
+    } else if (task.inputs?.codexLocalProvider) {
+      cliArgs.push(
+        '--oss',
+        `--local-provider=${task.inputs.codexLocalProvider}`,
+      );
+    }
+    if (worktree?.path) {
+      cliArgs.push('-C', worktree.path);
+    }
+  } else {
+    // claude (default)
+    engineBin = config.claudeBin;
+    cliArgs = [
+      '--print',
+      '--verbose',
+      '--output-format',
+      'stream-json',
+      '--include-partial-messages',
+      '--model',
+      taskModel,
+      '--dangerously-skip-permissions',
+    ];
+    if (process.env.ANTHROPIC_API_KEY) cliArgs.unshift('--bare');
+  }
+
   // Bug 2 v2: detached:true broke spawned claude (no controlling terminal →
   // stuck on stdin/keychain). Reverted. SIGINT cascade prevention is now done
   // upstream in tmux start.sh via `setsid bun ...` so bun gets its own session
   // and tmux's SIGINT no longer reaches our spawned children.
-  const child = spawn(config.claudeBin, cliArgs, {
+  log.info(
+    {
+      taskId: task.id,
+      sessionId,
+      engine: taskEngine,
+      model: taskModel,
+      bin: engineBin,
+      args: cliArgs,
+    },
+    'spawning agent',
+  );
+  const child = spawn(engineBin, cliArgs, {
     cwd: worktree?.path ?? config.repoRoot,
     stdio: ['pipe', 'pipe', 'pipe'],
     env: {
@@ -265,6 +337,10 @@ export async function spawnClaudeForTask(
       HARVEST_SESSION_SHORT: sessionId.slice(0, 8),
       HARVEST_WORKTREE_PATH: worktree?.path ?? '',
       HARVEST_WORKTREE_BRANCH: worktree?.branch ?? '',
+      HARVEST_ENGINE: taskEngine,
+      HARVEST_MODEL: taskModel,
+      HARVEST_ALLOW_SELF_COMMIT:
+        task.inputs?.allow_self_commit === false ? 'false' : 'true',
     },
   });
 

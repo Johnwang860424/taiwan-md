@@ -1,0 +1,142 @@
+/**
+ * Quick-action presets for QuickActionBar.
+ *
+ * Each preset describes a task type cheyu fires often. Click → POST /api/tasks
+ * with these defaults. Phase 5 (2026-04-29).
+ */
+
+export interface QuickPreset {
+  id: string; // unique button id
+  emoji: string;
+  label: string; // button text
+  description: string; // tooltip
+  taskType: string; // matches backend prompts/{type}.md
+  bootProfile: string; // matches profiles.yml
+  priority: 'P0' | 'P1' | 'P2' | 'P3';
+  title: string; // task title
+  group: 'routine' | 'content' | 'manual'; // visual grouping
+  needsInput?: { name: string; placeholder: string }[];
+  defaultInputs?: Record<string, unknown>;
+}
+
+export const GROUP_META: Record<
+  QuickPreset['group'],
+  { label: string; color: string }
+> = {
+  routine: {
+    label: '🟢 例行 (auto OK)',
+    color: 'border-accent-green/30',
+  },
+  content: {
+    label: '🔵 內容創作 (heavier)',
+    color: 'border-accent-blue/30',
+  },
+  manual: {
+    label: '🟠 對外操作 (人工最終確認)',
+    color: 'border-accent-amber/30',
+  },
+};
+
+const ts = (): string =>
+  new Date().toISOString().slice(0, 16).replace('T', ' ');
+
+export const QUICK_PRESETS: QuickPreset[] = [
+  // 🟢 routine (safe to auto)
+  {
+    id: 'data-refresh',
+    emoji: '📊',
+    label: 'Refresh dashboard',
+    description: 'CF + GA + SC + prebuild + lang-sync status — 約 7 分鐘',
+    taskType: 'data-refresh',
+    bootProfile: 'minimal',
+    priority: 'P1',
+    title: `data-refresh: scheduled ${ts()}`,
+    group: 'routine',
+  },
+  {
+    id: 'lang-sync-en-batch',
+    emoji: '🌐',
+    label: 'Lang-sync: 1 en article',
+    description: '從 lang-sync queue 挑下一個最舊 stale → 翻譯',
+    taskType: 'lang-sync-refresh',
+    bootProfile: 'translation-refresh',
+    priority: 'P1',
+    title: `lang-sync: pick next stale en ${ts()}`,
+    defaultInputs: {
+      lang: 'en',
+      mode: 'auto',
+      allow_self_commit: false,
+    },
+    group: 'routine',
+  },
+  {
+    id: 'self-diagnose',
+    emoji: '🩺',
+    label: 'Self-diagnose',
+    description: '完整 BECOME 甦醒 + 4.5 拍診斷',
+    taskType: 'self-diagnose',
+    bootProfile: 'full-awakening',
+    priority: 'P2',
+    title: `self-diagnose: full check ${ts()}`,
+    group: 'routine',
+  },
+  {
+    id: 'status-report',
+    emoji: '📋',
+    label: 'Status report',
+    description: '今日心跳總結 → reports/harvest/',
+    taskType: 'status-report',
+    bootProfile: 'minimal',
+    priority: 'P2',
+    title: `status-report ${ts()}`,
+    group: 'routine',
+  },
+
+  // 🔵 content (heavier — Opus)
+  {
+    id: 'article-from-inbox',
+    emoji: '📝',
+    label: 'Write next article (inbox)',
+    description: '從 ARTICLE-INBOX 挑 P0/P1 寫一篇',
+    taskType: 'article-rewrite',
+    bootProfile: 'content-writing',
+    priority: 'P1',
+    title: `article: pick from inbox ${ts()}`,
+    group: 'content',
+  },
+
+  // 🟠 manual (oversight required)
+  {
+    id: 'pr-review',
+    emoji: '🔍',
+    label: 'Review open PRs',
+    description: '審所有 open PR — 預設關閉 auto-spawn，手動觸發',
+    taskType: 'pr-review',
+    bootProfile: 'maintainer',
+    priority: 'P0',
+    title: `pr-review: queue scan ${ts()}`,
+    group: 'manual',
+  },
+  {
+    id: 'issue-handle',
+    emoji: '📨',
+    label: 'Handle Issues',
+    description: '掃 open Issues 分流',
+    taskType: 'issue-handle',
+    bootProfile: 'maintainer',
+    priority: 'P1',
+    title: `issue-handle: queue scan ${ts()}`,
+    group: 'manual',
+  },
+  {
+    id: 'spore-publish',
+    emoji: '🌱',
+    label: 'Spore: prep blueprint',
+    description: '準備一篇孢子 blueprint (NOT 直接發 — human post)',
+    taskType: 'spore-publish',
+    bootProfile: 'spore-publishing',
+    priority: 'P1',
+    title: `spore: blueprint prep ${ts()}`,
+    group: 'manual',
+  },
+];

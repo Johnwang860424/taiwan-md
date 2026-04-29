@@ -108,34 +108,74 @@ python3 scripts/tools/lang-sync/optimized-translate.py assemble {{task.inputs.zh
 bash scripts/tools/lang-sync/refresh.sh {{task.inputs.zh_path}} {{task.inputs.lang}} --apply --sha-only
 ```
 
-#### Step 6 — Hard-gate verify (MANDATORY before commit)
+#### Step 6 — Hard-gate verify LOOP (own this in-session, no follow-up task)
+
+The harvest engine will NOT spawn a Polish task for lang-sync work. You own
+the full translate → verify → fix → re-verify cycle. Treat this like
+a unit test loop: do not declare success until verify exits 0 or 2.
 
 ```bash
 python3 scripts/tools/lang-sync/verify-translation.py {{task.inputs.zh_path}} "$EN_PATH"
+echo $?  # 0 = all PASS / 2 = WARN only / 1 = HARD FAIL
 ```
 
-**Exit code 0 (all PASS) or 2 (WARN only) = OK to commit. Exit 1 = HARD FAIL → fix.**
+**Loop policy — up to 3 fix iterations**:
 
-Common hard failures + fix:
+1. Run verify. Capture exit code.
+2. If exit 0 → done. Proceed to Step 7.
+3. If exit 2 (WARN only, no HARD FAIL) → log warns, proceed to Step 7.
+4. If exit 1:
+   - Read the failed checks. Each FAIL line tells you what + how to fix.
+   - Apply the fix:
+     - **passthrough fields drift** → patch en frontmatter to match zh source
+       (author / subcategory / category / featured / readingTime / lastVerified
+       / lastHumanReview must equal zh). Use Edit tool, do NOT re-translate body.
+     - **sourceCommitSha / sourceContentHash / translatedAt missing** →
+       `bash scripts/tools/lang-sync/refresh.sh {{task.inputs.zh_path}} {{task.inputs.lang}} --apply --sha-only`
+     - **frontmatter has zh CJK in title/description/imageAlt** → agent missed
+       a string. Edit the frontmatter line directly, no full re-translate.
+     - **footnote count mismatch** → re-extract footnote definitions from zh,
+       re-emit `[^N]:` block. Body prose may need re-translation only if a `[^N]`
+       reference is missing in body too.
+     - **duplicate `_References:_`** → search en for two `_References:_` and
+       remove the empty one (assembler should have stripped — bug fallback).
+     - **section count mismatch** → check `##` headings; you likely dropped
+       or merged a section. Edit body to restore.
+     - **URL count mismatch** → footnote URLs lost. Re-extract from zh c-footnotes.json.
+     - **tags ASCII** → translate any zh tags to en slug-case.
+   - Re-run verify (back to step 1).
+5. After 3 iterations still failing → write `outputs/verify-failures.md` with
+   the unresolved FAIL list, status.log a final `escalate-to-human` line, exit
+   non-zero. Do NOT commit broken work.
 
-- **passthrough fields drift** (author/subcategory/category changed): re-run assemble OR patch en frontmatter to match zh
-- **sourceCommitSha missing**: Step 5 `--apply --sha-only` failed → re-run
-- **frontmatter has zh CJK in title/description/imageAlt**: agent didn't translate → re-translate those strings
-- **footnote count mismatch**: definitions lost → re-translate body
-- **duplicate `_References:_`**: agent's body included refs separator → re-translate body without it
+**Only proceed to Step 7 after verify exits 0 or 2.**
 
-**Only proceed to git commit AFTER verify returns 0 or 2.**
+#### Step 7 — Commit (CONDITIONAL on `HARVEST_ALLOW_SELF_COMMIT`)
 
-#### Step 7 — Commit
+Read env: `echo "$HARVEST_ALLOW_SELF_COMMIT"`
 
-```bash
-git add "$EN_PATH" knowledge/_translations.json
-git commit -m "🧬 [semiont] heal: lang-sync 4-part refresh {{task.inputs.zh_path}} → {{task.inputs.lang}}
+- If `HARVEST_ALLOW_SELF_COMMIT=true` (or unset, legacy default) → run the commit:
 
-Mode: {{task.inputs.mode}}
-sid: [{{session_short}}]
-"
-```
+  ```bash
+  git add "$EN_PATH" knowledge/_translations.json
+  git commit -m "🧬 [semiont] heal: lang-sync 4-part refresh {{task.inputs.zh_path}} → {{task.inputs.lang}}
+
+  Mode: {{task.inputs.mode}}
+  sid: [{{session_short}}]
+  "
+  ```
+
+- If `HARVEST_ALLOW_SELF_COMMIT=false` → **DO NOT commit**. Stage but don't commit.
+  Append a final marker to status.log:
+
+  ```bash
+  echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] ready-for-parent-commit — verify PASS, no self-commit" >> {{task.folder_path_relative}}/status.log
+  git add "$EN_PATH" knowledge/_translations.json   # stage but don't commit
+  ```
+
+  The parent (claude main session orchestrating the batch) will collect all
+  staged changes and produce ONE commit per N articles (or one big commit
+  for the whole batch). This avoids commit noise in main repo history.
 
 #### Step 8 — Report to status.log
 

@@ -28,7 +28,12 @@ import {
   startScheduler,
   stopScheduler,
 } from './scheduler/cron.ts';
-import { startAutoSpawn, stopAutoSpawn } from './scheduler/auto-spawn.ts';
+import {
+  startAutoSpawn,
+  stopAutoSpawn,
+  setAutoSpawnInterval,
+  getAutoSpawnRuntime,
+} from './scheduler/auto-spawn.ts';
 import { startHealthMonitor, stopHealthMonitor } from './health/monitor.ts';
 import { loadProfiles } from './spawner/boot-profiles.ts';
 import { join } from 'node:path';
@@ -48,6 +53,9 @@ import {
   activeForTask,
   unregister,
 } from './spawner/concurrency.ts';
+import { listTypePolicies, setTypePolicy } from './scheduler/type-policy.ts';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
 const app = new Hono();
 const startTs = Date.now();
@@ -444,6 +452,59 @@ app.post('/api/control/resume', (c) => {
   startAutoSpawn();
   startHealthMonitor();
   return c.json({ paused: false });
+});
+
+/** Phase 5 — Scheduler per-type policy (auto-spawn allow/deny per task type). */
+app.get('/api/scheduler/types', (c) => {
+  const policies = listTypePolicies();
+  // Also list known prompt files for task types not yet in policy table
+  try {
+    const promptDir = path.resolve(
+      path.dirname(new URL(import.meta.url).pathname),
+      '../prompts',
+    );
+    const files = fs.readdirSync(promptDir).filter((f) => f.endsWith('.md'));
+    const known = new Set(policies.map((p) => p.task_type));
+    for (const f of files) {
+      const t = f.replace(/\.md$/, '');
+      if (!known.has(t)) {
+        policies.push({
+          task_type: t,
+          auto_spawn_enabled: true,
+          updated_at: '',
+        });
+      }
+    }
+  } catch {}
+  policies.sort((a, b) => a.task_type.localeCompare(b.task_type));
+  return c.json({ count: policies.length, types: policies });
+});
+
+/** Phase 5 — auto-spawn runtime config (interval + countdown). */
+app.get('/api/scheduler/config', (c) => {
+  return c.json({
+    paused: isPaused(),
+    ...getAutoSpawnRuntime(),
+  });
+});
+
+app.patch('/api/scheduler/config', async (c) => {
+  const body = await c.req.json().catch(() => null);
+  if (!body || typeof body.intervalSec !== 'number') {
+    return c.json({ error: 'intervalSec number required (min 30)' }, 400);
+  }
+  const applied = setAutoSpawnInterval(body.intervalSec);
+  return c.json({ intervalSec: applied, ...getAutoSpawnRuntime() });
+});
+
+app.patch('/api/scheduler/types/:type', async (c) => {
+  const taskType = c.req.param('type');
+  const body = await c.req.json().catch(() => null);
+  if (!body || typeof body.auto_spawn_enabled !== 'boolean') {
+    return c.json({ error: 'auto_spawn_enabled boolean required' }, 400);
+  }
+  const updated = setTypePolicy(taskType, body.auto_spawn_enabled);
+  return c.json(updated);
 });
 
 app.post('/api/intake/scan', async (c) => {
