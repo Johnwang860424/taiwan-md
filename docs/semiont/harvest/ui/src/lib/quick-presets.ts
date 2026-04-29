@@ -110,22 +110,29 @@ export const QUICK_PRESETS: QuickPreset[] = [
     id: 'pr-review',
     emoji: '🔍',
     label: 'Review open PRs',
-    description: '審所有 open PR — 預設關閉 auto-spawn，手動觸發',
+    description:
+      '審所有 open PR — 預設關閉 auto-spawn，手動觸發。每 spawn 獨立 worktree (避免多 session 碰撞 main repo)',
     taskType: 'pr-review',
     bootProfile: 'maintainer',
     priority: 'P0',
     title: `pr-review: queue scan ${ts()}`,
+    defaultInputs: {
+      worktree: true, // explicit isolation — never share main repo for PR review
+    },
     group: 'manual',
   },
   {
     id: 'issue-handle',
     emoji: '📨',
     label: 'Handle Issues',
-    description: '掃 open Issues 分流',
+    description: '掃 open Issues 分流。獨立 worktree (避免碰撞)',
     taskType: 'issue-handle',
     bootProfile: 'maintainer',
     priority: 'P1',
     title: `issue-handle: queue scan ${ts()}`,
+    defaultInputs: {
+      worktree: true,
+    },
     group: 'manual',
   },
   {
