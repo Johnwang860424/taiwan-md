@@ -584,13 +584,18 @@ Taiwan.md 自動呼吸循環：
 
 ## 權限管理
 
-| 角色  | 能 Merge？                      | 說明       |
-| ----- | ------------------------------- | ---------- |
-| admin | ✅ 可 `--admin` 跳過 protection | 專案擁有者 |
-| write | ⚠️ 可互相 approve + merge       | 核心貢獻者 |
+> **Canonical SOP 在 [CONTRIBUTOR-SYSTEM-PIPELINE.md](CONTRIBUTOR-SYSTEM-PIPELINE.md)** — 涵蓋五階梯定義、升降級觸發、inactive 政策（60 天 soft check-in / 90 天 demote）、mercy demote、復活路徑、`gh api` 指令速查。本節僅保留快速速查。
+
+| 對外角色 | API value | 能 Merge？                      | 對應階梯                 |
+| -------- | --------- | ------------------------------- | ------------------------ |
+| Admin    | `admin`   | ✅ 可 `--admin` 跳過 protection | Lv.4 Core Team           |
+| Write    | `push`    | ⚠️ 可互相 approve + merge       | Lv.3 Maintainer          |
+| Triage   | `triage`  | ❌ 只能標 label / 指派          | Lv.2 Trusted Contributor |
 
 Branch protection：需 1 approval，`enforce_admins: false`。
 目前策略：先不鎖，出狀況再調整。
+
+⚠️ **降級 / 移除 collaborator 動作必走 [CONTRIBUTOR-SYSTEM-PIPELINE §6 Inactivity Demotion 7 步](CONTRIBUTOR-SYSTEM-PIPELINE.md#6-inactivity-detection--demotion-pipeline-)**——禁止靜默調整。
 
 ---
 

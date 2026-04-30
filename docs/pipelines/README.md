@@ -14,12 +14,13 @@
 
 ## Reference（手動 / Build-time）
 
-| Pipeline                                         | 觸發                | 說明                                                  |
-| ------------------------------------------------ | ------------------- | ----------------------------------------------------- |
-| [MAINTAINER-PIPELINE.md](MAINTAINER-PIPELINE.md) | 每日 / 新人上手     | 維護者完整手冊（策展哲學 + PR/Issue 審核 + 品質標準） |
-| [EVOLVE-PIPELINE.md](EVOLVE-PIPELINE.md)         | 手動觸發            | 數據驅動內容進化（GA4 + SC → 重寫）                   |
-| [BRANCH-PIPELINE.md](BRANCH-PIPELINE.md)         | 「分析 X」觸發      | 知識分支分析器（主題拆解 → 交叉比對 → 缺口 → 延伸）   |
-| [DASHBOARD-PIPELINE.md](DASHBOARD-PIPELINE.md)   | prebuild + 手動 GA4 | Dashboard 數據管線 + 模板架構                         |
+| Pipeline                                                         | 觸發                | 說明                                                                                        |
+| ---------------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------- |
+| [MAINTAINER-PIPELINE.md](MAINTAINER-PIPELINE.md)                 | 每日 / 新人上手     | 維護者完整手冊（策展哲學 + PR/Issue 審核 + 品質標準）                                       |
+| [CONTRIBUTOR-SYSTEM-PIPELINE.md](CONTRIBUTOR-SYSTEM-PIPELINE.md) | 升降級 / inactive   | 貢獻者關係週期完整 SOP（5 階梯 / onboarding / promote / inactive demote / 復活 / 通訊範本） |
+| [EVOLVE-PIPELINE.md](EVOLVE-PIPELINE.md)                         | 手動觸發            | 數據驅動內容進化（GA4 + SC → 重寫）                                                         |
+| [BRANCH-PIPELINE.md](BRANCH-PIPELINE.md)                         | 「分析 X」觸發      | 知識分支分析器（主題拆解 → 交叉比對 → 缺口 → 延伸）                                         |
+| [DASHBOARD-PIPELINE.md](DASHBOARD-PIPELINE.md)                   | prebuild + 手動 GA4 | Dashboard 數據管線 + 模板架構                                                               |
 
 ## Archived（Cron 暫停，知識保留）
 

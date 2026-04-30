@@ -1,6 +1,10 @@
-# Contributors Pipeline — 貢獻者自動更新流程
+# Contributors Pipeline — 貢獻者名單自動更新流程
 
 > 每天 03:30 (Asia/Taipei) 由 Cron 自動執行
+>
+> ⚠️ **本檔範圍 = README all-contributors 名單 auto-sync 機制**。
+> Contributor 關係週期（onboarding / 升降級 / inactive 處理 / 復活）的完整 SOP 在
+> [CONTRIBUTOR-SYSTEM-PIPELINE.md](CONTRIBUTOR-SYSTEM-PIPELINE.md)。
 
 ---
 
