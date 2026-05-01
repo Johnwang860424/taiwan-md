@@ -1,96 +1,73 @@
 ---
-created: 2026-03-17
-tags: [Technology, Open Source Community, g0v, Civic Technology]
-title: Comunidad de código abierto y g0v
-description: La próspera comunidad de software de código abierto de Taiwán y g0v gov-zero, promoviendo prácticas innovadoras en tecnología cívica y gobierno abierto
-date: 2026-03-17
-author: Taiwan.md
+title: 'Comunidad de código abierto y g0v'
+description: 'En febrero de 2020, mientras el mundo entero acaparaba mascarillas, un grupo de programadores de Taiwán tardó solo 72 horas en permitir que 13,000 tiendas de conveniencia pudieran consultar el inventario de mascarillas. Sin órdenes gubernamentales, sin apoyo presupuestario, solo una convicción: cambiar la sociedad con código. Este es g0v (Gobierno Cero), un experimento fascinante de «hacer fork al gobierno».'
+category: Technology
+subcategory: '開源社群'
+tags: ['Tecnología', 'Comunidad de código abierto', 'g0v', 'Tecnología cívica']
+date: 2026-03-23
+lastVerified: 2026-03-23
+lastHumanReview: true
 readingTime: 8
 featured: false
 translatedFrom: 'Technology/開源社群與g0v.md'
-sourceCommitSha: '800114ea'
+sourceCommitSha: '528d1c04'
 sourceContentHash: 'sha256:af78147ce6c1c764'
-translatedAt: '2026-04-14T12:25:09+08:00'
+translatedAt: '2026-05-01T22:19:10+08:00'
 ---
 
 # Comunidad de código abierto y g0v
 
-> **Resumen en 30 segundos:** Taiwán tiene una comunidad de software de código abierto muy activa, siendo g0v gov-zero una comunidad de tecnología cívica reconocida mundialmente que promueve la transparencia gubernamental y la participación ciudadana a través de la colaboración de código abierto. Desde plataformas de información en tiempo real durante el Movimiento Estudiantil 318 hasta los mapas de mascarillas durante la COVID-19, demuestra el poder innovador de combinar tecnología con democracia.
+> **Resumen en 30 segundos:** En 2012, debido a que el gobierno gastó una gran suma de dinero en un anuncio sin contenido, un grupo de ingenieros decidió «hacer fork al gobierno»: cambiar gov.tw por g0v.tw y rediseñar cómo debería ser el gobierno. Ocho años después, estalló la pandemia de COVID-19, y estos programadores «amateur» construyeron el mapa de mascarillas en 72 horas, permitiendo que todos los taiwaneses consultaran en tiempo real el inventario de mascarillas de 13,000 farmacias. Esto no es un logro del gobierno, es una victoria ciudadana.
 
-## Por qué es importante
+En una noche de octubre de 2012, 高嘉良 estaba sentado frente a su computadora mirando el anuncio del «Plan de Impulso del Dinamismo Económico» del gobierno, y se enfurecía cada vez más. El gobierno había gastado más de 40 millones en la producción de un video promocional, pero su contenido era tan vacío que hacía dudar: ¿no tendría más sentido tirar ese dinero directamente a la alcantarilla?
 
-g0v y la comunidad de código abierto de Taiwán representan una integración profunda de la tecnología y los valores democráticos, demostrando cómo los modelos de colaboración abierta pueden utilizarse para resolver problemas sociales. Este modelo no solo influye en el desarrollo de la gobernanza digital de Taiwán, sino que también proporciona paradigmas importantes para el movimiento global de tecnología cívica, demostrando el enorme potencial del espíritu de código abierto en la promoción de la transparencia gubernamental y la participación ciudadana.
+Esa noche, tomó una decisión que cambiaría a Taiwán: **Si el gobierno no lo hace bien, lo haremos nosotros.**
 
-## Visión general
+Cambió la «o» en el dominio de gobierno gov.tw por un «0», convirtiéndolo en g0v.tw. Este simple juego de palabras simbolizaba un concepto nuevo: **hacer fork al gobierno**. Al igual que el software de código abierto, si la versión original tiene problemas, se hace un fork de una rama y se reescribe una versión mejor.
 
-g0v gov-zero fue establecido en 2012 con la misión de "usar la tecnología para cambiar la sociedad", promoviendo la transparencia de la información gubernamental a través de la colaboración de código abierto. Los participantes de la comunidad incluyen ingenieros, diseñadores, académicos, trabajadores de ONG y otros que desarrollan conjuntamente proyectos de tecnología cívica utilizando formatos de hackathon. Los logros representativos incluyen la visualización del presupuesto del gobierno central, transparencia legislativa, mapas de mascarillas y otros, influyendo en el desarrollo de políticas de gobernanza digital del gobierno.
+## Hacer fork al gobierno: un experimento ciudadano en la era digital
 
-## Datos clave
+g0v no busca derrocar al gobierno, sino «paralelizar» al gobierno: usar la colaboración de código abierto para imaginar nuevamente cómo deberían ser los servicios gubernamentales.
 
-- **Contexto de fundación**: Establecido en 2012 debido a la controversia sobre los anuncios del "Plan de Mejora del Impulso Económico", defendiendo "programar para transformar la sociedad"
-- **Modelo de operación**: Colaboración descentralizada, organizando hackathons principales cada dos meses sin estructura organizativa jerárquica
-- **Proyectos importantes**: Visualización del presupuesto del gobierno central, transparencia legislativa, mapas de mascarillas, vTaiwan
-- **Impacto internacional**: Reconocido con el Premio de Servicio Público de la ONU, invitaciones a TED Talk y otros reconocimientos internacionales
-- **Escala de participación**: Más de 10.000 colaboradores acumulados, cientos de proyectos en GitHub
+**En diciembre de 2012**, se celebró el 0º hackatón de g0v en la Academia Sinica, con la participación de más de 40 personas. El primer proyecto fue rescatar el «Presupuesto General del Gobierno Central» del infierno de PDF y convertirlo en un sitio web interactivo y visual.
 
-## Contenido en profundidad
+El libro de presupuesto original del gobierno era un PDF de más de 500 páginas, con números y tablas densos que la gente común no podía entender. Los voluntarios de g0v reorganizaron estos datos y crearon gráficos interactivos: **con un clic, se puede ver en qué gasta el gobierno tus impuestos.**
 
-### Orígenes de g0v Gov-Zero
+> **📝 Nota del curador**
+> El primer proyecto de g0v, la visualización del presupuesto gubernamental, no fue una coincidencia. El presupuesto es el núcleo de la democracia: el pueblo tiene derecho a saber en qué gasta el gobierno su dinero. Pero los presupuestos tradicionales están diseñados precisamente para ser incomprensibles. g0v utilizó la tecnología para romper esta «opacidad intencional».
 
-g0v fue fundado en respuesta a la controversia del "Plan de Mejora del Impulso Económico" de 2012, cuando el gobierno gastó decenas de millones en vídeos promocionales con contenido vacío que provocaron críticas. **Kao Chia-liang, Audrey Tang y Chia-Wei Chu** iniciaron "gov-zero", cambiando la "o" en los nombres de dominio del gobierno por "0", simbolizando un replanteamiento de la relación entre gobierno y pueblo.
+Este pequeño experimento demostró una cosa: **que el gobierno no lo haga no significa que sea imposible. Solo significa que nadie lo ha hecho.**
 
-El concepto de **Fork the Government** enfatiza no derrocar al gobierno sino "bifurcar" mejores versiones, como el modelo de desarrollo por ramas del software de código abierto. Este espíritu crítico constructivo se convirtió en el núcleo de la cultura de la comunidad g0v.
+## Movimiento del 18 de marzo (318): demostración de fuerza de la tecnología cívica
 
-### Modelo de colaboración de código abierto
+En la noche del 18 de marzo de 2014, estudiantes ocuparon el Yuan Legislativo. A la mañana siguiente, voluntarios de g0v aparecieron en el lugar, no para protestar, sino para «construir infraestructura básica».
 
-La **cultura de hackathon** es el principal método operativo de g0v, organizando eventos importantes de hackathon cada dos meses donde los participantes proponen ideas in situ, forman equipos e implementan proyectos. Los **pitches de tres minutos** dan a cualquier idea una oportunidad de expresión, mientras que las **presentaciones de resultados** aseguran resultados concretos del proyecto.
+**Sin organización, sin mando.** Los participantes de la comunidad g0v realizaron las siguientes acciones de forma espontánea:
 
-La **organización descentralizada** no tiene jerarquía de liderazgo fija: cualquiera puede iniciar proyectos. Los **principios de código abierto** hacen que todo el código y los datos del proyecto sean abiertos, utilizando términos de licencia abiertos. La **colaboración interdisciplinaria** combina programación, diseño visual, expertos en la materia y defensores sociales de diferentes orígenes.
+- **Transmisión en tiempo real**: instalaron un sistema de transmisión en vivo con múltiples cámaras, permitiendo que el mundo entero viera la situación dentro del recinto.
+- **Integración de información**: crearon una carpeta hackfoldr para recopilar, organizar y verificar información de diversas fuentes en internet en tiempo real.
+- **Colaboración masiva**: establecieron un sistema de edición colaborativa, permitiendo que personas que no estaban en el lugar participaran en la recolección de datos y el fact-checking.
+- **Conexión externa**: proporcionaron traducción en tiempo real en varios idiomas, para que los medios internacionales pudieran entender las demandas de la protesta en tiempo real.
 
-### Logros importantes de proyectos
+**24 días de ocupación, transmisión en vivo de alta definición sin interrupciones.** Esto fue un logro técnico increíble en 2014. En ese momento, Facebook Live ni siquiera existía, y la transmisión en vivo de YouTube no era común, pero los voluntarios de g0v construyeron con herramientas de código abierto un sistema de transmisión más estable que el de los medios profesionales.
 
-La **visualización del presupuesto del gobierno central** transforma datos complejos del presupuesto gubernamental en interfaces de visualización interactivas, permitiendo a los ciudadanos comprender fácilmente las estructuras de gasto del gobierno. La **transparencia legislativa** proporciona transmisión en directo de las sesiones legislativas y registra los discursos y el comportamiento de votación de los legisladores.
+Más importante aún, demostraron el poder de la «transparencia». Debido a la transmisión en vivo, todos podían ver lo que ocurría dentro del recinto, haciendo imposible que el gobierno distorsionara los hechos. Este modelo de «usar la tecnología para supervisar al gobierno» fue posteriormente estudiado e imitado por movimientos ciudadanos de todo el mundo.
 
-Los **mapas de mascarillas** durante la pandemia de COVID-19 de 2020, desarrollaron rápidamente sistemas de consulta de inventario de mascarillas para ayudar a las personas a encontrar farmacias con existencias. **vTaiwan** proporciona plataformas de discusión de políticas en línea para que los ciudadanos participen en los procesos de desarrollo regulatorio.
+## Mapa de mascarillas: el milagro de 72 horas
 
-La **plataforma de información del Movimiento Estudiantil 318** proporcionó servicios de integración de información en tiempo real durante el Movimiento Estudiantil del Girasol. La **digitalización de boletines electorales** digitalizó las promesas de campaña de los candidatos para facilitar la consulta y comparación.
+A principios de febrero de 2020, estalló la pandemia de COVID-19 en Taiwán. El gobierno anunció una política de mascarillas con sistema de registro civil, permitiendo a cada persona comprar 2 mascarillas por semana. El problema era: ¿dónde comprarlas? ¿En qué farmacias quedaba inventario?
 
-### Impacto en la gobernanza digital del gobierno
+**El 6 de febrero**, la Comisionada de Política Digital 唐鳳 (quien es miembro fundadora de g0v) anunció que el gobierno abriría los datos de inventario de mascarillas de las 13,000 farmacias afiliadas en todo Taiwán, actualizados cada 30 minutos.
 
-La defensa de g0v influyó directamente en la política gubernamental: el establecimiento de la **Plataforma de Datos Abiertos del Gobierno** y la **Plataforma de Participación en Línea de Políticas Públicas** muestran rastros de la promoción de la comunidad g0v. **Audrey Tang** pasó de participante de g0v a Ministra Digital, llevando conceptos de gobierno abierto al sistema gubernamental.
+**El 8 de febrero**, se lanzó el primer mapa de mascarillas.
+**El 9 de febrero**, aparecieron más de 100 versiones diferentes del mapa de mascarillas.
 
-La **política de datos abiertos** requiere que el gobierno publique más datos públicos legibles por máquina. La **gobernanza colaborativa** utiliza el poder ciudadano para ayudar al gobierno a resolver problemas, como la exitosa experiencia de los mapas de mascarillas.
+Este no fue un proyecto adjudicado por el gobierno a una empresa de informática, sino el resultado de «horas extra voluntarias» de programadores de todo Taiwán. **Cada uno quería contribuir a la prevención de la epidemia, y lo que los programadores podían hacer era escribir código.**
 
-### Conexiones e impacto internacional
+Las versiones más populares incluyeron:
 
-g0v ha recibido reconocimiento de múltiples premios internacionales, incluido el **Premio de Servicio Público de la ONU**. Taiwán es un miembro importante de la red **Code for All**, intercambiando y cooperando con comunidades de tecnología cívica globales.
+- **Mapa de mascarillas de Taiwán** por Howard Wu: interfaz de mapa sencilla y clara.
+- **¿Quedan mascarillas?** por el usuario kiang: integración de comentarios de farmacias e información de horarios.
+- **¿Dónde comprar mascarillas?** por Finjon Kiang: soporte para consulta por voz.
 
-**Intercambio de experiencias asiáticas**: el modelo g0v ha influido en el desarrollo de la tecnología cívica en Corea del Sur, Japón, Hong Kong y otras regiones. **Desempeño durante la pandemia**: proyectos como los mapas de mascarillas recibieron amplia cobertura mediática internacional, demostrando las capacidades de gobernanza digital de Taiwán.
-
-### Ecosistema de la comunidad de código abierto de Taiwán
-
-Más allá de g0v, Taiwán también tiene comunidades técnicas como **COSCUP Conference for Open Source Coders, Users & Promoters**, **PyCon Taiwan** y **SITCON Students' Information Technology Conference**, formando un ecosistema de código abierto activo.
-
-**Participación corporativa**: empresas tecnológicas como MediaTek y Trend Micro apoyan activamente el desarrollo de la comunidad de código abierto. **Cooperación académica**: colabora con universidades como NTU y NTHU para promover la educación de código abierto. **Apoyo gubernamental**: departamentos gubernamentales como el Ministerio de Asuntos Digitales han comenzado a valorar el desarrollo de software de código abierto.
-
-### Desafíos y futuro
-
-**Desarrollo sostenible**: cómo mantener el entusiasmo de la participación voluntaria y la continuidad del proyecto. **Ampliación del impacto**: avanzar desde la transparencia de la información hasta el cambio sustancial de políticas todavía enfrenta desafíos. **Brecha digital**: garantizar que todos los ciudadanos puedan beneficiarse del desarrollo de la tecnología cívica.
-
-**Cuestiones emergentes**: ética de la IA, gobernanza de datos, derechos humanos digitales y otras cuestiones de nuevas tecnologías requieren más atención. **Sucesión generacional**: cultivar participantes de tecnología cívica de la nueva generación para continuar promoviendo la reforma social.
-
-## Significado global
-
-g0v demuestra la posibilidad de promover el gobierno abierto en sociedades de habla china, con su experiencia demostrando que la democracia y la tecnología pueden combinarse beneficiosamente. En un entorno internacional de expansión del autoritarismo, el modelo g0v proporciona una referencia importante para las sociedades civiles de otros países, demostrando el poder positivo de la tecnología empoderando a los ciudadanos.
-
-## Lecturas complementarias
-
-- [Sitio web oficial de g0v gov-zero](https://g0v.tw/en-US/)
-- [G0v.tw - Wikipedia](https://en.wikipedia.org/wiki/G0v)
-
-## Temas relacionados
-
-- [semiconductor-industry](/technology/semiconductor-industry)
-- [democratic-system](/society/democratic-system)
-- [convenience-store-culture](/lifestyle/convenience-store-culture)
-- [economic-miracle](/economy/economic-miracle)
+En 72 horas, Taiwán tenía el sistema de consulta de inventario de mascarillas más completo del mundo. \*\*Mientras los ciud
