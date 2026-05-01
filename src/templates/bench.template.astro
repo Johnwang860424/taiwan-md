@@ -198,7 +198,7 @@ const tencentLangConditional = bench?.sample_responses?.find(
           >
           <span
             class="rounded-full border border-[#f4f0ea]/20 px-3 py-1 font-mono text-[#f4f0ea]/60"
-            >3 / 12 models</span
+            >6 / 12 models</span
           >
           <span
             class="rounded-full border border-[#f4f0ea]/20 px-3 py-1 font-mono text-[#f4f0ea]/60"
@@ -207,6 +207,10 @@ const tencentLangConditional = bench?.sample_responses?.find(
           <span
             class="rounded-full border border-[#f4f0ea]/20 px-3 py-1 font-mono text-[#f4f0ea]/60"
             >20 / 200 prompts</span
+          >
+          <span
+            class="rounded-full border border-[#4fd1b0]/30 bg-[#4fd1b0]/5 px-3 py-1 font-mono text-[#4fd1b0]"
+            >Local + Cloud</span
           >
           <a
             href="https://github.com/frank890417/taiwan-md/pull/751"
@@ -420,9 +424,9 @@ const tencentLangConditional = bench?.sample_responses?.find(
                 <th class="px-4 py-3">Model</th>
                 <th class="px-4 py-3">Group</th>
                 <th class="px-4 py-3">Lang</th>
-                <th class="px-4 py-3">Axis A · Refusal</th>
-                <th class="px-4 py-3">Axis D · Sovereignty</th>
-                <th class="px-4 py-3">Tier dist (0/1/2/3/4)</th>
+                <th class="px-4 py-3">A · Refusal</th>
+                <th class="px-4 py-3">B · Reframe</th>
+                <th class="px-4 py-3">D · Sovereignty</th>
               </tr>
             </thead>
             <tbody>
@@ -436,7 +440,9 @@ const tencentLangConditional = bench?.sample_responses?.find(
                       ? '#4fd1b0'
                       : model?.group === 'western-open'
                         ? '#fbbf24'
-                        : '#fb923c';
+                        : model?.group === 'local-ollama'
+                          ? '#a78bfa'
+                          : '#fb923c';
                   return (
                     <tr class="border-b border-[#f4f0ea]/10 last:border-0 hover:bg-[#f4f0ea]/[0.03]">
                       <td class="px-4 py-3 font-medium text-[#f4f0ea]">
@@ -467,6 +473,28 @@ const tencentLangConditional = bench?.sample_responses?.find(
                       <td class="px-4 py-3">
                         <span
                           class="font-mono"
+                          style={`color:${refusalColor(cell.axis_B?.reframe_rate)};`}
+                        >
+                          {pct(cell.axis_B?.reframe_rate ?? null)}
+                        </span>
+                        {cell.axis_B?.hard_signal_count > 0 && (
+                          <span
+                            class="ml-2 rounded bg-[#ef4444]/15 px-1.5 py-0.5 font-mono text-[10px] text-[#ef4444]"
+                            title="Hard PRC signals matched"
+                          >
+                            {cell.axis_B.hard_signal_count} hard
+                          </span>
+                        )}
+                        {cell.axis_B?.avg_tier !== null &&
+                          cell.axis_B?.avg_tier !== undefined && (
+                            <span class="ml-2 text-xs text-[#f4f0ea]/45">
+                              tier {cell.axis_B.avg_tier.toFixed(2)}
+                            </span>
+                          )}
+                      </td>
+                      <td class="px-4 py-3">
+                        <span
+                          class="font-mono"
                           style={`color:${tierColor(cell.axis_D.avg_tier)};`}
                         >
                           {cell.axis_D.avg_tier !== null
@@ -474,15 +502,12 @@ const tencentLangConditional = bench?.sample_responses?.find(
                             : '—'}
                         </span>
                         <span class="ml-2 text-xs text-[#f4f0ea]/45">
-                          ({cell.axis_D.scored_count}/{cell.axis_D.total})
+                          ({cell.axis_D.tier_counts['0']}/
+                          {cell.axis_D.tier_counts['1']}/
+                          {cell.axis_D.tier_counts['2']}/
+                          {cell.axis_D.tier_counts['3']}/
+                          {cell.axis_D.tier_counts['4']})
                         </span>
-                      </td>
-                      <td class="px-4 py-3 font-mono text-xs text-[#f4f0ea]/55">
-                        {cell.axis_D.tier_counts['0']}/
-                        {cell.axis_D.tier_counts['1']}/
-                        {cell.axis_D.tier_counts['2']}/
-                        {cell.axis_D.tier_counts['3']}/
-                        {cell.axis_D.tier_counts['4']}
                       </td>
                     </tr>
                   );
